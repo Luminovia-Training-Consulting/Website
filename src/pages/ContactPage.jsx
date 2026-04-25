@@ -45,7 +45,14 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      const payload = await response.json().catch(() => ({}));
+      const contentType = response.headers.get("content-type") || "";
+      const payload = contentType.includes("application/json")
+        ? await response.json().catch(() => ({}))
+        : {};
+
+      if (!contentType.includes("application/json")) {
+        throw new Error("The local Vite preview cannot send this PHP form. Please test it on Hostinger or through a local PHP server.");
+      }
 
       if (!response.ok || !payload.ok) {
         throw new Error(payload.message || "The message could not be sent.");

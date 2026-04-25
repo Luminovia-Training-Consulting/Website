@@ -25,6 +25,7 @@ describe("App routing and language", () => {
     const user = userEvent.setup();
     vi.stubGlobal("fetch", vi.fn(async () => ({
       ok: true,
+      headers: { get: () => "application/json" },
       json: async () => ({ ok: true }),
     })));
     window.history.pushState({}, "Contact", "/contact");

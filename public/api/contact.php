@@ -57,16 +57,24 @@ $body = implode("\n", [
     'IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown'),
 ]);
 
+$config = [];
+
 try {
     $config = load_contact_config();
     send_contact_mail($config, $subject, $body, $email, $name);
     respond(200, ['ok' => true, 'message' => 'Message sent.']);
 } catch (Throwable $error) {
     contact_log($requestId . ' failed: ' . $error->getMessage());
-    respond(500, [
+    $payload = [
         'ok' => false,
         'message' => 'The message could not be sent right now. Please email info@carinaschoppe.com directly. Error ID: ' . $requestId,
-    ]);
+    ];
+
+    if (($config['contact_debug'] ?? false) === true) {
+        $payload['debug'] = redact_error($error->getMessage());
+    }
+
+    respond(500, $payload);
 }
 
 function clean_text(string $value): string
@@ -112,18 +120,44 @@ function load_contact_config(): array
     $config = [
         'smtp_host' => env_value('SMTP_HOST', $fallback['smtp_host'] ?? 'smtp.hostinger.com'),
         'smtp_port' => (int) env_value('SMTP_PORT', $fallback['smtp_port'] ?? 465),
-        'smtp_secure' => env_value('SMTP_SECURE', $fallback['smtp_secure'] ?? 'ssl'),
+        'smtp_secure' => strtolower((string) env_value('SMTP_SECURE', $fallback['smtp_secure'] ?? 'ssl')),
         'smtp_user' => env_value('SMTP_USERNAME', $fallback['smtp_user'] ?? ''),
         'smtp_pass' => env_value('SMTP_PASSWORD', $fallback['smtp_pass'] ?? ''),
         'mail_from' => env_value('MAIL_FROM', $fallback['mail_from'] ?? ''),
         'mail_from_name' => env_value('MAIL_FROM_NAME', $fallback['mail_from_name'] ?? 'Website Contact Form'),
         'mail_to' => env_value('MAIL_TO', $fallback['mail_to'] ?? ''),
-        'smtp_debug' => filter_var(env_value('CONTACT_DEBUG', 'false'), FILTER_VALIDATE_BOOLEAN),
+        'smtp_verify_peer' => filter_var(env_value('SMTP_VERIFY_PEER', $fallback['smtp_verify_peer'] ?? 'true'), FILTER_VALIDATE_BOOLEAN),
+        'contact_transport' => strtolower((string) env_value('CONTACT_TRANSPORT', $fallback['contact_transport'] ?? 'auto')),
+        'contact_debug' => filter_var(env_value('CONTACT_DEBUG', 'false'), FILTER_VALIDATE_BOOLEAN),
     ];
 
-    foreach (['smtp_host', 'smtp_user', 'smtp_pass', 'mail_from', 'mail_to'] as $key) {
+    if (!in_array($config['contact_transport'], ['auto', 'smtp', 'mail'], true)) {
+        throw new RuntimeException('Invalid CONTACT_TRANSPORT setting. Use auto, smtp or mail.');
+    }
+
+    $requiredKeys = ['mail_from', 'mail_to'];
+    if ($config['contact_transport'] !== 'mail') {
+        $requiredKeys = array_merge($requiredKeys, ['smtp_host', 'smtp_user', 'smtp_pass']);
+    }
+
+    foreach ($requiredKeys as $key) {
         if (trim((string) $config[$key]) === '') {
             throw new RuntimeException('Missing contact form setting: ' . $key);
+        }
+    }
+
+    if ($config['contact_transport'] !== 'mail' && !in_array($config['smtp_secure'], ['ssl', 'starttls', 'none'], true)) {
+        throw new RuntimeException('Invalid SMTP_SECURE setting. Use ssl, starttls or none.');
+    }
+
+    $emailKeys = ['mail_from', 'mail_to'];
+    if ($config['contact_transport'] !== 'mail') {
+        $emailKeys[] = 'smtp_user';
+    }
+
+    foreach ($emailKeys as $emailKey) {
+        if (!filter_var((string) $config[$emailKey], FILTER_VALIDATE_EMAIL)) {
+            throw new RuntimeException('Invalid email setting: ' . $emailKey);
         }
     }
 
@@ -177,6 +211,15 @@ function env_value(string $key, mixed $default = ''): mixed
 function send_contact_mail(array $config, string $subject, string $body, string $replyToEmail, string $replyToName): void
 {
     $errors = [];
+    $transport = (string) ($config['contact_transport'] ?? 'auto');
+
+    if ($transport === 'mail') {
+        if (php_mail_send($config, $subject, $body, $replyToEmail, $replyToName)) {
+            return;
+        }
+
+        throw new RuntimeException('PHP mail transport returned false.');
+    }
 
     foreach (smtp_attempts($config) as $attempt) {
         try {
@@ -187,7 +230,7 @@ function send_contact_mail(array $config, string $subject, string $body, string 
         }
     }
 
-    if (php_mail_send($config, $subject, $body, $replyToEmail, $replyToName)) {
+    if ($transport === 'auto' && php_mail_send($config, $subject, $body, $replyToEmail, $replyToName)) {
         contact_log('Sent with PHP mail fallback after SMTP failures: ' . implode(' | ', $errors));
         return;
     }
@@ -230,8 +273,17 @@ function smtp_send(array $config, string $subject, string $body, string $replyTo
     $host = (string) $config['smtp_host'];
     $port = (int) $config['smtp_port'];
     $secure = (string) $config['smtp_secure'];
-    $remote = ($secure === 'ssl' ? 'ssl://' : '') . $host . ':' . $port;
-    $socket = stream_socket_client($remote, $errno, $errstr, 20, STREAM_CLIENT_CONNECT);
+    $remote = ($secure === 'ssl' ? 'ssl://' : 'tcp://') . $host . ':' . $port;
+    $context = stream_context_create([
+        'ssl' => [
+            'SNI_enabled' => true,
+            'peer_name' => $host,
+            'verify_peer' => (bool) ($config['smtp_verify_peer'] ?? true),
+            'verify_peer_name' => (bool) ($config['smtp_verify_peer'] ?? true),
+            'allow_self_signed' => false,
+        ],
+    ]);
+    $socket = stream_socket_client($remote, $errno, $errstr, 20, STREAM_CLIENT_CONNECT, $context);
 
     if (!$socket) {
         throw new RuntimeException("SMTP connection failed: $errstr ($errno)");
@@ -311,6 +363,11 @@ function smtp_expect($socket, array $expected): void
         }
     }
 
+    if ($response === '') {
+        $meta = stream_get_meta_data($socket);
+        throw new RuntimeException(($meta['timed_out'] ?? false) ? 'SMTP response timed out.' : 'SMTP connection closed without response.');
+    }
+
     $code = (int) substr($response, 0, 3);
     if (!in_array($code, $expected, true)) {
         throw new RuntimeException('Unexpected SMTP response: ' . trim($response));
@@ -337,4 +394,9 @@ function contact_log(string $message): void
     $line = '[' . gmdate('Y-m-d H:i:s') . ' UTC] ' . $message . "\n";
     error_log('Contact form mail error: ' . $message);
     @file_put_contents(__DIR__ . '/contact-errors.log', $line, FILE_APPEND | LOCK_EX);
+}
+
+function redact_error(string $message): string
+{
+    return preg_replace('/(SMTP_PASSWORD|smtp_pass|password|AUTH LOGIN).*?($|\s\|)/i', '$1 redacted$2', $message) ?? 'Debug details unavailable.';
 }
