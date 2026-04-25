@@ -18,7 +18,7 @@ function HeroVisual() {
       <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
         <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/24 via-transparent to-pink-200/22 opacity-80 blur-xl" />
         <Photo src={IMAGES.hero} alt="Carina Sophie Schoppe portrait" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" />
-        <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-white/10 bg-[#08090B]/72 p-4 shadow-xl backdrop-blur-2xl">
+        <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
@@ -28,9 +28,9 @@ function HeroVisual() {
           </div>
         </div>
       </div>
-      <div className="absolute -right-2 top-8 rounded-[1.35rem] border border-white/10 bg-white/[0.1] p-4 shadow-2xl backdrop-blur-2xl transition duration-700 hover:-translate-y-1 sm:-right-8">
-        <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{t.home.learnerRating}</div>
-        <div className="mt-1 text-sm font-black text-white">4.9 / 5</div>
+      <div className="absolute -right-2 top-8 rounded-[1.35rem] border border-sky-100/25 bg-[#071225]/92 p-4 shadow-[0_20px_80px_rgba(0,0,0,.42),0_0_44px_rgba(56,189,248,.15)] backdrop-blur-xl transition duration-700 hover:-translate-y-1 sm:-right-8">
+        <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100 drop-shadow-[0_1px_10px_rgba(0,0,0,.8)]">{t.home.learnerRating}</div>
+        <div className="mt-1 text-sm font-black text-white drop-shadow-[0_1px_10px_rgba(0,0,0,.85)]">4.9 / 5</div>
       </div>
       <div className="absolute -left-10 top-1/3 grid gap-3">
         <span className="signal-pill">AI teaching</span>
