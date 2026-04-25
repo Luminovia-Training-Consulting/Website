@@ -30,7 +30,7 @@ function HeroVisual() {
       </div>
       <div className="absolute -right-2 top-8 rounded-[1.35rem] border border-sky-100/25 bg-[#071225]/92 p-4 shadow-[0_20px_80px_rgba(0,0,0,.42),0_0_44px_rgba(56,189,248,.15)] backdrop-blur-xl transition duration-700 hover:-translate-y-1 sm:-right-8">
         <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100 drop-shadow-[0_1px_10px_rgba(0,0,0,.8)]">{t.home.learnerRating}</div>
-        <div className="mt-1 text-sm font-black text-white drop-shadow-[0_1px_10px_rgba(0,0,0,.85)]">4.9 / 5</div>
+        <div className="mt-1 text-sm font-black text-white drop-shadow-[0_1px_10px_rgba(0,0,0,.85)]">4.7 / 5</div>
       </div>
       <div className="absolute -left-10 top-1/3 grid gap-3">
         <span className="signal-pill">AI teaching</span>
@@ -57,9 +57,9 @@ function MobileHeroSignal() {
 function AssetButtons({ t }) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-      <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip">{t.assets.lecturerProfile}</Button>
-      <Button href={PROFILE.trainingPortfolio} variant="secondary">{t.assets.trainingPortfolio}</Button>
-      <Button href={PROFILE.trainingCatalogue} variant="secondary">{t.assets.trainingCatalogue}</Button>
+      <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{t.assets.lecturerProfile}</Button>
+      <Button href={PROFILE.trainingPortfolio} variant="secondary" download="carina-sophie-schoppe-training-portfolio.html" showArrow={false}>{t.assets.trainingPortfolio}</Button>
+      <Button href={PROFILE.trainingCatalogue} variant="secondary" download="carina-sophie-schoppe-ai-it-training-catalogue.html" showArrow={false}>{t.assets.trainingCatalogue}</Button>
     </div>
   );
 }
@@ -124,7 +124,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button to="/contact">{t.bookTrainingCall}</Button>
               <Button to="/skills" variant="secondary">{t.home.exploreCapability}</Button>
-              <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip">{t.home.downloadProfile}</Button>
+              <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{t.home.downloadProfile}</Button>
             </div>
             <div className="mt-5">
               <AssetButtons t={t} />

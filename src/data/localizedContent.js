@@ -26,7 +26,7 @@ import {
 const de = {
   trustStats: [
     { value: "150+", label: "dokumentierte Unterrichtsstunden" },
-    { value: "4.9/5", label: "durchschnittliche Teilnehmerbewertung" },
+    { value: "4.7/5", label: "durchschnittliche Teilnehmerbewertung" },
     { value: "DE / EN", label: "Training auf Deutsch und Englisch" },
     { value: "B.Sc. · M.Sc. · MBA", label: "Wirtschaftsinformatik und Management" },
   ],
@@ -88,7 +88,7 @@ const de = {
   featuredTrainingTopics: [],
   trustSignals: [
     { title: "Akademischer Hintergrund", copy: "B.Sc. und M.Sc. in Wirtschaftsinformatik sowie MBA in Digital Business." },
-    { title: "Lehrerfahrung", copy: "150+ dokumentierte Unterrichtsstunden mit durchschnittlicher Teilnehmerbewertung von 4.9/5." },
+    { title: "Lehrerfahrung", copy: "150+ dokumentierte Unterrichtsstunden mit durchschnittlicher Teilnehmerbewertung von 4.7/5." },
     { title: "Expertisebereiche", copy: "AI, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, Daten, agile Arbeit und digitale Bildung." },
     { title: "Sprachen", copy: "Training auf Deutsch und Englisch, ergänzt durch Spanisch-Erfahrung." },
     { title: "Remote Delivery", copy: "Remote-Live-Training aus Brisbane für Europa, Australien und internationale Bildungspartner." },
@@ -97,7 +97,7 @@ const de = {
   capabilities: ["AI Literacy", "Prompt Engineering", "Generative AI Workflows", "Responsible AI", "AI Governance", "Python", "SQL", "Datenbanken", "APIs & Automatisierung", "Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical Hacking", "Cloud-Konzepte", "Wirtschaftsinformatik", "IT Service Management", "Digitale Transformation", "SCRUM", "Blended Learning", "Curriculum Design", "Erwachsenenbildung"],
   teachingProof: [
     { title: "Zertifizierte IT-Dozentin", value: "DiBak Trainer Certification", copy: "Umfasst Didaktik, Pädagogik, Lernplattformen, Materialerstellung, Lernchecks, technisches Troubleshooting und Qualitätssicherung." },
-    { title: "Teilnehmerbewertung", value: "4.9 / 5", copy: "Dokumentierte Durchschnittsbewertung nach 150+ Unterrichtsstunden und starke Rückmeldung zur praktischen Vermittlung." },
+    { title: "Teilnehmerbewertung", value: "4.7 / 5", copy: "Dokumentierte Durchschnittsbewertung nach 150+ Unterrichtsstunden und starke Rückmeldung zur praktischen Vermittlung." },
     { title: "Stärke in Erwachsenenbildung", value: "Theorie + Praxis", copy: "Lernformate mit Beispielen, Übungen, Recaps, Aktivierung, Transferaufgaben und klaren Ergebnissen." },
     { title: "Internationale Durchführung", value: "Remote-first", copy: "Sitz in Brisbane, Online-Trainings für Europa und APAC auf Deutsch oder Englisch." },
   ],

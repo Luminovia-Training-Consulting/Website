@@ -31,7 +31,7 @@ const dictionaries = {
     },
     assets: {
       title: "Business assets",
-      copy: "Quick assets for programme managers, training providers and corporate learning teams. Portfolio and catalogue are placeholders until the designed PDFs are attached.",
+      copy: "Download a complete lecturer profile, a detailed training portfolio and an AI & IT catalogue for programme planning, vendor checks and internal learning proposals.",
       lecturerProfile: "Lecturer Profile",
       trainingPortfolio: "Training Portfolio",
       trainingCatalogue: "AI & IT Training Catalogue",
@@ -191,7 +191,7 @@ const dictionaries = {
     },
     assets: {
       title: "Business-Unterlagen",
-      copy: "Kurze Unterlagen für Programmverantwortliche, Bildungsanbieter und Corporate Learning Teams. Portfolio und Katalog sind Platzhalter, bis die gestalteten PDFs angebunden sind.",
+      copy: "Laden Sie Dozentenprofil, Trainingsportfolio und AI & IT Trainingskatalog fuer Programmplanung, Anbieterpruefung und interne Weiterbildungsvorschlaege herunter.",
       lecturerProfile: "Dozentenprofil",
       trainingPortfolio: "Trainingsportfolio",
       trainingCatalogue: "AI & IT Trainingskatalog",
