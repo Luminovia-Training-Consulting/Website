@@ -59,11 +59,11 @@ Keep `SMTP_VERIFY_PEER=true` by default. Only set it to `false` temporarily if H
 
 Local `npm run dev` and `npm run preview` do not execute PHP. The contact form can only send on a PHP-capable server such as Hostinger, or when tested through a local PHP server.
 
-The older `public/api/contact-config.php` file is still supported as a fallback for local testing, but `.env` is the preferred Hostinger setup.
+The older `public/api/contact-config.php` file is still supported as a fallback for local testing, but Hostinger environment variables or `.env` are the preferred setup.
 
 ## Public website settings
 
-Public website details are read from `VITE_*` variables during the Vite build. Values provided as real build environment variables override `.env` values. Use these in Hostinger's build/environment settings if available:
+Public website details can still be overridden with `VITE_*` variables during the Vite build, but they are separate from the SMTP/contact `.env.example`. Use these only in build environment settings if you need to override public contact details:
 
 ```txt
 VITE_SITE_NAME="Carina Sophie Schoppe"
