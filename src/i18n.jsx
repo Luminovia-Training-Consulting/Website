@@ -79,7 +79,7 @@ const dictionaries = {
       blogPreview: "Knowledge hub",
       blogPreviewTitle: "Ideas on AI, governance, digital education and modern work.",
       myWayPreview: "Professional path",
-      myWayPreviewTitle: "The personal timeline stays available after the offer is clear.",
+      myWayPreviewTitle: "Professional path and teaching experience after the offer is clear.",
       processSteps: [
         ["1", "Short consultation", "We clarify audience, level, goals, timing and constraints."],
         ["2", "Training scope", "The topic, format, exercises and success criteria are shaped into a realistic scope."],
@@ -88,9 +88,9 @@ const dictionaries = {
         ["5", "Follow-up", "Learners receive materials, recap notes or next-step recommendations where useful."],
       ],
       requestAvailability: "Request availability",
-      credible: "Credible and human",
-      credibleTitle: "Personal enough to trust. Professional enough to book.",
-      credibleCopy: "You get a clear view of how I teach, what I can deliver, and why the technical depth behind the training matters. It should feel personal, credible and easy to trust before a first call.",
+      credible: "Trust and delivery fit",
+      credibleTitle: "Clear expertise, structured delivery and practical learning outcomes.",
+      credibleCopy: "Visitors get a fast view of what I teach, how collaboration works and why the technical depth behind the training is relevant for business, education and public-sector audiences.",
     },
     exploreCards: [
       ["Skills & topics", "A clear map of AI, software, cybersecurity, data, business IT, teaching and communication skills.", "/skills"],

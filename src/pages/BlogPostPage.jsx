@@ -84,7 +84,7 @@ export default function BlogPostPage() {
           </aside>
         </div>
 
-        <section className="mt-12 rounded-[2rem] border border-white/10 bg-gradient-to-br from-sky-300/14 via-white/[0.06] to-pink-300/12 p-6 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-8">
+        <section className="mt-12 rounded-[2rem] border border-white/10 bg-gradient-to-br from-sky-300/13 via-white/[0.06] to-blue-300/10 p-6 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-8">
           <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h2 className="text-2xl font-black text-white">{copy.discuss}</h2>

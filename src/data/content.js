@@ -51,7 +51,7 @@ export const coreOffers = [
       "Custom talk design for your audience and industry",
     ],
     bestFor: "Conferences, business events, schools, universities, internal events",
-    gradient: "from-violet-400/20 via-fuchsia-400/10 to-sky-300/20",
+    gradient: "from-violet-400/18 via-blue-400/10 to-sky-300/18",
   },
 ];
 

@@ -43,7 +43,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-[radial-gradient(circle_at_20%_5%,rgba(56,189,248,.22),transparent_36%),radial-gradient(circle_at_72%_18%,rgba(37,99,235,.24),transparent_34%),radial-gradient(circle_at_92%_28%,rgba(216,180,254,.14),transparent_34%),rgba(8,9,11,.95)] p-5 backdrop-blur-2xl lg:hidden">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-[radial-gradient(circle_at_20%_5%,rgba(56,189,248,.20),transparent_36%),radial-gradient(circle_at_72%_18%,rgba(37,99,235,.22),transparent_34%),radial-gradient(circle_at_92%_28%,rgba(99,102,241,.12),transparent_34%),rgba(8,9,11,.95)] p-5 backdrop-blur-2xl lg:hidden">
           <div className="mb-10 flex items-center justify-between">
             <span className="text-lg font-black text-white">Navigation</span>
             <div className="flex gap-2">

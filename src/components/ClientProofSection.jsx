@@ -33,7 +33,7 @@ export default function ClientProofSection({ compact = false }) {
               className="soft-link-card group p-5"
             >
               <div className="mb-5 flex items-start justify-between gap-4">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-pink-50 text-sm font-black text-zinc-950 shadow-lg shadow-sky-500/10">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-blue-100 text-sm font-black text-zinc-950 shadow-lg shadow-sky-500/10">
                   {client.initials}
                 </div>
                 <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-sky-100 transition group-hover:border-sky-100/40">
