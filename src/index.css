@@ -48,6 +48,15 @@
   0%, 100% { transform: translate3d(-2%, -1%, 0) rotate(-1deg); opacity: .22; }
   50% { transform: translate3d(2%, 1.8%, 0) rotate(1deg); opacity: .38; }
 }
+@keyframes gridGlide {
+  0% { background-position: 0 0, 0 0; opacity: .34; }
+  50% { background-position: 34px 22px, -18px 38px; opacity: .52; }
+  100% { background-position: 68px 68px, -44px 44px; opacity: .34; }
+}
+@keyframes polygonSheen {
+  0%, 100% { filter: blur(.12px) saturate(1); }
+  50% { filter: blur(.22px) saturate(1.28); }
+}
 
 .enter-up { animation: enterUp .28s ease-out both; }
 .hero-float { animation: slowFloat 8s ease-in-out infinite; }
@@ -82,10 +91,13 @@
 .polygon-field {
   pointer-events: none;
   overflow: hidden;
+  animation: topologyDrift 44s ease-in-out infinite;
   background:
-    linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.042) 18.2% 18.36%, transparent 18.55% 100%),
-    linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.05) 62.2% 62.36%, transparent 62.55% 100%),
-    linear-gradient(150deg, transparent 0 42%, rgba(147,197,253,.035) 42.2% 42.34%, transparent 42.52% 100%);
+    linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.06) 18.2% 18.36%, transparent 18.55% 100%),
+    linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.065) 62.2% 62.36%, transparent 62.55% 100%),
+    linear-gradient(150deg, transparent 0 42%, rgba(147,197,253,.046) 42.2% 42.34%, transparent 42.52% 100%);
+  background-size: 120% 120%, 130% 130%, 115% 115%;
+  will-change: transform;
 }
 .polygon-field::before,
 .polygon-field::after {
@@ -97,13 +109,14 @@
     linear-gradient(32deg, transparent 0 56%, rgba(37,99,235,.07) 56.1% 56.2%, transparent 56.38% 100%),
     linear-gradient(156deg, transparent 0 72%, rgba(96,165,250,.06) 72.1% 72.2%, transparent 72.42% 100%);
   mask-image: radial-gradient(circle at 50% 38%, black, transparent 70%);
-  animation: topologyDrift 22s ease-in-out infinite;
+  animation: topologyDrift 22s ease-in-out infinite, polygonSheen 10s ease-in-out infinite;
+  will-change: transform, opacity, filter;
 }
 .polygon-field::after {
   transform: rotate(180deg);
   animation-duration: 31s;
   animation-direction: reverse;
-  opacity: .45;
+  opacity: .58;
 }
 .polygon-field span {
   position: absolute;
@@ -120,18 +133,19 @@
     0 22px 82px rgba(37,99,235,.10),
     0 0 44px rgba(56,189,248,.06);
   clip-path: polygon(18% 0, 82% 9%, 100% 57%, 65% 100%, 9% 82%, 0 29%);
-  filter: blur(.15px);
+  filter: blur(.12px);
   opacity: var(--opacity-low);
   mix-blend-mode: screen;
-  animation: polygonDrift var(--duration) cubic-bezier(.36, 0, .2, 1) infinite;
+  animation: polygonDrift var(--duration) cubic-bezier(.36, 0, .2, 1) infinite, polygonSheen calc(var(--duration) * .45) ease-in-out infinite;
   animation-delay: var(--delay);
+  will-change: transform, opacity, filter;
 }
 .polygon-field span:nth-child(1) {
   --size: 19rem;
   --left: -4rem;
   --top: 13vh;
-  --move-x: 5vw;
-  --move-y: 4vh;
+  --move-x: 7vw;
+  --move-y: 6vh;
   --duration: 24s;
   --delay: -5s;
   --rotate-start: -14deg;
@@ -139,14 +153,14 @@
   --rotate-end: 22deg;
   --opacity-low: .055;
   --opacity-mid: .10;
-  --opacity-high: .16;
+  --opacity-high: .19;
 }
 .polygon-field span:nth-child(2) {
   --size: 25rem;
   --left: 58vw;
   --top: 8vh;
-  --move-x: -6vw;
-  --move-y: 7vh;
+  --move-x: -8vw;
+  --move-y: 9vh;
   --duration: 30s;
   --delay: -12s;
   --rotate-start: 18deg;
@@ -154,14 +168,14 @@
   --rotate-end: -20deg;
   --opacity-low: .06;
   --opacity-mid: .11;
-  --opacity-high: .17;
+  --opacity-high: .20;
 }
 .polygon-field span:nth-child(3) {
   --size: 18rem;
   --left: 28vw;
   --top: 38vh;
-  --move-x: 7vw;
-  --move-y: -5vh;
+  --move-x: 9vw;
+  --move-y: -7vh;
   --duration: 28s;
   --delay: -8s;
   --rotate-start: 28deg;
@@ -169,14 +183,14 @@
   --rotate-end: -16deg;
   --opacity-low: .045;
   --opacity-mid: .08;
-  --opacity-high: .14;
+  --opacity-high: .17;
 }
 .polygon-field span:nth-child(4) {
   --size: 21rem;
   --left: 78vw;
   --top: 68vh;
-  --move-x: -7vw;
-  --move-y: -8vh;
+  --move-x: -9vw;
+  --move-y: -10vh;
   --duration: 34s;
   --delay: -16s;
   --rotate-start: -24deg;
@@ -184,14 +198,14 @@
   --rotate-end: 32deg;
   --opacity-low: .05;
   --opacity-mid: .085;
-  --opacity-high: .145;
+  --opacity-high: .175;
 }
 .polygon-field span:nth-child(5) {
   --size: 13rem;
   --left: 7vw;
   --top: 73vh;
-  --move-x: 8vw;
-  --move-y: -4vh;
+  --move-x: 10vw;
+  --move-y: -6vh;
   --duration: 27s;
   --delay: -20s;
   --rotate-start: 8deg;
@@ -199,14 +213,14 @@
   --rotate-end: -6deg;
   --opacity-low: .045;
   --opacity-mid: .08;
-  --opacity-high: .13;
+  --opacity-high: .16;
 }
 .polygon-field span:nth-child(6) {
   --size: 11rem;
   --left: 48vw;
   --top: 5vh;
-  --move-x: -5vw;
-  --move-y: 9vh;
+  --move-x: -7vw;
+  --move-y: 11vh;
   --duration: 26s;
   --delay: -2s;
   --rotate-start: 42deg;
@@ -214,14 +228,14 @@
   --rotate-end: -22deg;
   --opacity-low: .04;
   --opacity-mid: .075;
-  --opacity-high: .12;
+  --opacity-high: .15;
 }
 .polygon-field span:nth-child(7) {
   --size: 18rem;
   --left: 22vw;
   --top: 89vh;
-  --move-x: 6vw;
-  --move-y: -10vh;
+  --move-x: 8vw;
+  --move-y: -12vh;
   --duration: 38s;
   --delay: -24s;
   --rotate-start: -6deg;
@@ -229,7 +243,7 @@
   --rotate-end: 16deg;
   --opacity-low: .04;
   --opacity-mid: .075;
-  --opacity-high: .12;
+  --opacity-high: .15;
 }
 .soft-section {
   position: relative;
@@ -258,10 +272,11 @@
   animation: haloBreath 7s ease-in-out infinite;
 }
 .ambient-grid {
-  animation: softPulse 8s ease-in-out infinite;
+  animation: gridGlide 24s linear infinite;
   background-image: linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px);
   background-size: 68px 68px;
   mask-image: linear-gradient(to bottom, transparent, black 10%, black 72%, transparent);
+  will-change: background-position, opacity;
 }
 .stagger-grid > * {
   animation: floatIn .62s cubic-bezier(.2, .8, .2, 1) both;
@@ -416,5 +431,15 @@ p {
 
   p, li {
     overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
