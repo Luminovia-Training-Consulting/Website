@@ -2,12 +2,14 @@ import { describe, expect, it } from "vitest";
 import { blogPosts } from "./content.js";
 
 describe("blog post data", () => {
-  it("contains the three publish-ready AI, project-management and education articles", () => {
-    expect(blogPosts).toHaveLength(3);
+  it("contains the publish-ready AI, project-management, education and automation-risk articles", () => {
+    expect(blogPosts).toHaveLength(5);
     expect(blogPosts.map((post) => post.slug)).toEqual([
       "agentic-ai-from-demo-to-delegation",
       "project-management-in-the-age-of-ai",
       "teaching-with-ai-without-losing-learning",
+      "from-industry-4-0-to-5-0-human-above-the-loop",
+      "ai-automation-risks-hallucinations-token-burn-rate-limits",
     ]);
   });
 

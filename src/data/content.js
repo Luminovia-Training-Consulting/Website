@@ -452,6 +452,94 @@ export const blogPosts = [
       { label: "UNESCO: Generation AI and education", href: "https://www.unesco.org/en/articles/generation-ai-navigating-opportunities-and-risks-artificial-intelligence-education" },
     ],
   },
+  {
+    slug: "from-industry-4-0-to-5-0-human-above-the-loop",
+    title: "From Industry 4.0 to 5.0: when humans move above the loop",
+    date: "2026-04-26",
+    category: "Industry 5.0",
+    readTime: "8 min read",
+    excerpt: "Industry 4.0 taught organisations to connect machines, data and processes. Industry 5.0 asks a harder question: what should humans supervise, shape and be accountable for when AI starts coordinating work?",
+    body: [
+      {
+        heading: "Industry 4.0 was about connected capability",
+        paragraphs: [
+          "Industry 4.0 gave organisations a powerful operating idea: connect production, data, sensors, platforms and automation so that processes become more transparent and responsive. The human role in that story was often framed as adoption. People had to learn the dashboard, trust the data, use the platform and adjust their work around increasingly digital systems.",
+          "That was necessary, but it was not the end of the story. Once AI enters the process layer, the relationship changes. AI does not only display information; it can prioritise, recommend, draft, trigger, route and sometimes act. The question is no longer only whether humans use technology. The question is where human judgement belongs when technology can coordinate parts of the work itself.",
+        ],
+      },
+      {
+        heading: "Industry 5.0 brings the human back as a design principle",
+        paragraphs: [
+          "The European Industry 5.0 discussion adds three words that matter: human-centricity, resilience and sustainability. That is not soft decoration. It is a correction to a purely efficiency-driven digitalisation narrative. If systems become faster but workers lose agency, if automation becomes optimised but brittle, or if AI decisions become impossible to challenge, the organisation has not become more mature. It has only become more automated.",
+          "A human-centric system does not mean humans do every task manually. It means the system is designed around human capability, wellbeing, accountability and meaningful control. That distinction is crucial for AI adoption. The goal is not to keep humans clicking approval buttons forever. The goal is to decide which decisions require human judgement, which can be delegated, and which should remain visible for review.",
+        ],
+      },
+      {
+        heading: "From human in the loop to human above the loop",
+        paragraphs: [
+          "Many AI governance conversations start with human-in-the-loop. That is useful, especially when decisions are high impact, uncertain or ethically sensitive. But if every AI-supported micro-action waits for a human, the system becomes slow and performative. People rubber-stamp outputs they cannot truly inspect, and the loop turns into theatre.",
+          "The more mature pattern is often human above the loop. Humans set the objectives, boundaries, escalation rules, quality criteria and review rhythm. The AI system can operate inside that frame, but the human supervises the system design and the exception patterns rather than manually touching every step. This is closer to air traffic control than factory-line approval: the human is not absent, but the human role moves upward.",
+        ],
+      },
+      {
+        heading: "The skills shift: operators become supervisors of systems",
+        paragraphs: [
+          "This changes training needs. Teams do not only need tool literacy. They need process literacy, data literacy, risk literacy and delegation literacy. They must understand what good input looks like, what failure modes look like, when automation should stop, and how to audit decisions after the fact.",
+          "For business and education, this is a major shift. The future worker is not simply the person who uses a digital tool well. The future worker is someone who can supervise socio-technical systems: humans, AI, data, policy, workflow and accountability together. That is where Industry 5.0 becomes practically interesting. It does not reject automation. It asks automation to become worthy of human trust.",
+        ],
+      },
+    ],
+    takeaway: "Industry 5.0 is not a rejection of Industry 4.0. It is the next maturity layer: connected systems still matter, but humans must move from passive technology users to supervisors of AI-enabled work systems.",
+    sources: [
+      { label: "European Commission: Industry 5.0", href: "https://research-and-innovation.ec.europa.eu/research-area/industrial-research-and-innovation/industry-50_en" },
+      { label: "European Commission: human-centric, sustainable and resilient industry", href: "https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/industry-50-towards-more-sustainable-resilient-and-human-centric-industry-2021-01-07_et" },
+      { label: "CORDIS: Human-centric manufacturing", href: "https://cordis.europa.eu/article/id/445250-human-centric-manufacturing-how-new-approaches-to-technology-design-can-transform-industry" },
+    ],
+  },
+  {
+    slug: "ai-automation-risks-hallucinations-token-burn-rate-limits",
+    title: "AI in automated processes: hallucinations, token burn and rate limits",
+    date: "2026-04-26",
+    category: "AI risk",
+    readTime: "8 min read",
+    excerpt: "AI automation can fail quietly before it fails loudly. Hallucinations corrupt decisions, token burn turns workflows expensive, and rate limits can break processes at exactly the moment they scale.",
+    body: [
+      {
+        heading: "Automation changes the risk profile of AI output",
+        paragraphs: [
+          "A hallucination in a chat window is annoying. A hallucination inside an automated workflow can become an operational defect. The difference is not only the model. It is the context. When AI output moves directly into tickets, emails, CRM records, research tables, code changes or business decisions, mistakes become harder to notice and easier to multiply.",
+          "This is why AI automation should be treated as process engineering, not just prompting. The system needs input validation, source grounding, confidence thresholds, logging, review paths and stop conditions. Otherwise a fluent answer can travel through the process with more authority than it deserves.",
+        ],
+      },
+      {
+        heading: "Hallucinations become dangerous when they are actionable",
+        paragraphs: [
+          "The practical risk is not that a model sometimes says something false. Humans do that too. The practical risk is that generated content can look structurally correct while being semantically wrong. A fake source, a wrong customer detail, a misread policy clause or a confident but invalid technical recommendation can pass through a workflow because it has the right format.",
+          "The mitigation is not to demand perfect models. The mitigation is to design the process so that claims are grounded, important fields are verified, external actions require evidence, and high-impact outputs are reviewed. Retrieval, citations, deterministic checks and human review all matter, but none of them works alone. The control has to match the risk of the action.",
+        ],
+      },
+      {
+        heading: "Token burn is not only a cost problem",
+        paragraphs: [
+          "Token burn sounds like finance, but it is also architecture. Long prompts, repeated context, inefficient retries, verbose tool traces and poorly scoped agents can make an AI workflow slow, expensive and fragile. At small scale, nobody notices. At larger scale, the same design can turn into a denial-of-wallet problem: the workflow spends money and latency on work that should have been filtered, cached or simplified.",
+          "Good AI systems therefore need budget-aware design. Use smaller models where possible, trim context, cache stable information, summarise long histories, stop failed loops early and measure cost per successful outcome rather than cost per request. A cheap demo can become an expensive production process if nobody watches token economics.",
+        ],
+      },
+      {
+        heading: "Rate limits are process limits",
+        paragraphs: [
+          "Rate limits are often treated as a technical inconvenience: wait, retry, back off. In automated business processes, they are more than that. If a workflow depends on AI for triage, classification, enrichment or response generation, a rate limit can become a queue, a delay, a partial outage or a broken customer experience.",
+          "The solution is operational design: queues, fallbacks, degraded modes, batch windows, priority handling and clear user expectations. A system should know what to do when AI is unavailable, slow or too expensive. Human supervision is part of this. People should see when automation is operating normally, when it is degraded and when work needs manual handling.",
+        ],
+      },
+    ],
+    takeaway: "AI automation becomes reliable only when hallucination control, cost control and availability control are designed into the workflow from the beginning. The model is only one part of the process.",
+    sources: [
+      { label: "NIST: AI RMF Generative AI Profile", href: "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" },
+      { label: "OWASP: Top 10 for Large Language Model Applications", href: "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
+      { label: "NIST AI Resource Center", href: "https://airc.nist.gov/" },
+    ],
+  },
 ];
 
 export const softwareProjects = [
