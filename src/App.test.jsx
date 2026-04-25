@@ -13,11 +13,11 @@ describe("App routing and language", () => {
     const user = userEvent.setup();
     render(<App />);
 
-    expect(screen.getByRole("heading", { name: /Practical AI and IT education/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /AI, IT & Business Lecturer/i })).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /Switch language/i }));
 
-    expect(screen.getByRole("heading", { name: /Praktische AI- und IT-Bildung/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /AI-, IT- und Business-Dozentin/i })).toBeInTheDocument();
     expect(document.documentElement.lang).toBe("de");
   });
 

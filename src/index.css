@@ -6,8 +6,8 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes ambientShift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .58; }
-  50% { transform: translate3d(0, -18px, 0) scale(1.03); opacity: .74; }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .42; }
+  50% { transform: translate3d(0, -14px, 0) scale(1.02); opacity: .58; }
 }
 @keyframes softPulse {
   0%, 100% { opacity: .28; }
@@ -31,8 +31,8 @@
   100% { transform: translateX(120%) skewX(-18deg); opacity: 0; }
 }
 @keyframes haloBreath {
-  0%, 100% { filter: blur(22px); opacity: .52; }
-  50% { filter: blur(30px); opacity: .82; }
+  0%, 100% { filter: blur(24px); opacity: .36; }
+  50% { filter: blur(32px); opacity: .58; }
 }
 @keyframes rainbowFlow {
   0% { background-position: 0% 50%; }
@@ -62,30 +62,30 @@
 }
 .ambient-veil {
   background:
-    radial-gradient(1200px 720px at 10% -8%, rgba(56, 189, 248, .18), transparent 54%),
-    radial-gradient(900px 620px at 78% 6%, rgba(37, 99, 235, .18), transparent 56%),
-    radial-gradient(1100px 720px at 96% 20%, rgba(129, 140, 248, .08), transparent 52%),
+    radial-gradient(1200px 720px at 10% -8%, rgba(56, 189, 248, .14), transparent 56%),
+    radial-gradient(900px 620px at 78% 6%, rgba(37, 99, 235, .15), transparent 58%),
+    radial-gradient(1100px 720px at 96% 20%, rgba(129, 140, 248, .06), transparent 54%),
     linear-gradient(180deg, #060914 0%, #0a1024 42%, #070911 100%);
 }
 .ambient-wash {
   animation: ambientShift 14s ease-in-out infinite;
   background:
-    conic-gradient(from 170deg at 50% 18%, rgba(125, 211, 252, .18), rgba(37, 99, 235, .17), rgba(79, 70, 229, .09), rgba(96, 165, 250, .08), transparent 60%, rgba(96, 165, 250, .12));
-  filter: blur(34px);
+    conic-gradient(from 170deg at 50% 18%, rgba(125, 211, 252, .12), rgba(37, 99, 235, .13), rgba(79, 70, 229, .07), rgba(96, 165, 250, .06), transparent 62%, rgba(96, 165, 250, .08));
+  filter: blur(42px);
 }
 .ambient-ribbon {
   animation: ribbonDrift 18s ease-in-out infinite;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, .15), rgba(37, 99, 235, .16), rgba(129, 140, 248, .08), transparent);
-  filter: blur(22px);
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, .09), rgba(37, 99, 235, .10), rgba(129, 140, 248, .055), transparent);
+  filter: blur(28px);
   mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
 }
 .polygon-field {
   pointer-events: none;
   overflow: hidden;
   background:
-    linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.07) 18.2% 18.45%, transparent 18.7% 100%),
-    linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.08) 62.2% 62.45%, transparent 62.7% 100%),
-    linear-gradient(150deg, transparent 0 42%, rgba(147,197,253,.055) 42.2% 42.4%, transparent 42.65% 100%);
+    linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.042) 18.2% 18.36%, transparent 18.55% 100%),
+    linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.05) 62.2% 62.36%, transparent 62.55% 100%),
+    linear-gradient(150deg, transparent 0 42%, rgba(147,197,253,.035) 42.2% 42.34%, transparent 42.52% 100%);
 }
 .polygon-field::before,
 .polygon-field::after {
@@ -93,9 +93,9 @@
   position: absolute;
   inset: -12%;
   background-image:
-    linear-gradient(118deg, transparent 0 22%, rgba(125,211,252,.13) 22.15% 22.3%, transparent 22.45% 100%),
-    linear-gradient(32deg, transparent 0 56%, rgba(37,99,235,.12) 56.1% 56.24%, transparent 56.4% 100%),
-    linear-gradient(156deg, transparent 0 72%, rgba(96,165,250,.10) 72.1% 72.24%, transparent 72.45% 100%);
+    linear-gradient(118deg, transparent 0 22%, rgba(125,211,252,.075) 22.15% 22.25%, transparent 22.42% 100%),
+    linear-gradient(32deg, transparent 0 56%, rgba(37,99,235,.07) 56.1% 56.2%, transparent 56.38% 100%),
+    linear-gradient(156deg, transparent 0 72%, rgba(96,165,250,.06) 72.1% 72.2%, transparent 72.42% 100%);
   mask-image: radial-gradient(circle at 50% 38%, black, transparent 70%);
   animation: topologyDrift 22s ease-in-out infinite;
 }
@@ -111,14 +111,14 @@
   aspect-ratio: 1;
   left: var(--left);
   top: var(--top);
-  border: 1px solid rgba(191, 219, 254, .15);
+  border: 1px solid rgba(191, 219, 254, .11);
   background:
-    linear-gradient(140deg, rgba(186,230,253,.20), rgba(59,130,246,.11) 42%, rgba(30,64,175,.14)),
-    radial-gradient(circle at 18% 18%, rgba(255,255,255,.20), transparent 38%);
+    linear-gradient(140deg, rgba(186,230,253,.12), rgba(59,130,246,.07) 42%, rgba(30,64,175,.09)),
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.12), transparent 38%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.10),
-    0 22px 82px rgba(37,99,235,.16),
-    0 0 44px rgba(56,189,248,.10);
+    0 22px 82px rgba(37,99,235,.10),
+    0 0 44px rgba(56,189,248,.06);
   clip-path: polygon(18% 0, 82% 9%, 100% 57%, 65% 100%, 9% 82%, 0 29%);
   filter: blur(.15px);
   opacity: var(--opacity-low);
@@ -137,9 +137,9 @@
   --rotate-start: -14deg;
   --rotate-mid: 10deg;
   --rotate-end: 22deg;
-  --opacity-low: .10;
-  --opacity-mid: .16;
-  --opacity-high: .25;
+  --opacity-low: .055;
+  --opacity-mid: .10;
+  --opacity-high: .16;
 }
 .polygon-field span:nth-child(2) {
   --size: 25rem;
@@ -152,9 +152,9 @@
   --rotate-start: 18deg;
   --rotate-mid: -8deg;
   --rotate-end: -20deg;
-  --opacity-low: .12;
-  --opacity-mid: .19;
-  --opacity-high: .28;
+  --opacity-low: .06;
+  --opacity-mid: .11;
+  --opacity-high: .17;
 }
 .polygon-field span:nth-child(3) {
   --size: 18rem;
@@ -167,9 +167,9 @@
   --rotate-start: 28deg;
   --rotate-mid: 4deg;
   --rotate-end: -16deg;
-  --opacity-low: .08;
-  --opacity-mid: .14;
-  --opacity-high: .22;
+  --opacity-low: .045;
+  --opacity-mid: .08;
+  --opacity-high: .14;
 }
 .polygon-field span:nth-child(4) {
   --size: 21rem;
@@ -182,9 +182,9 @@
   --rotate-start: -24deg;
   --rotate-mid: 12deg;
   --rotate-end: 32deg;
-  --opacity-low: .09;
-  --opacity-mid: .15;
-  --opacity-high: .23;
+  --opacity-low: .05;
+  --opacity-mid: .085;
+  --opacity-high: .145;
 }
 .polygon-field span:nth-child(5) {
   --size: 13rem;
@@ -197,9 +197,9 @@
   --rotate-start: 8deg;
   --rotate-mid: 28deg;
   --rotate-end: -6deg;
-  --opacity-low: .08;
-  --opacity-mid: .14;
-  --opacity-high: .21;
+  --opacity-low: .045;
+  --opacity-mid: .08;
+  --opacity-high: .13;
 }
 .polygon-field span:nth-child(6) {
   --size: 11rem;
@@ -212,9 +212,9 @@
   --rotate-start: 42deg;
   --rotate-mid: 8deg;
   --rotate-end: -22deg;
-  --opacity-low: .07;
-  --opacity-mid: .12;
-  --opacity-high: .19;
+  --opacity-low: .04;
+  --opacity-mid: .075;
+  --opacity-high: .12;
 }
 .polygon-field span:nth-child(7) {
   --size: 18rem;
@@ -227,9 +227,9 @@
   --rotate-start: -6deg;
   --rotate-mid: -28deg;
   --rotate-end: 16deg;
-  --opacity-low: .07;
-  --opacity-mid: .12;
-  --opacity-high: .19;
+  --opacity-low: .04;
+  --opacity-mid: .075;
+  --opacity-high: .12;
 }
 .soft-section {
   position: relative;
@@ -332,10 +332,10 @@
   inset: -1px;
   z-index: 0;
   border-radius: inherit;
-  background: linear-gradient(120deg, rgba(56,189,248,.72), rgba(37,99,235,.62), rgba(99,102,241,.30), rgba(147,197,253,.38), rgba(56,189,248,.72));
+  background: linear-gradient(120deg, rgba(56,189,248,.44), rgba(37,99,235,.38), rgba(99,102,241,.22), rgba(147,197,253,.24), rgba(56,189,248,.44));
   background-size: 240% 240%;
   animation: rainbowFlow 11s ease-in-out infinite;
-  opacity: .13;
+  opacity: .08;
   pointer-events: none;
 }
 .rainbow-edge > * {
@@ -365,6 +365,21 @@ body {
   color: #fff;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+.blog-carousel {
+  scroll-padding-inline: 1rem;
+  overscroll-behavior-inline: contain;
+  touch-action: pan-x;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid rgba(125, 211, 252, .9);
+  outline-offset: 3px;
 }
 
 ::selection {

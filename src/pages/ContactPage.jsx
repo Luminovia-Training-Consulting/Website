@@ -51,7 +51,7 @@ export default function ContactPage() {
         : {};
 
       if (!contentType.includes("application/json")) {
-        throw new Error("The local Vite preview cannot send this PHP form. Please test it on Hostinger or through a local PHP server.");
+        throw new Error(t.contact.localUnavailable);
       }
 
       if (!response.ok || !payload.ok) {
@@ -128,10 +128,26 @@ export default function ContactPage() {
                 </button>
                 {status.message && (
                   <div className={status.type === "success" ? "rounded-2xl border border-blue-300/30 bg-blue-300/10 p-4 text-sm font-bold text-blue-50" : "rounded-2xl border border-rose-300/30 bg-rose-300/10 p-4 text-sm font-bold text-rose-50"}>
-                    {status.message}
+                    {status.type === "error" && <div className="mb-2 text-base font-black">{t.contact.errorTitle}</div>}
+                    <p>{status.message}</p>
+                    {status.type === "error" && (
+                      <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                        <a href={`mailto:${PROFILE.email}?subject=Training%20or%20lecture%20request%20for%20Carina%20Sophie%20Schoppe`} className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-black text-slate-950 transition hover:bg-sky-100 focus:outline-none focus:ring-2 focus:ring-sky-200/80">{t.contact.emailButton}</a>
+                        <a href={PROFILE.appointmentSchedule} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 px-4 py-2 text-sm font-black text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-200/80">{t.contact.calendarFallback}</a>
+                      </div>
+                    )}
                   </div>
                 )}
               </form>
+            </Card>
+
+            <Card>
+              <h2 className="text-2xl font-black text-white">{t.contact.fallbackTitle}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{t.contact.fallbackCopy}</p>
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <Button href={`mailto:${PROFILE.email}?subject=Training%20or%20lecture%20request%20for%20Carina%20Sophie%20Schoppe`} variant="secondary">{t.contact.emailButton}</Button>
+                <Button href={PROFILE.appointmentSchedule} variant="secondary">{t.contact.calendarFallback}</Button>
+              </div>
             </Card>
 
             <section id="appointment" className="glass-sheen rounded-[2.15rem] border border-sky-200/16 bg-[linear-gradient(145deg,rgba(56,189,248,.16),rgba(37,99,235,.08)_45%,rgba(255,255,255,.045))] p-5 shadow-[0_26px_96px_rgba(37,99,235,.18)] backdrop-blur-2xl sm:p-6">

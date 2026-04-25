@@ -1,8 +1,98 @@
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSiteContent } from "../data/localizedContent.js";
 import { useLanguage } from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
+
+function BlogCard({ post, readLabel, className = "" }) {
+  return (
+    <Link
+      to={`/blog/${post.slug}`}
+      className={`soft-link-card group flex min-h-[22rem] w-[82vw] shrink-0 snap-start flex-col p-5 focus:outline-none focus:ring-2 focus:ring-sky-200/80 sm:w-[25rem] lg:w-[28rem] ${className}`}
+    >
+      <Badge tone="white">{post.category}</Badge>
+      <div className="mt-5 flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.14em] text-slate-400">
+        <span>{post.date}</span>
+        <span>{post.readTime}</span>
+      </div>
+      <h2 className="mt-5 text-2xl font-black leading-tight text-white">{post.title}</h2>
+      <p className="mt-4 text-sm leading-7 text-slate-300">{post.excerpt}</p>
+      <span className="mt-auto pt-6 text-sm font-black text-sky-100">{readLabel} &gt;</span>
+    </Link>
+  );
+}
+
+function BlogCarousel({ posts, readLabel, label }) {
+  const scrollerRef = useRef(null);
+  const dragState = useRef({ active: false, startX: 0, scrollLeft: 0 });
+  const [dragging, setDragging] = useState(false);
+
+  function scrollByCards(direction) {
+    const node = scrollerRef.current;
+    if (!node) return;
+    node.scrollBy({ left: direction * Math.min(520, node.clientWidth * 0.82), behavior: "smooth" });
+  }
+
+  function startDrag(event) {
+    const node = scrollerRef.current;
+    if (!node) return;
+    dragState.current = { active: true, startX: event.clientX, scrollLeft: node.scrollLeft };
+    setDragging(true);
+    node.setPointerCapture?.(event.pointerId);
+  }
+
+  function moveDrag(event) {
+    const node = scrollerRef.current;
+    if (!node || !dragState.current.active) return;
+    event.preventDefault();
+    node.scrollLeft = dragState.current.scrollLeft - (event.clientX - dragState.current.startX);
+  }
+
+  function endDrag(event) {
+    const node = scrollerRef.current;
+    dragState.current.active = false;
+    setDragging(false);
+    node?.releasePointerCapture?.(event.pointerId);
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      scrollByCards(1);
+    }
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      scrollByCards(-1);
+    }
+  }
+
+  return (
+    <section className="mt-10">
+      <div className="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <h2 id="blog-carousel-title" className="text-2xl font-black text-white">{label}</h2>
+        <div className="flex gap-2">
+          <button type="button" onClick={() => scrollByCards(-1)} className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.07] text-lg font-black text-white transition hover:border-sky-200/45 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-sky-200/80" aria-label="Scroll blog posts left">&lt;</button>
+          <button type="button" onClick={() => scrollByCards(1)} className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.07] text-lg font-black text-white transition hover:border-sky-200/45 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-sky-200/80" aria-label="Scroll blog posts right">&gt;</button>
+        </div>
+      </div>
+      <div
+        ref={scrollerRef}
+        role="region"
+        aria-label={label}
+        tabIndex="0"
+        onKeyDown={handleKeyDown}
+        onPointerDown={startDrag}
+        onPointerMove={moveDrag}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        className={`blog-carousel flex snap-x snap-mandatory gap-5 overflow-x-auto pb-5 pr-4 [scrollbar-color:rgba(125,211,252,.46)_rgba(255,255,255,.06)] [scrollbar-width:thin] focus:outline-none focus:ring-2 focus:ring-sky-200/70 ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+      >
+        {posts.map((post) => <BlogCard key={post.slug} post={post} readLabel={readLabel} />)}
+      </div>
+    </section>
+  );
+}
 
 export default function BlogPage() {
   const { language } = useLanguage();
@@ -17,7 +107,6 @@ export default function BlogPage() {
       featured: "Neuester Beitrag",
       latest: "Alle Blogbeitraege",
       read: "Artikel lesen",
-      all: "Weitere Beitraege untereinander",
       suggest: "Thema vorschlagen",
     }
     : {
@@ -26,7 +115,6 @@ export default function BlogPage() {
       featured: "Featured latest post",
       latest: "All blog posts",
       read: "Read article",
-      all: "More articles listed below",
       suggest: "Suggest a topic",
     };
 
@@ -61,47 +149,7 @@ export default function BlogPage() {
           </Link>
         </section>
 
-        <section className="mt-10">
-          <h2 className="mb-5 text-2xl font-black text-white">{copy.latest}</h2>
-          <div className="flex snap-x gap-5 overflow-x-auto pb-4 [scrollbar-color:rgba(125,211,252,.5)_rgba(255,255,255,.08)] [scrollbar-width:thin]">
-            {sortedPosts.map((post) => (
-              <Link
-                key={post.slug}
-                to={`/blog/${post.slug}`}
-                className="soft-link-card group flex min-h-[280px] w-[84vw] shrink-0 snap-start flex-col p-5 sm:w-[28rem] lg:w-[31rem]"
-              >
-                <Badge tone="white">{post.category}</Badge>
-                <div className="mt-5 flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.14em] text-slate-500">
-                  <span>{post.date}</span>
-                  <span>{post.readTime}</span>
-                </div>
-                <h2 className="mt-5 text-2xl font-black text-white">{post.title}</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{post.excerpt}</p>
-                <span className="mt-auto pt-6 text-sm font-black text-sky-100">{copy.read} &gt;</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-10">
-          <h2 className="text-2xl font-black text-white">{copy.all}</h2>
-          <div className="mt-5 grid gap-3">
-            {remainingPosts.map((post) => (
-              <Link key={post.slug} to={`/blog/${post.slug}`} className="soft-link-card group grid gap-4 p-4 sm:grid-cols-[1fr_auto] sm:items-center">
-                <div>
-                  <Badge tone="white">{post.category}</Badge>
-                  <h2 className="mt-4 text-xl font-black leading-7 text-white">{post.title}</h2>
-                  <div className="mt-3 flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.14em] text-slate-500">
-                    <span>{post.date}</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">{post.excerpt}</p>
-                </div>
-                <span className="text-sm font-black text-sky-100">{copy.read} &gt;</span>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <BlogCarousel posts={remainingPosts} readLabel={copy.read} label={copy.latest} />
       </div>
     </main>
   );

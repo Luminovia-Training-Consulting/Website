@@ -6,13 +6,18 @@ import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import Photo from "../components/Photo.jsx";
 
+function latestYear(value) {
+  const years = String(value).match(/\d{4}/g);
+  return years ? Number.parseInt(years[years.length - 1], 10) : 0;
+}
+
 export default function MyWayPage() {
   const { language } = useLanguage();
   const { lifeMilestones } = useSiteContent();
-  const orderedMilestones = [...lifeMilestones].sort((a, b) => Number.parseInt(b.year, 10) - Number.parseInt(a.year, 10));
+  const orderedMilestones = [...lifeMilestones].sort((a, b) => latestYear(b.year) - latestYear(a.year));
   const copy = language === "de"
-    ? { badge: "Werdegang", title: "Ein Leben zwischen Lernen, Bauen, Business und Lehre.", intro: "Diese Timeline gibt einen kompakten Überblick darüber, woher meine Ausbildung, mein Unternehmertum, mein Softwarehintergrund und mein internationales Trainingsprofil kommen.", skills: "Skills ansehen", request: "Training anfragen", education: "Bildung", educationCopy: "Wirtschaftsinformatik, Digital Business, AI, Forschung und professionelle Lehre.", work: "Arbeit", workCopy: "Software, Training, Consulting, Unternehmertum und Research Assistance.", now: "Jetzt", nowCopy: "Sitz in Brisbane, Remote AI- und IT-Trainings für Europa und APAC.", timeline: "Lebens-Timeline", milestones: "Meilensteine im Überblick." }
-    : { badge: "My way", title: "A life between learning, building, business and teaching.", intro: "This timeline gives a compact overview of where my education, entrepreneurial work, software background and international training profile come from.", skills: "View skills", request: "Request training", education: "Education", educationCopy: "Business informatics, digital business, AI, research and professional teaching.", work: "Work", workCopy: "Software, training, consulting, entrepreneurship and research assistance.", now: "Now", nowCopy: "Based in Brisbane, delivering remote AI and IT training for Europe and APAC.", timeline: "Life timeline", milestones: "Milestones at a glance." };
+    ? { badge: "Werdegang", title: "Ein professioneller Weg durch IT, Business, Forschung und Lehre.", intro: "Die Timeline zeigt kompakt, welche Stationen mein Profil als Dozentin, Trainerin und Consultant für digitale Bildung geprägt haben.", skills: "Skills ansehen", request: "Training anfragen", education: "Bildung", educationCopy: "Wirtschaftsinformatik, Digital Business, AI, Forschung und professionelle Lehre.", work: "Praxis", workCopy: "Softwareentwicklung, Training, Consulting, Unternehmertum und Research Assistance.", now: "Heute", nowCopy: "Sitz in Brisbane, remote AI- und IT-Trainings für Europa und APAC.", timeline: "Timeline", milestones: "Aktuelle Stationen zuerst." }
+    : { badge: "My way", title: "A professional path through IT, business, research and teaching.", intro: "This timeline gives a compact view of the experience behind my profile as a lecturer, trainer and consultant for digital education.", skills: "View skills", request: "Request training", education: "Education", educationCopy: "Business informatics, digital business, AI, research and professional teaching.", work: "Practice", workCopy: "Software development, training, consulting, entrepreneurship and research assistance.", now: "Today", nowCopy: "Based in Brisbane, delivering remote AI and IT training for Europe and APAC.", timeline: "Timeline", milestones: "Current milestones first." };
   return (
     <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -31,7 +36,7 @@ export default function MyWayPage() {
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Photo src={IMAGES.outdoor} alt="Carina outside" className="aspect-[3/4] rounded-3xl" imgClass="object-[50%_20%]" />
+            <Photo src={IMAGES.outdoor} alt="Professional outdoor portrait of Carina Sophie Schoppe" className="aspect-[3/4] rounded-3xl" imgClass="object-[50%_20%]" />
             <div className="grid gap-4">
               <Card>
                 <h2 className="text-2xl font-black text-white">{copy.education}</h2>
@@ -57,11 +62,11 @@ export default function MyWayPage() {
             </div>
           </div>
           <div className="relative">
-            <div className="absolute bottom-0 left-8 top-0 hidden w-px bg-gradient-to-b from-sky-200/60 via-white/15 to-blue-300/35 md:block" />
+            <div className="absolute bottom-0 left-12 top-0 hidden w-px bg-gradient-to-b from-sky-200/60 via-white/15 to-blue-300/35 md:block" />
             <div className="grid gap-5">
               {orderedMilestones.map((item) => (
-                <div key={`${item.year}-${item.title}`} className="relative md:pl-24">
-                  <div className="absolute left-0 top-7 hidden min-h-10 w-16 place-items-center rounded-2xl border border-sky-200/30 bg-[#0B1224]/95 px-2 text-center text-[11px] font-black leading-tight text-sky-100 shadow-[0_12px_40px_rgba(37,99,235,.18)] md:grid">
+                <div key={`${item.year}-${item.title}`} className="relative md:pl-32">
+                  <div className="absolute left-0 top-7 hidden min-h-11 w-24 place-items-center rounded-2xl border border-sky-200/30 bg-[#0B1224]/95 px-3 text-center text-[11px] font-black leading-tight text-sky-100 shadow-[0_12px_40px_rgba(37,99,235,.18)] md:grid">
                     {item.year}
                   </div>
                   <Card className="bg-gradient-to-br from-white/[0.08] via-sky-300/[0.045] to-blue-300/[0.04]">

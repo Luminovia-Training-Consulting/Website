@@ -1,6 +1,6 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { Route, Routes } from "react-router-dom";
 import BlogPage from "./BlogPage.jsx";
 import BlogPostPage from "./BlogPostPage.jsx";
@@ -26,9 +26,38 @@ describe("BlogPage", () => {
     expect(screen.getAllByRole("link", { name: /Teaching with AI/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("link", { name: /Industry 4\.0 to 5\.0/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("link", { name: /hallucinations, token burn and rate limits/i }).length).toBeGreaterThan(0);
-    expect(screen.getAllByRole("heading", { name: /All blog posts/i }).length).toBeGreaterThan(0);
-    expect(screen.getByRole("heading", { name: /More articles listed below/i })).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: /All blog posts/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Scroll blog posts left/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Scroll blog posts right/i })).toBeInTheDocument();
     expect(screen.getAllByText(/Featured latest post/i).length).toBeGreaterThan(0);
+  });
+
+  it("supports carousel buttons, keyboard navigation and drag gestures", async () => {
+    const user = userEvent.setup();
+    renderBlog();
+
+    const carousel = screen.getByRole("region", { name: /All blog posts/i });
+    const scrollBy = vi.fn();
+    carousel.scrollBy = scrollBy;
+    Object.defineProperty(carousel, "clientWidth", { configurable: true, value: 500 });
+    Object.defineProperty(carousel, "scrollLeft", { configurable: true, writable: true, value: 120 });
+    carousel.setPointerCapture = vi.fn();
+    carousel.releasePointerCapture = vi.fn();
+
+    await user.click(screen.getByRole("button", { name: /Scroll blog posts right/i }));
+    await user.click(screen.getByRole("button", { name: /Scroll blog posts left/i }));
+    fireEvent.keyDown(carousel, { key: "ArrowRight" });
+    fireEvent.keyDown(carousel, { key: "ArrowLeft" });
+    fireEvent.pointerDown(carousel, { pointerId: 1, clientX: 200 });
+    fireEvent.pointerMove(carousel, { pointerId: 1, clientX: 150 });
+    fireEvent.pointerUp(carousel, { pointerId: 1 });
+
+    expect(scrollBy).toHaveBeenCalledTimes(4);
+    expect(scrollBy).toHaveBeenCalledWith(expect.objectContaining({ left: 410, behavior: "smooth" }));
+    expect(scrollBy).toHaveBeenCalledWith(expect.objectContaining({ left: -410, behavior: "smooth" }));
+    expect(carousel.scrollLeft).toBe(170);
+    expect(carousel.setPointerCapture).toHaveBeenCalledWith(1);
+    expect(carousel.releasePointerCapture).toHaveBeenCalledWith(1);
   });
 
   it("opens a dedicated article page when a blog card is clicked", async () => {

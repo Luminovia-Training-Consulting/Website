@@ -57,7 +57,7 @@ export default function KeynotesPage() {
               <Button to="/credentials" variant="secondary">{c.proof}</Button>
             </div>
           </div>
-          <Photo src={IMAGES.headshot} alt="Carina Sophie Schoppe headshot" className="aspect-[4/5] rounded-2xl" imgClass="object-[50%_18%]" />
+          <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe for AI and IT keynote talks" className="aspect-[4/5] rounded-2xl" imgClass="object-[50%_18%]" />
         </div>
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

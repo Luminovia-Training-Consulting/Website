@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { cn } from "./utils.js";
 
-export default function Photo({ src, alt, className = "", imgClass = "", fallback = "CS" }) {
+export default function Photo({ src, alt, className = "", imgClass = "", fallback = "CS", loading = "lazy" }) {
   const [failed, setFailed] = useState(false);
   return (
     <div className={cn("relative overflow-hidden bg-gradient-to-br from-sky-200/20 via-slate-900 to-fuchsia-300/16 shadow-[0_24px_90px_rgba(0,0,0,.24)]", className)}>
       {!failed ? (
-        <img src={src} alt={alt} className={cn("h-full w-full object-cover", imgClass)} onError={() => setFailed(true)} />
+        <img src={src} alt={alt} loading={loading} decoding="async" className={cn("h-full w-full object-cover", imgClass)} onError={() => setFailed(true)} />
       ) : (
         <div className="grid h-full min-h-[260px] place-items-center text-center">
           <div>

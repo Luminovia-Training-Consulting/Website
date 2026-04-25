@@ -70,7 +70,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Photo src={IMAGES.headshot} alt="Carina Sophie Schoppe portrait" className="aspect-[3/4] rounded-2xl" imgClass="object-[50%_20%]" />
+            <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe for her lecturer and consultant profile" className="aspect-[3/4] rounded-2xl" imgClass="object-[50%_20%]" />
             <div className="grid gap-4">
               {c.cards.map(([title, text]) => (
                 <Card key={title}>

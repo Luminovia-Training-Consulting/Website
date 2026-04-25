@@ -8,6 +8,8 @@ React/Vite website for Carina Sophie Schoppe's lecturer, AI trainer, speaker and
 - Training, skills, software, client proof, timeline, blog, imprint and privacy pages
 - Google Analytics integration with consent banner
 - Hostinger-ready PHP contact form endpoint
+- Direct email and calendar fallback on the contact page
+- Downloadable/printable lecturer profile at `public/carina-sophie-schoppe-lecturer-profile.html`
 - Static production build generated into `dist/`
 
 ## Local development

@@ -8,7 +8,7 @@ const routes = [
   ["/skills", /Skill map for AI/i],
   ["/software", /Software projects/i],
   ["/portfolio", /Projects that support the teaching profile/i],
-  ["/my-way", /A life between learning/i],
+  ["/my-way", /A professional path through IT/i],
   ["/about", /I make complex digital topics teachable/i],
   ["/corporate", /Training solutions for companies/i],
   ["/keynotes", /Talks that make AI/i],
