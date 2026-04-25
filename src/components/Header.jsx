@@ -10,6 +10,25 @@ function navClass({ isActive }) {
     : "rounded-full px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.08] hover:text-white";
 }
 
+function FlagIcon({ country }) {
+  return <span className={`flag-icon flag-${country}`} aria-hidden="true" />;
+}
+
+function LanguageToggle({ language, toggleLanguage, t, className = "" }) {
+  const targetCountry = language === "en" ? "de" : "us";
+
+  return (
+    <button
+      onClick={toggleLanguage}
+      className={`inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/[0.09] hover:text-white ${className}`}
+      aria-label={`Switch language from ${language}`}
+    >
+      <FlagIcon country={targetCountry} />
+      <span>{t.switchLabel}</span>
+    </button>
+  );
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { t, toggleLanguage, language } = useLanguage();
@@ -32,9 +51,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <button onClick={toggleLanguage} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/[0.09] hover:text-white" aria-label={`Switch language from ${language}`}>
-            {t.switchLabel}
-          </button>
+          <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} />
           <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white">{t.linkedin}</a>
           <Button to="/contact">{t.bookTraining}</Button>
         </div>
@@ -45,9 +62,9 @@ export default function Header() {
       {open && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-[radial-gradient(circle_at_20%_5%,rgba(56,189,248,.20),transparent_36%),radial-gradient(circle_at_72%_18%,rgba(37,99,235,.22),transparent_34%),radial-gradient(circle_at_92%_28%,rgba(99,102,241,.12),transparent_34%),rgba(8,9,11,.95)] p-5 backdrop-blur-2xl lg:hidden">
           <div className="mb-10 flex items-center justify-between">
-            <span className="text-lg font-black text-white">Navigation</span>
+            <span className="text-lg font-black text-white">{t.navigation}</span>
             <div className="flex gap-2">
-              <button onClick={toggleLanguage} className="rounded-full border border-white/10 px-4 py-2 text-sm font-black text-white">{t.switchLabel}</button>
+              <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} className="px-4 text-white" />
               <button onClick={() => setOpen(false)} className="rounded-full border border-white/10 px-4 py-2 text-sm font-black text-white">{t.close}</button>
             </div>
           </div>

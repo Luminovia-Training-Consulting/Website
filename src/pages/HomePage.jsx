@@ -17,7 +17,7 @@ function HeroVisual() {
     <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
       <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
         <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl" />
-        <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe for AI and IT lecturer profile" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" loading="eager" />
+        <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe for AI and IT lecturer profile" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} loading="eager" />
         <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -33,8 +33,8 @@ function HeroVisual() {
         <div className="mt-1 text-sm font-black text-white drop-shadow-[0_1px_10px_rgba(0,0,0,.85)]">4.7 / 5</div>
       </div>
       <div className="absolute -left-10 top-1/3 grid gap-3">
-        <span className="signal-pill">AI teaching</span>
-        <span className="signal-pill translate-x-6">Agentic workflows</span>
+        <span className="signal-pill">{t.home.signalTeaching}</span>
+        <span className="signal-pill translate-x-6">{t.home.signalWorkflows}</span>
       </div>
     </div>
   );
@@ -44,7 +44,7 @@ function MobileHeroSignal() {
   const { t } = useLanguage();
   return (
     <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
-      <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" loading="eager" />
+      <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} loading="eager" />
       <div className="pr-2">
         <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
         <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
@@ -202,7 +202,7 @@ export default function HomePage() {
 
       <section id="remote" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-sky-100/16 bg-[linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.08),rgba(255,255,255,.035))] p-6 shadow-[0_28px_110px_rgba(37,99,235,.16)] backdrop-blur-2xl sm:p-8">
-          <Badge tone="cyan">Remote-first</Badge>
+          <Badge tone="cyan">{t.home.remote}</Badge>
           <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.remoteTitle}</h2>
           <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300">{t.home.remoteCopy}</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -350,8 +350,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Photo src={IMAGES.tablet} alt="Carina Sophie Schoppe reviewing digital learning material on a tablet" className="aspect-[3/4] rounded-[1.8rem]" imgClass="object-[50%_20%]" />
-            <Photo src={IMAGES.outdoor} alt="Carina Sophie Schoppe in a professional outdoor portrait" className="aspect-[3/4] translate-y-8 rounded-[1.8rem]" imgClass="object-[50%_20%]" />
+            <Photo src={IMAGES.tablet} alt="Carina Sophie Schoppe reviewing digital learning material on a tablet" className="aspect-[3/4] rounded-[1.8rem]" imgClass="object-[50%_20%]" fallbackCopy={t.home.photoFallback} />
+            <Photo src={IMAGES.outdoor} alt="Carina Sophie Schoppe in a professional outdoor portrait" className="aspect-[3/4] translate-y-8 rounded-[1.8rem]" imgClass="object-[50%_20%]" fallbackCopy={t.home.photoFallback} />
           </div>
         </div>
       </section>

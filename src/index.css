@@ -373,6 +373,38 @@
   background-image: linear-gradient(to right, rgba(255,255,255,.075) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.075) 1px, transparent 1px);
   background-size: 44px 44px;
 }
+.flag-icon {
+  display: inline-grid;
+  width: 1.28rem;
+  height: 1.28rem;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.42);
+  box-shadow: 0 0 0 1px rgba(15,23,42,.72), 0 8px 22px rgba(0,0,0,.25);
+}
+.flag-de {
+  background: linear-gradient(to bottom, #111827 0 33.333%, #dc2626 33.333% 66.666%, #facc15 66.666% 100%);
+}
+.flag-us {
+  position: relative;
+  background: repeating-linear-gradient(to bottom, #b91c1c 0 7.69%, #fff 7.69% 15.38%);
+}
+.flag-us::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 54%;
+  height: 54%;
+  background:
+    radial-gradient(circle at 22% 22%, #fff 0 7%, transparent 8%),
+    radial-gradient(circle at 50% 22%, #fff 0 7%, transparent 8%),
+    radial-gradient(circle at 78% 22%, #fff 0 7%, transparent 8%),
+    radial-gradient(circle at 34% 50%, #fff 0 7%, transparent 8%),
+    radial-gradient(circle at 64% 50%, #fff 0 7%, transparent 8%),
+    #1d4ed8;
+}
 html { scroll-behavior: smooth; }
 html, body, #root { min-width: 0; overflow-x: hidden; }
 body {
