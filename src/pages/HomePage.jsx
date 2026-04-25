@@ -1,4 +1,4 @@
-import { PROFILE, IMAGES } from "../data/profile.js";
+import { IMAGES } from "../data/profile.js";
 import { useSiteContent } from "../data/localizedContent.js";
 import { useLanguage } from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
@@ -75,7 +75,7 @@ export default function HomePage() {
               <strong className="text-white">{t.home.coreOffer}</strong> {t.home.coreCopy}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={PROFILE.booking}>{t.bookTrainingCall}</Button>
+              <Button to="/contact">{t.bookTrainingCall}</Button>
               <Button to="/skills" variant="secondary">{t.home.exploreCapability}</Button>
             </div>
             <div className="stagger-grid mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

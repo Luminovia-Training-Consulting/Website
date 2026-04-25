@@ -8,7 +8,6 @@ import Card from "../components/Card.jsx";
 
 const contacts = [
   { label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}` },
-  { label: "Booking", value: "Online training consultation", href: PROFILE.booking },
   { label: "LinkedIn", value: "linkedin.com/in/carinaschoppe", href: PROFILE.linkedin },
   { label: "GitHub", value: "github.com/CarinaSchoppe", href: PROFILE.github },
 ];
@@ -68,12 +67,11 @@ export default function ContactPage() {
     <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
+          <div className="order-2 lg:order-1">
             <Badge>{t.contact.badge}</Badge>
             <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{t.contact.title}</h1>
             <p className="mt-6 text-lg leading-8 text-slate-300">{t.contact.copy}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={PROFILE.booking}>{t.contact.appointment}</Button>
               <Button href={`mailto:${PROFILE.email}?subject=Training%20or%20lecture%20request%20for%20Carina%20Sophie%20Schoppe`} variant="secondary">{t.contact.emailButton}</Button>
             </div>
             <div className="mt-8 grid gap-3">
@@ -85,48 +83,69 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-          <Card>
-            <h2 className="text-3xl font-black text-white">{t.contact.formTitle}</h2>
-            <form onSubmit={submitForm} className="mt-6 grid gap-4">
-              <input className="hidden" name="website" value={form.website} onChange={updateField} tabIndex="-1" autoComplete="off" />
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  {t.contact.name} *
-                  <input required name="name" value={form.name} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.namePlaceholder} />
-                </label>
-                <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  {t.contact.email} *
-                  <input required type="email" name="email" value={form.email} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.emailPlaceholder} />
-                </label>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  {t.contact.phone}
-                  <input name="phone" value={form.phone} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.phonePlaceholder} />
-                </label>
-                <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  {t.contact.topic}
-                  <input name="topic" value={form.topic} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.topicPlaceholder} />
-                </label>
-              </div>
-              <label className="grid gap-2 text-sm font-bold text-slate-200">
-                {t.contact.audience}
-                <input name="audience" value={form.audience} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.audiencePlaceholder} />
-              </label>
-              <label className="grid gap-2 text-sm font-bold text-slate-200">
-                {t.contact.message} *
-                <textarea required name="message" value={form.message} onChange={updateField} rows="6" className="resize-y rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.messagePlaceholder} />
-              </label>
-              <button disabled={sending} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 shadow-xl shadow-sky-500/20 transition hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-60">
-                {sending ? t.contact.sending : t.contact.send}
-              </button>
-              {status.message && (
-                <div className={status.type === "success" ? "rounded-2xl border border-blue-300/30 bg-blue-300/10 p-4 text-sm font-bold text-blue-50" : "rounded-2xl border border-rose-300/30 bg-rose-300/10 p-4 text-sm font-bold text-rose-50"}>
-                  {status.message}
+          <div className="order-1 grid gap-5 lg:order-2">
+            <Card>
+              <h2 className="text-3xl font-black text-white">{t.contact.formTitle}</h2>
+              <form onSubmit={submitForm} className="mt-6 grid gap-4">
+                <input className="hidden" name="website" value={form.website} onChange={updateField} tabIndex="-1" autoComplete="off" />
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="grid gap-2 text-sm font-bold text-slate-200">
+                    {t.contact.name} *
+                    <input required name="name" value={form.name} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.namePlaceholder} />
+                  </label>
+                  <label className="grid gap-2 text-sm font-bold text-slate-200">
+                    {t.contact.email} *
+                    <input required type="email" name="email" value={form.email} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.emailPlaceholder} />
+                  </label>
                 </div>
-              )}
-            </form>
-          </Card>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="grid gap-2 text-sm font-bold text-slate-200">
+                    {t.contact.phone}
+                    <input name="phone" value={form.phone} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.phonePlaceholder} />
+                  </label>
+                  <label className="grid gap-2 text-sm font-bold text-slate-200">
+                    {t.contact.topic}
+                    <input name="topic" value={form.topic} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.topicPlaceholder} />
+                  </label>
+                </div>
+                <label className="grid gap-2 text-sm font-bold text-slate-200">
+                  {t.contact.audience}
+                  <input name="audience" value={form.audience} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.audiencePlaceholder} />
+                </label>
+                <label className="grid gap-2 text-sm font-bold text-slate-200">
+                  {t.contact.message} *
+                  <textarea required name="message" value={form.message} onChange={updateField} rows="6" className="resize-y rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.messagePlaceholder} />
+                </label>
+                <button disabled={sending} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 shadow-xl shadow-sky-500/20 transition hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-60">
+                  {sending ? t.contact.sending : t.contact.send}
+                </button>
+                {status.message && (
+                  <div className={status.type === "success" ? "rounded-2xl border border-blue-300/30 bg-blue-300/10 p-4 text-sm font-bold text-blue-50" : "rounded-2xl border border-rose-300/30 bg-rose-300/10 p-4 text-sm font-bold text-rose-50"}>
+                    {status.message}
+                  </div>
+                )}
+              </form>
+            </Card>
+
+            <section id="appointment" className="glass-sheen rounded-[2.15rem] border border-sky-200/16 bg-[linear-gradient(145deg,rgba(56,189,248,.16),rgba(37,99,235,.08)_45%,rgba(255,255,255,.045))] p-5 shadow-[0_26px_96px_rgba(37,99,235,.18)] backdrop-blur-2xl sm:p-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 className="text-2xl font-black text-white">{t.contact.appointmentTitle}</h2>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">{t.contact.appointmentCopy}</p>
+                </div>
+                <Button href={PROFILE.appointmentSchedule}>{t.contact.appointment}</Button>
+              </div>
+              <div className="mt-5 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
+                <iframe
+                  src={PROFILE.appointmentSchedule}
+                  title={t.contact.calendarTitle}
+                  className="h-[600px] w-full"
+                  style={{ border: 0 }}
+                  frameBorder="0"
+                />
+              </div>
+            </section>
+          </div>
         </div>
 
         <div className="mt-16 grid gap-4 lg:grid-cols-4">

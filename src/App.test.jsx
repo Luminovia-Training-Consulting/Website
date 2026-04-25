@@ -38,5 +38,6 @@ describe("App routing and language", () => {
 
     expect(fetch).toHaveBeenCalledWith("/api/contact.php", expect.objectContaining({ method: "POST" }));
     expect(await screen.findByText(/Message sent/i)).toBeInTheDocument();
+    expect(screen.getByTitle(/Google Calendar appointment scheduler/i)).toHaveAttribute("src", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
   });
 });

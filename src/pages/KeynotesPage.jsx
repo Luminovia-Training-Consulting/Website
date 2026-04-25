@@ -1,4 +1,4 @@
-import { PROFILE, IMAGES } from "../data/profile.js";
+import { IMAGES } from "../data/profile.js";
 import { useLanguage } from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -53,7 +53,7 @@ export default function KeynotesPage() {
             <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl">{c.title}</h1>
             <p className="mt-6 text-lg leading-8 text-slate-300">{c.intro}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button href={PROFILE.booking}>{c.request}</Button>
+              <Button to="/contact">{c.request}</Button>
               <Button to="/credentials" variant="secondary">{c.proof}</Button>
             </div>
           </div>
