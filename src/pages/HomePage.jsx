@@ -14,10 +14,11 @@ import { cn } from "../components/utils.js";
 function HeroVisual() {
   const { t } = useLanguage();
   return (
-    <div className="relative mx-auto w-full max-w-[520px]">
-      <div className="relative rounded-[2.2rem] border border-white/10 bg-white/[0.07] p-2 shadow-[0_28px_100px_rgba(0,0,0,.34)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1">
-        <Photo src={IMAGES.hero} alt="Carina Sophie Schoppe portrait" className="aspect-[4/5] rounded-[1.8rem]" imgClass="object-[50%_25%]" />
-        <div className="absolute bottom-4 left-4 right-4 rounded-[1.35rem] border border-white/10 bg-[#08090B]/78 p-4 shadow-xl backdrop-blur-2xl">
+    <div className="relative mx-auto hidden w-full max-w-[520px] lg:block">
+      <div className="relative rounded-[2.6rem] border border-white/10 bg-gradient-to-br from-white/[0.13] via-white/[0.065] to-white/[0.035] p-2 shadow-[0_32px_120px_rgba(0,0,0,.34)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
+        <div className="pointer-events-none absolute -inset-1 rounded-[2.7rem] bg-gradient-to-br from-teal-200/20 via-transparent to-pink-200/18 opacity-80 blur-xl" />
+        <Photo src={IMAGES.hero} alt="Carina Sophie Schoppe portrait" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" />
+        <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-white/10 bg-[#08090B]/72 p-4 shadow-xl backdrop-blur-2xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{t.home.mainFocus}</div>
@@ -27,9 +28,23 @@ function HeroVisual() {
           </div>
         </div>
       </div>
-      <div className="absolute -right-2 top-8 rounded-2xl border border-white/10 bg-white/[0.09] p-4 shadow-2xl backdrop-blur-2xl sm:-right-8">
+      <div className="absolute -right-2 top-8 rounded-[1.35rem] border border-white/10 bg-white/[0.1] p-4 shadow-2xl backdrop-blur-2xl transition duration-700 hover:-translate-y-1 sm:-right-8">
         <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{t.home.learnerRating}</div>
         <div className="mt-1 text-sm font-black text-white">4.9 / 5</div>
+      </div>
+    </div>
+  );
+}
+
+function MobileHeroSignal() {
+  const { t } = useLanguage();
+  return (
+    <div className="mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[1.75rem] border border-white/10 bg-white/[0.075] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
+      <Photo src={IMAGES.headshot} alt="Carina Sophie Schoppe portrait" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" />
+      <div className="pr-2">
+        <div className="text-[11px] font-black uppercase tracking-[0.14em] text-teal-100">{t.home.mainFocus}</div>
+        <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
+        <div className="mt-2 inline-flex rounded-full bg-white px-3 py-1 text-[11px] font-black text-zinc-950">{t.home.remote}</div>
       </div>
     </div>
   );
@@ -45,6 +60,7 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="enter-up">
             <Badge>{t.home.badge}</Badge>
+            <MobileHeroSignal />
             <h1 className="mt-6 max-w-5xl text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
               {t.home.title}
             </h1>
@@ -58,7 +74,7 @@ export default function HomePage() {
               <Button href={PROFILE.booking}>{t.bookTrainingCall}</Button>
               <Button to="/skills" variant="secondary">{t.home.exploreCapability}</Button>
             </div>
-            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="stagger-grid mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {trustStats.map((stat) => <Metric key={stat.label} {...stat} />)}
             </div>
           </div>
@@ -79,7 +95,7 @@ export default function HomePage() {
               {t.home.positioningCopy}
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="stagger-grid grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {teachingProof.map((proof) => (
               <Card key={proof.title}>
                 <div className="mb-5 h-1 w-12 rounded-full bg-teal-200" />
@@ -101,7 +117,7 @@ export default function HomePage() {
             <Badge tone="emerald">{t.home.explore}</Badge>
             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.exploreTitle}</h2>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="stagger-grid grid gap-4 lg:grid-cols-3">
             {t.exploreCards.map(([title, copy, to]) => (
               <Card key={title}>
                 <h3 className="text-xl font-black text-white">{title}</h3>
@@ -124,7 +140,7 @@ export default function HomePage() {
             </div>
             <Button to="/contact" variant="secondary">{t.home.requestAvailability}</Button>
           </div>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="stagger-grid grid gap-5 lg:grid-cols-3">
             {coreOffers.map((offer, index) => (
               <Card key={offer.title} className={cn(index === 1 ? "border-emerald-200/24" : "")}>
                 <Badge tone={index === 0 ? "cyan" : index === 1 ? "emerald" : "violet"}>{offer.kicker}</Badge>

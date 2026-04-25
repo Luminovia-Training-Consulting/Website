@@ -25,6 +25,8 @@ export default function App() {
         <div className="min-h-screen overflow-hidden bg-[#08090b] text-white">
           <div className="ambient-veil fixed inset-0 -z-10" />
           <div className="ambient-wash fixed -inset-x-24 top-0 -z-10 h-[68vh]" />
+          <div className="ambient-ribbon fixed left-[-12vw] top-[14vh] -z-10 h-32 w-[124vw] rotate-[-8deg] opacity-70" />
+          <div className="ambient-ribbon fixed left-[-12vw] top-[72vh] -z-10 h-28 w-[124vw] rotate-[7deg] opacity-45" />
           <div className="ambient-grid fixed inset-0 -z-10 opacity-70" />
           <Header />
           <div className="enter-up">

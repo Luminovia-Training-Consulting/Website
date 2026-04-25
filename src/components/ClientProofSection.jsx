@@ -23,20 +23,20 @@ export default function ClientProofSection({ compact = false }) {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="stagger-grid grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {visibleClients.map((client) => (
             <a
               key={client.name}
               href={client.href}
               target="_blank"
               rel="noreferrer"
-              className="group rounded-xl border border-white/10 bg-[#111418]/88 p-5 shadow-[0_18px_60px_rgba(0,0,0,.2)] transition hover:-translate-y-0.5 hover:border-teal-200/35 hover:bg-[#151A1F]"
+              className="soft-link-card group p-5"
             >
               <div className="mb-5 flex items-start justify-between gap-4">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-white/20 bg-white text-sm font-black text-zinc-950 shadow-lg shadow-teal-500/10">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-teal-50 to-pink-50 text-sm font-black text-zinc-950 shadow-lg shadow-teal-500/10">
                   {client.initials}
                 </div>
-                <span className="rounded-md border border-white/10 px-3 py-1 text-xs font-black text-teal-100 transition group-hover:border-teal-100/40">
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-teal-100 transition group-hover:border-teal-100/40">
                   {t.visit}
                 </span>
               </div>

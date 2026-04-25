@@ -15,7 +15,7 @@ export default function Header() {
   const { t, toggleLanguage, language } = useLanguage();
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#08090B]/72 backdrop-blur-2xl">
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#08090B]/62 shadow-[0_14px_50px_rgba(0,0,0,.18)] backdrop-blur-2xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <NavLink to="/" className="group flex items-center gap-3 text-left">
           <div className="grid h-10 w-10 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-teal-50 to-pink-50 text-sm font-black text-zinc-950 shadow-[0_10px_32px_rgba(45,212,191,.18)] transition duration-500 group-hover:rotate-2">
@@ -43,7 +43,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-[#08090B]/94 p-5 backdrop-blur-2xl lg:hidden">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-[radial-gradient(circle_at_20%_5%,rgba(45,212,191,.18),transparent_36%),radial-gradient(circle_at_90%_20%,rgba(244,114,182,.18),transparent_34%),rgba(8,9,11,.95)] p-5 backdrop-blur-2xl lg:hidden">
           <div className="mb-10 flex items-center justify-between">
             <span className="text-lg font-black text-white">Navigation</span>
             <div className="flex gap-2">
@@ -53,7 +53,7 @@ export default function Header() {
           </div>
           <div className="grid gap-3">
             {navItems.map((item) => (
-              <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-3xl border border-white/10 bg-white/[0.07] px-5 py-4 text-left text-lg font-black text-white transition hover:bg-white/[0.11]">{t.nav[item.key]}</NavLink>
+              <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-[1.7rem] border border-white/10 bg-white/[0.08] px-5 py-4 text-left text-lg font-black text-white shadow-[0_18px_58px_rgba(0,0,0,.18)] transition duration-500 hover:-translate-y-0.5 hover:bg-white/[0.13]">{t.nav[item.key]}</NavLink>
             ))}
           </div>
         </div>

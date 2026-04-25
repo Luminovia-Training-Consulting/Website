@@ -31,21 +31,21 @@ export default function SoftwareProjectsSection({ compact = false }) {
           </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="stagger-grid grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {projects.map((project) => (
             <a
               key={project.name}
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="group flex min-h-[300px] flex-col rounded-xl border border-white/10 bg-[#111418]/88 p-5 shadow-[0_18px_60px_rgba(0,0,0,.2)] transition hover:-translate-y-0.5 hover:border-teal-200/35 hover:bg-[#151A1F]"
+              className="soft-link-card group flex min-h-[300px] flex-col p-5"
             >
               <div className="mb-5 flex items-start justify-between gap-3">
                 <div>
                   <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{project.type}</div>
                   <div className="mt-2 text-xs font-bold text-zinc-500">{project.status}</div>
                 </div>
-                <span className="shrink-0 rounded-md border border-white/10 px-3 py-1 text-xs font-black text-teal-100 transition group-hover:border-teal-100/40">
+                <span className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-black text-teal-100 transition group-hover:border-teal-100/40">
                   {t.github}
                 </span>
               </div>
@@ -53,7 +53,7 @@ export default function SoftwareProjectsSection({ compact = false }) {
               <p className="mt-4 text-sm leading-7 text-zinc-300">{project.description}</p>
               <div className="mt-auto flex flex-wrap gap-2 pt-6">
                 {project.stack.map((item) => (
-                  <span key={item} className="rounded-md border border-white/10 bg-white/[0.045] px-3 py-1.5 text-xs font-bold text-zinc-200">
+                  <span key={item} className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs font-bold text-zinc-200">
                     {item}
                   </span>
                 ))}
