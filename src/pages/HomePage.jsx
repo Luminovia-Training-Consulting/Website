@@ -83,12 +83,12 @@ function MiniServiceCard({ service, t }) {
 
 function JumpNavigation({ items, label }) {
   return (
-    <nav className="sticky top-[4.45rem] z-30 mt-[4.45rem] border-b border-white/10 bg-[#070B16]/78 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 lg:px-8" aria-label={label}>
-      <div className="mx-auto flex max-w-7xl items-center gap-3">
+    <nav className="sticky top-[4.45rem] z-30 mt-[4.45rem] border-b border-white/10 bg-[#070B16]/78 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-5 lg:px-8" aria-label={label}>
+      <div className="mx-auto flex max-w-7xl items-center gap-5">
         <span className="hidden shrink-0 text-xs font-black uppercase tracking-[0.16em] text-sky-100 lg:inline">{label}</span>
-        <div className="flex min-w-0 flex-1 snap-x gap-2 overflow-x-auto pb-1 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
+        <div className="flex min-w-0 flex-1 snap-x gap-3 overflow-x-auto pb-1 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
           {items.map(([href, text]) => (
-            <a key={href} href={href} className="shrink-0 snap-start rounded-full border border-white/10 bg-white/[0.065] px-4 py-2 text-sm font-black text-slate-200 transition hover:-translate-y-0.5 hover:border-sky-200/40 hover:bg-white/[0.12] hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-200/80">
+            <a key={href} href={href} className="shrink-0 snap-start rounded-full border border-white/10 bg-white/[0.065] px-5 py-2.5 text-sm font-black text-slate-200 transition hover:-translate-y-0.5 hover:border-sky-200/40 hover:bg-white/[0.12] hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-200/80">
               {text}
             </a>
           ))}
