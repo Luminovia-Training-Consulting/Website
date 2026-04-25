@@ -26,8 +26,9 @@ describe("BlogPage", () => {
     expect(screen.getAllByRole("link", { name: /Teaching with AI/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("link", { name: /Industry 4\.0 to 5\.0/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("link", { name: /hallucinations, token burn and rate limits/i }).length).toBeGreaterThan(0);
-    expect(screen.getByRole("heading", { name: /Scrollable reading list/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /More articles/i })).toBeInTheDocument();
+    expect(screen.getAllByRole("heading", { name: /All blog posts/i }).length).toBeGreaterThan(0);
+    expect(screen.getByRole("heading", { name: /More articles listed below/i })).toBeInTheDocument();
+    expect(screen.getAllByText(/Featured latest post/i).length).toBeGreaterThan(0);
   });
 
   it("opens a dedicated article page when a blog card is clicked", async () => {
