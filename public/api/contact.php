@@ -193,7 +193,7 @@ function load_env_files(array $paths): void
                 $value = substr($value, 1, -1);
             }
 
-            if ($key !== '' && getenv($key) === false) {
+            if ($key !== '' && raw_env_value($key) === null) {
                 putenv($key . '=' . $value);
                 $_ENV[$key] = $value;
                 $_SERVER[$key] = $value;
@@ -204,8 +204,29 @@ function load_env_files(array $paths): void
 
 function env_value(string $key, mixed $default = ''): mixed
 {
+    $value = raw_env_value($key);
+    return $value === null ? $default : $value;
+}
+
+function raw_env_value(string $key): ?string
+{
     $value = getenv($key);
-    return $value === false ? $default : $value;
+    if ($value !== false && $value !== '') {
+        return $value;
+    }
+
+    foreach ([$_ENV, $_SERVER] as $source) {
+        if (isset($source[$key]) && (string) $source[$key] !== '') {
+            return (string) $source[$key];
+        }
+    }
+
+    $redirectKey = 'REDIRECT_' . $key;
+    if (isset($_SERVER[$redirectKey]) && (string) $_SERVER[$redirectKey] !== '') {
+        return (string) $_SERVER[$redirectKey];
+    }
+
+    return null;
 }
 
 function send_contact_mail(array $config, string $subject, string $body, string $replyToEmail, string $replyToName): void

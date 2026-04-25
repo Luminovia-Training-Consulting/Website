@@ -41,12 +41,12 @@
 }
 @keyframes polygonDrift {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rotate-start)) scale(1); opacity: var(--opacity-low); }
-  45% { transform: translate3d(var(--move-x), var(--move-y), 0) rotate(var(--rotate-mid)) scale(1.08); opacity: var(--opacity-high); }
-  70% { transform: translate3d(calc(var(--move-x) * -.35), calc(var(--move-y) * .55), 0) rotate(var(--rotate-end)) scale(.96); opacity: var(--opacity-mid); }
+  38% { transform: translate3d(var(--move-x), var(--move-y), 0) rotate(var(--rotate-mid)) scale(1.14); opacity: var(--opacity-high); }
+  72% { transform: translate3d(calc(var(--move-x) * -.62), calc(var(--move-y) * .72), 0) rotate(var(--rotate-end)) scale(.92); opacity: var(--opacity-mid); }
 }
 @keyframes topologyDrift {
-  0%, 100% { transform: translate3d(-2%, -1%, 0) rotate(-1deg); opacity: .22; }
-  50% { transform: translate3d(2%, 1.8%, 0) rotate(1deg); opacity: .38; }
+  0%, 100% { transform: translate3d(-3.2%, -1.8%, 0) rotate(-2deg); opacity: .22; }
+  50% { transform: translate3d(3.6%, 2.8%, 0) rotate(2deg); opacity: .42; }
 }
 @keyframes gridGlide {
   0% { background-position: 0 0, 0 0; opacity: .34; }
@@ -91,7 +91,7 @@
 .polygon-field {
   pointer-events: none;
   overflow: hidden;
-  animation: topologyDrift 44s ease-in-out infinite;
+  animation: topologyDrift 30s ease-in-out infinite;
   background:
     linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.06) 18.2% 18.36%, transparent 18.55% 100%),
     linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.065) 62.2% 62.36%, transparent 62.55% 100%),
@@ -109,12 +109,12 @@
     linear-gradient(32deg, transparent 0 56%, rgba(37,99,235,.07) 56.1% 56.2%, transparent 56.38% 100%),
     linear-gradient(156deg, transparent 0 72%, rgba(96,165,250,.06) 72.1% 72.2%, transparent 72.42% 100%);
   mask-image: radial-gradient(circle at 50% 38%, black, transparent 70%);
-  animation: topologyDrift 22s ease-in-out infinite, polygonSheen 10s ease-in-out infinite;
+  animation: topologyDrift 16s ease-in-out infinite, polygonSheen 8s ease-in-out infinite;
   will-change: transform, opacity, filter;
 }
 .polygon-field::after {
   transform: rotate(180deg);
-  animation-duration: 31s;
+  animation-duration: 21s;
   animation-direction: reverse;
   opacity: .58;
 }
@@ -144,9 +144,9 @@
   --size: 19rem;
   --left: -4rem;
   --top: 13vh;
-  --move-x: 7vw;
-  --move-y: 6vh;
-  --duration: 24s;
+  --move-x: 12vw;
+  --move-y: 10vh;
+  --duration: 17s;
   --delay: -5s;
   --rotate-start: -14deg;
   --rotate-mid: 10deg;
@@ -159,9 +159,9 @@
   --size: 25rem;
   --left: 58vw;
   --top: 8vh;
-  --move-x: -8vw;
-  --move-y: 9vh;
-  --duration: 30s;
+  --move-x: -13vw;
+  --move-y: 13vh;
+  --duration: 21s;
   --delay: -12s;
   --rotate-start: 18deg;
   --rotate-mid: -8deg;
@@ -174,9 +174,9 @@
   --size: 18rem;
   --left: 28vw;
   --top: 38vh;
-  --move-x: 9vw;
-  --move-y: -7vh;
-  --duration: 28s;
+  --move-x: 14vw;
+  --move-y: -12vh;
+  --duration: 19s;
   --delay: -8s;
   --rotate-start: 28deg;
   --rotate-mid: 4deg;
@@ -189,9 +189,9 @@
   --size: 21rem;
   --left: 78vw;
   --top: 68vh;
-  --move-x: -9vw;
-  --move-y: -10vh;
-  --duration: 34s;
+  --move-x: -15vw;
+  --move-y: -14vh;
+  --duration: 23s;
   --delay: -16s;
   --rotate-start: -24deg;
   --rotate-mid: 12deg;
@@ -204,9 +204,9 @@
   --size: 13rem;
   --left: 7vw;
   --top: 73vh;
-  --move-x: 10vw;
-  --move-y: -6vh;
-  --duration: 27s;
+  --move-x: 15vw;
+  --move-y: -11vh;
+  --duration: 18s;
   --delay: -20s;
   --rotate-start: 8deg;
   --rotate-mid: 28deg;
@@ -219,9 +219,9 @@
   --size: 11rem;
   --left: 48vw;
   --top: 5vh;
-  --move-x: -7vw;
-  --move-y: 11vh;
-  --duration: 26s;
+  --move-x: -12vw;
+  --move-y: 15vh;
+  --duration: 18s;
   --delay: -2s;
   --rotate-start: 42deg;
   --rotate-mid: 8deg;
@@ -234,9 +234,9 @@
   --size: 18rem;
   --left: 22vw;
   --top: 89vh;
-  --move-x: 8vw;
-  --move-y: -12vh;
-  --duration: 38s;
+  --move-x: 13vw;
+  --move-y: -17vh;
+  --duration: 25s;
   --delay: -24s;
   --rotate-start: -6deg;
   --rotate-mid: -28deg;
