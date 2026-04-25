@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import App from "../App.jsx";
 
 const routes = [
-  ["/training", /IT, AI and business technology training/i],
+  ["/training", /Bookable AI, IT and business technology training/i],
   ["/skills", /Skill map for AI/i],
   ["/software", /Software projects/i],
   ["/portfolio", /Projects that support the teaching profile/i],

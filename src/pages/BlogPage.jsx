@@ -97,7 +97,12 @@ function BlogCarousel({ posts, readLabel, label }) {
 export default function BlogPage() {
   const { language } = useLanguage();
   const { blogPosts } = useSiteContent();
-  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const [activeCategory, setActiveCategory] = useState("All");
+  const hubCategories = ["All", "AI & Governance", "Digital Education", "Cybersecurity", "Software Development", "Business Informatics", "Teaching & Learning", "Career / Thought Leadership"];
+  const visiblePosts = activeCategory === "All"
+    ? blogPosts
+    : blogPosts.filter((post) => (post.hubCategory || post.category) === activeCategory);
+  const sortedPosts = [...visiblePosts].sort((a, b) => new Date(b.date) - new Date(a.date));
   const featuredPost = sortedPosts[0];
   const remainingPosts = sortedPosts.slice(1);
   const copy = language === "de"
@@ -108,6 +113,8 @@ export default function BlogPage() {
       latest: "Alle Blogbeitraege",
       read: "Artikel lesen",
       suggest: "Thema vorschlagen",
+      filters: "Kategorien",
+      empty: "Zu dieser Kategorie gibt es noch keinen Beitrag.",
     }
     : {
       title: "Blog on AI, project work and teaching with AI.",
@@ -116,6 +123,8 @@ export default function BlogPage() {
       latest: "All blog posts",
       read: "Read article",
       suggest: "Suggest a topic",
+      filters: "Categories",
+      empty: "There is no article in this category yet.",
     };
 
   return (
@@ -131,6 +140,30 @@ export default function BlogPage() {
           </p>
         </div>
 
+        <section className="mt-10 max-w-full" aria-label={copy.filters}>
+          <h2 className="mb-4 text-xl font-black text-white">{copy.filters}</h2>
+          <div className="-mx-4 flex max-w-[calc(100%+2rem)] gap-2 overflow-x-auto px-4 pb-3 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin] sm:mx-0 sm:max-w-full sm:flex-wrap sm:overflow-visible sm:px-0">
+            {hubCategories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                className={activeCategory === category
+                  ? "shrink-0 rounded-full bg-sky-100 px-4 py-2 text-sm font-black text-slate-950"
+                  : "shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-black text-slate-200 transition hover:border-sky-100/40 hover:bg-white/[0.1]"}
+                aria-pressed={activeCategory === category}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {!featuredPost && (
+          <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 text-slate-300">{copy.empty}</div>
+        )}
+
+        {featuredPost && (
         <section className="mt-12">
           <div className="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <Badge tone="cyan">{copy.featured}</Badge>
@@ -148,8 +181,9 @@ export default function BlogPage() {
             <span className="mt-auto pt-8 text-sm font-black text-sky-100">{copy.read} &gt;</span>
           </Link>
         </section>
+        )}
 
-        <BlogCarousel posts={remainingPosts} readLabel={copy.read} label={copy.latest} />
+        {remainingPosts.length > 0 && <BlogCarousel posts={remainingPosts} readLabel={copy.read} label={copy.latest} />}
       </div>
     </main>
   );

@@ -54,9 +54,37 @@ function MobileHeroSignal() {
   );
 }
 
+function AssetButtons({ t }) {
+  return (
+    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <Button href={PROFILE.lecturerProfile} variant="secondary">{t.assets.lecturerProfile}</Button>
+      <Button href={PROFILE.trainingPortfolio} variant="secondary">{t.assets.trainingPortfolio}</Button>
+      <Button href={PROFILE.trainingCatalogue} variant="secondary">{t.assets.trainingCatalogue}</Button>
+    </div>
+  );
+}
+
+function MiniServiceCard({ service, t }) {
+  return (
+    <Card>
+      <h3 className="text-xl font-black text-white">{service.title}</h3>
+      <p className="mt-4 text-sm leading-7 text-zinc-300">{service.description}</p>
+      <div className="mt-5 grid gap-2">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><strong className="text-sky-100">{t.serviceLabels.audience}:</strong> {service.audience}</div>
+        <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><strong className="text-sky-100">{t.serviceLabels.format}:</strong> {service.format}</div>
+        <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><strong className="text-sky-100">{t.serviceLabels.duration}:</strong> {service.duration}</div>
+      </div>
+      <div className="mt-5">
+        <Button to="/contact" variant="secondary">{t.requestTraining}</Button>
+      </div>
+    </Card>
+  );
+}
+
 export default function HomePage() {
   const { t } = useLanguage();
-  const { trustStats, teachingProof, coreOffers, capabilities, trainingTopics, audienceCards, formats } = useSiteContent();
+  const { trustStats, teachingProof, coreOffers, capabilities, trainingTopics, audienceCards, formats, serviceOfferings, featuredTrainingTopics, trustSignals, blogPosts } = useSiteContent();
+  const latestPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
   return (
     <main>
       <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
@@ -78,6 +106,9 @@ export default function HomePage() {
               <Button to="/contact">{t.bookTrainingCall}</Button>
               <Button to="/skills" variant="secondary">{t.home.exploreCapability}</Button>
               <Button href={PROFILE.lecturerProfile} variant="secondary">{t.home.downloadProfile}</Button>
+            </div>
+            <div className="mt-5">
+              <AssetButtons t={t} />
             </div>
             <div className="stagger-grid mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {trustStats.map((stat) => <Metric key={stat.label} {...stat} />)}
@@ -113,6 +144,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="soft-section px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+            {trustSignals.map((signal) => (
+              <div key={signal.title} className="rounded-[1.4rem] border border-sky-100/14 bg-[#071225]/74 p-4 shadow-[0_16px_60px_rgba(0,0,0,.22)] backdrop-blur-xl">
+                <div className="text-xs font-black uppercase tracking-[0.13em] text-sky-100">{signal.title}</div>
+                <p className="mt-2 text-sm leading-6 text-zinc-300">{signal.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -133,6 +177,37 @@ export default function HomePage() {
                 </div>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-sky-100/16 bg-[linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.08),rgba(255,255,255,.035))] p-6 shadow-[0_28px_110px_rgba(37,99,235,.16)] backdrop-blur-2xl sm:p-8">
+          <Badge tone="cyan">Remote-first</Badge>
+          <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.remoteTitle}</h2>
+          <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300">{t.home.remoteCopy}</p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Button to="/contact">{t.bookConsultation}</Button>
+            <Button to="/training" variant="secondary">{t.home.exploreCapability}</Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <Badge tone="cyan">{t.home.trainingOffers}</Badge>
+              <h2 className="mt-5 text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.servicesTitle}</h2>
+            </div>
+            <p className="text-base leading-8 text-zinc-300">{t.home.servicesCopy}</p>
+          </div>
+          <div className="stagger-grid grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {serviceOfferings.slice(0, 6).map((service) => <MiniServiceCard key={service.title} service={service} t={t} />)}
+          </div>
+          <div className="mt-7 flex flex-col justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.055] p-5 sm:flex-row sm:items-center">
+            <p className="text-sm leading-7 text-zinc-300">{t.assets.copy}</p>
+            <AssetButtons t={t} />
           </div>
         </div>
       </section>
@@ -181,8 +256,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8">
+            <Badge tone="cyan">{t.home.topics}</Badge>
+            <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.featuredTitle}</h2>
+          </div>
+          <div className="stagger-grid grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {featuredTrainingTopics.map((service) => <MiniServiceCard key={service.title} service={service} t={t} />)}
+          </div>
+        </div>
+      </section>
+
       <ClientProofSection compact />
-      <SoftwareProjectsSection compact />
 
       <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -251,6 +337,31 @@ export default function HomePage() {
 
       <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+            <div>
+              <Badge tone="violet">{t.home.blogPreview}</Badge>
+              <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.blogPreviewTitle}</h2>
+            </div>
+            <Button to="/blog" variant="secondary">{t.nav.blog}</Button>
+          </div>
+          <div className="stagger-grid grid gap-5 lg:grid-cols-3">
+            {latestPosts.map((post) => (
+              <a key={post.slug} href={`/blog/${post.slug}`} className="soft-link-card group flex min-h-[260px] flex-col p-5">
+                <Badge tone="white">{post.hubCategory || post.category}</Badge>
+                <div className="mt-5 text-xs font-black uppercase tracking-[0.14em] text-zinc-400">{post.date} · {post.readTime}</div>
+                <h3 className="mt-4 text-xl font-black text-white">{post.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-300">{post.excerpt}</p>
+                <span className="mt-auto pt-5 text-sm font-black text-sky-100">{t.open} &gt;</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SoftwareProjectsSection compact />
+
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
           <div className="mb-8">
             <Badge tone="emerald">{t.home.process}</Badge>
             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.processTitle}</h2>
@@ -263,6 +374,17 @@ export default function HomePage() {
                 <p className="mt-3 text-sm leading-7 text-zinc-300">{copy}</p>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/10 bg-white/[0.055] p-6 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-8">
+          <Badge tone="white">{t.home.myWayPreview}</Badge>
+          <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.myWayPreviewTitle}</h2>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-300">{t.exploreCards[2][1]}</p>
+          <div className="mt-7">
+            <Button to="/my-way" variant="secondary">{t.nav.myWay}</Button>
           </div>
         </div>
       </section>

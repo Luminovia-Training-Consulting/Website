@@ -71,15 +71,111 @@ export const trainingTopics = [
   { group: "Business IT", items: ["Business informatics", "IT service management", "Cloud concepts", "Digital transformation", "SCRUM and agile work", "Process optimisation"] },
 ];
 
+export const serviceOfferings = [
+  {
+    title: "AI & GenAI Training",
+    description: "Practical training on generative AI concepts, business use cases, limits, risks and responsible day-to-day adoption.",
+    audience: "Corporate teams, education providers, universities and public-sector teams",
+    format: "Remote live workshop, training day or multi-day course",
+    duration: "90 minutes to 3 days",
+    outcomes: ["Understand core GenAI capabilities and limits", "Identify realistic use cases", "Apply quality and risk checks"],
+  },
+  {
+    title: "AI Literacy for Teams",
+    description: "A clear foundation for teams that need shared language, practical confidence and sensible AI usage rules.",
+    audience: "Non-technical teams, L&D departments, managers and mixed learner groups",
+    format: "Interactive workshop or internal enablement programme",
+    duration: "Half day to 2 days",
+    outcomes: ["Use AI tools more confidently", "Recognise weak outputs", "Build team-level usage guidelines"],
+  },
+  {
+    title: "Prompt Engineering & Agentic Workflows",
+    description: "Structured prompting, workflow decomposition and supervised agentic work patterns for real business processes.",
+    audience: "Knowledge workers, project teams, AI champions and digital transformation teams",
+    format: "Hands-on workshop with workflow exercises",
+    duration: "1 to 3 days",
+    outcomes: ["Design repeatable prompts", "Map agent-ready tasks", "Define human review points"],
+  },
+  {
+    title: "AI Governance & Responsible AI",
+    description: "Training on accountability, risk classes, data handling, human oversight and practical governance routines.",
+    audience: "Leadership teams, PMOs, compliance-aware teams and education institutions",
+    format: "Executive briefing, workshop or governance training",
+    duration: "90 minutes to 2 days",
+    outcomes: ["Assess AI risk more clearly", "Define governance responsibilities", "Create practical review routines"],
+  },
+  {
+    title: "Python, SQL & Data Skills",
+    description: "Applied programming and data training for learners who need practical skills for automation, analysis and databases.",
+    audience: "Adult learners, bootcamps, retraining cohorts and internal upskilling groups",
+    format: "Live course, bootcamp, lab series or exam preparation",
+    duration: "2 days to multi-week course",
+    outcomes: ["Write basic scripts", "Query and model data", "Build confidence with practical exercises"],
+  },
+  {
+    title: "Software Development & APIs",
+    description: "Foundations and applied training around programming, API thinking, backend concepts and software project structure.",
+    audience: "Fachinformatiker cohorts, coding schools, junior developers and business IT learners",
+    format: "Course delivery, lab training or project-based workshop",
+    duration: "2 days to multi-week course",
+    outcomes: ["Understand software architecture basics", "Work with APIs", "Connect code to real workflows"],
+  },
+  {
+    title: "Cybersecurity & Pentesting Fundamentals",
+    description: "Security awareness and technical foundations for web security, ethical hacking, SOC basics and defensive thinking.",
+    audience: "IT learners, retraining providers, companies and mixed technical groups",
+    format: "Remote live training, lab course or certification preparation",
+    duration: "1 day to multi-week course",
+    outcomes: ["Recognise common attack paths", "Apply safer work habits", "Understand pentesting and SOC foundations"],
+  },
+  {
+    title: "Scrum, Agile & Digital Project Work",
+    description: "Practical project work training for teams that need clearer collaboration, delivery structure and AI-aware coordination.",
+    audience: "Project teams, apprentices, SMEs, training providers and digital teams",
+    format: "Workshop, training day or applied project lab",
+    duration: "Half day to 2 days",
+    outcomes: ["Use agile terms correctly", "Structure work visibly", "Improve team communication and reviews"],
+  },
+  {
+    title: "Business Informatics & Digital Transformation",
+    description: "Business IT training connecting processes, systems, data, IT management and organisational change.",
+    audience: "Universities, academies, companies and professional education programmes",
+    format: "Lecture series, module delivery or corporate workshop",
+    duration: "1 day to multi-week module",
+    outcomes: ["Connect IT and business decisions", "Analyse digital processes", "Understand transformation trade-offs"],
+  },
+  {
+    title: "Curriculum Design & Blended Learning",
+    description: "Support for building learning paths, exercises, slides, labs, assessment logic and blended delivery formats.",
+    audience: "Training providers, universities, bootcamps and corporate learning teams",
+    format: "Consulting sprint, curriculum workshop or material design support",
+    duration: "1 day to project-based support",
+    outcomes: ["Create structured course plans", "Improve learner activation", "Align materials with outcomes"],
+  },
+];
+
+export const featuredTrainingTopics = serviceOfferings.filter((service) => [
+  "AI Literacy for Teams",
+  "Python, SQL & Data Skills",
+  "Cybersecurity & Pentesting Fundamentals",
+  "Prompt Engineering & Agentic Workflows",
+  "Scrum, Agile & Digital Project Work",
+  "AI Governance & Responsible AI",
+].includes(service.title));
+
 export const capabilities = [
   "AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "Python", "SQL", "Databases", "APIs & automation", "Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ prep", "Ethical hacking foundations", "Cloud concepts", "Business informatics", "IT service management", "Digital transformation", "SCRUM", "Blended learning", "Curriculum design", "Adult education",
 ];
 
 export const audienceCards = [
-  { title: "Education providers", copy: "Reliable remote lecturer for structured IT, AI, cybersecurity and business technology courses with adult learners.", bullets: ["multi-week courses", "clear material structure", "learner activation", "German / English delivery"] },
-  { title: "Companies & SMEs", copy: "Practical upskilling for teams that need to use AI, data, automation or cybersecurity more confidently at work.", bullets: ["team workshops", "hands-on workflows", "risk awareness", "transfer into daily work"] },
-  { title: "Universities & schools", copy: "Guest lectures, digital education formats and future-skills sessions that combine academic credibility with practical examples.", bullets: ["guest lectures", "AI and digitalisation", "student-friendly explanations", "modern learning design"] },
-  { title: "Events & conferences", copy: "Talks that make AI, IT security and digital transformation understandable, relevant and engaging for mixed audiences.", bullets: ["keynotes", "panel inputs", "expert talks", "business relevance"] },
+  { title: "Training providers", copy: "Reliable remote lecturer for structured IT, AI, cybersecurity and business technology courses with adult learners.", bullets: ["multi-week courses", "clear material structure", "learner activation", "German / English delivery"] },
+  { title: "Universities & higher education", copy: "Guest lectures, digital education formats and future-skills sessions that combine academic credibility with practical examples.", bullets: ["guest lectures", "AI and digitalisation", "student-friendly explanations", "modern learning design"] },
+  { title: "Corporate L&D teams", copy: "Practical upskilling for teams that need to use AI, data, automation or cybersecurity more confidently at work.", bullets: ["team workshops", "hands-on workflows", "risk awareness", "transfer into daily work"] },
+  { title: "Public sector organisations", copy: "Clear digital capability training for teams that need responsible AI use, security awareness and process understanding.", bullets: ["responsible AI", "data awareness", "clear governance", "accessible delivery"] },
+  { title: "Startups & SMEs", copy: "Focused training for smaller teams that need practical digital skills without heavy enterprise training overhead.", bullets: ["compact formats", "business relevance", "tool confidence", "direct application"] },
+  { title: "Bootcamps & coding schools", copy: "Course delivery and lab support for Python, SQL, APIs, software development and cybersecurity foundations.", bullets: ["hands-on labs", "learner support", "coding practice", "exam readiness"] },
+  { title: "German-speaking providers", copy: "Remote lecturer support for German, Swiss and Austrian providers needing professional German delivery from abroad.", bullets: ["DE delivery", "remote classroom", "Europe-friendly planning", "education sector"] },
+  { title: "International clients", copy: "English or German delivery for distributed teams and education partners across Europe, Australia and APAC.", bullets: ["EN / DE", "time-zone aware", "remote-first", "international mindset"] },
 ];
 
 export const teachingProof = [
@@ -87,6 +183,15 @@ export const teachingProof = [
   { title: "Learner rating", value: "4.9 / 5", copy: "Documented average rating after 150+ teaching hours, showing strong learner satisfaction and practical delivery quality." },
   { title: "Adult education strength", value: "Theory + practice", copy: "Learning formats are built around examples, exercises, recaps, learner activation, transfer tasks and clear outcomes." },
   { title: "International delivery", value: "Remote-first", copy: "Based in Brisbane while delivering online training for European and APAC clients in German or English." },
+];
+
+export const trustSignals = [
+  { title: "Academic background", copy: "B.Sc. and M.Sc. in Business Information Systems plus MBA in Digital Business." },
+  { title: "Teaching experience", copy: "150+ documented teaching hours with an average learner rating of 4.9/5." },
+  { title: "Expertise areas", copy: "AI, cybersecurity, software development, business informatics, data, agile work and digital education." },
+  { title: "Languages", copy: "Training delivery in German and English, with Spanish language experience." },
+  { title: "Remote delivery", copy: "Remote live training from Brisbane for Europe, Australia and international education partners." },
+  { title: "Sector fit", copy: "Experience with corporate training, higher education, retraining, bootcamps and professional academies." },
 ];
 
 export const credentials = [
@@ -325,6 +430,7 @@ export const blogPosts = [
     title: "Agentic AI: from impressive demos to delegated work",
     date: "2026-04-25",
     category: "Agentic AI",
+    hubCategory: "AI & Governance",
     readTime: "8 min read",
     excerpt: "Agentic AI is not just a smarter chatbot. It is a shift from asking for answers to designing systems that can plan, use tools, ask for approval and move work forward.",
     body: [
@@ -369,6 +475,7 @@ export const blogPosts = [
     title: "Project management in the age of AI: less administration, more judgement",
     date: "2026-04-25",
     category: "Project management",
+    hubCategory: "Business Informatics",
     readTime: "7 min read",
     excerpt: "AI is not removing project management. It is changing the centre of gravity from manual coordination to sensemaking, governance and stakeholder trust.",
     body: [
@@ -413,6 +520,7 @@ export const blogPosts = [
     title: "Teaching with AI without losing the learning",
     date: "2026-04-25",
     category: "AI education",
+    hubCategory: "Digital Education",
     readTime: "8 min read",
     excerpt: "AI can make education more adaptive and practical, but only if teachers design learning around thinking, feedback and transfer rather than shortcuts.",
     body: [
@@ -457,6 +565,7 @@ export const blogPosts = [
     title: "From Industry 4.0 to 5.0: when humans move above the loop",
     date: "2026-04-26",
     category: "Industry 5.0",
+    hubCategory: "Business Informatics",
     readTime: "8 min read",
     excerpt: "Industry 4.0 taught organisations to connect machines, data and processes. Industry 5.0 asks a harder question: what should humans supervise, shape and be accountable for when AI starts coordinating work?",
     body: [
@@ -501,6 +610,7 @@ export const blogPosts = [
     title: "AI in automated processes: hallucinations, token burn and rate limits",
     date: "2026-04-26",
     category: "AI risk",
+    hubCategory: "AI & Governance",
     readTime: "8 min read",
     excerpt: "AI automation can fail quietly before it fails loudly. Hallucinations corrupt decisions, token burn turns workflows expensive, and rate limits can break processes at exactly the moment they scale.",
     body: [

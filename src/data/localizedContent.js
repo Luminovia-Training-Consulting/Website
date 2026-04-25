@@ -4,6 +4,9 @@ import {
   coreOffers as enCoreOffers,
   formats as enFormats,
   trainingTopics as enTrainingTopics,
+  serviceOfferings as enServiceOfferings,
+  featuredTrainingTopics as enFeaturedTrainingTopics,
+  trustSignals as enTrustSignals,
   capabilities as enCapabilities,
   audienceCards as enAudienceCards,
   teachingProof as enTeachingProof,
@@ -70,6 +73,27 @@ const de = {
     { group: "Cybersecurity", items: ["Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical-Hacking-Grundlagen", "Passwort- und Datensicherheit"] },
     { group: "Business IT", items: ["Wirtschaftsinformatik", "IT Service Management", "Cloud-Konzepte", "Digitale Transformation", "SCRUM und agiles Arbeiten", "Prozessoptimierung"] },
   ],
+  serviceOfferings: [
+    { title: "AI & GenAI Training", description: "Praxisnahes Training zu generativer AI, Business Use Cases, Grenzen, Risiken und verantwortungsvoller Nutzung im Arbeitsalltag.", audience: "Unternehmen, Bildungsanbieter, Hochschulen und öffentliche Teams", format: "Remote-Live-Workshop, Trainingstag oder mehrtägiger Kurs", duration: "90 Minuten bis 3 Tage", outcomes: ["GenAI-Fähigkeiten und Grenzen verstehen", "realistische Use Cases erkennen", "Qualitäts- und Risikochecks anwenden"] },
+    { title: "AI Literacy für Teams", description: "Eine klare Grundlage für Teams, die gemeinsame Sprache, praktische Sicherheit und sinnvolle AI-Nutzungsregeln brauchen.", audience: "Nicht-technische Teams, L&D, Führungskräfte und gemischte Lerngruppen", format: "Interaktiver Workshop oder internes Enablement-Programm", duration: "Halbtags bis 2 Tage", outcomes: ["AI-Tools sicherer nutzen", "schwache Outputs erkennen", "teamweite Nutzungsleitlinien entwickeln"] },
+    { title: "Prompt Engineering & Agentic Workflows", description: "Strukturiertes Prompting, Workflow-Zerlegung und betreute agentische Arbeitsmuster für reale Business-Prozesse.", audience: "Knowledge Worker, Projektteams, AI Champions und Transformationsteams", format: "Hands-on-Workshop mit Workflow-Übungen", duration: "1 bis 3 Tage", outcomes: ["wiederholbare Prompts entwerfen", "agentenfähige Aufgaben strukturieren", "menschliche Review-Punkte definieren"] },
+    { title: "AI Governance & Responsible AI", description: "Training zu Verantwortlichkeit, Risikoklassen, Datenhandhabung, menschlicher Aufsicht und praktischen Governance-Routinen.", audience: "Leadership, PMOs, Compliance-nahe Teams und Bildungseinrichtungen", format: "Executive Briefing, Workshop oder Governance-Training", duration: "90 Minuten bis 2 Tage", outcomes: ["AI-Risiken klarer bewerten", "Governance-Verantwortung definieren", "praktische Review-Routinen aufbauen"] },
+    { title: "Python, SQL & Data Skills", description: "Angewandtes Programmier- und Datentraining für Automatisierung, Analyse und Datenbanken.", audience: "Erwachsene Lernende, Bootcamps, Umschulungen und interne Upskilling-Gruppen", format: "Live-Kurs, Bootcamp, Lab-Serie oder Prüfungsvorbereitung", duration: "2 Tage bis mehrwöchiger Kurs", outcomes: ["einfache Skripte schreiben", "Daten abfragen und modellieren", "Praxisvertrauen durch Übungen aufbauen"] },
+    { title: "Software Development & APIs", description: "Grundlagen und angewandte Trainings zu Programmierung, API-Denken, Backend-Konzepten und Softwareprojekt-Struktur.", audience: "Fachinformatiker-Kohorten, Coding Schools, Junior Developer und Business-IT-Lernende", format: "Kursdurchführung, Lab-Training oder Projektworkshop", duration: "2 Tage bis mehrwöchiger Kurs", outcomes: ["Softwarearchitektur-Grundlagen verstehen", "mit APIs arbeiten", "Code mit realen Workflows verbinden"] },
+    { title: "Cybersecurity & Pentesting Fundamentals", description: "Security Awareness und technische Grundlagen für Web Security, Ethical Hacking, SOC Basics und defensive Denkweise.", audience: "IT-Lernende, Umschulungsanbieter, Unternehmen und gemischte technische Gruppen", format: "Remote-Live-Training, Lab-Kurs oder Zertifikatsvorbereitung", duration: "1 Tag bis mehrwöchiger Kurs", outcomes: ["häufige Angriffspfade erkennen", "sichere Arbeitsgewohnheiten anwenden", "Pentesting- und SOC-Grundlagen verstehen"] },
+    { title: "Scrum, Agile & Digital Project Work", description: "Praktisches Projektarbeitstraining für klarere Zusammenarbeit, Delivery-Struktur und AI-bewusste Koordination.", audience: "Projektteams, Auszubildende, KMU, Bildungsanbieter und digitale Teams", format: "Workshop, Trainingstag oder angewandtes Projekt-Lab", duration: "Halbtags bis 2 Tage", outcomes: ["agile Begriffe korrekt nutzen", "Arbeit sichtbar strukturieren", "Kommunikation und Reviews verbessern"] },
+    { title: "Business Informatics & Digital Transformation", description: "Business-IT-Training zu Prozessen, Systemen, Daten, IT-Management und organisatorischem Wandel.", audience: "Hochschulen, Akademien, Unternehmen und berufliche Weiterbildung", format: "Vorlesungsreihe, Moduldurchführung oder Corporate Workshop", duration: "1 Tag bis mehrwöchiges Modul", outcomes: ["IT- und Business-Entscheidungen verbinden", "digitale Prozesse analysieren", "Transformations-Trade-offs verstehen"] },
+    { title: "Curriculum Design & Blended Learning", description: "Unterstützung beim Aufbau von Lernpfaden, Übungen, Slides, Labs, Assessment-Logik und Blended-Learning-Formaten.", audience: "Bildungsanbieter, Hochschulen, Bootcamps und Corporate Learning Teams", format: "Consulting-Sprint, Curriculum-Workshop oder Materialdesign", duration: "1 Tag bis projektbasierte Begleitung", outcomes: ["strukturierte Kurspläne entwickeln", "Lernaktivierung verbessern", "Materialien an Outcomes ausrichten"] },
+  ],
+  featuredTrainingTopics: [],
+  trustSignals: [
+    { title: "Akademischer Hintergrund", copy: "B.Sc. und M.Sc. in Wirtschaftsinformatik sowie MBA in Digital Business." },
+    { title: "Lehrerfahrung", copy: "150+ dokumentierte Unterrichtsstunden mit durchschnittlicher Teilnehmerbewertung von 4.9/5." },
+    { title: "Expertisebereiche", copy: "AI, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, Daten, agile Arbeit und digitale Bildung." },
+    { title: "Sprachen", copy: "Training auf Deutsch und Englisch, ergänzt durch Spanisch-Erfahrung." },
+    { title: "Remote Delivery", copy: "Remote-Live-Training aus Brisbane für Europa, Australien und internationale Bildungspartner." },
+    { title: "Sektor-Fit", copy: "Erfahrung mit Corporate Training, Hochschulen, Umschulung, Bootcamps und professionellen Akademien." },
+  ],
   capabilities: ["AI Literacy", "Prompt Engineering", "Generative AI Workflows", "Responsible AI", "AI Governance", "Python", "SQL", "Datenbanken", "APIs & Automatisierung", "Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical Hacking", "Cloud-Konzepte", "Wirtschaftsinformatik", "IT Service Management", "Digitale Transformation", "SCRUM", "Blended Learning", "Curriculum Design", "Erwachsenenbildung"],
   teachingProof: [
     { title: "Zertifizierte IT-Dozentin", value: "DiBak Trainer Certification", copy: "Umfasst Didaktik, Pädagogik, Lernplattformen, Materialerstellung, Lernchecks, technisches Troubleshooting und Qualitätssicherung." },
@@ -77,12 +101,16 @@ const de = {
     { title: "Stärke in Erwachsenenbildung", value: "Theorie + Praxis", copy: "Lernformate mit Beispielen, Übungen, Recaps, Aktivierung, Transferaufgaben und klaren Ergebnissen." },
     { title: "Internationale Durchführung", value: "Remote-first", copy: "Sitz in Brisbane, Online-Trainings für Europa und APAC auf Deutsch oder Englisch." },
   ],
-  audienceCards: enAudienceCards.map((card, index) => [
+  audienceCards: [
     { title: "Bildungsanbieter", copy: "Zuverlässige Remote-Dozentin für strukturierte IT-, AI-, Cybersecurity- und Business-Technology-Kurse mit Erwachsenen.", bullets: ["mehrwöchige Kurse", "klare Materialstruktur", "Lernaktivierung", "Deutsch / Englisch"] },
-    { title: "Unternehmen & KMU", copy: "Praxisnahes Upskilling für Teams, die AI, Daten, Automatisierung oder Cybersecurity sicherer im Alltag einsetzen wollen.", bullets: ["Team-Workshops", "Hands-on-Workflows", "Risikobewusstsein", "Transfer in den Arbeitsalltag"] },
-    { title: "Hochschulen & Schulen", copy: "Gastvorträge und Future-Skills-Formate mit akademischer Glaubwürdigkeit und praktischen Beispielen.", bullets: ["Gastvorträge", "AI und Digitalisierung", "verständliche Erklärungen", "moderne Lernformate"] },
-    { title: "Events & Konferenzen", copy: "Talks, die AI, IT-Security und digitale Transformation verständlich und relevant für gemischte Zielgruppen machen.", bullets: ["Keynotes", "Panel-Input", "Expert Talks", "Business-Relevanz"] },
-  ][index] || card),
+    { title: "Hochschulen", copy: "Gastvorträge und Future-Skills-Formate mit akademischer Glaubwürdigkeit und praktischen Beispielen.", bullets: ["Gastvorträge", "AI und Digitalisierung", "verständliche Erklärungen", "moderne Lernformate"] },
+    { title: "Corporate L&D Teams", copy: "Praxisnahes Upskilling für Teams, die AI, Daten, Automatisierung oder Cybersecurity sicherer im Alltag einsetzen wollen.", bullets: ["Team-Workshops", "Hands-on-Workflows", "Risikobewusstsein", "Transfer"] },
+    { title: "Öffentliche Organisationen", copy: "Klare digitale Kompetenzentwicklung für Teams mit Bedarf an Responsible AI, Security Awareness und Prozessverständnis.", bullets: ["Responsible AI", "Datenbewusstsein", "Governance", "zugänglich"] },
+    { title: "Startups & KMU", copy: "Fokussierte Trainings für kleinere Teams, die digitale Skills ohne schwerfällige Enterprise-Formate brauchen.", bullets: ["kompakt", "businessnah", "Tool-Sicherheit", "direkt anwendbar"] },
+    { title: "Bootcamps & Coding Schools", copy: "Kursdurchführung und Lab-Support für Python, SQL, APIs, Softwareentwicklung und Cybersecurity-Grundlagen.", bullets: ["Hands-on Labs", "Lernsupport", "Coding Practice", "Prüfungsvorbereitung"] },
+    { title: "DACH-Bildungsanbieter", copy: "Remote-Dozentin für deutsche, schweizerische und österreichische Anbieter, die professionelle deutschsprachige Lehre brauchen.", bullets: ["DE Delivery", "Remote-Klassenzimmer", "Europa-Zeiten", "Bildungssektor"] },
+    { title: "Internationale Kunden", copy: "Englische oder deutsche Durchführung für verteilte Teams und Bildungspartner in Europa, Australien und APAC.", bullets: ["EN / DE", "zeitzonenbewusst", "remote-first", "international"] },
+  ],
   credentials: enCredentials,
   credentialCategories: ["Alle", "Teaching", "Akademisch", "AI", "Cybersecurity", "Entrepreneurship", "Sprache"],
   selectedProjects: enSelectedProjects,
@@ -187,6 +215,15 @@ const de = {
   ],
 };
 
+de.featuredTrainingTopics = de.serviceOfferings.filter((service) => [
+  "AI Literacy für Teams",
+  "Python, SQL & Data Skills",
+  "Cybersecurity & Pentesting Fundamentals",
+  "Prompt Engineering & Agentic Workflows",
+  "Scrum, Agile & Digital Project Work",
+  "AI Governance & Responsible AI",
+].includes(service.title));
+
 export function useSiteContent() {
   const { language } = useLanguage();
   if (language === "de") return de;
@@ -196,6 +233,9 @@ export function useSiteContent() {
     coreOffers: enCoreOffers,
     formats: enFormats,
     trainingTopics: enTrainingTopics,
+    serviceOfferings: enServiceOfferings,
+    featuredTrainingTopics: enFeaturedTrainingTopics,
+    trustSignals: enTrustSignals,
     capabilities: enCapabilities,
     audienceCards: enAudienceCards,
     teachingProof: enTeachingProof,
