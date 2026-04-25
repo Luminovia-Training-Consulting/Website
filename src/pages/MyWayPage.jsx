@@ -9,6 +9,7 @@ import Photo from "../components/Photo.jsx";
 export default function MyWayPage() {
   const { language } = useLanguage();
   const { lifeMilestones } = useSiteContent();
+  const orderedMilestones = [...lifeMilestones].sort((a, b) => Number.parseInt(b.year, 10) - Number.parseInt(a.year, 10));
   const copy = language === "de"
     ? { badge: "Werdegang", title: "Ein Leben zwischen Lernen, Bauen, Business und Lehre.", intro: "Diese Timeline gibt einen kompakten Überblick darüber, woher meine Ausbildung, mein Unternehmertum, mein Softwarehintergrund und mein internationales Trainingsprofil kommen.", skills: "Skills ansehen", request: "Training anfragen", education: "Bildung", educationCopy: "Wirtschaftsinformatik, Digital Business, AI, Forschung und professionelle Lehre.", work: "Arbeit", workCopy: "Software, Training, Consulting, Unternehmertum und Research Assistance.", now: "Jetzt", nowCopy: "Sitz in Brisbane, Remote AI- und IT-Trainings für Europa und APAC.", timeline: "Lebens-Timeline", milestones: "Meilensteine im Überblick." }
     : { badge: "My way", title: "A life between learning, building, business and teaching.", intro: "This timeline gives a compact overview of where my education, entrepreneurial work, software background and international training profile come from.", skills: "View skills", request: "Request training", education: "Education", educationCopy: "Business informatics, digital business, AI, research and professional teaching.", work: "Work", workCopy: "Software, training, consulting, entrepreneurship and research assistance.", now: "Now", nowCopy: "Based in Brisbane, delivering remote AI and IT training for Europe and APAC.", timeline: "Life timeline", milestones: "Milestones at a glance." };
@@ -56,14 +57,14 @@ export default function MyWayPage() {
             </div>
           </div>
           <div className="relative">
-            <div className="absolute bottom-0 left-5 top-0 hidden w-px bg-gradient-to-b from-sky-200/60 via-white/15 to-violet-300/40 md:block" />
+            <div className="absolute bottom-0 left-8 top-0 hidden w-px bg-gradient-to-b from-sky-200/60 via-white/15 to-blue-300/35 md:block" />
             <div className="grid gap-5">
-              {lifeMilestones.map((item) => (
-                <div key={`${item.year}-${item.title}`} className="relative md:pl-16">
-                  <div className="absolute left-0 top-7 hidden h-10 w-10 place-items-center rounded-2xl border border-sky-200/30 bg-[#0B1224] text-xs font-black text-sky-100 md:grid">
-                    {item.year.slice(0, 2)}
+              {orderedMilestones.map((item) => (
+                <div key={`${item.year}-${item.title}`} className="relative md:pl-24">
+                  <div className="absolute left-0 top-7 hidden min-h-10 w-16 place-items-center rounded-2xl border border-sky-200/30 bg-[#0B1224]/95 px-2 text-center text-[11px] font-black leading-tight text-sky-100 shadow-[0_12px_40px_rgba(37,99,235,.18)] md:grid">
+                    {item.year}
                   </div>
-                  <Card className="bg-gradient-to-br from-white/[0.065] via-sky-300/[0.035] to-violet-300/[0.05]">
+                  <Card className="bg-gradient-to-br from-white/[0.08] via-sky-300/[0.045] to-blue-300/[0.04]">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <div className="text-sm font-black uppercase tracking-[0.18em] text-sky-100">{item.category}</div>
