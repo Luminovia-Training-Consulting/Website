@@ -321,36 +321,135 @@ export const skillGroups = [
 
 export const blogPosts = [
   {
-    slug: "why-ai-training-needs-practice",
-    title: "Why AI training needs practice, not just tool demos",
+    slug: "agentic-ai-from-demo-to-delegation",
+    title: "Agentic AI: from impressive demos to delegated work",
     date: "2026-04-25",
-    category: "AI training",
-    excerpt: "A practical note on why AI workshops work best when learners build repeatable workflows instead of only watching tool demonstrations.",
+    category: "Agentic AI",
+    readTime: "8 min read",
+    excerpt: "Agentic AI is not just a smarter chatbot. It is a shift from asking for answers to designing systems that can plan, use tools, ask for approval and move work forward.",
     body: [
-      "AI training becomes useful when people leave with repeatable decisions, not just with a list of tools. A good format combines explanation, guided exercises, reflection and transfer into the learner's own work context.",
-      "For companies, this means working with real examples from everyday tasks: writing, analysis, research, communication, planning and quality control.",
+      {
+        heading: "The useful question is no longer 'can AI answer this?'",
+        paragraphs: [
+          "The first wave of generative AI made knowledge work feel strangely elastic. Drafts became faster, summaries became cheaper and research started with a conversation instead of a blank page. Agentic AI changes the question again. Instead of asking whether a model can produce an answer, organisations now ask whether an AI system can move through a workflow: inspect context, choose tools, coordinate steps, ask for approval and leave behind an auditable result.",
+          "That sounds dramatic, but the practical version is often quite grounded. A useful agent does not need to 'run the company'. It may prepare a renewal-risk briefing, triage incoming support tickets, compare policy documents, draft a project update from live artefacts, or coordinate the boring middle of a research process. The difference is that the system is not only generating text. It is acting inside a bounded process.",
+        ],
+      },
+      {
+        heading: "Agents are workflow design, not magic autonomy",
+        paragraphs: [
+          "The strongest agentic AI projects start with a workflow map, not with a model choice. What information is needed? Which tools may be used? Where is human approval required? What counts as a correct result? What should be logged? These questions sound operational because they are. Agentic AI becomes valuable when it reduces handoffs, clarifies decisions and makes repeatable work more reliable.",
+          "This is also where many projects fail. A chatbot can survive fuzzy context because a human still interprets the output. An agent that triggers actions needs cleaner data, clearer permissions and stronger guardrails. If customer records are duplicated, knowledge bases are stale and process ownership is unclear, the agent will not magically fix the organisation. It will expose the mess faster.",
+        ],
+      },
+      {
+        heading: "The new skill is delegation literacy",
+        paragraphs: [
+          "People often learn prompt engineering as if the main task were wording. In agentic systems, the deeper skill is delegation literacy: knowing what to hand over, how much freedom to grant, which checks to require and how to review the result. A good human-in-the-loop setup is not a sign of weak automation. It is how serious automation earns trust.",
+          "For teams, this means training must move beyond tool tours. Learners need to practise decomposing work into agent-ready tasks, defining acceptance criteria, spotting risky autonomy and designing escalation points. In other words: the future user of AI is less like a passenger and more like a process designer.",
+        ],
+      },
+      {
+        heading: "What I would build first",
+        paragraphs: [
+          "For most organisations, I would not start with a fully autonomous agent. I would start with a narrow assistant that prepares work for a human decision: a meeting-prep agent, a training-material adaptation agent, a weekly project-risk agent or a research-screening agent. The agent should operate inside a small workflow, use approved sources, cite what it used and make it easy to accept, reject or correct its output.",
+          "That kind of project is less flashy than a 'digital employee', but it teaches the right muscles: data quality, governance, review habits and workflow redesign. Once those muscles exist, autonomy can increase carefully. Agentic AI is most powerful when it is treated as organisational design with software inside it.",
+        ],
+      },
+    ],
+    takeaway: "The real promise of agentic AI is not replacing judgement. It is giving skilled people better ways to delegate repeatable work while keeping context, accountability and quality visible.",
+    sources: [
+      { label: "McKinsey: Seizing the agentic AI advantage", href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/seizing-the-agentic-ai-advantage" },
+      { label: "Bain: Building the foundation for agentic AI", href: "https://www.bain.com/insights/building-the-foundation-for-agentic-ai-technology-report-2025/" },
+      { label: "McKinsey: Trust in the age of agents", href: "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/trust-in-the-age-of-agents" },
     ],
   },
   {
-    slug: "from-software-to-teaching",
-    title: "From software development to teaching digital skills",
+    slug: "project-management-in-the-age-of-ai",
+    title: "Project management in the age of AI: less administration, more judgement",
     date: "2026-04-25",
-    category: "Personal",
-    excerpt: "How software development, business informatics and education connect in my work as a lecturer and trainer.",
+    category: "Project management",
+    readTime: "7 min read",
+    excerpt: "AI is not removing project management. It is changing the centre of gravity from manual coordination to sensemaking, governance and stakeholder trust.",
     body: [
-      "Software development gave me the habit of breaking complex systems into understandable parts. Teaching uses the same skill, but with people instead of code.",
-      "The strongest courses are not only technically correct. They are structured, paced and connected to what learners actually need to do after the session.",
+      {
+        heading: "The old project manager was a human integration layer",
+        paragraphs: [
+          "For a long time, project management has carried a quiet contradiction. The work is supposed to be strategic, but the calendar is full of administration: status reports, meeting notes, risk registers, follow-up messages, budget checks, backlog grooming and stakeholder updates. Much of that work matters. Much of it is also repetitive enough that AI can now support it directly.",
+          "The shift is not simply that project managers get a faster writing assistant. The deeper shift is that AI can help maintain the nervous system of a project: what changed, what is blocked, what risk is emerging, who needs a decision and which assumptions no longer hold.",
+        ],
+      },
+      {
+        heading: "From reporting the past to sensing the present",
+        paragraphs: [
+          "Classic project reporting often describes what happened last week. AI-enabled project work can move closer to the present. Meeting transcripts can become decisions and actions. Long email threads can become stakeholder summaries. Jira or GitHub activity can be translated into delivery signals. Risk workshops can be supported by pattern libraries from previous projects.",
+          "That does not make the project manager less important. It makes weak project management more visible. If roles are unclear, success criteria are vague and governance is political theatre, AI will mostly create polished confusion. But if the project has clean artefacts and a culture of decision-making, AI can reduce friction dramatically.",
+        ],
+      },
+      {
+        heading: "The role becomes more human, not less",
+        paragraphs: [
+          "The valuable project manager of the AI era is not the person who manually formats the prettiest status deck. It is the person who can interpret weak signals, challenge unrealistic plans, mediate trade-offs and keep people aligned when the project becomes uncomfortable. AI can draft a stakeholder email. It cannot take responsibility for the trust relationship behind that email.",
+          "This is why AI literacy for project teams should include governance and communication, not only tool use. Teams need to know when AI output is good enough, when it needs evidence, when sensitive data must stay out of a tool and when a human conversation is the actual work.",
+        ],
+      },
+      {
+        heading: "A practical AI project-management stack",
+        paragraphs: [
+          "A useful starting stack is simple: automated meeting summaries, action extraction, risk-log drafting, stakeholder-update drafts, requirements comparison and project retrospectives. These are not glamorous use cases, but they remove the administrative drag that keeps project managers away from the work that needs judgement.",
+          "The next stage is more interesting: AI-assisted scenario planning, portfolio prioritisation, dependency analysis and early-warning systems for delivery risk. At that point, project management starts to look less like documentation maintenance and more like organisational intelligence.",
+        ],
+      },
+    ],
+    takeaway: "AI will not make project management disappear. It will punish purely administrative project management and reward people who can combine delivery structure, communication, governance and judgement.",
+    sources: [
+      { label: "PMI: Artificial Intelligence in Project Management", href: "https://www.pmi.org/learning/ai-in-project-management" },
+      { label: "PMI: AI in Project Management resources", href: "https://www.pmi.org/explore/ai-in-project-management" },
+      { label: "PMI: Transformation of the project management profession", href: "https://www.pmi.org/about/press-media/2024/pmi-leads-transformation-of-profession" },
     ],
   },
   {
-    slug: "what-i-am-building-next",
-    title: "What I am building next",
+    slug: "teaching-with-ai-without-losing-learning",
+    title: "Teaching with AI without losing the learning",
     date: "2026-04-25",
-    category: "Updates",
-    excerpt: "A place for future notes about research, teaching formats, AI systems, software projects and life in Brisbane.",
+    category: "AI education",
+    readTime: "8 min read",
+    excerpt: "AI can make education more adaptive and practical, but only if teachers design learning around thinking, feedback and transfer rather than shortcuts.",
     body: [
-      "This blog is designed as a lightweight space for updates: teaching reflections, AI research notes, project writeups and personal milestones.",
-      "New posts can be added in the blogPosts array in src/data/content.js and will appear automatically on the blog page.",
+      {
+        heading: "The uncomfortable truth: AI can help and harm at the same time",
+        paragraphs: [
+          "AI in education is usually discussed in extremes. One side imagines personalised learning for everyone. The other sees plagiarism, dependency and the end of serious assessment. Both reactions contain a piece of truth. AI can support explanation, practice, feedback, accessibility and curriculum design. It can also flatten learning into answer collection if the didactic design is weak.",
+          "The question for educators is therefore not whether AI belongs in learning. Learners already use it. The real question is whether we teach them to use it in ways that build competence instead of hiding missing competence.",
+        ],
+      },
+      {
+        heading: "Good AI teaching makes thinking visible",
+        paragraphs: [
+          "The most useful AI learning formats do not simply ask students to generate a final answer. They ask learners to compare outputs, improve prompts, explain assumptions, critique mistakes, document sources and reflect on what changed in their own understanding. The output matters, but the learning lives in the process around it.",
+          "This is why AI can be powerful in adult education. A learner in an IT course can ask for a Python explanation, test it, break it, debug it and then explain the fix. A business learner can compare AI-generated stakeholder messages and decide which one would actually work in a real organisation. A cybersecurity learner can use AI to rehearse concepts while still being required to reason about risk.",
+        ],
+      },
+      {
+        heading: "Assessment has to move closer to real work",
+        paragraphs: [
+          "If an assignment can be solved perfectly by pasting the prompt into an AI tool, the assignment may no longer measure what we think it measures. That does not mean assessment becomes impossible. It means assessment needs to include oral defence, project logs, version history, applied scenarios, practical demonstrations and reflection on tool use.",
+          "In professional training, this can actually be a benefit. Real work is rarely a closed-book memory test. People use tools, ask colleagues, search documentation and revise their output. AI-aware assessment can become more authentic when it evaluates judgement, transfer and quality control rather than isolated recall.",
+        ],
+      },
+      {
+        heading: "The teacher becomes a learning architect",
+        paragraphs: [
+          "AI does not remove the need for teachers. It raises the standard for teaching design. The educator has to decide where AI supports learning, where it should be restricted, how learners disclose use and how feedback loops are structured. In strong courses, AI becomes part of the learning environment, not an invisible shortcut outside it.",
+          "For me, this is the exciting part. AI can help create differentiated exercises, generate examples, support multilingual learners, accelerate feedback and connect abstract concepts to practical work. But the human role remains central: setting the frame, challenging shallow answers, noticing confusion and turning tool use into real competence.",
+        ],
+      },
+    ],
+    takeaway: "AI belongs in modern education, but not as a replacement for learning. The goal is to design tasks where AI supports practice, feedback and transfer while the learner still has to think.",
+    sources: [
+      { label: "UNESCO: Guidance for generative AI in education and research", href: "https://www.unesco.org/en/digital-education/ai-future-learning/guidance" },
+      { label: "UNESCO: Artificial intelligence in education", href: "https://www.unesco.org/en/education/digital/artificial-intelligence" },
+      { label: "UNESCO: Generation AI and education", href: "https://www.unesco.org/en/articles/generation-ai-navigating-opportunities-and-risks-artificial-intelligence-education" },
     ],
   },
 ];
