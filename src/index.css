@@ -6,12 +6,12 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes ambientShift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .74; }
-  50% { transform: translate3d(0, -18px, 0) scale(1.03); opacity: .92; }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .58; }
+  50% { transform: translate3d(0, -18px, 0) scale(1.03); opacity: .74; }
 }
 @keyframes softPulse {
-  0%, 100% { opacity: .42; }
-  50% { opacity: .68; }
+  0%, 100% { opacity: .28; }
+  50% { opacity: .46; }
 }
 @keyframes ribbonDrift {
   0%, 100% { transform: translate3d(-2%, 0, 0) rotate(-2deg); }
@@ -45,8 +45,8 @@
   70% { transform: translate3d(calc(var(--move-x) * -.35), calc(var(--move-y) * .55), 0) rotate(var(--rotate-end)) scale(.96); opacity: var(--opacity-mid); }
 }
 @keyframes topologyDrift {
-  0%, 100% { transform: translate3d(-2%, -1%, 0) rotate(-1deg); opacity: .35; }
-  50% { transform: translate3d(2%, 1.8%, 0) rotate(1deg); opacity: .58; }
+  0%, 100% { transform: translate3d(-2%, -1%, 0) rotate(-1deg); opacity: .22; }
+  50% { transform: translate3d(2%, 1.8%, 0) rotate(1deg); opacity: .38; }
 }
 
 .enter-up { animation: enterUp .28s ease-out both; }
@@ -55,37 +55,37 @@
   text-shadow: 0 18px 70px rgba(0,0,0,.36);
 }
 .hero-title-mark {
-  background: linear-gradient(92deg, #fff 0%, #dbeafe 34%, #93c5fd 58%, #f0abfc 78%, #fff 100%);
+  background: linear-gradient(92deg, #fff 0%, #dbeafe 34%, #93c5fd 62%, #bfdbfe 82%, #fff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .ambient-veil {
   background:
-    radial-gradient(1200px 720px at 10% -8%, rgba(56, 189, 248, .25), transparent 52%),
-    radial-gradient(900px 620px at 78% 6%, rgba(37, 99, 235, .24), transparent 54%),
-    radial-gradient(1100px 720px at 96% 20%, rgba(216, 180, 254, .16), transparent 50%),
+    radial-gradient(1200px 720px at 10% -8%, rgba(56, 189, 248, .18), transparent 54%),
+    radial-gradient(900px 620px at 78% 6%, rgba(37, 99, 235, .18), transparent 56%),
+    radial-gradient(1100px 720px at 96% 20%, rgba(129, 140, 248, .08), transparent 52%),
     linear-gradient(180deg, #060914 0%, #0a1024 42%, #070911 100%);
 }
 .ambient-wash {
   animation: ambientShift 14s ease-in-out infinite;
   background:
-    conic-gradient(from 170deg at 50% 18%, rgba(125, 211, 252, .24), rgba(37, 99, 235, .22), rgba(147, 51, 234, .15), rgba(244, 114, 182, .12), transparent 58%, rgba(96, 165, 250, .18));
-  filter: blur(30px);
+    conic-gradient(from 170deg at 50% 18%, rgba(125, 211, 252, .18), rgba(37, 99, 235, .17), rgba(79, 70, 229, .09), rgba(96, 165, 250, .08), transparent 60%, rgba(96, 165, 250, .12));
+  filter: blur(34px);
 }
 .ambient-ribbon {
   animation: ribbonDrift 18s ease-in-out infinite;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, .24), rgba(37, 99, 235, .22), rgba(216, 180, 254, .15), transparent);
-  filter: blur(18px);
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, .15), rgba(37, 99, 235, .16), rgba(129, 140, 248, .08), transparent);
+  filter: blur(22px);
   mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
 }
 .polygon-field {
   pointer-events: none;
   overflow: hidden;
   background:
-    linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.12) 18.2% 18.55%, transparent 18.8% 100%),
-    linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.13) 62.2% 62.55%, transparent 62.8% 100%),
-    linear-gradient(150deg, transparent 0 42%, rgba(147,197,253,.09) 42.2% 42.45%, transparent 42.7% 100%);
+    linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.07) 18.2% 18.45%, transparent 18.7% 100%),
+    linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.08) 62.2% 62.45%, transparent 62.7% 100%),
+    linear-gradient(150deg, transparent 0 42%, rgba(147,197,253,.055) 42.2% 42.4%, transparent 42.65% 100%);
 }
 .polygon-field::before,
 .polygon-field::after {
@@ -93,9 +93,9 @@
   position: absolute;
   inset: -12%;
   background-image:
-    linear-gradient(118deg, transparent 0 22%, rgba(125,211,252,.22) 22.15% 22.35%, transparent 22.5% 100%),
-    linear-gradient(32deg, transparent 0 56%, rgba(37,99,235,.20) 56.1% 56.28%, transparent 56.45% 100%),
-    linear-gradient(156deg, transparent 0 72%, rgba(96,165,250,.18) 72.1% 72.28%, transparent 72.5% 100%);
+    linear-gradient(118deg, transparent 0 22%, rgba(125,211,252,.13) 22.15% 22.3%, transparent 22.45% 100%),
+    linear-gradient(32deg, transparent 0 56%, rgba(37,99,235,.12) 56.1% 56.24%, transparent 56.4% 100%),
+    linear-gradient(156deg, transparent 0 72%, rgba(96,165,250,.10) 72.1% 72.24%, transparent 72.45% 100%);
   mask-image: radial-gradient(circle at 50% 38%, black, transparent 70%);
   animation: topologyDrift 22s ease-in-out infinite;
 }
@@ -103,7 +103,7 @@
   transform: rotate(180deg);
   animation-duration: 31s;
   animation-direction: reverse;
-  opacity: .65;
+  opacity: .45;
 }
 .polygon-field span {
   position: absolute;
@@ -111,14 +111,14 @@
   aspect-ratio: 1;
   left: var(--left);
   top: var(--top);
-  border: 1px solid rgba(191, 219, 254, .22);
+  border: 1px solid rgba(191, 219, 254, .15);
   background:
-    linear-gradient(140deg, rgba(186,230,253,.34), rgba(59,130,246,.18) 42%, rgba(30,64,175,.22)),
-    radial-gradient(circle at 18% 18%, rgba(255,255,255,.34), transparent 38%);
+    linear-gradient(140deg, rgba(186,230,253,.20), rgba(59,130,246,.11) 42%, rgba(30,64,175,.14)),
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.20), transparent 38%);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.16),
-    0 28px 96px rgba(37,99,235,.28),
-    0 0 58px rgba(56,189,248,.18);
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 22px 82px rgba(37,99,235,.16),
+    0 0 44px rgba(56,189,248,.10);
   clip-path: polygon(18% 0, 82% 9%, 100% 57%, 65% 100%, 9% 82%, 0 29%);
   filter: blur(.15px);
   opacity: var(--opacity-low);
@@ -137,9 +137,9 @@
   --rotate-start: -14deg;
   --rotate-mid: 10deg;
   --rotate-end: 22deg;
-  --opacity-low: .18;
-  --opacity-mid: .28;
-  --opacity-high: .42;
+  --opacity-low: .10;
+  --opacity-mid: .16;
+  --opacity-high: .25;
 }
 .polygon-field span:nth-child(2) {
   --size: 25rem;
@@ -152,9 +152,9 @@
   --rotate-start: 18deg;
   --rotate-mid: -8deg;
   --rotate-end: -20deg;
-  --opacity-low: .2;
-  --opacity-mid: .32;
-  --opacity-high: .46;
+  --opacity-low: .12;
+  --opacity-mid: .19;
+  --opacity-high: .28;
 }
 .polygon-field span:nth-child(3) {
   --size: 18rem;
@@ -167,9 +167,9 @@
   --rotate-start: 28deg;
   --rotate-mid: 4deg;
   --rotate-end: -16deg;
-  --opacity-low: .13;
-  --opacity-mid: .22;
-  --opacity-high: .34;
+  --opacity-low: .08;
+  --opacity-mid: .14;
+  --opacity-high: .22;
 }
 .polygon-field span:nth-child(4) {
   --size: 21rem;
@@ -182,9 +182,9 @@
   --rotate-start: -24deg;
   --rotate-mid: 12deg;
   --rotate-end: 32deg;
-  --opacity-low: .15;
-  --opacity-mid: .24;
-  --opacity-high: .36;
+  --opacity-low: .09;
+  --opacity-mid: .15;
+  --opacity-high: .23;
 }
 .polygon-field span:nth-child(5) {
   --size: 13rem;
@@ -197,9 +197,9 @@
   --rotate-start: 8deg;
   --rotate-mid: 28deg;
   --rotate-end: -6deg;
-  --opacity-low: .14;
-  --opacity-mid: .22;
-  --opacity-high: .32;
+  --opacity-low: .08;
+  --opacity-mid: .14;
+  --opacity-high: .21;
 }
 .polygon-field span:nth-child(6) {
   --size: 11rem;
@@ -212,9 +212,9 @@
   --rotate-start: 42deg;
   --rotate-mid: 8deg;
   --rotate-end: -22deg;
-  --opacity-low: .12;
-  --opacity-mid: .2;
-  --opacity-high: .3;
+  --opacity-low: .07;
+  --opacity-mid: .12;
+  --opacity-high: .19;
 }
 .polygon-field span:nth-child(7) {
   --size: 18rem;
@@ -227,9 +227,9 @@
   --rotate-start: -6deg;
   --rotate-mid: -28deg;
   --rotate-end: 16deg;
-  --opacity-low: .12;
-  --opacity-mid: .2;
-  --opacity-high: .3;
+  --opacity-low: .07;
+  --opacity-mid: .12;
+  --opacity-high: .19;
 }
 .soft-section {
   position: relative;
@@ -275,11 +275,11 @@
   position: relative;
   overflow: hidden;
   border-radius: 2rem;
-  border: 1px solid rgba(255,255,255,.11);
+  border: 1px solid rgba(191,219,254,.16);
   background:
-    linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.045)),
-    linear-gradient(90deg, rgba(56,189,248,.08), rgba(37,99,235,.07), rgba(216,180,254,.05));
-  box-shadow: 0 24px 90px rgba(0,0,0,.24);
+    linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.062) 52%, rgba(255,255,255,.04)),
+    linear-gradient(110deg, rgba(56,189,248,.10), rgba(37,99,235,.08), rgba(30,64,175,.06));
+  box-shadow: 0 26px 94px rgba(0,0,0,.34), 0 0 0 1px rgba(147,197,253,.05);
   backdrop-filter: blur(26px);
   transition: transform .55s cubic-bezier(.2,.8,.2,1), border-color .55s, background .55s, box-shadow .55s;
 }
@@ -294,9 +294,11 @@
 }
 .soft-link-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(125,211,252,.45);
-  background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
-  box-shadow: 0 30px 110px rgba(37,99,235,.18), 0 22px 80px rgba(0,0,0,.24);
+  border-color: rgba(147,197,253,.52);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.16), rgba(255,255,255,.075)),
+    linear-gradient(110deg, rgba(56,189,248,.12), rgba(37,99,235,.10), rgba(30,64,175,.07));
+  box-shadow: 0 34px 125px rgba(37,99,235,.20), 0 24px 90px rgba(0,0,0,.34);
 }
 .signal-pill {
   display: inline-flex;
@@ -329,10 +331,10 @@
   inset: -1px;
   z-index: 0;
   border-radius: inherit;
-  background: linear-gradient(120deg, rgba(56,189,248,.8), rgba(37,99,235,.7), rgba(168,85,247,.55), rgba(244,114,182,.45), rgba(56,189,248,.8));
+  background: linear-gradient(120deg, rgba(56,189,248,.72), rgba(37,99,235,.62), rgba(99,102,241,.30), rgba(147,197,253,.38), rgba(56,189,248,.72));
   background-size: 240% 240%;
-  animation: rainbowFlow 8s ease-in-out infinite;
-  opacity: .24;
+  animation: rainbowFlow 11s ease-in-out infinite;
+  opacity: .13;
   pointer-events: none;
 }
 .rainbow-edge > * {
@@ -340,7 +342,7 @@
   z-index: 1;
 }
 .rainbow-text {
-  background: linear-gradient(90deg, #e0f2fe, #93c5fd, #60a5fa, #c4b5fd, #f0abfc, #e0f2fe);
+  background: linear-gradient(90deg, #e0f2fe, #93c5fd, #60a5fa, #c4b5fd, #dbeafe, #e0f2fe);
   background-size: 220% 220%;
   -webkit-background-clip: text;
   background-clip: text;

@@ -5,7 +5,7 @@ export default function Badge({ children, tone = "cyan" }) {
     cyan: "border-sky-300/30 bg-sky-300/15 text-sky-100",
     violet: "border-blue-300/30 bg-blue-500/15 text-blue-100",
     emerald: "border-indigo-300/30 bg-indigo-400/15 text-indigo-100",
-    amber: "border-fuchsia-300/30 bg-fuchsia-300/10 text-fuchsia-100",
+    amber: "border-blue-200/30 bg-blue-300/10 text-blue-100",
     white: "border-white/10 bg-white/[0.06] text-zinc-200",
   };
 
