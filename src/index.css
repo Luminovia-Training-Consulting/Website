@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes spinReverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+@keyframes floatCard { 0%,100% { transform: translateY(-8px); } 50% { transform: translateY(8px); } }
+@keyframes enterUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+.spin-slow { animation: spinSlow 34s linear infinite; }
+.spin-reverse { animation: spinReverse 26s linear infinite; }
+.float-card { animation: floatCard 5s ease-in-out infinite; }
+.enter-up { animation: enterUp .45s ease-out both; }
+.grid-bg {
+  background-image: linear-gradient(to right, rgba(255,255,255,.075) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.075) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+html { scroll-behavior: smooth; }
+html, body, #root { min-width: 0; overflow-x: hidden; }
+body { background: #070B16; }
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(2.45rem, 11vw, 3.25rem) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 8vw, 2.45rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.025em !important;
+  }
+
+  .group h2,
+  .group h3 {
+    font-size: 1.45rem !important;
+    line-height: 1.1 !important;
+  }
+
+  p, li {
+    overflow-wrap: anywhere;
+  }
+}
