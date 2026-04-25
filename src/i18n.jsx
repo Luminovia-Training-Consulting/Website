@@ -28,6 +28,7 @@ const dictionaries = {
       format: "Format",
       duration: "Duration",
       outcomes: "Learning outcomes",
+      bestFor: "Best for",
     },
     assets: {
       title: "Business assets",
@@ -166,6 +167,15 @@ const dictionaries = {
       decline: "Decline",
       accept: "Accept",
     },
+    notFound: {
+      badge: "404 / Page not found",
+      title: "This page is not in the training plan.",
+      copy: "The link may be outdated, moved or typed incorrectly. Use one of the main paths below to continue.",
+      home: "Back to homepage",
+      contact: "Contact / booking",
+      training: "View training topics",
+      hint: "Looking for a specific offer, profile or blog post? The contact page is the fastest fallback.",
+    },
   },
   de: {
     languageName: "Deutsch",
@@ -192,6 +202,7 @@ const dictionaries = {
       format: "Format",
       duration: "Dauer",
       outcomes: "Lernergebnisse",
+      bestFor: "Geeignet für",
     },
     assets: {
       title: "Business-Unterlagen",
@@ -329,6 +340,15 @@ const dictionaries = {
       copy: "Ich nutze Google Analytics nur nach Zustimmung, um zu verstehen, welche Seiten hilfreich sind. IP-Anonymisierung ist aktiviert.",
       decline: "Ablehnen",
       accept: "Akzeptieren",
+    },
+    notFound: {
+      badge: "404 / Seite nicht gefunden",
+      title: "Diese Seite ist nicht im Trainingsplan.",
+      copy: "Der Link ist eventuell veraltet, verschoben oder falsch eingegeben. Nutzen Sie einen der Hauptpfade, um weiterzugehen.",
+      home: "Zur Startseite",
+      contact: "Kontakt / Buchung",
+      training: "Trainingsthemen ansehen",
+      hint: "Suchen Sie ein bestimmtes Angebot, Profil oder einen Blogbeitrag? Die Kontaktseite ist der schnellste Fallback.",
     },
   },
 };

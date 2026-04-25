@@ -15,12 +15,12 @@ export default function CredentialsPage() {
     ? {
       badge: "Credentials & Teaching Proof",
       title: "Nachweise, die das Hauptangebot unterstützen: Lehre und Training.",
-      intro: "Der stärkste Sales-Angle sind nicht nur Abschlüsse. Es ist die Mischung aus Teaching Proof, modernen AI-Credentials, Cybersecurity-Lernpfaden, akademischer Glaubwürdigkeit und zweisprachiger Durchführung.",
+      intro: "Glaubwürdigkeit entsteht nicht durch Abschlüsse allein. Entscheidend ist die Verbindung aus Teaching Proof, modernen AI-Credentials, Cybersecurity-Lernpfaden, akademischem Hintergrund und zweisprachiger Durchführung.",
     }
     : {
       badge: "Credentials & teaching proof",
       title: "Proof that supports the main offer: teaching and training.",
-      intro: "The strongest sales angle is not just degrees. It is the mix of teaching proof, modern AI credentials, cybersecurity learning paths, academic credibility and bilingual delivery.",
+      intro: "Credibility does not come from degrees alone. It comes from the combination of teaching proof, modern AI credentials, cybersecurity learning paths, academic grounding and bilingual delivery.",
     };
 
   return (

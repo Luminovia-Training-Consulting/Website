@@ -15,6 +15,7 @@ const routes = [
   ["/credentials", /Proof that supports the main offer/i],
   ["/imprint", /Imprint/i],
   ["/privacy", /Privacy policy/i],
+  ["/unknown-page", /This page is not in the training plan/i],
 ];
 
 describe("static page routes", () => {

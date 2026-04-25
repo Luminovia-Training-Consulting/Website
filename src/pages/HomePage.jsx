@@ -327,7 +327,7 @@ export default function HomePage() {
                 <h3 className="mt-5 text-xl font-black text-white">{offer.title}</h3>
                 <p className="mt-3 text-base font-black text-sky-100">{offer.outcome}</p>
                 <p className="mt-4 text-sm leading-7 text-zinc-300">{offer.copy}</p>
-                <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-sm font-bold text-zinc-200">Best for: {offer.bestFor}</div>
+                <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-sm font-bold text-zinc-200">{t.serviceLabels.bestFor}: {offer.bestFor}</div>
                 <div className="mt-5 space-y-2">
                   {offer.deliverables.slice(0, 4).map((item) => (
                     <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><span className="text-sky-200">✓</span>{item}</div>

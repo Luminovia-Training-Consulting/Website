@@ -16,6 +16,7 @@ import BlogPostPage from "./pages/BlogPostPage.jsx";
 import SoftwarePage from "./pages/SoftwarePage.jsx";
 import ImprintPage from "./pages/ImprintPage.jsx";
 import PrivacyPage from "./pages/PrivacyPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import { LanguageProvider } from "./i18n.jsx";
 
@@ -56,6 +57,7 @@ export default function App() {
               <Route path="/software" element={<SoftwarePage />} />
               <Route path="/imprint" element={<ImprintPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
           <div className="relative z-10">

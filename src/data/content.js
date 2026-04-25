@@ -438,7 +438,7 @@ export const blogPosts = [
         heading: "The useful question is no longer 'can AI answer this?'",
         paragraphs: [
           "The first wave of generative AI made knowledge work feel strangely elastic. Drafts became faster, summaries became cheaper and research started with a conversation instead of a blank page. Agentic AI changes the question again. Instead of asking whether a model can produce an answer, organisations now ask whether an AI system can move through a workflow: inspect context, choose tools, coordinate steps, ask for approval and leave behind an auditable result.",
-          "That sounds dramatic, but the practical version is often quite grounded. A useful agent does not need to 'run the company'. It may prepare a renewal-risk briefing, triage incoming support tickets, compare policy documents, draft a project update from live artefacts, or coordinate the boring middle of a research process. The difference is that the system is not only generating text. It is acting inside a bounded process.",
+          "That sounds dramatic, but the practical version is often quite grounded. A useful agent does not need to 'run the company'. It may prepare a renewal-risk briefing, triage incoming support tickets, compare policy documents, draft a project update from live artefacts, or coordinate the boring middle of a research process. The difference is that the system is no longer just generating text. It is acting inside a bounded process.",
         ],
       },
       {
@@ -497,7 +497,7 @@ export const blogPosts = [
         heading: "The role becomes more human, not less",
         paragraphs: [
           "The valuable project manager of the AI era is not the person who manually formats the prettiest status deck. It is the person who can interpret weak signals, challenge unrealistic plans, mediate trade-offs and keep people aligned when the project becomes uncomfortable. AI can draft a stakeholder email. It cannot take responsibility for the trust relationship behind that email.",
-          "This is why AI literacy for project teams should include governance and communication, not only tool use. Teams need to know when AI output is good enough, when it needs evidence, when sensitive data must stay out of a tool and when a human conversation is the actual work.",
+          "This is why AI literacy for project teams should include governance and communication, not just tool use. Teams need to know when AI output is good enough, when it needs evidence, when sensitive data must stay out of a tool and when a human conversation is the actual work.",
         ],
       },
       {
@@ -573,7 +573,7 @@ export const blogPosts = [
         heading: "Industry 4.0 was about connected capability",
         paragraphs: [
           "Industry 4.0 gave organisations a powerful operating idea: connect production, data, sensors, platforms and automation so that processes become more transparent and responsive. The human role in that story was often framed as adoption. People had to learn the dashboard, trust the data, use the platform and adjust their work around increasingly digital systems.",
-          "That was necessary, but it was not the end of the story. Once AI enters the process layer, the relationship changes. AI does not only display information; it can prioritise, recommend, draft, trigger, route and sometimes act. The question is no longer only whether humans use technology. The question is where human judgement belongs when technology can coordinate parts of the work itself.",
+          "That was necessary, but it was not the end of the story. Once AI enters the process layer, the relationship changes. AI does more than display information; it can prioritise, recommend, draft, trigger, route and sometimes act. The question is no longer whether humans use technology. The question is where human judgement belongs when technology can coordinate parts of the work itself.",
         ],
       },
       {
@@ -593,7 +593,7 @@ export const blogPosts = [
       {
         heading: "The skills shift: operators become supervisors of systems",
         paragraphs: [
-          "This changes training needs. Teams do not only need tool literacy. They need process literacy, data literacy, risk literacy and delegation literacy. They must understand what good input looks like, what failure modes look like, when automation should stop, and how to audit decisions after the fact.",
+          "This changes training needs. Teams need more than tool literacy. They need process literacy, data literacy, risk literacy and delegation literacy. They must understand what good input looks like, what failure modes look like, when automation should stop, and how to audit decisions after the fact.",
           "For business and education, this is a major shift. The future worker is not simply the person who uses a digital tool well. The future worker is someone who can supervise socio-technical systems: humans, AI, data, policy, workflow and accountability together. That is where Industry 5.0 becomes practically interesting. It does not reject automation. It asks automation to become worthy of human trust.",
         ],
       },
@@ -617,7 +617,7 @@ export const blogPosts = [
       {
         heading: "Automation changes the risk profile of AI output",
         paragraphs: [
-          "A hallucination in a chat window is annoying. A hallucination inside an automated workflow can become an operational defect. The difference is not only the model. It is the context. When AI output moves directly into tickets, emails, CRM records, research tables, code changes or business decisions, mistakes become harder to notice and easier to multiply.",
+          "A hallucination in a chat window is annoying. A hallucination inside an automated workflow can become an operational defect. The risk comes from the surrounding process as much as the model. When AI output moves directly into tickets, emails, CRM records, research tables, code changes or business decisions, mistakes become harder to notice and easier to multiply.",
           "This is why AI automation should be treated as process engineering, not just prompting. The system needs input validation, source grounding, confidence thresholds, logging, review paths and stop conditions. Otherwise a fluent answer can travel through the process with more authority than it deserves.",
         ],
       },
@@ -629,7 +629,7 @@ export const blogPosts = [
         ],
       },
       {
-        heading: "Token burn is not only a cost problem",
+        heading: "Token burn is more than a cost problem",
         paragraphs: [
           "Token burn sounds like finance, but it is also architecture. Long prompts, repeated context, inefficient retries, verbose tool traces and poorly scoped agents can make an AI workflow slow, expensive and fragile. At small scale, nobody notices. At larger scale, the same design can turn into a denial-of-wallet problem: the workflow spends money and latency on work that should have been filtered, cached or simplified.",
           "Good AI systems therefore need budget-aware design. Use smaller models where possible, trim context, cache stable information, summarise long histories, stop failed loops early and measure cost per successful outcome rather than cost per request. A cheap demo can become an expensive production process if nobody watches token economics.",

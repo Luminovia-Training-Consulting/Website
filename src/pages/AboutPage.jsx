@@ -17,7 +17,7 @@ const copy = {
     timeline: "My timeline",
     cards: [
       ["Didactic", "I translate complex topics into structured, learner-friendly formats with exercises and transfer logic."],
-      ["Technical", "AI, software, cybersecurity, data and business IT are not just theory topics. I understand the implementation layer."],
+      ["Technical", "AI, software, cybersecurity, data and business IT are practical systems, not abstract buzzwords. I connect concepts with implementation reality."],
       ["Professional", "Remote-first, bilingual and comfortable with adult learners, corporate teams and education providers."],
     ],
     links: [
@@ -37,7 +37,7 @@ const copy = {
     timeline: "Werdegang",
     cards: [
       ["Didaktisch", "Ich übersetze komplexe Themen in strukturierte, lernfreundliche Formate mit Übungen und Transferlogik."],
-      ["Technisch", "AI, Software, Cybersecurity, Daten und Business IT sind für mich nicht nur Theorie. Ich verstehe auch die Umsetzungsebene."],
+      ["Technisch", "AI, Software, Cybersecurity, Daten und Business IT sind praktische Systeme, keine abstrakten Buzzwords. Ich verbinde Konzepte mit Umsetzungspraxis."],
       ["Professionell", "Remote-first, zweisprachig und erfahren mit Erwachsenenbildung, Corporate Teams und Bildungsanbietern."],
     ],
     links: [
