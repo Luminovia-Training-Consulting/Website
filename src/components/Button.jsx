@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import { cn } from "./utils.js";
 
 export default function Button({ href, to, children, variant = "primary", onClick }) {
-  const base = "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg px-5 py-3 text-center text-sm font-black leading-tight transition duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-teal-300/60 sm:w-auto";
+  const base = "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-center text-sm font-black leading-tight transition duration-500 ease-out hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-teal-300/60 sm:w-auto";
   const styles = variant === "primary"
-    ? "bg-white text-zinc-950 shadow-[0_12px_36px_rgba(45,212,191,.18)] hover:bg-teal-50"
+    ? "bg-gradient-to-r from-white via-teal-50 to-pink-50 text-zinc-950 shadow-[0_16px_44px_rgba(45,212,191,.22)] hover:shadow-[0_20px_70px_rgba(244,114,182,.18)]"
     : variant === "dark"
-      ? "bg-zinc-950 text-white ring-1 ring-white/10 hover:bg-zinc-900"
-      : "border border-white/12 bg-white/[0.045] text-white hover:border-teal-200/35 hover:bg-white/[0.075]";
-  const arrow = <span className="shrink-0" aria-hidden="true">&gt;</span>;
+      ? "bg-zinc-950/80 text-white ring-1 ring-white/10 hover:bg-zinc-900"
+      : "border border-white/12 bg-white/[0.07] text-white backdrop-blur-xl hover:border-teal-200/40 hover:bg-white/[0.11]";
+  const arrow = <span className="shrink-0 transition duration-300 group-hover:translate-x-0.5" aria-hidden="true">&gt;</span>;
 
-  if (to) return <Link to={to} className={cn(base, styles)}>{children}{arrow}</Link>;
-  if (href) return <a href={href} target="_blank" rel="noreferrer" className={cn(base, styles)}>{children}{arrow}</a>;
-  return <button onClick={onClick} className={cn(base, styles)}>{children}{arrow}</button>;
+  if (to) return <Link to={to} className={cn("group", base, styles)}>{children}{arrow}</Link>;
+  if (href) return <a href={href} target="_blank" rel="noreferrer" className={cn("group", base, styles)}>{children}{arrow}</a>;
+  return <button onClick={onClick} className={cn("group", base, styles)}>{children}{arrow}</button>;
 }

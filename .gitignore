@@ -99,4 +99,5 @@ dist/api/contact-errors.log
 # Local preview/test artifacts
 vite-preview.log
 vite-preview.err.log
+prompts.txt
 *.png

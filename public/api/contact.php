@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(405, ['ok' => false, 'message' => 'Method not allowed.']);
 }
 
-$config = require __DIR__ . '/contact-config.php';
 $input = json_decode((string) file_get_contents('php://input'), true);
 
 if (!is_array($input)) {
@@ -59,6 +58,7 @@ $body = implode("\n", [
 ]);
 
 try {
+    $config = load_contact_config();
     send_contact_mail($config, $subject, $body, $email, $name);
     respond(200, ['ok' => true, 'message' => 'Message sent.']);
 } catch (Throwable $error) {
@@ -97,6 +97,83 @@ function rate_limit(): void
     file_put_contents($file, (string) $now, LOCK_EX);
 }
 
+function load_contact_config(): array
+{
+    load_env_files([
+        dirname(__DIR__) . '/.env',
+        dirname(__DIR__, 2) . '/.env',
+        __DIR__ . '/.env',
+    ]);
+
+    $fallback = is_file(__DIR__ . '/contact-config.php')
+        ? require __DIR__ . '/contact-config.php'
+        : [];
+
+    $config = [
+        'smtp_host' => env_value('SMTP_HOST', $fallback['smtp_host'] ?? 'smtp.hostinger.com'),
+        'smtp_port' => (int) env_value('SMTP_PORT', $fallback['smtp_port'] ?? 465),
+        'smtp_secure' => env_value('SMTP_SECURE', $fallback['smtp_secure'] ?? 'ssl'),
+        'smtp_user' => env_value('SMTP_USERNAME', $fallback['smtp_user'] ?? ''),
+        'smtp_pass' => env_value('SMTP_PASSWORD', $fallback['smtp_pass'] ?? ''),
+        'mail_from' => env_value('MAIL_FROM', $fallback['mail_from'] ?? ''),
+        'mail_from_name' => env_value('MAIL_FROM_NAME', $fallback['mail_from_name'] ?? 'Website Contact Form'),
+        'mail_to' => env_value('MAIL_TO', $fallback['mail_to'] ?? ''),
+        'smtp_debug' => filter_var(env_value('CONTACT_DEBUG', 'false'), FILTER_VALIDATE_BOOLEAN),
+    ];
+
+    foreach (['smtp_host', 'smtp_user', 'smtp_pass', 'mail_from', 'mail_to'] as $key) {
+        if (trim((string) $config[$key]) === '') {
+            throw new RuntimeException('Missing contact form setting: ' . $key);
+        }
+    }
+
+    return $config;
+}
+
+function load_env_files(array $paths): void
+{
+    foreach ($paths as $path) {
+        if (!is_file($path) || !is_readable($path)) {
+            continue;
+        }
+
+        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        if ($lines === false) {
+            continue;
+        }
+
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if ($line === '' || str_starts_with($line, '#') || !str_contains($line, '=')) {
+                continue;
+            }
+
+            [$key, $value] = explode('=', $line, 2);
+            $key = trim($key);
+            $value = trim($value);
+
+            if (
+                (str_starts_with($value, '"') && str_ends_with($value, '"')) ||
+                (str_starts_with($value, "'") && str_ends_with($value, "'"))
+            ) {
+                $value = substr($value, 1, -1);
+            }
+
+            if ($key !== '' && getenv($key) === false) {
+                putenv($key . '=' . $value);
+                $_ENV[$key] = $value;
+                $_SERVER[$key] = $value;
+            }
+        }
+    }
+}
+
+function env_value(string $key, mixed $default = ''): mixed
+{
+    $value = getenv($key);
+    return $value === false ? $default : $value;
+}
+
 function send_contact_mail(array $config, string $subject, string $body, string $replyToEmail, string $replyToName): void
 {
     $errors = [];
@@ -129,10 +206,23 @@ function smtp_attempts(array $config): array
         'mail_to' => (string) $config['mail_to'],
     ];
 
-    return [
-        $base + ['label' => 'Hostinger SMTP SSL 465', 'smtp_port' => 465, 'smtp_secure' => 'ssl'],
-        $base + ['label' => 'Hostinger SMTP STARTTLS 587', 'smtp_port' => 587, 'smtp_secure' => 'starttls'],
+    $configuredPort = (int) ($config['smtp_port'] ?? 465);
+    $configuredSecure = (string) ($config['smtp_secure'] ?? 'ssl');
+
+    $attempts = [
+        $base + ['label' => 'Configured SMTP', 'smtp_port' => $configuredPort, 'smtp_secure' => $configuredSecure],
     ];
+
+    foreach ([
+        ['label' => 'Hostinger SMTP SSL 465', 'smtp_port' => 465, 'smtp_secure' => 'ssl'],
+        ['label' => 'Hostinger SMTP STARTTLS 587', 'smtp_port' => 587, 'smtp_secure' => 'starttls'],
+    ] as $fallback) {
+        if ($fallback['smtp_port'] !== $configuredPort || $fallback['smtp_secure'] !== $configuredSecure) {
+            $attempts[] = $base + $fallback;
+        }
+    }
+
+    return $attempts;
 }
 
 function smtp_send(array $config, string $subject, string $body, string $replyToEmail, string $replyToName): void

@@ -4,7 +4,7 @@ import { cn } from "./utils.js";
 export default function Photo({ src, alt, className = "", imgClass = "", fallback = "CS" }) {
   const [failed, setFailed] = useState(false);
   return (
-    <div className={cn("relative overflow-hidden bg-gradient-to-br from-cyan-300/20 via-slate-800 to-violet-500/20", className)}>
+    <div className={cn("relative overflow-hidden bg-gradient-to-br from-teal-200/20 via-slate-900 to-fuchsia-300/16 shadow-[0_24px_90px_rgba(0,0,0,.24)]", className)}>
       {!failed ? (
         <img src={src} alt={alt} className={cn("h-full w-full object-cover", imgClass)} onError={() => setFailed(true)} />
       ) : (
@@ -15,7 +15,7 @@ export default function Photo({ src, alt, className = "", imgClass = "", fallbac
           </div>
         </div>
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070B16]/55 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070B16]/55 via-transparent to-white/5" />
     </div>
   );
 }

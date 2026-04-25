@@ -22,9 +22,10 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <div className="min-h-screen bg-[#08090B] text-white selection:bg-teal-200 selection:text-zinc-950">
-          <div className="fixed inset-0 -z-10 bg-[linear-gradient(180deg,#08090B_0%,#0B1012_42%,#08090B_100%)]" />
-          <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.035)_1px,transparent_1px)] bg-[size:72px_72px] opacity-35" />
+        <div className="min-h-screen overflow-hidden bg-[#08090b] text-white">
+          <div className="ambient-veil fixed inset-0 -z-10" />
+          <div className="ambient-wash fixed -inset-x-24 top-0 -z-10 h-[68vh]" />
+          <div className="ambient-grid fixed inset-0 -z-10 opacity-70" />
           <Header />
           <div className="enter-up">
             <Routes>

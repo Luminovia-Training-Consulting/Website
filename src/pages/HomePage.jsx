@@ -15,19 +15,19 @@ function HeroVisual() {
   const { t } = useLanguage();
   return (
     <div className="relative mx-auto w-full max-w-[520px]">
-      <div className="relative rounded-2xl border border-white/10 bg-[#111418] p-2 shadow-[0_22px_80px_rgba(0,0,0,.35)]">
-        <Photo src={IMAGES.hero} alt="Carina Sophie Schoppe portrait" className="aspect-[4/5] rounded-xl" imgClass="object-[50%_25%]" />
-        <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/10 bg-[#08090B]/82 p-4 shadow-xl backdrop-blur-xl">
+      <div className="relative rounded-[2.2rem] border border-white/10 bg-white/[0.07] p-2 shadow-[0_28px_100px_rgba(0,0,0,.34)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1">
+        <Photo src={IMAGES.hero} alt="Carina Sophie Schoppe portrait" className="aspect-[4/5] rounded-[1.8rem]" imgClass="object-[50%_25%]" />
+        <div className="absolute bottom-4 left-4 right-4 rounded-[1.35rem] border border-white/10 bg-[#08090B]/78 p-4 shadow-xl backdrop-blur-2xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{t.home.mainFocus}</div>
               <div className="mt-1 text-lg font-black text-white">{t.home.focusValue}</div>
             </div>
-            <div className="rounded-md bg-white px-3 py-1 text-xs font-black text-zinc-950">{t.home.remote}</div>
+            <div className="rounded-full bg-white px-3 py-1 text-xs font-black text-zinc-950">{t.home.remote}</div>
           </div>
         </div>
       </div>
-      <div className="absolute -right-2 top-8 rounded-xl border border-white/10 bg-[#151A1F]/90 p-4 shadow-2xl backdrop-blur-xl sm:-right-8">
+      <div className="absolute -right-2 top-8 rounded-2xl border border-white/10 bg-white/[0.09] p-4 shadow-2xl backdrop-blur-2xl sm:-right-8">
         <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{t.home.learnerRating}</div>
         <div className="mt-1 text-sm font-black text-white">4.9 / 5</div>
       </div>
@@ -41,7 +41,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(20,184,166,.14),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.035),transparent_42%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(20,184,166,.16),transparent_34%),linear-gradient(245deg,rgba(244,114,182,.13),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="enter-up">
             <Badge>{t.home.badge}</Badge>
@@ -51,7 +51,7 @@ export default function HomePage() {
             <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
               {t.home.intro}
             </p>
-            <div className="mt-7 rounded-xl border border-white/10 bg-[#111418]/82 p-4 text-sm leading-7 text-zinc-300 backdrop-blur">
+            <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.07] p-4 text-sm leading-7 text-zinc-300 shadow-[0_16px_60px_rgba(0,0,0,.18)] backdrop-blur-2xl">
               <strong className="text-white">{t.home.coreOffer}</strong> {t.home.coreCopy}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -131,10 +131,10 @@ export default function HomePage() {
                 <h3 className="mt-5 text-xl font-black text-white">{offer.title}</h3>
                 <p className="mt-3 text-base font-black text-teal-100">{offer.outcome}</p>
                 <p className="mt-4 text-sm leading-7 text-zinc-300">{offer.copy}</p>
-                <div className="mt-5 rounded-lg border border-white/10 bg-white/[0.045] p-4 text-sm font-bold text-zinc-200">Best for: {offer.bestFor}</div>
+                <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-sm font-bold text-zinc-200">Best for: {offer.bestFor}</div>
                 <div className="mt-5 space-y-2">
                   {offer.deliverables.slice(0, 4).map((item) => (
-                    <div key={item} className="flex gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-3 text-sm text-zinc-200"><span className="text-teal-200">✓</span>{item}</div>
+                    <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><span className="text-teal-200">✓</span>{item}</div>
                   ))}
                 </div>
               </Card>
@@ -150,12 +150,12 @@ export default function HomePage() {
             <h2 className="mt-5 text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.credibleTitle}</h2>
             <p className="mt-5 text-base leading-8 text-zinc-300">{t.home.credibleCopy}</p>
             <div className="mt-7 flex flex-wrap gap-2">
-              {capabilities.slice(0, 14).map((capability) => <span key={capability} className="rounded-md border border-white/10 bg-white/[0.045] px-3 py-2 text-sm font-bold text-zinc-200">{capability}</span>)}
+              {capabilities.slice(0, 14).map((capability) => <span key={capability} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-sm font-bold text-zinc-200 backdrop-blur">{capability}</span>)}
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Photo src={IMAGES.tablet} alt="Carina using a tablet" className="aspect-[3/4] rounded-xl" imgClass="object-[50%_20%]" />
-            <Photo src={IMAGES.outdoor} alt="Carina outside a building" className="aspect-[3/4] translate-y-8 rounded-xl" imgClass="object-[50%_20%]" />
+            <Photo src={IMAGES.tablet} alt="Carina using a tablet" className="aspect-[3/4] rounded-[1.8rem]" imgClass="object-[50%_20%]" />
+            <Photo src={IMAGES.outdoor} alt="Carina outside a building" className="aspect-[3/4] translate-y-8 rounded-[1.8rem]" imgClass="object-[50%_20%]" />
           </div>
         </div>
       </section>

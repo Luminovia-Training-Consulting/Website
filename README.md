@@ -27,19 +27,27 @@ Upload the contents of `dist/` to Hostinger `public_html/`.
 
 ## Contact form setup
 
-The real SMTP config is intentionally ignored by Git:
+The contact form uses Hostinger SMTP through `public/api/contact.php`.
+
+Create a `.env` file from `.env.example` and upload that `.env` to the same folder as `index.html` on Hostinger, usually `public_html/.env`.
+
+Used environment variables:
 
 ```txt
-public/api/contact-config.php
+SMTP_HOST=smtp.hostinger.com
+SMTP_PORT=465
+SMTP_SECURE=ssl
+SMTP_USERNAME=info@carinaschoppe.com
+SMTP_PASSWORD=CHANGE_ME
+MAIL_FROM=info@carinaschoppe.com
+MAIL_FROM_NAME="Carina Sophie Schoppe Website"
+MAIL_TO=info@carinaschoppe.com
+CONTACT_DEBUG=false
 ```
 
-Create it from:
+`MAIL_TO` is where the message is sent. For this site it should stay `info@carinaschoppe.com`, so contact-form messages arrive in the same mailbox. The real `.env` is intentionally ignored by Git and must not be committed.
 
-```txt
-public/api/contact-config.example.php
-```
-
-Then insert the real Hostinger mailbox credentials locally before building. Never commit the real password.
+The older `public/api/contact-config.php` file is still supported as a fallback for local testing, but `.env` is the preferred Hostinger setup.
 
 ## Google Analytics
 
