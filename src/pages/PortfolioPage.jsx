@@ -36,7 +36,7 @@ export default function PortfolioPage() {
               <h2 className="mt-5 text-2xl font-black text-white">{project.title}</h2>
               <p className="mt-4 text-sm leading-7 text-slate-300">{project.copy}</p>
               <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4 text-xs font-bold text-slate-300">{project.stack}</div>
-              <a href={project.link} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-black text-cyan-200 transition hover:text-white">{copy.reference}</a>
+              <a href={project.link} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-black text-sky-200 transition hover:text-white">{copy.reference}</a>
             </Card>
           ))}
         </div>

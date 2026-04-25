@@ -42,10 +42,10 @@ export default function SoftwareProjectsSection({ compact = false }) {
             >
               <div className="mb-5 flex items-start justify-between gap-3">
                 <div>
-                  <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{project.type}</div>
+                  <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{project.type}</div>
                   <div className="mt-2 text-xs font-bold text-zinc-500">{project.status}</div>
                 </div>
-                <span className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-black text-teal-100 transition group-hover:border-teal-100/40">
+                <span className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-black text-sky-100 transition group-hover:border-sky-100/40">
                   {t.github}
                 </span>
               </div>

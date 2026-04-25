@@ -35,7 +35,7 @@ export default function BlogPostPage() {
   return (
     <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
       <article className="mx-auto max-w-5xl">
-        <Link to="/blog" className="text-sm font-black text-teal-100 transition hover:text-white">
+        <Link to="/blog" className="text-sm font-black text-sky-100 transition hover:text-white">
           &lt; {copy.back}
         </Link>
 
@@ -75,7 +75,7 @@ export default function BlogPostPage() {
               <h2 className="text-lg font-black text-white">{copy.sources}</h2>
               <div className="mt-4 space-y-3">
                 {post.sources.map((source) => (
-                  <a key={source.href} href={source.href} target="_blank" rel="noreferrer" className="block rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm font-bold leading-6 text-teal-100 transition hover:border-teal-200/35 hover:bg-white/[0.09]">
+                  <a key={source.href} href={source.href} target="_blank" rel="noreferrer" className="block rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm font-bold leading-6 text-sky-100 transition hover:border-sky-200/35 hover:bg-white/[0.09]">
                     {source.label}
                   </a>
                 ))}
@@ -84,7 +84,7 @@ export default function BlogPostPage() {
           </aside>
         </div>
 
-        <section className="mt-12 rounded-[2rem] border border-white/10 bg-gradient-to-br from-teal-300/14 via-white/[0.06] to-pink-300/12 p-6 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-8">
+        <section className="mt-12 rounded-[2rem] border border-white/10 bg-gradient-to-br from-sky-300/14 via-white/[0.06] to-pink-300/12 p-6 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-8">
           <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h2 className="text-2xl font-black text-white">{copy.discuss}</h2>
@@ -102,7 +102,7 @@ export default function BlogPostPage() {
                 <Badge tone="white">{item.category}</Badge>
                 <h3 className="mt-5 text-xl font-black text-white">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">{item.excerpt}</p>
-                <div className="mt-5 text-sm font-black text-teal-100">{copy.read} &gt;</div>
+                <div className="mt-5 text-sm font-black text-sky-100">{copy.read} &gt;</div>
               </Link>
             ))}
           </div>

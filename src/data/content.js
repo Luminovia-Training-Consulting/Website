@@ -21,7 +21,7 @@ export const coreOffers = [
       "Optional executive briefing for leadership alignment",
     ],
     bestFor: "Companies, public-sector teams, education providers, SMEs",
-    gradient: "from-cyan-300/20 via-blue-400/10 to-violet-500/20",
+    gradient: "from-sky-300/20 via-blue-400/10 to-violet-500/20",
   },
   {
     kicker: "Freelance lecturer",
@@ -36,7 +36,7 @@ export const coreOffers = [
       "German or English teaching for mixed skill levels",
     ],
     bestFor: "Training providers, universities, academies, adult education",
-    gradient: "from-emerald-300/15 via-cyan-300/10 to-blue-500/20",
+    gradient: "from-blue-300/15 via-sky-300/10 to-blue-500/20",
   },
   {
     kicker: "Talks & lectures",
@@ -51,7 +51,7 @@ export const coreOffers = [
       "Custom talk design for your audience and industry",
     ],
     bestFor: "Conferences, business events, schools, universities, internal events",
-    gradient: "from-violet-400/20 via-fuchsia-400/10 to-cyan-300/20",
+    gradient: "from-violet-400/20 via-fuchsia-400/10 to-sky-300/20",
   },
 ];
 

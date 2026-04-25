@@ -78,7 +78,7 @@ export default function ContactPage() {
             </div>
             <div className="mt-8 grid gap-3">
               {contacts.map((item) => (
-                <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="block rounded-3xl border border-white/10 bg-white/5 p-4 transition hover:border-cyan-200/30 hover:bg-white/10">
+                <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="block rounded-3xl border border-white/10 bg-white/5 p-4 transition hover:border-sky-200/30 hover:bg-white/10">
                   <div className="text-xs uppercase tracking-[0.18em] text-slate-500">{item.label}</div>
                   <div className="mt-1 font-bold text-white">{item.value}</div>
                 </a>
@@ -92,36 +92,36 @@ export default function ContactPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
                   {t.contact.name} *
-                  <input required name="name" value={form.name} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.namePlaceholder} />
+                  <input required name="name" value={form.name} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.namePlaceholder} />
                 </label>
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
                   {t.contact.email} *
-                  <input required type="email" name="email" value={form.email} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.emailPlaceholder} />
+                  <input required type="email" name="email" value={form.email} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.emailPlaceholder} />
                 </label>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
                   {t.contact.phone}
-                  <input name="phone" value={form.phone} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.phonePlaceholder} />
+                  <input name="phone" value={form.phone} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.phonePlaceholder} />
                 </label>
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
                   {t.contact.topic}
-                  <input name="topic" value={form.topic} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.topicPlaceholder} />
+                  <input name="topic" value={form.topic} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.topicPlaceholder} />
                 </label>
               </div>
               <label className="grid gap-2 text-sm font-bold text-slate-200">
                 {t.contact.audience}
-                <input name="audience" value={form.audience} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.audiencePlaceholder} />
+                <input name="audience" value={form.audience} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.audiencePlaceholder} />
               </label>
               <label className="grid gap-2 text-sm font-bold text-slate-200">
                 {t.contact.message} *
-                <textarea required name="message" value={form.message} onChange={updateField} rows="6" className="resize-y rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.messagePlaceholder} />
+                <textarea required name="message" value={form.message} onChange={updateField} rows="6" className="resize-y rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-200/60" placeholder={t.contact.messagePlaceholder} />
               </label>
-              <button disabled={sending} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:bg-cyan-100 disabled:cursor-not-allowed disabled:opacity-60">
+              <button disabled={sending} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 shadow-xl shadow-sky-500/20 transition hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-60">
                 {sending ? t.contact.sending : t.contact.send}
               </button>
               {status.message && (
-                <div className={status.type === "success" ? "rounded-2xl border border-emerald-300/30 bg-emerald-300/10 p-4 text-sm font-bold text-emerald-50" : "rounded-2xl border border-rose-300/30 bg-rose-300/10 p-4 text-sm font-bold text-rose-50"}>
+                <div className={status.type === "success" ? "rounded-2xl border border-blue-300/30 bg-blue-300/10 p-4 text-sm font-bold text-blue-50" : "rounded-2xl border border-rose-300/30 bg-rose-300/10 p-4 text-sm font-bold text-rose-50"}>
                   {status.message}
                 </div>
               )}

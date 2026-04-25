@@ -56,17 +56,17 @@ export default function MyWayPage() {
             </div>
           </div>
           <div className="relative">
-            <div className="absolute bottom-0 left-5 top-0 hidden w-px bg-gradient-to-b from-cyan-200/60 via-white/15 to-violet-300/40 md:block" />
+            <div className="absolute bottom-0 left-5 top-0 hidden w-px bg-gradient-to-b from-sky-200/60 via-white/15 to-violet-300/40 md:block" />
             <div className="grid gap-5">
               {lifeMilestones.map((item) => (
                 <div key={`${item.year}-${item.title}`} className="relative md:pl-16">
-                  <div className="absolute left-0 top-7 hidden h-10 w-10 place-items-center rounded-2xl border border-cyan-200/30 bg-[#0B1224] text-xs font-black text-cyan-100 md:grid">
+                  <div className="absolute left-0 top-7 hidden h-10 w-10 place-items-center rounded-2xl border border-sky-200/30 bg-[#0B1224] text-xs font-black text-sky-100 md:grid">
                     {item.year.slice(0, 2)}
                   </div>
-                  <Card className="bg-gradient-to-br from-white/[0.065] via-cyan-300/[0.035] to-violet-300/[0.05]">
+                  <Card className="bg-gradient-to-br from-white/[0.065] via-sky-300/[0.035] to-violet-300/[0.05]">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div>
-                        <div className="text-sm font-black uppercase tracking-[0.18em] text-cyan-100">{item.category}</div>
+                        <div className="text-sm font-black uppercase tracking-[0.18em] text-sky-100">{item.category}</div>
                         <h3 className="mt-3 text-2xl font-black text-white">{item.title}</h3>
                       </div>
                       <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-black text-white">{item.year}</div>

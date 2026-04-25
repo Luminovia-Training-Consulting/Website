@@ -16,12 +16,12 @@ function HeroVisual() {
   return (
     <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
       <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
-        <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-teal-200/24 via-transparent to-pink-200/22 opacity-80 blur-xl" />
+        <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/24 via-transparent to-pink-200/22 opacity-80 blur-xl" />
         <Photo src={IMAGES.hero} alt="Carina Sophie Schoppe portrait" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" />
         <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-white/10 bg-[#08090B]/72 p-4 shadow-xl backdrop-blur-2xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{t.home.mainFocus}</div>
+              <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
               <div className="mt-1 text-lg font-black text-white">{t.home.focusValue}</div>
             </div>
             <div className="rounded-full bg-white px-3 py-1 text-xs font-black text-zinc-950">{t.home.remote}</div>
@@ -29,7 +29,7 @@ function HeroVisual() {
         </div>
       </div>
       <div className="absolute -right-2 top-8 rounded-[1.35rem] border border-white/10 bg-white/[0.1] p-4 shadow-2xl backdrop-blur-2xl transition duration-700 hover:-translate-y-1 sm:-right-8">
-        <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{t.home.learnerRating}</div>
+        <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{t.home.learnerRating}</div>
         <div className="mt-1 text-sm font-black text-white">4.9 / 5</div>
       </div>
       <div className="absolute -left-10 top-1/3 grid gap-3">
@@ -46,7 +46,7 @@ function MobileHeroSignal() {
     <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
       <Photo src={IMAGES.headshot} alt="Carina Sophie Schoppe portrait" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" />
       <div className="pr-2">
-        <div className="text-[11px] font-black uppercase tracking-[0.14em] text-teal-100">{t.home.mainFocus}</div>
+        <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
         <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
         <div className="mt-2 inline-flex rounded-full bg-white px-3 py-1 text-[11px] font-black text-zinc-950">{t.home.remote}</div>
       </div>
@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(20,184,166,.16),transparent_34%),linear-gradient(245deg,rgba(244,114,182,.13),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(56,189,248,.18),transparent_34%),linear-gradient(245deg,rgba(37,99,235,.17),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="enter-up">
             <Badge>{t.home.badge}</Badge>
@@ -102,8 +102,8 @@ export default function HomePage() {
           <div className="stagger-grid grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {teachingProof.map((proof) => (
               <Card key={proof.title}>
-                <div className="mb-5 h-1 w-12 rounded-full bg-teal-200" />
-                <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{proof.title}</div>
+                <div className="mb-5 h-1 w-12 rounded-full bg-sky-200" />
+                <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{proof.title}</div>
                 <h3 className="mt-3 text-xl font-black text-white">{proof.value}</h3>
                 <p className="mt-4 text-sm leading-7 text-zinc-300">{proof.copy}</p>
               </Card>
@@ -146,15 +146,15 @@ export default function HomePage() {
           </div>
           <div className="stagger-grid grid gap-5 lg:grid-cols-3">
             {coreOffers.map((offer, index) => (
-              <Card key={offer.title} className={cn(index === 1 ? "border-emerald-200/24" : "")}>
+              <Card key={offer.title} className={cn(index === 1 ? "border-blue-200/24" : "")}>
                 <Badge tone={index === 0 ? "cyan" : index === 1 ? "emerald" : "violet"}>{offer.kicker}</Badge>
                 <h3 className="mt-5 text-xl font-black text-white">{offer.title}</h3>
-                <p className="mt-3 text-base font-black text-teal-100">{offer.outcome}</p>
+                <p className="mt-3 text-base font-black text-sky-100">{offer.outcome}</p>
                 <p className="mt-4 text-sm leading-7 text-zinc-300">{offer.copy}</p>
                 <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-sm font-bold text-zinc-200">Best for: {offer.bestFor}</div>
                 <div className="mt-5 space-y-2">
                   {offer.deliverables.slice(0, 4).map((item) => (
-                    <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><span className="text-teal-200">✓</span>{item}</div>
+                    <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><span className="text-sky-200">✓</span>{item}</div>
                   ))}
                 </div>
               </Card>

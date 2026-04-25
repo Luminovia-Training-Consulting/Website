@@ -68,7 +68,7 @@ export default function SkillsPage() {
           </div>
           <div className="grid gap-5 lg:grid-cols-4">
             {trainingTopics.map((topic) => (
-              <Card key={topic.group} className="bg-gradient-to-br from-cyan-300/10 via-white/[0.04] to-violet-300/10">
+              <Card key={topic.group} className="bg-gradient-to-br from-sky-300/10 via-white/[0.04] to-violet-300/10">
                 <h3 className="text-2xl font-black text-white">{topic.group}</h3>
                 <div className="mt-5 grid gap-2">
                   {topic.items.map((item) => (

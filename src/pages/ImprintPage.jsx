@@ -58,7 +58,7 @@ export default function ImprintPage() {
             <h2 className="text-2xl font-black text-white">{copy.contact}</h2>
             <div className="mt-5 space-y-1 text-slate-300">
               <p>{copy.phone}: 01755738757</p>
-              <p>{copy.email}: <a className="font-bold text-cyan-100 hover:text-white" href="mailto:info@carinaschoppe.com">info@carinaschoppe.com</a></p>
+              <p>{copy.email}: <a className="font-bold text-sky-100 hover:text-white" href="mailto:info@carinaschoppe.com">info@carinaschoppe.com</a></p>
             </div>
           </Card>
 
@@ -70,7 +70,7 @@ export default function ImprintPage() {
           <Card>
             <h2 className="text-2xl font-black text-white">{copy.odr}</h2>
             <p className="mt-5 leading-7 text-slate-300">
-              {copy.odrCopy} <a className="font-bold text-cyan-100 hover:text-white" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">https://ec.europa.eu/consumers/odr/</a>. {copy.odrTail}
+              {copy.odrCopy} <a className="font-bold text-sky-100 hover:text-white" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">https://ec.europa.eu/consumers/odr/</a>. {copy.odrTail}
             </p>
           </Card>
 

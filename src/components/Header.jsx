@@ -6,7 +6,7 @@ import { useLanguage } from "../i18n.jsx";
 
 function navClass({ isActive }) {
   return isActive
-    ? "rounded-full bg-white px-3 py-2 text-sm font-bold text-zinc-950 shadow-[0_12px_34px_rgba(45,212,191,.16)]"
+    ? "rounded-full bg-white px-3 py-2 text-sm font-bold text-zinc-950 shadow-[0_12px_34px_rgba(37,99,235,.18)]"
     : "rounded-full px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.08] hover:text-white";
 }
 
@@ -18,7 +18,7 @@ export default function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#08090B]/62 shadow-[0_14px_50px_rgba(0,0,0,.18)] backdrop-blur-2xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <NavLink to="/" className="group flex items-center gap-3 text-left">
-          <div className="grid h-10 w-10 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-teal-50 to-pink-50 text-sm font-black text-zinc-950 shadow-[0_10px_32px_rgba(45,212,191,.18)] transition duration-500 group-hover:rotate-2">
+          <div className="grid h-10 w-10 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-blue-100 text-sm font-black text-zinc-950 shadow-[0_10px_32px_rgba(37,99,235,.22)] transition duration-500 group-hover:rotate-2">
             CS
           </div>
           <div className="hidden sm:block">
@@ -43,7 +43,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-[radial-gradient(circle_at_20%_5%,rgba(45,212,191,.18),transparent_36%),radial-gradient(circle_at_90%_20%,rgba(244,114,182,.18),transparent_34%),rgba(8,9,11,.95)] p-5 backdrop-blur-2xl lg:hidden">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-[radial-gradient(circle_at_20%_5%,rgba(56,189,248,.22),transparent_36%),radial-gradient(circle_at_72%_18%,rgba(37,99,235,.24),transparent_34%),radial-gradient(circle_at_92%_28%,rgba(216,180,254,.14),transparent_34%),rgba(8,9,11,.95)] p-5 backdrop-blur-2xl lg:hidden">
           <div className="mb-10 flex items-center justify-between">
             <span className="text-lg font-black text-white">Navigation</span>
             <div className="flex gap-2">

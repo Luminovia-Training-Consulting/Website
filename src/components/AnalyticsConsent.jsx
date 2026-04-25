@@ -62,7 +62,7 @@ export default function AnalyticsConsent() {
           <button onClick={() => choose("declined")} className="rounded-full border border-white/10 px-4 py-3 text-sm font-black text-slate-200 transition hover:bg-white/10">
             {t.analytics.decline}
           </button>
-          <button onClick={() => choose("accepted")} className="rounded-full bg-white px-4 py-3 text-sm font-black text-slate-950 transition hover:bg-cyan-100">
+          <button onClick={() => choose("accepted")} className="rounded-full bg-white px-4 py-3 text-sm font-black text-slate-950 transition hover:bg-sky-100">
             {t.analytics.accept}
           </button>
         </div>

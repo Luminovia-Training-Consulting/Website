@@ -42,11 +42,11 @@ export default function CredentialsPage() {
           {visible.map((credential) => (
             <Card key={credential.title}>
               <div className="mb-5 flex items-center justify-between gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-2xl bg-emerald-300 text-sm font-black text-slate-950">✓</div>
+                <div className="grid h-10 w-10 place-items-center rounded-2xl bg-blue-300 text-sm font-black text-slate-950">✓</div>
                 <Badge tone="white">{credential.category}</Badge>
               </div>
               <h2 className="text-xl font-black text-white">{credential.title}</h2>
-              <p className="mt-3 text-sm font-bold leading-6 text-cyan-100">{credential.meta}</p>
+              <p className="mt-3 text-sm font-bold leading-6 text-sky-100">{credential.meta}</p>
               <p className="mt-3 text-sm leading-7 text-slate-300">{credential.detail}</p>
             </Card>
           ))}

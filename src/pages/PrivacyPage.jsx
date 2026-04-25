@@ -47,7 +47,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-black text-white">{isDe ? "Kontakt" : "Contact"}</h2>
             <p className="mt-5 leading-7 text-slate-300">
               {isDe ? "Bei Datenschutzfragen kontaktieren Sie " : "For privacy questions, contact "}
-              <a className="font-bold text-cyan-100 hover:text-white" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>.
+              <a className="font-bold text-sky-100 hover:text-white" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>.
             </p>
           </Card>
         </div>

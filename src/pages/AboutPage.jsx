@@ -99,7 +99,7 @@ export default function AboutPage() {
           <div className="mt-6 grid gap-4 lg:grid-cols-5">
             {timeline.map((item) => (
               <Card key={item.year}>
-                <div className="text-sm font-black text-teal-100">{item.year}</div>
+                <div className="text-sm font-black text-sky-100">{item.year}</div>
                 <h3 className="mt-3 text-xl font-black text-white">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">{item.copy}</p>
               </Card>

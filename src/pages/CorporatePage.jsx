@@ -73,7 +73,7 @@ export default function CorporatePage() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl border border-teal-200/20 bg-teal-200/10 p-6 shadow-2xl shadow-black/25 sm:p-8">
+        <div className="mt-16 rounded-2xl border border-sky-200/20 bg-sky-200/10 p-6 shadow-2xl shadow-black/25 sm:p-8">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h2 className="text-3xl font-black text-white">{c.ctaTitle}</h2>

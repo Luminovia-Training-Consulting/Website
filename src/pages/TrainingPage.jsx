@@ -43,7 +43,7 @@ export default function TrainingPage() {
             <Card key={offer.title} className={cn("bg-gradient-to-br", offer.gradient)}>
               <Badge tone="cyan">{offer.kicker}</Badge>
               <h2 className="mt-5 text-2xl font-black text-white">{offer.title}</h2>
-              <p className="mt-3 text-lg font-black text-cyan-100">{offer.outcome}</p>
+              <p className="mt-3 text-lg font-black text-sky-100">{offer.outcome}</p>
               <p className="mt-4 text-sm leading-7 text-slate-300">{offer.copy}</p>
               <div className="mt-7 grid gap-3">
                 {offer.deliverables.map((item) => <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">{item}</div>)}
@@ -78,7 +78,7 @@ export default function TrainingPage() {
           <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {formats.map((format) => (
               <Card key={format.title}>
-                <div className="text-sm font-black uppercase tracking-[0.18em] text-cyan-100">{format.label}</div>
+                <div className="text-sm font-black uppercase tracking-[0.18em] text-sky-100">{format.label}</div>
                 <h3 className="mt-3 text-2xl font-black text-white">{format.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-300">{format.copy}</p>
               </Card>

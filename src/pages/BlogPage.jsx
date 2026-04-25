@@ -41,7 +41,7 @@ export default function BlogPage() {
         </div>
 
         <section className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <Card className="bg-gradient-to-br from-teal-300/18 via-white/[0.07] to-pink-300/14">
+          <Card className="bg-gradient-to-br from-sky-300/18 via-white/[0.07] to-pink-300/14">
             <Badge tone="cyan">{copy.featured}</Badge>
             <div className="mt-5 flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.14em] text-slate-400">
               <span>{featured.category}</span>
@@ -62,9 +62,9 @@ export default function BlogPage() {
                 <Link
                   key={post.slug}
                   to={`/blog/${post.slug}`}
-                  className="block rounded-3xl border border-white/10 bg-white/[0.055] p-4 transition duration-500 hover:-translate-y-0.5 hover:border-teal-200/35 hover:bg-white/[0.09]"
+                  className="block rounded-3xl border border-white/10 bg-white/[0.055] p-4 transition duration-500 hover:-translate-y-0.5 hover:border-sky-200/35 hover:bg-white/[0.09]"
                 >
-                  <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{post.category}</div>
+                  <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{post.category}</div>
                   <div className="mt-2 font-black text-white">{post.title}</div>
                   <div className="mt-1 text-xs font-bold text-slate-500">{post.readTime}</div>
                 </Link>
@@ -86,7 +86,7 @@ export default function BlogPage() {
                 <span>{post.readTime}</span>
               </div>
               <p className="mt-4 text-sm leading-7 text-slate-300">{post.excerpt}</p>
-              <span className="mt-auto pt-6 text-sm font-black text-teal-100">{copy.read} &gt;</span>
+              <span className="mt-auto pt-6 text-sm font-black text-sky-100">{copy.read} &gt;</span>
             </Link>
           ))}
         </section>

@@ -33,10 +33,10 @@ export default function ClientProofSection({ compact = false }) {
               className="soft-link-card group p-5"
             >
               <div className="mb-5 flex items-start justify-between gap-4">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-teal-50 to-pink-50 text-sm font-black text-zinc-950 shadow-lg shadow-teal-500/10">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-pink-50 text-sm font-black text-zinc-950 shadow-lg shadow-sky-500/10">
                   {client.initials}
                 </div>
-                <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-teal-100 transition group-hover:border-teal-100/40">
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-sky-100 transition group-hover:border-sky-100/40">
                   {t.visit}
                 </span>
               </div>
@@ -50,7 +50,7 @@ export default function ClientProofSection({ compact = false }) {
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {testimonialProof.map((item) => (
             <Card key={item.title}>
-              <div className="mb-5 text-4xl font-black text-teal-100/70">"</div>
+              <div className="mb-5 text-4xl font-black text-sky-100/70">"</div>
               <h3 className="text-2xl font-black text-white">{item.title}</h3>
               <p className="mt-4 text-sm leading-7 text-zinc-300">{item.quote}</p>
             </Card>
