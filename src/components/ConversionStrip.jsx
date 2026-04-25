@@ -7,7 +7,7 @@ export default function ConversionStrip() {
   const { t } = useLanguage();
   return (
     <section className="px-4 py-8 sm:px-6 lg:px-8">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.11] via-white/[0.065] to-white/[0.035] p-5 shadow-[0_26px_100px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:p-7">
+      <div className="glass-sheen relative mx-auto max-w-7xl overflow-hidden rounded-[2.35rem] border border-white/10 bg-gradient-to-br from-white/[0.13] via-white/[0.07] to-white/[0.035] p-5 shadow-[0_30px_115px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-7">
         <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-teal-100/70 to-transparent" />
         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div>

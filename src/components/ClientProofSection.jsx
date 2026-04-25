@@ -9,7 +9,7 @@ export default function ClientProofSection({ compact = false }) {
   const visibleClients = compact ? formerClients.slice(0, 8) : formerClients;
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8">
+    <section className="soft-section px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>

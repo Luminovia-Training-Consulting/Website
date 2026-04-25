@@ -14,9 +14,9 @@ import { cn } from "../components/utils.js";
 function HeroVisual() {
   const { t } = useLanguage();
   return (
-    <div className="relative mx-auto hidden w-full max-w-[520px] lg:block">
-      <div className="relative rounded-[2.6rem] border border-white/10 bg-gradient-to-br from-white/[0.13] via-white/[0.065] to-white/[0.035] p-2 shadow-[0_32px_120px_rgba(0,0,0,.34)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
-        <div className="pointer-events-none absolute -inset-1 rounded-[2.7rem] bg-gradient-to-br from-teal-200/20 via-transparent to-pink-200/18 opacity-80 blur-xl" />
+    <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
+      <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
+        <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-teal-200/24 via-transparent to-pink-200/22 opacity-80 blur-xl" />
         <Photo src={IMAGES.hero} alt="Carina Sophie Schoppe portrait" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" />
         <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-white/10 bg-[#08090B]/72 p-4 shadow-xl backdrop-blur-2xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -32,6 +32,10 @@ function HeroVisual() {
         <div className="text-xs font-black uppercase tracking-[0.14em] text-teal-100">{t.home.learnerRating}</div>
         <div className="mt-1 text-sm font-black text-white">4.9 / 5</div>
       </div>
+      <div className="absolute -left-10 top-1/3 grid gap-3">
+        <span className="signal-pill">AI teaching</span>
+        <span className="signal-pill translate-x-6">Agentic workflows</span>
+      </div>
     </div>
   );
 }
@@ -39,7 +43,7 @@ function HeroVisual() {
 function MobileHeroSignal() {
   const { t } = useLanguage();
   return (
-    <div className="mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[1.75rem] border border-white/10 bg-white/[0.075] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
+    <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
       <Photo src={IMAGES.headshot} alt="Carina Sophie Schoppe portrait" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" />
       <div className="pr-2">
         <div className="text-[11px] font-black uppercase tracking-[0.14em] text-teal-100">{t.home.mainFocus}</div>
@@ -55,19 +59,19 @@ export default function HomePage() {
   const { trustStats, teachingProof, coreOffers, capabilities } = useSiteContent();
   return (
     <main>
-      <section className="relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
+      <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
         <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(20,184,166,.16),transparent_34%),linear-gradient(245deg,rgba(244,114,182,.13),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="enter-up">
             <Badge>{t.home.badge}</Badge>
             <MobileHeroSignal />
-            <h1 className="mt-6 max-w-5xl text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="hero-title mt-6 max-w-5xl text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
               {t.home.title}
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
               {t.home.intro}
             </p>
-            <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.07] p-4 text-sm leading-7 text-zinc-300 shadow-[0_16px_60px_rgba(0,0,0,.18)] backdrop-blur-2xl">
+            <div className="glass-sheen mt-7 rounded-[2rem] border border-white/10 bg-white/[0.08] p-4 text-sm leading-7 text-zinc-300 shadow-[0_18px_70px_rgba(0,0,0,.2)] backdrop-blur-2xl">
               <strong className="text-white">{t.home.coreOffer}</strong> {t.home.coreCopy}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -82,7 +86,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-4 py-14 sm:px-6 lg:px-8">
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
@@ -111,7 +115,7 @@ export default function HomePage() {
       <ClientProofSection compact />
       <SoftwareProjectsSection compact />
 
-      <section className="px-4 py-14 sm:px-6 lg:px-8">
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
             <Badge tone="emerald">{t.home.explore}</Badge>
@@ -131,7 +135,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-4 py-14 sm:px-6 lg:px-8">
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
@@ -159,7 +163,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-4 py-14 sm:px-6 lg:px-8">
+      <section className="soft-section px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div>
             <Badge tone="amber">{t.home.credible}</Badge>

@@ -21,8 +21,31 @@
   from { transform: translateX(-110%); }
   to { transform: translateX(110%); }
 }
+@keyframes slowFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg); }
+  50% { transform: translate3d(0, -12px, 0) rotate(1deg); }
+}
+@keyframes glintSweep {
+  0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  20%, 70% { opacity: .55; }
+  100% { transform: translateX(120%) skewX(-18deg); opacity: 0; }
+}
+@keyframes haloBreath {
+  0%, 100% { filter: blur(22px); opacity: .52; }
+  50% { filter: blur(30px); opacity: .82; }
+}
 
 .enter-up { animation: enterUp .28s ease-out both; }
+.hero-float { animation: slowFloat 8s ease-in-out infinite; }
+.hero-title {
+  text-shadow: 0 18px 70px rgba(0,0,0,.36);
+}
+.hero-title-mark {
+  background: linear-gradient(92deg, #fff 0%, #d7fff8 38%, #ffe7f4 72%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .ambient-veil {
   background:
     radial-gradient(1200px 720px at 10% -8%, rgba(45, 212, 191, .2), transparent 52%),
@@ -41,6 +64,32 @@
   filter: blur(18px);
   mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
 }
+.soft-section {
+  position: relative;
+}
+.soft-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.026), transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 84%, transparent);
+}
+.glass-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.glass-sheen::after {
+  content: "";
+  position: absolute;
+  inset: -40% -70%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  animation: glintSweep 7s ease-in-out infinite;
+  pointer-events: none;
+}
+.breathing-halo {
+  animation: haloBreath 7s ease-in-out infinite;
+}
 .ambient-grid {
   animation: softPulse 8s ease-in-out infinite;
   background-image: linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px);
@@ -58,11 +107,13 @@
 .soft-link-card {
   position: relative;
   overflow: hidden;
-  border-radius: 1.75rem;
+  border-radius: 2rem;
   border: 1px solid rgba(255,255,255,.11);
-  background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.045));
-  box-shadow: 0 22px 80px rgba(0,0,0,.23);
-  backdrop-filter: blur(22px);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.045)),
+    linear-gradient(90deg, rgba(94,234,212,.06), rgba(244,114,182,.05));
+  box-shadow: 0 24px 90px rgba(0,0,0,.24);
+  backdrop-filter: blur(26px);
   transition: transform .55s cubic-bezier(.2,.8,.2,1), border-color .55s, background .55s, box-shadow .55s;
 }
 .soft-link-card::before {
@@ -79,6 +130,28 @@
   border-color: rgba(94,234,212,.38);
   background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
   box-shadow: 0 30px 110px rgba(20,184,166,.13), 0 22px 80px rgba(0,0,0,.24);
+}
+.signal-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.07);
+  padding: .55rem .75rem;
+  font-size: .78rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.9);
+  box-shadow: 0 14px 46px rgba(0,0,0,.16);
+  backdrop-filter: blur(18px);
+}
+.signal-pill::before {
+  content: "";
+  width: .42rem;
+  height: .42rem;
+  border-radius: 999px;
+  background: #7dd3fc;
+  box-shadow: 0 0 18px rgba(125, 211, 252, .8);
 }
 .soft-link-card:hover::before {
   opacity: 1;
