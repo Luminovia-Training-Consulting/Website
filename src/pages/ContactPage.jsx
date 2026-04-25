@@ -6,12 +6,6 @@ import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 
-const contacts = [
-  { label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}` },
-  { label: "LinkedIn", value: "linkedin.com/in/carinaschoppe", href: PROFILE.linkedin },
-  { label: "GitHub", value: "github.com/CarinaSchoppe", href: PROFILE.github },
-];
-
 const initialForm = {
   name: "",
   email: "",
@@ -23,8 +17,15 @@ const initialForm = {
 };
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const { faqs } = useSiteContent();
+  const contacts = [
+    { label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}` },
+    { label: language === "de" ? "Telefon Australien" : "Australia phone", value: PROFILE.phoneAustralia, href: `tel:${PROFILE.phoneAustralia.replaceAll(" ", "")}` },
+    { label: language === "de" ? "Telefon Deutschland" : "Germany phone", value: PROFILE.phoneGermany, href: `tel:${PROFILE.phoneGermany.replaceAll(" ", "")}` },
+    { label: "LinkedIn", value: "linkedin.com/in/carinaschoppe", href: PROFILE.linkedin },
+    { label: "GitHub", value: "github.com/CarinaSchoppe", href: PROFILE.github },
+  ];
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [sending, setSending] = useState(false);

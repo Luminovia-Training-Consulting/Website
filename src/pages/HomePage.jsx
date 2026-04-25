@@ -57,7 +57,7 @@ function MobileHeroSignal() {
 function AssetButtons({ t }) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-      <Button href={PROFILE.lecturerProfile} variant="secondary">{t.assets.lecturerProfile}</Button>
+      <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip">{t.assets.lecturerProfile}</Button>
       <Button href={PROFILE.trainingPortfolio} variant="secondary">{t.assets.trainingPortfolio}</Button>
       <Button href={PROFILE.trainingCatalogue} variant="secondary">{t.assets.trainingCatalogue}</Button>
     </div>
@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button to="/contact">{t.bookTrainingCall}</Button>
               <Button to="/skills" variant="secondary">{t.home.exploreCapability}</Button>
-              <Button href={PROFILE.lecturerProfile} variant="secondary">{t.home.downloadProfile}</Button>
+              <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip">{t.home.downloadProfile}</Button>
             </div>
             <div className="mt-5">
               <AssetButtons t={t} />

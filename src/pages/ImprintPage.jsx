@@ -1,5 +1,6 @@
 import Badge from "../components/Badge.jsx";
 import Card from "../components/Card.jsx";
+import { PROFILE } from "../data/profile.js";
 import { useLanguage } from "../i18n.jsx";
 
 export default function ImprintPage() {
@@ -8,17 +9,19 @@ export default function ImprintPage() {
     ? {
       badge: "Rechtliches",
       title: "Impressum",
-      intro: "Rechtliche Angaben für diese Website.",
-      info: "Angaben gemäß § 5 TMG",
+      intro: "Rechtliche Angaben fuer diese Website.",
+      info: "Angaben gemaess Section 5 TMG",
       contact: "Kontakt",
       phone: "Telefon",
       email: "E-Mail",
       editorial: "Redaktionell verantwortlich",
       odr: "EU-Streitschlichtung",
-      odrCopy: "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:",
+      odrCopy: "Die Europaeische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:",
       odrTail: "Die E-Mail-Adresse finden Sie oben im Impressum.",
       consumer: "Verbraucherstreitbeilegung",
       consumerCopy: "Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+      australia: "Australien",
+      germany: "Deutschland",
     }
     : {
       badge: "Legal notice",
@@ -34,6 +37,8 @@ export default function ImprintPage() {
       odrTail: "You can find the email address in the legal notice above.",
       consumer: "Consumer dispute resolution",
       consumerCopy: "I am not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+      australia: "Australia",
+      germany: "Germany",
     };
 
   return (
@@ -47,24 +52,23 @@ export default function ImprintPage() {
           <Card>
             <h2 className="text-2xl font-black text-white">{copy.info}</h2>
             <div className="mt-5 space-y-1 text-slate-300">
-              <p>Carina Sophie Schoppe</p>
-              <p>Under the Hakenberge 5</p>
-              <p>37619 Bodenwerder</p>
-              <p>Germany</p>
+              <p>{PROFILE.name}</p>
+              {PROFILE.addressLines.map((line) => <p key={line}>{line}</p>)}
             </div>
           </Card>
 
           <Card>
             <h2 className="text-2xl font-black text-white">{copy.contact}</h2>
             <div className="mt-5 space-y-1 text-slate-300">
-              <p>{copy.phone}: 01755738757</p>
-              <p>{copy.email}: <a className="font-bold text-sky-100 hover:text-white" href="mailto:info@carinaschoppe.com">info@carinaschoppe.com</a></p>
+              <p>{copy.phone} {copy.australia}: <a className="font-bold text-sky-100 hover:text-white" href={`tel:${PROFILE.phoneAustralia.replaceAll(" ", "")}`}>{PROFILE.phoneAustralia}</a></p>
+              <p>{copy.phone} {copy.germany}: <a className="font-bold text-sky-100 hover:text-white" href={`tel:${PROFILE.phoneGermany.replaceAll(" ", "")}`}>{PROFILE.phoneGermany}</a></p>
+              <p>{copy.email}: <a className="font-bold text-sky-100 hover:text-white" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a></p>
             </div>
           </Card>
 
           <Card>
             <h2 className="text-2xl font-black text-white">{copy.editorial}</h2>
-            <p className="mt-5 text-slate-300">Carina Sophie Schoppe</p>
+            <p className="mt-5 text-slate-300">{PROFILE.name}</p>
           </Card>
 
           <Card>

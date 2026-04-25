@@ -39,7 +39,10 @@ export default function Footer() {
           </p>
           <div className="mt-5 grid gap-2 text-sm text-slate-300">
             <a href={`mailto:${PROFILE.email}`} className="font-bold text-sky-100 hover:text-white">{PROFILE.email}</a>
+            <a href={`tel:${PROFILE.phoneAustralia.replaceAll(" ", "")}`} className="text-slate-300 hover:text-white">{PROFILE.phoneAustralia}</a>
+            <a href={`tel:${PROFILE.phoneGermany.replaceAll(" ", "")}`} className="text-slate-300 hover:text-white">{PROFILE.phoneGermany}</a>
             <span>{labels.location}</span>
+            {PROFILE.addressLines.map((line) => <span key={line}>{line}</span>)}
             <span>{labels.delivery}</span>
             <span>{labels.languages}</span>
           </div>
@@ -50,7 +53,7 @@ export default function Footer() {
           <div className="mt-4 grid gap-2">
             <Link to="/contact" className={linkClass}>{t.nav.book}</Link>
             <a href={PROFILE.appointmentSchedule} target="_blank" rel="noreferrer" className={linkClass}>{labels.appointment}</a>
-            <a href={PROFILE.lecturerProfile} target="_blank" rel="noreferrer" className={linkClass}>{t.assets.lecturerProfile}</a>
+            <a href={PROFILE.lecturerProfile} target="_blank" rel="noreferrer" download="lecturer.zip" className={linkClass}>{t.assets.lecturerProfile}</a>
             <a href={PROFILE.trainingPortfolio} target="_blank" rel="noreferrer" className={linkClass}>{t.assets.trainingPortfolio}</a>
             <a href={PROFILE.trainingCatalogue} target="_blank" rel="noreferrer" className={linkClass}>{t.assets.trainingCatalogue}</a>
           </div>
