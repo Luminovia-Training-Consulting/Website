@@ -151,7 +151,7 @@ export default function ContactPage() {
               </div>
             </Card>
 
-            <section id="appointment" className="glass-sheen rounded-[2.15rem] border border-sky-200/16 bg-[linear-gradient(145deg,rgba(56,189,248,.16),rgba(37,99,235,.08)_45%,rgba(255,255,255,.045))] p-5 shadow-[0_26px_96px_rgba(37,99,235,.18)] backdrop-blur-2xl sm:p-6">
+            <section id="appointment" className="glass-sheen rounded-[2.15rem] border border-white/13 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,.16),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.055)_48%,rgba(255,255,255,.035))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,.1),0_26px_96px_rgba(0,0,0,.28)] backdrop-blur-2xl sm:p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <h2 className="text-2xl font-black text-white">{t.contact.appointmentTitle}</h2>

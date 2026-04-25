@@ -123,9 +123,9 @@ function load_contact_config(): array
         'smtp_secure' => strtolower((string) env_value('SMTP_SECURE', $fallback['smtp_secure'] ?? 'ssl')),
         'smtp_user' => env_value('SMTP_USERNAME', $fallback['smtp_user'] ?? ''),
         'smtp_pass' => env_value('SMTP_PASSWORD', $fallback['smtp_pass'] ?? ''),
-        'mail_from' => env_value('MAIL_FROM', $fallback['mail_from'] ?? ''),
-        'mail_from_name' => env_value('MAIL_FROM_NAME', $fallback['mail_from_name'] ?? 'Website Contact Form'),
-        'mail_to' => env_value('MAIL_TO', $fallback['mail_to'] ?? ''),
+        'mail_from' => env_value('MAIL_FROM', $fallback['mail_from'] ?? 'info@carinaschoppe.com'),
+        'mail_from_name' => env_value('MAIL_FROM_NAME', $fallback['mail_from_name'] ?? 'Carina Sophie Schoppe Website'),
+        'mail_to' => env_value('MAIL_TO', $fallback['mail_to'] ?? 'info@carinaschoppe.com'),
         'smtp_verify_peer' => filter_var(env_value('SMTP_VERIFY_PEER', $fallback['smtp_verify_peer'] ?? 'true'), FILTER_VALIDATE_BOOLEAN),
         'contact_transport' => strtolower((string) env_value('CONTACT_TRANSPORT', $fallback['contact_transport'] ?? 'auto')),
         'contact_debug' => filter_var(env_value('CONTACT_DEBUG', 'false'), FILTER_VALIDATE_BOOLEAN),
@@ -136,7 +136,7 @@ function load_contact_config(): array
     }
 
     $requiredKeys = ['mail_from', 'mail_to'];
-    if ($config['contact_transport'] !== 'mail') {
+    if ($config['contact_transport'] === 'smtp') {
         $requiredKeys = array_merge($requiredKeys, ['smtp_host', 'smtp_user', 'smtp_pass']);
     }
 
@@ -146,12 +146,12 @@ function load_contact_config(): array
         }
     }
 
-    if ($config['contact_transport'] !== 'mail' && !in_array($config['smtp_secure'], ['ssl', 'starttls', 'none'], true)) {
+    if ($config['contact_transport'] !== 'mail' && trim((string) $config['smtp_secure']) !== '' && !in_array($config['smtp_secure'], ['ssl', 'starttls', 'none'], true)) {
         throw new RuntimeException('Invalid SMTP_SECURE setting. Use ssl, starttls or none.');
     }
 
     $emailKeys = ['mail_from', 'mail_to'];
-    if ($config['contact_transport'] !== 'mail') {
+    if ($config['contact_transport'] === 'smtp' || trim((string) $config['smtp_user']) !== '') {
         $emailKeys[] = 'smtp_user';
     }
 
@@ -242,13 +242,19 @@ function send_contact_mail(array $config, string $subject, string $body, string 
         throw new RuntimeException('PHP mail transport returned false.');
     }
 
-    foreach (smtp_attempts($config) as $attempt) {
-        try {
-            smtp_send($attempt, $subject, $body, $replyToEmail, $replyToName);
-            return;
-        } catch (Throwable $error) {
-            $errors[] = $attempt['label'] . ': ' . $error->getMessage();
+    if (smtp_configured($config)) {
+        foreach (smtp_attempts($config) as $attempt) {
+            try {
+                smtp_send($attempt, $subject, $body, $replyToEmail, $replyToName);
+                return;
+            } catch (Throwable $error) {
+                $errors[] = $attempt['label'] . ': ' . $error->getMessage();
+            }
         }
+    } elseif ($transport === 'smtp') {
+        throw new RuntimeException('SMTP transport selected but SMTP_HOST, SMTP_USERNAME or SMTP_PASSWORD is missing.');
+    } else {
+        $errors[] = 'SMTP skipped because SMTP_USERNAME or SMTP_PASSWORD is missing.';
     }
 
     if ($transport === 'auto' && php_mail_send($config, $subject, $body, $replyToEmail, $replyToName)) {
@@ -257,6 +263,13 @@ function send_contact_mail(array $config, string $subject, string $body, string 
     }
 
     throw new RuntimeException('All mail transports failed. ' . implode(' | ', $errors));
+}
+
+function smtp_configured(array $config): bool
+{
+    return trim((string) ($config['smtp_host'] ?? '')) !== ''
+        && trim((string) ($config['smtp_user'] ?? '')) !== ''
+        && trim((string) ($config['smtp_pass'] ?? '')) !== '';
 }
 
 function smtp_attempts(array $config): array
@@ -347,7 +360,8 @@ function php_mail_send(array $config, string $subject, string $body, string $rep
     ];
 
     $extraParams = '-f' . escapeshellarg((string) $config['mail_from']);
-    return mail((string) $config['mail_to'], encode_header($subject), $body, implode("\r\n", $headers), $extraParams);
+    return mail((string) $config['mail_to'], encode_header($subject), $body, implode("\r\n", $headers), $extraParams)
+        || mail((string) $config['mail_to'], encode_header($subject), $body, implode("\r\n", $headers));
 }
 
 function build_mail_message(array $config, string $subject, string $body, string $replyToEmail, string $replyToName): string

@@ -53,7 +53,7 @@ CONTACT_TRANSPORT=auto
 
 `MAIL_TO` is where the message is sent. For this site it should stay `info@carinaschoppe.com`, so contact-form messages arrive in the same mailbox. The real `.env` is intentionally ignored by Git and must not be committed.
 
-`CONTACT_TRANSPORT=auto` tries authenticated SMTP first and falls back to PHP `mail()`. If Hostinger blocks outbound SMTP sockets on the web hosting plan, set `CONTACT_TRANSPORT=mail`. If you want to force SMTP only, set `CONTACT_TRANSPORT=smtp`.
+`CONTACT_TRANSPORT=auto` tries authenticated SMTP when `SMTP_HOST`, `SMTP_USERNAME` and `SMTP_PASSWORD` are available. If SMTP is missing or fails, it falls back to PHP `mail()`. If Hostinger blocks outbound SMTP sockets on the web hosting plan, set `CONTACT_TRANSPORT=mail`. If you want to force SMTP only, set `CONTACT_TRANSPORT=smtp`.
 
 Keep `SMTP_VERIFY_PEER=true` by default. Only set it to `false` temporarily if Hostinger PHP cannot validate the SMTP TLS certificate and the contact log says certificate verification failed.
 
