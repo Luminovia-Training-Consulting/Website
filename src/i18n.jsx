@@ -48,7 +48,7 @@ const dictionaries = {
       requestAvailability: "Request availability",
       credible: "Credible and human",
       credibleTitle: "Personal enough to trust. Professional enough to book.",
-      credibleCopy: "The site combines real portrait photography, clear training offers, teaching proof and technical software depth. The result should feel like a specialist profile, not a generic agency template.",
+      credibleCopy: "You get a clear view of how I teach, what I can deliver, and why the technical depth behind the training matters. It should feel personal, credible and easy to trust before a first call.",
     },
     exploreCards: [
       ["Skills & topics", "A clear map of AI, software, cybersecurity, data, business IT, teaching and communication skills.", "/skills"],
@@ -146,7 +146,7 @@ const dictionaries = {
       requestAvailability: "Verfügbarkeit anfragen",
       credible: "Glaubwürdig und persönlich",
       credibleTitle: "Persönlich genug für Vertrauen. Professionell genug für Buchungen.",
-      credibleCopy: "Die Seite verbindet echte Portraits, klare Trainingsangebote, Teaching Proof und technische Software-Tiefe. Das Profil soll wie eine Spezialistin wirken, nicht wie ein generisches Agenturtemplate.",
+      credibleCopy: "Sie sehen schnell, wie ich unterrichte, welche Formate ich anbiete und warum die technische Tiefe hinter dem Training relevant ist. Das Profil soll persönlich, glaubwürdig und vor dem ersten Gespräch leicht einzuordnen sein.",
     },
     exploreCards: [
       ["Skills & Themen", "Eine klare Übersicht zu AI, Software, Cybersecurity, Daten, Business IT, Didaktik und Kommunikation.", "/skills"],
