@@ -61,31 +61,9 @@ Local `npm run dev` and `npm run preview` do not execute PHP. The contact form c
 
 The older `public/api/contact-config.php` file is still supported as a fallback for local testing, but Hostinger environment variables or `.env` are the preferred setup.
 
-## Public website settings
-
-Public website details can still be overridden with `VITE_*` variables during the Vite build, but they are separate from the SMTP/contact `.env.example`. Use these only in build environment settings if you need to override public contact details:
-
-```txt
-VITE_SITE_NAME="Carina Sophie Schoppe"
-VITE_SITE_ROLE="Freelance IT Lecturer - AI Trainer - Business Technology Speaker"
-VITE_SITE_LOCATION="Brisbane, Australia"
-VITE_SITE_ADDRESS="Unit 28|436 Ann Street|Brisbane QLD 4000|Australia"
-VITE_SITE_REMOTE="Remote delivery for Europe & APAC"
-VITE_SITE_EMAIL=info@carinaschoppe.com
-VITE_SITE_PHONE_AU="+61 451 448 724"
-VITE_SITE_PHONE_DE="+49 175 5738 757"
-VITE_SITE_GITHUB=https://github.com/CarinaSchoppe
-VITE_SITE_LINKEDIN=https://www.linkedin.com/in/carinaschoppe/
-VITE_LECTURER_PROFILE_URL=/lecturer.zip
-VITE_TRAINING_PORTFOLIO_URL=/carina-sophie-schoppe-training-portfolio.html
-VITE_TRAINING_CATALOGUE_URL=/carina-sophie-schoppe-ai-it-training-catalogue.html
-VITE_APPOINTMENT_SCHEDULE_URL=https://calendar.google.com/calendar/appointments/schedules/AcZssZ1DRa4OAiQN9y8F-86ull0Jqb25hCL2ZimE4Wo5dojeEF3eSVDBMk6mGJMUG0mZxUR8wSD5-BB6?gv=true
-VITE_GA_MEASUREMENT_ID=G-YNGD292XE5
-```
-
 ## Google Analytics
 
-Analytics is configured through `VITE_GA_MEASUREMENT_ID` and loads only after visitor consent.
+Google Analytics is added directly in `index.html` with the Google tag `G-YNGD292XE5`.
 
 ## Important ignored files
 
