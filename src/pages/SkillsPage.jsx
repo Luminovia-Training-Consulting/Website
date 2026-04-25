@@ -1,25 +1,47 @@
-import { skillGroups, trainingTopics } from "../data/content.js";
+import { useSiteContent } from "../data/localizedContent.js";
+import { useLanguage } from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 
 export default function SkillsPage() {
+  const { language } = useLanguage();
+  const { skillGroups, trainingTopics } = useSiteContent();
+  const copy = language === "de"
+    ? {
+      badge: "Skills & Themen",
+      title: "Eine praktische Skill-Map für AI, Software, Cybersecurity und Business IT.",
+      intro: "Diese Seite ist die schnelle Übersicht: was ich lehren, erklären, einordnen und in praktische Lernformate übersetzen kann.",
+      formats: "Trainingsformate ansehen",
+      credentials: "Credentials ansehen",
+      clusters: "Lehrcluster",
+      clustersTitle: "Themen, aus denen ich Kurse bauen kann.",
+    }
+    : {
+      badge: "Skills & topics",
+      title: "A practical skill map for AI, software, cybersecurity and business IT.",
+      intro: "This page is the quick overview: what I can teach, explain, build around and translate into practical learning formats.",
+      formats: "View training formats",
+      credentials: "View credentials",
+      clusters: "Teaching clusters",
+      clustersTitle: "Topics I can turn into courses.",
+    };
   return (
     <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <Badge>Skills & topics</Badge>
+        <Badge>{copy.badge}</Badge>
         <div className="mt-6 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
-            A practical skill map for AI, software, cybersecurity and business IT.
+            {copy.title}
           </h1>
           <p className="text-lg leading-8 text-slate-300">
-            This page is the quick overview: what I can teach, explain, build around and translate into practical learning formats.
+            {copy.intro}
           </p>
         </div>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Button to="/training">View training formats</Button>
-          <Button to="/credentials" variant="secondary">View credentials</Button>
+          <Button to="/training">{copy.formats}</Button>
+          <Button to="/credentials" variant="secondary">{copy.credentials}</Button>
         </div>
 
         <section className="mt-14">
@@ -41,8 +63,8 @@ export default function SkillsPage() {
 
         <section className="mt-16">
           <div className="mb-7">
-            <Badge tone="emerald">Teaching clusters</Badge>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">Topics I can turn into courses.</h2>
+            <Badge tone="emerald">{copy.clusters}</Badge>
+            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.clustersTitle}</h2>
           </div>
           <div className="grid gap-5 lg:grid-cols-4">
             {trainingTopics.map((topic) => (

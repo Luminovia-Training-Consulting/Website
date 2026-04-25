@@ -1,4 +1,5 @@
-import { lifeMilestones } from "../data/content.js";
+import { useSiteContent } from "../data/localizedContent.js";
+import { useLanguage } from "../i18n.jsx";
 import { IMAGES } from "../data/profile.js";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -6,37 +7,42 @@ import Card from "../components/Card.jsx";
 import Photo from "../components/Photo.jsx";
 
 export default function MyWayPage() {
+  const { language } = useLanguage();
+  const { lifeMilestones } = useSiteContent();
+  const copy = language === "de"
+    ? { badge: "Werdegang", title: "Ein Leben zwischen Lernen, Bauen, Business und Lehre.", intro: "Diese Timeline gibt einen kompakten Überblick darüber, woher meine Ausbildung, mein Unternehmertum, mein Softwarehintergrund und mein internationales Trainingsprofil kommen.", skills: "Skills ansehen", request: "Training anfragen", education: "Bildung", educationCopy: "Wirtschaftsinformatik, Digital Business, AI, Forschung und professionelle Lehre.", work: "Arbeit", workCopy: "Software, Training, Consulting, Unternehmertum und Research Assistance.", now: "Jetzt", nowCopy: "Sitz in Brisbane, Remote AI- und IT-Trainings für Europa und APAC.", timeline: "Lebens-Timeline", milestones: "Meilensteine im Überblick." }
+    : { badge: "My way", title: "A life between learning, building, business and teaching.", intro: "This timeline gives a compact overview of where my education, entrepreneurial work, software background and international training profile come from.", skills: "View skills", request: "Request training", education: "Education", educationCopy: "Business informatics, digital business, AI, research and professional teaching.", work: "Work", workCopy: "Software, training, consulting, entrepreneurship and research assistance.", now: "Now", nowCopy: "Based in Brisbane, delivering remote AI and IT training for Europe and APAC.", timeline: "Life timeline", milestones: "Milestones at a glance." };
   return (
     <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <Badge>My way</Badge>
+            <Badge>{copy.badge}</Badge>
             <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
-              A life between learning, building, business and teaching.
+              {copy.title}
             </h1>
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              This timeline gives a compact overview of where my education, entrepreneurial work, software background and international training profile come from.
+              {copy.intro}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button to="/skills">View skills</Button>
-              <Button to="/contact" variant="secondary">Request training</Button>
+              <Button to="/skills">{copy.skills}</Button>
+              <Button to="/contact" variant="secondary">{copy.request}</Button>
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <Photo src={IMAGES.outdoor} alt="Carina outside" className="aspect-[3/4] rounded-3xl" imgClass="object-[50%_20%]" />
             <div className="grid gap-4">
               <Card>
-                <h2 className="text-2xl font-black text-white">Education</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-300">Business informatics, digital business, AI, research and professional teaching.</p>
+                <h2 className="text-2xl font-black text-white">{copy.education}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{copy.educationCopy}</p>
               </Card>
               <Card>
-                <h2 className="text-2xl font-black text-white">Work</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-300">Software, training, consulting, entrepreneurship and research assistance.</p>
+                <h2 className="text-2xl font-black text-white">{copy.work}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{copy.workCopy}</p>
               </Card>
               <Card>
-                <h2 className="text-2xl font-black text-white">Now</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-300">Based in Brisbane, delivering remote AI and IT training for Europe and APAC.</p>
+                <h2 className="text-2xl font-black text-white">{copy.now}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{copy.nowCopy}</p>
               </Card>
             </div>
           </div>
@@ -45,8 +51,8 @@ export default function MyWayPage() {
         <section className="mt-16">
           <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
             <div>
-              <Badge tone="violet">Life timeline</Badge>
-              <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">Milestones at a glance.</h2>
+              <Badge tone="violet">{copy.timeline}</Badge>
+              <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.milestones}</h2>
             </div>
           </div>
           <div className="relative">

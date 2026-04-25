@@ -21,12 +21,12 @@ export const IMAGES = {
 };
 
 export const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/training", label: "Training" },
-  { to: "/skills", label: "Skills" },
-  { to: "/software", label: "Software" },
-  { to: "/portfolio", label: "Clients" },
-  { to: "/my-way", label: "My Way" },
-  { to: "/blog", label: "Blog" },
-  { to: "/contact", label: "Book" },
+  { to: "/", key: "home" },
+  { to: "/training", key: "training" },
+  { to: "/skills", key: "skills" },
+  { to: "/software", key: "software" },
+  { to: "/portfolio", key: "clients" },
+  { to: "/my-way", key: "myWay" },
+  { to: "/blog", key: "blog" },
+  { to: "/contact", key: "book" },
 ];

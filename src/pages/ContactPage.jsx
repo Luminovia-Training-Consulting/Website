@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PROFILE } from "../data/profile.js";
-import { faqs } from "../data/content.js";
+import { useSiteContent } from "../data/localizedContent.js";
+import { useLanguage } from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
@@ -23,6 +24,8 @@ const initialForm = {
 };
 
 export default function ContactPage() {
+  const { t } = useLanguage();
+  const { faqs } = useSiteContent();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -50,7 +53,7 @@ export default function ContactPage() {
       }
 
       setForm(initialForm);
-      setStatus({ type: "success", message: "Message sent. I will reply by email." });
+      setStatus({ type: "success", message: t.contact.success });
     } catch (error) {
       setStatus({
         type: "error",
@@ -66,12 +69,12 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <Badge>Book training</Badge>
-            <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">Book me for lectures, workshops, training or talks.</h1>
-            <p className="mt-6 text-lg leading-8 text-slate-300">Send topic, audience, learner level, timeframe and desired outcome. I will suggest a suitable format: keynote, workshop, multi-day training, course delivery or curriculum support.</p>
+            <Badge>{t.contact.badge}</Badge>
+            <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{t.contact.title}</h1>
+            <p className="mt-6 text-lg leading-8 text-slate-300">{t.contact.copy}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={PROFILE.booking}>Book an appointment</Button>
-              <Button href={`mailto:${PROFILE.email}?subject=Training%20or%20lecture%20request%20for%20Carina%20Sophie%20Schoppe`} variant="secondary">Write an email</Button>
+              <Button href={PROFILE.booking}>{t.contact.appointment}</Button>
+              <Button href={`mailto:${PROFILE.email}?subject=Training%20or%20lecture%20request%20for%20Carina%20Sophie%20Schoppe`} variant="secondary">{t.contact.emailButton}</Button>
             </div>
             <div className="mt-8 grid gap-3">
               {contacts.map((item) => (
@@ -83,39 +86,39 @@ export default function ContactPage() {
             </div>
           </div>
           <Card>
-            <h2 className="text-3xl font-black text-white">Send a request</h2>
+            <h2 className="text-3xl font-black text-white">{t.contact.formTitle}</h2>
             <form onSubmit={submitForm} className="mt-6 grid gap-4">
               <input className="hidden" name="website" value={form.website} onChange={updateField} tabIndex="-1" autoComplete="off" />
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  Name *
-                  <input required name="name" value={form.name} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder="Your name" />
+                  {t.contact.name} *
+                  <input required name="name" value={form.name} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.namePlaceholder} />
                 </label>
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  Email *
-                  <input required type="email" name="email" value={form.email} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder="you@example.com" />
+                  {t.contact.email} *
+                  <input required type="email" name="email" value={form.email} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.emailPlaceholder} />
                 </label>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  Phone
-                  <input name="phone" value={form.phone} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder="+49 ..." />
+                  {t.contact.phone}
+                  <input name="phone" value={form.phone} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.phonePlaceholder} />
                 </label>
                 <label className="grid gap-2 text-sm font-bold text-slate-200">
-                  Topic
-                  <input name="topic" value={form.topic} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder="AI training, keynote, course..." />
+                  {t.contact.topic}
+                  <input name="topic" value={form.topic} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.topicPlaceholder} />
                 </label>
               </div>
               <label className="grid gap-2 text-sm font-bold text-slate-200">
-                Audience / timeframe
-                <input name="audience" value={form.audience} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder="Team size, learner level, preferred date" />
+                {t.contact.audience}
+                <input name="audience" value={form.audience} onChange={updateField} className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.audiencePlaceholder} />
               </label>
               <label className="grid gap-2 text-sm font-bold text-slate-200">
-                Message *
-                <textarea required name="message" value={form.message} onChange={updateField} rows="6" className="resize-y rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder="Tell me what you need, who the training is for, and what outcome you want." />
+                {t.contact.message} *
+                <textarea required name="message" value={form.message} onChange={updateField} rows="6" className="resize-y rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/60" placeholder={t.contact.messagePlaceholder} />
               </label>
               <button disabled={sending} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:bg-cyan-100 disabled:cursor-not-allowed disabled:opacity-60">
-                {sending ? "Sending..." : "Send request"}
+                {sending ? t.contact.sending : t.contact.send}
               </button>
               {status.message && (
                 <div className={status.type === "success" ? "rounded-2xl border border-emerald-300/30 bg-emerald-300/10 p-4 text-sm font-bold text-emerald-50" : "rounded-2xl border border-rose-300/30 bg-rose-300/10 p-4 text-sm font-bold text-rose-50"}>

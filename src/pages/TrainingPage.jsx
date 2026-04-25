@@ -1,17 +1,41 @@
-import { coreOffers, trainingTopics, formats } from "../data/content.js";
+import { useSiteContent } from "../data/localizedContent.js";
+import { useLanguage } from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import { cn } from "../components/utils.js";
 
 export default function TrainingPage() {
+  const { language } = useLanguage();
+  const { coreOffers, trainingTopics, formats } = useSiteContent();
+  const copy = language === "de"
+    ? {
+      badge: "Trainingskatalog",
+      title: "IT-, AI- und Business-Technology-Training für Erwachsene und professionelle Teams.",
+      intro: "Klare Formate für Bildungsanbieter, Unternehmen, Hochschulen und Events, die praktische und strukturierte digitale Kompetenz brauchen.",
+      topics: "Themen",
+      areas: "Zentrale Lehrbereiche",
+      custom: "Individuelles Thema anfragen",
+      formats: "Formate",
+      formatsTitle: "Trainingsformate, die ich durchführen kann",
+    }
+    : {
+      badge: "Training catalogue",
+      title: "IT, AI and business technology training for adult learners and professional teams.",
+      intro: "Clear formats for education providers, companies, universities and event organisers that need practical, structured and modern digital skills delivery.",
+      topics: "Topics",
+      areas: "Core teaching areas",
+      custom: "Ask for custom topic",
+      formats: "Formats",
+      formatsTitle: "Training formats I can deliver",
+    };
   return (
     <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <Badge>Training catalogue</Badge>
+        <Badge>{copy.badge}</Badge>
         <div className="mt-6 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-          <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">IT, AI and business technology training for adult learners and professional teams.</h1>
-          <p className="text-lg leading-8 text-slate-300">Clear formats for education providers, companies, universities and event organisers that need practical, structured and modern digital skills delivery.</p>
+          <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
+          <p className="text-lg leading-8 text-slate-300">{copy.intro}</p>
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -31,10 +55,10 @@ export default function TrainingPage() {
         <div className="mt-16">
           <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
             <div>
-              <Badge tone="emerald">Topics</Badge>
-              <h2 className="mt-4 text-3xl font-black text-white">Core teaching areas</h2>
+              <Badge tone="emerald">{copy.topics}</Badge>
+              <h2 className="mt-4 text-3xl font-black text-white">{copy.areas}</h2>
             </div>
-            <Button to="/contact" variant="secondary">Ask for custom topic</Button>
+            <Button to="/contact" variant="secondary">{copy.custom}</Button>
           </div>
           <div className="grid gap-6 lg:grid-cols-4">
             {trainingTopics.map((topic) => (
@@ -49,8 +73,8 @@ export default function TrainingPage() {
         </div>
 
         <div className="mt-16">
-          <Badge tone="violet">Formats</Badge>
-          <h2 className="mt-4 text-3xl font-black text-white">Training formats I can deliver</h2>
+          <Badge tone="violet">{copy.formats}</Badge>
+          <h2 className="mt-4 text-3xl font-black text-white">{copy.formatsTitle}</h2>
           <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {formats.map((format) => (
               <Card key={format.title}>
