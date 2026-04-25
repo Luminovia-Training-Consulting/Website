@@ -23,14 +23,23 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <div className="min-h-screen overflow-hidden bg-[#08090b] text-white">
-          <div className="ambient-veil fixed inset-0 -z-10" />
-          <div className="ambient-wash fixed -inset-x-24 top-0 -z-10 h-[68vh]" />
-          <div className="ambient-ribbon fixed left-[-12vw] top-[14vh] -z-10 h-32 w-[124vw] rotate-[-8deg] opacity-70" />
-          <div className="ambient-ribbon fixed left-[-12vw] top-[72vh] -z-10 h-28 w-[124vw] rotate-[7deg] opacity-45" />
-          <div className="ambient-grid fixed inset-0 -z-10 opacity-70" />
+        <div className="relative isolate min-h-screen overflow-hidden bg-[#08090b] text-white">
+          <div className="ambient-veil fixed inset-0 z-0" />
+          <div className="ambient-wash fixed -inset-x-24 top-0 z-0 h-[68vh]" />
+          <div className="ambient-ribbon fixed left-[-12vw] top-[14vh] z-0 h-32 w-[124vw] rotate-[-8deg] opacity-70" />
+          <div className="ambient-ribbon fixed left-[-12vw] top-[72vh] z-0 h-28 w-[124vw] rotate-[7deg] opacity-45" />
+          <div className="polygon-field fixed inset-0 z-0" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="ambient-grid fixed inset-0 z-0 opacity-70" />
           <Header />
-          <div className="enter-up">
+          <div className="relative z-10 enter-up">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/training" element={<TrainingPage />} />
@@ -49,7 +58,9 @@ export default function App() {
               <Route path="/privacy" element={<PrivacyPage />} />
             </Routes>
           </div>
-          <Footer />
+          <div className="relative z-10">
+            <Footer />
+          </div>
           <AnalyticsConsent />
         </div>
       </BrowserRouter>

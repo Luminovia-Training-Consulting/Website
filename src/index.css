@@ -39,6 +39,15 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@keyframes polygonDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rotate-start)) scale(1); opacity: var(--opacity-low); }
+  45% { transform: translate3d(var(--move-x), var(--move-y), 0) rotate(var(--rotate-mid)) scale(1.08); opacity: var(--opacity-high); }
+  70% { transform: translate3d(calc(var(--move-x) * -.35), calc(var(--move-y) * .55), 0) rotate(var(--rotate-end)) scale(.96); opacity: var(--opacity-mid); }
+}
+@keyframes topologyDrift {
+  0%, 100% { transform: translate3d(-2%, -1%, 0) rotate(-1deg); opacity: .35; }
+  50% { transform: translate3d(2%, 1.8%, 0) rotate(1deg); opacity: .58; }
+}
 
 .enter-up { animation: enterUp .28s ease-out both; }
 .hero-float { animation: slowFloat 8s ease-in-out infinite; }
@@ -69,6 +78,158 @@
   background: linear-gradient(90deg, transparent, rgba(56, 189, 248, .24), rgba(37, 99, 235, .22), rgba(216, 180, 254, .15), transparent);
   filter: blur(18px);
   mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
+}
+.polygon-field {
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, transparent 0 18%, rgba(56,189,248,.12) 18.2% 18.55%, transparent 18.8% 100%),
+    linear-gradient(64deg, transparent 0 62%, rgba(37,99,235,.13) 62.2% 62.55%, transparent 62.8% 100%),
+    linear-gradient(150deg, transparent 0 42%, rgba(147,197,253,.09) 42.2% 42.45%, transparent 42.7% 100%);
+}
+.polygon-field::before,
+.polygon-field::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background-image:
+    linear-gradient(118deg, transparent 0 22%, rgba(125,211,252,.22) 22.15% 22.35%, transparent 22.5% 100%),
+    linear-gradient(32deg, transparent 0 56%, rgba(37,99,235,.20) 56.1% 56.28%, transparent 56.45% 100%),
+    linear-gradient(156deg, transparent 0 72%, rgba(96,165,250,.18) 72.1% 72.28%, transparent 72.5% 100%);
+  mask-image: radial-gradient(circle at 50% 38%, black, transparent 70%);
+  animation: topologyDrift 22s ease-in-out infinite;
+}
+.polygon-field::after {
+  transform: rotate(180deg);
+  animation-duration: 31s;
+  animation-direction: reverse;
+  opacity: .65;
+}
+.polygon-field span {
+  position: absolute;
+  width: var(--size);
+  aspect-ratio: 1;
+  left: var(--left);
+  top: var(--top);
+  border: 1px solid rgba(191, 219, 254, .22);
+  background:
+    linear-gradient(140deg, rgba(186,230,253,.34), rgba(59,130,246,.18) 42%, rgba(30,64,175,.22)),
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.34), transparent 38%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    0 28px 96px rgba(37,99,235,.28),
+    0 0 58px rgba(56,189,248,.18);
+  clip-path: polygon(18% 0, 82% 9%, 100% 57%, 65% 100%, 9% 82%, 0 29%);
+  filter: blur(.15px);
+  opacity: var(--opacity-low);
+  mix-blend-mode: screen;
+  animation: polygonDrift var(--duration) cubic-bezier(.36, 0, .2, 1) infinite;
+  animation-delay: var(--delay);
+}
+.polygon-field span:nth-child(1) {
+  --size: 19rem;
+  --left: -4rem;
+  --top: 13vh;
+  --move-x: 5vw;
+  --move-y: 4vh;
+  --duration: 24s;
+  --delay: -5s;
+  --rotate-start: -14deg;
+  --rotate-mid: 10deg;
+  --rotate-end: 22deg;
+  --opacity-low: .18;
+  --opacity-mid: .28;
+  --opacity-high: .42;
+}
+.polygon-field span:nth-child(2) {
+  --size: 25rem;
+  --left: 58vw;
+  --top: 8vh;
+  --move-x: -6vw;
+  --move-y: 7vh;
+  --duration: 30s;
+  --delay: -12s;
+  --rotate-start: 18deg;
+  --rotate-mid: -8deg;
+  --rotate-end: -20deg;
+  --opacity-low: .2;
+  --opacity-mid: .32;
+  --opacity-high: .46;
+}
+.polygon-field span:nth-child(3) {
+  --size: 18rem;
+  --left: 28vw;
+  --top: 38vh;
+  --move-x: 7vw;
+  --move-y: -5vh;
+  --duration: 28s;
+  --delay: -8s;
+  --rotate-start: 28deg;
+  --rotate-mid: 4deg;
+  --rotate-end: -16deg;
+  --opacity-low: .13;
+  --opacity-mid: .22;
+  --opacity-high: .34;
+}
+.polygon-field span:nth-child(4) {
+  --size: 21rem;
+  --left: 78vw;
+  --top: 68vh;
+  --move-x: -7vw;
+  --move-y: -8vh;
+  --duration: 34s;
+  --delay: -16s;
+  --rotate-start: -24deg;
+  --rotate-mid: 12deg;
+  --rotate-end: 32deg;
+  --opacity-low: .15;
+  --opacity-mid: .24;
+  --opacity-high: .36;
+}
+.polygon-field span:nth-child(5) {
+  --size: 13rem;
+  --left: 7vw;
+  --top: 73vh;
+  --move-x: 8vw;
+  --move-y: -4vh;
+  --duration: 27s;
+  --delay: -20s;
+  --rotate-start: 8deg;
+  --rotate-mid: 28deg;
+  --rotate-end: -6deg;
+  --opacity-low: .14;
+  --opacity-mid: .22;
+  --opacity-high: .32;
+}
+.polygon-field span:nth-child(6) {
+  --size: 11rem;
+  --left: 48vw;
+  --top: 5vh;
+  --move-x: -5vw;
+  --move-y: 9vh;
+  --duration: 26s;
+  --delay: -2s;
+  --rotate-start: 42deg;
+  --rotate-mid: 8deg;
+  --rotate-end: -22deg;
+  --opacity-low: .12;
+  --opacity-mid: .2;
+  --opacity-high: .3;
+}
+.polygon-field span:nth-child(7) {
+  --size: 18rem;
+  --left: 22vw;
+  --top: 89vh;
+  --move-x: 6vw;
+  --move-y: -10vh;
+  --duration: 38s;
+  --delay: -24s;
+  --rotate-start: -6deg;
+  --rotate-mid: -28deg;
+  --rotate-end: 16deg;
+  --opacity-low: .12;
+  --opacity-mid: .2;
+  --opacity-high: .3;
 }
 .soft-section {
   position: relative;
