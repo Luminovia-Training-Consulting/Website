@@ -1,6 +1,7 @@
 import {createContext, useContext, useEffect, useMemo, useState} from "react";
 
 const STORAGE_KEY = "carina_site_language";
+const DEFAULT_LANGUAGE = "en";
 
 const dictionaries = {
     en: {
@@ -335,10 +336,28 @@ const dictionaries = {
     },
 };
 
-const LanguageContext = createContext(null);
+/**
+ * @typedef {"en" | "de"} Language
+ * @typedef {{
+ *   language: Language,
+ *   setLanguage: (nextLanguage: string | null | undefined) => void,
+ *   toggleLanguage: () => void,
+ *   t: typeof dictionaries.en
+ * }} LanguageContextValue
+ */
+
+const LanguageContext = createContext(/** @type {LanguageContextValue | null} */ (null));
+
+/**
+ * @param {string | null | undefined} value
+ * @returns {Language}
+ */
+function resolveLanguage(value) {
+    return value === "de" || value === "en" ? value : DEFAULT_LANGUAGE;
+}
 
 export function LanguageProvider({children}) {
-    const [language, setLanguage] = useState(() => localStorage.getItem(STORAGE_KEY) || "en");
+    const [language, setLanguage] = useState(() => resolveLanguage(localStorage.getItem(STORAGE_KEY)));
 
     useEffect(() => {
         localStorage.setItem(STORAGE_KEY, language);
@@ -347,7 +366,7 @@ export function LanguageProvider({children}) {
 
     const value = useMemo(() => ({
         language,
-        setLanguage,
+        setLanguage: (nextLanguage) => setLanguage(resolveLanguage(nextLanguage)),
         toggleLanguage: () => setLanguage((current) => current === "en" ? "de" : "en"),
         t: dictionaries[language],
     }), [language]);

@@ -107,7 +107,7 @@ export default function PricingPage() {
                             <p className="mt-5 text-sm leading-7 text-slate-300">{item.copy}</p>
                             <div className="mt-5 grid gap-2">
                                 {item.details.map((detail) => (
-                                    <span key={detail} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{detail}</span>
+                                    <span key={String(detail)} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{detail}</span>
                                 ))}
                             </div>
                         </Card>

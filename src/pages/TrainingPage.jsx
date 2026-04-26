@@ -123,7 +123,7 @@ export default function TrainingPage() {
                             <p className="mt-3 text-lg font-black text-sky-100">{offer.outcome}</p>
                             <p className="mt-4 text-sm leading-7 text-slate-300">{offer.copy}</p>
                             <div className="mt-7 grid gap-3">
-                                {offer.deliverables.map((item) => <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">{item}</div>)}
+                                {offer.deliverables.map((item) => <div key={String(item)} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">{item}</div>)}
                             </div>
                         </Card>
                     ))}
@@ -155,7 +155,7 @@ export default function TrainingPage() {
                             <Card key={topic.group}>
                                 <h2 className="text-2xl font-black text-white">{topic.group}</h2>
                                 <div className="mt-5 space-y-3">
-                                    {topic.items.map((item) => <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-bold text-slate-200">{item}</div>)}
+                                    {topic.items.map((item) => <div key={String(item)} className="rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-bold text-slate-200">{item}</div>)}
                                 </div>
                             </Card>
                         ))}

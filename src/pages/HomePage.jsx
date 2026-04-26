@@ -192,7 +192,7 @@ export default function HomePage() {
                                 <h3 className="text-xl font-black text-white">{topic.group}</h3>
                                 <div className="mt-5 grid gap-2">
                                     {topic.items.map((item) => (
-                                        <span key={item} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{item}</span>
+                                        <span key={String(item)} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{item}</span>
                                     ))}
                                 </div>
                             </Card>
@@ -247,7 +247,7 @@ export default function HomePage() {
                                 <h3 className="text-xl font-black text-white">{audience.title}</h3>
                                 <p className="mt-4 text-sm leading-7 text-zinc-300">{audience.copy}</p>
                                 <div className="mt-5 flex flex-wrap gap-2">
-                                    {audience.bullets.map((bullet) => <span key={bullet} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{bullet}</span>)}
+                                    {audience.bullets.map((bullet) => <span key={String(bullet)} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{bullet}</span>)}
                                 </div>
                             </Card>
                         ))}
@@ -331,7 +331,7 @@ export default function HomePage() {
                                 <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-sm font-bold text-zinc-200">{t.serviceLabels.bestFor}: {offer.bestFor}</div>
                                 <div className="mt-5 space-y-2">
                                     {offer.deliverables.slice(0, 4).map((item) => (
-                                        <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><span className="text-sky-200">✓</span>{item}</div>
+                                        <div key={String(item)} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><span className="text-sky-200">✓</span>{item}</div>
                                     ))}
                                 </div>
                             </Card>

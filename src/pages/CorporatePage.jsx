@@ -56,7 +56,7 @@ export default function CorporatePage() {
                             <p className="mt-4 text-sm leading-7 text-slate-300">{audience.copy}</p>
                             <div className="mt-5 space-y-2">
                                 {audience.bullets.map((bullet) => (
-                                    <div key={bullet} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-bold text-slate-200">{bullet}</div>
+                                    <div key={String(bullet)} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-bold text-slate-200">{bullet}</div>
                                 ))}
                             </div>
                         </Card>

@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vitest";
 import App from "../App.jsx";
 
+/** @type {[string, RegExp][]} */
 const routes = [
     ["/training", /Bookable AI, IT and business technology training/i],
     ["/skills", /Skill map for AI/i],
