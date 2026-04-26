@@ -33,4 +33,21 @@ describe("App routing and language", () => {
     expect(screen.getAllByRole("link", { name: /\+49 175 5738 757/i })[0]).toHaveAttribute("href", "tel:+491755738757");
     expect(screen.getByTitle(/Google Calendar appointment scheduler/i)).toHaveAttribute("src", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
   });
+
+  it("renders pricing in USD by default and switches pricing to German EUR copy", async () => {
+    const user = userEvent.setup();
+    window.history.pushState({}, "Pricing", "/pricing");
+
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: /Transparent orientation rates/i })).toBeInTheDocument();
+    expect(screen.getByText("$60-65")).toBeInTheDocument();
+    expect(screen.getByText("from $1,800")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /Switch language/i }));
+
+    expect(screen.getByRole("heading", { name: /Transparente Richtwerte/i })).toBeInTheDocument();
+    expect(screen.getByText("50-55 EUR")).toBeInTheDocument();
+    expect(screen.getByText("ab 1.500 EUR")).toBeInTheDocument();
+  });
 });

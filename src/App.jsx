@@ -12,6 +12,7 @@ import AboutPage from "./pages/AboutPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import MyWayPage from "./pages/MyWayPage.jsx";
 import SkillsPage from "./pages/SkillsPage.jsx";
+import PricingPage from "./pages/PricingPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
 import BlogPostPage from "./pages/BlogPostPage.jsx";
 import SoftwarePage from "./pages/SoftwarePage.jsx";
@@ -71,6 +72,7 @@ export default function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/my-way" element={<MyWayPage />} />
               <Route path="/skills" element={<SkillsPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
               <Route path="/software" element={<SoftwarePage />} />
