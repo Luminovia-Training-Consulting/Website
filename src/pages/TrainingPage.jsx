@@ -46,7 +46,7 @@ export default function TrainingPage() {
     ? {
       badge: "Training & Services",
       title: "Buchbare AI-, IT- und Business-Technology-Trainings.",
-      intro: "Klare Service-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner, die professionelle digitale Bildung brauchen.",
+      intro: "Strukturierte Remote-Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams, die AI, IT, Cybersecurity und digitale Business-Kompetenz praxisnah vermitteln wollen.",
       topics: "Themen",
       areas: "Zentrale Lehrbereiche",
       custom: "Individuelles Thema anfragen",
@@ -62,7 +62,7 @@ export default function TrainingPage() {
     : {
       badge: "Training & Services",
       title: "Bookable AI, IT and business technology training services.",
-      intro: "Clear service offers for training providers, companies, universities and international partners that need professional digital education delivery.",
+      intro: "Structured remote live training for education providers, companies, universities and international teams that want to build practical capability in AI, IT, cybersecurity and digital business topics.",
       topics: "Topics",
       areas: "Core teaching areas",
       custom: "Ask for custom topic",
