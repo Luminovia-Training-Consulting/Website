@@ -298,7 +298,7 @@ export default function HomePage() {
             <Badge tone="emerald">{t.home.explore}</Badge>
             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.exploreTitle}</h2>
           </div>
-          <div className="stagger-grid grid gap-4 lg:grid-cols-3">
+          <div className="stagger-grid grid items-start gap-4 lg:grid-cols-3">
             {t.exploreCards.map(([title, copy, to]) => (
               <Card key={title}>
                 <h3 className="text-xl font-black text-white">{title}</h3>
@@ -390,7 +390,7 @@ export default function HomePage() {
             <Badge tone="emerald">{t.home.process}</Badge>
             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.processTitle}</h2>
           </div>
-          <div className="stagger-grid grid gap-4 md:grid-cols-5">
+          <div className="stagger-grid grid items-start gap-4 md:grid-cols-5">
             {t.home.processSteps.map(([step, title, copy]) => (
               <Card key={step}>
                 <div className="grid h-11 w-11 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-base font-black text-slate-950">{step}</div>

@@ -97,7 +97,7 @@ export default function TrainingPage() {
             </div>
             <p className="text-base leading-8 text-slate-300">{t.home.servicesCopy}</p>
           </div>
-          <div className="stagger-grid grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="stagger-grid grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
             {serviceOfferings.map((service) => <ServiceCard key={service.title} service={service} t={t} />)}
           </div>
         </section>
@@ -105,7 +105,7 @@ export default function TrainingPage() {
         <section className="mt-16">
           <Badge tone="violet">{copy.audiences}</Badge>
           <h2 className="mt-4 text-3xl font-black text-white">{copy.audiencesTitle}</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-6 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
             {audienceCards.map((audience) => (
               <Card key={audience.title}>
                 <h3 className="text-xl font-black text-white">{audience.title}</h3>
@@ -115,7 +115,7 @@ export default function TrainingPage() {
           </div>
         </section>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <div className="mt-16 grid items-start gap-6 lg:grid-cols-3">
           {coreOffers.map((offer) => (
             <Card key={offer.title} className={cn("bg-gradient-to-br", offer.gradient)}>
               <Badge tone="cyan">{offer.kicker}</Badge>
@@ -132,7 +132,7 @@ export default function TrainingPage() {
         <section className="mt-16">
           <Badge tone="emerald">{copy.proof}</Badge>
           <h2 className="mt-4 text-3xl font-black text-white">{copy.proofTitle}</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
             {trustSignals.map((signal) => (
               <Card key={signal.title}>
                 <h3 className="text-xl font-black text-white">{signal.title}</h3>
@@ -150,7 +150,7 @@ export default function TrainingPage() {
             </div>
             <Button to="/contact#contact-options" variant="secondary">{copy.custom}</Button>
           </div>
-          <div className="grid gap-6 lg:grid-cols-4">
+          <div className="grid items-start gap-6 lg:grid-cols-4">
             {trainingTopics.map((topic) => (
               <Card key={topic.group}>
                 <h2 className="text-2xl font-black text-white">{topic.group}</h2>
@@ -165,7 +165,7 @@ export default function TrainingPage() {
         <div className="mt-16">
           <Badge tone="violet">{copy.formats}</Badge>
           <h2 className="mt-4 text-3xl font-black text-white">{copy.formatsTitle}</h2>
-          <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
             {formats.map((format) => (
               <Card key={format.title}>
                 <div className="text-sm font-black uppercase tracking-[0.18em] text-sky-100">{format.label}</div>
