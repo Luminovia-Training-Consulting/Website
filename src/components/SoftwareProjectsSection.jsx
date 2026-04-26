@@ -31,7 +31,7 @@ export default function SoftwareProjectsSection({ compact = false }) {
           </div>
         </div>
 
-        <div className="stagger-grid grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {projects.map((project) => (
             <a
               key={project.name}

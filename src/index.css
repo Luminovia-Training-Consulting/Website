@@ -1,17 +1,9 @@
 @import "tailwindcss";
 
 @keyframes enterUp { from { transform: translateY(10px); } to { transform: none; } }
-@keyframes floatIn {
-  from { opacity: 0; transform: translateY(18px) scale(.985); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
 @keyframes ambientShift {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .42; }
   50% { transform: translate3d(0, -14px, 0) scale(1.02); opacity: .58; }
-}
-@keyframes softPulse {
-  0%, 100% { opacity: .28; }
-  50% { opacity: .46; }
 }
 @keyframes ribbonDrift {
   0%, 100% { transform: translate3d(-2%, 0, 0) rotate(-2deg); }
@@ -303,6 +295,7 @@
   width: 100%;
   height: 100%;
   transform-origin: left center;
+  transform: scaleX(var(--scroll-progress, 0));
   background: linear-gradient(90deg, rgba(186,230,253,.18), rgba(125,211,252,.94), rgba(96,165,250,.78), rgba(196,181,253,.58));
   box-shadow: 0 0 18px rgba(125,211,252,.4);
 }
@@ -380,14 +373,6 @@
 .data-orbit span:nth-child(1) { top: 18%; --line-rotate: -8deg; --line-speed: 12s; --line-delay: -1s; }
 .data-orbit span:nth-child(2) { top: 48%; --line-rotate: 5deg; --line-speed: 15s; --line-delay: -8s; }
 .data-orbit span:nth-child(3) { top: 76%; --line-rotate: -3deg; --line-speed: 18s; --line-delay: -12s; }
-.stagger-grid > * {
-  animation: floatIn .62s cubic-bezier(.2, .8, .2, 1) both;
-}
-.stagger-grid > *:nth-child(2) { animation-delay: .05s; }
-.stagger-grid > *:nth-child(3) { animation-delay: .1s; }
-.stagger-grid > *:nth-child(4) { animation-delay: .15s; }
-.stagger-grid > *:nth-child(5) { animation-delay: .2s; }
-.stagger-grid > *:nth-child(6) { animation-delay: .25s; }
 .soft-link-card {
   position: relative;
   overflow: hidden;
@@ -493,21 +478,13 @@
   opacity: .08;
   pointer-events: none;
 }
-.rainbow-text {
-  background: linear-gradient(90deg, #e0f2fe, #93c5fd, #60a5fa, #c4b5fd, #dbeafe, #e0f2fe);
-  background-size: 220% 220%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: rainbowFlow 7s ease-in-out infinite;
-}
 .soft-link-card:hover::before {
   opacity: 1;
   animation: shimmerLine 1.1s ease-out;
 }
-.grid-bg {
-  background-image: linear-gradient(to right, rgba(255,255,255,.075) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.075) 1px, transparent 1px);
-  background-size: 44px 44px;
+.client-flip-card .soft-link-card:hover::before {
+  opacity: 0;
+  animation: none;
 }
 .flag-icon {
   display: inline-grid;

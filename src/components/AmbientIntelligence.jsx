@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function AmbientIntelligence() {
-  const [progress, setProgress] = useState(0);
-  const [pointer, setPointer] = useState({ x: 50, y: 20 });
+  const progressRef = useRef(null);
+  const pointerRef = useRef(null);
 
   useEffect(() => {
     let frame = 0;
@@ -11,15 +11,14 @@ export default function AmbientIntelligence() {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        setProgress(scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0);
+        const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+        progressRef.current?.style.setProperty("--scroll-progress", progress);
       });
     }
 
     function updatePointer(event) {
-      setPointer({
-        x: (event.clientX / window.innerWidth) * 100,
-        y: (event.clientY / window.innerHeight) * 100,
-      });
+      pointerRef.current?.style.setProperty("--pointer-x", `${(event.clientX / window.innerWidth) * 100}%`);
+      pointerRef.current?.style.setProperty("--pointer-y", `${(event.clientY / window.innerHeight) * 100}%`);
     }
 
     updateProgress();
@@ -38,13 +37,9 @@ export default function AmbientIntelligence() {
   return (
     <>
       <div className="scroll-progress" aria-hidden="true">
-        <span style={{ transform: `scaleX(${progress})` }} />
+        <span ref={progressRef} />
       </div>
-      <div
-        className="pointer-aura"
-        style={{ "--pointer-x": `${pointer.x}%`, "--pointer-y": `${pointer.y}%` }}
-        aria-hidden="true"
-      />
+      <div ref={pointerRef} className="pointer-aura" aria-hidden="true" />
       <div className="intelligence-layer" aria-hidden="true">
         <span />
         <span />

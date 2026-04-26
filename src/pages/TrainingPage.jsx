@@ -97,7 +97,7 @@ export default function TrainingPage() {
             </div>
             <p className="text-base leading-8 text-slate-300">{t.home.servicesCopy}</p>
           </div>
-          <div className="stagger-grid grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
             {serviceOfferings.map((service) => <ServiceCard key={service.title} service={service} t={t} />)}
           </div>
         </section>

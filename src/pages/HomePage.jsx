@@ -17,7 +17,7 @@ function HeroVisual() {
     <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
       <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
         <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl" />
-        <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe for AI and IT lecturer profile" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} loading="eager" />
+        <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe for AI and IT lecturer profile" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} loading="eager" fetchPriority="high" />
         <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -44,7 +44,7 @@ function MobileHeroSignal() {
   const { t } = useLanguage();
   return (
     <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
-      <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} loading="eager" />
+      <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} loading="eager" fetchPriority="high" />
       <div className="pr-2">
         <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
         <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
@@ -130,7 +130,7 @@ export default function HomePage() {
             <div className="mt-5">
               <AssetButtons t={t} />
             </div>
-            <div className="stagger-grid mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {trustStats.map((stat) => <Metric key={stat.label} {...stat} />)}
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function HomePage() {
               {t.home.positioningCopy}
             </p>
           </div>
-          <div className="stagger-grid grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
             {teachingProof.map((proof) => (
               <Card key={proof.title}>
                 <div className="mb-5 h-1 w-12 rounded-full bg-sky-200" />
@@ -186,7 +186,7 @@ export default function HomePage() {
             </div>
             <p className="text-base leading-8 text-zinc-300">{t.home.topicsCopy}</p>
           </div>
-          <div className="stagger-grid grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
             {trainingTopics.map((topic) => (
               <Card key={topic.group}>
                 <h3 className="text-xl font-black text-white">{topic.group}</h3>
@@ -222,7 +222,7 @@ export default function HomePage() {
             </div>
             <p className="text-base leading-8 text-zinc-300">{t.home.servicesCopy}</p>
           </div>
-          <div className="stagger-grid grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
             {serviceOfferings.slice(0, 6).map((service) => <MiniServiceCard key={service.title} service={service} t={t} />)}
           </div>
           <div className="mt-7 flex flex-col justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.055] p-5 sm:flex-row sm:items-center">
@@ -241,7 +241,7 @@ export default function HomePage() {
             </div>
             <p className="text-base leading-8 text-zinc-300">{t.home.audiencesCopy}</p>
           </div>
-          <div className="stagger-grid grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
             {audienceCards.map((audience) => (
               <Card key={audience.title}>
                 <h3 className="text-xl font-black text-white">{audience.title}</h3>
@@ -264,7 +264,7 @@ export default function HomePage() {
             </div>
             <Button to="/contact#contact-options" variant="secondary">{t.home.requestAvailability}</Button>
           </div>
-          <div className="stagger-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {formats.map((format) => (
               <Card key={format.title}>
                 <Badge tone="white">{format.label}</Badge>
@@ -282,7 +282,7 @@ export default function HomePage() {
             <Badge tone="cyan">{t.home.topics}</Badge>
             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.featuredTitle}</h2>
           </div>
-          <div className="stagger-grid grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {featuredTrainingTopics.map((service) => <MiniServiceCard key={service.title} service={service} t={t} />)}
           </div>
         </div>
@@ -298,7 +298,7 @@ export default function HomePage() {
             <Badge tone="emerald">{t.home.explore}</Badge>
             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.exploreTitle}</h2>
           </div>
-          <div className="stagger-grid grid items-start gap-4 lg:grid-cols-3">
+          <div className="grid items-start gap-4 lg:grid-cols-3">
             {t.exploreCards.map(([title, copy, to]) => (
               <Card key={title}>
                 <h3 className="text-xl font-black text-white">{title}</h3>
@@ -321,7 +321,7 @@ export default function HomePage() {
             </div>
             <Button to="/contact#contact-options" variant="secondary">{t.home.requestAvailability}</Button>
           </div>
-          <div className="stagger-grid grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3">
             {coreOffers.map((offer, index) => (
               <Card key={offer.title} className={cn(index === 1 ? "border-blue-200/24" : "")}>
                 <Badge tone={index === 0 ? "cyan" : index === 1 ? "emerald" : "violet"}>{offer.kicker}</Badge>
@@ -366,7 +366,7 @@ export default function HomePage() {
             </div>
             <Button to="/blog" variant="secondary">{t.nav.blog}</Button>
           </div>
-          <div className="stagger-grid grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3">
             {latestPosts.map((post) => (
               <a key={post.slug} href={`/blog/${post.slug}`} className="soft-link-card group flex min-h-[260px] flex-col p-5">
                 <Badge tone="white">{post.hubCategory || post.category}</Badge>
@@ -390,7 +390,7 @@ export default function HomePage() {
             <Badge tone="emerald">{t.home.process}</Badge>
             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.processTitle}</h2>
           </div>
-          <div className="stagger-grid grid items-start gap-4 md:grid-cols-5">
+          <div className="grid items-start gap-4 md:grid-cols-5">
             {t.home.processSteps.map(([step, title, copy]) => (
               <Card key={step}>
                 <div className="grid h-11 w-11 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-base font-black text-slate-950">{step}</div>
