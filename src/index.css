@@ -778,6 +778,31 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483647;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.25rem 1.25rem 3rem;
+    background:
+        radial-gradient(circle at 20% 5%, rgba(56, 189, 248, .18), transparent 36%),
+        radial-gradient(circle at 72% 18%, rgba(37, 99, 235, .20), transparent 34%),
+        radial-gradient(circle at 92% 28%, rgba(99, 102, 241, .12), transparent 34%),
+        #08090b;
+}
+
 .blog-carousel {
     scroll-padding-inline: 1rem;
     overscroll-behavior-inline: contain;

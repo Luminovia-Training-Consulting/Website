@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {createPortal} from "react-dom";
 import {NavLink} from "react-router-dom";
 import {navItems, PROFILE} from "../data/profile.js";
 import Button from "./Button.jsx";
@@ -43,6 +44,27 @@ export default function Header() {
         };
     }, [open]);
 
+    const mobileMenu = open ? (
+        <div className="mobile-menu-overlay lg:hidden" role="dialog" aria-modal="true" aria-label={t.navigation}>
+            <div className="sticky top-0 z-10 -mx-5 mb-8 flex items-center justify-between border-b border-white/10 bg-[#08090B]/92 px-5 py-4">
+                <span className="text-lg font-black text-white">{t.navigation}</span>
+                <div className="flex gap-2">
+                    <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} className="px-4 text-white"/>
+                    <button onClick={() => setOpen(false)} className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-black text-white">{t.close}</button>
+                </div>
+            </div>
+            <div className="grid gap-3 pb-8">
+                {navItems.map((item) => (
+                    <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-[1.7rem] border border-white/14 bg-white/[0.12] px-5 py-5 text-left text-xl font-black text-white shadow-[0_18px_58px_rgba(0,0,0,.24)]">{t.nav[item.key]}</NavLink>
+                ))}
+            </div>
+            <div className="grid gap-3 border-t border-white/10 pt-5">
+                <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="rounded-[1.5rem] border border-white/14 bg-white/[0.08] px-5 py-4 text-base font-black text-white">{t.linkedin}</a>
+                <Button to="/contact#contact-options" onClick={() => setOpen(false)}>{t.bookTraining}</Button>
+            </div>
+        </div>
+    ) : null;
+
     return (
         <>
             <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#08090B]/62 shadow-[0_14px_50px_rgba(0,0,0,.18)] backdrop-blur-2xl">
@@ -71,26 +93,7 @@ export default function Header() {
                 </div>
             </header>
 
-            {open && (
-                <div className="fixed inset-0 z-[100] h-dvh min-h-dvh overflow-y-auto overscroll-contain bg-[radial-gradient(circle_at_20%_5%,rgba(56,189,248,.18),transparent_36%),radial-gradient(circle_at_72%_18%,rgba(37,99,235,.20),transparent_34%),radial-gradient(circle_at_92%_28%,rgba(99,102,241,.12),transparent_34%),rgba(8,9,11,.98)] p-5 pb-12 backdrop-blur-2xl lg:hidden">
-                    <div className="sticky top-0 z-10 -mx-5 mb-8 flex items-center justify-between border-b border-white/10 bg-[#08090B]/86 px-5 py-4 backdrop-blur-2xl">
-                        <span className="text-lg font-black text-white">{t.navigation}</span>
-                        <div className="flex gap-2">
-                            <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} className="px-4 text-white"/>
-                            <button onClick={() => setOpen(false)} className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-black text-white">{t.close}</button>
-                        </div>
-                    </div>
-                    <div className="grid gap-3 pb-8">
-                        {navItems.map((item) => (
-                            <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-[1.7rem] border border-white/14 bg-white/[0.12] px-5 py-5 text-left text-xl font-black text-white shadow-[0_18px_58px_rgba(0,0,0,.24)]">{t.nav[item.key]}</NavLink>
-                        ))}
-                    </div>
-                    <div className="grid gap-3 border-t border-white/10 pt-5">
-                        <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="rounded-[1.5rem] border border-white/14 bg-white/[0.08] px-5 py-4 text-base font-black text-white">{t.linkedin}</a>
-                        <Button to="/contact#contact-options" onClick={() => setOpen(false)}>{t.bookTraining}</Button>
-                    </div>
-                </div>
-            )}
+            {mobileMenu && createPortal(mobileMenu, document.body)}
         </>
     );
 }
