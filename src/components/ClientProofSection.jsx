@@ -24,25 +24,38 @@ export default function ClientProofSection({ compact = false }) {
         </div>
 
         <div className="stagger-grid grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {visibleClients.map((client) => (
+          {visibleClients.map((client, index) => (
             <a
               key={client.name}
               href={client.href}
               target="_blank"
               rel="noreferrer"
-              className="soft-link-card group p-5"
+              className="group block [perspective:1200px] focus:outline-none"
             >
-              <div className="mb-5 flex items-start justify-between gap-4">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-blue-100 text-sm font-black text-zinc-950 shadow-lg shadow-sky-500/10">
-                  {client.initials}
+              <div className="relative min-h-[17rem] rounded-[1.6rem] transition duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-visible:[transform:rotateY(180deg)]">
+                <div className="soft-link-card absolute inset-0 flex flex-col p-5 [backface-visibility:hidden]">
+                  <div className="mb-5 flex items-start justify-between gap-4">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-blue-100 text-sm font-black text-zinc-950 shadow-lg shadow-sky-500/10">
+                      {client.initials}
+                    </div>
+                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-sky-100 transition group-hover:border-sky-100/40">
+                      {t.visit}
+                    </span>
+                  </div>
+                  <div className="text-xs font-black uppercase tracking-[0.14em] text-zinc-400">{client.type}</div>
+                  <h3 className="mt-3 text-xl font-black text-white">{client.name}</h3>
+                  <p className="mt-3 text-sm leading-7 text-zinc-300">{client.work}</p>
                 </div>
-                <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-sky-100 transition group-hover:border-sky-100/40">
-                  {t.visit}
-                </span>
+                <div className="soft-link-card absolute inset-0 flex flex-col justify-between border-sky-200/24 bg-[radial-gradient(circle_at_20%_0%,rgba(186,230,253,.18),transparent_46%),linear-gradient(145deg,rgba(14,30,54,.95),rgba(33,38,66,.92))] p-5 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div>
+                    <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{t.clientSection.feedbackLabel}</div>
+                    <p className="mt-5 text-lg font-black leading-7 text-white">
+                      {t.clientSection.feedbackThemes[index % t.clientSection.feedbackThemes.length]}
+                    </p>
+                  </div>
+                  <p className="mt-6 text-sm leading-6 text-slate-300">{t.clientSection.feedbackNote}</p>
+                </div>
               </div>
-              <div className="text-xs font-black uppercase tracking-[0.14em] text-zinc-400">{client.type}</div>
-              <h3 className="mt-3 text-xl font-black text-white">{client.name}</h3>
-              <p className="mt-3 text-sm leading-7 text-zinc-300">{client.work}</p>
             </a>
           ))}
         </div>

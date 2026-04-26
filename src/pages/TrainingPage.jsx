@@ -33,7 +33,7 @@ function ServiceCard({ service, t }) {
         </div>
       </div>
       <div className="mt-6">
-        <Button to="/contact" variant="secondary">{t.requestTraining}</Button>
+        <Button to="/contact#contact-options" variant="secondary">{t.requestTraining}</Button>
       </div>
     </Card>
   );
@@ -148,7 +148,7 @@ export default function TrainingPage() {
               <Badge tone="emerald">{copy.topics}</Badge>
               <h2 className="mt-4 text-3xl font-black text-white">{copy.areas}</h2>
             </div>
-            <Button to="/contact" variant="secondary">{copy.custom}</Button>
+            <Button to="/contact#contact-options" variant="secondary">{copy.custom}</Button>
           </div>
           <div className="grid gap-6 lg:grid-cols-4">
             {trainingTopics.map((topic) => (

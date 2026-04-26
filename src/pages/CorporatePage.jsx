@@ -79,7 +79,7 @@ export default function CorporatePage() {
               <h2 className="text-3xl font-black text-white">{c.ctaTitle}</h2>
               <p className="mt-3 max-w-3xl text-slate-300">{c.ctaCopy}</p>
             </div>
-            <Button to="/contact">{c.cta}</Button>
+            <Button to="/contact#contact-options">{c.cta}</Button>
           </div>
         </div>
       </div>

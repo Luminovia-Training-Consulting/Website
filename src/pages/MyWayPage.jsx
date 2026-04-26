@@ -32,7 +32,7 @@ export default function MyWayPage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button to="/skills">{copy.skills}</Button>
-              <Button to="/contact" variant="secondary">{copy.request}</Button>
+              <Button to="/contact#contact-options" variant="secondary">{copy.request}</Button>
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

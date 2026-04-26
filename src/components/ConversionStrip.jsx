@@ -14,7 +14,7 @@ export default function ConversionStrip() {
             <p className="mt-1 text-sm text-zinc-300">{t.conversion.copy}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button to="/contact">{t.bookTrainingCall}</Button>
+            <Button to="/contact#appointment">{t.bookTrainingCall}</Button>
             <Link to="/training" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.08] px-5 py-3 text-sm font-black text-white shadow-[0_14px_46px_rgba(0,0,0,.14)] transition duration-500 hover:-translate-y-1 hover:border-sky-200/40 hover:bg-white/[0.13]">{t.conversion.topics} &gt;</Link>
           </div>
         </div>

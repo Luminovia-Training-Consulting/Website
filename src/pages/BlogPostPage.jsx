@@ -90,7 +90,7 @@ export default function BlogPostPage() {
               <h2 className="text-2xl font-black text-white">{copy.discuss}</h2>
               <p className="mt-2 text-sm leading-7 text-slate-300">{post.takeaway}</p>
             </div>
-            <Button to="/contact">{copy.discuss}</Button>
+            <Button to="/contact#contact-options">{copy.discuss}</Button>
           </div>
         </section>
 

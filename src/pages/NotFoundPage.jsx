@@ -27,7 +27,7 @@ export default function NotFoundPage() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button to="/">{t.notFound.home}</Button>
-            <Button to="/contact" variant="secondary">{t.notFound.contact}</Button>
+            <Button to="/contact#contact-options" variant="secondary">{t.notFound.contact}</Button>
             <Button to="/training" variant="secondary">{t.notFound.training}</Button>
           </div>
         </section>

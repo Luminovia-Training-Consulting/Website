@@ -167,7 +167,7 @@ export default function BlogPage() {
         <section className="mt-12">
           <div className="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <Badge tone="cyan">{copy.featured}</Badge>
-            <Button to="/contact" variant="secondary">{copy.suggest}</Button>
+            <Button to="/contact#contact-options" variant="secondary">{copy.suggest}</Button>
           </div>
           <Link to={`/blog/${featuredPost.slug}`} className="soft-link-card group flex min-h-[360px] flex-col p-6 sm:p-8">
             <Badge tone="cyan">{copy.featured}</Badge>

@@ -6,6 +6,7 @@ import App from "./App.jsx";
 describe("App routing and language", () => {
   beforeEach(() => {
     window.localStorage.clear();
+    window.scrollTo = vi.fn();
     vi.unstubAllGlobals();
   });
 
@@ -21,24 +22,15 @@ describe("App routing and language", () => {
     expect(document.documentElement.lang).toBe("de");
   });
 
-  it("renders the contact form and sends a successful request", async () => {
-    const user = userEvent.setup();
-    vi.stubGlobal("fetch", vi.fn(async () => ({
-      ok: true,
-      headers: { get: () => "application/json" },
-      json: async () => ({ ok: true }),
-    })));
+  it("renders direct contact links and the appointment scheduler without a form", () => {
     window.history.pushState({}, "Contact", "/contact");
 
     render(<App />);
 
-    await user.type(screen.getByLabelText(/Name/i), "Test User");
-    await user.type(screen.getByLabelText(/Email/i), "test@example.com");
-    await user.type(screen.getByLabelText(/Message/i), "I would like to book an AI workshop.");
-    await user.click(screen.getByRole("button", { name: /Send request/i }));
-
-    expect(fetch).toHaveBeenCalledWith("/api/contact.php", expect.objectContaining({ method: "POST" }));
-    expect(await screen.findByText(/Message sent/i)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Send request/i })).not.toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /Write an email/i })[0]).toHaveAttribute("href", expect.stringContaining("mailto:info@carinaschoppe.com"));
+    expect(screen.getAllByRole("link", { name: /\+61 451 448 724/i })[0]).toHaveAttribute("href", "tel:+61451448724");
+    expect(screen.getAllByRole("link", { name: /\+49 175 5738 757/i })[0]).toHaveAttribute("href", "tel:+491755738757");
     expect(screen.getByTitle(/Google Calendar appointment scheduler/i)).toHaveAttribute("src", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
   });
 });

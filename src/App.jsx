@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import HomePage from "./pages/HomePage.jsx";
@@ -20,10 +21,28 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import { LanguageProvider } from "./i18n.jsx";
 
+function ScrollToHash() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [pathname, hash]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <ScrollToHash />
         <div className="relative isolate min-h-screen overflow-hidden bg-[#08090b] text-white">
           <div className="ambient-veil fixed inset-0 z-0" />
           <div className="ambient-wash fixed -inset-x-24 top-0 z-0 h-[68vh]" />

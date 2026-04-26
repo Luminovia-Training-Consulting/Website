@@ -53,7 +53,7 @@ export default function Header() {
         <div className="hidden items-center gap-3 md:flex">
           <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} />
           <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white">{t.linkedin}</a>
-          <Button to="/contact">{t.bookTraining}</Button>
+          <Button to="/contact#contact-options">{t.bookTraining}</Button>
         </div>
 
         <button className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-black text-white backdrop-blur-xl lg:hidden" onClick={() => setOpen(true)} aria-label="Open menu">{t.menu}</button>

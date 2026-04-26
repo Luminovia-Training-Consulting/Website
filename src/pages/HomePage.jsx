@@ -66,7 +66,7 @@ function AssetButtons({ t }) {
 
 function MiniServiceCard({ service, t }) {
   return (
-    <Card>
+    <Card className="self-start">
       <h3 className="text-xl font-black text-white">{service.title}</h3>
       <p className="mt-4 text-sm leading-7 text-zinc-300">{service.description}</p>
       <div className="mt-5 grid gap-2">
@@ -75,7 +75,7 @@ function MiniServiceCard({ service, t }) {
         <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><strong className="text-sky-100">{t.serviceLabels.duration}:</strong> {service.duration}</div>
       </div>
       <div className="mt-5">
-        <Button to="/contact" variant="secondary">{t.requestTraining}</Button>
+        <Button to="/contact#contact-options" variant="secondary">{t.requestTraining}</Button>
       </div>
     </Card>
   );
@@ -122,7 +122,7 @@ export default function HomePage() {
               <strong className="text-white">{t.home.coreOffer}</strong> {t.home.coreCopy}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button to="/contact">{t.bookTrainingCall}</Button>
+              <Button to="/contact#appointment">{t.bookTrainingCall}</Button>
               <Button to="/skills" variant="secondary">{t.home.exploreCapability}</Button>
               <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{t.home.downloadProfile}</Button>
             </div>
@@ -150,7 +150,7 @@ export default function HomePage() {
               {t.home.positioningCopy}
             </p>
           </div>
-          <div className="stagger-grid grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="stagger-grid grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
             {teachingProof.map((proof) => (
               <Card key={proof.title}>
                 <div className="mb-5 h-1 w-12 rounded-full bg-sky-200" />
@@ -165,7 +165,7 @@ export default function HomePage() {
 
       <section id="trust" className="soft-section scroll-mt-28 px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+          <div className="grid items-start gap-4 md:grid-cols-3 lg:grid-cols-6">
             {trustSignals.map((signal) => (
               <div key={signal.title} className="rounded-[1.4rem] border border-sky-100/14 bg-[#071225]/74 p-4 shadow-[0_16px_60px_rgba(0,0,0,.22)] backdrop-blur-xl">
                 <div className="text-xs font-black uppercase tracking-[0.13em] text-sky-100">{signal.title}</div>
@@ -185,7 +185,7 @@ export default function HomePage() {
             </div>
             <p className="text-base leading-8 text-zinc-300">{t.home.topicsCopy}</p>
           </div>
-          <div className="stagger-grid grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="stagger-grid grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
             {trainingTopics.map((topic) => (
               <Card key={topic.group}>
                 <h3 className="text-xl font-black text-white">{topic.group}</h3>
@@ -206,7 +206,7 @@ export default function HomePage() {
           <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.remoteTitle}</h2>
           <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300">{t.home.remoteCopy}</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Button to="/contact">{t.bookConsultation}</Button>
+            <Button to="/contact#appointment">{t.bookConsultation}</Button>
             <Button to="/training" variant="secondary">{t.home.exploreCapability}</Button>
           </div>
         </div>
@@ -221,7 +221,7 @@ export default function HomePage() {
             </div>
             <p className="text-base leading-8 text-zinc-300">{t.home.servicesCopy}</p>
           </div>
-          <div className="stagger-grid grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="stagger-grid grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
             {serviceOfferings.slice(0, 6).map((service) => <MiniServiceCard key={service.title} service={service} t={t} />)}
           </div>
           <div className="mt-7 flex flex-col justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.055] p-5 sm:flex-row sm:items-center">
@@ -240,7 +240,7 @@ export default function HomePage() {
             </div>
             <p className="text-base leading-8 text-zinc-300">{t.home.audiencesCopy}</p>
           </div>
-          <div className="stagger-grid grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="stagger-grid grid items-start gap-4 md:grid-cols-2 lg:grid-cols-4">
             {audienceCards.map((audience) => (
               <Card key={audience.title}>
                 <h3 className="text-xl font-black text-white">{audience.title}</h3>
@@ -261,7 +261,7 @@ export default function HomePage() {
               <Badge tone="cyan">{t.home.formats}</Badge>
               <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.formatsTitle}</h2>
             </div>
-            <Button to="/contact" variant="secondary">{t.home.requestAvailability}</Button>
+            <Button to="/contact#contact-options" variant="secondary">{t.home.requestAvailability}</Button>
           </div>
           <div className="stagger-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {formats.map((format) => (
@@ -318,7 +318,7 @@ export default function HomePage() {
               <Badge>{t.home.trainingOffers}</Badge>
               <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.trainingOffersTitle}</h2>
             </div>
-            <Button to="/contact" variant="secondary">{t.home.requestAvailability}</Button>
+            <Button to="/contact#contact-options" variant="secondary">{t.home.requestAvailability}</Button>
           </div>
           <div className="stagger-grid grid gap-5 lg:grid-cols-3">
             {coreOffers.map((offer, index) => (

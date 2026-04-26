@@ -1,3 +1,0 @@
-<FilesMatch "^(\.env|contact-config\.php|contact-errors\.log)$">
-  Require all denied
-</FilesMatch>

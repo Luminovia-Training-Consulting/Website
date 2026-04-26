@@ -87,15 +87,9 @@ coverage/
 
 # Local environment files
 .env
+.env.*
 .env.local
 .env.*.local
-!.env.example
-
-# SMTP/contact form secrets and runtime logs
-public/api/contact-config.php
-public/api/contact-errors.log
-dist/api/contact-config.php
-dist/api/contact-errors.log
 
 # Local preview/test artifacts
 vite-preview.log
