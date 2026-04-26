@@ -28,7 +28,7 @@ const content = {
             },
             {
                 title: "Talks, keynotes and expert sessions",
-                price: "from $1,800",
+                price: "from $1,200",
                 suffix: "per 8-hour day",
                 copy: "For individual talks, conferences, expert sessions, leadership briefings or special event formats. Pricing depends strongly on audience, topic, preparation and travel or time-zone requirements.",
                 details: ["Individual quote recommended", "Short impulse talks or full-day formats", "AI, governance, cybersecurity, education or digital transformation", "Remote-first delivery from Brisbane"],
@@ -63,7 +63,7 @@ const content = {
             },
             {
                 title: "Vortraege, Keynotes und Expert Sessions",
-                price: "ab 1.500 EUR",
+                price: "ab 1.000 EUR",
                 suffix: "pro 8-Stunden-Tag",
                 copy: "Fuer einzelne Vortraege, Konferenzen, Expert Sessions, Leadership Briefings oder besondere Veranstaltungsformate. Der Preis haengt stark von Audience, Gruppe, Thema und Vorbereitung ab.",
                 details: ["Individuelles Angebot empfohlen", "Impulsvortrag oder Tagesformat", "AI, Governance, Cybersecurity, Bildung oder digitale Transformation", "Remote-first aus Brisbane"],
