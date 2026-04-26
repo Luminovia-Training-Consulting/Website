@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import AmbientIntelligence from "./components/AmbientIntelligence.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import TrainingPage from "./pages/TrainingPage.jsx";
 import KeynotesPage from "./pages/KeynotesPage.jsx";
@@ -59,6 +60,7 @@ export default function App() {
             <span />
           </div>
           <div className="ambient-grid fixed inset-0 z-0 opacity-70" />
+          <AmbientIntelligence />
           <Header />
           <div className="relative z-10 enter-up">
             <Routes>
