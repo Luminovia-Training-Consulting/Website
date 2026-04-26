@@ -1,14 +1,5 @@
 @import "tailwindcss";
 
-@keyframes enterUp {
-    from {
-        transform: translateY(10px);
-    }
-    to {
-        transform: none;
-    }
-}
-
 @keyframes ambientShift {
     0%, 100% {
         transform: translate3d(0, 0, 0) scale(1);
@@ -157,10 +148,6 @@
         transform: translateX(35%) rotate(var(--line-rotate));
         opacity: 0;
     }
-}
-
-.enter-up {
-    animation: enterUp .28s ease-out;
 }
 
 .hero-float {
@@ -856,7 +843,6 @@ p {
 }
 
 @media (max-width: 768px) {
-    .enter-up,
     .hero-float,
     .ambient-wash,
     .ambient-ribbon,
@@ -874,7 +860,6 @@ p {
         animation: none !important;
     }
 
-    .enter-up,
     .hero-float,
     .polygon-field,
     .polygon-field::before,

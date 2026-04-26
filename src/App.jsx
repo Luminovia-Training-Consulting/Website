@@ -62,7 +62,7 @@ export default function App() {
                     <div className="ambient-grid fixed inset-0 z-0 opacity-70"/>
                     <AmbientIntelligence/>
                     <Header/>
-                    <div className="relative z-10 enter-up">
+                    <div className="relative z-10">
                         <Routes>
                             <Route path="/" element={<HomePage/>}/>
                             <Route path="/training" element={<TrainingPage/>}/>
