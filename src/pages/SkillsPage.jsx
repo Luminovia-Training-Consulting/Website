@@ -11,7 +11,6 @@ export default function SkillsPage() {
     ? {
       badge: "Skills & Themen",
       title: "Eine praktische Skill-Map für AI, Software, Cybersecurity und Business IT.",
-      intro: "Diese Seite ist die schnelle Übersicht: was ich lehren, erklären, einordnen und in praktische Lernformate übersetzen kann.",
       formats: "Trainingsformate ansehen",
       credentials: "Credentials ansehen",
       clusters: "Lehrcluster",
@@ -20,7 +19,6 @@ export default function SkillsPage() {
     : {
       badge: "Skills & topics",
       title: "A practical skill map for AI, software, cybersecurity and business IT.",
-      intro: "This page is the quick overview: what I can teach, explain, build around and translate into practical learning formats.",
       formats: "View training formats",
       credentials: "View credentials",
       clusters: "Teaching clusters",
@@ -30,16 +28,13 @@ export default function SkillsPage() {
     <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <Badge>{copy.badge}</Badge>
-        <div className="mt-6 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-          <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
+        <div className="mt-6">
+          <h1 className="mx-auto max-w-5xl text-center text-5xl font-black tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
             {copy.title}
           </h1>
-          <p className="text-lg leading-8 text-slate-300">
-            {copy.intro}
-          </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button to="/training">{copy.formats}</Button>
           <Button to="/credentials" variant="secondary">{copy.credentials}</Button>
         </div>
