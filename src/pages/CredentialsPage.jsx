@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
@@ -9,8 +9,8 @@ export default function CredentialsPage() {
     const {language} = useLanguage();
     const {credentials, credentialCategories} = useSiteContent();
     const [filter, setFilter] = useState(credentialCategories[0]);
-    useEffect(() => setFilter(credentialCategories[0]), [language, credentialCategories]);
-    const visible = credentials.filter((credential) => filter === credentialCategories[0] || filter === "All" || credential.category === filter);
+    const activeFilter = credentialCategories.includes(filter) ? filter : credentialCategories[0];
+    const visible = credentials.filter((credential) => activeFilter === credentialCategories[0] || activeFilter === "All" || credential.category === activeFilter);
     const copy = language === "de"
         ? {
             badge: "Credentials & Teaching Proof",
@@ -34,7 +34,7 @@ export default function CredentialsPage() {
 
                 <div className="mt-10 flex flex-wrap gap-2">
                     {credentialCategories.map((cat) => (
-                        <button key={cat} onClick={() => setFilter(cat)} className={cn("rounded-full border px-4 py-2 text-sm font-black transition", filter === cat ? "border-white bg-white text-slate-950" : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white")}>{cat}</button>
+                        <button key={cat} onClick={() => setFilter(cat)} className={cn("rounded-full border px-4 py-2 text-sm font-black transition", activeFilter === cat ? "border-white bg-white text-slate-950" : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white")}>{cat}</button>
                     ))}
                 </div>
 
