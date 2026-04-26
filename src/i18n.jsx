@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useMemo, useState} from "react";
+import {createContext, useCallback, useContext, useEffect, useMemo, useState} from "react";
 
 const STORAGE_KEY = "carina_site_language";
 const DEFAULT_LANGUAGE = "en";
@@ -340,7 +340,6 @@ const dictionaries = {
  * @typedef {"en" | "de"} Language
  * @typedef {{
  *   language: Language,
- *   setLanguage: (nextLanguage: string | null | undefined) => void,
  *   toggleLanguage: () => void,
  *   t: typeof dictionaries.en
  * }} LanguageContextValue
@@ -364,12 +363,15 @@ export function LanguageProvider({children}) {
         document.documentElement.lang = language;
     }, [language]);
 
+    const toggleLanguage = useCallback(() => {
+        setLanguage((current) => current === "en" ? "de" : "en");
+    }, []);
+
     const value = useMemo(() => ({
         language,
-        setLanguage: (nextLanguage) => setLanguage(resolveLanguage(nextLanguage)),
-        toggleLanguage: () => setLanguage((current) => current === "en" ? "de" : "en"),
+        toggleLanguage,
         t: dictionaries[language],
-    }), [language]);
+    }), [language, toggleLanguage]);
 
     return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }

@@ -779,7 +779,7 @@ p {
 
     .glass-sheen::after,
     .breathing-halo,
-    .rainbow-edge::before,
+    [class~="rainbow-edge"]::before,
     .soft-link-card::before {
         animation: none !important;
     }
@@ -800,7 +800,7 @@ p {
     }
 
     .soft-link-card,
-    .rainbow-edge,
+    [class~="rainbow-edge"],
     .glass-sheen,
     .signal-pill {
         backdrop-filter: none !important;
@@ -808,14 +808,14 @@ p {
     }
 
     .soft-link-card,
-    .rainbow-edge {
+    [class~="rainbow-edge"] {
         background: linear-gradient(145deg, rgba(35, 43, 58, .96), rgba(13, 22, 38, .98)) !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 18px 54px rgba(0, 0, 0, .34) !important;
         overflow: visible !important;
     }
 
     .soft-link-card::before,
-    .rainbow-edge::before {
+    [class~="rainbow-edge"]::before {
         display: none !important;
     }
 

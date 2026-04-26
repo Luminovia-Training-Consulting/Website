@@ -7,21 +7,13 @@ export default defineConfig({
     base: "/",
     build: {
         cssCodeSplit: false,
-        modulePreload: {
-            polyfill: true,
-        },
-        rollupOptions: {
-            output: {
-                manualChunks: undefined,
-            },
-        },
     },
     test: {
         environment: "jsdom",
         setupFiles: "./src/test/setup.js",
         globals: true,
         coverage: {
-            reporter: ["text", "html"],
+            reporter: ["text", "json"],
             include: ["src/**/*.{js,jsx}"],
             exclude: ["src/main.jsx"],
         },
