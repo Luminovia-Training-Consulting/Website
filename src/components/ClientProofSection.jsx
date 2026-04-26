@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useSiteContent } from "../data/localizedContent.js";
 import { useLanguage } from "../i18n.jsx";
 import Badge from "./Badge.jsx";
 import Card from "./Card.jsx";
+import { cn } from "./utils.js";
 
 export default function ClientProofSection({ compact = false }) {
   const { t } = useLanguage();
   const { formerClients, testimonialProof } = useSiteContent();
   const visibleClients = compact ? formerClients.slice(0, 8) : formerClients;
+  const [flippedClient, setFlippedClient] = useState("");
 
   return (
     <section className="soft-section px-4 py-16 sm:px-6 lg:px-8">
@@ -30,7 +33,11 @@ export default function ClientProofSection({ compact = false }) {
               href={client.href}
               target="_blank"
               rel="noreferrer"
-              className="client-flip-card group block focus:outline-none"
+              onMouseEnter={() => setFlippedClient(client.name)}
+              onMouseLeave={() => setFlippedClient("")}
+              onFocus={() => setFlippedClient(client.name)}
+              onBlur={() => setFlippedClient("")}
+              className={cn("client-flip-card group block focus:outline-none", flippedClient === client.name && "is-flipped")}
             >
               <div className="client-flip-inner">
                 <div className="client-flip-face soft-link-card flex flex-col p-4 sm:p-5">

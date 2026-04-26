@@ -438,8 +438,7 @@
   transition: transform .72s cubic-bezier(.2,.8,.2,1);
   will-change: transform;
 }
-.client-flip-card:hover .client-flip-inner,
-.client-flip-card:focus-visible .client-flip-inner {
+.client-flip-card.is-flipped .client-flip-inner {
   transform: rotateY(180deg);
 }
 .client-flip-face {
@@ -450,6 +449,10 @@
   transform: rotateY(180deg);
 }
 .client-flip-card .soft-link-card::before {
+  animation: none;
+}
+.client-flip-card .soft-link-card:hover::before {
+  opacity: 0;
   animation: none;
 }
 .signal-pill {
