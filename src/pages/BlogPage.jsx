@@ -108,7 +108,7 @@ export default function BlogPage() {
   const copy = language === "de"
     ? {
       title: "Blog zu AI, Projektmanagement und Lehre mit KI.",
-      intro: "Ausfuehrliche, veroeffentlichungsfertige Beitraege zu Themen, die zu meiner Arbeit als AI Lecturer, IT Trainerin und Business Consultant passen.",
+      intro: "Der Blog ist als fachlicher Knowledge Hub fuer Bildungspartner, Unternehmen und Hochschulen gedacht. Hier ordne ich Entwicklungen rund um Agentic AI, AI Governance, digitale Bildung, Projektarbeit und verantwortungsvolle Automatisierung ein, mit Blick auf praktische Trainings, bessere Entscheidungen und den Transfer in echte Lern- und Arbeitsumgebungen.",
       featured: "Neuester Beitrag",
       latest: "Alle Blogbeitraege",
       read: "Artikel lesen",
@@ -118,7 +118,7 @@ export default function BlogPage() {
     }
     : {
       title: "Blog on AI, project work and teaching with AI.",
-      intro: "Long-form, publish-ready articles on topics connected to my work as an AI lecturer, IT trainer and business consultant.",
+      intro: "This blog is designed as a professional knowledge hub for education partners, companies and universities. I use it to analyse developments in agentic AI, AI governance, digital education, project work and responsible automation, always with a focus on practical training, better decision-making and transfer into real learning and work environments.",
       featured: "Featured latest post",
       latest: "All blog posts",
       read: "Read article",
