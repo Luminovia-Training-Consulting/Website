@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "./Badge.jsx";
@@ -10,6 +10,37 @@ export default function ClientProofSection({compact = false}) {
     const {formerClients, testimonialProof} = useSiteContent();
     const visibleClients = compact ? formerClients.slice(0, 8) : formerClients;
     const [flippedClient, setFlippedClient] = useState("");
+    const cooldowns = useRef(new Map());
+    const leaveFrame = useRef(0);
+
+    function lockFlip(clientName) {
+        cooldowns.current.set(clientName, Date.now() + 1000);
+    }
+
+    function isCoolingDown(clientName) {
+        return Date.now() < (cooldowns.current.get(clientName) || 0);
+    }
+
+    function flipClient(clientName) {
+        if (isCoolingDown(clientName)) return;
+        setFlippedClient(clientName);
+        lockFlip(clientName);
+    }
+
+    function unflipClient(event, clientName) {
+        const card = event.currentTarget;
+        const {clientX, clientY} = event;
+
+        cancelAnimationFrame(leaveFrame.current);
+        leaveFrame.current = requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const pointerStillInside = clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+            if (pointerStillInside) return;
+
+            setFlippedClient((current) => current === clientName ? "" : current);
+            lockFlip(clientName);
+        });
+    }
 
     return (
         <section className="soft-section px-4 py-16 sm:px-6 lg:px-8">
@@ -33,8 +64,8 @@ export default function ClientProofSection({compact = false}) {
                             href={client.href}
                             target="_blank"
                             rel="noreferrer"
-                            onMouseEnter={() => setFlippedClient(client.name)}
-                            onMouseLeave={() => setFlippedClient("")}
+                            onPointerEnter={() => flipClient(client.name)}
+                            onPointerLeave={(event) => unflipClient(event, client.name)}
                             onFocus={() => setFlippedClient(client.name)}
                             onBlur={() => setFlippedClient("")}
                             className={cn("client-flip-card group block focus:outline-none", flippedClient === client.name && "is-flipped")}
