@@ -7,6 +7,7 @@ import Card from "../components/Card.jsx";
 import Metric from "../components/Metric.jsx";
 import Photo from "../components/Photo.jsx";
 import ConversionStrip from "../components/ConversionStrip.jsx";
+import StickyBookingBar from "../components/StickyBookingBar.jsx";
 
 function HeroVisual() {
     const {t} = useLanguage();
@@ -114,6 +115,31 @@ function BookingFitSection({t}) {
     );
 }
 
+function SalesSignalSection({t}) {
+    return (
+        <section className="soft-section px-4 py-10 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-white/10 bg-white/[0.055] p-5 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-xl sm:p-7">
+                <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+                    <div>
+                        <Badge tone="violet">{t.home.salesSignal}</Badge>
+                        <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.salesSignalTitle}</h2>
+                        <p className="mt-4 text-base leading-8 text-zinc-300">{t.home.salesSignalCopy}</p>
+                    </div>
+                    <div className="grid gap-3 sm:grid-cols-3">
+                        {t.home.salesSignals.map((signal) => (
+                            <div key={signal.title} className="rounded-[1.45rem] border border-sky-100/14 bg-[#071225]/78 p-4 shadow-[0_14px_48px_rgba(0,0,0,.18)]">
+                                <div className="mb-4 h-1 w-10 rounded-full bg-sky-200"/>
+                                <h3 className="text-base font-black text-white">{signal.title}</h3>
+                                <p className="mt-3 text-sm leading-7 text-zinc-300">{signal.copy}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
 function JumpNavigation({items, label}) {
     return (
         <nav className="fixed left-0 right-0 top-[4.45rem] z-40 border-b border-white/10 bg-[#070B16]/78 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-4 lg:px-8" aria-label={label}>
@@ -137,7 +163,7 @@ export default function HomePage() {
     const featuredServices = serviceOfferings.slice(0, 3);
 
     return (
-        <main>
+        <main className="pb-28 sm:pb-24">
             <JumpNavigation items={t.home.jumpNav} label={t.home.jumpNavLabel}/>
             <div className="h-[8.9rem] sm:h-[9.25rem]" aria-hidden="true"/>
 
@@ -171,6 +197,8 @@ export default function HomePage() {
                     <HeroVisual/>
                 </div>
             </section>
+
+            <SalesSignalSection t={t}/>
 
             <section id="remote" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-sky-100/16 bg-[linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.08),rgba(255,255,255,.035))] p-5 shadow-[0_20px_80px_rgba(37,99,235,.12)] backdrop-blur-xl sm:p-7">
@@ -251,6 +279,7 @@ export default function HomePage() {
             <div id="contact-cta" className="scroll-mt-40">
                 <ConversionStrip/>
             </div>
+            <StickyBookingBar/>
         </main>
     );
 }

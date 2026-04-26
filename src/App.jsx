@@ -21,6 +21,7 @@ import ImprintPage from "./pages/ImprintPage.jsx";
 import PrivacyPage from "./pages/PrivacyPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
+import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
 
 function ScrollToHash() {
@@ -54,6 +55,7 @@ export default function App() {
     return (
         <LanguageProvider>
             <BrowserRouter>
+                <Seo/>
                 <ScrollToHash/>
                 <div className="relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
                     <div className="ambient-veil fixed inset-0 z-0"/>
