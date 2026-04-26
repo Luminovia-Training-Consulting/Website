@@ -46,6 +46,18 @@ export default function ContactPage() {
                             <Button href={`mailto:${PROFILE.email}?subject=${subject}`} variant="secondary">{t.contact.emailButton}</Button>
                             <Button to="/contact#appointment">{t.contact.calendarFallback}</Button>
                         </div>
+                        <div className="mt-8 rounded-[1.75rem] border border-sky-100/14 bg-[#071225]/72 p-5 shadow-[0_16px_60px_rgba(0,0,0,.2)]">
+                            <h2 className="text-xl font-black text-white">{t.contact.briefTitle}</h2>
+                            <p className="mt-2 text-sm leading-7 text-slate-300">{t.contact.briefCopy}</p>
+                            <div className="mt-4 grid gap-2">
+                                {t.contact.briefItems.map((item) => (
+                                    <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] px-3 py-2 text-sm font-bold text-slate-200">
+                                        <span className="text-sky-200">+</span>
+                                        <span>{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="block rounded-3xl border border-white/10 bg-white/[0.07] p-4 transition hover:border-sky-200/30 hover:bg-white/[0.11] focus:outline-none focus:ring-2 focus:ring-sky-200/70">
                                 <div className="text-xs uppercase tracking-[0.18em] text-slate-500">LinkedIn</div>
