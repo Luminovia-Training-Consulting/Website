@@ -23,14 +23,14 @@ export default function ClientProofSection({compact = false}) {
                     </p>
                 </div>
 
-                <div className="grid items-start gap-3 md:grid-cols-2 xl:grid-cols-4">
+                <div className="client-proof-grid grid items-start gap-3 md:grid-cols-2 xl:grid-cols-4">
                     {visibleClients.map((client, index) => (
                         <a
                             key={client.name}
                             href={client.href}
                             target="_blank"
                             rel="noreferrer"
-                            className="soft-link-card group block p-4 focus:outline-none focus:ring-2 focus:ring-sky-200/80 sm:p-5"
+                            className="client-proof-card soft-link-card group block p-4 focus:outline-none focus:ring-2 focus:ring-sky-200/80 sm:p-5"
                         >
                             <div className="mb-4 flex items-start justify-between gap-3">
                                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-blue-100 text-sm font-black text-zinc-950 shadow-lg shadow-sky-500/10">

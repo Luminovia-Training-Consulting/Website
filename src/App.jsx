@@ -45,7 +45,7 @@ export default function App() {
         <LanguageProvider>
             <BrowserRouter>
                 <ScrollToHash/>
-                <div className="relative isolate min-h-screen overflow-hidden bg-[#08090b] text-white">
+                <div className="relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
                     <div className="ambient-veil fixed inset-0 z-0"/>
                     <div className="ambient-wash fixed -inset-x-24 top-0 z-0 h-[68vh]"/>
                     <div className="ambient-ribbon fixed left-[-12vw] top-[14vh] z-0 h-32 w-[124vw] rotate-[-8deg] opacity-70"/>
