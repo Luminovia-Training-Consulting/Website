@@ -713,11 +713,10 @@ body {
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     padding: 1.25rem 1.25rem 3rem;
-    background:
-        radial-gradient(circle at 20% 5%, rgba(56, 189, 248, .18), transparent 36%),
-        radial-gradient(circle at 72% 18%, rgba(37, 99, 235, .20), transparent 34%),
-        radial-gradient(circle at 92% 28%, rgba(99, 102, 241, .12), transparent 34%),
-        #08090b;
+    background: radial-gradient(circle at 20% 5%, rgba(56, 189, 248, .18), transparent 36%),
+    radial-gradient(circle at 72% 18%, rgba(37, 99, 235, .20), transparent 34%),
+    radial-gradient(circle at 92% 28%, rgba(99, 102, 241, .12), transparent 34%),
+    #08090b;
 }
 
 a:focus-visible,
@@ -819,8 +818,8 @@ p {
         display: none !important;
     }
 
-    .btn-primary::after,
-    .btn-secondary::after {
+    [data-button-variant="primary"]::after,
+    [data-button-variant="secondary"]::after {
         display: none !important;
     }
 
@@ -841,14 +840,14 @@ p {
         padding: 1rem !important;
     }
 
-    .btn-primary {
+    [data-button-variant="primary"] {
         background: linear-gradient(135deg, #ffffff, #eaf8ff) !important;
         border-color: rgba(255, 255, 255, .72) !important;
         color: #05070d !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, .74), 0 8px 20px rgba(0, 0, 0, .26) !important;
     }
 
-    .btn-secondary {
+    [data-button-variant="secondary"] {
         background: linear-gradient(145deg, rgba(13, 23, 42, .98), rgba(26, 36, 55, .96)) !important;
         border-color: rgba(186, 230, 253, .28) !important;
         color: #f8fbff !important;
@@ -859,8 +858,8 @@ p {
         gap: .85rem !important;
     }
 
-    .button-stack .btn-primary,
-    .button-stack .btn-secondary {
+    .button-stack [data-button-variant="primary"],
+    .button-stack [data-button-variant="secondary"] {
         min-height: 3.1rem;
         position: relative;
         z-index: 1;

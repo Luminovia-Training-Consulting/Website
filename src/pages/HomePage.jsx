@@ -80,28 +80,30 @@ function MiniServiceCard({service, t}) {
 }
 
 function BookingFitSection({t}) {
+    const {bookingFit, bookingFitTitle, bookingFitCopy, bookingRoutes, popularRoute} = t.home;
+
     return (
         <section id="booking-fit" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
                 <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                     <div>
-                        <Badge tone="emerald">{t.home.bookingFit}</Badge>
-                        <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.bookingFitTitle}</h2>
+                        <Badge tone="emerald">{bookingFit}</Badge>
+                        <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{bookingFitTitle}</h2>
                     </div>
-                    <p className="text-base leading-8 text-zinc-300">{t.home.bookingFitCopy}</p>
+                    <p className="text-base leading-8 text-zinc-300">{bookingFitCopy}</p>
                 </div>
                 <div className="grid items-start gap-4 lg:grid-cols-3">
-                    {t.home.bookingRoutes.map((route, index) => (
+                    {bookingRoutes.map((route, index) => (
                         <Card key={route.title} className={index === 1 ? "self-start border-sky-200/30" : "self-start"}>
                             <div className="flex items-start justify-between gap-4">
                                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-sm font-black text-slate-950">{String(index + 1).padStart(2, "0")}</div>
-                                {index === 1 && <span className="rounded-full border border-sky-100/20 bg-sky-100/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-sky-100">{t.home.popularRoute}</span>}
+                                {index === 1 && <span className="rounded-full border border-sky-100/20 bg-sky-100/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-sky-100">{popularRoute}</span>}
                             </div>
                             <h3 className="mt-5 text-xl font-black text-white">{route.title}</h3>
                             <p className="mt-4 text-sm leading-7 text-zinc-300">{route.copy}</p>
                             <div className="mt-5 flex flex-wrap gap-2">
                                 {route.bullets.map((bullet) => (
-                                    <span key={bullet} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{bullet}</span>
+                                    <span key={String(bullet)} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{bullet}</span>
                                 ))}
                             </div>
                             <div className="mt-6">
@@ -116,18 +118,20 @@ function BookingFitSection({t}) {
 }
 
 function SalesSignalSection({t}) {
+    const {salesSignal, salesSignalTitle, salesSignalCopy, salesSignals} = t.home;
+
     return (
         <section className="soft-section px-4 py-10 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-white/10 bg-white/[0.055] p-5 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-xl sm:p-7">
                 <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
                     <div>
-                        <Badge tone="violet">{t.home.salesSignal}</Badge>
-                        <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.salesSignalTitle}</h2>
-                        <p className="mt-4 text-base leading-8 text-zinc-300">{t.home.salesSignalCopy}</p>
+                        <Badge tone="violet">{salesSignal}</Badge>
+                        <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{salesSignalTitle}</h2>
+                        <p className="mt-4 text-base leading-8 text-zinc-300">{salesSignalCopy}</p>
                     </div>
                     <div className="grid gap-3 sm:grid-cols-3">
-                        {t.home.salesSignals.map((signal) => (
-                            <div key={signal.title} className="rounded-[1.45rem] border border-sky-100/14 bg-[#071225]/78 p-4 shadow-[0_14px_48px_rgba(0,0,0,.18)]">
+                        {salesSignals.map((signal) => (
+                            <div key={String(signal.title)} className="rounded-[1.45rem] border border-sky-100/14 bg-[#071225]/78 p-4 shadow-[0_14px_48px_rgba(0,0,0,.18)]">
                                 <div className="mb-4 h-1 w-10 rounded-full bg-sky-200"/>
                                 <h3 className="text-base font-black text-white">{signal.title}</h3>
                                 <p className="mt-3 text-sm leading-7 text-zinc-300">{signal.copy}</p>
@@ -161,31 +165,54 @@ export default function HomePage() {
     const {t} = useLanguage();
     const {trustStats, serviceOfferings, faqs} = useSiteContent();
     const featuredServices = serviceOfferings.slice(0, 3);
+    const {
+        badge,
+        title,
+        intro,
+        coreOffer,
+        coreCopy,
+        exploreCapability,
+        downloadProfile,
+        remote,
+        remoteTitle,
+        remoteCopy,
+        trainingOffers,
+        servicesTitle,
+        servicesCopy,
+        process,
+        processTitle,
+        processSteps,
+        faq,
+        faqTitle,
+        faqCopy,
+        jumpNav,
+        jumpNavLabel,
+    } = t.home;
 
     return (
         <main className="pb-28 sm:pb-24">
-            <JumpNavigation items={t.home.jumpNav} label={t.home.jumpNavLabel}/>
+            <JumpNavigation items={jumpNav} label={jumpNavLabel}/>
             <div className="h-[8.9rem] sm:h-[9.25rem]" aria-hidden="true"/>
 
             <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-10">
                 <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(56,189,248,.18),transparent_34%),linear-gradient(245deg,rgba(37,99,235,.17),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]"/>
                 <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
                     <div>
-                        <Badge>{t.home.badge}</Badge>
+                        <Badge>{badge}</Badge>
                         <MobileHeroSignal/>
                         <h1 className="hero-title mt-6 max-w-5xl text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
-                            {t.home.title}
+                            {title}
                         </h1>
                         <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
-                            {t.home.intro}
+                            {intro}
                         </p>
                         <div className="glass-sheen mt-7 rounded-[2rem] border border-white/10 bg-white/[0.08] p-4 text-sm leading-7 text-zinc-300 shadow-[0_18px_70px_rgba(0,0,0,.2)] backdrop-blur-2xl">
-                            <strong className="text-white">{t.home.coreOffer}</strong> {t.home.coreCopy}
+                            <strong className="text-white">{coreOffer}</strong> {coreCopy}
                         </div>
                         <div className="button-stack mt-8 flex flex-col gap-3 sm:flex-row">
                             <Button to="/contact#appointment">{t.bookTrainingCall}</Button>
-                            <Button to="/training" variant="secondary">{t.home.exploreCapability}</Button>
-                            <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{t.home.downloadProfile}</Button>
+                            <Button to="/training" variant="secondary">{exploreCapability}</Button>
+                            <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{downloadProfile}</Button>
                         </div>
                         <div className="mt-5">
                             <AssetButtons t={t}/>
@@ -202,11 +229,11 @@ export default function HomePage() {
 
             <section id="remote" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-sky-100/16 bg-[linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.08),rgba(255,255,255,.035))] p-5 shadow-[0_20px_80px_rgba(37,99,235,.12)] backdrop-blur-xl sm:p-7">
-                    <Badge tone="cyan">{t.home.remote}</Badge>
+                    <Badge tone="cyan">{remote}</Badge>
                     <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
                         <div>
-                            <h2 className="max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.remoteTitle}</h2>
-                            <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300">{t.home.remoteCopy}</p>
+                            <h2 className="max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{remoteTitle}</h2>
+                            <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300">{remoteCopy}</p>
                         </div>
                         <div className="button-stack flex flex-col gap-3 sm:flex-row lg:flex-col">
                             <Button to="/contact#appointment">{t.bookConsultation}</Button>
@@ -220,10 +247,10 @@ export default function HomePage() {
                 <div className="mx-auto max-w-7xl">
                     <div className="mb-8 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
-                            <Badge tone="cyan">{t.home.trainingOffers}</Badge>
-                            <h2 className="mt-5 text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.servicesTitle}</h2>
+                            <Badge tone="cyan">{trainingOffers}</Badge>
+                            <h2 className="mt-5 text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{servicesTitle}</h2>
                         </div>
-                        <p className="text-base leading-8 text-zinc-300">{t.home.servicesCopy}</p>
+                        <p className="text-base leading-8 text-zinc-300">{servicesCopy}</p>
                     </div>
                     <div className="grid items-start gap-5 md:grid-cols-3">
                         {featuredServices.map((service) => <MiniServiceCard key={service.title} service={service} t={t}/>)}
@@ -240,14 +267,14 @@ export default function HomePage() {
             <section id="process" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                     <div className="mb-8">
-                        <Badge tone="emerald">{t.home.process}</Badge>
-                        <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.processTitle}</h2>
+                        <Badge tone="emerald">{process}</Badge>
+                        <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{processTitle}</h2>
                     </div>
                     <div className="grid items-start gap-4 md:grid-cols-5">
-                        {t.home.processSteps.map(([step, title, copy]) => (
-                            <Card key={step}>
+                        {processSteps.map(([step, stepTitle, copy]) => (
+                            <Card key={String(step)}>
                                 <div className="grid h-11 w-11 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-base font-black text-slate-950">{step}</div>
-                                <h3 className="mt-5 text-lg font-black text-white">{title}</h3>
+                                <h3 className="mt-5 text-lg font-black text-white">{stepTitle}</h3>
                                 <p className="mt-3 text-sm leading-7 text-zinc-300">{copy}</p>
                             </Card>
                         ))}
@@ -259,10 +286,10 @@ export default function HomePage() {
                 <div className="mx-auto max-w-7xl">
                     <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
-                            <Badge tone="cyan">{t.home.faq}</Badge>
-                            <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.faqTitle}</h2>
+                            <Badge tone="cyan">{faq}</Badge>
+                            <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{faqTitle}</h2>
                         </div>
-                        <p className="text-base leading-8 text-zinc-300">{t.home.faqCopy}</p>
+                        <p className="text-base leading-8 text-zinc-300">{faqCopy}</p>
                     </div>
                     <div className="grid items-start gap-4 md:grid-cols-2">
                         {faqs.slice(0, 10).map((item, index) => (

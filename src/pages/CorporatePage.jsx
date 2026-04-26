@@ -65,7 +65,7 @@ export default function CorporatePage() {
 
                 <div className="mt-16 grid gap-5 lg:grid-cols-4">
                     {c.process.map(([step, title, text]) => (
-                        <Card key={step}>
+                        <Card key={String(step)}>
                             <div className="text-5xl font-black text-white/10">{step}</div>
                             <h3 className="mt-4 text-2xl font-black text-white">{title}</h3>
                             <p className="mt-3 text-sm leading-7 text-slate-300">{text}</p>
