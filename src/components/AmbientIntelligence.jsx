@@ -5,6 +5,9 @@ export default function AmbientIntelligence() {
     const pointerRef = useRef(null);
 
     useEffect(() => {
+        const mobileQuery = globalThis.matchMedia?.("(max-width: 768px)");
+        if (mobileQuery?.matches) return undefined;
+
         let frame = 0;
 
         function updateProgress() {

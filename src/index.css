@@ -616,47 +616,6 @@
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 34px 125px rgba(0, 0, 0, .34), 0 0 52px rgba(255, 255, 255, .045);
 }
 
-/*noinspection CssUnusedSymbol*/
-.client-flip-card .soft-link-card {
-    position: absolute;
-    inset: 0;
-}
-
-.client-flip-card .soft-link-card:hover {
-    transform: none;
-}
-
-.client-flip-inner {
-    position: relative;
-    min-height: 13.5rem;
-    border-radius: 1.6rem;
-    transform-style: preserve-3d;
-    transition: transform .72s cubic-bezier(.2, .8, .2, 1);
-    will-change: transform;
-}
-
-.client-flip-card.is-flipped .client-flip-inner {
-    transform: rotateY(180deg);
-}
-
-.client-flip-face {
-    backface-visibility: hidden;
-    transform: rotateY(0deg);
-}
-
-.client-flip-back {
-    transform: rotateY(180deg);
-}
-
-.client-flip-card .soft-link-card::before {
-    animation: none;
-}
-
-.client-flip-card .soft-link-card:hover::before {
-    opacity: 0;
-    animation: none;
-}
-
 .signal-pill {
     display: inline-flex;
     align-items: center;
@@ -682,16 +641,9 @@
     box-shadow: 0 0 18px rgba(125, 211, 252, .9), 0 0 34px rgba(37, 99, 235, .38);
 }
 
-/*noinspection CssUnusedSymbol*/
-
 .soft-link-card:hover::before {
     opacity: 1;
     animation: shimmerLine 1.1s ease-out;
-}
-
-.client-flip-card .soft-link-card:hover::before {
-    opacity: 0;
-    animation: none;
 }
 
 .flag-icon {
@@ -768,8 +720,6 @@ body {
         #08090b;
 }
 
-/*noinspection CssUnusedSymbol*/
-
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -817,18 +767,28 @@ p {
 }
 
 @media (max-width: 768px) {
+    .ambient-wash,
+    .ambient-ribbon,
+    .polygon-field,
+    .ambient-grid,
+    .pointer-aura,
+    .intelligence-layer,
+    .data-orbit {
+        display: none;
+    }
+
+    .glass-sheen::after,
+    .breathing-halo,
+    .rainbow-edge::before,
+    .soft-link-card::before {
+        animation: none !important;
+    }
 
     .hero-float,
     .polygon-field,
     .polygon-field::before,
     .polygon-field::after {
         transform: none !important;
-    }
-
-    .pointer-aura,
-    .intelligence-layer,
-    .data-orbit {
-        display: none;
     }
 
     .soft-link-card,

@@ -1,7 +1,7 @@
 import {PROFILE} from "./profile.js";
 
 export const trustStats = [
-    {value: "150+", label: "documented teaching hours"},
+    {value: "10k+", label: "documented teaching hours"},
     {value: "4.7/5", label: "average learner rating"},
     {value: "DE / EN", label: "German and English delivery"},
     {value: "B.Sc. · M.Sc. · MBA", label: "business IT and management background"},
@@ -180,14 +180,14 @@ export const audienceCards = [
 
 export const teachingProof = [
     {title: "Certified IT lecturer", value: "DiBak Trainer Certification", copy: "Covers didactics, pedagogy, learning platforms, material creation, learning checks, technical troubleshooting and quality assurance."},
-    {title: "Learner rating", value: "4.7 / 5", copy: "Documented average rating after 150+ teaching hours, showing strong learner satisfaction and practical delivery quality."},
+    {title: "Learner rating", value: "4.7 / 5", copy: "Documented average rating after 10k+ teaching hours, showing strong learner satisfaction and practical delivery quality."},
     {title: "Adult education strength", value: "Theory + practice", copy: "Learning formats are built around examples, exercises, recaps, learner activation, transfer tasks and clear outcomes."},
     {title: "International delivery", value: "Remote-first", copy: "Based in Brisbane while delivering online training for European and APAC clients in German or English."},
 ];
 
 export const trustSignals = [
     {title: "Academic background", copy: "B.Sc. and M.Sc. in Business Information Systems plus MBA in Digital Business."},
-    {title: "Teaching experience", copy: "150+ documented teaching hours with an average learner rating of 4.7/5."},
+    {title: "Teaching experience", copy: "10k+ documented teaching hours with an average learner rating of 4.7/5."},
     {title: "Expertise areas", copy: "AI, cybersecurity, software development, business informatics, data, agile work and digital education."},
     {title: "Languages", copy: "Training delivery in German and English, with Spanish language experience."},
     {title: "Remote delivery", copy: "Remote live training from Brisbane for Europe, Australia and international education partners."},
@@ -195,7 +195,7 @@ export const trustSignals = [
 ];
 
 export const credentials = [
-    {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "150+ teaching hours · average learner rating 4.7/5", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
+    {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "10k+ teaching hours · average learner rating 4.7/5", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
     {category: "Teaching", title: "SCHLAU NRW Educational Work", meta: "Volunteer educator · Dec 2022 to Nov 2023", detail: "Workshops, facilitation, reflection and professional youth education in diversity and anti-discrimination contexts."},
     {category: "Teaching", title: "Software Innovation Lab Work Reference", meta: "University of Paderborn · KMUeinfachSicher project · 2021", detail: "Content work around IT security, passwords, password managers, data handling and didactic preparation for SMEs."},
     {category: "Academic", title: "Master of Business Administration", meta: "IU International University · completed 24 Mar 2026 · overall result Good (2.2)", detail: "Management credibility for IT, consulting, business strategy and client-facing advisory work."},
