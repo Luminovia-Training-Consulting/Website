@@ -426,6 +426,32 @@
 .client-flip-card .soft-link-card:hover {
   transform: none;
 }
+.client-flip-card {
+  perspective: 1200px;
+  transform: translateZ(0);
+}
+.client-flip-inner {
+  position: relative;
+  min-height: 13.5rem;
+  border-radius: 1.6rem;
+  transform-style: preserve-3d;
+  transition: transform .72s cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+.client-flip-card:hover .client-flip-inner,
+.client-flip-card:focus-visible .client-flip-inner {
+  transform: rotateY(180deg);
+}
+.client-flip-face {
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+}
+.client-flip-back {
+  transform: rotateY(180deg);
+}
+.client-flip-card .soft-link-card::before {
+  animation: none;
+}
 .signal-pill {
   display: inline-flex;
   align-items: center;
