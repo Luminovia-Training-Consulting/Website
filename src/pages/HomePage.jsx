@@ -83,7 +83,7 @@ function MiniServiceCard({ service, t }) {
 
 function JumpNavigation({ items, label }) {
   return (
-    <nav className="sticky top-[4.45rem] z-30 mt-[4.45rem] border-b border-white/10 bg-[#070B16]/78 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-5 lg:px-8" aria-label={label}>
+    <nav className="fixed left-0 right-0 top-[4.45rem] z-40 border-b border-white/10 bg-[#070B16]/78 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-4 lg:px-8" aria-label={label}>
       <div className="mx-auto flex max-w-7xl items-center gap-5">
         <span className="hidden shrink-0 text-xs font-black uppercase tracking-[0.16em] text-sky-100 lg:inline">{label}</span>
         <div className="flex min-w-0 flex-1 snap-x gap-3 overflow-x-auto pb-1 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
@@ -105,8 +105,9 @@ export default function HomePage() {
   return (
     <main>
       <JumpNavigation items={t.home.jumpNav} label={t.home.jumpNavLabel} />
+      <div className="h-[8.9rem] sm:h-[9.25rem]" aria-hidden="true" />
 
-      <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
+      <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-10">
         <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(56,189,248,.18),transparent_34%),linear-gradient(245deg,rgba(37,99,235,.17),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="enter-up">
@@ -137,7 +138,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="overview" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="overview" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
@@ -163,7 +164,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="trust" className="soft-section scroll-mt-28 px-4 py-12 sm:px-6 lg:px-8">
+      <section id="trust" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid items-start gap-4 md:grid-cols-3 lg:grid-cols-6">
             {trustSignals.map((signal) => (
@@ -176,7 +177,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="training-topics" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="training-topics" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
@@ -200,7 +201,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="remote" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="remote" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-sky-100/16 bg-[linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.08),rgba(255,255,255,.035))] p-6 shadow-[0_28px_110px_rgba(37,99,235,.16)] backdrop-blur-2xl sm:p-8">
           <Badge tone="cyan">{t.home.remote}</Badge>
           <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.remoteTitle}</h2>
@@ -212,7 +213,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="services" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
@@ -231,7 +232,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="audiences" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="audiences" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
@@ -254,7 +255,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="formats" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="formats" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
@@ -275,7 +276,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="featured-topics" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="featured-topics" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
             <Badge tone="cyan">{t.home.topics}</Badge>
@@ -287,11 +288,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div id="proof" className="scroll-mt-28">
+      <div id="proof" className="scroll-mt-40">
         <ClientProofSection compact />
       </div>
 
-      <section id="explore" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="explore" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
             <Badge tone="emerald">{t.home.explore}</Badge>
@@ -311,7 +312,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="offers" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="offers" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
@@ -339,7 +340,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="credibility" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="credibility" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div>
             <Badge tone="amber">{t.home.credible}</Badge>
@@ -356,7 +357,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="blog-preview" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="blog-preview" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
@@ -379,11 +380,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div id="software-preview" className="scroll-mt-28">
+      <div id="software-preview" className="scroll-mt-40">
         <SoftwareProjectsSection compact />
       </div>
 
-      <section id="process" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="process" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
             <Badge tone="emerald">{t.home.process}</Badge>
@@ -401,7 +402,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="my-way-preview" className="soft-section scroll-mt-28 px-4 py-14 sm:px-6 lg:px-8">
+      <section id="my-way-preview" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/10 bg-white/[0.055] p-6 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-8">
           <Badge tone="white">{t.home.myWayPreview}</Badge>
           <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.myWayPreviewTitle}</h2>
@@ -412,7 +413,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div id="contact-cta" className="scroll-mt-28">
+      <div id="contact-cta" className="scroll-mt-40">
         <ConversionStrip />
       </div>
     </main>
