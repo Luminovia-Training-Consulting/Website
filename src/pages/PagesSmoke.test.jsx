@@ -33,8 +33,10 @@ describe("static page routes", () => {
 
         await user.click(screen.getByRole("button", {name: /Menu/i}));
         expect(screen.getByText("Navigation")).toBeInTheDocument();
+        expect(document.body).toHaveStyle({overflow: "hidden"});
 
         await user.click(screen.getByRole("button", {name: /Close/i}));
         expect(screen.queryByText("Navigation")).not.toBeInTheDocument();
+        expect(document.body).not.toHaveStyle({overflow: "hidden"});
     });
 });

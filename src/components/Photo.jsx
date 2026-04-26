@@ -9,7 +9,6 @@ export default function Photo({
                                   imgClass = "",
                                   fallback = "CS",
                                   fallbackCopy,
-                                  loading = "lazy",
                                   fetchPriority,
                               }) {
     const {t} = useLanguage();
@@ -21,9 +20,9 @@ export default function Photo({
                 <img
                     src={src}
                     alt={alt}
-                    loading={loading}
-                    fetchPriority={fetchPriority}
-                    decoding={loading === "eager" ? "sync" : "async"}
+                    loading="eager"
+                    fetchPriority={fetchPriority || "high"}
+                    decoding="sync"
                     className={cn("h-full w-full object-cover", imgClass)}
                     onError={() => setFailed(true)}
                 />

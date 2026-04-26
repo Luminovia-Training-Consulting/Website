@@ -830,6 +830,53 @@ p {
     }
 }
 
+@media (max-width: 768px) {
+    .enter-up,
+    .hero-float,
+    .ambient-wash,
+    .ambient-ribbon,
+    .polygon-field,
+    .polygon-field::before,
+    .polygon-field::after,
+    .polygon-field span,
+    .ambient-grid,
+    .glass-sheen::after,
+    .breathing-halo,
+    .intelligence-layer span,
+    .data-orbit span,
+    .rainbow-edge::before,
+    .soft-link-card::before {
+        animation: none !important;
+    }
+
+    .enter-up,
+    .hero-float,
+    .polygon-field,
+    .polygon-field::before,
+    .polygon-field::after {
+        transform: none !important;
+    }
+
+    .pointer-aura,
+    .intelligence-layer,
+    .data-orbit {
+        display: none;
+    }
+
+    .soft-link-card,
+    .glass-sheen,
+    .signal-pill,
+    a,
+    button {
+        transition-duration: .01ms !important;
+    }
+
+    .soft-link-card:hover,
+    .group:hover .soft-link-card {
+        transform: none !important;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
