@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useLayoutEffect} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
@@ -26,15 +26,25 @@ import {LanguageProvider} from "./i18n.jsx";
 function ScrollToHash() {
     const {pathname, hash} = useLocation();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!hash) {
-            window.scrollTo({top: 0, behavior: "smooth"});
+            window.scrollTo({top: 0, behavior: "auto"});
             return;
         }
 
-        globalThis.requestAnimationFrame(() => {
-            document.querySelector(hash)?.scrollIntoView({behavior: "smooth", block: "start"});
-        });
+        window.scrollTo({top: 0, behavior: "auto"});
+
+        const scrollToTarget = () => {
+            document.querySelector(hash)?.scrollIntoView({behavior: "auto", block: "start"});
+        };
+
+        globalThis.requestAnimationFrame(scrollToTarget);
+        const timeout = globalThis.setTimeout(scrollToTarget, 120);
+        const lateTimeout = globalThis.setTimeout(scrollToTarget, 360);
+        return () => {
+            globalThis.clearTimeout(timeout);
+            globalThis.clearTimeout(lateTimeout);
+        };
     }, [pathname, hash]);
 
     return null;

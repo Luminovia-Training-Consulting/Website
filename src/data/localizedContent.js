@@ -282,10 +282,16 @@ const de = {
     softwareProjects: enSoftwareProjects,
     timeline: enTimeline,
     faqs: [
-        {q: "Was ist dein Hauptangebot?", a: "Mein Hauptangebot ist Lehre: IT, AI, Cybersecurity, Business IT, digitale Skills, Workshops, Talks und strukturierte professionelle Trainings."},
-        {q: "Machst du ganze Kurse oder nur Workshops?", a: "Beides. Ich kann 90-Minuten-Talks, Tagesworkshops, mehrtägige Trainings und mehrwöchige Kurse für Bildungsanbieter durchführen."},
-        {q: "Unterrichtest du auf Deutsch oder Englisch?", a: "Beides. Deutsch und Englisch sind für Unternehmen, Akademien, Hochschulen und Online-Gruppen möglich."},
-        {q: "Machst du auch Consulting?", a: "Ja, aber Consulting unterstützt den Trainingsfokus. Ich positioniere Consulting rund um AI-Adoption, Curriculum Design, Workflow-Training und digitale Kompetenz."},
+        {q: "Wofuer kann man dich buchen?", a: "Buchbar bin ich fuer AI-, IT-, Cybersecurity-, Softwareentwicklungs-, Wirtschaftsinformatik-, Digital-Transformation- und Digital-Education-Trainings. Typische Formate sind Vorlesungen, Live-Online-Kurse, Corporate Workshops, Keynotes und Curriculum Support."},
+        {q: "Mit welchen Kundengruppen arbeitest du?", a: "Ich arbeite mit Bildungsanbietern, Hochschulen, Corporate-Learning-Teams, Bootcamps, oeffentlichen Organisationen, Startups, KMU und internationalen Bildungspartnern, die strukturierte Remote-Durchfuehrung auf Deutsch oder Englisch brauchen."},
+        {q: "Machst du ganze Kurse oder nur kurze Workshops?", a: "Beides. Moeglich sind 90-Minuten-Expert-Sessions, Halbtagesworkshops, Trainingstage, mehrtaegige Intensivtrainings und mehrwoechige Kursdurchfuehrung fuer professionelle Bildungsanbieter."},
+        {q: "Welche AI-Themen werden besonders haeufig angefragt?", a: "Haefige Themen sind AI Literacy, GenAI fuer Teams, Prompt Engineering, Agentic Workflows, Responsible AI, AI Governance, Automatisierungsrisiken und praktische AI-Adoption fuer Business- oder Bildungskontexte."},
+        {q: "Unterrichtest du technische Themen wie Python, SQL oder Cybersecurity?", a: "Ja. Ich unterrichte Python, SQL, Datenbanken, APIs, Softwareentwicklungsgrundlagen, Cybersecurity Awareness, Web Security, SOC Basics, Ethical-Hacking-Grundlagen und CompTIA-PenTest+-Vorbereitungskontexte."},
+        {q: "Unterrichtest du auf Deutsch oder Englisch?", a: "Ja. Trainings koennen auf Deutsch oder Englisch durchgefuehrt werden. Spanisch-Erfahrung gehoert ebenfalls zum Profil, die primaeren Trainingssprachen sind aber Deutsch und Englisch."},
+        {q: "Wie funktioniert Remote Delivery aus Brisbane?", a: "Remote-Durchfuehrung wird nach Zielgruppe und Zeitzone geplant. Ich positioniere Live-Online-Trainings fuer deutschsprachige und internationale Kunden in Europa, Australien und APAC."},
+        {q: "Was macht deine Trainings praktisch?", a: "Sessions sind auf klare Outcomes, Beispiele, Uebungen, Recaps, Lernaktivierung und Transferaufgaben ausgerichtet. Ziel ist nicht nur Tool-Erklaerung, sondern nutzbare Anwendung in Arbeit oder Studium."},
+        {q: "Kannst du Materialien oder ein Curriculum entwickeln?", a: "Ja. Ich kann Curriculum Design, Blended-Learning-Konzepte, Slides, Uebungen, Lernchecks, Labs und Trainingsstrukturen fuer Akademien, Hochschulen und Corporate-Learning-Teams unterstuetzen."},
+        {q: "Wie startet eine Buchungsanfrage?", a: "Senden Sie Thema, Zielgruppe, Wissensstand, Wunschformat, Zeitraum und Ziel per E-Mail oder buchen Sie einen kurzen Termin. Danach schlage ich ein passendes Format und die naechsten Schritte vor."},
     ],
 };
 

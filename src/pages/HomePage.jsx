@@ -100,7 +100,7 @@ function JumpNavigation({items, label}) {
 
 export default function HomePage() {
     const {t} = useLanguage();
-    const {trustStats, teachingProof, coreOffers, capabilities, trainingTopics, audienceCards, formats, serviceOfferings, featuredTrainingTopics, trustSignals, blogPosts} = useSiteContent();
+    const {trustStats, teachingProof, coreOffers, capabilities, trainingTopics, audienceCards, formats, serviceOfferings, featuredTrainingTopics, trustSignals, blogPosts, faqs} = useSiteContent();
     const latestPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
     return (
         <main>
@@ -409,6 +409,27 @@ export default function HomePage() {
                     <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-300">{t.exploreCards[2][1]}</p>
                     <div className="mt-7">
                         <Button to="/my-way" variant="secondary">{t.nav.myWay}</Button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+                        <div>
+                            <Badge tone="cyan">{t.home.faq}</Badge>
+                            <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.faqTitle}</h2>
+                        </div>
+                        <p className="text-base leading-8 text-zinc-300">{t.home.faqCopy}</p>
+                    </div>
+                    <div className="grid items-start gap-4 md:grid-cols-2">
+                        {faqs.slice(0, 10).map((item, index) => (
+                            <Card key={item.q} className="self-start">
+                                <div className="mb-4 grid h-10 w-10 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-sm font-black text-slate-950">{String(index + 1).padStart(2, "0")}</div>
+                                <h3 className="text-xl font-black text-white">{item.q}</h3>
+                                <p className="mt-3 text-sm leading-7 text-slate-300">{item.a}</p>
+                            </Card>
+                        ))}
                     </div>
                 </div>
             </section>
