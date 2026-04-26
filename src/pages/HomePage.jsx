@@ -122,7 +122,7 @@ export default function HomePage() {
                         <div className="glass-sheen mt-7 rounded-[2rem] border border-white/10 bg-white/[0.08] p-4 text-sm leading-7 text-zinc-300 shadow-[0_18px_70px_rgba(0,0,0,.2)] backdrop-blur-2xl">
                             <strong className="text-white">{t.home.coreOffer}</strong> {t.home.coreCopy}
                         </div>
-                        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <div className="button-stack mt-8 flex flex-col gap-3 sm:flex-row">
                             <Button to="/contact#appointment">{t.bookTrainingCall}</Button>
                             <Button to="/skills" variant="secondary">{t.home.exploreCapability}</Button>
                             <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{t.home.downloadProfile}</Button>
@@ -206,7 +206,7 @@ export default function HomePage() {
                     <Badge tone="cyan">{t.home.remote}</Badge>
                     <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.remoteTitle}</h2>
                     <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300">{t.home.remoteCopy}</p>
-                    <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                    <div className="button-stack mt-7 flex flex-col gap-3 sm:flex-row">
                         <Button to="/contact#appointment">{t.bookConsultation}</Button>
                         <Button to="/training" variant="secondary">{t.home.exploreCapability}</Button>
                     </div>
@@ -403,12 +403,21 @@ export default function HomePage() {
             </section>
 
             <section id="my-way-preview" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/10 bg-white/[0.055] p-6 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-8">
-                    <Badge tone="white">{t.home.myWayPreview}</Badge>
-                    <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.myWayPreviewTitle}</h2>
-                    <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-300">{t.exploreCards[2][1]}</p>
-                    <div className="mt-7">
-                        <Button to="/my-way" variant="secondary">{t.nav.myWay}</Button>
+                <div className="mx-auto grid max-w-7xl gap-5 rounded-[2.25rem] border border-white/10 bg-white/[0.055] p-5 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-xl sm:p-7 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+                    <div>
+                        <Badge tone="white">{t.home.myWayPreview}</Badge>
+                        <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{t.home.myWayPreviewTitle}</h2>
+                        <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-300">{t.home.myWayPreviewCopy}</p>
+                    </div>
+                    <div className="rounded-[1.75rem] border border-sky-100/14 bg-[#071225]/72 p-4">
+                        <div className="grid gap-2">
+                            {t.home.myWayHighlights.map((item) => (
+                                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.055] px-4 py-3 text-sm font-black text-slate-100">{item}</div>
+                            ))}
+                        </div>
+                        <div className="mt-4">
+                            <Button to="/my-way" variant="secondary">{t.nav.myWay}</Button>
+                        </div>
                     </div>
                 </div>
             </section>
