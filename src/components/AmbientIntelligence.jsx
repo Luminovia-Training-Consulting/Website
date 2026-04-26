@@ -22,15 +22,15 @@ export default function AmbientIntelligence() {
     }
 
     updateProgress();
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("resize", updateProgress);
-    window.addEventListener("pointermove", updatePointer, { passive: true });
+      globalThis.addEventListener("scroll", updateProgress, { passive: true });
+      globalThis.addEventListener("resize", updateProgress);
+      globalThis.addEventListener("pointermove", updatePointer, { passive: true });
 
     return () => {
       cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
-      window.removeEventListener("pointermove", updatePointer);
+        globalThis.removeEventListener("scroll", updateProgress);
+        globalThis.removeEventListener("resize", updateProgress);
+        globalThis.removeEventListener("pointermove", updatePointer);
     };
   }, []);
 

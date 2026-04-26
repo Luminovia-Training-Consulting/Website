@@ -6,19 +6,19 @@ import { useLanguage } from "../i18n.jsx";
 const CONSENT_KEY = "carina_analytics_consent";
 
 function loadAnalytics(measurementId) {
-  if (!measurementId || window.gtag) return;
+  if (!measurementId || globalThis.gtag) return;
 
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
   document.head.appendChild(script);
 
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() {
-    window.dataLayer.push(arguments);
+    globalThis.dataLayer = globalThis.dataLayer || [];
+    globalThis.gtag = function gtag() {
+      globalThis.dataLayer.push(arguments);
   };
-  window.gtag("js", new Date());
-  window.gtag("config", measurementId, { anonymize_ip: true });
+    globalThis.gtag("js", new Date());
+    globalThis.gtag("config", measurementId, { anonymize_ip: true });
 }
 
 export default function AnalyticsConsent() {
@@ -34,8 +34,8 @@ export default function AnalyticsConsent() {
   }, [consent, enabled]);
 
   useEffect(() => {
-    if (window.gtag && enabled && consent === "accepted") {
-      window.gtag("config", PROFILE.analyticsId, {
+    if (globalThis.gtag && enabled && consent === "accepted") {
+        globalThis.gtag("config", PROFILE.analyticsId, {
         page_path: `${location.pathname}${location.search}`,
         anonymize_ip: true,
       });

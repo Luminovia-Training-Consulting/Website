@@ -32,7 +32,7 @@ function ScrollToHash() {
       return;
     }
 
-    window.requestAnimationFrame(() => {
+      globalThis.requestAnimationFrame(() => {
       document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }, [pathname, hash]);
