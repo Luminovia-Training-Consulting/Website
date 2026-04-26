@@ -626,11 +626,6 @@
     transform: none;
 }
 
-.client-flip-card {
-    perspective: 1200px;
-    transform: translateZ(0);
-}
-
 .client-flip-inner {
     position: relative;
     min-height: 13.5rem;
@@ -688,22 +683,6 @@
 }
 
 /*noinspection CssUnusedSymbol*/
-.rainbow-edge {
-    position: relative;
-}
-
-.rainbow-edge::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    z-index: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg, rgba(56, 189, 248, .44), rgba(37, 99, 235, .38), rgba(99, 102, 241, .22), rgba(147, 197, 253, .24), rgba(56, 189, 248, .44));
-    background-size: 240% 240%;
-    animation: rainbowFlow 11s ease-in-out infinite;
-    opacity: .08;
-    pointer-events: none;
-}
 
 .soft-link-card:hover::before {
     opacity: 1;
@@ -775,9 +754,7 @@ body {
     z-index: 2147483647;
     display: block;
     width: 100vw;
-    height: 100vh;
     height: 100dvh;
-    min-height: 100vh;
     min-height: 100dvh;
     overflow-x: hidden;
     overflow-y: auto;
@@ -792,11 +769,6 @@ body {
 }
 
 /*noinspection CssUnusedSymbol*/
-.blog-carousel {
-    scroll-padding-inline: 1rem;
-    overscroll-behavior-inline: contain;
-    touch-action: pan-x;
-}
 
 a:focus-visible,
 button:focus-visible,
@@ -845,22 +817,6 @@ p {
 }
 
 @media (max-width: 768px) {
-    .hero-float,
-    .ambient-wash,
-    .ambient-ribbon,
-    .polygon-field,
-    .polygon-field::before,
-    .polygon-field::after,
-    .polygon-field span,
-    .ambient-grid,
-    .glass-sheen::after,
-    .breathing-halo,
-    .intelligence-layer span,
-    .data-orbit span,
-    .rainbow-edge::before,
-    .soft-link-card::before {
-        animation: none !important;
-    }
 
     .hero-float,
     .polygon-field,
