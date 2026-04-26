@@ -23,7 +23,7 @@ export default function ClientProofSection({ compact = false }) {
           </p>
         </div>
 
-        <div className="stagger-grid grid items-start gap-3 md:grid-cols-2 xl:grid-cols-4">
+        <div className="stagger-grid grid items-start gap-2.5 md:grid-cols-2 xl:grid-cols-4">
           {visibleClients.map((client, index) => (
             <a
               key={client.name}
