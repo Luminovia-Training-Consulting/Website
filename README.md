@@ -1,48 +1,139 @@
-# Carina Sophie Schoppe Lecturer Website
+# Carina Sophie Schoppe Website
 
-Professionelle Website fuer Carina Sophie Schoppe als AI-, IT- und Business-Dozentin, Trainerin, Speakerin und Consultant fuer moderne digitale Bildung.
+Professional website for Carina Sophie Schoppe as an AI lecturer, IT trainer, cybersecurity and software-development educator, business technology consultant, keynote speaker and digital education expert.
 
-Die Seite ist als statisch deploybare React/Vite-Website gebaut. Sie ist darauf ausgelegt, direkt bei Hostinger in `public_html/` betrieben zu werden, ohne Node-Backend, ohne SMTP-Serverlogik und ohne serverseitige Environment-Variablen.
+The site is built as a static React/Vite application. It is designed for deployment on classic static web hosting such as Hostinger, where the production build can be uploaded directly into `public_html/`. The project intentionally does not require a Node backend, serverless mail route, SMTP setup or production `.env` file.
 
-## Ziel der Website
+## Table of Contents
 
-Die Website soll innerhalb weniger Sekunden beantworten:
+- [Purpose](#purpose)
+- [Business Positioning](#business-positioning)
+- [Current Website Scope](#current-website-scope)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Routes and Pages](#routes-and-pages)
+- [Content Architecture](#content-architecture)
+- [Internationalisation](#internationalisation)
+- [Contact and Booking Model](#contact-and-booking-model)
+- [Downloadable Business Assets](#downloadable-business-assets)
+- [Blog System](#blog-system)
+- [SEO, Metadata and Structured Data](#seo-metadata-and-structured-data)
+- [Google Analytics and Consent](#google-analytics-and-consent)
+- [Mobile and Performance Decisions](#mobile-and-performance-decisions)
+- [Local Development](#local-development)
+- [Quality Checks](#quality-checks)
+- [Production Build](#production-build)
+- [Hostinger Deployment](#hostinger-deployment)
+- [Environment Variables](#environment-variables)
+- [Maintenance Guide](#maintenance-guide)
+- [Troubleshooting](#troubleshooting)
+- [Repository Hygiene](#repository-hygiene)
+- [License and Content Ownership](#license-and-content-ownership)
 
-- Wer ist Carina Sophie Schoppe?
-- Wofuer kann sie gebucht werden?
-- Fuer welche Kundengruppen ist sie passend?
-- Welche Themen, Trainingsformate und Referenzen gibt es?
-- Wie kann man Kontakt aufnehmen oder direkt einen Termin buchen?
+## Purpose
 
-Positionierung:
+This website should answer the following questions within a few seconds:
 
-- AI Lecturer
-- IT Trainer
-- Business Consultant
-- Digital Education Expert
-- Cybersecurity, Software Development, Business Informatics und AI Governance
-- Remote Live Training aus Brisbane fuer Europa, Australien und internationale Bildungspartner
+- Who is Carina Sophie Schoppe?
+- What can she be booked for?
+- Which target groups does she work with?
+- Which training topics and services are available?
+- Why is she credible for AI, IT, cybersecurity and digital education work?
+- How can a visitor contact her or book a call?
 
-## Technischer Stack
+The site is not meant to be a generic portfolio. It is a conversion-focused business website for booking Carina as a lecturer, trainer, consultant and speaker.
+
+## Business Positioning
+
+The core positioning is:
+
+> AI, IT and Business Lecturer for modern digital education.
+
+The website presents Carina as bookable for:
+
+- AI and GenAI training
+- AI literacy for teams
+- Prompt engineering and agentic workflows
+- AI governance and responsible AI
+- Python, SQL and data skills
+- Software development and APIs
+- Cybersecurity and pentesting fundamentals
+- Scrum, agile and digital project work
+- Business informatics and digital transformation
+- Curriculum design and blended learning
+- Keynotes, expert talks and guest lectures
+- Remote live training from Brisbane for Europe, Australia and international education partners
+
+The target audience includes:
+
+- Training providers
+- Universities and higher education institutions
+- Corporate learning and development teams
+- Public sector organisations
+- Startups and SMEs
+- Bootcamps and coding schools
+- German-speaking providers needing remote lecturers
+- International clients looking for English or German delivery
+
+## Current Website Scope
+
+The website includes:
+
+- A shortened homepage focused on conversion.
+- A dedicated training and services page.
+- A skills and topics map.
+- A software portfolio page with selected GitHub projects.
+- A portfolio/client proof page.
+- A pricing page with language-specific price display.
+- A personal timeline page.
+- A blog overview and individual blog post pages.
+- A contact page with direct email, phone and Google Calendar booking.
+- Imprint and privacy pages.
+- A custom 404 page.
+- English and German UI/content switching.
+- Google Analytics with consent handling.
+- SEO metadata, sitemap, robots file and structured data.
+
+## Technology Stack
+
+Runtime and frontend:
 
 - React
 - React Router
 - Vite
-- Tailwind CSS via `@tailwindcss/vite`
+- Tailwind CSS through `@tailwindcss/vite`
+- Static build output
+
+Quality and testing:
+
 - Vitest
 - Testing Library
-- Google Analytics mit Consent-Banner
-- Statischer Build fuer Hostinger / Apache Hosting
+- jsdom
+- V8 coverage
+- ESLint flat config
+- React Hooks lint rules
 
-Die Anwendung nutzt kein SSR, kein Node-Backend und keine Serverless Functions.
+Deployment target:
 
-## Projektstruktur
+- Hostinger / Apache static hosting
+- Any static hosting provider that can serve a Vite build
+
+The project does not use:
+
+- Server-side rendering
+- A Node production server
+- Serverless functions
+- A contact form backend
+- SMTP in production
+- Runtime `.env` configuration for the public site
+
+## Project Structure
 
 ```text
 .
-├── index.html
-├── package.json
-├── vite.config.js
+├── .github/
+│   └── workflows/
+│       └── node.js.yml
 ├── public/
 │   ├── .htaccess
 │   ├── robots.txt
@@ -50,244 +141,381 @@ Die Anwendung nutzt kein SSR, kein Node-Backend und keine Serverless Functions.
 │   ├── lecturer.zip
 │   ├── carina-sophie-schoppe-lecturer-profile.html
 │   ├── carina-sophie-schoppe-training-portfolio.html
-│   └── carina-sophie-schoppe-ai-it-training-catalogue.html
+│   ├── carina-sophie-schoppe-ai-it-training-catalogue.html
+│   └── images/
 ├── src/
-│   ├── App.jsx
-│   ├── i18n.jsx
-│   ├── index.css
-│   ├── main.jsx
 │   ├── components/
 │   ├── data/
 │   ├── pages/
-│   └── test/
-└── .github/workflows/node.js.yml
+│   ├── test/
+│   ├── App.jsx
+│   ├── i18n.jsx
+│   ├── index.css
+│   └── main.jsx
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
 ```
 
-## Seiten
+## Routes and Pages
 
-Die Website ist eine Single Page Application mit mehreren Routen:
+The application is a React single page app with these routes:
 
-- `/` - Startseite mit Positionierung, Services, Zielgruppen, Proof, Blog Preview, Prozess, FAQ und Kontakt-CTA
-- `/training` - Training & Services
-- `/skills` - Skills und Themenlandkarte
-- `/software` - Software- und GitHub-Projektportfolio
-- `/portfolio` - ehemalige Kunden, Collaborations und Proof-Projekte
-- `/pricing` - Preisorientierung in EUR oder USD je nach Sprache
-- `/my-way` - beruflicher Weg / Timeline
-- `/blog` - Bloguebersicht
-- `/blog/:slug` - einzelne Blogbeitraege
-- `/contact` - Kontakt, direkte Links und Google Calendar Booking
-- `/imprint` - Impressum / Legal Notice
-- `/privacy` - Datenschutz / Privacy Policy
-- `*` - eigene 404-Seite
+| Route | Purpose |
+| --- | --- |
+| `/` | Short conversion-focused homepage with positioning, core services, booking fit, process, FAQ and contact CTA. |
+| `/training` | Detailed training and services page. |
+| `/skills` | Practical skill map for AI, software, cybersecurity, data and business IT. |
+| `/software` | Selected GitHub/software projects. |
+| `/portfolio` | Former clients, selected collaborations and proof projects. |
+| `/pricing` | Orientation pricing in EUR or USD depending on selected language. |
+| `/my-way` | Personal and professional timeline. |
+| `/blog` | Blog overview with featured latest post and scrollable post list. |
+| `/blog/:slug` | Individual blog post pages. |
+| `/contact` | Direct email, phone links and Google Calendar booking. |
+| `/imprint` | Legal notice / imprint. |
+| `/privacy` | Privacy policy. |
+| `*` | Custom 404 page. |
 
-## Inhalte pflegen
+Route registration lives in:
 
-Die wichtigsten Inhalte liegen nicht hart verteilt in Komponenten, sondern zentral in Datendateien.
+```text
+src/App.jsx
+```
 
-### Profil, Links, Telefonnummern und Assets
-
-Datei:
+Navigation items live in:
 
 ```text
 src/data/profile.js
 ```
 
-Dort werden unter anderem gepflegt:
-
-- Name
-- E-Mail
-- Telefonnummer Australien
-- Telefonnummer Deutschland
-- Adresse
-- LinkedIn
-- GitHub
-- Google Calendar Appointment Link
-- Google Analytics Measurement ID
-- Download-Links fuer Lecturer Profile, Training Portfolio und AI & IT Training Catalogue
-- Bildpfade
-
-### Englische Inhalte
-
-Datei:
-
-```text
-src/data/content.js
-```
-
-Dort liegen viele englische Content-Strukturen:
-
-- Trust Stats
-- Core Offers
-- Training Topics
-- Service Offerings
-- Featured Training Topics
-- Former Clients
-- Testimonials / Proof
-- Credentials
-- Timeline
-- Software Projects
-- Blog Posts
-- FAQ
-
-### Deutsche Inhalte und Uebersetzungen
-
-Datei:
-
-```text
-src/data/localizedContent.js
-```
-
-Dort liegen die deutschen Varianten fuer:
-
-- Trainingsthemen
-- Service-Angebote
-- Zielgruppen
-- Trust-Signale
-- Timeline
-- FAQ
-- weitere lokalisierte Inhalte
-
-### UI-Texte, Navigation und feste Labels
-
-Datei:
+Navigation labels live in:
 
 ```text
 src/i18n.jsx
 ```
 
-Dort liegen die festen englischen und deutschen UI-Texte, zum Beispiel:
+## Content Architecture
 
-- Navigation
-- Header-Labels
-- Button-Texte
-- Home-Sektionstitel
-- Contact-Texte
-- Analytics-Banner
-- 404-Seite
-- Jump Navigation
+The project keeps most content in data files instead of scattering business copy across many components.
 
-## Mehrsprachigkeit
+### Profile, Links and Global Assets
 
-Die Website unterstuetzt Englisch und Deutsch.
+File:
 
-- Standardsprache: Englisch
-- Umschaltung: Header-Sprachbutton
-- Speicherung: `localStorage`
-- HTML-Sprache wird dynamisch auf `en` oder `de` gesetzt
+```text
+src/data/profile.js
+```
 
-Die deutsche Version zeigt deutschsprachige Inhalte und EUR-Preise. Die englische Version zeigt englische Inhalte und gerundete USD-Orientierungswerte.
+This file contains:
 
-## Kontakt und Booking
+- Name
+- Role
+- Location
+- Address lines
+- Email
+- Australian phone number
+- German phone number
+- LinkedIn URL
+- GitHub URL
+- Google Calendar appointment URL
+- Google Analytics measurement ID
+- Download asset paths
+- Image paths
+- Top-level navigation items
 
-Es gibt bewusst kein Kontaktformular mehr.
+Change this file when updating core contact details, profile links, appointment links, downloadable asset paths or image references.
 
-Warum:
+### English Content
 
-- Die Seite ist statisch deploybar.
-- Es gibt keine SMTP-Abhaengigkeit.
-- Es gibt keine `.env`- oder Server-Konfiguration fuer Mailversand.
-- Anfragen sollen nicht an Backend-Mailproblemen scheitern.
+File:
 
-Kontakt funktioniert ueber:
+```text
+src/data/content.js
+```
 
-- Mailto-Link an `info@carinaschoppe.com`
-- Telefon Australien: `+61 451 448 724`
-- Telefon Deutschland: `+49 175 5738 757`
-- Google Calendar Appointment Scheduling Embed
-- Google Calendar Appointment Button
+This file contains the main English content:
 
-Wichtige Datei:
+- Trust stats
+- Core offers
+- Delivery formats
+- Training topics
+- Service offerings
+- Featured training topics
+- Capabilities
+- Audience cards
+- Teaching proof
+- Trust signals
+- Credentials
+- Former clients and collaborations
+- Testimonial/proof statements
+- Life milestones
+- Skill groups
+- Blog posts
+- Software projects
+- Timeline
+- FAQ
+
+### German Localised Content
+
+File:
+
+```text
+src/data/localizedContent.js
+```
+
+This file maps the English content into German variants and returns the language-specific content through:
+
+```js
+useSiteContent()
+```
+
+It contains German versions of:
+
+- Trust stats
+- Services
+- Training topics
+- Audience cards
+- FAQ
+- Blog posts
+- Timeline-related content
+- Other content collections used by pages
+
+### UI Labels and Static Interface Copy
+
+File:
+
+```text
+src/i18n.jsx
+```
+
+This file contains:
+
+- Navigation labels
+- Header labels
+- Button labels
+- Homepage section titles
+- Contact page labels
+- Analytics consent text
+- 404 text
+- Jump navigation items
+- Sticky booking bar copy
+- Language switch handling
+
+Use this file for short UI strings and repeated interface labels.
+
+## Internationalisation
+
+The website supports:
+
+- English
+- German
+
+Current behaviour:
+
+- Default language: English
+- Language state is stored in `localStorage`.
+- The `<html lang="...">` attribute is updated dynamically.
+- The header language switch shows a round flag icon and the target language label.
+- German mode uses German copy and EUR pricing.
+- English mode uses English copy and rounded USD orientation pricing.
+
+Important files:
+
+```text
+src/i18n.jsx
+src/data/localizedContent.js
+src/pages/PricingPage.jsx
+```
+
+## Contact and Booking Model
+
+The website intentionally does not include a contact form.
+
+Reasoning:
+
+- The site is static.
+- There is no backend mail route.
+- There is no SMTP configuration.
+- There are no production server environment variables.
+- Contact should not fail because of mail server settings.
+
+Contact options:
+
+- `mailto:` link to `info@carinaschoppe.com`
+- Australian phone number: `+61 451 448 724`
+- German phone number: `+49 175 5738 757`
+- Google Calendar appointment scheduling button
+- Embedded Google Calendar appointment scheduler
+
+Contact page:
 
 ```text
 src/pages/ContactPage.jsx
 ```
 
-## Preise
-
-Die Preis-Seite liegt in:
+Contact data:
 
 ```text
-src/pages/PricingPage.jsx
+src/data/profile.js
 ```
 
-Aktuelle Richtwerte:
+## Downloadable Business Assets
 
-- AZAV / bildungsgefoerderte Massnahmen: `50-55 EUR` pro 45-Minuten-Unterrichtseinheit
-- Corporate Training: `75-85 EUR` pro 45-Minuten-Unterrichtseinheit
-- Vortraege, Keynotes und Expert Sessions: `ab 1.000 EUR` pro 8-Stunden-Tag
-- Englische Version: gerundete USD-Werte, z. B. `from $1,200`
-
-Alle Preise sind unverbindliche Orientierungswerte.
-
-## FAQ
-
-Die Homepage enthaelt am unteren Seitenbereich einen FAQ-Block mit den Top-10-Fragen vor einer Buchung.
-
-Die Inhalte liegen hier:
+The site provides downloadable business assets from the `public/` folder:
 
 ```text
-src/data/content.js
-src/data/localizedContent.js
+public/lecturer.zip
+public/carina-sophie-schoppe-lecturer-profile.html
+public/carina-sophie-schoppe-training-portfolio.html
+public/carina-sophie-schoppe-ai-it-training-catalogue.html
 ```
 
-Der Block wird auf der Homepage in:
+They are linked through:
 
 ```text
-src/pages/HomePage.jsx
+src/data/profile.js
 ```
 
-gerendert.
+During `npm run build`, Vite copies files from `public/` into `dist/` unchanged.
 
-## Blog
+To replace an asset:
 
-Blogdaten liegen in:
+1. Replace the file in `public/`.
+2. Keep the same filename if possible.
+3. If the filename changes, update `src/data/profile.js`.
+4. Run the quality checks.
+5. Build and deploy.
+
+## Blog System
+
+Blog data lives in:
 
 ```text
 src/data/content.js
 ```
 
-Die Blogseiten sind:
+Blog pages:
 
 ```text
 src/pages/BlogPage.jsx
 src/pages/BlogPostPage.jsx
 ```
 
-Ein Blogpost sollte enthalten:
+Tests:
+
+```text
+src/pages/BlogPage.test.jsx
+src/pages/BlogPostPage.test.jsx
+src/data/blogData.test.jsx
+```
+
+Each blog post should include:
 
 - `slug`
 - `title`
 - `date`
-- `readTime`
 - `category`
 - `hubCategory`
+- `readTime`
 - `excerpt`
-- `content`
+- `body`
+- `takeaway`
+- `sources`
 
-Die Bloguebersicht sortiert Posts newest-first und stellt den neuesten Post prominent dar.
+The blog overview:
 
-## Downloadbare Assets
+- Sorts posts newest-first.
+- Shows the latest post as a featured post.
+- Displays remaining posts in a horizontally scrollable list.
+- Includes category information, date, reading time, excerpt and read-more links.
 
-Die Website enthaelt mehrere Download-/Profil-Assets im `public/` Ordner:
+Individual blog post pages are generated from the same data source.
 
-- `lecturer.zip`
-- `carina-sophie-schoppe-lecturer-profile.html`
-- `carina-sophie-schoppe-training-portfolio.html`
-- `carina-sophie-schoppe-ai-it-training-catalogue.html`
+## SEO, Metadata and Structured Data
 
-Diese Dateien werden beim Build unveraendert in `dist/` kopiert und koennen direkt von der Live-Seite verlinkt werden.
+SEO is handled in several layers.
 
-Wenn eines dieser Assets ersetzt wird:
+### Static HTML Metadata
 
-1. Datei im `public/` Ordner ersetzen.
-2. Falls der Dateiname gleich bleibt, muss im Code nichts angepasst werden.
-3. Falls der Dateiname geaendert wird, Links in `src/data/profile.js` anpassen.
-4. `npm run build` ausfuehren.
+File:
 
-## Google Analytics
+```text
+index.html
+```
 
-Google Analytics ist in `index.html` eingebunden.
+Includes:
+
+- Google tag script
+- Charset and viewport
+- Meta description
+- Robots meta tag
+- Open Graph metadata
+- Twitter card metadata
+- Canonical URL
+- hreflang alternates
+- Hero image preload
+- Base schema.org JSON-LD
+
+### Dynamic Route Metadata
+
+File:
+
+```text
+src/components/Seo.jsx
+```
+
+This component updates metadata per route:
+
+- `document.title`
+- Meta description
+- Robots tag
+- Open Graph title, description, URL, image and type
+- Twitter title and description
+- Canonical URL
+- hreflang links
+
+It also injects route-aware JSON-LD:
+
+- `Person`
+- `ProfessionalService`
+- `Offer`
+- `BreadcrumbList`
+- `FAQPage` on the homepage
+- `BlogPosting` on individual blog post pages
+
+### Robots and Sitemap
+
+Files:
+
+```text
+public/robots.txt
+public/sitemap.xml
+```
+
+`robots.txt` allows indexing and points crawlers to the sitemap.
+
+`sitemap.xml` lists:
+
+- Main pages
+- Training/service pages
+- Pricing
+- Blog overview
+- Individual blog posts
+- Contact
+- Legal pages
+
+When adding a new public route, update:
+
+```text
+public/sitemap.xml
+src/components/Seo.jsx
+```
+
+## Google Analytics and Consent
 
 Measurement ID:
 
@@ -295,169 +523,456 @@ Measurement ID:
 G-YNGD292XE5
 ```
 
-Zusaetzlich gibt es einen Consent-Banner:
+Google tag is present in:
+
+```text
+index.html
+```
+
+Consent handling lives in:
 
 ```text
 src/components/AnalyticsConsent.jsx
 ```
 
-Der Consent-Banner speichert die Entscheidung im Browser. Analytics wird erst nach Zustimmung aktiv genutzt.
+The consent component:
 
-## SEO, Robots und Sitemap
+- Shows a privacy-friendly analytics banner.
+- Stores the decision in `localStorage`.
+- Loads Google Analytics only after acceptance.
+- Sends route changes after consent.
+- Uses IP anonymisation.
 
-Wichtige Dateien:
+The measurement ID is also stored in:
 
 ```text
-index.html
-public/robots.txt
-public/sitemap.xml
+src/data/profile.js
 ```
 
-`index.html` enthaelt:
+## Mobile and Performance Decisions
 
-- Title
-- Meta Description
-- Open Graph Tags
-- Twitter Card
-- Canonical URL
-- hreflang-Eintraege
-- schema.org Person / ProfessionalService JSON-LD
-- Google Tag
+The project has been adjusted to avoid mobile rendering issues, especially on Chrome mobile.
 
-`robots.txt` erlaubt Crawling und verweist auf die Sitemap.
+Important decisions:
 
-`sitemap.xml` listet die wichtigsten Seiten und Blogposts.
+- No flip cards for proof/client tiles.
+- No text reveal lazy loading.
+- No `IntersectionObserver`-based text visibility.
+- No content that depends on scroll-triggered reveal to become readable.
+- Expensive backdrop and animation effects are reduced on mobile.
+- Mobile hover effects are disabled or reduced.
+- Layout uses `overflow-x-hidden` to avoid horizontal clipping.
+- Buttons use explicit `data-button-variant` attributes for mobile CSS overrides.
+- Hero image uses high fetch priority.
+- The homepage is intentionally shorter than the detailed subpages.
 
-## Mobile Rendering
+Main CSS file:
 
-Die Seite wurde bewusst fuer Mobile stabilisiert.
+```text
+src/index.css
+```
 
-Wichtige Entscheidungen:
+Key components:
 
-- Keine Flip-Effekte bei Client-/Proof-Karten
-- Keine Content-Reveal-Lazy-Animationen
-- Keine `IntersectionObserver`-basierte Textanzeige
-- Mobile: reduzierte teure Blur-/Backdrop-/Hover-Effekte
-- Root-Layout nutzt `overflow-x-hidden`, damit vertikaler Inhalt nicht abgeschnitten wird
-- Bilder laden eager/sync, aber bleiben als externe Assets separat
-- Vite baut CSS und JS in je ein Hauptbundle
+```text
+src/components/Button.jsx
+src/components/Card.jsx
+src/components/Header.jsx
+src/components/StickyBookingBar.jsx
+src/components/AmbientIntelligence.jsx
+```
 
-Damit soll Chrome Mobile den Text sofort rendern und nicht erst beim Scrollen nachladen oder kurz verschwinden lassen.
+## Local Development
 
-## Lokale Entwicklung
-
-Voraussetzung:
+Required Node.js version:
 
 ```text
 Node.js >= 20.19.0
 ```
 
-Installation:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Lokaler Dev-Server:
+Start development server:
 
 ```bash
 npm run dev
 ```
 
-Preview nach Build:
+Run production preview:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Tests
+## Quality Checks
 
-Tests ausfuehren:
+Run linting:
+
+```bash
+npm run lint
+```
+
+Run tests with coverage:
 
 ```bash
 npm test
 ```
 
-Die Tests nutzen:
-
-- Vitest
-- Testing Library
-- jsdom
-- Coverage via V8
-
-Coverage wird als Text und JSON erzeugt. HTML-Coverage wurde bewusst deaktiviert, damit IDEs nicht tausende generierte HTML/CSS/JS-Warnungen aus `coverage/` melden.
-
-## Production Build
-
-Build erzeugen:
+Run production build:
 
 ```bash
 npm run build
 ```
 
-Ergebnis:
+Recommended pre-deployment command sequence:
+
+```bash
+npm run lint
+npm test
+npm run build
+```
+
+Current test setup:
+
+- Vitest
+- Testing Library
+- jsdom
+- V8 coverage
+
+ESLint setup:
+
+```text
+eslint.config.js
+```
+
+The lint configuration checks:
+
+- Standard JavaScript issues through `@eslint/js`
+- React Hooks rules
+- Unused variables and parameters
+- Browser and Node globals
+
+Coverage output is text/JSON focused. HTML coverage output is intentionally not used to avoid IDE noise from generated coverage assets.
+
+## Production Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Build output:
 
 ```text
 dist/
 ```
 
-Der Build erzeugt:
+The build includes:
 
-- eine produktive `index.html`
-- eine CSS-Datei
-- eine JS-Datei
-- kopierte Dateien aus `public/`
+- `index.html`
+- Bundled CSS
+- Bundled JavaScript
+- Files copied from `public/`
+- `.htaccess`
+- Images
+- Downloadable assets
+- `robots.txt`
+- `sitemap.xml`
 
-## Deployment bei Hostinger
+Do not commit `dist/`. It is build output and is ignored by Git.
 
-Fuer normales statisches Hosting:
+## Hostinger Deployment
 
-1. Lokal ausfuehren:
+The site is designed for normal static hosting.
+
+Deployment steps:
+
+1. Install dependencies locally:
 
    ```bash
    npm install
+   ```
+
+2. Build the site:
+
+   ```bash
    npm run build
    ```
 
-2. Den Inhalt von `dist/` hochladen nach:
+3. Upload the contents of `dist/` into Hostinger:
 
    ```text
    public_html/
    ```
 
-3. Nicht den Projektordner selbst hochladen, sondern den Inhalt des `dist/` Ordners.
+4. Upload the contents of `dist/`, not the project folder itself.
 
-4. Sicherstellen, dass `.htaccess` aus `public/` im Build enthalten ist.
+5. Make sure this file exists on the server:
 
-Die `.htaccess` ist wichtig fuer React Router, damit direkte URLs wie `/contact`, `/pricing` oder `/blog/...` auf Hostinger funktionieren.
+   ```text
+   public_html/.htaccess
+   ```
 
-## Keine Environment-Variablen erforderlich
+The `.htaccess` file is important because this is a React Router single page app. It makes direct URLs such as `/contact`, `/pricing` and `/blog/...` work on Apache hosting.
 
-Aktueller Stand:
+## Environment Variables
 
-- Keine `.env` erforderlich
-- Kein SMTP
-- Kein Kontaktformular
-- Keine API-Keys fuer den Live-Betrieb
-- Keine Hostinger Environment Settings notwendig
+No production environment variables are required.
 
-Die Datei `.env` ist lokal ignoriert und sollte nicht committed werden.
+Current production model:
 
-## Git und Ignored Files
+- No `.env` required.
+- No SMTP variables.
+- No mail backend.
+- No contact form API.
+- No Hostinger environment settings needed.
+- Google Analytics ID is public and stored in the code.
+- Contact is handled through direct links and Google Calendar booking.
 
-Wichtige ignorierte Dateien:
+`.env` is ignored and should not be committed.
 
-- `node_modules/`
-- `dist/`
-- `coverage/`
-- `.env`
-- `.env.*`
-- lokale Preview-Logs
-- Screenshots
-- IDE-Artefakte
+## Maintenance Guide
 
-Die `.gitignore` ist so ausgelegt, dass keine Secrets, Build-Ausgaben oder lokalen Testartefakte committed werden.
+### Change Email, Phone Numbers, Address or Social Links
+
+Edit:
+
+```text
+src/data/profile.js
+```
+
+Then run:
+
+```bash
+npm run lint
+npm test
+npm run build
+```
+
+### Change Navigation
+
+Edit:
+
+```text
+src/data/profile.js
+src/i18n.jsx
+```
+
+Update route registration if a new page is added:
+
+```text
+src/App.jsx
+```
+
+Update SEO and sitemap:
+
+```text
+src/components/Seo.jsx
+public/sitemap.xml
+```
+
+### Change Homepage Sections
+
+Edit:
+
+```text
+src/pages/HomePage.jsx
+src/i18n.jsx
+src/data/content.js
+src/data/localizedContent.js
+```
+
+The homepage should remain short and conversion-focused. Detailed proof, software, blog and timeline content should stay on subpages where possible.
+
+### Change Services or Training Topics
+
+Edit English content:
+
+```text
+src/data/content.js
+```
+
+Edit German content:
+
+```text
+src/data/localizedContent.js
+```
+
+Service-related pages:
+
+```text
+src/pages/TrainingPage.jsx
+src/pages/SkillsPage.jsx
+src/pages/HomePage.jsx
+```
+
+### Change Pricing
+
+Edit:
+
+```text
+src/pages/PricingPage.jsx
+```
+
+Current pricing logic:
+
+- German view shows EUR values.
+- English view shows rounded USD orientation values.
+- All prices are non-binding orientation rates.
+
+### Change FAQ
+
+English FAQ:
+
+```text
+src/data/content.js
+```
+
+German FAQ:
+
+```text
+src/data/localizedContent.js
+```
+
+Homepage FAQ rendering:
+
+```text
+src/pages/HomePage.jsx
+```
+
+FAQ schema:
+
+```text
+src/components/Seo.jsx
+```
+
+### Add a Blog Post
+
+Edit:
+
+```text
+src/data/content.js
+```
+
+Add a new object to `blogPosts`.
+
+Required fields:
+
+```js
+{
+    slug: "example-slug",
+    title: "Example title",
+    date: "2026-04-27",
+    category: "AI & Governance",
+    hubCategory: "AI & Governance",
+    readTime: "8 min read",
+    excerpt: "Short summary.",
+    body: [
+        {
+            heading: "Section heading",
+            paragraphs: ["Paragraph text."]
+        }
+    ],
+    takeaway: "Main takeaway.",
+    sources: [
+        {label: "Source label", href: "https://example.com"}
+    ]
+}
+```
+
+Also update:
+
+```text
+public/sitemap.xml
+```
+
+If the blog post should have German content, add/adjust the German version in:
+
+```text
+src/data/localizedContent.js
+```
+
+### Change Images
+
+Image files live in:
+
+```text
+public/images/
+```
+
+Image references live in:
+
+```text
+src/data/profile.js
+```
+
+When replacing images:
+
+- Keep filenames stable if possible.
+- Optimise image size before deploying.
+- Check mobile and desktop rendering.
+- Keep alt text meaningful.
+
+### Change Visual Style
+
+Main style file:
+
+```text
+src/index.css
+```
+
+Common component files:
+
+```text
+src/components/Button.jsx
+src/components/Card.jsx
+src/components/Header.jsx
+src/components/Footer.jsx
+src/components/ConversionStrip.jsx
+src/components/StickyBookingBar.jsx
+```
+
+Design direction:
+
+- Dark theme
+- Premium liquid glass feel
+- Blue, cyan, violet and subtle indigo accents
+- Strong readability
+- Avoid loud red/pink rainbow effects
+- Avoid layout-shifting hover effects
+- Avoid mobile-only content flicker
+
+### Change Google Analytics
+
+Edit:
+
+```text
+index.html
+src/data/profile.js
+```
+
+If the measurement ID changes, update both locations.
+
+### Change Legal Pages
+
+Edit:
+
+```text
+src/pages/ImprintPage.jsx
+src/pages/PrivacyPage.jsx
+```
+
+Legal/contact information should stay consistent with:
+
+```text
+src/data/profile.js
+```
 
 ## GitHub Actions
 
@@ -467,138 +982,172 @@ Workflow:
 .github/workflows/node.js.yml
 ```
 
-Der Workflow baut und testet das Projekt in GitHub Actions.
+The workflow runs on pushes and pull requests to `main`.
 
-Wichtig: Vite benoetigt Node.js `>=20.19.0`. Wenn GitHub Actions mit Node 18 laeuft, schlaegt der Build fehl. Der Workflow muss deshalb Node 20.19+ oder Node 22 verwenden.
-
-## Wartung
-
-Typische Aenderungen:
-
-### Telefonnummer oder E-Mail aendern
-
-```text
-src/data/profile.js
-```
-
-### Preise aendern
-
-```text
-src/pages/PricingPage.jsx
-```
-
-### FAQ aendern
-
-```text
-src/data/content.js
-src/data/localizedContent.js
-```
-
-### Blogpost hinzufuegen
-
-```text
-src/data/content.js
-```
-
-Danach:
+It currently performs:
 
 ```bash
+npm ci
+npm run lint
+npm run build --if-present
 npm test
-npm run build
 ```
 
-### Trainingsthemen oder Services aendern
-
-```text
-src/data/content.js
-src/data/localizedContent.js
-```
-
-### Navigation aendern
-
-```text
-src/data/profile.js
-src/i18n.jsx
-```
-
-### Farben, Glassmorphism oder Mobile-Verhalten aendern
-
-```text
-src/index.css
-src/components/Card.jsx
-src/components/Button.jsx
-```
+The workflow uses Node `24.x`. Vite requires Node `20.19+` or a compatible newer version, so Node 24 is valid.
 
 ## Troubleshooting
 
-### Seite zeigt bei Hostinger nur 404 bei direkten Unterseiten
+### Build Fails with a Node Version Error
 
-Pruefen:
-
-- Ist `.htaccess` in `dist/` vorhanden?
-- Wurde der Inhalt von `dist/` nach `public_html/` hochgeladen?
-- Liegt `index.html` direkt in `public_html/`?
-
-### Kontaktformular fehlt
-
-Das ist beabsichtigt.
-
-Die Seite nutzt direkte Kontaktlinks und Google Calendar Booking, damit keine SMTP-/Serverprobleme entstehen.
-
-### Mobile Seite wirkt leer oder laedt beim Scrollen nach
-
-Pruefen:
-
-- Wurde der neueste Build hochgeladen?
-- Browser-Cache leeren
-- Hostinger Cache leeren
-- Auf Chrome Mobile im Inkognito-Modus testen
-
-Die aktuelle Implementierung nutzt keine Flip-Karten, keine Text-Reveal-Lazy-Animationen und keine `IntersectionObserver`-Textlogik.
-
-### Preise stimmen nicht
-
-Datei pruefen:
+Symptom:
 
 ```text
-src/pages/PricingPage.jsx
+Vite requires Node.js version 20.19+ or 22.12+
 ```
 
-Danach neu bauen und deployen.
+Fix:
 
-### Google Analytics trackt nicht
+- Use Node.js `>=20.19.0`.
+- In GitHub Actions, use Node 20.19+, 22.12+ or 24.x.
+- Locally, update Node before running `npm run build`.
 
-Pruefen:
+### Direct Routes Return 404 on Hostinger
 
-- Consent im Banner akzeptiert?
-- Measurement ID in `index.html` korrekt?
-- Browser blockiert Tracking?
-- Google Analytics Realtime View pruefen
+Examples:
 
-## Qualitaetscheck vor Deployment
+```text
+/contact
+/pricing
+/blog/agentic-ai-from-demo-to-delegation
+```
 
-Vor Upload zu Hostinger:
+Check:
+
+- Was the content of `dist/` uploaded into `public_html/`?
+- Is `index.html` directly inside `public_html/`?
+- Is `.htaccess` directly inside `public_html/`?
+- Did Hostinger cache an old build?
+
+### Contact Form Is Missing
+
+This is intentional.
+
+The contact flow uses:
+
+- Email link
+- Phone links
+- Google Calendar booking
+
+There is no SMTP or contact form backend.
+
+### Google Analytics Does Not Track
+
+Check:
+
+- Has the visitor accepted the consent banner?
+- Is the measurement ID correct?
+- Is tracking blocked by the browser or an extension?
+- Is the Google Analytics realtime view open?
+- Are you testing on the deployed site rather than a local preview?
+
+### Mobile Content Appears Empty or Flickers
+
+Check:
+
+- Deploy the newest build.
+- Clear browser cache.
+- Clear Hostinger cache.
+- Test in Chrome mobile incognito.
+
+The current code avoids scroll-based text reveal and flip-card effects. If mobile content flickers again, inspect any newly added animation, lazy rendering or `IntersectionObserver` logic first.
+
+### IntelliJ Reports Unused CSS Selectors
+
+Some Tailwind-style class names and arbitrary values may confuse IDE inspections. The project already avoids the previous `btn-primary` / `btn-secondary` false-positive pattern by using:
+
+```text
+data-button-variant="primary"
+data-button-variant="secondary"
+```
+
+Mobile button overrides in CSS should target these attributes instead of dynamic class names.
+
+### Sitemap Is Outdated
+
+Edit:
+
+```text
+public/sitemap.xml
+```
+
+Update it when adding:
+
+- A public route
+- A blog post
+- A new important landing page
+
+### Blog Post Shows 404
+
+Check:
+
+- The `slug` in `src/data/content.js`.
+- The URL path.
+- The route `/blog/:slug` in `src/App.jsx`.
+- Whether the deployed build is current.
+
+## Repository Hygiene
+
+Ignored files include:
+
+- `node_modules/`
+- `dist/`
+- `coverage/`
+- `.env`
+- `.env.*`
+- local preview logs
+- screenshots
+- temporary files
+
+Do not commit:
+
+- Secrets
+- SMTP passwords
+- local `.env` files
+- generated build output
+- coverage output
+- temporary screenshots
+
+Before committing:
 
 ```bash
+npm run lint
 npm test
 npm run build
+git diff --check
+git status --short
 ```
 
-Optional lokal previewen:
+## Deployment Checklist
 
-```bash
-npm run preview
-```
+Before uploading a build:
 
-Danach auf Mobile pruefen:
+- [ ] `npm run lint` passes.
+- [ ] `npm test` passes.
+- [ ] `npm run build` passes.
+- [ ] Homepage works on desktop.
+- [ ] Homepage works on mobile.
+- [ ] Contact page opens email, phone and booking links.
+- [ ] Pricing page shows correct language-specific pricing.
+- [ ] Blog overview and at least one blog post work.
+- [ ] `/imprint` and `/privacy` work.
+- [ ] Direct route reloads work after deployment.
+- [ ] `robots.txt` is reachable.
+- [ ] `sitemap.xml` is reachable.
 
-- Startseite
-- Contact
-- Pricing
-- Blog
-- Portfolio / Clients
-- FAQ unten auf der Homepage
+## License and Content Ownership
 
-## Lizenz
+This repository contains the website implementation and website-specific content for Carina Sophie Schoppe.
 
-Die Projektdateien liegen im Repository. Inhalte, Texte, Bilder, Profile und Downloads sind fuer die Website von Carina Sophie Schoppe bestimmt und sollten nicht ohne Freigabe fuer andere Projekte wiederverwendet werden.
+The texts, images, downloadable profiles, training catalogues, personal data, branding and business positioning are intended for this website. They should not be reused for other projects without permission.
+
+Code dependencies are governed by their respective open-source licenses.
