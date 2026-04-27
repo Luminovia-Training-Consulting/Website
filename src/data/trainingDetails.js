@@ -162,7 +162,7 @@ const topicDetailsEn = [
             "Learning checks and feedback routines",
         ],
         related: ["fachinformatiker-ihk-training-retraining", "python-sql-data-skills", "data-analytics-data-science-engineering"],
-        matches: ["Software Development & APIs", "Software development", "Java", "Python", "Kotlin", "C#", "APIs", "Microservices", "Spring", "React basics", "Android", "Dart", "Flutter", "Rust"],
+        matches: ["Software Development & APIs", "Software development", "Softwareentwicklung", "Softwareentwickler", "Software Developer", "Umschulung Software Developer", "Java", "Python", "Kotlin", "C#", "Python-Programmierung", "Java-Programmierung", "Kotlin-Programmierung", "C#-Programmierung", "APIs", "APIs und Automatisierung", "Microservices", "Spring", "React basics", "Android", "Dart", "Flutter", "Rust", "UI/UX basics", "UI/UX-Grundlagen"],
     },
     {
         slug: "fachinformatiker-ihk-training-retraining",
@@ -195,7 +195,7 @@ const topicDetailsEn = [
             "Learning plans for mixed-level groups",
         ],
         related: ["software-development-retraining-java-python-csharp-kotlin", "cybersecurity-pentesting-ethical-hacking", "business-informatics-digital-transformation"],
-        matches: ["Fachinformatiker", "Umschulung", "Ausbildung", "Exam preparation", "Pruefungsvorbereitung", "Prüfungsvorbereitung"],
+        matches: ["Fachinformatiker", "Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Umschulung", "Ausbildung", "IT retraining", "Exam preparation", "Pruefungsvorbereitung", "Prüfungsvorbereitung"],
     },
     {
         slug: "python-sql-data-skills",
@@ -228,7 +228,7 @@ const topicDetailsEn = [
             "Business reporting mini project",
         ],
         related: ["data-analytics-data-science-engineering", "software-development-retraining-java-python-csharp-kotlin", "business-informatics-digital-transformation"],
-        matches: ["Python, SQL & Data Skills", "Python programming", "SQL and databases", "SQL", "MySQL", "MongoDB", "Redis", "Database modelling", "Data science foundations", "Big data concepts"],
+        matches: ["Python, SQL & Data Skills", "Python programming", "SQL and databases", "SQL", "MySQL", "MongoDB", "Redis", "Database modelling", "SQL und Datenbanken", "Datenbanken"],
     },
     {
         slug: "data-analytics-data-science-engineering",
@@ -261,7 +261,7 @@ const topicDetailsEn = [
             "Data communication templates",
         ],
         related: ["python-sql-data-skills", "business-informatics-digital-transformation", "ai-genai-training"],
-        matches: ["Data analyst", "Data scientist", "Data engineer", "Data pipelines", "Data science foundations", "Big data concepts"],
+        matches: ["Data analyst", "Data scientist", "Data engineer", "Data Analyst", "Data Scientist", "Data Engineer", "Umschulung Data Analyst", "Umschulung Data Scientist", "Umschulung Data Engineer", "Data pipelines", "Data science foundations", "Data-Science-Grundlagen", "Big data concepts", "Big-Data-Konzepte"],
     },
     {
         slug: "project-management-scrum-agile-classic",
@@ -294,7 +294,7 @@ const topicDetailsEn = [
             "Retrospective and review formats",
         ],
         related: ["business-consulting-new-work", "business-informatics-digital-transformation", "prompt-engineering-agentic-workflows"],
-        matches: ["Scrum, Agile & Digital Project Work", "Project management", "SCRUM", "agile", "classic", "Stakeholder communication", "Process optimisation"],
+        matches: ["Scrum, Agile & Digital Project Work", "Project management", "Projektmanagement", "SCRUM", "SCRUM und agiles Arbeiten", "agile", "klassisch", "classic", "Stakeholder communication", "Process optimisation", "Prozessoptimierung"],
     },
     {
         slug: "business-consulting-new-work",
@@ -360,7 +360,7 @@ const topicDetailsEn = [
             "Stakeholder presentation tasks",
         ],
         related: ["business-consulting-new-work", "project-management-scrum-agile-classic", "python-sql-data-skills"],
-        matches: ["Business Informatics & Digital Transformation", "Business informatics", "Digital transformation", "IT service management", "Cloud concepts", "Cloud", "Business IT"],
+        matches: ["Business Informatics & Digital Transformation", "Business informatics", "Business IT", "Wirtschaftsinformatik", "Digital transformation", "Digitale Transformation", "IT service management", "IT Service Management", "Cloud concepts", "Cloud-Konzepte", "Cloud"],
     },
     {
         slug: "cybersecurity-pentesting-ethical-hacking",
@@ -393,11 +393,11 @@ const topicDetailsEn = [
             "Risk communication templates",
         ],
         related: ["fachinformatiker-ihk-training-retraining", "digital-law-gdpr-ai-act-cloud-act", "software-development-retraining-java-python-csharp-kotlin"],
-        matches: ["Cybersecurity & Pentesting Fundamentals", "Cybersecurity", "Cybersecurity awareness", "Web security", "SOC foundations", "SOC basics", "CompTIA Pentest+ preparation", "CompTIA PenTest+ prep", "Ethical hacking foundations", "Kali Linux", "Password security", "Risk communication"],
+        matches: ["Cybersecurity & Pentesting Fundamentals", "Cybersecurity", "Cybersecurity awareness", "Web security", "SOC foundations", "SOC basics", "CompTIA Pentest+ preparation", "CompTIA PenTest+ preparation", "CompTIA PenTest+ Vorbereitung", "CompTIA PenTest+ prep", "Ethical hacking foundations", "Ethical-Hacking-Grundlagen", "Pentest fundamentals", "Pentesting fundamentals", "Kali Linux", "Password security", "Passwort- und Datensicherheit", "Risk communication"],
     },
     {
         slug: "digital-law-gdpr-ai-act-cloud-act",
-        title: "Digital Law: GDPR, AI Act, Cloud Act & IT Law Awareness",
+        title: "Digital Law: Labour, Business, Private & IT Law, GDPR, AI Act and Cloud Act",
         category: "Digital Law",
         summary: "Awareness-oriented training around legal and regulatory topics that affect digital work: GDPR/DSGVO, AI Act, Cloud Act, IT law, business law basics, labour-law interfaces and responsible documentation.",
         audience: "Business teams, education providers, AI adoption teams, public-sector organisations, project teams and non-lawyer professionals who need practical orientation.",
@@ -426,7 +426,7 @@ const topicDetailsEn = [
             "Escalation map for legal review",
         ],
         related: ["ai-governance-responsible-ai", "cybersecurity-pentesting-ethical-hacking", "business-informatics-digital-transformation"],
-        matches: ["GDPR", "DSGVO", "AI Act", "Cloud Act", "IT law", "IT Recht", "Arbeitsrecht", "Wirtschaftsrecht", "Privatrecht", "Business law", "data security"],
+        matches: ["GDPR", "DSGVO", "Datenschutz", "AI Act", "Cloud Act", "IT law", "IT Recht", "IT-Recht", "Arbeitsrecht", "Wirtschaftsrecht", "Privatrecht", "Arbeits- und Wirtschafts- und Privatrecht", "Business law", "Private law", "Labour law", "data security"],
     },
     {
         slug: "office-management-ihk-business-training",
@@ -540,7 +540,7 @@ const deOverrides = {
         promise: "Security wird konkret: Lernende verstehen Angriffspfade, defensive Denkweise und warum sicheres Verhalten in echten Systemen zählt.",
     },
     "digital-law-gdpr-ai-act-cloud-act": {
-        title: "Digitales Recht: DSGVO, GDPR, AI Act, Cloud Act & IT-Recht",
+        title: "Digitales Recht: Arbeitsrecht, Wirtschaftsrecht, Privatrecht, IT-Recht, DSGVO, AI Act & Cloud Act",
         summary: "Awareness-orientiertes Training zu rechtlichen und regulatorischen Themen digitaler Arbeit: DSGVO/GDPR, AI Act, Cloud Act, IT-Recht, Wirtschaftsrecht, Arbeitsrecht-Schnittstellen und Dokumentation.",
         audience: "Business Teams, Bildungsanbieter, AI-Adoption-Teams, öffentliche Organisationen, Projektteams und Nicht-Juristinnen, die praktische Orientierung brauchen.",
         format: "Awareness-Training, Executive Briefing, Projektworkshop oder compliance-nahes Lernmodul.",
@@ -601,9 +601,10 @@ export function findTrainingDetailTopic(language, slug) {
 
 export function topicLinkForLabel(label) {
     const normalizedLabel = normalize(label);
-    const topic = topicDetailsEn.find((item) => item.matches.some((match) => {
+    const exactTopic = topicDetailsEn.find((item) => item.matches.some((match) => normalizedLabel === normalize(match)));
+    const topic = exactTopic || topicDetailsEn.find((item) => item.matches.some((match) => {
         const normalizedMatch = normalize(match);
-        return normalizedLabel === normalizedMatch || normalizedLabel.includes(normalizedMatch) || normalizedMatch.includes(normalizedLabel);
+        return normalizedMatch.length > 3 && (normalizedLabel.includes(normalizedMatch) || normalizedMatch.includes(normalizedLabel));
     }));
 
     return topic ? `/training/${topic.slug}` : null;
