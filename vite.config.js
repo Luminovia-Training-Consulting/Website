@@ -2,7 +2,7 @@ import {defineConfig} from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-function inlineCssPlugin() {
+function htmlPerformancePlugin() {
     return {
         name: "html-performance-pass",
         enforce: "post",
@@ -35,7 +35,7 @@ function inlineCssPlugin() {
 }
 
 export default defineConfig({
-    plugins: [react(), tailwindcss(), inlineCssPlugin()],
+    plugins: [react(), tailwindcss(), htmlPerformancePlugin()],
     base: "/",
     build: {
         cssCodeSplit: false,

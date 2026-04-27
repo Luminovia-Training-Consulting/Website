@@ -1,4 +1,4 @@
-import {useEffect, useMemo} from "react";
+import {useEffect} from "react";
 import {useLocation} from "react-router-dom";
 import {seoHomeFaqs} from "../data/homeContent.js";
 import {PROFILE} from "../data/profile.js";
@@ -159,42 +159,36 @@ function buildBreadcrumbSchema(pathname, title) {
 
 export default function Seo() {
     const {pathname} = useLocation();
-
-    const current = useMemo(() => {
-        if (/^\/blog\/[^/]+$/.test(pathname)) {
-            return {
-                title: "Blog Article | Carina Sophie Schoppe",
-                description: "Long-form article by Carina Sophie Schoppe on AI, governance, digital education, business IT or modern work.",
-                blogPost: null,
-            };
-        }
-
-        return routeMeta[pathname] || {
-            title: "Carina Sophie Schoppe | AI, IT & Business Lecturer",
-            description: "Professional AI, IT, cybersecurity, software development and digital education training for companies, universities and training providers.",
-        };
-    }, [pathname]);
+    const isBlogPostRoute = /^\/blog\/[^/]+$/.test(pathname);
+    const currentMeta = isBlogPostRoute ? {
+        title: "Blog Article | Carina Sophie Schoppe",
+        description: "Long-form article by Carina Sophie Schoppe on AI, governance, digital education, business IT or modern work.",
+    } : routeMeta[pathname] || {
+        title: "Carina Sophie Schoppe | AI, IT & Business Lecturer",
+        description: "Professional AI, IT, cybersecurity, software development and digital education training for companies, universities and training providers.",
+    };
+    const {title, description} = currentMeta;
 
     useEffect(() => {
         const canonical = `${SITE_URL}${pathname === "/" ? "/" : pathname}`;
-        document.title = current.title;
+        document.title = title;
 
-        upsertMeta('meta[name="description"]', {name: "description", content: current.description});
+        upsertMeta('meta[name="description"]', {name: "description", content: description});
         upsertMeta('meta[name="robots"]', {name: "robots", content: "index, follow, max-image-preview:large"});
-        upsertMeta('meta[property="og:title"]', {property: "og:title", content: current.title});
-        upsertMeta('meta[property="og:description"]', {property: "og:description", content: current.description});
+        upsertMeta('meta[property="og:title"]', {property: "og:title", content: title});
+        upsertMeta('meta[property="og:description"]', {property: "og:description", content: description});
         upsertMeta('meta[property="og:url"]', {property: "og:url", content: canonical});
         upsertMeta('meta[property="og:image"]', {property: "og:image", content: DEFAULT_IMAGE});
-        upsertMeta('meta[property="og:type"]', {property: "og:type", content: current.blogPost ? "article" : "website"});
+        upsertMeta('meta[property="og:type"]', {property: "og:type", content: isBlogPostRoute ? "article" : "website"});
         upsertMeta('meta[name="twitter:card"]', {name: "twitter:card", content: "summary_large_image"});
-        upsertMeta('meta[name="twitter:title"]', {name: "twitter:title", content: current.title});
-        upsertMeta('meta[name="twitter:description"]', {name: "twitter:description", content: current.description});
+        upsertMeta('meta[name="twitter:title"]', {name: "twitter:title", content: title});
+        upsertMeta('meta[name="twitter:description"]', {name: "twitter:description", content: description});
         upsertLink('link[rel="canonical"]', {rel: "canonical", href: canonical});
         upsertLink('link[rel="alternate"][hreflang="en"]', {rel: "alternate", hreflang: "en", href: canonical});
         upsertLink('link[rel="alternate"][hreflang="de"]', {rel: "alternate", hreflang: "de", href: canonical});
 
         upsertJsonLd("dynamic-person-service-schema", buildBaseSchema());
-        upsertJsonLd("dynamic-breadcrumb-schema", buildBreadcrumbSchema(pathname, current.title));
+        upsertJsonLd("dynamic-breadcrumb-schema", buildBreadcrumbSchema(pathname, title));
 
         if (pathname === "/") {
             upsertJsonLd("dynamic-faq-schema", {
@@ -213,23 +207,10 @@ export default function Seo() {
             removeJsonLd("dynamic-faq-schema");
         }
 
-        if (current.blogPost) {
-            upsertJsonLd("dynamic-blogpost-schema", {
-                "@context": "https://schema.org",
-                "@type": "BlogPosting",
-                headline: current.blogPost.title,
-                description: current.blogPost.excerpt,
-                datePublished: current.blogPost.date,
-                dateModified: current.blogPost.date,
-                image: DEFAULT_IMAGE,
-                author: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
-                publisher: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
-                mainEntityOfPage: `${SITE_URL}${pathname}`,
-            });
-        } else {
+        if (!isBlogPostRoute) {
             removeJsonLd("dynamic-blogpost-schema");
         }
-    }, [current, pathname]);
+    }, [description, isBlogPostRoute, pathname, title]);
 
     useEffect(() => {
         const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
