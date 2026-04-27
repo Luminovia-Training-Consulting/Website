@@ -10,22 +10,31 @@ export default function Photo({
                                   fallback = "CS",
                                   fallbackCopy,
                                   fetchPriority,
+                                  loading,
                               }) {
     const {t} = useLanguage();
     const [failed, setFailed] = useState(false);
     const fallbackText = fallbackCopy || t.home.photoFallback;
+    const webpSrc = src.endsWith(".jpg") ? src.replace(/\.jpg$/, ".webp") : null;
+    const priority = fetchPriority || "auto";
+    const imageLoading = loading || (priority === "high" ? "eager" : "lazy");
+    const decoding = priority === "high" ? "sync" : "async";
+
     return (
         <div className={cn("relative overflow-hidden bg-gradient-to-br from-sky-200/20 via-slate-900 to-blue-300/16 shadow-[0_24px_90px_rgba(0,0,0,.24)]", className)}>
             {!failed ? (
-                <img
-                    src={src}
-                    alt={alt}
-                    loading="eager"
-                    fetchPriority={fetchPriority || "high"}
-                    decoding="sync"
-                    className={cn("h-full w-full object-cover", imgClass)}
-                    onError={() => setFailed(true)}
-                />
+                <picture>
+                    {webpSrc && <source srcSet={webpSrc} type="image/webp"/>}
+                    <img
+                        src={src}
+                        alt={alt}
+                        loading={imageLoading}
+                        fetchPriority={priority}
+                        decoding={decoding}
+                        className={cn("h-full w-full object-cover", imgClass)}
+                        onError={() => setFailed(true)}
+                    />
+                </picture>
             ) : (
                 <div className="grid h-full min-h-[260px] place-items-center text-center">
                     <div>

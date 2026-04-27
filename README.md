@@ -912,9 +912,18 @@ Image references live in:
 src/data/profile.js
 ```
 
+The site uses WebP variants for faster delivery while keeping JPG files as fallbacks through the `Photo` component:
+
+```text
+public/images/*.jpg
+public/images/*.webp
+src/components/Photo.jsx
+```
+
 When replacing images:
 
 - Keep filenames stable if possible.
+- Replace both the JPG fallback and the matching WebP variant.
 - Optimise image size before deploying.
 - Check mobile and desktop rendering.
 - Keep alt text meaningful.
