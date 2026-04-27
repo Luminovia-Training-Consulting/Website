@@ -160,9 +160,13 @@ function buildBreadcrumbSchema(pathname, title) {
 export default function Seo() {
     const {pathname} = useLocation();
     const isBlogPostRoute = /^\/blog\/[^/]+$/.test(pathname);
+    const isTrainingTopicRoute = /^\/training\/[^/]+$/.test(pathname);
     const currentMeta = isBlogPostRoute ? {
         title: "Blog Article | Carina Sophie Schoppe",
         description: "Long-form article by Carina Sophie Schoppe on AI, governance, digital education, business IT or modern work.",
+    } : isTrainingTopicRoute ? {
+        title: "Training Topic | AI, IT and Business Education",
+        description: "Detailed training topic page for AI, IT, software development, cybersecurity, project management, digital transformation or business education.",
     } : routeMeta[pathname] || {
         title: "Carina Sophie Schoppe | AI, IT & Business Lecturer",
         description: "Professional AI, IT, cybersecurity, software development and digital education training for companies, universities and training providers.",

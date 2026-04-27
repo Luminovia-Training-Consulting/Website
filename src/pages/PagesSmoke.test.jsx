@@ -6,8 +6,9 @@ import App from "../App.jsx";
 /** @type {[string, RegExp][]} */
 const routes = [
     ["/training", /Bookable AI, IT and business technology training/i],
+    ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/skills", /Skill map for AI/i],
-    ["/software", /Software projects/i],
+    ["/software", /Practical projects/i],
     ["/portfolio", /Projects that support the teaching profile/i],
     ["/my-way", /A professional path through IT/i],
     ["/about", /I make complex digital topics teachable/i],
@@ -24,7 +25,7 @@ describe("static page routes", () => {
         window.history.pushState({}, "Route", route);
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: heading})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {level: 1, name: heading})).toBeInTheDocument();
     });
 
     it("opens and closes the mobile navigation", async () => {

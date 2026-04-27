@@ -9,6 +9,7 @@ import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
 
 const TrainingPage = lazy(() => import("./pages/TrainingPage.jsx"));
+const TrainingTopicPage = lazy(() => import("./pages/TrainingTopicPage.jsx"));
 const KeynotesPage = lazy(() => import("./pages/KeynotesPage.jsx"));
 const CorporatePage = lazy(() => import("./pages/CorporatePage.jsx"));
 const CredentialsPage = lazy(() => import("./pages/CredentialsPage.jsx"));
@@ -107,6 +108,7 @@ export default function App() {
                         <Routes>
                             <Route path="/" element={<HomePage/>}/>
                             <Route path="/training" element={routeElement(TrainingPage)}/>
+                            <Route path="/training/:slug" element={routeElement(TrainingTopicPage)}/>
                             <Route path="/keynotes" element={routeElement(KeynotesPage)}/>
                             <Route path="/corporate" element={routeElement(CorporatePage)}/>
                             <Route path="/credentials" element={routeElement(CredentialsPage)}/>

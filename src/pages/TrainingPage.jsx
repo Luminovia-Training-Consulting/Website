@@ -1,5 +1,7 @@
 import {PROFILE} from "../data/profile.js";
+import {Link} from "react-router-dom";
 import {useSiteContent} from "../data/localizedContent.js";
+import {topicLinkForLabel, trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -16,7 +18,9 @@ function AssetButtons({t}) {
     );
 }
 
-function ServiceCard({service, t}) {
+function ServiceCard({detailLabel, service, t}) {
+    const detailLink = topicLinkForLabel(service.title);
+
     return (
         <Card>
             <h2 className="text-2xl font-black text-white">{service.title}</h2>
@@ -32,7 +36,8 @@ function ServiceCard({service, t}) {
                     {service.outcomes.map((outcome) => <span key={outcome} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{outcome}</span>)}
                 </div>
             </div>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {detailLink && <Button to={detailLink}>{detailLabel}</Button>}
                 <Button to="/contact#contact-options" variant="secondary">{t.requestTraining}</Button>
             </div>
         </Card>
@@ -42,6 +47,7 @@ function ServiceCard({service, t}) {
 export default function TrainingPage() {
     const {language, t} = useLanguage();
     const {coreOffers, trainingTopics, formats, serviceOfferings, audienceCards, trustSignals} = useSiteContent();
+    const detailTopics = trainingDetailsForLanguage(language);
     const copy = language === "de"
         ? {
             badge: "Training & Services",
@@ -54,6 +60,10 @@ export default function TrainingPage() {
             formatsTitle: "Trainingsformate, die ich durchführen kann",
             services: "Services",
             servicesTitle: "Wofür Carina gebucht werden kann",
+            detailPages: "Detailseiten",
+            detailPagesTitle: "Alle buchbaren Themen als eigene Angebotsseiten",
+            detailPagesCopy: "Jedes Thema ist anklickbar und fuehrt zu einer eigenen Unterseite mit Zielgruppen, Formaten, Lernzielen, Inhalten und moeglichen Materialien.",
+            details: "Details ansehen",
             audiences: "Zielgruppen",
             audiencesTitle: "Professionelle B2B- und Bildungsumgebungen",
             proof: "Trust & Proof",
@@ -70,6 +80,10 @@ export default function TrainingPage() {
             formatsTitle: "Training formats I can deliver",
             services: "Services",
             servicesTitle: "What Carina can be booked for",
+            detailPages: "Detail pages",
+            detailPagesTitle: "All bookable topics as dedicated offer pages",
+            detailPagesCopy: "Every topic is clickable and opens a dedicated page with audiences, formats, learning goals, content modules and possible deliverables.",
+            details: "View details",
             audiences: "Who I work with",
             audiencesTitle: "Professional B2B and education-sector environments",
             proof: "Trust & proof",
@@ -98,7 +112,28 @@ export default function TrainingPage() {
                         <p className="text-base leading-8 text-slate-300">{t.home.servicesCopy}</p>
                     </div>
                     <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
-                        {serviceOfferings.map((service) => <ServiceCard key={service.title} service={service} t={t}/>)}
+                        {serviceOfferings.map((service) => <ServiceCard key={service.title} detailLabel={copy.details} service={service} t={t}/>)}
+                    </div>
+                </section>
+
+                <section className="mt-16">
+                    <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+                        <div>
+                            <Badge tone="violet">{copy.detailPages}</Badge>
+                            <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">{copy.detailPagesTitle}</h2>
+                        </div>
+                        <p className="text-base leading-8 text-slate-300">{copy.detailPagesCopy}</p>
+                    </div>
+                    <div className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
+                        {detailTopics.map((topic) => (
+                            <Link key={topic.slug} to={`/training/${topic.slug}`} className="group block">
+                                <Card className="h-full">
+                                    <div className="text-xs font-black uppercase tracking-[0.18em] text-sky-100">{topic.category}</div>
+                                    <h3 className="mt-3 text-2xl font-black text-white transition group-hover:text-sky-100">{topic.title}</h3>
+                                    <p className="mt-4 text-sm leading-7 text-slate-300">{topic.summary}</p>
+                                </Card>
+                            </Link>
+                        ))}
                     </div>
                 </section>
 
@@ -155,7 +190,14 @@ export default function TrainingPage() {
                             <Card key={topic.group}>
                                 <h2 className="text-2xl font-black text-white">{topic.group}</h2>
                                 <div className="mt-5 space-y-3">
-                                    {topic.items.map((item) => <div key={String(item)} className="rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-bold text-slate-200">{item}</div>)}
+                                    {topic.items.map((item) => {
+                                        const detailLink = topicLinkForLabel(item);
+                                        const className = "rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-bold text-slate-200 transition hover:border-sky-200/40 hover:bg-sky-200/10";
+
+                                        return detailLink
+                                            ? <Link key={String(item)} to={detailLink} className={className}>{item}</Link>
+                                            : <div key={String(item)} className={className}>{item}</div>;
+                                    })}
                                 </div>
                             </Card>
                         ))}

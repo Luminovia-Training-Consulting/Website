@@ -1,8 +1,20 @@
 import {useSiteContent} from "../data/localizedContent.js";
+import {Link} from "react-router-dom";
+import {topicLinkForLabel} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
+
+function TopicLink({item, className}) {
+    const detailLink = topicLinkForLabel(item);
+
+    if (detailLink) {
+        return <Link to={detailLink} className={className}>{item}</Link>;
+    }
+
+    return <span className={className}>{item}</span>;
+}
 
 export default function SkillsPage() {
     const {language} = useLanguage();
@@ -46,9 +58,7 @@ export default function SkillsPage() {
                                 <h2 className="text-2xl font-black text-white">{group.group}</h2>
                                 <div className="mt-5 flex flex-wrap gap-2">
                                     {group.items.map((item) => (
-                                        <span key={item} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-bold text-slate-200">
-                      {item}
-                    </span>
+                                        <TopicLink key={item} item={item} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-bold text-slate-200 transition hover:border-sky-200/40 hover:bg-sky-200/10"/>
                                     ))}
                                 </div>
                             </Card>
@@ -67,7 +77,7 @@ export default function SkillsPage() {
                                 <h3 className="text-2xl font-black text-white">{topic.group}</h3>
                                 <div className="mt-5 grid gap-2">
                                     {topic.items.map((item) => (
-                                        <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-bold text-slate-200">{item}</div>
+                                        <TopicLink key={item} item={item} className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-bold text-slate-200 transition hover:border-sky-200/40 hover:bg-sky-200/10"/>
                                     ))}
                                 </div>
                             </Card>
