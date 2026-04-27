@@ -11,11 +11,14 @@ export default function Photo({
                                   fallbackCopy,
                                   fetchPriority,
                                   loading,
+                                  sizes = "(min-width: 1024px) 520px, 92vw",
                               }) {
     const {t} = useLanguage();
     const [failed, setFailed] = useState(false);
     const fallbackText = fallbackCopy || t.home.photoFallback;
-    const webpSrc = src.endsWith(".jpg") ? src.replace(/\.jpg$/, ".webp") : null;
+    const webpSrcSet = src.endsWith(".jpg")
+        ? [480, 640, 960].map((width) => `${src.replace(/\.jpg$/, `-${width}.webp`)} ${width}w`).join(", ")
+        : null;
     const priority = fetchPriority || "auto";
     const imageLoading = loading || (priority === "high" ? "eager" : "lazy");
     const decoding = priority === "high" ? "sync" : "async";
@@ -24,10 +27,11 @@ export default function Photo({
         <div className={cn("relative overflow-hidden bg-gradient-to-br from-sky-200/20 via-slate-900 to-blue-300/16 shadow-[0_24px_90px_rgba(0,0,0,.24)]", className)}>
             {!failed ? (
                 <picture>
-                    {webpSrc && <source srcSet={webpSrc} type="image/webp"/>}
+                    {webpSrcSet && <source srcSet={webpSrcSet} sizes={sizes} type="image/webp"/>}
                     <img
                         src={src}
                         alt={alt}
+                        sizes={sizes}
                         loading={imageLoading}
                         fetchPriority={priority}
                         decoding={decoding}

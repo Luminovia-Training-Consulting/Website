@@ -449,7 +449,6 @@ index.html
 
 Includes:
 
-- Google tag script
 - Charset and viewport
 - Meta description
 - Robots meta tag
@@ -457,7 +456,7 @@ Includes:
 - Twitter card metadata
 - Canonical URL
 - hreflang alternates
-- Hero image preload
+- Responsive hero/headshot image preload
 - Base schema.org JSON-LD
 
 ### Dynamic Route Metadata
@@ -523,12 +522,6 @@ Measurement ID:
 G-YNGD292XE5
 ```
 
-Google tag is present in:
-
-```text
-index.html
-```
-
 Consent handling lives in:
 
 ```text
@@ -542,6 +535,7 @@ The consent component:
 - Loads Google Analytics only after acceptance.
 - Sends route changes after consent.
 - Uses IP anonymisation.
+- Avoids a Google Tag Manager request on the initial page load before consent.
 
 The measurement ID is also stored in:
 
@@ -676,7 +670,7 @@ dist/
 The build includes:
 
 - `index.html`
-- Bundled CSS
+- Inlined production CSS
 - Bundled JavaScript
 - Files copied from `public/`
 - `.htaccess`
@@ -916,7 +910,9 @@ The site uses WebP variants for faster delivery while keeping JPG files as fallb
 
 ```text
 public/images/*.jpg
-public/images/*.webp
+public/images/*-480.webp
+public/images/*-640.webp
+public/images/*-960.webp
 src/components/Photo.jsx
 ```
 
@@ -962,11 +958,10 @@ Design direction:
 Edit:
 
 ```text
-index.html
 src/data/profile.js
 ```
 
-If the measurement ID changes, update both locations.
+If the measurement ID changes, update the profile setting. The Google script is loaded by `src/components/AnalyticsConsent.jsx` only after consent.
 
 ### Change Legal Pages
 

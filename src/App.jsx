@@ -1,4 +1,4 @@
-import {useLayoutEffect} from "react";
+import {useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
@@ -27,7 +27,7 @@ import {LanguageProvider} from "./i18n.jsx";
 function ScrollToHash() {
     const {pathname, hash} = useLocation();
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (!hash) {
             window.scrollTo({top: 0, behavior: "auto"});
             return;
@@ -51,6 +51,36 @@ function ScrollToHash() {
     return null;
 }
 
+function DeferredAmbientIntelligence() {
+    const [ready, setReady] = useState(import.meta.env.MODE === "test");
+
+    useEffect(() => {
+        if (ready) return undefined;
+
+        const schedule = globalThis.requestIdleCallback || ((callback) => globalThis.setTimeout(callback, 1400));
+        const cancel = globalThis.cancelIdleCallback || globalThis.clearTimeout;
+        const handle = schedule(() => setReady(true), {timeout: 2200});
+
+        return () => cancel(handle);
+    }, [ready]);
+
+    return ready ? (
+        <>
+            <div className="polygon-field fixed inset-0 z-0" aria-hidden="true">
+                <span/>
+                <span/>
+                <span/>
+                <span/>
+                <span/>
+                <span/>
+                <span/>
+            </div>
+            <div className="ambient-grid fixed inset-0 z-0 opacity-70"/>
+            <AmbientIntelligence/>
+        </>
+    ) : null;
+}
+
 export default function App() {
     return (
         <LanguageProvider>
@@ -62,17 +92,7 @@ export default function App() {
                     <div className="ambient-wash fixed -inset-x-24 top-0 z-0 h-[68vh]"/>
                     <div className="ambient-ribbon fixed left-[-12vw] top-[14vh] z-0 h-32 w-[124vw] rotate-[-8deg] opacity-70"/>
                     <div className="ambient-ribbon fixed left-[-12vw] top-[72vh] z-0 h-28 w-[124vw] rotate-[7deg] opacity-45"/>
-                    <div className="polygon-field fixed inset-0 z-0" aria-hidden="true">
-                        <span/>
-                        <span/>
-                        <span/>
-                        <span/>
-                        <span/>
-                        <span/>
-                        <span/>
-                    </div>
-                    <div className="ambient-grid fixed inset-0 z-0 opacity-70"/>
-                    <AmbientIntelligence/>
+                    <DeferredAmbientIntelligence/>
                     <Header/>
                     <div className="relative z-10">
                         <Routes>
