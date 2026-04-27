@@ -2,6 +2,9 @@
   Require all denied
 </FilesMatch>
 
+DirectoryIndex index.html
+Options -MultiViews
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
