@@ -1,6 +1,6 @@
 import {describe, expect, it} from "vitest";
 import {readFileSync} from "node:fs";
-import {serviceOfferings, trainingTopics} from "./content.js";
+import {capabilities, serviceOfferings, skillGroups, trainingTopics} from "./content.js";
 import {topicLinkForLabel, trainingDetailsForLanguage} from "./trainingDetails.js";
 
 const expectedOfferLinks = [
@@ -37,8 +37,8 @@ const expectedOfferLinks = [
 
 describe("training detail coverage", () => {
     it("contains all detailed offer pages", () => {
-        expect(trainingDetailsForLanguage("en")).toHaveLength(15);
-        expect(trainingDetailsForLanguage("de")).toHaveLength(15);
+        expect(trainingDetailsForLanguage("en")).toHaveLength(18);
+        expect(trainingDetailsForLanguage("de")).toHaveLength(18);
     });
 
     it.each(expectedOfferLinks)("maps %s to the correct detail page", (label, expectedLink) => {
@@ -56,6 +56,19 @@ describe("training detail coverage", () => {
     it("maps every visible training topic chip to a detail page", () => {
         const labels = trainingTopics.flatMap((group) => group.items);
         const missing = labels.filter((label) => !topicLinkForLabel(label));
+
+        expect(missing).toEqual([]);
+    });
+
+    it("maps every visible skill-map chip to a detail page", () => {
+        const labels = skillGroups.flatMap((group) => group.items);
+        const missing = labels.filter((label) => !topicLinkForLabel(label));
+
+        expect(missing).toEqual([]);
+    });
+
+    it("maps every capability chip to a detail page", () => {
+        const missing = capabilities.filter((label) => !topicLinkForLabel(label));
 
         expect(missing).toEqual([]);
     });

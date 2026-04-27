@@ -53,6 +53,10 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://carinaschoppe.com/training/cloud-devops-systems-foundations</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://carinaschoppe.com/training/cybersecurity-pentesting-ethical-hacking</loc>
         <priority>0.8</priority>
     </url>
@@ -66,6 +70,14 @@
     </url>
     <url>
         <loc>https://carinaschoppe.com/training/curriculum-design-blended-learning</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://carinaschoppe.com/training/creative-web-digital-media-tools</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://carinaschoppe.com/training/languages-communication-presentation</loc>
         <priority>0.8</priority>
     </url>
     <url>
