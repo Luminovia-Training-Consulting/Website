@@ -22,11 +22,12 @@ describe("App routing and language", () => {
         expect(document.documentElement.lang).toBe("de");
     });
 
-    it("renders direct contact links and the appointment scheduler without a form", () => {
+    it("renders direct contact links and the appointment scheduler without a form", async () => {
         window.history.pushState({}, "Contact", "/contact");
 
         render(<App/>);
 
+        await screen.findByRole("heading", {name: /Contact me for lectures/i});
         expect(screen.queryByRole("button", {name: /Send request/i})).not.toBeInTheDocument();
         expect(screen.getAllByRole("link", {name: /Write an email/i})[0]).toHaveAttribute("href", expect.stringContaining("mailto:info@carinaschoppe.com"));
         expect(screen.getAllByRole("link", {name: /\+61 451 448 724/i})[0]).toHaveAttribute("href", "tel:+61451448724");
@@ -40,7 +41,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(screen.getByRole("heading", {name: /Transparent orientation rates/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Transparent orientation rates/i})).toBeInTheDocument();
         expect(screen.getByText("$60-65")).toBeInTheDocument();
         expect(screen.getByText("from $1,200")).toBeInTheDocument();
 

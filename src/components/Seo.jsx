@@ -1,11 +1,22 @@
 import {useEffect, useMemo} from "react";
 import {useLocation} from "react-router-dom";
-import {blogPosts, serviceOfferings} from "../data/content.js";
+import {seoHomeFaqs} from "../data/homeContent.js";
 import {PROFILE} from "../data/profile.js";
-import {useSiteContent} from "../data/localizedContent.js";
 
 const SITE_URL = "https://carinaschoppe.com";
 const DEFAULT_IMAGE = `${SITE_URL}/images/carina-hero.jpg`;
+const schemaServiceOffers = [
+    ["AI & GenAI Training", "Practical training on generative AI concepts, business use cases, limits, risks and responsible day-to-day adoption."],
+    ["AI Literacy for Teams", "Clear AI literacy training for shared language, practical confidence and sensible AI usage rules."],
+    ["Prompt Engineering & Agentic Workflows", "Structured prompting, workflow decomposition and supervised agentic work patterns for real business processes."],
+    ["AI Governance & Responsible AI", "Training on accountability, risk classes, data handling, human oversight and practical governance routines."],
+    ["Python, SQL & Data Skills", "Applied programming and data training for automation, analysis and databases."],
+    ["Software Development & APIs", "Foundations and applied training around programming, API thinking, backend concepts and software project structure."],
+    ["Cybersecurity & Pentesting Fundamentals", "Security awareness and technical foundations for web security, ethical hacking, SOC basics and defensive thinking."],
+    ["Scrum, Agile & Digital Project Work", "Practical project work training for clearer collaboration, delivery structure and AI-aware coordination."],
+    ["Business Informatics & Digital Transformation", "Business IT training connecting processes, systems, data, IT management and organisational change."],
+    ["Curriculum Design & Blended Learning", "Support for learning paths, exercises, slides, labs, assessment logic and blended delivery formats."],
+];
 
 const routeMeta = {
     "/": {
@@ -110,14 +121,14 @@ function buildBaseSchema() {
         areaServed: ["Germany", "Austria", "Switzerland", "Australia", "Europe", "APAC"],
         knowsLanguage: ["German", "English", "Spanish"],
         sameAs: [PROFILE.linkedin, PROFILE.github],
-        serviceType: serviceOfferings.map((service) => service.title),
-        makesOffer: serviceOfferings.slice(0, 10).map((service) => ({
+        serviceType: schemaServiceOffers.map(([title]) => title),
+        makesOffer: schemaServiceOffers.map(([title, description]) => ({
             "@type": "Offer",
             itemOffered: {
                 "@type": "Service",
-                name: service.title,
-                description: service.description,
-                audience: service.audience,
+                name: title,
+                description,
+                audience: "Companies, universities, training providers, public-sector organisations and international education partners",
                 areaServed: ["Europe", "Australia", "APAC"],
                 provider: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
             },
@@ -148,19 +159,14 @@ function buildBreadcrumbSchema(pathname, title) {
 
 export default function Seo() {
     const {pathname} = useLocation();
-    const {faqs} = useSiteContent();
 
     const current = useMemo(() => {
-        const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
-        if (blogMatch) {
-            const post = blogPosts.find((item) => item.slug === blogMatch[1]);
-            if (post) {
-                return {
-                    title: `${post.title} | Carina Sophie Schoppe Blog`,
-                    description: post.excerpt,
-                    blogPost: post,
-                };
-            }
+        if (/^\/blog\/[^/]+$/.test(pathname)) {
+            return {
+                title: "Blog Article | Carina Sophie Schoppe",
+                description: "Long-form article by Carina Sophie Schoppe on AI, governance, digital education, business IT or modern work.",
+                blogPost: null,
+            };
         }
 
         return routeMeta[pathname] || {
@@ -194,7 +200,7 @@ export default function Seo() {
             upsertJsonLd("dynamic-faq-schema", {
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                mainEntity: faqs.slice(0, 10).map((item) => ({
+                mainEntity: seoHomeFaqs.map((item) => ({
                     "@type": "Question",
                     name: item.q,
                     acceptedAnswer: {
@@ -223,7 +229,42 @@ export default function Seo() {
         } else {
             removeJsonLd("dynamic-blogpost-schema");
         }
-    }, [current, faqs, pathname]);
+    }, [current, pathname]);
+
+    useEffect(() => {
+        const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
+        if (!blogMatch) return undefined;
+
+        let active = true;
+        import("../data/content.js").then(({blogPosts}) => {
+            if (!active) return;
+            const post = blogPosts.find((item) => item.slug === blogMatch[1]);
+            if (!post) return;
+
+            const canonical = `${SITE_URL}${pathname}`;
+            document.title = `${post.title} | Carina Sophie Schoppe Blog`;
+            upsertMeta('meta[name="description"]', {name: "description", content: post.excerpt});
+            upsertMeta('meta[property="og:title"]', {property: "og:title", content: `${post.title} | Carina Sophie Schoppe Blog`});
+            upsertMeta('meta[property="og:description"]', {property: "og:description", content: post.excerpt});
+            upsertMeta('meta[property="og:type"]', {property: "og:type", content: "article"});
+            upsertJsonLd("dynamic-blogpost-schema", {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                headline: post.title,
+                description: post.excerpt,
+                datePublished: post.date,
+                dateModified: post.date,
+                image: DEFAULT_IMAGE,
+                author: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
+                publisher: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
+                mainEntityOfPage: canonical,
+            });
+        });
+
+        return () => {
+            active = false;
+        };
+    }, [pathname]);
 
     return null;
 }

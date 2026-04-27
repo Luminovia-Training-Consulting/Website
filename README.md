@@ -559,6 +559,12 @@ Important decisions:
 - Buttons use explicit `data-button-variant` attributes for mobile CSS overrides.
 - Hero image uses high fetch priority.
 - The homepage is intentionally shorter than the detailed subpages.
+- The production build inlines the generated CSS into `index.html`, removing a render-blocking CSS file request.
+- The homepage has a tiny static first-paint shell in `index.html`, so the initial hero text and portrait can appear before React finishes loading.
+- Non-home routes are code-split with `React.lazy`, so training, pricing, blog, portfolio, legal and contact pages are not part of the first homepage JavaScript payload.
+- Large content collections are kept out of the initial homepage bundle; blog posts, client proof, software projects and timeline data load with the routes that need them.
+- Google Analytics is consent-gated and does not create a tag-manager request on the first load before consent.
+- Responsive WebP image variants are generated for the portrait images and used through `srcset`/`sizes`.
 
 Main CSS file:
 

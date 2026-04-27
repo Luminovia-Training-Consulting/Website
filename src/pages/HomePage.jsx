@@ -1,5 +1,5 @@
 import {IMAGES, PROFILE} from "../data/profile.js";
-import {useSiteContent} from "../data/localizedContent.js";
+import {useHomeContent} from "../data/homeContent.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -163,8 +163,8 @@ function JumpNavigation({items, label}) {
 
 export default function HomePage() {
     const {t} = useLanguage();
-    const {trustStats, serviceOfferings, faqs} = useSiteContent();
-    const featuredServices = serviceOfferings.slice(0, 3);
+    const {trustStats, serviceOfferings, faqs} = useHomeContent();
+    const featuredServices = serviceOfferings;
     const {
         badge,
         title,

@@ -1,28 +1,29 @@
-import {useEffect, useState} from "react";
+import {lazy, Suspense, useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import AmbientIntelligence from "./components/AmbientIntelligence.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import TrainingPage from "./pages/TrainingPage.jsx";
-import KeynotesPage from "./pages/KeynotesPage.jsx";
-import CorporatePage from "./pages/CorporatePage.jsx";
-import CredentialsPage from "./pages/CredentialsPage.jsx";
-import PortfolioPage from "./pages/PortfolioPage.jsx";
-import AboutPage from "./pages/AboutPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
-import MyWayPage from "./pages/MyWayPage.jsx";
-import SkillsPage from "./pages/SkillsPage.jsx";
-import PricingPage from "./pages/PricingPage.jsx";
-import BlogPage from "./pages/BlogPage.jsx";
-import BlogPostPage from "./pages/BlogPostPage.jsx";
-import SoftwarePage from "./pages/SoftwarePage.jsx";
-import ImprintPage from "./pages/ImprintPage.jsx";
-import PrivacyPage from "./pages/PrivacyPage.jsx";
-import NotFoundPage from "./pages/NotFoundPage.jsx";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
+
+const TrainingPage = lazy(() => import("./pages/TrainingPage.jsx"));
+const KeynotesPage = lazy(() => import("./pages/KeynotesPage.jsx"));
+const CorporatePage = lazy(() => import("./pages/CorporatePage.jsx"));
+const CredentialsPage = lazy(() => import("./pages/CredentialsPage.jsx"));
+const PortfolioPage = lazy(() => import("./pages/PortfolioPage.jsx"));
+const AboutPage = lazy(() => import("./pages/AboutPage.jsx"));
+const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
+const MyWayPage = lazy(() => import("./pages/MyWayPage.jsx"));
+const SkillsPage = lazy(() => import("./pages/SkillsPage.jsx"));
+const PricingPage = lazy(() => import("./pages/PricingPage.jsx"));
+const BlogPage = lazy(() => import("./pages/BlogPage.jsx"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage.jsx"));
+const SoftwarePage = lazy(() => import("./pages/SoftwarePage.jsx"));
+const ImprintPage = lazy(() => import("./pages/ImprintPage.jsx"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage.jsx"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
 
 function ScrollToHash() {
     const {pathname, hash} = useLocation();
@@ -81,6 +82,14 @@ function DeferredAmbientIntelligence() {
     ) : null;
 }
 
+function routeElement(Component) {
+    return (
+        <Suspense fallback={<div className="min-h-[55vh] bg-[#08090b]" aria-hidden="true"/>}>
+            <Component/>
+        </Suspense>
+    );
+}
+
 export default function App() {
     return (
         <LanguageProvider>
@@ -97,22 +106,22 @@ export default function App() {
                     <div className="relative z-10">
                         <Routes>
                             <Route path="/" element={<HomePage/>}/>
-                            <Route path="/training" element={<TrainingPage/>}/>
-                            <Route path="/keynotes" element={<KeynotesPage/>}/>
-                            <Route path="/corporate" element={<CorporatePage/>}/>
-                            <Route path="/credentials" element={<CredentialsPage/>}/>
-                            <Route path="/portfolio" element={<PortfolioPage/>}/>
-                            <Route path="/about" element={<AboutPage/>}/>
-                            <Route path="/contact" element={<ContactPage/>}/>
-                            <Route path="/my-way" element={<MyWayPage/>}/>
-                            <Route path="/skills" element={<SkillsPage/>}/>
-                            <Route path="/pricing" element={<PricingPage/>}/>
-                            <Route path="/blog" element={<BlogPage/>}/>
-                            <Route path="/blog/:slug" element={<BlogPostPage/>}/>
-                            <Route path="/software" element={<SoftwarePage/>}/>
-                            <Route path="/imprint" element={<ImprintPage/>}/>
-                            <Route path="/privacy" element={<PrivacyPage/>}/>
-                            <Route path="*" element={<NotFoundPage/>}/>
+                            <Route path="/training" element={routeElement(TrainingPage)}/>
+                            <Route path="/keynotes" element={routeElement(KeynotesPage)}/>
+                            <Route path="/corporate" element={routeElement(CorporatePage)}/>
+                            <Route path="/credentials" element={routeElement(CredentialsPage)}/>
+                            <Route path="/portfolio" element={routeElement(PortfolioPage)}/>
+                            <Route path="/about" element={routeElement(AboutPage)}/>
+                            <Route path="/contact" element={routeElement(ContactPage)}/>
+                            <Route path="/my-way" element={routeElement(MyWayPage)}/>
+                            <Route path="/skills" element={routeElement(SkillsPage)}/>
+                            <Route path="/pricing" element={routeElement(PricingPage)}/>
+                            <Route path="/blog" element={routeElement(BlogPage)}/>
+                            <Route path="/blog/:slug" element={routeElement(BlogPostPage)}/>
+                            <Route path="/software" element={routeElement(SoftwarePage)}/>
+                            <Route path="/imprint" element={routeElement(ImprintPage)}/>
+                            <Route path="/privacy" element={routeElement(PrivacyPage)}/>
+                            <Route path="*" element={routeElement(NotFoundPage)}/>
                         </Routes>
                     </div>
                     <div className="relative z-10">

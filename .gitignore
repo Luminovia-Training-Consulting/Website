@@ -94,5 +94,7 @@ coverage/
 # Local preview/test artifacts
 vite-preview.log
 vite-preview.err.log
+preview.log
+preview.err.log
 prompts.txt
 *.png

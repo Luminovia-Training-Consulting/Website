@@ -1,13 +1,16 @@
 import {Link, NavLink} from "react-router-dom";
 import {navItems, PROFILE} from "../data/profile.js";
-import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
 
 const linkClass = "rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white";
 
+const footerTopics = {
+    en: ["AI & Future Skills", "Software & Data", "Cybersecurity", "Business IT"],
+    de: ["AI & Future Skills", "Software & Daten", "Cybersecurity", "Business IT"],
+};
+
 export default function Footer() {
     const {language, t} = useLanguage();
-    const {trainingTopics} = useSiteContent();
     const labels = language === "de"
         ? {
             summary: "AI-, IT- und Business-Dozentin mit Standort Brisbane, Australien. Remote-Live-Trainings fuer deutsch- und englischsprachige Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
@@ -75,9 +78,9 @@ export default function Footer() {
                 <div>
                     <h2 className="text-sm font-black uppercase tracking-[0.16em] text-sky-100">{labels.topics}</h2>
                     <div className="mt-4 grid gap-2">
-                        {trainingTopics.map((topic) => (
-                            <Link key={topic.group} to="/training" className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-3 text-sm font-bold text-slate-300 transition hover:border-sky-100/35 hover:bg-white/[0.08] hover:text-white">
-                                {topic.group}
+                        {footerTopics[language].map((topic) => (
+                            <Link key={topic} to="/training" className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-3 text-sm font-bold text-slate-300 transition hover:border-sky-100/35 hover:bg-white/[0.08] hover:text-white">
+                                {topic}
                             </Link>
                         ))}
                     </div>

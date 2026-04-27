@@ -20,11 +20,11 @@ const routes = [
 ];
 
 describe("static page routes", () => {
-    it.each(routes)("renders %s", (route, heading) => {
+    it.each(routes)("renders %s", async (route, heading) => {
         window.history.pushState({}, "Route", route);
         render(<App/>);
 
-        expect(screen.getByRole("heading", {name: heading})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: heading})).toBeInTheDocument();
     });
 
     it("opens and closes the mobile navigation", async () => {
