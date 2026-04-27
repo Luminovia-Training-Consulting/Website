@@ -1,4 +1,6 @@
 import {describe, expect, it} from "vitest";
+import {readFileSync} from "node:fs";
+import {serviceOfferings, trainingTopics} from "./content.js";
 import {topicLinkForLabel, trainingDetailsForLanguage} from "./trainingDetails.js";
 
 const expectedOfferLinks = [
@@ -42,5 +44,28 @@ describe("training detail coverage", () => {
     it.each(expectedOfferLinks)("maps %s to the correct detail page", (label, expectedLink) => {
         expect(topicLinkForLabel(label)).toBe(expectedLink);
     });
-});
 
+    it("maps every visible service tile to a detail page", () => {
+        const missing = serviceOfferings
+            .map((service) => service.title)
+            .filter((title) => !topicLinkForLabel(title));
+
+        expect(missing).toEqual([]);
+    });
+
+    it("maps every visible training topic chip to a detail page", () => {
+        const labels = trainingTopics.flatMap((group) => group.items);
+        const missing = labels.filter((label) => !topicLinkForLabel(label));
+
+        expect(missing).toEqual([]);
+    });
+
+    it("lists every detailed training page in the sitemap", () => {
+        const sitemap = readFileSync("public/sitemap.xml", "utf8");
+        const missing = trainingDetailsForLanguage("en")
+            .map((topic) => `/training/${topic.slug}`)
+            .filter((path) => !sitemap.includes(`https://carinaschoppe.com${path}`));
+
+        expect(missing).toEqual([]);
+    });
+});
