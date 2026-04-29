@@ -19,16 +19,16 @@ export default function MyWayPage() {
         ? {
             badge: "Werdegang",
             title: "Ein professioneller Weg durch IT, Business, Forschung und Lehre.",
-            intro: "Die Timeline zeigt kompakt, welche Stationen mein Profil als Dozentin, Trainerin und Consultant für digitale Bildung geprägt haben.",
-            skills: "Skills ansehen",
+            intro: "Die Zeitlinie zeigt kompakt, welche Stationen mein Profil als Dozentin, Trainerin und Consultant für digitale Bildung geprägt haben.",
+            skills: "Kompetenzen ansehen",
             request: "Training anfragen",
             education: "Bildung",
             educationCopy: "Wirtschaftsinformatik, Digital Business, AI, Forschung und professionelle Lehre.",
             work: "Praxis",
-            workCopy: "Softwareentwicklung, Training, Consulting, Unternehmertum und Research Assistance.",
+            workCopy: "Softwareentwicklung, Training, Consulting, Unternehmertum und Forschungsassistenz.",
             now: "Heute",
-            nowCopy: "Sitz in Brisbane, remote AI- und IT-Trainings für Europa und APAC.",
-            timeline: "Timeline",
+            nowCopy: "Sitz in Brisbane, remote AI- und IT-Trainings für Europa, Australien und die Welt.",
+            timeline: "Zeitlinie",
             milestones: "Aktuelle Stationen zuerst."
         }
         : {
@@ -42,7 +42,7 @@ export default function MyWayPage() {
             work: "Practice",
             workCopy: "Software development, training, consulting, entrepreneurship and research assistance.",
             now: "Today",
-            nowCopy: "Based in Brisbane, delivering remote AI and IT training for Europe and APAC.",
+            nowCopy: "Based in Brisbane, delivering remote AI and IT training for Europe, Australia and the world.",
             timeline: "Timeline",
             milestones: "Current milestones first."
         };

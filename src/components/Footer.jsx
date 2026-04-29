@@ -6,16 +6,16 @@ const linkClass = "rounded-full border border-white/10 px-4 py-2 text-sm text-sl
 
 const footerTopics = {
     en: ["AI & Future Skills", "Software & Data", "Cybersecurity", "Business IT"],
-    de: ["AI & Future Skills", "Software & Daten", "Cybersecurity", "Business IT"],
+    de: ["AI & Zukunftskompetenzen", "Software & Daten", "Cybersecurity", "Business-IT"],
 };
 
 export default function Footer() {
     const {language, t} = useLanguage();
     const labels = language === "de"
         ? {
-            summary: "AI-, IT- und Business-Dozentin mit Standort Brisbane, Australien. Remote-Live-Trainings fuer deutsch- und englischsprachige Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
+            summary: "AI-, IT- und Business-Dozentin mit Standort Brisbane, Australien. Remote-Live-Trainings für deutsch- und englischsprachige Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
             location: "Standort: Brisbane, Australien",
-            delivery: "Remote Delivery: Europa, Australien und APAC",
+            delivery: "Remote-Unterricht: Europa, Australien und die Welt",
             languages: "Sprachen: Deutsch / Englisch / Spanisch",
             booking: "Buchung",
             appointment: "Termin buchen",
@@ -25,7 +25,7 @@ export default function Footer() {
         : {
             summary: "AI, IT and business lecturer based in Brisbane, Australia. Remote international delivery for German-speaking and English-speaking training providers, companies, universities and education partners.",
             location: "Location: Brisbane, Australia",
-            delivery: "Remote delivery: Europe, Australia and APAC",
+            delivery: "Remote delivery: Europe, Australia and the world",
             languages: "Languages: German / English / Spanish",
             booking: "Booking",
             appointment: "Book appointment",

@@ -9,8 +9,8 @@ export default function ImprintPage() {
         ? {
             badge: "Rechtliches",
             title: "Impressum",
-            intro: "Rechtliche Angaben fuer diese Website.",
-            info: "Angaben gemaess Section 5 TMG",
+            intro: "Rechtliche Angaben für diese Website.",
+            info: "Angaben gemäß Section 5 TMG",
             contact: "Kontakt",
             phone: "Telefon",
             email: "E-Mail",

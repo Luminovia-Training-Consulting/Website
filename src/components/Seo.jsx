@@ -21,7 +21,7 @@ const schemaServiceOffers = [
 const routeMeta = {
     "/": {
         title: "Carina Sophie Schoppe | AI, IT & Business Lecturer",
-        description: "Book Carina Sophie Schoppe for AI, IT, cybersecurity, software development, business informatics and digital education training across Europe and Australia.",
+        description: "Book Carina Sophie Schoppe for AI, IT, cybersecurity, software development, business informatics and digital education training from Brisbane for Europe, Australia and the world.",
     },
     "/training": {
         title: "Training & Services | AI, IT and Cybersecurity Lecturer",
@@ -118,7 +118,7 @@ function buildBaseSchema() {
             addressLocality: "Brisbane",
             addressCountry: "AU",
         },
-        areaServed: ["Germany", "Austria", "Switzerland", "Australia", "Europe", "APAC"],
+        areaServed: ["Germany", "Austria", "Switzerland", "Australia", "Europe", "Worldwide"],
         knowsLanguage: ["German", "English", "Spanish"],
         sameAs: [PROFILE.linkedin, PROFILE.github],
         serviceType: schemaServiceOffers.map(([title]) => title),
@@ -129,7 +129,7 @@ function buildBaseSchema() {
                 name: title,
                 description,
                 audience: "Companies, universities, training providers, public-sector organisations and international education partners",
-                areaServed: ["Europe", "Australia", "APAC"],
+                areaServed: ["Europe", "Australia", "Worldwide"],
                 provider: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
             },
         })),

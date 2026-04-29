@@ -30,7 +30,7 @@ export default function ContactPage() {
             label: language === "de" ? "Telefon Deutschland" : "Germany phone",
             value: PROFILE.phoneGermany,
             href: `tel:${cleanPhone(PROFILE.phoneGermany)}`,
-            copy: language === "de" ? "DACH-Kontakt fuer deutsche Kunden" : "DACH contact for German-speaking clients",
+            copy: language === "de" ? "DACH-Kontakt für deutsche Kunden" : "DACH contact for German-speaking clients",
         },
     ];
 

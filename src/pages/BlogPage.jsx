@@ -98,7 +98,16 @@ export default function BlogPage() {
     const {language} = useLanguage();
     const {blogPosts} = useSiteContent();
     const [activeCategory, setActiveCategory] = useState("All");
-    const hubCategories = ["All", "AI & Governance", "Digital Education", "Cybersecurity", "Software Development", "Business Informatics", "Teaching & Learning", "Career / Thought Leadership"];
+    const hubCategories = [
+        {value: "All", label: language === "de" ? "Alle" : "All"},
+        {value: "AI & Governance", label: "AI & Governance"},
+        {value: "Digital Education", label: language === "de" ? "Digitale Bildung" : "Digital Education"},
+        {value: "Cybersecurity", label: "Cybersecurity"},
+        {value: "Software Development", label: language === "de" ? "Softwareentwicklung" : "Software Development"},
+        {value: "Business Informatics", label: language === "de" ? "Wirtschaftsinformatik" : "Business Informatics"},
+        {value: "Teaching & Learning", label: language === "de" ? "Lehre & Lernen" : "Teaching & Learning"},
+        {value: "Career / Thought Leadership", label: language === "de" ? "Karriere / Thought Leadership" : "Career / Thought Leadership"},
+    ];
     const visiblePosts = activeCategory === "All"
         ? blogPosts
         : blogPosts.filter((post) => (post.hubCategory || post.category) === activeCategory);
@@ -108,9 +117,9 @@ export default function BlogPage() {
     const copy = language === "de"
         ? {
             title: "Blog zu AI, Projektmanagement und Lehre mit KI.",
-            intro: "Der Blog ist als fachlicher Knowledge Hub fuer Bildungspartner, Unternehmen und Hochschulen gedacht. Hier ordne ich Entwicklungen rund um Agentic AI, AI Governance, digitale Bildung, Projektarbeit und verantwortungsvolle Automatisierung ein, mit Blick auf praktische Trainings, bessere Entscheidungen und den Transfer in echte Lern- und Arbeitsumgebungen.",
+            intro: "Der Blog ist als fachlicher Wissenshub für Bildungspartner, Unternehmen und Hochschulen gedacht. Hier ordne ich Entwicklungen rund um Agentic AI, AI Governance, digitale Bildung, Projektarbeit und verantwortungsvolle Automatisierung ein, mit Blick auf praktische Trainings, bessere Entscheidungen und den Transfer in echte Lern- und Arbeitsumgebungen.",
             featured: "Neuester Beitrag",
-            latest: "Alle Blogbeitraege",
+            latest: "Alle Blogbeiträge",
             read: "Artikel lesen",
             suggest: "Thema vorschlagen",
             filters: "Kategorien",
@@ -145,15 +154,15 @@ export default function BlogPage() {
                     <div className="-mx-4 flex max-w-[calc(100%+2rem)] gap-2 overflow-x-auto px-4 pb-3 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin] sm:mx-0 sm:max-w-full sm:flex-wrap sm:overflow-visible sm:px-0">
                         {hubCategories.map((category) => (
                             <button
-                                key={category}
+                                key={category.value}
                                 type="button"
-                                onClick={() => setActiveCategory(category)}
-                                className={activeCategory === category
+                                onClick={() => setActiveCategory(category.value)}
+                                className={activeCategory === category.value
                                     ? "shrink-0 rounded-full bg-sky-100 px-4 py-2 text-sm font-black text-slate-950"
                                     : "shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-black text-slate-200 transition hover:border-sky-100/40 hover:bg-white/[0.1]"}
-                                aria-pressed={activeCategory === category}
+                                aria-pressed={activeCategory === category.value}
                             >
-                                {category}
+                                {category.label}
                             </button>
                         ))}
                     </div>

@@ -50,7 +50,7 @@ export default function TrainingPage() {
     const detailTopics = trainingDetailsForLanguage(language);
     const copy = language === "de"
         ? {
-            badge: "Training & Services",
+            badge: "Training & Angebote",
             title: "Buchbare AI-, IT- und Business-Technology-Trainings.",
             intro: "Strukturierte Remote-Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams, die AI, IT, Cybersecurity und digitale Business-Kompetenz praxisnah vermitteln wollen.",
             topics: "Themen",
@@ -58,16 +58,16 @@ export default function TrainingPage() {
             custom: "Individuelles Thema anfragen",
             formats: "Formate",
             formatsTitle: "Trainingsformate, die ich durchführen kann",
-            services: "Services",
-            servicesTitle: "Wofür Carina gebucht werden kann",
+            services: "Angebote",
+            servicesTitle: "Buchbare Leistungen für Trainings, Kurse und Vorträge",
             detailPages: "Detailseiten",
-            detailPagesTitle: "Alle buchbaren Themen als eigene Angebotsseiten",
-            detailPagesCopy: "Jedes Thema ist anklickbar und fuehrt zu einer eigenen Unterseite mit Zielgruppen, Formaten, Lernzielen, Inhalten und moeglichen Materialien.",
+            detailPagesTitle: "Themen mit klarer Zielgruppe, Inhalt und Durchführungslogik",
+            detailPagesCopy: "Die Detailseiten zeigen, für wen ein Thema geeignet ist, welche Formate möglich sind, welche Inhalte behandelt werden und welche Materialien oder Ergebnisse sinnvoll sind.",
             details: "Details ansehen",
             audiences: "Zielgruppen",
             audiencesTitle: "Professionelle B2B- und Bildungsumgebungen",
-            proof: "Trust & Proof",
-            proofTitle: "Warum das Profil für ernsthafte Trainingsprojekte passt",
+            proof: "Vertrauen & Nachweise",
+            proofTitle: "Nachweise für zuverlässige Kurs- und Trainingsdurchführung",
         }
         : {
             badge: "Training & Services",
@@ -79,15 +79,15 @@ export default function TrainingPage() {
             formats: "Formats",
             formatsTitle: "Training formats I can deliver",
             services: "Services",
-            servicesTitle: "What Carina can be booked for",
+            servicesTitle: "Bookable services for training, courses and talks",
             detailPages: "Detail pages",
-            detailPagesTitle: "All bookable topics as dedicated offer pages",
-            detailPagesCopy: "Every topic is clickable and opens a dedicated page with audiences, formats, learning goals, content modules and possible deliverables.",
+            detailPagesTitle: "Topics with clear audience, content and delivery logic",
+            detailPagesCopy: "The detail pages show who each topic is for, which formats are possible, what content is covered and which materials or outcomes can be planned.",
             details: "View details",
             audiences: "Who I work with",
             audiencesTitle: "Professional B2B and education-sector environments",
             proof: "Trust & proof",
-            proofTitle: "Why the profile fits serious training projects",
+            proofTitle: "Proof for reliable course and training delivery",
         };
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">

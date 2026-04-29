@@ -8,7 +8,7 @@ const copy = {
     en: {
         badge: "For organisations",
         title: "Training solutions for companies, education providers and events.",
-        intro: "Book me when your audience needs digital skills explained clearly and practised properly, from AI literacy to cybersecurity, programming and business IT.",
+        intro: "Book me when your audience needs digital skills explained clearly, practised actively and connected to their work, from AI literacy to cybersecurity, programming and business IT.",
         process: [
             ["01", "Clarify", "Target group, level, goals, timeframe and desired learning outcome."],
             ["02", "Design", "Course structure, exercises, examples, materials and transfer logic."],
@@ -22,7 +22,7 @@ const copy = {
     de: {
         badge: "Für Organisationen",
         title: "Trainingslösungen für Unternehmen, Bildungsanbieter und Events.",
-        intro: "Buchen Sie mich, wenn Ihr Publikum digitale Themen klar erklärt und praktisch geübt braucht, von AI Literacy über Cybersecurity bis Programmierung und Business IT.",
+        intro: "Buchen Sie mich, wenn Ihr Publikum digitale Themen klar erklärt, aktiv geübt und mit der eigenen Arbeit verbunden braucht, von AI Literacy über Cybersecurity bis Programmierung und Business IT.",
         process: [
             ["01", "Klären", "Zielgruppe, Level, Ziele, Zeitraum und gewünschtes Lernergebnis."],
             ["02", "Konzipieren", "Kursstruktur, Übungen, Beispiele, Materialien und Transferlogik."],

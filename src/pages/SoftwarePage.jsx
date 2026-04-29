@@ -8,15 +8,15 @@ export default function SoftwarePage() {
     const copy = language === "de"
         ? {
             badge: "Softwareportfolio",
-            title: "Praktische Projekte rund um Automatisierung, AI Research und Game Systems.",
-            intro: "Dieses Portfolio zeigt ausgewählte Softwarearbeiten, die meine Trainings- und Beratungsschwerpunkte praktisch ergänzen: Automatisierung mit Python, AI-gestützte Research Workflows, Datenbereinigung, Kotlin-Plugins, Mobile Apps und Game-Systeme. Die Projekte sind kein reines Entwicklerarchiv, sondern zeigen, wie technische Umsetzung, didaktisches Denken und echte Anwendungsfälle zusammenkommen.",
+            title: "Praktische Projekte rund um Automatisierung, AI-Research und Spieleentwicklung.",
+            intro: "Dieses Portfolio zeigt ausgewählte Softwarearbeiten, die in Trainings und Beratungen als Praxisbezug dienen: Automatisierung mit Python, AI-gestützte Research-Workflows, Datenbereinigung, Kotlin-Plugins, Mobile Apps und Spieleentwicklung. Die Beispiele zeigen, wie technische Umsetzung, didaktisches Denken und reale Anwendungsfälle zusammenkommen.",
             github: "GitHub-Profil öffnen",
-            skills: "Skills ansehen"
+            skills: "Kompetenzen ansehen"
         }
         : {
             badge: "Software portfolio",
             title: "Practical projects across automation, AI research and game systems.",
-            intro: "This portfolio highlights selected software work that supports my training and consulting profile in practice: Python automation, AI-supported research workflows, data cleanup, Kotlin plugins, mobile apps and game systems. The projects are not meant as a full developer archive, but as proof of how technical implementation, teaching-oriented thinking and real use cases connect.",
+            intro: "This portfolio highlights selected software work that gives my training and consulting practical depth: Python automation, AI-supported research workflows, data cleanup, Kotlin plugins, mobile apps and game systems. The examples show how technical implementation, teaching-oriented thinking and real use cases connect.",
             github: "Open GitHub profile",
             skills: "View skills"
         };

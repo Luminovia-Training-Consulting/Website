@@ -4,7 +4,7 @@ export const trustStats = [
     {value: "10k+", label: "documented teaching hours"},
     {value: "4.7/5", label: "average learner rating"},
     {value: "DE / EN", label: "German and English delivery"},
-    {value: "B.Sc. · M.Sc. · MBA", label: "business IT and management background"},
+    {value: "B.Sc. | M.Sc. | MBA", label: "business IT and management background"},
 ];
 
 export const coreOffers = [
@@ -58,7 +58,7 @@ export const coreOffers = [
 export const formats = [
     {title: "90-minute impulse talk", label: "Fast orientation", copy: "Ideal for management briefings, internal learning days or event slots where the audience needs a strong overview and clear next steps."},
     {title: "Half-day / full-day workshop", label: "Practice-focused", copy: "Best for teams that should leave with practical tools, templates, workflows and enough confidence to apply the topic immediately."},
-    {title: "2–5 day intensive training", label: "Skill building", copy: "For deeper upskilling in AI, Python, SQL, cybersecurity, cloud basics, business IT or digital transformation."},
+    {title: "2-5 day intensive training", label: "Skill building", copy: "For deeper upskilling in AI, Python, SQL, cybersecurity, cloud basics, business IT or digital transformation."},
     {title: "Multi-week course delivery", label: "Education provider format", copy: "Structured delivery for academies, online providers, vocational education, bootcamps and professional programmes."},
     {title: "Curriculum & material design", label: "Instructional design", copy: "Creation of course outlines, exercises, learning checks, slides, labs and learner-friendly documentation."},
     {title: "Exam / certification preparation", label: "Targeted readiness", copy: "Focused preparation around cybersecurity, AI, programming or business IT topics with structured practice and feedback loops."},
@@ -66,9 +66,11 @@ export const formats = [
 
 export const trainingTopics = [
     {group: "AI & Future Skills", items: ["AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "AI for office productivity"]},
-    {group: "Software & Data", items: ["Python programming", "SQL and databases", "APIs and automation", "Data science foundations", "Big data concepts", "UI/UX basics"]},
+    {group: "Software & Data", items: ["Java / Python / C# / Kotlin", "SQL and databases", "APIs and automation", "Data analyst / scientist / engineer", "Big data concepts", "UI/UX basics"]},
     {group: "Cybersecurity", items: ["Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ preparation", "Ethical hacking foundations", "Password and data security"]},
     {group: "Business IT", items: ["Business informatics", "IT service management", "Cloud concepts", "Digital transformation", "SCRUM and agile work", "Process optimisation"]},
+    {group: "Vocational & IHK", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute / Büromanagement", "Teilqualifikation", "IHK exam preparation", "Adult education"]},
+    {group: "Law, Coaching & Talks", items: ["Digital law and GDPR", "AI Act and Cloud Act", "IT law awareness", "Coaching", "Keynote speaker", "Guest lectures"]},
 ];
 
 export const serviceOfferings = [
@@ -121,6 +123,22 @@ export const serviceOfferings = [
         outcomes: ["Understand software architecture basics", "Work with APIs", "Connect code to real workflows"],
     },
     {
+        title: "Fachinformatiker Ausbildung & Umschulung",
+        description: "IHK-oriented training for Fachinformatiker learners across software development, systems, networks, databases, security, IT projects and exam preparation.",
+        audience: "AZAV providers, apprentices, retraining cohorts, vocational schools and IHK-oriented programmes",
+        format: "Full module delivery, Teilqualifikation support, project coaching or exam preparation",
+        duration: "Single module to multi-week delivery",
+        outcomes: ["Cover IHK-oriented IT learning fields", "Prepare project documentation", "Strengthen exam and job readiness"],
+    },
+    {
+        title: "Bürokaufleute & Büromanagement IHK",
+        description: "Training for Kaufmann/Kauffrau für Büromanagement, Bürokaufleute and office-management learners across business processes, communication and digital office work.",
+        audience: "Office management learners, business retraining cohorts, Teilqualifikation groups and education providers",
+        format: "Course delivery, exam preparation, digital office workshop or business process module",
+        duration: "Single sessions to multi-week support",
+        outcomes: ["Understand office and business processes", "Use digital tools responsibly", "Prepare IHK-style case tasks"],
+    },
+    {
         title: "Cybersecurity & Pentesting Fundamentals",
         description: "Security awareness and technical foundations for web security, ethical hacking, SOC basics and defensive thinking.",
         audience: "IT learners, retraining providers, companies and mixed technical groups",
@@ -135,6 +153,14 @@ export const serviceOfferings = [
         format: "Workshop, training day or applied project lab",
         duration: "Half day to 2 days",
         outcomes: ["Use agile terms correctly", "Structure work visibly", "Improve team communication and reviews"],
+    },
+    {
+        title: "Digital Law, GDPR & AI Act Awareness",
+        description: "Awareness-oriented training around labour, business, private and IT law interfaces, GDPR/DSGVO, AI Act, Cloud Act and digital compliance questions.",
+        audience: "AI adoption teams, education providers, project teams, public sector and non-lawyer professionals",
+        format: "Awareness training, executive briefing, workshop or compliance-adjacent learning module",
+        duration: "90 minutes to 2 days",
+        outcomes: ["Recognise legal risk questions", "Connect governance with data protection", "Know when expert legal review is needed"],
     },
     {
         title: "Business Informatics & Digital Transformation",
@@ -152,6 +178,14 @@ export const serviceOfferings = [
         duration: "1 day to project-based support",
         outcomes: ["Create structured course plans", "Improve learner activation", "Align materials with outcomes"],
     },
+    {
+        title: "Coaching, Keynotes & Expert Talks",
+        description: "Coaching, keynote speaking, guest lectures and expert talks across AI, IT, cybersecurity, business informatics, digital transformation, digital law and modern education.",
+        audience: "Companies, universities, conferences, leadership teams, education providers and event organisers",
+        format: "Keynote, expert talk, guest lecture, coaching session, leadership briefing or panel input",
+        duration: "30 minutes to full-day format",
+        outcomes: ["Make complex topics accessible", "Give audiences clear next steps", "Support leaders, trainers and teams"],
+    },
 ];
 
 export const featuredTrainingTopics = serviceOfferings.filter((service) => [
@@ -164,7 +198,7 @@ export const featuredTrainingTopics = serviceOfferings.filter((service) => [
 ].includes(service.title));
 
 export const capabilities = [
-    "AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "Python", "SQL", "Databases", "APIs & automation", "Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ prep", "Ethical hacking foundations", "Cloud concepts", "Business informatics", "IT service management", "Digital transformation", "SCRUM", "Blended learning", "Curriculum design", "Adult education",
+    "AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "Python", "Java", "C#", "Kotlin", "SQL", "Databases", "APIs & automation", "Fachinformatiker", "Bürokaufleute", "Data analyst", "Data scientist", "Data engineer", "Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ prep", "Ethical hacking foundations", "GDPR", "AI Act", "Cloud Act", "IT law awareness", "Cloud concepts", "Business informatics", "IT service management", "Digital transformation", "SCRUM", "Project management", "New Work", "Blended learning", "Curriculum design", "Adult education", "Coaching", "Keynote speaker",
 ];
 
 export const audienceCards = [
@@ -175,14 +209,14 @@ export const audienceCards = [
     {title: "Startups & SMEs", copy: "Focused training for smaller teams that need practical digital skills without heavy enterprise training overhead.", bullets: ["compact formats", "business relevance", "tool confidence", "direct application"]},
     {title: "Bootcamps & coding schools", copy: "Course delivery and lab support for Python, SQL, APIs, software development and cybersecurity foundations.", bullets: ["hands-on labs", "learner support", "coding practice", "exam readiness"]},
     {title: "German-speaking providers", copy: "Remote lecturer support for German, Swiss and Austrian providers needing professional German delivery from abroad.", bullets: ["DE delivery", "remote classroom", "Europe-friendly planning", "education sector"]},
-    {title: "International clients", copy: "English or German delivery for distributed teams and education partners across Europe, Australia and APAC.", bullets: ["EN / DE", "time-zone aware", "remote-first", "international mindset"]},
+    {title: "International clients", copy: "English or German delivery for distributed teams and education partners across Europe, Australia and the world.", bullets: ["EN / DE", "time-zone aware", "remote-first", "international mindset"]},
 ];
 
 export const teachingProof = [
     {title: "Certified IT lecturer", value: "DiBak Trainer Certification", copy: "Covers didactics, pedagogy, learning platforms, material creation, learning checks, technical troubleshooting and quality assurance."},
     {title: "Learner rating", value: "4.7 / 5", copy: "Documented average rating after 10k+ teaching hours, showing strong learner satisfaction and practical delivery quality."},
     {title: "Adult education strength", value: "Theory + practice", copy: "Learning formats are built around examples, exercises, recaps, learner activation, transfer tasks and clear outcomes."},
-    {title: "International delivery", value: "Remote-first", copy: "Based in Brisbane while delivering online training for European and APAC clients in German or English."},
+    {title: "International delivery", value: "Remote-first", copy: "Based in Brisbane while delivering online training for European, Australian and global clients in German or English."},
 ];
 
 export const trustSignals = [
@@ -190,38 +224,38 @@ export const trustSignals = [
     {title: "Teaching experience", copy: "10k+ documented teaching hours with an average learner rating of 4.7/5."},
     {title: "Expertise areas", copy: "AI, cybersecurity, software development, business informatics, data, agile work and digital education."},
     {title: "Languages", copy: "Training delivery in German and English, with Spanish language experience."},
-    {title: "Remote delivery", copy: "Remote live training from Brisbane for Europe, Australia and international education partners."},
+    {title: "Remote delivery", copy: "Remote live training from Brisbane for Europe, Australia and the world education partners."},
     {title: "Sector fit", copy: "Experience with corporate training, higher education, retraining, bootcamps and professional academies."},
 ];
 
 export const credentials = [
-    {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "10k+ teaching hours · average learner rating 4.7/5", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
-    {category: "Teaching", title: "SCHLAU NRW Educational Work", meta: "Volunteer educator · Dec 2022 to Nov 2023", detail: "Workshops, facilitation, reflection and professional youth education in diversity and anti-discrimination contexts."},
-    {category: "Teaching", title: "Software Innovation Lab Work Reference", meta: "University of Paderborn · KMUeinfachSicher project · 2021", detail: "Content work around IT security, passwords, password managers, data handling and didactic preparation for SMEs."},
-    {category: "Academic", title: "Master of Business Administration", meta: "IU International University · completed 24 Mar 2026 · overall result Good (2.2)", detail: "Management credibility for IT, consulting, business strategy and client-facing advisory work."},
-    {category: "Academic", title: "Master of Science in Business Computer Science", meta: "IU International University · completed 27 Nov 2025 · overall result Good (2.3)", detail: "120 ECTS covering AI, big data, research methods, IT services, UI/UX, cloud concepts and business IT."},
-    {category: "Academic", title: "Bachelor of Science in Business Information Systems", meta: "University of Paderborn · completed 05 Feb 2025", detail: "Business, IT and information systems foundation for training, consulting and software-oriented work."},
-    {category: "AI", title: "AI+ Developer™", meta: "AI CERTs · granted 05 Mar 2026", detail: "Certified AI development profile for explaining and building AI-enabled systems."},
-    {category: "AI", title: "AI+ Researcher™", meta: "AI CERTs · granted 13 Mar 2026", detail: "Research-facing AI certification supporting academic and applied AI project work."},
-    {category: "AI", title: "AI+ Prompt Engineer Level 1™", meta: "AI CERTs · granted 05 Mar 2026", detail: "Prompt design, AI interaction and practical workflow enablement."},
-    {category: "AI", title: "AI+ Executive™", meta: "AI CERTs · granted 05 Mar 2026", detail: "Executive-level AI orientation for leadership, adoption and value creation."},
-    {category: "AI", title: "AI+ Foundation™ / AI+ Everyone™", meta: "AI CERTs · granted 05 Mar 2026", detail: "Broad AI literacy and foundation-level AI capability."},
-    {category: "AI", title: "AI+ Project Management Office Practitioner™", meta: "AI CERTs · granted 14 Apr 2026", detail: "AI project governance, PMO thinking and implementation control."},
-    {category: "Cybersecurity", title: "AI+ Ethical Hacker™", meta: "AI CERTs · granted 05 Mar 2026", detail: "AI and cybersecurity positioning for ethical hacking and defensive awareness."},
+    {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "10k+ teaching hours | average learner rating 4.7/5", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
+    {category: "Teaching", title: "SCHLAU NRW Educational Work", meta: "Volunteer educator | Dec 2022 to Nov 2023", detail: "Workshops, facilitation, reflection and professional youth education in diversity and anti-discrimination contexts."},
+    {category: "Teaching", title: "Software Innovation Lab Work Reference", meta: "University of Paderborn | KMUeinfachSicher project | 2021", detail: "Content work around IT security, passwords, password managers, data handling and didactic preparation for SMEs."},
+    {category: "Academic", title: "Master of Business Administration", meta: "IU International University | completed 24 Mar 2026 | overall result Good (2.2)", detail: "Management credibility for IT, consulting, business strategy and client-facing advisory work."},
+    {category: "Academic", title: "Master of Science in Business Computer Science", meta: "IU International University | completed 27 Nov 2025 | overall result Good (2.3)", detail: "120 ECTS covering AI, big data, research methods, IT services, UI/UX, cloud concepts and business IT."},
+    {category: "Academic", title: "Bachelor of Science in Business Information Systems", meta: "University of Paderborn | completed 05 Feb 2025", detail: "Business, IT and information systems foundation for training, consulting and software-oriented work."},
+    {category: "AI", title: "AI+ Developer™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Certified AI development profile for explaining and building AI-enabled systems."},
+    {category: "AI", title: "AI+ Researcher™", meta: "AI CERTs | granted 13 Mar 2026", detail: "Research-facing AI certification supporting academic and applied AI project work."},
+    {category: "AI", title: "AI+ Prompt Engineer Level 1™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Prompt design, AI interaction and practical workflow enablement."},
+    {category: "AI", title: "AI+ Executive™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Executive-level AI orientation for leadership, adoption and value creation."},
+    {category: "AI", title: "AI+ Foundation™ / AI+ Everyone™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Broad AI literacy and foundation-level AI capability."},
+    {category: "AI", title: "AI+ Project Management Office Practitioner™", meta: "AI CERTs | granted 14 Apr 2026", detail: "AI project governance, PMO thinking and implementation control."},
+    {category: "Cybersecurity", title: "AI+ Ethical Hacker™", meta: "AI CERTs | granted 05 Mar 2026", detail: "AI and cybersecurity positioning for ethical hacking and defensive awareness."},
     {category: "Cybersecurity", title: "TryHackMe Learning Paths", meta: "Web Fundamentals, Cyber Security, Pre Security, SOC Level 1, Complete Beginner, Pentest+, Jr Penetration Tester, Cyber Defense", detail: "Hands-on technical security learning for web, SOC, cyber defence and pentest foundations."},
-    {category: "Cybersecurity", title: "Password Security Certificate", meta: "KMU. Einfach Sicher. · 25 Mar 2021", detail: "Training certificate focused on password security for small and medium-sized businesses."},
-    {category: "Entrepreneurship", title: "garage33 Founding Certificate", meta: "Design Thinking · Lean Startup · Business Model Canvas · agile methods", detail: "Entrepreneurship training with prototype validation, USP, market, financial model and pricing work."},
-    {category: "Entrepreneurship", title: "Top Talent Programme #4", meta: "University of Paderborn / garage33 · 2023", detail: "Design Thinking, Lean Startup, SDG business models, pitching, teamwork and personal development."},
-    {category: "Language", title: "PTE Academic English", meta: "Overall 90 · valid until 18 Feb 2028", detail: "High-level English proof for international teaching, consulting and academic work."},
+    {category: "Cybersecurity", title: "Password Security Certificate", meta: "KMU. Einfach Sicher. | 25 Mar 2021", detail: "Training certificate focused on password security for small and medium-sized businesses."},
+    {category: "Entrepreneurship", title: "garage33 Founding Certificate", meta: "Design Thinking | Lean Startup | Business Model Canvas | agile methods", detail: "Entrepreneurship training with prototype validation, USP, market, financial model and pricing work."},
+    {category: "Entrepreneurship", title: "Top Talent Programme #4", meta: "University of Paderborn / garage33 | 2023", detail: "Design Thinking, Lean Startup, SDG business models, pitching, teamwork and personal development."},
+    {category: "Language", title: "PTE Academic English", meta: "Overall 90 | valid until 18 Feb 2028", detail: "High-level English proof for international teaching, consulting and academic work."},
 ];
 
 export const credentialCategories = ["All", "Teaching", "Academic", "AI", "Cybersecurity", "Entrepreneurship", "Language"];
 
 export const selectedProjects = [
-    {title: "Digital Education Systems", tag: "Instructional design", stack: "ADDIE · blended learning · adult education", copy: "Course concepts, hands-on labs, learning checks and structured learning paths for IT, business and AI education providers.", link: PROFILE.appointmentSchedule},
-    {title: "Cybersecurity Learning Labs", tag: "Teaching proof", stack: "TryHackMe · SOC · Web security · Pentest+", copy: "Hands-on security learning paths used to strengthen practical teaching capability in web security, SOC foundations and penetration-testing basics.", link: PROFILE.github},
-    {title: "PISMA Literature Review Pipeline", tag: "AI research automation", stack: "Python · AI · research tooling · data pipelines", copy: "A research workflow project for academic search, paper ranking, abstract analysis and structured systematic literature-review datasets.", link: "https://github.com/CarinaSchoppe/PISMA-Literature-Review-Pipeline-Automation-Tool"},
-    {title: "AI at Work Research", tag: "AI adoption and HCI", stack: "Systematic literature review · AI adoption · human-machine interaction", copy: "Research around opportunities and risks of generative AI tools in organisations, especially human-machine interaction in everyday work.", link: PROFILE.linkedin},
+    {title: "Digital Education Systems", tag: "Instructional design", stack: "ADDIE | blended learning | adult education", copy: "Course concepts, hands-on labs, learning checks and structured learning paths for IT, business and AI education providers.", link: PROFILE.appointmentSchedule},
+    {title: "Cybersecurity Learning Labs", tag: "Teaching proof", stack: "TryHackMe | SOC | Web security | Pentest+", copy: "Hands-on security learning paths used to strengthen practical teaching capability in web security, SOC foundations and penetration-testing basics.", link: PROFILE.github},
+    {title: "PISMA Literature Review Pipeline", tag: "AI research automation", stack: "Python | AI | research tooling | data pipelines", copy: "A research workflow project for academic search, paper ranking, abstract analysis and structured systematic literature-review datasets.", link: "https://github.com/CarinaSchoppe/PISMA-Literature-Review-Pipeline-Automation-Tool"},
+    {title: "AI at Work Research", tag: "AI adoption and HCI", stack: "Systematic literature review | AI adoption | human-machine interaction", copy: "Research around opportunities and risks of generative AI tools in organisations, especially human-machine interaction in everyday work.", link: PROFILE.linkedin},
 ];
 
 export const formerClients = [
@@ -413,6 +447,10 @@ export const skillGroups = [
     {
         group: "Business and management",
         items: ["Digital transformation", "Business informatics", "Project management", "SCRUM", "IT service management", "Process optimisation", "Entrepreneurship", "Stakeholder communication"],
+    },
+    {
+        group: "Vocational, law and talks",
+        items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute", "GDPR", "AI Act", "Cloud Act", "IT law awareness", "Coaching", "Keynote speaker", "Guest lectures"],
     },
     {
         group: "Creative and web tools",
@@ -721,10 +759,10 @@ export const softwareProjects = [
 
 export const timeline = [
     {year: "2021", title: "IT security learning content", copy: "Worked on didactic IT security content for SMEs in the KMUeinfachSicher project at University of Paderborn."},
-    {year: "2022–2023", title: "Education and facilitation", copy: "Built cyber learning foundations and contributed to SCHLAU NRW educational workshops and facilitation."},
-    {year: "2023–2024", title: "Entrepreneurship and learning design", copy: "Top Talent Programme and garage33 with Design Thinking, Lean Startup, pitching and agile working methods."},
+    {year: "2022-2023", title: "Education and facilitation", copy: "Built cyber learning foundations and contributed to SCHLAU NRW educational workshops and facilitation."},
+    {year: "2023-2024", title: "Entrepreneurship and learning design", copy: "Top Talent Programme and garage33 with Design Thinking, Lean Startup, pitching and agile working methods."},
     {year: "2025", title: "Business IT academic profile", copy: "Completed B.Sc. and M.Sc. with AI, data, HCI, IT management and digitalisation focus areas."},
-    {year: "2026", title: "International lecturer and AI trainer", copy: "MBA, AI certifications and remote-first teaching profile based in Brisbane for Europe and APAC."},
+    {year: "2026", title: "International lecturer and AI trainer", copy: "MBA, AI certifications and remote-first teaching profile based in Brisbane for Europe, Australia and the world."},
 ];
 
 export const faqs = [
@@ -734,8 +772,8 @@ export const faqs = [
     {q: "Which AI topics are most requested?", a: "Common requests include AI literacy, GenAI for teams, prompt engineering, agentic workflows, responsible AI, AI governance, automation risks and practical AI adoption for business or education contexts."},
     {q: "Can you teach technical topics like Python, SQL or cybersecurity?", a: "Yes. I teach Python, SQL, databases, APIs, software development foundations, cybersecurity awareness, web security, SOC basics, ethical hacking foundations and CompTIA PenTest+ preparation contexts."},
     {q: "Do you teach in German or English?", a: "Yes. Training can be delivered in English or German. Spanish language experience is also part of my profile, but the primary training languages are English and German."},
-    {q: "How does remote delivery from Brisbane work?", a: "Remote delivery is planned around the target audience and time zone. I regularly position remote live sessions for German-speaking and international clients across Europe, Australia and APAC."},
-    {q: "What makes your training practical?", a: "Sessions are built around clear outcomes, examples, exercises, recaps, learner activation and transfer tasks. The goal is not only to explain tools, but to make them usable in real work or study contexts."},
+    {q: "How does remote delivery from Brisbane work?", a: "Remote delivery is planned around the target audience and time zone. I regularly position remote live sessions for German-speaking and international clients across Europe, Australia and the world."},
+    {q: "What makes your training practical?", a: "Sessions combine clear outcomes, examples, exercises, recaps, learner activation and transfer tasks. Participants do not only hear about tools; they practise how to use them in work, study or course contexts."},
     {q: "Can you design materials or a curriculum?", a: "Yes. I can support curriculum design, blended learning concepts, slides, exercises, learning checks, labs and training structures for academies, universities and corporate learning teams."},
     {q: "How do we start a booking request?", a: "Send the topic, audience, learner level, desired format, timeframe and outcome by email or book a short appointment. I will suggest a suitable format and next steps."},
 ];

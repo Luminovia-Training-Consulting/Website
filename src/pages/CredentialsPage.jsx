@@ -13,14 +13,14 @@ export default function CredentialsPage() {
     const visible = credentials.filter((credential) => activeFilter === credentialCategories[0] || activeFilter === "All" || credential.category === activeFilter);
     const copy = language === "de"
         ? {
-            badge: "Credentials & Teaching Proof",
-            title: "Nachweise, die das Hauptangebot unterstützen: Lehre und Training.",
-            intro: "Glaubwürdigkeit entsteht nicht durch Abschlüsse allein. Entscheidend ist die Verbindung aus Teaching Proof, modernen AI-Credentials, Cybersecurity-Lernpfaden, akademischem Hintergrund und zweisprachiger Durchführung.",
+            badge: "Nachweise & Lehrprofil",
+            title: "Nachweise für Lehre, Training und technische Tiefe.",
+            intro: "Diese Nachweise bündeln Unterrichtserfahrung, akademische Abschlüsse, AI-Zertifikate, Cybersecurity-Lernpfade und Sprachkompetenz. Für Auftraggeber wird damit nachvollziehbar, welche fachliche und didaktische Grundlage hinter den Trainings steht.",
         }
         : {
             badge: "Credentials & teaching proof",
-            title: "Proof that supports the main offer: teaching and training.",
-            intro: "Credibility does not come from degrees alone. It comes from the combination of teaching proof, modern AI credentials, cybersecurity learning paths, academic grounding and bilingual delivery.",
+            title: "Credentials for teaching, training and technical depth.",
+            intro: "These credentials combine teaching experience, academic degrees, AI certifications, cybersecurity learning paths and language capability. They give clients a clearer view of the subject and delivery foundation behind the training.",
         };
 
     return (

@@ -41,14 +41,14 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Transparent orientation rates/i})).toBeInTheDocument();
-        expect(screen.getByText("$60-65")).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Transparent starting rates/i})).toBeInTheDocument();
+        expect(screen.getByText("from $65")).toBeInTheDocument();
         expect(screen.getByText("from $1,200")).toBeInTheDocument();
 
         await user.click(screen.getByRole("button", {name: /Switch language/i}));
 
-        expect(screen.getByRole("heading", {name: /Transparente Richtwerte/i})).toBeInTheDocument();
-        expect(screen.getByText("50-55 EUR")).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /Transparente Netto-Ab-Preise/i})).toBeInTheDocument();
+        expect(screen.getByText("ab 50 EUR")).toBeInTheDocument();
         expect(screen.getByText("ab 1.000 EUR")).toBeInTheDocument();
     });
 });

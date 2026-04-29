@@ -10,15 +10,15 @@ export default function PortfolioPage() {
     const copy = language === "de"
         ? {
             badge: "Proof-Projekte",
-            title: "Projekte, die das Teaching-Profil unterstützen.",
-            intro: "Diese Auswahl zeigt Projekte, Kooperationen und Arbeitsbeispiele, die mein Profil als AI-, IT- und Business-Dozentin glaubwürdig ergänzen. Im Mittelpunkt steht nicht ein klassisches Entwicklerportfolio, sondern der Nachweis, dass ich technische Themen praktisch verstehe, in Lernformate übersetzen kann und Erfahrung mit Bildungspartnern, Research-Kontexten und realen digitalen Umsetzungen mitbringe.",
-            reference: "Referenz öffnen ↗",
+            title: "Projektpraxis hinter AI-, IT- und Business-Trainings.",
+            intro: "Diese Auswahl zeigt Arbeitsbeispiele aus Software, AI, Research, digitalen Lernformaten und Bildungspartner-Kontexten. Sie macht sichtbar, dass technische Inhalte nicht nur theoretisch vermittelt werden, sondern aus eigener Praxis, Umsetzungserfahrung und didaktischer Übersetzung entstehen.",
+            reference: "Referenz öffnen →",
         }
         : {
             badge: "Selected proof projects",
-            title: "Projects that support the teaching profile.",
-            intro: "This selection brings together projects, collaborations and practical work examples that strengthen my profile as an AI, IT and business lecturer. The goal is not to present a traditional developer portfolio, but to show credible technical depth, research capability, learning-design awareness and experience with education partners, digital implementation and applied AI topics.",
-            reference: "View reference ↗",
+            title: "Project practice behind AI, IT and business training.",
+            intro: "This selection shows practical work across software, AI, research, digital learning formats and education partner contexts. It demonstrates that technical topics are taught from implementation experience, applied problem-solving and didactic translation, not from slide theory alone.",
+            reference: "View reference →",
         };
 
     return (

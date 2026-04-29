@@ -21,10 +21,10 @@ export default function SkillsPage() {
     const {skillGroups, trainingTopics} = useSiteContent();
     const copy = language === "de"
         ? {
-            badge: "Skills & Themen",
-            title: "Eine praktische Skill-Map für AI, Software, Cybersecurity und Business IT.",
+            badge: "Kompetenzen & Themen",
+            title: "Eine praktische Kompetenzübersicht für AI, Software, Cybersecurity und Business-IT.",
             formats: "Trainingsformate ansehen",
-            credentials: "Credentials ansehen",
+            credentials: "Nachweise ansehen",
             clusters: "Lehrcluster",
             clustersTitle: "Themen, aus denen ich Kurse bauen kann.",
         }

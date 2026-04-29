@@ -8,8 +8,8 @@ import Photo from "../components/Photo.jsx";
 const copy = {
     en: {
         badge: "Keynotes & expert talks",
-        title: "Talks that make AI, IT and digitalisation understandable.",
-        intro: "For conferences, internal events, education programmes, leadership sessions and knowledge days. The style: clear, structured, modern, approachable and business-relevant.",
+        title: "Keynotes and expert talks that turn digital change into clear decisions.",
+        intro: "For conferences, internal learning days, education programmes and leadership sessions that need orientation on AI, cybersecurity, digital transformation or future skills. Talks are structured around practical examples, risk awareness and concrete next steps for the audience.",
         request: "Request speaker availability",
         proof: "View proof",
         topic: "Talk topic",
@@ -24,8 +24,8 @@ const copy = {
     },
     de: {
         badge: "Keynotes & Expert Talks",
-        title: "Vorträge, die AI, IT und Digitalisierung verständlich machen.",
-        intro: "Für Konferenzen, interne Events, Bildungsprogramme, Leadership-Sessions und Knowledge Days. Der Stil: klar, strukturiert, modern, zugänglich und businessrelevant.",
+        title: "Keynotes und Expert Talks, die digitalen Wandel greifbar machen.",
+        intro: "Für Konferenzen, interne Lerntage, Bildungsprogramme und Leadership-Sessions, die Orientierung zu AI, Cybersecurity, digitaler Transformation oder Future Skills brauchen. Die Vorträge arbeiten mit Praxisbeispielen, Risikobewusstsein und konkreten nächsten Schritten für das Publikum.",
         request: "Speaker-Verfügbarkeit anfragen",
         proof: "Nachweise ansehen",
         topic: "Talk-Thema",
