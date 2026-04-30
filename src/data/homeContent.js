@@ -77,5 +77,3 @@ export function useHomeContent() {
     const {language} = useLanguage();
     return language === "de" ? deHomeContent : enHomeContent;
 }
-
-export const seoHomeFaqs = enHomeContent.faqs;

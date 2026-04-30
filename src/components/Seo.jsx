@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {useLocation} from "react-router-dom";
-import {seoHomeFaqs} from "../data/homeContent.js";
+import {seoHomeFaqs} from "../data/seoContent.js";
 import {PROFILE} from "../data/profile.js";
 
 const SITE_URL = "https://carinaschoppe.com";

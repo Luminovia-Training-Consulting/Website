@@ -562,11 +562,13 @@ Important decisions:
 - The homepage is intentionally shorter than the detailed subpages.
 - The production build inlines the generated CSS into `index.html`, removing a render-blocking CSS file request.
 - The homepage has a tiny static first-paint shell in `index.html`, so the initial hero text and portrait can appear before React finishes loading.
-- Non-home routes are code-split with `React.lazy`, so training, pricing, blog, portfolio, legal and contact pages are not part of the first homepage JavaScript payload.
+- Major route pages are code-split with `React.lazy`, so homepage, training, pricing, blog, portfolio, legal and contact page code can be loaded as focused route chunks.
 - Large content collections are kept out of the initial homepage bundle; blog posts, client proof, software projects and timeline data load with the routes that need them.
 - Google Analytics is consent-gated and does not create a tag-manager request on the first load before consent.
 - Responsive WebP image variants are generated for the portrait images and used through `srcset`/`sizes`.
 - The Vite build targets modern browsers with `es2022` output and disables the legacy modulepreload polyfill.
+- React, ReactDOM and React Router are isolated in a stable vendor chunk for better long-term browser caching.
+- Non-critical analytics consent UI and ambient background animation code load after idle instead of blocking the first route render.
 - The project standardises on Node `24.x` for local development and CI, but the deployed site remains static and does not require Node at runtime.
 
 Main CSS file:

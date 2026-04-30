@@ -1,13 +1,13 @@
 import {lazy, Suspense, useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
 import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import AmbientIntelligence from "./components/AmbientIntelligence.jsx";
-import HomePage from "./pages/HomePage.jsx";
-import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
 
+const AnalyticsConsent = lazy(() => import("./components/AnalyticsConsent.jsx"));
+const AmbientIntelligence = lazy(() => import("./components/AmbientIntelligence.jsx"));
+const Footer = lazy(() => import("./components/Footer.jsx"));
+const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const TrainingPage = lazy(() => import("./pages/TrainingPage.jsx"));
 const TrainingTopicPage = lazy(() => import("./pages/TrainingTopicPage.jsx"));
 const KeynotesPage = lazy(() => import("./pages/KeynotesPage.jsx"));
@@ -78,8 +78,30 @@ function DeferredAmbientIntelligence() {
                 <span/>
             </div>
             <div className="ambient-grid fixed inset-0 z-0 opacity-70"/>
-            <AmbientIntelligence/>
+            <Suspense fallback={null}>
+                <AmbientIntelligence/>
+            </Suspense>
         </>
+    ) : null;
+}
+
+function DeferredAnalyticsConsent() {
+    const [ready, setReady] = useState(import.meta.env.MODE === "test");
+
+    useEffect(() => {
+        if (ready) return undefined;
+
+        const schedule = globalThis.requestIdleCallback || ((callback) => globalThis.setTimeout(callback, 900));
+        const cancel = globalThis.cancelIdleCallback || globalThis.clearTimeout;
+        const handle = schedule(() => setReady(true), {timeout: 1800});
+
+        return () => cancel(handle);
+    }, [ready]);
+
+    return ready ? (
+        <Suspense fallback={null}>
+            <AnalyticsConsent/>
+        </Suspense>
     ) : null;
 }
 
@@ -106,7 +128,7 @@ export default function App() {
                     <Header/>
                     <div className="relative z-10">
                         <Routes>
-                            <Route path="/" element={<HomePage/>}/>
+                            <Route path="/" element={routeElement(HomePage)}/>
                             <Route path="/training" element={routeElement(TrainingPage)}/>
                             <Route path="/training/:slug" element={routeElement(TrainingTopicPage)}/>
                             <Route path="/keynotes" element={routeElement(KeynotesPage)}/>
@@ -127,9 +149,11 @@ export default function App() {
                         </Routes>
                     </div>
                     <div className="relative z-10">
-                        <Footer/>
+                        <Suspense fallback={null}>
+                            <Footer/>
+                        </Suspense>
                     </div>
-                    <AnalyticsConsent/>
+                    <DeferredAnalyticsConsent/>
                 </div>
             </BrowserRouter>
         </LanguageProvider>

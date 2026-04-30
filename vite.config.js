@@ -118,6 +118,15 @@ export default defineConfig({
         modulePreload: {
             polyfill: false,
         },
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    return /node_modules[\\/](react|react-dom|react-router-dom)[\\/]/.test(id)
+                        ? "react-vendor"
+                        : undefined;
+                },
+            },
+        },
         target: "es2022",
     },
     test: {

@@ -15,7 +15,7 @@ describe("App routing and language", () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(screen.getByRole("heading", {name: /AI, IT & Business Lecturer/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT & Business Lecturer/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
 
