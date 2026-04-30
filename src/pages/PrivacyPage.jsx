@@ -16,7 +16,7 @@ const enSections = [
 
 const deSections = [
     ["Verantwortliche Stelle", `Verantwortlich für diese Website ist ${controllerAddress}. Kontakt ist per E-Mail unter ${PROFILE.email}, telefonisch in Australien unter ${PROFILE.phoneAustralia} oder telefonisch in Deutschland unter ${PROFILE.phoneGermany} möglich.`],
-    ["Zugriffsdaten und Hosting", "Der Hosting-Anbieter kann technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, abgerufene Dateien, Browsertyp, Betriebssystem und Referrer verarbeiten, um die Website bereitzustellen und zu schuetzen."],
+    ["Zugriffsdaten und Hosting", "Der Hosting-Anbieter kann technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, abgerufene Dateien, Browsertyp, Betriebssystem und Referrer verarbeiten, um die Website bereitzustellen und zu schützen."],
     ["Kontakt und Buchungslinks", "Wenn Sie mich per E-Mail, Telefon oder externem Buchungslink kontaktieren, werden die angegebenen Daten verarbeitet, um Ihre Anfrage zu beantworten und Training, Vortrag, Workshop oder Call zu organisieren."],
     ["Google Analytics", "Diese Website nutzt Google Analytics nur nach Zustimmung. Die Measurement ID lautet G-YNGD292XE5. IP-Anonymisierung ist aktiviert."],
     ["Local Storage", "Diese Website speichert die Analytics-Einwilligung im lokalen Browser-Speicher, damit der Banner nicht auf jeder Seite erneut erscheint."],

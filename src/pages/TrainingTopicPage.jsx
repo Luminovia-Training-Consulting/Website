@@ -32,7 +32,7 @@ export default function TrainingTopicPage() {
             promise: "Nutzen",
             modules: "Was die Seite abdeckt",
             outcomes: "Lernergebnisse",
-            deliverables: "Moegliche Materialien und Ergebnisse",
+        deliverables: "Mögliche Materialien und Ergebnisse",
             related: "Passende Anschlussseiten",
             notFound: "Dieses Training ist noch nicht als Detailseite angelegt.",
             contact: "Training anfragen",

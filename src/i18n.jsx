@@ -275,7 +275,7 @@ const dictionaries = {
             topicsCopy: "AI Literacy, Python, SQL, Cybersecurity, Softwareentwicklung, Scrum, Digital Business und AI Governance werden mit Beispielen, Übungen und Transferaufgaben für Arbeits- und Bildungskontexte vermittelt.",
             bookingFit: "Buchungsfit",
             bookingFitTitle: "Noch nicht sicher, was Sie buchen sollen? Starten Sie beim Ziel.",
-            bookingFitCopy: "Gute Trainingsanfragen starten oft mit einem Business- oder Lernproblem, nicht mit einer fertigen Agenda. Diese Wege helfen Programmverantwortlichen, L&D-Teams und Bildungsanbietern beim passenden ersten Gespraech.",
+            bookingFitCopy: "Gute Trainingsanfragen starten oft mit einem Business- oder Lernproblem, nicht mit einer fertigen Agenda. Diese Wege helfen Programmverantwortlichen, L&D-Teams und Bildungsanbietern beim passenden ersten Gespräch.",
             popularRoute: "Häufig",
             bookingRoutes: [
                 {title: "Dozentin für bestehenden Kurs", copy: "Für Kohorten, Zeitpläne und Module, die bereits stehen und verlässliche Remote-Durchführung brauchen.", bullets: ["Kursdurchführung", "Erwachsenenbildung", "klare Materialien"], cta: "Kurs klären", to: "/contact#contact-options"},
@@ -338,7 +338,7 @@ const dictionaries = {
             feedbackThemes: [
                 "Klare Struktur, praktische Beispiele und ruhige Remote-Durchführung.",
                 "Technische Tiefe wird in Sprache übersetzt, die Lernende nutzen können.",
-                "Verlaessliche Vorbereitung, aktive Lehre und hilfreiche Materialien.",
+                "Verlässliche Vorbereitung, aktive Lehre und hilfreiche Materialien.",
                 "Flexibel genug für gemischte Lernlevel, ohne das Ziel zu verlieren.",
             ],
         },
@@ -366,7 +366,7 @@ const dictionaries = {
             copy: "Senden Sie Thema, Zielgruppe, Wissensstand, Zeitraum und gewünschtes Ergebnis direkt per E-Mail, Telefon oder Terminbuchung. Ich schlage ein passendes Format vor: Keynote, Workshop, mehrtägiges Training, Kursdurchführung oder Curriculum-Support.",
             appointment: "Termin buchen",
             appointmentTitle: "Direkt einen Termin buchen",
-            appointmentCopy: "Wenn Sie direkt einen Termin auswählen moechten, nutzen Sie den Kalender unten. Kurzer Kontext per E-Mail vor dem Call ist hilfreich, aber nicht erforderlich.",
+            appointmentCopy: "Wenn Sie direkt einen Termin auswählen möchten, nutzen Sie den Kalender unten. Kurzer Kontext per E-Mail vor dem Call ist hilfreich, aber nicht erforderlich.",
             calendarTitle: "Google Calendar Terminbuchung",
             emailButton: "E-Mail schreiben",
             fallbackTitle: "Direkter Kontakt",
