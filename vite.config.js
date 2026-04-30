@@ -9,6 +9,7 @@ const legacyEntryChunkNames = [
     "assets/index-BXzdP6Lr.js",
     "assets/index-DO8wLb-v.js",
     "assets/index-DUbK75q5.js",
+    "assets/index-BTxBA96Y.js",
 ];
 
 const prerenderRoutes = [
@@ -77,18 +78,8 @@ function withRouteHead(html, [path, title, description]) {
         .replace(/<link href="[^"]*" hreflang="de" rel="alternate"\/>/, `<link href="${canonical}" hreflang="de" rel="alternate"/>`);
 }
 
-function legacyEntryChunkSource(currentEntryFileName) {
-    return `import("/${currentEntryFileName}").catch(() => {
-  try {
-    const key = "carina_legacy_entry_reload_v1";
-    if (globalThis.sessionStorage?.getItem(key) !== "used") {
-      globalThis.sessionStorage?.setItem(key, "used");
-      globalThis.location.reload();
-    }
-  } catch {
-    globalThis.location.reload();
-  }
-});
+function legacyEntryChunkSource() {
+    return `import("./legacy-entry-loader.js");
 `;
 }
 
@@ -106,7 +97,7 @@ function htmlPerformancePlugin() {
                     this.emitFile({
                         type: "asset",
                         fileName,
-                        source: legacyEntryChunkSource(entryChunk.fileName),
+                        source: legacyEntryChunkSource(),
                     });
                 });
             }
