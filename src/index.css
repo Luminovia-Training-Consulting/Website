@@ -60,24 +60,12 @@
 
 @keyframes haloBreath {
     0%, 100% {
-        filter: blur(24px);
+        transform: scale(1);
         opacity: .36;
     }
     50% {
-        filter: blur(32px);
+        transform: scale(1.08);
         opacity: .58;
-    }
-}
-
-@keyframes rainbowFlow {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
     }
 }
 
@@ -107,27 +95,12 @@
     }
 }
 
-@keyframes gridGlide {
-    0% {
-        background-position: 0 0, 0 0;
-        opacity: .34;
-    }
-    50% {
-        background-position: 34px 22px, -18px 38px;
-        opacity: .52;
-    }
-    100% {
-        background-position: 68px 68px, -44px 44px;
-        opacity: .34;
-    }
-}
-
-@keyframes polygonSheen {
+@keyframes gridPulse {
     0%, 100% {
-        filter: blur(0px) saturate(1);
+        opacity: .32;
     }
     50% {
-        filter: blur(0px) saturate(1.28);
+        opacity: .48;
     }
 }
 
@@ -204,8 +177,8 @@
     linear-gradient(32deg, transparent 0 56%, rgba(125, 211, 252, .045) 56.1% 56.2%, transparent 56.38% 100%),
     linear-gradient(156deg, transparent 0 72%, rgba(196, 181, 253, .042) 72.1% 72.2%, transparent 72.42% 100%);
     mask-image: radial-gradient(circle at 50% 38%, black, transparent 70%);
-    animation: topologyDrift 16s ease-in-out infinite, polygonSheen 8s ease-in-out infinite;
-    will-change: transform, opacity, filter;
+    animation: topologyDrift 16s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
 .polygon-field::after {
@@ -229,12 +202,11 @@
     0 22px 82px rgba(0, 0, 0, .13),
     0 0 38px rgba(125, 211, 252, .035);
     clip-path: polygon(18% 0, 82% 9%, 100% 57%, 65% 100%, 9% 82%, 0 29%);
-    filter: blur(0px);
     opacity: var(--opacity-low);
     mix-blend-mode: screen;
-    animation: polygonDrift var(--duration) cubic-bezier(.36, 0, .2, 1) infinite, polygonSheen calc(var(--duration) * .45) ease-in-out infinite;
+    animation: polygonDrift var(--duration) cubic-bezier(.36, 0, .2, 1) infinite;
     animation-delay: var(--delay);
-    will-change: transform, opacity, filter;
+    will-change: transform, opacity;
 }
 
 .polygon-field span:nth-child(1) {
@@ -383,11 +355,11 @@
 }
 
 .ambient-grid {
-    animation: gridGlide 24s linear infinite;
+    animation: gridPulse 24s ease-in-out infinite;
     background-image: linear-gradient(to right, rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, .035) 1px, transparent 1px);
     background-size: 68px 68px;
     mask-image: linear-gradient(to bottom, transparent, black 10%, black 72%, transparent);
-    will-change: background-position, opacity;
+    will-change: opacity;
 }
 
 .scroll-progress {

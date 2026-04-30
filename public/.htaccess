@@ -22,25 +22,25 @@ Options -MultiViews
 
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresDefault "access plus 1 day"
-  ExpiresByType text/html "access plus 1 day"
-  ExpiresByType text/css "access plus 1 day"
-  ExpiresByType text/javascript "access plus 1 day"
-  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 5 minutes"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType application/json "access plus 1 day"
   ExpiresByType application/xml "access plus 1 day"
-  ExpiresByType image/svg+xml "access plus 1 day"
-  ExpiresByType image/jpeg "access plus 1 day"
-  ExpiresByType image/webp "access plus 1 day"
-  ExpiresByType image/png "access plus 1 day"
-  ExpiresByType image/gif "access plus 1 day"
-  ExpiresByType image/x-icon "access plus 1 day"
-  ExpiresByType font/woff2 "access plus 1 day"
-  ExpiresByType font/woff "access plus 1 day"
-  ExpiresByType application/font-woff2 "access plus 1 day"
-  ExpiresByType application/font-woff "access plus 1 day"
-  ExpiresByType application/pdf "access plus 1 day"
-  ExpiresByType application/zip "access plus 1 day"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/pdf "access plus 1 month"
+  ExpiresByType application/zip "access plus 1 month"
   ExpiresByType text/xml "access plus 1 day"
 </IfModule>
 
@@ -48,8 +48,20 @@ Options -MultiViews
   FileETag MTime Size
   Header unset Pragma
 
-  <FilesMatch "\.(html|css|js|mjs|json|xml|txt|svg|jpg|jpeg|png|webp|gif|ico|woff|woff2|pdf|zip)$">
+  <FilesMatch "\.(css|js|mjs|woff|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(svg|jpg|jpeg|png|webp|gif|ico|pdf|zip)$">
+    Header set Cache-Control "public, max-age=2592000, stale-while-revalidate=604800"
+  </FilesMatch>
+
+  <FilesMatch "\.(json|xml|txt)$">
     Header set Cache-Control "public, max-age=86400, stale-while-revalidate=604800"
+  </FilesMatch>
+
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
   </FilesMatch>
 
   <FilesMatch "^\.env">

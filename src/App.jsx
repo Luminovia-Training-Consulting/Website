@@ -1,13 +1,13 @@
 import {lazy, Suspense, useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
+import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 const AnalyticsConsent = lazy(() => import("./components/AnalyticsConsent.jsx"));
 const AmbientIntelligence = lazy(() => import("./components/AmbientIntelligence.jsx"));
-const Footer = lazy(() => import("./components/Footer.jsx"));
-const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const TrainingPage = lazy(() => import("./pages/TrainingPage.jsx"));
 const TrainingTopicPage = lazy(() => import("./pages/TrainingTopicPage.jsx"));
 const KeynotesPage = lazy(() => import("./pages/KeynotesPage.jsx"));
@@ -128,7 +128,7 @@ export default function App() {
                     <Header/>
                     <div className="relative z-10">
                         <Routes>
-                            <Route path="/" element={routeElement(HomePage)}/>
+                            <Route path="/" element={<HomePage/>}/>
                             <Route path="/training" element={routeElement(TrainingPage)}/>
                             <Route path="/training/:slug" element={routeElement(TrainingTopicPage)}/>
                             <Route path="/keynotes" element={routeElement(KeynotesPage)}/>
@@ -149,9 +149,7 @@ export default function App() {
                         </Routes>
                     </div>
                     <div className="relative z-10">
-                        <Suspense fallback={null}>
-                            <Footer/>
-                        </Suspense>
+                        <Footer/>
                     </div>
                     <DeferredAnalyticsConsent/>
                 </div>
