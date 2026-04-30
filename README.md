@@ -573,6 +573,7 @@ Important decisions:
 - Non-critical analytics consent UI and ambient background animation code load after idle instead of blocking the first route render.
 - Apache cache headers keep hashed JavaScript/CSS assets immutable for one year, images and downloads for one month, and HTML short-lived for safe content updates.
 - Missing static assets return a real 404 instead of the React `index.html` fallback, preventing stale chunk URLs from being served with an HTML MIME type.
+- Known legacy entry chunks are emitted as tiny compatibility modules that forward stale cached HTML to the current entry bundle instead of producing a 404 console error.
 - The project standardises on Node `24.x` for local development and CI, but the deployed site remains static and does not require Node at runtime.
 
 Main CSS file:

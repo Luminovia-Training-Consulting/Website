@@ -4,6 +4,12 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 const siteUrl = "https://carinaschoppe.com";
+const legacyEntryChunkNames = [
+    "assets/index-BHwT2ryf.js",
+    "assets/index-BXzdP6Lr.js",
+    "assets/index-DO8wLb-v.js",
+    "assets/index-DUbK75q5.js",
+];
 
 const prerenderRoutes = [
     ["/training", "Training & Services | AI, IT and Cybersecurity Lecturer", "Book AI training, GenAI workshops, AI governance, Python, SQL, software development, cybersecurity, Scrum and digital transformation training."],
@@ -71,12 +77,40 @@ function withRouteHead(html, [path, title, description]) {
         .replace(/<link href="[^"]*" hreflang="de" rel="alternate"\/>/, `<link href="${canonical}" hreflang="de" rel="alternate"/>`);
 }
 
+function legacyEntryChunkSource(currentEntryFileName) {
+    return `import("/${currentEntryFileName}").catch(() => {
+  try {
+    const key = "carina_legacy_entry_reload_v1";
+    if (globalThis.sessionStorage?.getItem(key) !== "used") {
+      globalThis.sessionStorage?.setItem(key, "used");
+      globalThis.location.reload();
+    }
+  } catch {
+    globalThis.location.reload();
+  }
+});
+`;
+}
+
 function htmlPerformancePlugin() {
     return {
         name: "html-performance-pass",
         enforce: "post",
         apply: "build",
         generateBundle(_options, bundle) {
+            const entryChunk = Object.values(bundle).find((asset) => asset.type === "chunk" && asset.isEntry);
+            if (entryChunk) {
+                legacyEntryChunkNames.forEach((fileName) => {
+                    if (bundle[fileName]) return;
+
+                    this.emitFile({
+                        type: "asset",
+                        fileName,
+                        source: legacyEntryChunkSource(entryChunk.fileName),
+                    });
+                });
+            }
+
             const htmlAsset = Object.values(bundle).find((asset) => asset.type === "asset" && asset.fileName.endsWith(".html"));
             if (!htmlAsset || typeof htmlAsset.source !== "string") return;
 
