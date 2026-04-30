@@ -17,7 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [ 24.x ]
-        # Vite requires Node.js 20.19+ or 22.12+.
 
     steps:
       - uses: actions/checkout@v4

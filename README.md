@@ -134,6 +134,7 @@ The project does not use:
 ├── .github/
 │   └── workflows/
 │       └── node.js.yml
+├── .node-version
 ├── public/
 │   ├── .htaccess
 │   ├── robots.txt
@@ -587,8 +588,10 @@ src/components/AmbientIntelligence.jsx
 Required Node.js version:
 
 ```text
-Node.js >= 20.19.0
+Node.js >= 24.0.0
 ```
+
+The repository includes a `.node-version` file with `24`, and GitHub Actions runs on Node `24.x`.
 
 Install dependencies:
 
@@ -1003,7 +1006,7 @@ npm run build --if-present
 npm test
 ```
 
-The workflow uses Node `24.x`. Vite requires Node `20.19+` or a compatible newer version, so Node 24 is valid.
+The workflow uses Node `24.x`, matching the repository `.node-version` file and the package engine requirement.
 
 ## Troubleshooting
 
@@ -1017,9 +1020,10 @@ Vite requires Node.js version 20.19+ or 22.12+
 
 Fix:
 
-- Use Node.js `>=20.19.0`.
-- In GitHub Actions, use Node 20.19+, 22.12+ or 24.x.
-- Locally, update Node before running `npm run build`.
+- Use Node.js `24.x` or newer.
+- If you use a version manager, let it read `.node-version`.
+- In GitHub Actions, keep the workflow on Node `24.x`.
+- Locally, update Node before running `npm install` or `npm run build`.
 
 ### Direct Routes Return 404 on Hostinger
 
