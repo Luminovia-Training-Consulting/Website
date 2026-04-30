@@ -1,4 +1,5 @@
 import {defineConfig} from "vitest/config";
+import preact from "@preact/preset-vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -110,33 +111,37 @@ function htmlPerformancePlugin() {
     };
 }
 
-export default defineConfig({
-    plugins: [react(), tailwindcss(), htmlPerformancePlugin()],
-    base: "/",
-    build: {
-        cssCodeSplit: false,
-        modulePreload: {
-            polyfill: false,
-        },
-        rollupOptions: {
-            output: {
-                manualChunks(id) {
-                    return /node_modules[\\/](react|react-dom|react-router-dom)[\\/]/.test(id)
-                        ? "react-vendor"
-                        : undefined;
+export default defineConfig(({command, mode}) => {
+    const usePreactCompat = command === "build" && mode !== "test";
+
+    return {
+        plugins: [usePreactCompat ? preact() : react(), tailwindcss(), htmlPerformancePlugin()],
+        base: "/",
+        build: {
+            cssCodeSplit: false,
+            modulePreload: {
+                polyfill: false,
+            },
+            rollupOptions: {
+                output: {
+                    manualChunks(id) {
+                        return /node_modules[\\/](preact|react-router|react-router-dom)[\\/]/.test(id)
+                            ? "ui-vendor"
+                            : undefined;
+                    },
                 },
             },
+            target: "es2022",
         },
-        target: "es2022",
-    },
-    test: {
-        environment: "jsdom",
-        setupFiles: "./src/test/setup.js",
-        globals: true,
-        coverage: {
-            reporter: ["text", "json"],
-            include: ["src/**/*.{js,jsx}"],
-            exclude: ["src/main.jsx"],
+        test: {
+            environment: "jsdom",
+            setupFiles: "./src/test/setup.js",
+            globals: true,
+            coverage: {
+                reporter: ["text", "json"],
+                include: ["src/**/*.{js,jsx}"],
+                exclude: ["src/main.jsx"],
+            },
         },
-    },
+    };
 });

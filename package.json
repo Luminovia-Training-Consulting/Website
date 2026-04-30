@@ -15,8 +15,10 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@preact/preset-vite": "^2.10.5",
     "@tailwindcss/vite": "latest",
     "@vitejs/plugin-react": "latest",
+    "preact": "^10.29.1",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^6.30.1",

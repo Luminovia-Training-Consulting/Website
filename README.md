@@ -2,7 +2,7 @@
 
 Professional website for Carina Sophie Schoppe as an AI lecturer, IT trainer, cybersecurity and software-development educator, business technology consultant, keynote speaker and digital education expert.
 
-The site is built as a static React/Vite application. It is designed for deployment on classic static web hosting such as Hostinger, where the production build can be uploaded directly into `public_html/`. The project intentionally does not require a Node backend, serverless mail route, SMTP setup or production `.env` file.
+The site is built as a static React-style Vite application. Development and tests use React tooling, while the production browser build aliases the React runtime to Preact compatibility mode to keep the shipped JavaScript small. It is designed for deployment on classic static web hosting such as Hostinger, where the production build can be uploaded directly into `public_html/`. The project intentionally does not require a Node backend, serverless mail route, SMTP setup or production `.env` file.
 
 ## Table of Contents
 
@@ -98,7 +98,8 @@ The website includes:
 
 Runtime and frontend:
 
-- React
+- React API for application code
+- Preact compatibility runtime for the production browser bundle
 - React Router
 - Vite
 - Tailwind CSS through `@tailwindcss/vite`
@@ -567,7 +568,8 @@ Important decisions:
 - Google Analytics is consent-gated and does not create a tag-manager request on the first load before consent.
 - Responsive WebP image variants are generated for the portrait images and used through `srcset`/`sizes`.
 - The Vite build targets modern browsers with `es2022` output and disables the legacy modulepreload polyfill.
-- React, ReactDOM and React Router are isolated in a stable vendor chunk for better long-term browser caching.
+- The production build uses Preact compatibility mode for the React API, reducing the framework vendor chunk while keeping the component code React-style.
+- Preact and React Router are isolated in a stable `ui-vendor` chunk for better long-term browser caching.
 - Non-critical analytics consent UI and ambient background animation code load after idle instead of blocking the first route render.
 - Apache cache headers keep hashed JavaScript/CSS assets immutable for one year, images and downloads for one month, and HTML short-lived for safe content updates.
 - Missing static assets return a real 404 instead of the React `index.html` fallback, preventing stale chunk URLs from being served with an HTML MIME type.
