@@ -561,7 +561,7 @@ Important decisions:
 - Buttons use explicit `data-button-variant` attributes for mobile CSS overrides.
 - Hero image uses high fetch priority.
 - The homepage is intentionally shorter than the detailed subpages.
-- The production build inlines the generated CSS into `index.html`, removing a render-blocking CSS file request.
+- The production build keeps only the small first-paint shell CSS inline. The full Tailwind application stylesheet is emitted as a hashed, cacheable asset and loaded asynchronously so it is no longer part of the initial HTML transfer.
 - The homepage has a tiny static first-paint shell in `index.html`, so the initial hero text and portrait can appear before React finishes loading.
 - Major subpages are code-split with `React.lazy`, while the homepage and footer stay in the initial render path to avoid layout shifts on the root URL.
 - Large content collections are kept out of the initial homepage bundle; blog posts, client proof, software projects and timeline data load with the routes that need them.

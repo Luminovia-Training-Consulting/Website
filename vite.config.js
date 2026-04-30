@@ -80,12 +80,9 @@ function htmlPerformancePlugin() {
             const htmlAsset = Object.values(bundle).find((asset) => asset.type === "asset" && asset.fileName.endsWith(".html"));
             if (!htmlAsset || typeof htmlAsset.source !== "string") return;
 
-            let html = htmlAsset.source.replace(/<link rel="stylesheet" crossorigin href="\/([^"]+\.css)">/g, (match, cssFileName) => {
-                const cssAsset = bundle[cssFileName];
-                if (!cssAsset || cssAsset.type !== "asset" || typeof cssAsset.source !== "string") return match;
-
-                delete bundle[cssFileName];
-                return `<style>${cssAsset.source}</style>`;
+            let html = htmlAsset.source.replace(/<link rel="stylesheet" crossorigin href="\/([^"]+\.css)">/g, (_match, cssFileName) => {
+                const href = `/${cssFileName}`;
+                return `<link rel="preload" href="${href}" as="style" crossorigin onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="${href}"></noscript>`;
             });
 
             const moduleScripts = [];
