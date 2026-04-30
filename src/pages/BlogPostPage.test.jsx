@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import BlogPage from "./BlogPage.jsx";
 import BlogPostPage from "./BlogPostPage.jsx";
 import {renderWithProviders} from "../test/test-utils.jsx";
+import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
 function renderRoutes(route) {
     return renderWithProviders(
@@ -26,7 +27,7 @@ describe("BlogPostPage", () => {
     });
 
     it("renders the matching German version for the same slug", () => {
-        window.localStorage.setItem("carina_site_language", "de");
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
         renderRoutes("/blog/teaching-with-ai-without-losing-learning");
 
         expect(screen.getByRole("heading", {name: /Lehren mit KI/i})).toBeInTheDocument();

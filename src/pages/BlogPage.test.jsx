@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import BlogPage from "./BlogPage.jsx";
 import BlogPostPage from "./BlogPostPage.jsx";
 import {renderWithProviders} from "../test/test-utils.jsx";
+import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
 function renderBlog(route = "/blog") {
     return renderWithProviders(
@@ -71,7 +72,7 @@ describe("BlogPage", () => {
     });
 
     it("renders the German article overview after switching language", async () => {
-        window.localStorage.setItem("carina_site_language", "de");
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
         renderBlog();
 
         expect(screen.getByRole("heading", {name: /Blog zu AI/i})).toBeInTheDocument();

@@ -2,6 +2,7 @@ import {render, screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach, describe, expect, it, vi} from "vitest";
 import App from "./App.jsx";
+import {LANGUAGE_STORAGE_KEY} from "./i18n.jsx";
 
 describe("App routing and language", () => {
     beforeEach(() => {
@@ -15,10 +16,34 @@ describe("App routing and language", () => {
         render(<App/>);
 
         expect(screen.getByRole("heading", {name: /AI, IT & Business Lecturer/i})).toBeInTheDocument();
+        expect(document.documentElement.lang).toBe("en");
+        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
 
         await user.click(screen.getByRole("button", {name: /Switch language/i}));
 
         expect(screen.getByRole("heading", {name: /AI-, IT- und Business-Dozentin/i})).toBeInTheDocument();
+        expect(document.documentElement.lang).toBe("de");
+        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
+    });
+
+    it("uses English as the default page language when no language was selected before", async () => {
+        window.history.pushState({}, "Training", "/training");
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Bookable AI, IT and business technology training services/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Buchbare AI-, IT- und Business-Technology-Trainings/i})).not.toBeInTheDocument();
+        expect(document.documentElement.lang).toBe("en");
+        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
+    });
+
+    it("keeps German only after the visitor explicitly selected it", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+        window.history.pushState({}, "Training", "/training");
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Buchbare AI-, IT- und Business-Technology-Trainings/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
     });
 
