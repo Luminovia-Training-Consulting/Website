@@ -17,29 +17,42 @@ Options -MultiViews
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml application/rss+xml image/svg+xml
 </IfModule>
 
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/html "access plus 0 seconds"
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType application/zip "access plus 1 month"
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/html "access plus 1 day"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType text/javascript "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType application/json "access plus 1 day"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType image/svg+xml "access plus 1 day"
+  ExpiresByType image/jpeg "access plus 1 day"
+  ExpiresByType image/webp "access plus 1 day"
+  ExpiresByType image/png "access plus 1 day"
+  ExpiresByType image/gif "access plus 1 day"
+  ExpiresByType image/x-icon "access plus 1 day"
+  ExpiresByType font/woff2 "access plus 1 day"
+  ExpiresByType font/woff "access plus 1 day"
+  ExpiresByType application/font-woff2 "access plus 1 day"
+  ExpiresByType application/font-woff "access plus 1 day"
+  ExpiresByType application/pdf "access plus 1 day"
+  ExpiresByType application/zip "access plus 1 day"
   ExpiresByType text/xml "access plus 1 day"
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(css|js)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
+  FileETag MTime Size
+  Header unset Pragma
+
+  <FilesMatch "\.(html|css|js|mjs|json|xml|txt|svg|jpg|jpeg|png|webp|gif|ico|woff|woff2|pdf|zip)$">
+    Header set Cache-Control "public, max-age=86400, stale-while-revalidate=604800"
   </FilesMatch>
-  <FilesMatch "\.(jpg|jpeg|png|webp|zip)$">
-    Header set Cache-Control "public, max-age=2592000"
-  </FilesMatch>
-  <FilesMatch "\.(html|xml|txt)$">
-    Header set Cache-Control "public, max-age=0, must-revalidate"
+
+  <FilesMatch "^\.env">
+    Header set Cache-Control "no-store"
   </FilesMatch>
 </IfModule>
