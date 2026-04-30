@@ -1,4 +1,5 @@
 import {createContext, useCallback, useContext, useEffect, useMemo, useState} from "react";
+import {safeGetStorageItem, safeSetStorageItem} from "./utils/browser.js";
 
 export const LANGUAGE_STORAGE_KEY = "carina_site_language_v2";
 export const DEFAULT_LANGUAGE = "en";
@@ -414,10 +415,10 @@ function resolveLanguage(value) {
 }
 
 export function LanguageProvider({children}) {
-    const [language, setLanguage] = useState(() => resolveLanguage(localStorage.getItem(LANGUAGE_STORAGE_KEY)));
+    const [language, setLanguage] = useState(() => resolveLanguage(safeGetStorageItem(LANGUAGE_STORAGE_KEY)));
 
     useEffect(() => {
-        localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+        safeSetStorageItem(LANGUAGE_STORAGE_KEY, language);
         document.documentElement.lang = language;
     }, [language]);
 

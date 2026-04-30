@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
+import {safeGetStorageItem, safeSetStorageItem} from "../utils/browser.js";
 
 const CONSENT_KEY = "carina_analytics_consent";
 
@@ -24,7 +25,7 @@ function loadAnalytics(measurementId) {
 export default function AnalyticsConsent() {
     const location = useLocation();
     const {t} = useLanguage();
-    const [consent, setConsent] = useState(() => localStorage.getItem(CONSENT_KEY));
+    const [consent, setConsent] = useState(() => safeGetStorageItem(CONSENT_KEY));
     const enabled = Boolean(PROFILE.analyticsId);
 
     useEffect(() => {
@@ -45,7 +46,7 @@ export default function AnalyticsConsent() {
     if (!enabled || consent) return null;
 
     function choose(value) {
-        localStorage.setItem(CONSENT_KEY, value);
+        safeSetStorageItem(CONSENT_KEY, value);
         setConsent(value);
     }
 

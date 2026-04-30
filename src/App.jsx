@@ -1,30 +1,62 @@
 import {lazy, Suspense, useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
+import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import {isChunkLoadError, safeGetSessionItem, safeRemoveSessionItem, safeSetSessionItem} from "./utils/browser.js";
 
-const AnalyticsConsent = lazy(() => import("./components/AnalyticsConsent.jsx"));
-const AmbientIntelligence = lazy(() => import("./components/AmbientIntelligence.jsx"));
-const TrainingPage = lazy(() => import("./pages/TrainingPage.jsx"));
-const TrainingTopicPage = lazy(() => import("./pages/TrainingTopicPage.jsx"));
-const KeynotesPage = lazy(() => import("./pages/KeynotesPage.jsx"));
-const CorporatePage = lazy(() => import("./pages/CorporatePage.jsx"));
-const CredentialsPage = lazy(() => import("./pages/CredentialsPage.jsx"));
-const PortfolioPage = lazy(() => import("./pages/PortfolioPage.jsx"));
-const AboutPage = lazy(() => import("./pages/AboutPage.jsx"));
-const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
-const MyWayPage = lazy(() => import("./pages/MyWayPage.jsx"));
-const SkillsPage = lazy(() => import("./pages/SkillsPage.jsx"));
-const PricingPage = lazy(() => import("./pages/PricingPage.jsx"));
-const BlogPage = lazy(() => import("./pages/BlogPage.jsx"));
-const BlogPostPage = lazy(() => import("./pages/BlogPostPage.jsx"));
-const SoftwarePage = lazy(() => import("./pages/SoftwarePage.jsx"));
-const ImprintPage = lazy(() => import("./pages/ImprintPage.jsx"));
-const PrivacyPage = lazy(() => import("./pages/PrivacyPage.jsx"));
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
+const CHUNK_RECOVERY_KEY = "carina_chunk_recovery_v1";
+
+function lazyWithRecovery(loader) {
+    return lazy(async () => {
+        try {
+            const module = await loader();
+            safeRemoveSessionItem(CHUNK_RECOVERY_KEY);
+            return module;
+        } catch (error) {
+            if (isChunkLoadError(error) && safeGetSessionItem(CHUNK_RECOVERY_KEY) !== "used") {
+                safeSetSessionItem(CHUNK_RECOVERY_KEY, "used");
+                globalThis.location.reload();
+                return new Promise(() => {});
+            }
+
+            throw error;
+        }
+    });
+}
+
+const AnalyticsConsent = lazyWithRecovery(() => import("./components/AnalyticsConsent.jsx"));
+const AmbientIntelligence = lazyWithRecovery(() => import("./components/AmbientIntelligence.jsx"));
+const TrainingPage = lazyWithRecovery(() => import("./pages/TrainingPage.jsx"));
+const TrainingTopicPage = lazyWithRecovery(() => import("./pages/TrainingTopicPage.jsx"));
+const KeynotesPage = lazyWithRecovery(() => import("./pages/KeynotesPage.jsx"));
+const CorporatePage = lazyWithRecovery(() => import("./pages/CorporatePage.jsx"));
+const CredentialsPage = lazyWithRecovery(() => import("./pages/CredentialsPage.jsx"));
+const PortfolioPage = lazyWithRecovery(() => import("./pages/PortfolioPage.jsx"));
+const AboutPage = lazyWithRecovery(() => import("./pages/AboutPage.jsx"));
+const ContactPage = lazyWithRecovery(() => import("./pages/ContactPage.jsx"));
+const MyWayPage = lazyWithRecovery(() => import("./pages/MyWayPage.jsx"));
+const SkillsPage = lazyWithRecovery(() => import("./pages/SkillsPage.jsx"));
+const PricingPage = lazyWithRecovery(() => import("./pages/PricingPage.jsx"));
+const BlogPage = lazyWithRecovery(() => import("./pages/BlogPage.jsx"));
+const BlogPostPage = lazyWithRecovery(() => import("./pages/BlogPostPage.jsx"));
+const SoftwarePage = lazyWithRecovery(() => import("./pages/SoftwarePage.jsx"));
+const ImprintPage = lazyWithRecovery(() => import("./pages/ImprintPage.jsx"));
+const PrivacyPage = lazyWithRecovery(() => import("./pages/PrivacyPage.jsx"));
+const NotFoundPage = lazyWithRecovery(() => import("./pages/NotFoundPage.jsx"));
+
+function getHashTarget(hash) {
+    if (!hash.startsWith("#") || hash.length === 1) return null;
+
+    try {
+        return document.getElementById(decodeURIComponent(hash.slice(1)));
+    } catch {
+        return document.getElementById(hash.slice(1));
+    }
+}
 
 function ScrollToHash() {
     const {pathname, hash} = useLocation();
@@ -38,7 +70,7 @@ function ScrollToHash() {
         window.scrollTo({top: 0, behavior: "auto"});
 
         const scrollToTarget = () => {
-            document.querySelector(hash)?.scrollIntoView({behavior: "auto", block: "start"});
+            getHashTarget(hash)?.scrollIntoView({behavior: "auto", block: "start"});
         };
 
         globalThis.requestAnimationFrame(scrollToTarget);
@@ -78,9 +110,11 @@ function DeferredAmbientIntelligence() {
                 <span/>
             </div>
             <div className="ambient-grid fixed inset-0 z-0 opacity-70"/>
-            <Suspense fallback={null}>
-                <AmbientIntelligence/>
-            </Suspense>
+            <AppErrorBoundary fallback={null}>
+                <Suspense fallback={null}>
+                    <AmbientIntelligence/>
+                </Suspense>
+            </AppErrorBoundary>
         </>
     ) : null;
 }
@@ -99,17 +133,21 @@ function DeferredAnalyticsConsent() {
     }, [ready]);
 
     return ready ? (
-        <Suspense fallback={null}>
-            <AnalyticsConsent/>
-        </Suspense>
+        <AppErrorBoundary fallback={null}>
+            <Suspense fallback={null}>
+                <AnalyticsConsent/>
+            </Suspense>
+        </AppErrorBoundary>
     ) : null;
 }
 
 function routeElement(Component) {
     return (
-        <Suspense fallback={<div className="min-h-[55vh] bg-[#08090b]" aria-hidden="true"/>}>
-            <Component/>
-        </Suspense>
+        <AppErrorBoundary>
+            <Suspense fallback={<div className="min-h-[55vh] bg-[#08090b]" aria-hidden="true"/>}>
+                <Component/>
+            </Suspense>
+        </AppErrorBoundary>
     );
 }
 
@@ -128,7 +166,7 @@ export default function App() {
                     <Header/>
                     <div className="relative z-10">
                         <Routes>
-                            <Route path="/" element={<HomePage/>}/>
+                            <Route path="/" element={<AppErrorBoundary><HomePage/></AppErrorBoundary>}/>
                             <Route path="/training" element={routeElement(TrainingPage)}/>
                             <Route path="/training/:slug" element={routeElement(TrainingTopicPage)}/>
                             <Route path="/keynotes" element={routeElement(KeynotesPage)}/>
