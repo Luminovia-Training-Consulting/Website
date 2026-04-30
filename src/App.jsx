@@ -1,5 +1,7 @@
 import {lazy, Suspense, useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
+import AmbientIntelligence from "./components/AmbientIntelligence.jsx";
+import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
@@ -28,8 +30,6 @@ function lazyWithRecovery(loader) {
     });
 }
 
-const AnalyticsConsent = lazyWithRecovery(() => import("./components/AnalyticsConsent.jsx"));
-const AmbientIntelligence = lazyWithRecovery(() => import("./components/AmbientIntelligence.jsx"));
 const TrainingPage = lazyWithRecovery(() => import("./pages/TrainingPage.jsx"));
 const TrainingTopicPage = lazyWithRecovery(() => import("./pages/TrainingTopicPage.jsx"));
 const KeynotesPage = lazyWithRecovery(() => import("./pages/KeynotesPage.jsx"));
@@ -111,9 +111,7 @@ function DeferredAmbientIntelligence() {
             </div>
             <div className="ambient-grid fixed inset-0 z-0 opacity-70"/>
             <AppErrorBoundary fallback={null}>
-                <Suspense fallback={null}>
-                    <AmbientIntelligence/>
-                </Suspense>
+                <AmbientIntelligence/>
             </AppErrorBoundary>
         </>
     ) : null;
@@ -134,9 +132,7 @@ function DeferredAnalyticsConsent() {
 
     return ready ? (
         <AppErrorBoundary fallback={null}>
-            <Suspense fallback={null}>
-                <AnalyticsConsent/>
-            </Suspense>
+            <AnalyticsConsent/>
         </AppErrorBoundary>
     ) : null;
 }
