@@ -115,6 +115,10 @@ export default defineConfig({
     base: "/",
     build: {
         cssCodeSplit: false,
+        modulePreload: {
+            polyfill: false,
+        },
+        target: "es2022",
     },
     test: {
         environment: "jsdom",
