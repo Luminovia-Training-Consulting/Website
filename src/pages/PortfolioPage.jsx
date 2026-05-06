@@ -9,10 +9,10 @@ export default function PortfolioPage() {
     const {selectedProjects} = useSiteContent();
     const copy = language === "de"
         ? {
-            badge: "Proof-Projekte",
+            badge: "Nachweisprojekte",
             title: "Projektpraxis hinter AI-, IT- und Business-Trainings.",
             intro: "Diese Auswahl zeigt Arbeitsbeispiele aus Software, AI, Research, digitalen Lernformaten und Bildungspartner-Kontexten. Sie macht sichtbar, dass technische Inhalte nicht nur theoretisch vermittelt werden, sondern aus eigener Praxis, Umsetzungserfahrung und didaktischer Übersetzung entstehen.",
-            reference: "Referenz öffnen →",
+            reference: "Referenz ansehen →",
         }
         : {
             badge: "Selected proof projects",

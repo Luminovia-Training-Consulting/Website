@@ -22,14 +22,14 @@ const copy = {
     de: {
         badge: "Für Organisationen",
         title: "Trainingslösungen für Unternehmen, Bildungsanbieter und Events.",
-        intro: "Buchen Sie mich, wenn Ihr Publikum digitale Themen klar erklärt, aktiv geübt und mit der eigenen Arbeit verbunden braucht, von AI Literacy über Cybersecurity bis Programmierung und Business IT.",
+        intro: "Buchen Sie mich, wenn Ihr Publikum digitale Themen klar erklärt, aktiv geübt und mit der eigenen Arbeit verbunden braucht, von AI Literacy über Cybersecurity bis Programmierung und Business-IT.",
         process: [
             ["01", "Klären", "Zielgruppe, Level, Ziele, Zeitraum und gewünschtes Lernergebnis."],
             ["02", "Konzipieren", "Kursstruktur, Übungen, Beispiele, Materialien und Transferlogik."],
             ["03", "Durchführen", "Live-Online-Training, Workshop, Vorlesung, Keynote oder mehrwöchiger Kurs."],
             ["04", "Transfer sichern", "Recap, Templates, Handouts, Übungen und konkrete nächste Schritte."],
         ],
-        ctaTitle: "Brauchen Sie eine verlässliche Dozentin oder Speakerin?",
+        ctaTitle: "Brauchen Sie eine verlässliche Dozentin oder Vortragende?",
         ctaCopy: "Senden Sie Thema, Zielgruppe, Format und Zeitraum. Ich schlage ein passendes Trainingssetup vor.",
         cta: "Verfügbarkeit anfragen",
     },

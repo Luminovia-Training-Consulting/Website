@@ -1,4 +1,4 @@
-import {render, screen} from "@testing-library/react";
+import {render, screen, waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach, describe, expect, it, vi} from "vitest";
 import App from "./App.jsx";
@@ -49,8 +49,14 @@ describe("App routing and language", () => {
 
     it.each([
         ["/blog", /Blog zu AI, Projektmanagement und Lehre mit KI/i],
-        ["/contact", /Kontakt für Vorlesungen, Workshops, Trainings oder Talks/i],
+        ["/contact", /Kontakt für Vorlesungen, Workshops, Trainings oder Vorträge/i],
         ["/skills", /praktische Kompetenzübersicht/i],
+        ["/about", /Ich mache komplexe digitale Themen lehrbar/i],
+        ["/corporate", /Trainingslösungen für Unternehmen/i],
+        ["/keynotes", /Keynotes und Fachvorträge/i],
+        ["/my-way", /professioneller Weg durch IT/i],
+        ["/portfolio", /Projektpraxis hinter AI-/i],
+        ["/pricing", /Transparente Netto-Ab-Preise/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
     ])("renders %s with German page copy", async (route, heading) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
@@ -60,6 +66,20 @@ describe("App routing and language", () => {
 
         expect(await screen.findByRole("heading", {name: heading})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
+    });
+
+    it("uses a German browser title on unknown pages after German was selected", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+        window.history.pushState({}, "German 404", "/unknown-page");
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Diese Seite ist nicht im Trainingsplan/i})).toBeInTheDocument();
+        await waitFor(() => expect(document.title).toBe("Seite nicht gefunden | Carina Sophie Schoppe"));
+        expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
+            "content",
+            expect.stringContaining("Diese Seite wurde nicht gefunden"),
+        );
     });
 
     it("renders direct contact links and the appointment scheduler without a form", async () => {

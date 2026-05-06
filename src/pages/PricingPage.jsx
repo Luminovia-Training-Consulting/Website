@@ -65,7 +65,7 @@ const content = {
                 title: "Vorträge, Keynotes und Expert Sessions",
                 price: "ab 1.000 EUR",
                 suffix: "pro Vortrag / Keynote",
-                copy: "Für einzelne Vorträge, Keynotes, Konferenzen, Expert Sessions, Leadership Briefings oder besondere Veranstaltungsformate. Der Preis hängt stark von Audience, Gruppe, Thema, Vorbereitung und Sichtbarkeit der Veranstaltung ab.",
+                copy: "Für einzelne Vorträge, Keynotes, Konferenzen, Expert Sessions, Leadership Briefings oder besondere Veranstaltungsformate. Der Preis hängt stark von Zielgruppe, Gruppengröße, Thema, Vorbereitung und Sichtbarkeit der Veranstaltung ab.",
                 details: ["Netto-Ab-Preis", "Ab 1.000 EUR je Vortrag oder Keynote", "Impulsvortrag oder individuelles Eventformat", "Remote-first aus Brisbane für Europa, Australien und die Welt"],
             },
         ],

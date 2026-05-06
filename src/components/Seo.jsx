@@ -92,7 +92,7 @@ const routeMeta = {
             description: "Transparente Orientierungs- und Netto-Ab-Preise für geförderte Bildung, Corporate Training, Vorträge, Workshops und individuelle AI- oder IT-Trainings.",
         },
         "/my-way": {
-            title: "Werdegang | Professionelle Timeline und Lehrprofil",
+            title: "Werdegang | Professionelle Zeitlinie und Lehrprofil",
             description: "Professioneller Werdegang von Wirtschaftsinformatik, Softwarepraxis und Unternehmertum bis zu AI-, IT- und Cybersecurity-Training aus Brisbane.",
         },
         "/blog": {
@@ -101,7 +101,7 @@ const routeMeta = {
         },
         "/contact": {
             title: "Kontakt & Buchung | AI-, IT- und Business-Training buchen",
-            description: "Kontaktieren Sie Carina Sophie Schoppe für Vorlesungen, Workshops, Talks, Kursdurchführung und Trainingsberatung per E-Mail, Telefon oder Kalenderbuchung.",
+            description: "Kontaktieren Sie Carina Sophie Schoppe für Vorlesungen, Workshops, Vorträge, Kursdurchführung und Trainingsberatung per E-Mail, Telefon oder Kalenderbuchung.",
         },
         "/imprint": {
             title: "Impressum | Carina Sophie Schoppe",
@@ -218,8 +218,8 @@ export default function Seo() {
         title: language === "de" ? "Trainingsthema | AI-, IT- und Business-Bildung" : "Training Topic | AI, IT and Business Education",
         description: language === "de" ? "Detaillierte Themenseite für AI, IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for AI, IT, software development, cybersecurity, project management, digital transformation or business education.",
     } : routeMeta[language][pathname] || {
-        title: routeMeta[language]["/"].title,
-        description: language === "de" ? "Professionelle AI-, IT-, Cybersecurity-, Softwareentwicklungs- und Digital-Education-Trainings für Unternehmen, Hochschulen und Bildungsanbieter." : "Professional AI, IT, cybersecurity, software development and digital education training for companies, universities and training providers.",
+        title: language === "de" ? "Seite nicht gefunden | Carina Sophie Schoppe" : "Page not found | Carina Sophie Schoppe",
+        description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Trainingsthemen oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, training topics or contact page to find the right information.",
     };
     const {title, description} = currentMeta;
 

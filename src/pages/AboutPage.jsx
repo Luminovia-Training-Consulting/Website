@@ -37,15 +37,15 @@ const copy = {
         timeline: "Werdegang",
         cards: [
             ["Didaktisch", "Ich übersetze komplexe Themen in strukturierte, lernfreundliche Formate mit Übungen und Transferlogik."],
-            ["Technisch", "AI, Software, Cybersecurity, Daten und Business IT werden über Systeme, Workflows und Beispiele vermittelt, die Konzepte mit Umsetzungspraxis verbinden."],
-            ["Professionell", "Remote-first, zweisprachig und erfahren mit Erwachsenenbildung, Corporate Teams und Bildungsanbietern."],
+            ["Technisch", "AI, Software, Cybersecurity, Daten und Business-IT werden über Systeme, Arbeitsabläufe und Beispiele vermittelt, die Konzepte mit Umsetzungspraxis verbinden."],
+            ["Professionell", "Remote-first, zweisprachig und erfahren mit Erwachsenenbildung, Unternehmensteams und Bildungsanbietern."],
         ],
         links: [
-            ["Werdegang", "Eine kompakte Timeline von Schule und frühem Programmieren bis Brisbane, AI Training und internationaler Lehre.", "/my-way"],
-            ["Skills", "Eine Skill-Map für AI, Softwareentwicklung, Cybersecurity, Business IT, Didaktik und Kommunikation.", "/skills"],
+            ["Werdegang", "Eine kompakte Zeitlinie von Schule und frühem Programmieren bis Brisbane, AI-Training und internationaler Lehre.", "/my-way"],
+            ["Kompetenzen", "Eine Kompetenzübersicht für AI, Softwareentwicklung, Cybersecurity, Business-IT, Didaktik und Kommunikation.", "/skills"],
             ["Blog", "Ausführliche Beiträge zu AI Governance, digitaler Bildung, Automationsrisiken, Projektarbeit und verantwortungsvoller Technologieeinführung.", "/blog"],
         ],
-        timelineTitle: "Teaching-fokussierte Timeline",
+        timelineTitle: "Lehrorientierter Werdegang",
     },
 };
 
