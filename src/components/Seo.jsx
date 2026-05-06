@@ -92,7 +92,7 @@ const routeMeta = {
             description: "Transparente Orientierungs- und Netto-Ab-Preise für geförderte Bildung, Corporate Training, Vorträge, Workshops und individuelle AI- oder IT-Trainings.",
         },
         "/my-way": {
-            title: "Werdegang | Professionelle Zeitlinie und Lehrprofil",
+            title: "Werdegang | Professionelle Timeline und Lehrprofil",
             description: "Professioneller Werdegang von Wirtschaftsinformatik, Softwarepraxis und Unternehmertum bis zu AI-, IT- und Cybersecurity-Training aus Brisbane.",
         },
         "/blog": {

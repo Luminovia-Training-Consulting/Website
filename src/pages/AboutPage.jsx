@@ -41,7 +41,7 @@ const copy = {
             ["Professionell", "Remote-first, zweisprachig und erfahren mit Erwachsenenbildung, Unternehmensteams und Bildungsanbietern."],
         ],
         links: [
-            ["Werdegang", "Eine kompakte Zeitlinie von Schule und frühem Programmieren bis Brisbane, AI-Training und internationaler Lehre.", "/my-way"],
+            ["Werdegang", "Eine kompakte Timeline von Schule und frühem Programmieren bis Brisbane, AI-Training und internationaler Lehre.", "/my-way"],
             ["Kompetenzen", "Eine Kompetenzübersicht für AI, Softwareentwicklung, Cybersecurity, Business-IT, Didaktik und Kommunikation.", "/skills"],
             ["Blog", "Ausführliche Beiträge zu AI Governance, digitaler Bildung, Automationsrisiken, Projektarbeit und verantwortungsvoller Technologieeinführung.", "/blog"],
         ],

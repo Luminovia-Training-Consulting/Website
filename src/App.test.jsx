@@ -53,7 +53,7 @@ describe("App routing and language", () => {
         ["/skills", /praktische Kompetenzübersicht/i],
         ["/about", /Ich mache komplexe digitale Themen lehrbar/i],
         ["/corporate", /Trainingslösungen für Unternehmen/i],
-        ["/keynotes", /Keynotes und Fachvorträge/i],
+        ["/keynotes", /Keynotes und Expert Talks/i],
         ["/my-way", /professioneller Weg durch IT/i],
         ["/portfolio", /Projektpraxis hinter AI-/i],
         ["/pricing", /Transparente Netto-Ab-Preise/i],
