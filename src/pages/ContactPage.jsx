@@ -12,10 +12,10 @@ function cleanPhone(value) {
 export default function ContactPage() {
     const {language, t} = useLanguage();
     const {faqs} = useSiteContent();
-    const subject = encodeURIComponent("Training or lecture request for Carina Sophie Schoppe");
+    const subject = encodeURIComponent(language === "de" ? "Trainings- oder Vortragsanfrage an Carina Sophie Schoppe" : "Training or lecture request for Carina Sophie Schoppe");
     const contacts = [
         {
-            label: "Email",
+            label: language === "de" ? "E-Mail" : "Email",
             value: PROFILE.email,
             href: `mailto:${PROFILE.email}?subject=${subject}`,
             copy: language === "de" ? "Direkte Anfrage per E-Mail" : "Direct request by email",

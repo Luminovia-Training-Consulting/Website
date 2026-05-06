@@ -23,7 +23,7 @@ function BlogCard({post, readLabel, className = ""}) {
     );
 }
 
-function BlogCarousel({posts, readLabel, label}) {
+function BlogCarousel({posts, readLabel, label, previousLabel, nextLabel}) {
     const scrollerRef = useRef(null);
     const dragState = useRef({active: false, startX: 0, scrollLeft: 0});
     const [dragging, setDragging] = useState(false);
@@ -72,8 +72,8 @@ function BlogCarousel({posts, readLabel, label}) {
             <div className="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                 <h2 id="blog-carousel-title" className="text-2xl font-black text-white">{label}</h2>
                 <div className="flex gap-2">
-                    <button type="button" onClick={() => scrollByCards(-1)} className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.07] text-lg font-black text-white transition hover:border-sky-200/45 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-sky-200/80" aria-label="Scroll blog posts left">&lt;</button>
-                    <button type="button" onClick={() => scrollByCards(1)} className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.07] text-lg font-black text-white transition hover:border-sky-200/45 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-sky-200/80" aria-label="Scroll blog posts right">&gt;</button>
+                    <button type="button" onClick={() => scrollByCards(-1)} className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.07] text-lg font-black text-white transition hover:border-sky-200/45 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-sky-200/80" aria-label={previousLabel}>&lt;</button>
+                    <button type="button" onClick={() => scrollByCards(1)} className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.07] text-lg font-black text-white transition hover:border-sky-200/45 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-sky-200/80" aria-label={nextLabel}>&gt;</button>
                 </div>
             </div>
             <div
@@ -106,7 +106,7 @@ export default function BlogPage() {
         {value: "Software Development", label: language === "de" ? "Softwareentwicklung" : "Software Development"},
         {value: "Business Informatics", label: language === "de" ? "Wirtschaftsinformatik" : "Business Informatics"},
         {value: "Teaching & Learning", label: language === "de" ? "Lehre & Lernen" : "Teaching & Learning"},
-        {value: "Career / Thought Leadership", label: language === "de" ? "Karriere / Thought Leadership" : "Career / Thought Leadership"},
+        {value: "Career / Thought Leadership", label: language === "de" ? "Karriere / fachliche Positionierung" : "Career / Thought Leadership"},
     ];
     const visiblePosts = activeCategory === "All"
         ? blogPosts
@@ -124,6 +124,8 @@ export default function BlogPage() {
             suggest: "Thema vorschlagen",
             filters: "Kategorien",
             empty: "Zu dieser Kategorie gibt es noch keinen Beitrag.",
+            previous: "Blogbeiträge nach links scrollen",
+            next: "Blogbeiträge nach rechts scrollen",
         }
         : {
             title: "Blog on AI, project work and teaching with AI.",
@@ -134,6 +136,8 @@ export default function BlogPage() {
             suggest: "Suggest a topic",
             filters: "Categories",
             empty: "There is no article in this category yet.",
+            previous: "Scroll blog posts left",
+            next: "Scroll blog posts right",
         };
 
     return (
@@ -192,7 +196,7 @@ export default function BlogPage() {
                     </section>
                 )}
 
-                {remainingPosts.length > 0 && <BlogCarousel posts={remainingPosts} readLabel={copy.read} label={copy.latest}/>}
+                {remainingPosts.length > 0 && <BlogCarousel posts={remainingPosts} readLabel={copy.read} label={copy.latest} previousLabel={copy.previous} nextLabel={copy.next}/>}
             </div>
         </main>
     );

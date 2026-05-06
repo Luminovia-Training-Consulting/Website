@@ -17,12 +17,13 @@ function FlagIcon({country}) {
 
 function LanguageToggle({language, toggleLanguage, t, className = ""}) {
     const targetCountry = language === "en" ? "de" : "us";
+    const label = language === "de" ? "Sprache auf Englisch wechseln" : "Switch language to German";
 
     return (
         <button
             onClick={toggleLanguage}
             className={`inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/[0.09] hover:text-white ${className}`}
-            aria-label={`Switch language from ${language}`}
+            aria-label={label}
         >
             <FlagIcon country={targetCountry}/>
             <span>{t.switchLabel}</span>
@@ -89,7 +90,7 @@ export default function Header() {
                         <Button to="/contact#contact-options">{t.bookTraining}</Button>
                     </div>
 
-                    <button className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-black text-white backdrop-blur-xl lg:hidden" onClick={() => setOpen(true)} aria-label="Open menu">{t.menu}</button>
+                    <button className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-black text-white backdrop-blur-xl lg:hidden" onClick={() => setOpen(true)} aria-label={`${t.open} ${t.menu}`}>{t.menu}</button>
                 </div>
             </header>
 

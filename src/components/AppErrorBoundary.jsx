@@ -18,24 +18,41 @@ export default class AppErrorBoundary extends Component {
         if (!this.state.error) return this.props.children;
         if ("fallback" in this.props) return this.props.fallback;
 
+        const isGerman = document.documentElement.lang === "de";
+        const copy = isGerman
+            ? {
+                badge: "Seitenwiederherstellung",
+                title: "Diese Seite konnte nicht sauber geladen werden.",
+                body: "Die Website ist weiter erreichbar, aber diese Ansicht hatte ein Ladeproblem. Das kann nach einer frischen Veröffentlichung passieren, wenn der Browser noch eine ältere JavaScript-Datei im Cache hat.",
+                reload: "Seite neu laden",
+                contact: "Kontakt",
+            }
+            : {
+                badge: "Page recovery",
+                title: "This page could not load cleanly.",
+                body: "The website is still available, but this view ran into a loading problem. This can happen after a fresh deployment while the browser still has an older JavaScript file cached.",
+                reload: "Reload page",
+                contact: "Contact",
+            };
+
         return (
             <main className="mx-auto flex min-h-[70vh] w-full max-w-4xl items-center px-4 py-24 sm:px-6 lg:px-8">
                 <section className="glass-panel w-full rounded-[2rem] p-8 sm:p-10">
                     <p className="text-xs font-black uppercase tracking-[0.22em] text-sky-200">
-                        Page recovery
+                        {copy.badge}
                     </p>
                     <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-5xl">
-                        This page could not load cleanly.
+                        {copy.title}
                     </h1>
                     <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
-                        The website is still available, but this view ran into a loading problem. This can happen after a fresh deployment while the browser still has an older JavaScript file cached.
+                        {copy.body}
                     </p>
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <Button onClick={() => globalThis.location.reload()}>
-                            Reload page
+                            {copy.reload}
                         </Button>
                         <Button href="/contact#contact-options" variant="secondary">
-                            Contact
+                            {copy.contact}
                         </Button>
                     </div>
                 </section>

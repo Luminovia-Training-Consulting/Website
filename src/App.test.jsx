@@ -47,6 +47,21 @@ describe("App routing and language", () => {
         expect(document.documentElement.lang).toBe("de");
     });
 
+    it.each([
+        ["/blog", /Blog zu AI, Projektmanagement und Lehre mit KI/i],
+        ["/contact", /Kontakt für Vorlesungen, Workshops, Trainings oder Talks/i],
+        ["/skills", /praktische Kompetenzübersicht/i],
+        ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
+    ])("renders %s with German page copy", async (route, heading) => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+        window.history.pushState({}, "German route", route);
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: heading})).toBeInTheDocument();
+        expect(document.documentElement.lang).toBe("de");
+    });
+
     it("renders direct contact links and the appointment scheduler without a form", async () => {
         window.history.pushState({}, "Contact", "/contact");
 
