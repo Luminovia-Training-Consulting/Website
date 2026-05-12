@@ -2,7 +2,7 @@ import {cn} from "./utils.js";
 
 export default function SectionJumpNav({items, label, fixed = false, className = ""}) {
     const variantClass = fixed
-        ? "fixed left-0 right-0 top-[4.45rem] z-40 border-b border-white/10 bg-[#070B16]/78 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-4 lg:px-8"
+        ? "fixed left-0 right-0 top-[5.35rem] z-40 border-b border-t border-white/10 bg-[#070B16]/78 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-4 lg:top-[5.75rem] lg:px-8"
         : "sticky top-[4.7rem] z-30 rounded-[1.65rem] border border-white/10 bg-[#070B16]/82 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-2xl";
 
     return (
