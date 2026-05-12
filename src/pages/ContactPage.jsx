@@ -4,6 +4,7 @@ import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
+import SectionJumpNav from "../components/SectionJumpNav.jsx";
 
 function cleanPhone(value) {
     return value.replace(/[^\d+]/g, "");
@@ -13,6 +14,10 @@ export default function ContactPage() {
     const {language, t} = useLanguage();
     const {faqs} = useSiteContent();
     const subject = encodeURIComponent(language === "de" ? "Trainings- oder Vortragsanfrage an Carina Sophie Schoppe" : "Training or lecture request for Carina Sophie Schoppe");
+    const jumpLabel = language === "de" ? "Auf dieser Seite" : "On this page";
+    const jumpItems = language === "de"
+        ? [["#contact-options", "Kontaktwege"], ["#appointment", "Termin"], ["#contact-faq", "FAQ"]]
+        : [["#contact-options", "Contact"], ["#appointment", "Appointment"], ["#contact-faq", "FAQ"]];
     const contacts = [
         {
             label: language === "de" ? "E-Mail" : "Email",
@@ -37,6 +42,7 @@ export default function ContactPage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
+                <SectionJumpNav label={jumpLabel} items={jumpItems} className="mb-8 mt-0"/>
                 <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                     <div>
                         <Badge>{t.contact.badge}</Badge>
@@ -108,8 +114,7 @@ export default function ContactPage() {
                         </section>
                     </div>
                 </div>
-
-                <div className="mt-16 grid gap-4 lg:grid-cols-4">
+                <div id="contact-faq" className="mt-16 grid scroll-mt-36 gap-4 lg:grid-cols-4">
                     {faqs.map((item) => (
                         <Card key={item.q}>
                             <h3 className="text-lg font-black text-white">{item.q}</h3>

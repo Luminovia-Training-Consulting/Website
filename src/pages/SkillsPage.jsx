@@ -5,6 +5,7 @@ import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
+import SectionJumpNav from "../components/SectionJumpNav.jsx";
 
 function TopicLink({item, className}) {
     const detailLink = topicLinkForLabel(item);
@@ -27,6 +28,8 @@ export default function SkillsPage() {
             credentials: "Nachweise ansehen",
             clusters: "Lehrcluster",
             clustersTitle: "Themen, aus denen ich Kurse bauen kann.",
+            jumpLabel: "Auf dieser Seite",
+            jumpItems: [["#skill-map", "Skills"], ["#clusters", "Lehrcluster"]],
         }
         : {
             badge: "Skills & topics",
@@ -35,6 +38,8 @@ export default function SkillsPage() {
             credentials: "View credentials",
             clusters: "Teaching clusters",
             clustersTitle: "Topics I can turn into courses.",
+            jumpLabel: "On this page",
+            jumpItems: [["#skill-map", "Skills"], ["#clusters", "Clusters"]],
         };
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
@@ -50,8 +55,9 @@ export default function SkillsPage() {
                     <Button to="/training">{copy.formats}</Button>
                     <Button to="/credentials" variant="secondary">{copy.credentials}</Button>
                 </div>
+                <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
 
-                <section className="mt-14">
+                <section id="skill-map" className="mt-14 scroll-mt-36">
                     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
                         {skillGroups.map((group) => (
                             <Card key={group.group}>
@@ -66,7 +72,7 @@ export default function SkillsPage() {
                     </div>
                 </section>
 
-                <section className="mt-16">
+                <section id="clusters" className="mt-16 scroll-mt-36">
                     <div className="mb-7">
                         <Badge tone="emerald">{copy.clusters}</Badge>
                         <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.clustersTitle}</h2>

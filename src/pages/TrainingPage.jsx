@@ -6,6 +6,7 @@ import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
+import SectionJumpNav from "../components/SectionJumpNav.jsx";
 import {cn} from "../components/utils.js";
 
 function AssetButtons({t}) {
@@ -68,6 +69,8 @@ export default function TrainingPage() {
             audiencesTitle: "Professionelle B2B- und Bildungsumgebungen",
             proof: "Vertrauen & Nachweise",
             proofTitle: "Nachweise für zuverlässige Kurs- und Trainingsdurchführung",
+            jumpLabel: "Auf dieser Seite",
+            jumpItems: [["#services", "Angebote"], ["#details", "Details"], ["#audiences", "Zielgruppen"], ["#proof", "Nachweise"], ["#topics", "Themen"], ["#formats", "Formate"]],
         }
         : {
             badge: "Training & Services",
@@ -88,6 +91,8 @@ export default function TrainingPage() {
             audiencesTitle: "Professional B2B and education-sector environments",
             proof: "Trust & proof",
             proofTitle: "Proof for reliable course and training delivery",
+            jumpLabel: "On this page",
+            jumpItems: [["#services", "Services"], ["#details", "Details"], ["#audiences", "Who"], ["#proof", "Proof"], ["#topics", "Topics"], ["#formats", "Formats"]],
         };
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
@@ -102,8 +107,9 @@ export default function TrainingPage() {
                         </div>
                     </div>
                 </div>
+                <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
 
-                <section className="mt-14">
+                <section id="services" className="mt-14 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
                             <Badge tone="cyan">{copy.services}</Badge>
@@ -116,7 +122,7 @@ export default function TrainingPage() {
                     </div>
                 </section>
 
-                <section className="mt-16">
+                <section id="details" className="mt-16 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
                             <Badge tone="violet">{copy.detailPages}</Badge>
@@ -137,7 +143,7 @@ export default function TrainingPage() {
                     </div>
                 </section>
 
-                <section className="mt-16">
+                <section id="audiences" className="mt-16 scroll-mt-36">
                     <Badge tone="violet">{copy.audiences}</Badge>
                     <h2 className="mt-4 text-3xl font-black text-white">{copy.audiencesTitle}</h2>
                     <div className="mt-6 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -164,7 +170,7 @@ export default function TrainingPage() {
                     ))}
                 </div>
 
-                <section className="mt-16">
+                <section id="proof" className="mt-16 scroll-mt-36">
                     <Badge tone="emerald">{copy.proof}</Badge>
                     <h2 className="mt-4 text-3xl font-black text-white">{copy.proofTitle}</h2>
                     <div className="mt-6 grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -177,7 +183,7 @@ export default function TrainingPage() {
                     </div>
                 </section>
 
-                <div className="mt-16">
+                <section id="topics" className="mt-16 scroll-mt-36">
                     <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
                         <div>
                             <Badge tone="emerald">{copy.topics}</Badge>
@@ -202,9 +208,9 @@ export default function TrainingPage() {
                             </Card>
                         ))}
                     </div>
-                </div>
+                </section>
 
-                <div className="mt-16">
+                <section id="formats" className="mt-16 scroll-mt-36">
                     <Badge tone="violet">{copy.formats}</Badge>
                     <h2 className="mt-4 text-3xl font-black text-white">{copy.formatsTitle}</h2>
                     <div className="mt-6 grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -216,7 +222,7 @@ export default function TrainingPage() {
                             </Card>
                         ))}
                     </div>
-                </div>
+                </section>
             </div>
         </main>
     );

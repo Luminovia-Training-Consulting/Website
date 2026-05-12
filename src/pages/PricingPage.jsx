@@ -3,6 +3,7 @@ import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
+import SectionJumpNav from "../components/SectionJumpNav.jsx";
 
 const content = {
     en: {
@@ -39,6 +40,8 @@ const content = {
         contact: "Request pricing",
         appointment: "Book a pricing call",
         footnote: "All prices are indicative net starting values, not binding offers. Travel, special preparation, licensing, materials, VAT/tax handling or third-party platform requirements may affect the final quote.",
+        jumpLabel: "On this page",
+        jumpItems: [["#rates", "Rates"], ["#custom", "Custom quote"]],
     },
     de: {
         badge: "Preise",
@@ -74,6 +77,8 @@ const content = {
         contact: "Preise anfragen",
         appointment: "Preisgespräch buchen",
         footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Reiseaufwand, besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
+        jumpLabel: "Auf dieser Seite",
+        jumpItems: [["#rates", "Preise"], ["#custom", "Anfrage"]],
     },
 };
 
@@ -94,8 +99,9 @@ export default function PricingPage() {
                         <p className="mt-5 rounded-[1.5rem] border border-sky-100/16 bg-sky-100/[0.07] p-4 text-sm leading-7 text-slate-300">{copy.currencyNote}</p>
                     </div>
                 </div>
+                <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
 
-                <section className="mt-14 grid gap-5 lg:grid-cols-3">
+                <section id="rates" className="mt-14 grid scroll-mt-36 gap-5 lg:grid-cols-3">
                     {copy.cards.map((item) => (
                         <Card key={item.title} className="self-start">
                             <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{copy.unit}</div>
@@ -114,7 +120,7 @@ export default function PricingPage() {
                     ))}
                 </section>
 
-                <section className="mt-14 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_18%_0%,rgba(186,230,253,.16),transparent_42%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))] p-6 shadow-[0_28px_105px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-8">
+                <section id="custom" className="mt-14 scroll-mt-36 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_18%_0%,rgba(186,230,253,.16),transparent_42%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))] p-6 shadow-[0_28px_105px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-8">
                     <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                         <div>
                             <h2 className="text-3xl font-black text-white">{copy.customTitle}</h2>

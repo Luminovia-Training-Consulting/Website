@@ -8,6 +8,7 @@ import Metric from "../components/Metric.jsx";
 import Photo from "../components/Photo.jsx";
 import ConversionStrip from "../components/ConversionStrip.jsx";
 import StickyBookingBar from "../components/StickyBookingBar.jsx";
+import SectionJumpNav from "../components/SectionJumpNav.jsx";
 
 function HeroVisual() {
     const {t} = useLanguage();
@@ -117,50 +118,6 @@ function BookingFitSection({t}) {
     );
 }
 
-function SalesSignalSection({t}) {
-    const {salesSignal, salesSignalTitle, salesSignalCopy, salesSignals} = t.home;
-
-    return (
-        <section className="soft-section px-4 py-10 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-white/10 bg-white/[0.055] p-5 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-xl sm:p-7">
-                <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-                    <div>
-                        <Badge tone="violet">{salesSignal}</Badge>
-                        <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{salesSignalTitle}</h2>
-                        <p className="mt-4 text-base leading-8 text-zinc-300">{salesSignalCopy}</p>
-                    </div>
-                    <div className="grid gap-3 sm:grid-cols-3">
-                        {salesSignals.map((signal) => (
-                            <div key={String(signal.title)} className="rounded-[1.45rem] border border-sky-100/14 bg-[#071225]/78 p-4 shadow-[0_14px_48px_rgba(0,0,0,.18)]">
-                                <div className="mb-4 h-1 w-10 rounded-full bg-sky-200"/>
-                                <h3 className="text-base font-black text-white">{signal.title}</h3>
-                                <p className="mt-3 text-sm leading-7 text-zinc-300">{signal.copy}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function JumpNavigation({items, label}) {
-    return (
-        <nav className="fixed left-0 right-0 top-[4.45rem] z-40 border-b border-white/10 bg-[#070B16]/78 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-4 lg:px-8" aria-label={label}>
-            <div className="mx-auto flex max-w-7xl items-center gap-5">
-                <span className="hidden shrink-0 text-xs font-black uppercase tracking-[0.16em] text-sky-100 lg:inline">{label}</span>
-                <div className="flex min-w-0 flex-1 snap-x gap-3 overflow-x-auto pb-1 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
-                    {items.map(([href, text]) => (
-                        <a key={href} href={href} className="shrink-0 snap-start rounded-full border border-white/10 bg-white/[0.065] px-5 py-2.5 text-sm font-black text-slate-200 transition hover:-translate-y-0.5 hover:border-sky-200/40 hover:bg-white/[0.12] hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-200/80">
-                            {text}
-                        </a>
-                    ))}
-                </div>
-            </div>
-        </nav>
-    );
-}
-
 export default function HomePage() {
     const {t} = useLanguage();
     const {trustStats, serviceOfferings, faqs} = useHomeContent();
@@ -191,8 +148,8 @@ export default function HomePage() {
 
     return (
         <main className="pb-28 sm:pb-24">
-            <JumpNavigation items={jumpNav} label={jumpNavLabel}/>
-            <div className="h-[8.9rem] sm:h-[9.25rem]" aria-hidden="true"/>
+            <SectionJumpNav items={jumpNav} label={jumpNavLabel} fixed/>
+            <div className="h-[10.4rem] sm:h-[9.95rem]" aria-hidden="true"/>
 
             <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-10">
                 <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(56,189,248,.18),transparent_34%),linear-gradient(245deg,rgba(37,99,235,.17),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]"/>
@@ -224,8 +181,6 @@ export default function HomePage() {
                     <HeroVisual/>
                 </div>
             </section>
-
-            <SalesSignalSection t={t}/>
 
             <section id="remote" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-sky-100/16 bg-[linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.08),rgba(255,255,255,.035))] p-5 shadow-[0_20px_80px_rgba(37,99,235,.12)] backdrop-blur-xl sm:p-7">
@@ -292,13 +247,20 @@ export default function HomePage() {
                         <p className="text-base leading-8 text-zinc-300">{faqCopy}</p>
                     </div>
                     <div className="grid items-start gap-4 md:grid-cols-2">
-                        {faqs.slice(0, 10).map((item, index) => (
+                        {faqs.slice(0, 6).map((item, index) => (
                             <Card key={item.q} className="self-start">
                                 <div className="mb-4 grid h-10 w-10 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-sm font-black text-slate-950">{String(index + 1).padStart(2, "0")}</div>
                                 <h3 className="text-xl font-black text-white">{item.q}</h3>
                                 <p className="mt-3 text-sm leading-7 text-slate-300">{item.a}</p>
                             </Card>
                         ))}
+                    </div>
+                    <div className="mt-7 flex flex-col justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.055] p-5 sm:flex-row sm:items-center">
+                        <p className="text-sm leading-7 text-zinc-300">{faqCopy}</p>
+                        <div className="flex flex-col gap-3 sm:flex-row">
+                            <Button to="/training" variant="secondary">{exploreCapability}</Button>
+                            <Button to="/contact#contact-options">{t.bookTrainingCall}</Button>
+                        </div>
                     </div>
                 </div>
             </section>
