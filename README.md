@@ -80,7 +80,7 @@ The target audience includes:
 The website includes:
 
 - A shortened homepage focused on conversion.
-- A dedicated training and services page.
+- A dedicated offers page for training, lectures, workshops and consulting.
 - A skills and topics map.
 - A project portfolio page with selected GitHub and publication downloads.
 - A portfolio/client proof page with consulting, project and publication sections.
@@ -169,7 +169,7 @@ The application is a React single page app with these routes:
 | Route | Purpose |
 | --- | --- |
 | `/` | Short conversion-focused homepage with positioning, core services, booking fit, process, FAQ and contact CTA. |
-| `/training` | Detailed training and services page. |
+| `/training` | Detailed offers page for training, lectures, workshops and consulting. |
 | `/skills` | Practical skill map for AI, IT, cybersecurity, consulting, data and business technology. |
 | `/projects` | Selected project work, GitHub projects and publication downloads. |
 | `/software` | Backwards-compatible alias for the project portfolio. |
@@ -245,7 +245,7 @@ This file contains the main English content:
 - Trust stats
 - Core offers
 - Delivery formats
-- Training topics
+- Offer topics
 - Service offerings
 - Featured training topics
 - Capabilities
@@ -281,7 +281,7 @@ It contains German versions of:
 
 - Trust stats
 - Services
-- Training topics
+- Offer topics
 - Audience cards
 - FAQ
 - Blog posts

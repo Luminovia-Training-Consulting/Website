@@ -13,7 +13,7 @@ const legacyEntryChunkNames = [
 ];
 
 const prerenderRoutes = [
-    ["/training", "Training & Services | AI, IT and Cybersecurity Lecturer", "Book AI training, GenAI workshops, AI governance, Python, SQL, software development, cybersecurity, Scrum and digital transformation training."],
+    ["/training", "Offers | AI, IT and Business Training, Lectures & Consulting", "Book AI, IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation."],
     ["/training/ai-genai-training", "AI & GenAI Training | Carina Sophie Schoppe", "Practical AI and generative AI training for teams, education providers and organisations that need usable AI capability."],
     ["/training/ai-literacy-for-teams", "AI Literacy for Teams | Carina Sophie Schoppe", "AI literacy training for non-technical and mixed teams that need shared language, safe routines and practical confidence."],
     ["/training/prompt-engineering-agentic-workflows", "Prompt Engineering & Agentic Workflows | Carina Sophie Schoppe", "Prompt engineering and agentic workflow training for repeatable AI-supported work with human review and governance."],

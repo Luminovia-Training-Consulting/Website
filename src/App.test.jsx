@@ -15,13 +15,13 @@ describe("App routing and language", () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT & Business Lecturer/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT & Business Lecturer and Consultant/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
 
         await user.click(screen.getByRole("button", {name: /Switch language/i}));
 
-        expect(screen.getByRole("heading", {name: /AI-, IT- und Business-Dozentin/i})).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /AI-, IT- und Business-Dozentin & Consultant/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
     });
@@ -31,8 +31,8 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Bookable AI, IT and business technology training services/i})).toBeInTheDocument();
-        expect(screen.queryByRole("heading", {name: /Buchbare AI-, IT- und Business-Technology-Trainings/i})).not.toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training, lectures & consulting for AI, IT and business technology/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Training, Lehre & Consulting für AI, IT und Business Technology/i})).not.toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
@@ -43,7 +43,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Buchbare AI-, IT- und Business-Technology-Trainings/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training, Lehre & Consulting für AI, IT und Business Technology/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
     });
 

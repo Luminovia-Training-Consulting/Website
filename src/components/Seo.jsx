@@ -23,12 +23,12 @@ const schemaServiceOffers = [
 const routeMeta = {
     en: {
         "/": {
-            title: "Carina Sophie Schoppe | AI, IT & Business Lecturer",
-            description: "Book Carina Sophie Schoppe for AI, IT, cybersecurity, software development, business informatics and digital education training from Brisbane for Europe, Australia and the world.",
+            title: "Carina Sophie Schoppe | AI, IT & Business Consultant",
+            description: "Book Carina Sophie Schoppe for AI, IT and business consulting, project support, corporate training, cybersecurity, software development and digital education from Brisbane.",
         },
         "/training": {
-            title: "Training & Services | AI, IT and Cybersecurity Lecturer",
-            description: "Book AI training, GenAI workshops, AI governance, Python, SQL, software development, cybersecurity, Scrum and digital transformation training.",
+            title: "Offers | AI, IT and Business Training, Lectures & Consulting",
+            description: "Book AI, IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation.",
         },
         "/skills": {
             title: "Skills & Consulting Topics | AI, IT, Cybersecurity and Business Technology",
@@ -73,12 +73,12 @@ const routeMeta = {
     },
     de: {
         "/": {
-            title: "Carina Sophie Schoppe | AI-, IT- und Business-Dozentin",
-            description: "Buchen Sie Carina Sophie Schoppe für AI, IT, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik und digitale Bildung aus Brisbane für Europa, Australien und die Welt.",
+            title: "Carina Sophie Schoppe | AI-, IT- und Business-Consultant",
+            description: "Buchen Sie Carina Sophie Schoppe für AI-, IT- und Business-Consulting, Projektunterstützung, Corporate Training, Cybersecurity, Softwareentwicklung und digitale Bildung aus Brisbane.",
         },
         "/training": {
-            title: "Trainings & Angebote | AI-, IT- und Cybersecurity-Dozentin",
-            description: "Buchbare AI-Trainings, GenAI-Workshops, AI Governance, Python, SQL, Softwareentwicklung, Cybersecurity, Scrum und digitale Transformation.",
+            title: "Angebote | AI-, IT- und Business-Training, Lehre & Consulting",
+            description: "Buchbare AI-, IT- und Business-Technology-Angebote: Live-Training, Vorlesungen, Workshops, Consulting-Sprints, Projektbegleitung, AI Governance, Cybersecurity und digitale Transformation.",
         },
         "/skills": {
             title: "Kompetenzen & Consulting-Themen | AI, IT, Cybersecurity und Business-Technology",

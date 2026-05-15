@@ -13,24 +13,24 @@ export default function Footer() {
     const {language, t} = useLanguage();
     const labels = language === "de"
         ? {
-            summary: "AI-, IT- und Business-Dozentin mit Standort Brisbane, Australien. Remote-Live-Trainings für deutsch- und englischsprachige Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
+            summary: "AI-, IT- und Business-Dozentin und Consultant mit Standort Brisbane, Australien. Remote-Consulting, Projektunterstützung und Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
             location: "Standort: Brisbane, Australien",
             delivery: "Remote-Unterricht: Europa, Australien und die Welt",
             languages: "Sprachen: Deutsch / Englisch / Spanisch",
             booking: "Buchung",
             appointment: "Termin buchen",
             website: "Website",
-            topics: "Trainingsthemen",
+            topics: "Angebotsthemen",
         }
         : {
-            summary: "AI, IT and business lecturer based in Brisbane, Australia. Remote international delivery for German-speaking and English-speaking training providers, companies, universities and education partners.",
+            summary: "AI, IT and business lecturer and consultant based in Brisbane, Australia. Remote consulting, project support and live training for education providers, companies, universities and international partners.",
             location: "Location: Brisbane, Australia",
             delivery: "Remote delivery: Europe, Australia and the world",
             languages: "Languages: German / English / Spanish",
             booking: "Booking",
             appointment: "Book appointment",
             website: "Website",
-            topics: "Training topics",
+            topics: "Offer topics",
         };
     return (
         <footer className="border-t border-white/10 bg-[#060914]/72 px-4 py-14 sm:px-6 lg:px-8">
