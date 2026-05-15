@@ -119,7 +119,7 @@ function BookingFitSection({t}) {
 }
 
 export default function HomePage() {
-    const {t} = useLanguage();
+    const {language, t} = useLanguage();
     const {trustStats, serviceOfferings, faqs} = useHomeContent();
     const featuredServices = serviceOfferings;
     const {
@@ -145,6 +145,31 @@ export default function HomePage() {
         jumpNav,
         jumpNavLabel,
     } = t.home;
+    const consultingCopy = language === "de"
+        ? {
+            badge: "Consulting & Projekte",
+            title: "Von einzelnen Beratungsprojekten bis zu größeren Digital- und AI-Programmen.",
+            copy: "Ich unterstütze Bildungsanbieter, Unternehmen und Institutionen nicht nur mit Trainings, sondern auch mit IT-, AI- und Business-Consulting, Konzeptarbeit, Workshops, Projektstruktur, AI-Use-Case-Design und Umsetzungsbegleitung. Kleine Einzelprojekte, Workshop-Sprints und größere Programmvorhaben sind möglich.",
+            cards: [
+                ["Einzelprojekte", "Klare Fragestellung, kurzer Sprint, konkretes Ergebnis: etwa AI-Use-Case-Map, Prozessanalyse, Tool-Check, Workshop-Konzept oder Entscheidungsvorlage."],
+                ["Großprojekte", "Mehrteilige Vorhaben mit Trainingspfad, Consulting-Sprints, Stakeholder-Workshops, Roadmap, Materialien und fortlaufender Umsetzungsbegleitung."],
+                ["Preise auf Anfrage", "Consulting und Projektumsetzung werden individuell kalkuliert, abhängig von Umfang, Verantwortung, Materialtiefe, Laufzeit und gewünschtem Ergebnis."],
+            ],
+            primary: "Consulting anfragen",
+            secondary: "Portfolio ansehen",
+        }
+        : {
+            badge: "Consulting & projects",
+            title: "From individual advisory projects to larger digital and AI programmes.",
+            copy: "I support education providers, companies and institutions not only with training, but also with IT, AI and business consulting, concept work, workshops, project structure, AI use-case design and implementation support. Small individual projects, workshop sprints and larger programme work are possible.",
+            cards: [
+                ["Individual projects", "A clear question, short sprint and concrete result: for example an AI use-case map, process analysis, tool check, workshop concept or decision brief."],
+                ["Larger programmes", "Multi-part work with a training path, consulting sprints, stakeholder workshops, roadmap, materials and ongoing implementation support."],
+                ["Pricing on request", "Consulting and project implementation are quoted individually depending on scope, responsibility, material depth, duration and target outcome."],
+            ],
+            primary: "Request consulting",
+            secondary: "View portfolio",
+        };
 
     return (
         <main className="pb-28 sm:pb-24">
@@ -193,6 +218,32 @@ export default function HomePage() {
                         <div className="button-stack flex flex-col gap-3 sm:flex-row lg:flex-col">
                             <Button to="/contact#appointment">{t.bookConsultation}</Button>
                             <Button to="/pricing" variant="secondary">{t.nav.pricing}</Button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="consulting-projects" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <div className="rounded-[2.25rem] border border-sky-100/16 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.22),transparent_38%),linear-gradient(135deg,rgba(12,27,54,.94),rgba(7,12,25,.96)_60%,rgba(21,28,48,.94))] p-5 shadow-[0_24px_95px_rgba(0,0,0,.28)] sm:p-7">
+                        <div className="grid gap-7 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+                            <div>
+                                <Badge tone="violet">{consultingCopy.badge}</Badge>
+                                <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{consultingCopy.title}</h2>
+                                <p className="mt-5 text-base leading-8 text-zinc-300">{consultingCopy.copy}</p>
+                                <div className="button-stack mt-7 flex flex-col gap-3 sm:flex-row">
+                                    <Button to="/contact#contact-options">{consultingCopy.primary}</Button>
+                                    <Button to="/portfolio#consulting" variant="secondary">{consultingCopy.secondary}</Button>
+                                </div>
+                            </div>
+                            <div className="grid gap-3">
+                                {consultingCopy.cards.map(([cardTitle, cardCopy]) => (
+                                    <div key={cardTitle} className="rounded-[1.35rem] border border-white/12 bg-white/[0.07] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.08)]">
+                                        <h3 className="text-lg font-black text-white">{cardTitle}</h3>
+                                        <p className="mt-2 text-sm leading-7 text-slate-300">{cardCopy}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

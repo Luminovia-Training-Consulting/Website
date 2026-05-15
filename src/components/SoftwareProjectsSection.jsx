@@ -24,7 +24,7 @@ export default function SoftwareProjectsSection({compact = false}) {
                         </p>
                         {compact && (
                             <div className="mt-5">
-                                <Button to="/software" variant="secondary">{t.softwareSection.viewAll}</Button>
+                                <Button to="/projects" variant="secondary">{t.softwareSection.viewAll}</Button>
                             </div>
                         )}
                     </div>

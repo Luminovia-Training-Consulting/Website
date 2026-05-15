@@ -5,8 +5,8 @@ import {useLanguage} from "../i18n.jsx";
 const linkClass = "rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white";
 
 const footerTopics = {
-    en: ["AI & Future Skills", "Software & Data", "Cybersecurity", "Business IT"],
-    de: ["AI & Zukunftskompetenzen", "Software & Daten", "Cybersecurity", "Business-IT"],
+    en: ["AI & Future Skills", "Projects & Data", "Cybersecurity", "Business IT"],
+    de: ["AI & Zukunftskompetenzen", "Projekte & Daten", "Cybersecurity", "Business-IT"],
 };
 
 export default function Footer() {

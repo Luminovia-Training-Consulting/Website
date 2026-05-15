@@ -30,7 +30,7 @@ export const navItems = [
     {to: "/", key: "home"},
     {to: "/training", key: "training"},
     {to: "/skills", key: "skills"},
-    {to: "/software", key: "software"},
+    {to: "/projects", key: "software"},
     {to: "/portfolio", key: "clients"},
     {to: "/pricing", key: "pricing"},
     {to: "/my-way", key: "myWay"},

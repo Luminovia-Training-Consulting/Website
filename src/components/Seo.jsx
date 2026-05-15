@@ -16,6 +16,7 @@ const schemaServiceOffers = [
     ["Cybersecurity & Pentesting Fundamentals", "Security awareness and technical foundations for web security, ethical hacking, SOC basics and defensive thinking."],
     ["Scrum, Agile & Digital Project Work", "Practical project work training for clearer collaboration, delivery structure and AI-aware coordination."],
     ["Business Informatics & Digital Transformation", "Business IT training connecting processes, systems, data, IT management and organisational change."],
+    ["IT, AI & Business Consulting", "Consulting for AI use cases, IT processes, business technology decisions, learning architecture and digital enablement."],
     ["Curriculum Design & Blended Learning", "Support for learning paths, exercises, slides, labs, assessment logic and blended delivery formats."],
 ];
 
@@ -30,20 +31,24 @@ const routeMeta = {
             description: "Book AI training, GenAI workshops, AI governance, Python, SQL, software development, cybersecurity, Scrum and digital transformation training.",
         },
         "/skills": {
-            title: "Skills & Training Topics | AI, IT, Cybersecurity and Business IT",
-            description: "A practical skill map for AI literacy, agentic workflows, Python, SQL, cybersecurity, software development, business informatics and digital education.",
+            title: "Skills & Consulting Topics | AI, IT, Cybersecurity and Business Technology",
+            description: "A practical skill map for AI literacy, agentic workflows, Python, SQL, cybersecurity, IT consulting, AI consulting, business informatics and digital education.",
+        },
+        "/projects": {
+            title: "Project Portfolio | AI Research, Automation and Consulting Projects",
+            description: "Selected projects by Carina Sophie Schoppe across automation, AI research workflows, consulting support, Kotlin plugins, mobile apps and learning-friendly technical implementation.",
         },
         "/software": {
-            title: "Software Portfolio | AI Research, Automation and Development Projects",
-            description: "Selected GitHub projects by Carina Sophie Schoppe across automation, AI research workflows, Kotlin plugins, mobile apps and learning-friendly software examples.",
+            title: "Project Portfolio | AI Research, Automation and Consulting Projects",
+            description: "Selected projects by Carina Sophie Schoppe across automation, AI research workflows, consulting support, Kotlin plugins, mobile apps and learning-friendly technical implementation.",
         },
         "/portfolio": {
-            title: "Client Proof & Collaborations | Lecturer Portfolio",
-            description: "Selected collaborations, education-sector projects and professional proof for AI, IT, cybersecurity and software development training delivery.",
+            title: "Consulting Portfolio | IT, AI and Business Consulting",
+            description: "Portfolio and proof for IT consulting, AI consulting, business consulting, digital education, technical project practice and professional training delivery.",
         },
         "/pricing": {
             title: "Pricing | AI, IT and Business Training Rates",
-            description: "Transparent orientation rates for education-sector teaching, corporate training, talks, workshops and custom AI or IT training requests.",
+            description: "Transparent orientation rates for education-sector teaching, corporate training, talks and workshops, plus consulting and project implementation pricing on request.",
         },
         "/my-way": {
             title: "My Way | Professional Timeline and Teaching Background",
@@ -76,20 +81,24 @@ const routeMeta = {
             description: "Buchbare AI-Trainings, GenAI-Workshops, AI Governance, Python, SQL, Softwareentwicklung, Cybersecurity, Scrum und digitale Transformation.",
         },
         "/skills": {
-            title: "Kompetenzen & Trainingsthemen | AI, IT, Cybersecurity und Business-IT",
-            description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik und digitale Bildung.",
+            title: "Kompetenzen & Consulting-Themen | AI, IT, Cybersecurity und Business-Technology",
+            description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, IT-Consulting, AI-Consulting, Wirtschaftsinformatik und digitale Bildung.",
+        },
+        "/projects": {
+            title: "Projektportfolio | AI Research, Automatisierung und Consulting",
+            description: "Ausgewählte Projekte von Carina Sophie Schoppe zu Automatisierung, AI-Research-Workflows, Consulting-Support, Kotlin-Plugins, mobilen Apps und technischer Umsetzung.",
         },
         "/software": {
-            title: "Softwareportfolio | AI Research, Automatisierung und Entwicklung",
-            description: "Ausgewählte GitHub-Projekte von Carina Sophie Schoppe zu Automatisierung, AI-Research-Workflows, Kotlin-Plugins, mobilen Apps und lernfreundlichen Softwarebeispielen.",
+            title: "Projektportfolio | AI Research, Automatisierung und Consulting",
+            description: "Ausgewählte Projekte von Carina Sophie Schoppe zu Automatisierung, AI-Research-Workflows, Consulting-Support, Kotlin-Plugins, mobilen Apps und technischer Umsetzung.",
         },
         "/portfolio": {
-            title: "Kundennachweise & Kooperationen | Dozentenportfolio",
-            description: "Ausgewählte Kooperationen, Bildungsprojekte und professionelle Nachweise für AI-, IT-, Cybersecurity- und Softwareentwicklungs-Training.",
+            title: "Consulting-Portfolio | IT-, AI- und Business-Consulting",
+            description: "Portfolio und Nachweise für IT-Consulting, AI-Consulting, Business-Consulting, digitale Bildung, technische Projektpraxis und professionelle Trainingsdurchführung.",
         },
         "/pricing": {
             title: "Preise | AI-, IT- und Business-Training",
-            description: "Transparente Orientierungs- und Netto-Ab-Preise für geförderte Bildung, Corporate Training, Vorträge, Workshops und individuelle AI- oder IT-Trainings.",
+            description: "Transparente Netto-Ab-Preise für geförderte Bildung, Corporate Training, Vorträge und Workshops sowie Consulting- und Projektpreise auf Anfrage.",
         },
         "/my-way": {
             title: "Werdegang | Professionelle Timeline und Lehrprofil",

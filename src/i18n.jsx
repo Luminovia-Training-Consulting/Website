@@ -12,7 +12,7 @@ const dictionaries = {
             home: "Home",
             training: "Training",
             skills: "Skills",
-            software: "Software",
+            software: "Projects",
             clients: "Clients",
             pricing: "Pricing",
             myWay: "My Way",
@@ -124,6 +124,7 @@ const dictionaries = {
             jumpNavLabel: "Jump to section",
             jumpNav: [
                 ["#remote", "Remote"],
+                ["#consulting-projects", "Consulting"],
                 ["#services", "Services"],
                 ["#booking-fit", "Fit"],
                 ["#process", "Process"],
@@ -132,8 +133,8 @@ const dictionaries = {
             ],
         },
         exploreCards: [
-            ["Skills & topics", "A clear map of AI, software, cybersecurity, data, business IT, teaching and communication skills.", "/skills"],
-            ["Software", "Selected GitHub projects across automation, AI research workflows, Kotlin plugins and mobile/game development.", "/software"],
+            ["Skills & topics", "A clear map of AI, IT, cybersecurity, data, consulting, business technology, teaching and communication skills.", "/skills"],
+            ["Projects", "Selected projects across automation, AI research workflows, consulting support, Kotlin plugins and mobile/game development.", "/projects"],
             ["My way", "A compact timeline from early programming and studies to entrepreneurship, Brisbane and international training.", "/my-way"],
         ],
         clientSection: {
@@ -150,10 +151,10 @@ const dictionaries = {
             ],
         },
         softwareSection: {
-            badge: "Software",
-            title: "Software projects behind the teaching profile.",
-            copy: "Selected GitHub repositories that show practical work across automation, AI research workflows, data cleanup, Kotlin plugins, mobile apps and game development.",
-            viewAll: "View software portfolio",
+            badge: "Projects",
+            title: "Projects behind the consulting and teaching profile.",
+            copy: "Selected project work across automation, AI research workflows, data cleanup, Kotlin plugins, mobile apps and game development.",
+            viewAll: "View project portfolio",
         },
         conversion: {
             title: "Need a lecturer, trainer or speaker for AI, IT or business technology?",
@@ -206,7 +207,7 @@ const dictionaries = {
             home: "Start",
             training: "Trainings",
             skills: "Kompetenzen",
-            software: "Software",
+            software: "Projekte",
             clients: "Kunden",
             pricing: "Preise",
             myWay: "Werdegang",
@@ -318,6 +319,7 @@ const dictionaries = {
             jumpNavLabel: "Zu Abschnitt springen",
             jumpNav: [
                 ["#remote", "Remote"],
+                ["#consulting-projects", "Consulting"],
                 ["#services", "Angebote"],
                 ["#booking-fit", "Passung"],
                 ["#process", "Prozess"],
@@ -326,8 +328,8 @@ const dictionaries = {
             ],
         },
         exploreCards: [
-            ["Kompetenzen & Themen", "Eine klare Übersicht zu AI, Software, Cybersecurity, Daten, Business-IT, Didaktik und Kommunikation.", "/skills"],
-            ["Software", "Ausgewählte GitHub-Projekte rund um Automatisierung, AI-Research, Kotlin-Plugins, mobile Anwendungen und Spieleentwicklung.", "/software"],
+            ["Kompetenzen & Themen", "Eine klare Übersicht zu AI, IT, Cybersecurity, Daten, Consulting, Business-Technology, Didaktik und Kommunikation.", "/skills"],
+            ["Projekte", "Ausgewählte Projekte rund um Automatisierung, AI-Research, Consulting-Support, Kotlin-Plugins, mobile Anwendungen und Spieleentwicklung.", "/projects"],
             ["Werdegang", "Eine kompakte Timeline von frühem Programmieren und Studium bis Unternehmertum, Brisbane und internationalem Training.", "/my-way"],
         ],
         clientSection: {
@@ -344,10 +346,10 @@ const dictionaries = {
             ],
         },
         softwareSection: {
-            badge: "Software",
-            title: "Softwareprojekte hinter dem Trainingsprofil.",
-            copy: "Ausgewählte GitHub-Repositories mit praktischer Arbeit in Automatisierung, AI-Research-Workflows, Datenbereinigung, Kotlin-Plugins, Mobile Apps und Spieleentwicklung.",
-            viewAll: "Softwareportfolio ansehen",
+            badge: "Projekte",
+            title: "Projekte hinter dem Consulting- und Trainingsprofil.",
+            copy: "Ausgewählte Projektarbeit in Automatisierung, AI-Research-Workflows, Datenbereinigung, Kotlin-Plugins, Mobile Apps und Spieleentwicklung.",
+            viewAll: "Projektportfolio ansehen",
         },
         conversion: {
             title: "Brauchen Sie eine Dozentin, Trainerin oder Speakerin für AI, IT oder Business Technology?",

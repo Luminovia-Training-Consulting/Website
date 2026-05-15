@@ -69,8 +69,11 @@ export default function TrainingPage() {
             audiencesTitle: "Professionelle B2B- und Bildungsumgebungen",
             proof: "Vertrauen & Nachweise",
             proofTitle: "Nachweise für zuverlässige Kurs- und Trainingsdurchführung",
+            consultingTitle: "Consulting, Einzelprojekte und größere Programme",
+            consultingCopy: "Training kann mit Beratung und Umsetzung kombiniert werden: AI-Use-Case-Workshops, IT- und Prozessanalyse, Business-Technology-Roadmaps, Curriculum-Design, Enablement-Sprints oder größere mehrteilige Programme. Preise und Umfang erfolgen auf Anfrage.",
+            consultingPoints: ["Einzelprojekte", "Großprojekte", "Consulting-Sprints", "Preise auf Anfrage"],
             jumpLabel: "Auf dieser Seite",
-            jumpItems: [["#services", "Angebote"], ["#details", "Details"], ["#audiences", "Zielgruppen"], ["#proof", "Nachweise"], ["#topics", "Themen"], ["#formats", "Formate"]],
+            jumpItems: [["#consulting", "Consulting"], ["#services", "Angebote"], ["#details", "Details"], ["#audiences", "Zielgruppen"], ["#proof", "Nachweise"], ["#topics", "Themen"], ["#formats", "Formate"]],
         }
         : {
             badge: "Training & Services",
@@ -91,8 +94,11 @@ export default function TrainingPage() {
             audiencesTitle: "Professional B2B and education-sector environments",
             proof: "Trust & proof",
             proofTitle: "Proof for reliable course and training delivery",
+            consultingTitle: "Consulting, individual projects and larger programmes",
+            consultingCopy: "Training can be combined with advisory and implementation work: AI use-case workshops, IT and process analysis, business-technology roadmaps, curriculum design, enablement sprints or larger multi-part programmes. Pricing and scope are available on request.",
+            consultingPoints: ["Individual projects", "Large programmes", "Consulting sprints", "Pricing on request"],
             jumpLabel: "On this page",
-            jumpItems: [["#services", "Services"], ["#details", "Details"], ["#audiences", "Who"], ["#proof", "Proof"], ["#topics", "Topics"], ["#formats", "Formats"]],
+            jumpItems: [["#consulting", "Consulting"], ["#services", "Services"], ["#details", "Details"], ["#audiences", "Who"], ["#proof", "Proof"], ["#topics", "Topics"], ["#formats", "Formats"]],
         };
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
@@ -108,6 +114,24 @@ export default function TrainingPage() {
                     </div>
                 </div>
                 <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
+
+                <section id="consulting" className="mt-10 scroll-mt-36 rounded-[2rem] border border-sky-200/18 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.2),transparent_38%),linear-gradient(135deg,rgba(14,35,66,.94),rgba(7,13,27,.95)_58%,rgba(20,28,54,.94))] p-6 shadow-[0_24px_95px_rgba(0,0,0,.28)] sm:p-8">
+                    <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+                        <div>
+                            <h2 className="text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{copy.consultingTitle}</h2>
+                            <p className="mt-4 max-w-5xl text-base leading-8 text-slate-300">{copy.consultingCopy}</p>
+                            <div className="mt-5 flex flex-wrap gap-2">
+                                {copy.consultingPoints.map((point) => (
+                                    <span key={point} className="rounded-full border border-white/12 bg-white/[0.07] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{point}</span>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                            <Button to="/contact#contact-options">{t.bookConsultation}</Button>
+                            <Button to="/portfolio#consulting" variant="secondary">{language === "de" ? "Consulting ansehen" : "View consulting"}</Button>
+                        </div>
+                    </div>
+                </section>
 
                 <section id="services" className="mt-14 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">

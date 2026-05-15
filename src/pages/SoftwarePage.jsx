@@ -1,24 +1,31 @@
 import SoftwareProjectsSection from "../components/SoftwareProjectsSection.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
+import {publications} from "../data/publications.js";
 import {useLanguage} from "../i18n.jsx";
 
 export default function SoftwarePage() {
     const {language} = useLanguage();
     const copy = language === "de"
         ? {
-            badge: "Softwareportfolio",
-            title: "Praktische Projekte rund um Automatisierung, AI-Research und Spieleentwicklung.",
-            intro: "Dieses Portfolio zeigt ausgewählte Softwarearbeiten, die in Trainings und Beratungen als Praxisbezug dienen: Automatisierung mit Python, AI-gestützte Research-Workflows, Datenbereinigung, Kotlin-Plugins, Mobile Apps und Spieleentwicklung. Die Beispiele zeigen, wie technische Umsetzung, didaktisches Denken und reale Anwendungsfälle zusammenkommen.",
+            badge: "Projektportfolio",
+            title: "Praktische Projekte rund um Automatisierung, AI-Research, Consulting und digitale Umsetzung.",
+            intro: "Dieses Portfolio zeigt ausgewählte Projektarbeit, die in Trainings, Beratung und Umsetzung als Praxisbezug dient: Automatisierung mit Python, AI-gestützte Research-Workflows, Datenbereinigung, Kotlin-Plugins, Mobile Apps, Game-Systeme und digitale Arbeitsabläufe.",
             github: "GitHub-Profil öffnen",
-            skills: "Kompetenzen ansehen"
+            skills: "Kompetenzen ansehen",
+            publicationsTitle: "Publikationen",
+            publicationsCopy: "Akademische Arbeiten zu generativer AI, AI Governance, Human-Machine Interaction und Cybersecurity, die meine Beratungs- und Trainingsarbeit fachlich stützen.",
+            download: "PDF herunterladen",
         }
         : {
-            badge: "Software portfolio",
-            title: "Practical projects across automation, AI research and game systems.",
-            intro: "This portfolio highlights selected software work that gives my training and consulting practical depth: Python automation, AI-supported research workflows, data cleanup, Kotlin plugins, mobile apps and game systems. The examples show how technical implementation, teaching-oriented thinking and real use cases connect.",
+            badge: "Project portfolio",
+            title: "Practical projects across automation, AI research, consulting and digital implementation.",
+            intro: "This portfolio highlights selected project work that gives my training, consulting and implementation support practical depth: Python automation, AI-supported research workflows, data cleanup, Kotlin plugins, mobile apps, game systems and digital workflows.",
             github: "Open GitHub profile",
-            skills: "View skills"
+            skills: "View skills",
+            publicationsTitle: "Publications",
+            publicationsCopy: "Academic work on generative AI, AI governance, human-machine interaction and cybersecurity that supports my consulting and training practice.",
+            download: "Download PDF",
         };
     return (
         <main className="pb-24 pt-32">
@@ -40,6 +47,33 @@ export default function SoftwarePage() {
                 </div>
             </section>
             <SoftwareProjectsSection/>
+            <section className="soft-section px-4 py-16 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <div className="mb-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                        <div>
+                            <Badge tone="emerald">{copy.publicationsTitle}</Badge>
+                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.publicationsTitle}</h2>
+                        </div>
+                        <p className="text-lg leading-8 text-slate-300">{copy.publicationsCopy}</p>
+                    </div>
+                    <div className="grid gap-5 lg:grid-cols-3">
+                        {publications.map((publication) => (
+                            <a key={publication.key} href={publication.href} download className="soft-link-card group flex min-h-[300px] flex-col p-5 focus:outline-none focus:ring-2 focus:ring-sky-200/80">
+                                <div className="mb-5 flex items-start justify-between gap-3">
+                                    <div>
+                                        <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{publication.type[language]}</div>
+                                        <div className="mt-2 text-xs font-bold text-zinc-500">{publication.year}</div>
+                                    </div>
+                                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-sky-100">PDF</span>
+                                </div>
+                                <h3 className="text-2xl font-black text-white">{publication.title[language]}</h3>
+                                <p className="mt-4 text-sm leading-7 text-zinc-300">{publication.description[language]}</p>
+                                <div className="mt-auto pt-6 text-sm font-black text-sky-200 transition group-hover:text-white">{copy.download}</div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </main>
     );
 }

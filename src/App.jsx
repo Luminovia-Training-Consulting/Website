@@ -176,6 +176,7 @@ export default function App() {
                             <Route path="/pricing" element={routeElement(PricingPage)}/>
                             <Route path="/blog" element={routeElement(BlogPage)}/>
                             <Route path="/blog/:slug" element={routeElement(BlogPostPage)}/>
+                            <Route path="/projects" element={routeElement(SoftwarePage)}/>
                             <Route path="/software" element={routeElement(SoftwarePage)}/>
                             <Route path="/imprint" element={routeElement(ImprintPage)}/>
                             <Route path="/privacy" element={routeElement(PrivacyPage)}/>

@@ -89,8 +89,20 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://carinaschoppe.com/software</loc>
+        <loc>https://carinaschoppe.com/projects</loc>
         <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://carinaschoppe.com/publications/executive-governance-generative-ai-knowledge-intensive-organizations.pdf</loc>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://carinaschoppe.com/publications/opportunities-risks-generative-ai-german-companies-human-machine-interaction.pdf</loc>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://carinaschoppe.com/publications/chatgpt-authentic-context-specific-personalized-phishing-emails.pdf</loc>
+        <priority>0.4</priority>
     </url>
     <url>
         <loc>https://carinaschoppe.com/portfolio</loc>

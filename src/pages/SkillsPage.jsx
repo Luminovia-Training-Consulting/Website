@@ -23,23 +23,39 @@ export default function SkillsPage() {
     const copy = language === "de"
         ? {
             badge: "Kompetenzen & Themen",
-            title: "Eine praktische Kompetenzübersicht für AI, Software, Cybersecurity und Business-IT.",
+            title: "Eine praktische Kompetenzübersicht für AI, IT, Cybersecurity, Consulting und Business-Technology.",
             formats: "Trainingsformate ansehen",
             credentials: "Nachweise ansehen",
             clusters: "Lehrcluster",
             clustersTitle: "Themen, aus denen ich Kurse bauen kann.",
+            consultingTitle: "Consulting-Kompetenzen",
+            consultingCopy: "Neben Trainings kann ich konkrete Projekt- und Beratungsarbeit übernehmen: von AI-Use-Case-Design über IT- und Prozessanalyse bis zu Business-Technology-Roadmaps.",
+            consultingAreas: [
+                ["IT Consulting", "Systeme, Prozesse, Datenflüsse, Tool-Auswahl, APIs, Automatisierung und technische Projektstruktur."],
+                ["AI Consulting", "Generative-AI-Use-Cases, Prompt-Workflows, AI Governance, Responsible AI und sichere Einführung in Teams."],
+                ["Business Consulting", "Digitale Transformation, New Work, Projektmanagement, Lernprogramme und Stakeholder-Kommunikation."],
+                ["Projektumsetzung", "Einzelprojekte, Workshop-Sprints und größere Programme mit Roadmap, Materialien und Umsetzungssupport."],
+            ],
             jumpLabel: "Auf dieser Seite",
-            jumpItems: [["#skill-map", "Skills"], ["#clusters", "Lehrcluster"]],
+            jumpItems: [["#consulting-skills", "Consulting"], ["#skill-map", "Skills"], ["#clusters", "Lehrcluster"]],
         }
         : {
             badge: "Skills & topics",
-            title: "A practical skill map for AI, software, cybersecurity and business IT.",
+            title: "A practical skill map for AI, IT, cybersecurity, consulting and business technology.",
             formats: "View training formats",
             credentials: "View credentials",
             clusters: "Teaching clusters",
             clustersTitle: "Topics I can turn into courses.",
+            consultingTitle: "Consulting competencies",
+            consultingCopy: "Beyond training, I can take on concrete project and advisory work: from AI use-case design to IT and process analysis and business-technology roadmaps.",
+            consultingAreas: [
+                ["IT Consulting", "Systems, processes, data flows, tool selection, APIs, automation and technical project structure."],
+                ["AI Consulting", "Generative AI use cases, prompt workflows, AI governance, Responsible AI and safer adoption in teams."],
+                ["Business Consulting", "Digital transformation, New Work, project management, learning programmes and stakeholder communication."],
+                ["Project implementation", "Individual projects, workshop sprints and larger programmes with roadmap, materials and implementation support."],
+            ],
             jumpLabel: "On this page",
-            jumpItems: [["#skill-map", "Skills"], ["#clusters", "Clusters"]],
+            jumpItems: [["#consulting-skills", "Consulting"], ["#skill-map", "Skills"], ["#clusters", "Clusters"]],
         };
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
@@ -56,6 +72,24 @@ export default function SkillsPage() {
                     <Button to="/credentials" variant="secondary">{copy.credentials}</Button>
                 </div>
                 <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
+
+                <section id="consulting-skills" className="mt-14 scroll-mt-36">
+                    <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+                        <div>
+                            <Badge tone="violet">{copy.consultingTitle}</Badge>
+                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.consultingTitle}</h2>
+                        </div>
+                        <p className="text-lg leading-8 text-slate-300">{copy.consultingCopy}</p>
+                    </div>
+                    <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                        {copy.consultingAreas.map(([title, description]) => (
+                            <Card key={title}>
+                                <h3 className="text-2xl font-black text-white">{title}</h3>
+                                <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
 
                 <section id="skill-map" className="mt-14 scroll-mt-36">
                     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">

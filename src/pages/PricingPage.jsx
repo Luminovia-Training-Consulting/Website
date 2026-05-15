@@ -34,6 +34,13 @@ const content = {
                 copy: "For individual talks, conferences, expert sessions, leadership briefings or special event formats. Pricing depends strongly on audience, topic, preparation depth, event visibility and time-zone requirements.",
                 details: ["Net starting price", "Based on EUR 1,000+ per talk or keynote", "Short impulse talks or custom event formats", "Remote-first delivery from Brisbane for Europe, Australia and the world"],
             },
+            {
+                title: "Consulting and project implementation",
+                price: "on request",
+                suffix: "for individual projects or larger programmes",
+                copy: "For IT, AI and business consulting, implementation support, use-case workshops, roadmaps, curriculum programmes and larger digital enablement projects.",
+                details: ["Scoped individually", "Single projects or major programmes", "Consulting sprints and implementation support", "Proposal after fit check"],
+            },
         ],
         customTitle: "Need something outside these ranges?",
         customCopy: "For curriculum design, multi-week delivery, blended learning, advisory work, bundled training programmes or special event formats, please request an individual quote.",
@@ -76,6 +83,13 @@ const content = {
                 suffix: "pro Vortrag / Keynote",
                 copy: "Für einzelne Vorträge, Keynotes, Konferenzen, Expert Sessions, Leadership Briefings oder besondere Veranstaltungsformate. Der Preis hängt stark von Zielgruppe, Gruppengröße, Thema, Vorbereitung und Sichtbarkeit der Veranstaltung ab.",
                 details: ["Netto-Ab-Preis", "Ab 1.000 EUR je Vortrag oder Keynote", "Impulsvortrag oder individuelles Eventformat", "Remote-first aus Brisbane für Europa, Australien und die Welt"],
+            },
+            {
+                title: "Consulting und Projektumsetzung",
+                price: "auf Anfrage",
+                suffix: "für Einzelprojekte oder größere Programme",
+                copy: "Für IT-, AI- und Business-Consulting, Umsetzungsbegleitung, Use-Case-Workshops, Roadmaps, Curriculum-Programme und größere Digital-Enablement-Projekte.",
+                details: ["Individuell kalkuliert", "Einzelprojekte oder Großprojekte", "Consulting-Sprints und Umsetzungssupport", "Angebot nach Fit-Check"],
             },
         ],
         customTitle: "Andere Situation oder größerer Umfang?",
@@ -130,7 +144,7 @@ export default function PricingPage() {
                     </div>
                 </section>
 
-                <section id="rates" className="mt-14 grid scroll-mt-36 gap-5 lg:grid-cols-3">
+                <section id="rates" className="mt-14 grid scroll-mt-36 gap-5 md:grid-cols-2 xl:grid-cols-4">
                     {copy.cards.map((item) => (
                         <Card key={item.title} className="self-start">
                             <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{copy.unit}</div>

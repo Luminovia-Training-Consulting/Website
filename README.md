@@ -82,8 +82,8 @@ The website includes:
 - A shortened homepage focused on conversion.
 - A dedicated training and services page.
 - A skills and topics map.
-- A software portfolio page with selected GitHub projects.
-- A portfolio/client proof page.
+- A project portfolio page with selected GitHub and publication downloads.
+- A portfolio/client proof page with consulting, project and publication sections.
 - A pricing page with language-specific price display.
 - A personal timeline page.
 - A blog overview and individual blog post pages.
@@ -170,10 +170,11 @@ The application is a React single page app with these routes:
 | --- | --- |
 | `/` | Short conversion-focused homepage with positioning, core services, booking fit, process, FAQ and contact CTA. |
 | `/training` | Detailed training and services page. |
-| `/skills` | Practical skill map for AI, software, cybersecurity, data and business IT. |
-| `/software` | Selected GitHub/software projects. |
-| `/portfolio` | Former clients, selected collaborations and proof projects. |
-| `/pricing` | Orientation pricing in EUR or USD depending on selected language. |
+| `/skills` | Practical skill map for AI, IT, cybersecurity, consulting, data and business technology. |
+| `/projects` | Selected project work, GitHub projects and publication downloads. |
+| `/software` | Backwards-compatible alias for the project portfolio. |
+| `/portfolio` | Consulting portfolio, former clients, selected collaborations, publications and proof projects. |
+| `/pricing` | Orientation pricing in EUR or USD plus consulting/project pricing on request. |
 | `/my-way` | Personal and professional timeline. |
 | `/blog` | Blog overview with featured latest post and scrollable post list. |
 | `/blog/:slug` | Individual blog post pages. |
@@ -257,7 +258,8 @@ This file contains the main English content:
 - Life milestones
 - Skill groups
 - Blog posts
-- Software projects
+- Project work
+- Publications
 - Timeline
 - FAQ
 

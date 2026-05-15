@@ -8,7 +8,7 @@ const routes = [
     ["/training", /Bookable AI, IT and business technology training/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/skills", /Skill map for AI/i],
-    ["/software", /Practical projects/i],
+    ["/projects", /Practical projects/i],
     ["/portfolio", /Project practice behind AI/i],
     ["/my-way", /A professional path through IT/i],
     ["/about", /I make complex digital topics teachable/i],
