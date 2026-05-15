@@ -381,9 +381,9 @@ export const lifeMilestones = [
     },
     {
         year: "2019",
-        title: "Abitur and first business responsibility",
-        category: "Foundation",
-        copy: "Completed Abitur and gained early business exposure in family-company contexts around real estate and construction.",
+        title: "Abitur and Schoppe & Partner EU",
+        category: "Freelance start",
+        copy: "Completed Abitur and started self-employment in October 2019 as a freelance lecturer and consultant through Schoppe & Partner EU, with early business exposure in family-company contexts around real estate and construction.",
     },
     {
         year: "2020",
@@ -402,12 +402,6 @@ export const lifeMilestones = [
         title: "bytes Coding GmbH",
         category: "Software and education",
         copy: "Expanded software-development and education work through bytes Coding, connecting practical implementation with teaching needs.",
-    },
-    {
-        year: "2024",
-        title: "Schoppe & Partner EU",
-        category: "Freelance profile",
-        copy: "Focused the freelance profile more clearly around lecturing, training, consulting and digital capability development.",
     },
     {
         year: "2025",
