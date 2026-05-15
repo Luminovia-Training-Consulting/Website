@@ -162,9 +162,10 @@ function buildBaseSchema() {
         telephone: [PROFILE.phoneAustralia, PROFILE.phoneGermany],
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Unit 28, 436 Ann Street",
-            postalCode: "4000",
-            addressLocality: "Brisbane",
+            streetAddress: "43/9 Eduard Place",
+            postalCode: "4116",
+            addressLocality: "Calamvale",
+            addressRegion: "QLD",
             addressCountry: "AU",
         },
         areaServed: ["Germany", "Austria", "Switzerland", "Australia", "Europe", "Worldwide"],

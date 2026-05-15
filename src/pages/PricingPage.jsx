@@ -39,9 +39,15 @@ const content = {
         customCopy: "For curriculum design, multi-week delivery, blended learning, advisory work, bundled training programmes or special event formats, please request an individual quote.",
         contact: "Request pricing",
         appointment: "Book a pricing call",
+        eligibility: {
+            eyebrow: "Booking eligibility",
+            title: "Prices are available for resellers and education providers only.",
+            copy: "I cannot be booked directly by private end customers or individual learners. These rates are intended for education providers, academies, universities, programme owners, training resellers and organisations that book me as a lecturer, trainer or speaker for their learners, cohorts or internal programmes.",
+            points: ["For education providers and training resellers", "No direct deployment for private end customers", "Booking through organisations, programmes or institutions"],
+        },
         footnote: "All prices are indicative net starting values, not binding offers. Travel, special preparation, licensing, materials, VAT/tax handling or third-party platform requirements may affect the final quote.",
         jumpLabel: "On this page",
-        jumpItems: [["#rates", "Rates"], ["#custom", "Custom quote"]],
+        jumpItems: [["#booking-eligibility", "Booking fit"], ["#rates", "Rates"], ["#custom", "Custom quote"]],
     },
     de: {
         badge: "Preise",
@@ -76,9 +82,15 @@ const content = {
         customCopy: "Für Curriculum Design, mehrwöchige Durchführung, Blended Learning, Beratung, Paketbuchungen oder besondere Eventformate bitte ein individuelles Angebot anfragen.",
         contact: "Preise anfragen",
         appointment: "Preisgespräch buchen",
+        eligibility: {
+            eyebrow: "Buchungshinweis",
+            title: "Preise gelten nur für Wiederverkäufer und Bildungsanbieter.",
+            copy: "Ich kann nicht direkt von Endkunden oder einzelnen Privatpersonen eingesetzt werden. Diese Preise richten sich an Bildungsanbieter, Akademien, Hochschulen, Programmverantwortliche, Trainings-Wiederverkäufer und Organisationen, die mich als Dozentin, Trainerin oder Speakerin für Lernende, Kohorten oder interne Programme buchen.",
+            points: ["Für Bildungsanbieter und Trainings-Wiederverkäufer", "Kein direkter Einsatz für private Endkunden", "Buchung über Organisationen, Programme oder Institutionen"],
+        },
         footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Reiseaufwand, besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#rates", "Preise"], ["#custom", "Anfrage"]],
+        jumpItems: [["#booking-eligibility", "Buchungsfit"], ["#rates", "Preise"], ["#custom", "Anfrage"]],
     },
 };
 
@@ -100,6 +112,23 @@ export default function PricingPage() {
                     </div>
                 </div>
                 <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
+
+                <section id="booking-eligibility" className="mt-10 scroll-mt-36 overflow-hidden rounded-[2rem] border border-sky-200/24 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.25),transparent_38%),linear-gradient(135deg,rgba(14,35,66,.96),rgba(7,13,27,.94)_58%,rgba(20,28,54,.96))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,.13),0_30px_120px_rgba(0,0,0,.34),0_0_70px_rgba(56,189,248,.08)] sm:p-8">
+                    <div className="grid gap-7 lg:grid-cols-[1fr_0.82fr] lg:items-end">
+                        <div>
+                            <div className="text-xs font-black uppercase tracking-[0.18em] text-sky-100">{copy.eligibility.eyebrow}</div>
+                            <h2 className="mt-4 max-w-4xl text-4xl font-black tracking-[-0.035em] text-white sm:text-5xl">{copy.eligibility.title}</h2>
+                            <p className="mt-5 max-w-5xl text-base leading-8 text-slate-200">{copy.eligibility.copy}</p>
+                        </div>
+                        <div className="grid gap-3">
+                            {copy.eligibility.points.map((point) => (
+                                <div key={point} className="rounded-[1.1rem] border border-white/13 bg-white/[0.075] px-4 py-3 text-sm font-black leading-6 text-white shadow-[inset_0_1px_0_rgba(255,255,255,.09)]">
+                                    {point}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
                 <section id="rates" className="mt-14 grid scroll-mt-36 gap-5 lg:grid-cols-3">
                     {copy.cards.map((item) => (

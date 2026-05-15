@@ -4,7 +4,7 @@ export const PROFILE = {
     name: "Carina Sophie Schoppe",
     role: "Freelance IT Lecturer - AI Trainer - Business Technology Speaker",
     location: "Brisbane, Australia",
-    addressLines: ["Unit 28", "436 Ann Street", "Brisbane QLD 4000", "Australia"],
+    addressLines: ["43/9 Eduard Place", "4116 Calamvale", "Brisbane, Australia"],
     remote: "Remote delivery for Europe, Australia & the world",
     email: "info@carinaschoppe.com",
     phoneAustralia: "+61 451 448 724",
