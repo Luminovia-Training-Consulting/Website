@@ -10,7 +10,7 @@ const copy = {
     en: {
         badge: "About Carina",
         title: "I make complex digital topics teachable.",
-        intro: "My main work is teaching, speaking and professional training. I combine business informatics, AI, cybersecurity, software development and didactics so learners can practise concepts, understand risks and transfer digital skills into real work.",
+        intro: "My main work is teaching, speaking and professional training. I combine business computer science, AI, cybersecurity, software development and didactics so learners can practise concepts, understand risks and transfer digital skills into real work.",
         follow: "Clients book me when they need someone who can structure a topic, explain it clearly, activate learners and connect technical knowledge to business reality.",
         linkedin: "View LinkedIn",
         github: "View GitHub",
@@ -30,7 +30,7 @@ const copy = {
     de: {
         badge: "Über Carina",
         title: "Ich mache komplexe digitale Themen lehrbar.",
-        intro: "Mein Schwerpunkt ist Lehre, Speaking und professionelle Weiterbildung. Ich verbinde Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung und Didaktik, damit Lernende Konzepte üben, Risiken verstehen und digitale Fähigkeiten in echte Arbeit übertragen können.",
+        intro: "Mein Schwerpunkt ist Lehre, Speaking und professionelle Weiterbildung. Ich verbinde Business Computer Science, AI, Cybersecurity, Softwareentwicklung und Didaktik, damit Lernende Konzepte üben, Risiken verstehen und digitale Fähigkeiten in echte Arbeit übertragen können.",
         follow: "Kunden buchen mich, wenn ein Thema klar strukturiert, verständlich erklärt, aktiv vermittelt und mit der Business-Realität verbunden werden muss.",
         linkedin: "LinkedIn ansehen",
         github: "GitHub ansehen",

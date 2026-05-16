@@ -52,7 +52,7 @@ export default function TrainingPage() {
     const copy = language === "de"
         ? {
             badge: "Angebote",
-            title: "Training, Lehre & Consulting für AI, IT und Business Technology.",
+            title: "Training, Lehre & Consulting für IT und Business Technology.",
             intro: "Buchbare Remote-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Vorlesungen, Workshops, Consulting-Sprints und Projektbegleitung rund um AI, IT, Cybersecurity und digitale Business-Kompetenz.",
             topics: "Themen",
             areas: "Zentrale Lehrbereiche",
@@ -77,7 +77,7 @@ export default function TrainingPage() {
         }
         : {
             badge: "Offers",
-            title: "Training, lectures & consulting for AI, IT and business technology.",
+            title: "Training, lectures & consulting for IT and business technology.",
             intro: "Bookable remote offers for education providers, companies, universities and international teams: live training, lectures, workshops, consulting sprints and project support around AI, IT, cybersecurity and digital business capability.",
             topics: "Topics",
             areas: "Core teaching areas",
@@ -222,7 +222,7 @@ export default function TrainingPage() {
                                 <div className="mt-5 space-y-3">
                                     {topic.items.map((item) => {
                                         const detailLink = topicLinkForLabel(item);
-                                        const className = "rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-bold text-slate-200 transition hover:border-sky-200/40 hover:bg-sky-200/10";
+                                        const className = "block w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-bold leading-6 text-slate-200 transition hover:border-sky-200/40 hover:bg-sky-200/10";
 
                                         return detailLink
                                             ? <Link key={String(item)} to={detailLink} className={className}>{item}</Link>

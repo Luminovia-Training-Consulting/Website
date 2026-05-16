@@ -25,7 +25,7 @@ export const coreOffers = [
     },
     {
         kicker: "Freelance lecturer",
-        title: "IT, AI & Business Courses",
+        title: "IT & Business Courses",
         outcome: "Structured teaching for adult learners and professional education.",
         copy: "Remote-first course delivery for education providers, academies, universities, bootcamps and funded training programmes that need reliable, clear, practice-oriented instruction.",
         deliverables: [
@@ -68,7 +68,7 @@ export const trainingTopics = [
     {group: "AI & Future Skills", items: ["AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "AI for office productivity"]},
     {group: "Software & Data", items: ["Java / Python / C# / Kotlin", "SQL and databases", "APIs and automation", "Data analyst / scientist / engineer", "Big data concepts", "UI/UX basics"]},
     {group: "Cybersecurity", items: ["Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ preparation", "Ethical hacking foundations", "Password and data security"]},
-    {group: "Business IT", items: ["Business informatics", "IT service management", "Cloud concepts", "Digital transformation", "SCRUM and agile work", "Process optimisation"]},
+    {group: "Business IT", items: ["Business Computer Science", "IT service management", "Cloud concepts", "Digital transformation", "SCRUM and agile work", "Process optimisation"]},
     {group: "Vocational & IHK", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute / Büromanagement", "Teilqualifikation", "IHK exam preparation", "Adult education"]},
     {group: "Law, Coaching & Talks", items: ["Digital law and GDPR", "AI Act and Cloud Act", "IT law awareness", "Coaching", "Keynote speaker", "Guest lectures"]},
 ];
@@ -163,7 +163,7 @@ export const serviceOfferings = [
         outcomes: ["Recognise legal risk questions", "Connect governance with data protection", "Know when expert legal review is needed"],
     },
     {
-        title: "Business Informatics & Digital Transformation",
+        title: "Business Computer Science & Digital Transformation",
         description: "Business IT training connecting processes, systems, data, IT management and organisational change.",
         audience: "Universities, academies, companies and professional education programmes",
         format: "Lecture series, module delivery or corporate workshop",
@@ -180,7 +180,7 @@ export const serviceOfferings = [
     },
     {
         title: "Coaching, Keynotes & Expert Talks",
-        description: "Coaching, keynote speaking, guest lectures and expert talks across AI, IT, cybersecurity, business informatics, digital transformation, digital law and modern education.",
+        description: "Coaching, keynote speaking, guest lectures and expert talks across AI, IT, cybersecurity, business computer science, digital transformation, digital law and modern education.",
         audience: "Companies, universities, conferences, leadership teams, education providers and event organisers",
         format: "Keynote, expert talk, guest lecture, coaching session, leadership briefing or panel input",
         duration: "30 minutes to full-day format",
@@ -198,7 +198,7 @@ export const featuredTrainingTopics = serviceOfferings.filter((service) => [
 ].includes(service.title));
 
 export const capabilities = [
-    "AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "Python", "Java", "C#", "Kotlin", "SQL", "Databases", "APIs & automation", "Fachinformatiker", "Bürokaufleute", "Data analyst", "Data scientist", "Data engineer", "Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ prep", "Ethical hacking foundations", "GDPR", "AI Act", "Cloud Act", "IT law awareness", "Cloud concepts", "Business informatics", "IT service management", "Digital transformation", "SCRUM", "Project management", "New Work", "Blended learning", "Curriculum design", "Adult education", "Coaching", "Keynote speaker",
+    "AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "Python", "Java", "C#", "Kotlin", "SQL", "Databases", "APIs & automation", "Fachinformatiker", "Bürokaufleute", "Data analyst", "Data scientist", "Data engineer", "Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ prep", "Ethical hacking foundations", "GDPR", "AI Act", "Cloud Act", "IT law awareness", "Cloud concepts", "Business Computer Science", "IT service management", "Digital transformation", "SCRUM", "Project management", "New Work", "Blended learning", "Curriculum design", "Adult education", "Coaching", "Keynote speaker",
 ];
 
 export const audienceCards = [
@@ -220,9 +220,9 @@ export const teachingProof = [
 ];
 
 export const trustSignals = [
-    {title: "Academic background", copy: "B.Sc. and M.Sc. in Business Information Systems plus MBA in Digital Business."},
+    {title: "Academic background", copy: "B.Sc. and M.Sc. in Business Computer Science plus MBA in Digital Business."},
     {title: "Teaching experience", copy: "10k+ documented teaching hours with an average learner rating of 4.7/5."},
-    {title: "Expertise areas", copy: "AI, cybersecurity, software development, business informatics, data, agile work and digital education."},
+    {title: "Expertise areas", copy: "AI, cybersecurity, software development, business computer science, data, agile work and digital education."},
     {title: "Languages", copy: "Training delivery in German and English, with Spanish language experience."},
     {title: "Remote delivery", copy: "Remote live training from Brisbane for Europe, Australia and the world education partners."},
     {title: "Sector fit", copy: "Experience with corporate training, higher education, retraining, bootcamps and professional academies."},
@@ -234,7 +234,7 @@ export const credentials = [
     {category: "Teaching", title: "Software Innovation Lab Work Reference", meta: "University of Paderborn | KMUeinfachSicher project | 2021", detail: "Content work around IT security, passwords, password managers, data handling and didactic preparation for SMEs."},
     {category: "Academic", title: "Master of Business Administration", meta: "IU International University | completed 24 Mar 2026 | overall result Good (2.2)", detail: "Management credibility for IT, consulting, business strategy and client-facing advisory work."},
     {category: "Academic", title: "Master of Science in Business Computer Science", meta: "IU International University | completed 27 Nov 2025 | overall result Good (2.3)", detail: "120 ECTS covering AI, big data, research methods, IT services, UI/UX, cloud concepts and business IT."},
-    {category: "Academic", title: "Bachelor of Science in Business Information Systems", meta: "University of Paderborn | completed 05 Feb 2025", detail: "Business, IT and information systems foundation for training, consulting and software-oriented work."},
+    {category: "Academic", title: "Bachelor of Science in Business Computer Science", meta: "University of Paderborn | completed 05 Feb 2025", detail: "Business, IT and information systems foundation for training, consulting and software-oriented work."},
     {category: "AI", title: "AI+ Developer™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Certified AI development profile for explaining and building AI-enabled systems."},
     {category: "AI", title: "AI+ Researcher™", meta: "AI CERTs | granted 13 Mar 2026", detail: "Research-facing AI certification supporting academic and applied AI project work."},
     {category: "AI", title: "AI+ Prompt Engineer Level 1™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Prompt design, AI interaction and practical workflow enablement."},
@@ -368,6 +368,18 @@ export const lifeMilestones = [
         copy: "Raised in the Weserbergland region near Hameln, with an early mix of curiosity, independence and interest in technology.",
     },
     {
+        year: "2019",
+        title: "Business Computer Science studies",
+        category: "Academic start",
+        copy: "Started Business Computer Science at the University of Paderborn and connected business, IT, systems thinking and digital transformation from the beginning.",
+    },
+    {
+        year: "2019",
+        title: "Freelance lecturer and consultant for IT and business",
+        category: "Freelance start",
+        copy: "Started self-employment in October 2019 as a freelance lecturer and consultant for IT and business topics.",
+    },
+    {
         year: "2011-2019",
         title: "Gymnasium at Internat Solling",
         category: "School",
@@ -378,18 +390,6 @@ export const lifeMilestones = [
         title: "Language stays in Australia, England and Spain",
         category: "International",
         copy: "International language and culture stays that strengthened communication skills and a broader view of learning environments.",
-    },
-    {
-        year: "2019",
-        title: "Abitur and Schoppe & Partner EU",
-        category: "Freelance start",
-        copy: "Completed Abitur and started self-employment in October 2019 as a freelance lecturer and consultant through Schoppe & Partner EU, with early business exposure in family-company contexts around real estate and construction.",
-    },
-    {
-        year: "2020",
-        title: "Business informatics studies and first IT startup",
-        category: "IT start",
-        copy: "Started Business Information Systems at the University of Paderborn and moved self-taught programming into first client-facing IT work.",
     },
     {
         year: "2021",
@@ -413,7 +413,7 @@ export const lifeMilestones = [
         year: "2026",
         title: "MBA, Australia and international training profile",
         category: "Current",
-        copy: "Completed an MBA in Digital Business, moved to Brisbane and aligned the work around international AI, IT and business-technology education.",
+        copy: "Completed an MBA in Digital Business, moved to Brisbane and aligned the work around international IT and business-technology education.",
     },
 ];
 
@@ -440,7 +440,7 @@ export const skillGroups = [
     },
     {
         group: "Business and management",
-        items: ["Digital transformation", "Business informatics", "Project management", "SCRUM", "IT service management", "Process optimisation", "Entrepreneurship", "Stakeholder communication"],
+        items: ["Digital transformation", "Business Computer Science", "Project management", "SCRUM", "IT service management", "Process optimisation", "Entrepreneurship", "Stakeholder communication"],
     },
     {
         group: "Vocational, law and talks",
@@ -507,7 +507,7 @@ export const blogPosts = [
         title: "Project management in the age of AI: less administration, more judgement",
         date: "2026-04-25",
         category: "Project management",
-        hubCategory: "Business Informatics",
+        hubCategory: "Business Computer Science",
         readTime: "7 min read",
         excerpt: "AI is not removing project management. It is changing the centre of gravity from manual coordination to sensemaking, governance and stakeholder trust.",
         body: [
@@ -597,7 +597,7 @@ export const blogPosts = [
         title: "From Industry 4.0 to 5.0: when humans move above the loop",
         date: "2026-04-26",
         category: "Industry 5.0",
-        hubCategory: "Business Informatics",
+        hubCategory: "Business Computer Science",
         readTime: "8 min read",
         excerpt: "Industry 4.0 taught organisations to connect machines, data and processes. Industry 5.0 asks a harder question: what should humans supervise, shape and be accountable for when AI starts coordinating work?",
         body: [
@@ -760,7 +760,7 @@ export const timeline = [
 ];
 
 export const faqs = [
-    {q: "What can I book you for?", a: "You can book me for AI, IT and business consulting, individual projects, larger enablement programmes, AI governance work, cybersecurity awareness, software development topics, business informatics, digital transformation and digital education training. Typical formats are consulting sprints, workshops, live online courses, keynotes, curriculum support and project implementation support."},
+    {q: "What can I book you for?", a: "You can book me for IT and business consulting, individual projects, larger enablement programmes, AI governance work, cybersecurity awareness, software development topics, business computer science, digital transformation and digital education training. Typical formats are consulting sprints, workshops, live online courses, keynotes, curriculum support and project implementation support."},
     {q: "Who do you usually work with?", a: "I work with training providers, universities, corporate learning teams, bootcamps, public-sector organisations, startups, SMEs and international education partners that need structured remote delivery in English or German."},
     {q: "Do you deliver full courses or only short workshops?", a: "Both. I can deliver 90-minute expert sessions, half-day workshops, full training days, consulting sprints, multi-day intensives, multi-week course delivery and larger project programmes for professional education providers or organisations."},
     {q: "Which AI topics are most requested?", a: "Common requests include AI literacy, GenAI for teams, prompt engineering, agentic workflows, responsible AI, AI governance, automation risks and practical AI adoption for business or education contexts."},

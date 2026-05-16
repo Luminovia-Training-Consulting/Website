@@ -15,24 +15,24 @@ const schemaServiceOffers = [
     ["Software Development & APIs", "Foundations and applied training around programming, API thinking, backend concepts and software project structure."],
     ["Cybersecurity & Pentesting Fundamentals", "Security awareness and technical foundations for web security, ethical hacking, SOC basics and defensive thinking."],
     ["Scrum, Agile & Digital Project Work", "Practical project work training for clearer collaboration, delivery structure and AI-aware coordination."],
-    ["Business Informatics & Digital Transformation", "Business IT training connecting processes, systems, data, IT management and organisational change."],
-    ["IT, AI & Business Consulting", "Consulting for AI use cases, IT processes, business technology decisions, learning architecture and digital enablement."],
+    ["Business Computer Science & Digital Transformation", "Business IT training connecting processes, systems, data, IT management and organisational change."],
+    ["IT & Business Consulting", "Consulting for AI use cases, IT processes, business technology decisions, learning architecture and digital enablement."],
     ["Curriculum Design & Blended Learning", "Support for learning paths, exercises, slides, labs, assessment logic and blended delivery formats."],
 ];
 
 const routeMeta = {
     en: {
         "/": {
-            title: "Carina Sophie Schoppe | AI, IT & Business Consultant",
-            description: "Book Carina Sophie Schoppe for AI, IT and business consulting, project support, corporate training, cybersecurity, software development and digital education from Brisbane.",
+            title: "Carina Sophie Schoppe | IT & Business Consultant",
+            description: "Book Carina Sophie Schoppe for IT and business consulting, project support, corporate training, cybersecurity, software development and digital education from Brisbane.",
         },
         "/training": {
-            title: "Offers | AI, IT and Business Training, Lectures & Consulting",
-            description: "Book AI, IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation.",
+            title: "Offers | IT and Business Training, Lectures & Consulting",
+            description: "Book IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation.",
         },
         "/skills": {
             title: "Skills & Consulting Topics | AI, IT, Cybersecurity and Business Technology",
-            description: "A practical skill map for AI literacy, agentic workflows, Python, SQL, cybersecurity, IT consulting, AI consulting, business informatics and digital education.",
+            description: "A practical skill map for AI literacy, agentic workflows, Python, SQL, cybersecurity, IT consulting, AI consulting, business computer science and digital education.",
         },
         "/projects": {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
@@ -43,23 +43,27 @@ const routeMeta = {
             description: "Selected projects by Carina Sophie Schoppe across automation, AI research workflows, consulting support, Kotlin plugins, mobile apps and learning-friendly technical implementation.",
         },
         "/portfolio": {
-            title: "Consulting Portfolio | IT, AI and Business Consulting",
+            title: "Consulting Portfolio | IT and Business Consulting",
             description: "Portfolio and proof for IT consulting, AI consulting, business consulting, digital education, technical project practice and professional training delivery.",
         },
+        "/clients": {
+            title: "Clients | Education Partners and Collaborations",
+            description: "Selected clients, education providers, universities, academies and collaboration partners supported through teaching, training and research work.",
+        },
         "/pricing": {
-            title: "Pricing | AI, IT and Business Training Rates",
+            title: "Pricing | IT and Business Training Rates",
             description: "Transparent orientation rates for education-sector teaching, corporate training, talks and workshops, plus consulting and project implementation pricing on request.",
         },
         "/my-way": {
             title: "My Way | Professional Timeline and Teaching Background",
-            description: "Professional timeline from business informatics, software practice and entrepreneurship to AI, IT and cybersecurity training from Brisbane.",
+            description: "Professional timeline from business computer science, software practice and entrepreneurship to AI, IT and cybersecurity training from Brisbane.",
         },
         "/blog": {
             title: "Blog | AI Governance, Digital Education and Business IT",
             description: "Articles on agentic AI, AI governance, digital education, project management, cybersecurity, automation risk and modern teaching.",
         },
         "/contact": {
-            title: "Contact & Booking | Book AI, IT and Business Training",
+            title: "Contact & Booking | Book IT and Business Training",
             description: "Contact Carina Sophie Schoppe for lectures, workshops, talks, course delivery and training consultations by email, phone or calendar booking.",
         },
         "/imprint": {
@@ -73,16 +77,16 @@ const routeMeta = {
     },
     de: {
         "/": {
-            title: "Carina Sophie Schoppe | AI-, IT- und Business-Consultant",
-            description: "Buchen Sie Carina Sophie Schoppe für AI-, IT- und Business-Consulting, Projektunterstützung, Corporate Training, Cybersecurity, Softwareentwicklung und digitale Bildung aus Brisbane.",
+            title: "Carina Sophie Schoppe | IT- und Business-Consultant",
+            description: "Buchen Sie Carina Sophie Schoppe für IT- und Business-Consulting, Projektunterstützung, Corporate Training, Cybersecurity, Softwareentwicklung und digitale Bildung aus Brisbane.",
         },
         "/training": {
-            title: "Angebote | AI-, IT- und Business-Training, Lehre & Consulting",
-            description: "Buchbare AI-, IT- und Business-Technology-Angebote: Live-Training, Vorlesungen, Workshops, Consulting-Sprints, Projektbegleitung, AI Governance, Cybersecurity und digitale Transformation.",
+            title: "Angebote | IT- und Business-Training, Lehre & Consulting",
+            description: "Buchbare IT- und Business-Technology-Angebote: Live-Training, Vorlesungen, Workshops, Consulting-Sprints, Projektbegleitung, AI Governance, Cybersecurity und digitale Transformation.",
         },
         "/skills": {
             title: "Kompetenzen & Consulting-Themen | AI, IT, Cybersecurity und Business-Technology",
-            description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, IT-Consulting, AI-Consulting, Wirtschaftsinformatik und digitale Bildung.",
+            description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, IT-Consulting, AI-Consulting, Business Computer Science und digitale Bildung.",
         },
         "/projects": {
             title: "Projektportfolio | AI Research, Automatisierung und Consulting",
@@ -93,23 +97,27 @@ const routeMeta = {
             description: "Ausgewählte Projekte von Carina Sophie Schoppe zu Automatisierung, AI-Research-Workflows, Consulting-Support, Kotlin-Plugins, mobilen Apps und technischer Umsetzung.",
         },
         "/portfolio": {
-            title: "Consulting-Portfolio | IT-, AI- und Business-Consulting",
+            title: "Consulting-Portfolio | IT- und Business-Consulting",
             description: "Portfolio und Nachweise für IT-Consulting, AI-Consulting, Business-Consulting, digitale Bildung, technische Projektpraxis und professionelle Trainingsdurchführung.",
         },
+        "/clients": {
+            title: "Kunden | Bildungspartner und Kooperationen",
+            description: "Ausgewählte Kunden, Bildungsanbieter, Hochschulen, Akademien und Kooperationspartner aus Lehre, Training und Forschungsarbeit.",
+        },
         "/pricing": {
-            title: "Preise | AI-, IT- und Business-Training",
+            title: "Preise | IT- und Business-Training",
             description: "Transparente Netto-Ab-Preise für geförderte Bildung, Corporate Training, Vorträge und Workshops sowie Consulting- und Projektpreise auf Anfrage.",
         },
         "/my-way": {
             title: "Werdegang | Professionelle Timeline und Lehrprofil",
-            description: "Professioneller Werdegang von Wirtschaftsinformatik, Softwarepraxis und Unternehmertum bis zu AI-, IT- und Cybersecurity-Training aus Brisbane.",
+            description: "Professioneller Werdegang von Business Computer Science, Softwarepraxis und Unternehmertum bis zu AI-, IT- und Cybersecurity-Training aus Brisbane.",
         },
         "/blog": {
             title: "Blog | AI Governance, digitale Bildung und Business-IT",
             description: "Beiträge zu Agentic AI, AI Governance, digitaler Bildung, Projektmanagement, Cybersecurity, Automatisierungsrisiken und moderner Lehre.",
         },
         "/contact": {
-            title: "Kontakt & Buchung | AI-, IT- und Business-Training buchen",
+            title: "Kontakt & Buchung | IT- und Business-Training buchen",
             description: "Kontaktieren Sie Carina Sophie Schoppe für Vorlesungen, Workshops, Vorträge, Kursdurchführung und Trainingsberatung per E-Mail, Telefon oder Kalenderbuchung.",
         },
         "/imprint": {
@@ -225,11 +233,11 @@ export default function Seo() {
         title: language === "de" ? "Blogbeitrag | Carina Sophie Schoppe" : "Blog Article | Carina Sophie Schoppe",
         description: language === "de" ? "Fachbeitrag von Carina Sophie Schoppe zu AI, Governance, digitaler Bildung, Business-IT oder moderner Arbeit." : "Long-form article by Carina Sophie Schoppe on AI, governance, digital education, business IT or modern work.",
     } : isTrainingTopicRoute ? {
-        title: language === "de" ? "Trainingsthema | AI-, IT- und Business-Bildung" : "Training Topic | AI, IT and Business Education",
+        title: language === "de" ? "Trainingsthema | IT- und Business-Bildung" : "Training Topic | IT and Business Education",
         description: language === "de" ? "Detaillierte Themenseite für AI, IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for AI, IT, software development, cybersecurity, project management, digital transformation or business education.",
     } : routeMeta[language][pathname] || {
         title: language === "de" ? "Seite nicht gefunden | Carina Sophie Schoppe" : "Page not found | Carina Sophie Schoppe",
-        description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Trainingsthemen oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, training topics or contact page to find the right information.",
+        description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Angebote oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, offers or contact page to find the right information.",
     };
     const {title, description} = currentMeta;
 

@@ -3,7 +3,7 @@ import {useLanguage} from "../i18n.jsx";
 import Badge from "./Badge.jsx";
 import Card from "./Card.jsx";
 
-export default function ClientProofSection({compact = false}) {
+export default function ClientProofSection({compact = false, includeProof = true}) {
     const {t} = useLanguage();
     const {formerClients, testimonialProof} = useSiteContent();
     const visibleClients = compact ? formerClients.slice(0, 8) : formerClients;
@@ -54,15 +54,17 @@ export default function ClientProofSection({compact = false}) {
                     ))}
                 </div>
 
-                <div className="mt-12 grid gap-5 lg:grid-cols-3">
-                    {testimonialProof.map((item) => (
-                        <Card key={item.title}>
-                            <div className="mb-5 text-4xl font-black text-sky-100/70">"</div>
-                            <h3 className="text-2xl font-black text-white">{item.title}</h3>
-                            <p className="mt-4 text-sm leading-7 text-zinc-300">{item.quote}</p>
-                        </Card>
-                    ))}
-                </div>
+                {includeProof && (
+                    <div className="mt-12 grid gap-5 lg:grid-cols-3">
+                        {testimonialProof.map((item) => (
+                            <Card key={item.title}>
+                                <div className="mb-5 text-4xl font-black text-sky-100/70">"</div>
+                                <h3 className="text-2xl font-black text-white">{item.title}</h3>
+                                <p className="mt-4 text-sm leading-7 text-zinc-300">{item.quote}</p>
+                            </Card>
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );

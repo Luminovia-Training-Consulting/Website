@@ -13,7 +13,7 @@ export default function Footer() {
     const {language, t} = useLanguage();
     const labels = language === "de"
         ? {
-            summary: "AI-, IT- und Business-Dozentin und Consultant mit Standort Brisbane, Australien. Remote-Consulting, Projektunterstützung und Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
+            summary: "IT- und Business-Dozentin und Consultant mit Standort Brisbane, Australien. Remote-Consulting, Projektunterstützung und Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
             location: "Standort: Brisbane, Australien",
             delivery: "Remote-Unterricht: Europa, Australien und die Welt",
             languages: "Sprachen: Deutsch / Englisch / Spanisch",
@@ -23,7 +23,7 @@ export default function Footer() {
             topics: "Angebotsthemen",
         }
         : {
-            summary: "AI, IT and business lecturer and consultant based in Brisbane, Australia. Remote consulting, project support and live training for education providers, companies, universities and international partners.",
+            summary: "IT and business lecturer and consultant based in Brisbane, Australia. Remote consulting, project support and live training for education providers, companies, universities and international partners.",
             location: "Location: Brisbane, Australia",
             delivery: "Remote delivery: Europe, Australia and the world",
             languages: "Languages: German / English / Spanish",

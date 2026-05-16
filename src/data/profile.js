@@ -2,7 +2,7 @@ const base = import.meta.env.BASE_URL || "/";
 
 export const PROFILE = {
     name: "Carina Sophie Schoppe",
-    role: "Freelance IT Lecturer - AI Trainer - Business Technology Speaker",
+    role: "Freelance IT Lecturer - Business Consultant - AI Trainer",
     location: "Brisbane, Australia",
     addressLines: ["43/9 Eduard Place", "4116 Calamvale", "Brisbane, Australia"],
     remote: "Remote delivery for Europe, Australia & the world",
@@ -31,7 +31,7 @@ export const navItems = [
     {to: "/training", key: "training"},
     {to: "/skills", key: "skills"},
     {to: "/projects", key: "software"},
-    {to: "/portfolio", key: "clients"},
+    {to: "/clients", key: "clients"},
     {to: "/pricing", key: "pricing"},
     {to: "/my-way", key: "myWay"},
     {to: "/blog", key: "blog"},

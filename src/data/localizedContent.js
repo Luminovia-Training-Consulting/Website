@@ -105,12 +105,12 @@ const deCredentialCopy = {
         detail: "Management-Kompetenz für IT, Consulting, Business-Strategie und kundennahe Beratung.",
     },
     "Master of Science in Business Computer Science": {
-        title: "Master of Science Wirtschaftsinformatik",
+        title: "Master of Science Business Computer Science",
         meta: "IU Internationale Hochschule | abgeschlossen am 27.11.2025 | Gesamtergebnis Gut (2,3)",
         detail: "120 ECTS mit AI, Big Data, Forschungsmethoden, IT-Services, UI/UX, Cloud-Konzepten und Business-IT.",
     },
-    "Bachelor of Science in Business Information Systems": {
-        title: "Bachelor of Science Wirtschaftsinformatik",
+    "Bachelor of Science in Business Computer Science": {
+        title: "Bachelor of Science Business Computer Science",
         meta: "Universität Paderborn | abgeschlossen am 05.02.2025",
         detail: "Grundlage aus Business, IT und Informationssystemen für Training, Consulting und softwareorientierte Arbeit.",
     },
@@ -207,7 +207,7 @@ const de = {
         {value: "10k+", label: "dokumentierte Unterrichtsstunden"},
         {value: "4.7/5", label: "durchschnittliche Teilnehmerbewertung"},
         {value: "DE / EN", label: "Training auf Deutsch und Englisch"},
-        {value: "B.Sc. | M.Sc. | MBA", label: "Wirtschaftsinformatik und Management"},
+        {value: "B.Sc. | M.Sc. | MBA", label: "Business Computer Science und Management"},
     ],
     coreOffers: [
         {
@@ -222,7 +222,7 @@ const de = {
         {
             ...enCoreOffers[1],
             kicker: "Freiberufliche Dozentin",
-            title: "IT-, AI- & Business-Kurse",
+            title: "IT- & Business-Kurse",
             outcome: "Strukturierte Lehre für Erwachsene und berufliche Weiterbildung.",
             copy: "Remote-first Kursdurchführung für Bildungsanbieter, Akademien, Hochschulen, Bootcamps und geförderte Weiterbildungen, die klare und praxisnahe Lehre brauchen.",
             deliverables: ["Python, SQL, Datenbanken, AI, Cloud und Cybersecurity", "Theorieblöcke kombiniert mit Hands-on-Übungen", "Lernchecks, Recaps und Transferaufgaben", "Vorbereitete Materialien, Labs und Lernpfade", "Deutsch oder Englisch für gemischte Level"],
@@ -250,7 +250,7 @@ const de = {
         {group: "AI & Zukunftskompetenzen", items: ["AI Literacy", "Prompt Engineering", "Generative AI Workflows", "Responsible AI", "AI Governance Basics", "AI für Office-Produktivitaet"]},
         {group: "Software & Daten", items: ["Java / Python / C# / Kotlin", "SQL und Datenbanken", "APIs und Automatisierung", "Data Analyst / Scientist / Engineer", "Big-Data-Konzepte", "UI/UX-Grundlagen"]},
         {group: "Cybersecurity", items: ["Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical-Hacking-Grundlagen", "Passwort- und Datensicherheit"]},
-        {group: "Business IT", items: ["Wirtschaftsinformatik", "IT Service Management", "Cloud-Konzepte", "Digitale Transformation", "SCRUM und agiles Arbeiten", "Prozessoptimierung"]},
+        {group: "Business IT", items: ["Business Computer Science", "IT Service Management", "Cloud-Konzepte", "Digitale Transformation", "SCRUM und agiles Arbeiten", "Prozessoptimierung"]},
         {group: "Berufliche Bildung & IHK", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute / Büromanagement", "Teilqualifikation", "IHK Prüfungsvorbereitung", "Erwachsenenbildung"]},
         {group: "Recht, Coaching & Vortraege", items: ["Digitales Recht und DSGVO", "AI Act und Cloud Act", "IT-Recht Awareness", "Coaching", "Keynote Speaker", "Gastvorträge"]},
     ],
@@ -273,7 +273,7 @@ const de = {
         },
         {title: "Scrum, Agile & digitale Projektarbeit", description: "Praktisches Projektarbeitstraining für klarere Zusammenarbeit, Delivery-Struktur und AI-bewusste Koordination.", audience: "Projektteams, Auszubildende, KMU, Bildungsanbieter und digitale Teams", format: "Workshop, Trainingstag oder angewandtes Projekt-Lab", duration: "Halbtags bis 2 Tage", outcomes: ["agile Begriffe korrekt nutzen", "Arbeit sichtbar strukturieren", "Kommunikation und Reviews verbessern"]},
         {title: "Digitales Recht, DSGVO & AI Act Awareness", description: "Awareness-Training zu Arbeitsrecht-, Wirtschaftsrecht-, Privatrecht- und IT-Recht-Schnittstellen, DSGVO/GDPR, AI Act, Cloud Act und digitalen Compliance-Fragen.", audience: "AI-Adoption-Teams, Bildungsanbieter, Projektteams, Öffentliche Organisationen und Nicht-Juristinnen", format: "Awareness-Training, Executive Briefing, Workshop oder compliance-nahes Lernmodul", duration: "90 Minuten bis 2 Tage", outcomes: ["rechtliche Risikofragen erkennen", "Governance mit Datenschutz verbinden", "wissen, wann juristische Prüfung nötig ist"]},
-        {title: "Wirtschaftsinformatik & digitale Transformation", description: "Business-IT-Training zu Prozessen, Systemen, Daten, IT-Management und organisatorischem Wandel.", audience: "Hochschulen, Akademien, Unternehmen und berufliche Weiterbildung", format: "Vorlesungsreihe, Moduldurchführung oder Corporate Workshop", duration: "1 Tag bis mehrwöchiges Modul", outcomes: ["IT- und Business-Entscheidungen verbinden", "digitale Prozesse analysieren", "Transformations-Trade-offs verstehen"]},
+        {title: "Business Computer Science & digitale Transformation", description: "Business-IT-Training zu Prozessen, Systemen, Daten, IT-Management und organisatorischem Wandel.", audience: "Hochschulen, Akademien, Unternehmen und berufliche Weiterbildung", format: "Vorlesungsreihe, Moduldurchführung oder Corporate Workshop", duration: "1 Tag bis mehrwöchiges Modul", outcomes: ["IT- und Business-Entscheidungen verbinden", "digitale Prozesse analysieren", "Transformations-Trade-offs verstehen"]},
         {
             title: "Curriculum Design & Blended Learning",
             description: "Unterstützung beim Aufbau von Lernpfaden, Übungen, Slides, Labs, Assessment-Logik und Blended-Learning-Formaten.",
@@ -282,18 +282,18 @@ const de = {
             duration: "1 Tag bis projektbasierte Begleitung",
             outcomes: ["strukturierte Kurspläne entwickeln", "Lernaktivierung verbessern", "Materialien an Outcomes ausrichten"]
         },
-        {title: "Coaching, Keynotes & Expert Talks", description: "Coaching, Keynotes, Gastvorträge und Expert Talks zu AI, IT, Cybersecurity, Wirtschaftsinformatik, digitaler Transformation, digitalem Recht und moderner Bildung.", audience: "Unternehmen, Hochschulen, Konferenzen, Leadership-Teams, Bildungsanbieter und Veranstalterinnen", format: "Keynote, Expert Talk, Gastvortrag, Coaching Session, Leadership Briefing oder Panel Input", duration: "30 Minuten bis Tagesformat", outcomes: ["komplexe Themen verständlich machen", "klare nächste Schritte geben", "Führungskräfte, Trainerinnen und Teams unterstützen"]},
+        {title: "Coaching, Keynotes & Expert Talks", description: "Coaching, Keynotes, Gastvorträge und Expert Talks zu AI, IT, Cybersecurity, Business Computer Science, digitaler Transformation, digitalem Recht und moderner Bildung.", audience: "Unternehmen, Hochschulen, Konferenzen, Leadership-Teams, Bildungsanbieter und Veranstalterinnen", format: "Keynote, Expert Talk, Gastvortrag, Coaching Session, Leadership Briefing oder Panel Input", duration: "30 Minuten bis Tagesformat", outcomes: ["komplexe Themen verständlich machen", "klare nächste Schritte geben", "Führungskräfte, Trainerinnen und Teams unterstützen"]},
     ],
     featuredTrainingTopics: [],
     trustSignals: [
-        {title: "Akademischer Hintergrund", copy: "B.Sc. und M.Sc. in Wirtschaftsinformatik sowie MBA in Digital Business."},
+        {title: "Akademischer Hintergrund", copy: "B.Sc. und M.Sc. in Business Computer Science sowie MBA in Digital Business."},
         {title: "Lehrerfahrung", copy: "10k+ dokumentierte Unterrichtsstunden mit durchschnittlicher Teilnehmerbewertung von 4.7/5."},
-        {title: "Expertisebereiche", copy: "AI, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, Daten, agile Arbeit und digitale Bildung."},
+        {title: "Expertisebereiche", copy: "AI, Cybersecurity, Softwareentwicklung, Business Computer Science, Daten, agile Arbeit und digitale Bildung."},
         {title: "Sprachen", copy: "Training auf Deutsch und Englisch, ergänzt durch Spanisch-Erfahrung."},
         {title: "Remote-Unterricht", copy: "Remote-Live-Training aus Brisbane für Europa, Australien und die Welt."},
         {title: "Sektor-Fit", copy: "Erfahrung mit Corporate Training, Hochschulen, Umschulung, Bootcamps und professionellen Akademien."},
     ],
-    capabilities: ["AI Literacy", "Prompt Engineering", "Generative AI Workflows", "Responsible AI", "AI Governance", "Python", "Java", "C#", "Kotlin", "SQL", "Datenbanken", "APIs & Automatisierung", "Fachinformatiker", "Bürokaufleute", "Data Analyst", "Data Scientist", "Data Engineer", "Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical Hacking", "DSGVO", "AI Act", "Cloud Act", "IT-Recht Awareness", "Cloud-Konzepte", "Wirtschaftsinformatik", "IT Service Management", "Digitale Transformation", "SCRUM", "Projektmanagement", "New Work", "Blended Learning", "Curriculum Design", "Erwachsenenbildung", "Coaching", "Keynote Speaker"],
+    capabilities: ["AI Literacy", "Prompt Engineering", "Generative AI Workflows", "Responsible AI", "AI Governance", "Python", "Java", "C#", "Kotlin", "SQL", "Datenbanken", "APIs & Automatisierung", "Fachinformatiker", "Bürokaufleute", "Data Analyst", "Data Scientist", "Data Engineer", "Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical Hacking", "DSGVO", "AI Act", "Cloud Act", "IT-Recht Awareness", "Cloud-Konzepte", "Business Computer Science", "IT Service Management", "Digitale Transformation", "SCRUM", "Projektmanagement", "New Work", "Blended Learning", "Curriculum Design", "Erwachsenenbildung", "Coaching", "Keynote Speaker"],
     teachingProof: [
         {title: "Zertifizierte IT-Dozentin", value: "DiBak Trainer Certification", copy: "Umfasst Didaktik, Pädagogik, Lernplattformen, Materialerstellung, Lernchecks, technisches Troubleshooting und Qualitätssicherung."},
         {title: "Teilnehmerbewertung", value: "4.7 / 5", copy: "Dokumentierte Durchschnittsbewertung nach 10k+ Unterrichtsstunden und starke Rückmeldung zur praktischen Vermittlung."},
@@ -329,14 +329,14 @@ const de = {
     ],
     lifeMilestones: [
         {year: "2000", title: "Aufgewachsen in Bodenwerder", category: "Herkunft", copy: "Aufgewachsen im Weserbergland nahe Hameln, mit früher Neugier für Technik, Lernen und eigenständiges Arbeiten."},
+        {year: "2019", title: "Business-Computer-Science-Studium", category: "Akademischer Start", copy: "Business Computer Science an der Universität Paderborn begonnen und Business, IT, Systemdenken und digitale Transformation von Anfang an verbunden."},
+        {year: "2019", title: "Freelance Dozentin und Consultant für IT und Wirtschaft", category: "Start Selbstständigkeit", copy: "Im Oktober 2019 selbstständig gestartet als Freelance Lecturer und Consultant für IT- und Wirtschaftsthemen."},
         {year: "2011-2019", title: "Gymnasium am Internat Solling", category: "Schule", copy: "Schulzeit in Holzminden mit breiter Allgemeinbildung, Selbstständigkeit, internationaler Orientierung und frühem IT-Interesse."},
         {year: "2013-2018", title: "Sprachaufenthalte in Australien, England und Spanien", category: "International", copy: "Mehrere Sprach- und Kulturaufenthalte haben Kommunikation, Perspektivwechsel und internationales Arbeiten geprägt."},
-        {year: "2019", title: "Abitur und Schoppe & Partner EU", category: "Start Selbstständigkeit", copy: "Abitur abgeschlossen und im Oktober 2019 mit Schoppe & Partner EU als Freelance Lecturer und Consultant selbstständig gestartet, ergänzt durch frühe Einblicke in Unternehmenskontexte rund um Immobilien, Bau und Verwaltung."},
-        {year: "2020", title: "Wirtschaftsinformatik und erste IT-Projekte", category: "IT-Start", copy: "B.Sc. Wirtschaftsinformatik an der Universität Paderborn begonnen und autodidaktisches Programmieren in erste kundennahe IT-Arbeit überführt."},
         {year: "2021", title: "Hotelverwaltung und Unternehmensstruktur", category: "Management", copy: "Mitwirkung an administrativen und strukturellen Aufgaben im Umfeld der Baron von Münchhausen Hotelverwaltungs-GmbH."},
         {year: "2023", title: "bytes Coding GmbH", category: "Software und Bildung", copy: "Softwareentwicklung und Bildungsarbeit über bytes Coding erweitert und technische Umsetzung stärker mit Trainingsbedarf verbunden."},
-        {year: "2025", title: "Bachelor und Master in Wirtschaftsinformatik", category: "Akademisch", copy: "Akademische Grundlage in Wirtschaftsinformatik, AI, Daten, HCI, IT-Management und digitaler Transformation abgeschlossen."},
-        {year: "2026", title: "MBA, Australien und internationales Trainingsprofil", category: "Aktuell", copy: "MBA Digital Business abgeschlossen, nach Brisbane gezogen und die Arbeit auf internationale AI-, IT- und Business-Technology-Bildung ausgerichtet."},
+        {year: "2025", title: "Bachelor und Master in Business Computer Science", category: "Akademisch", copy: "Akademische Grundlage in Business Computer Science, AI, Daten, HCI, IT-Management und digitaler Transformation abgeschlossen."},
+        {year: "2026", title: "MBA, Australien und internationales Trainingsprofil", category: "Aktuell", copy: "MBA Digital Business abgeschlossen, nach Brisbane gezogen und die Arbeit auf internationale IT- und Business-Technology-Bildung ausgerichtet."},
     ],
     skillGroups: [
         {group: "Didaktik und Lerndesign", items: ["Erwachsenenbildung", "Curriculum Design", "Blended Learning", "Prüfungsvorbereitung", "Lernaktivierung", "Workshop-Facilitation", "Materialdesign", "Remote-Unterricht"]},
@@ -344,7 +344,7 @@ const de = {
         {group: "Softwareentwicklung", items: ["Python", "Java", "Kotlin", "C#", "Rust", "Dart", "Flutter", "Android", "APIs", "Microservices", "Spring", "React-Grundlagen"]},
         {group: "Daten und Systeme", items: ["SQL", "MySQL", "MongoDB", "Redis", "Datenmodellierung", "Data Pipelines", "Docker", "Kubernetes", "Ubuntu", "Cloud-Konzepte"]},
         {group: "Cybersecurity", items: ["Security Awareness", "Ethical-Hacking-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Web Security", "SOC-Grundlagen", "Kali Linux", "Passwortsicherheit", "Risikokommunikation"]},
-        {group: "Business und Management", items: ["Digitale Transformation", "Wirtschaftsinformatik", "Projektmanagement", "SCRUM", "IT Service Management", "Prozessoptimierung", "Entrepreneurship", "Stakeholder-Kommunikation"]},
+        {group: "Business und Management", items: ["Digitale Transformation", "Business Computer Science", "Projektmanagement", "SCRUM", "IT Service Management", "Prozessoptimierung", "Entrepreneurship", "Stakeholder-Kommunikation"]},
         {group: "Berufliche Bildung, Recht und Vortraege", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute", "DSGVO", "AI Act", "Cloud Act", "IT-Recht Awareness", "Coaching", "Keynote Speaker", "Gastvorträge"]},
         {group: "Kreativ- und Webtools", items: ["WordPress", "Elementor", "Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Audition", "UI/UX-Grundlagen"]},
         {group: "Sprachen und Kommunikation", items: ["Deutsch", "Englisch", "Spanisch-Grundlagen", "Technische Erklärung", "Akademisches Schreiben", "Business-Kommunikation", "Präsentation", "Public Speaking"]},
@@ -484,7 +484,7 @@ const de = {
     softwareProjects: deSoftwareProjects,
     timeline: deTimeline,
     faqs: [
-        {q: "Wofür kann man dich buchen?", a: "Buchbar bin ich für AI-, IT- und Business-Consulting, Einzelprojekte, größere Enablement-Programme, AI Governance, Cybersecurity Awareness, Softwareentwicklungsthemen, Wirtschaftsinformatik, digitale Transformation und Digital-Education-Trainings. Typische Formate sind Consulting-Sprints, Workshops, Live-Online-Kurse, Keynotes, Curriculum Support und Projektunterstützung."},
+        {q: "Wofür kann man dich buchen?", a: "Buchbar bin ich für IT- und Business-Consulting, Einzelprojekte, größere Enablement-Programme, AI Governance, Cybersecurity Awareness, Softwareentwicklungsthemen, Business Computer Science, digitale Transformation und Digital-Education-Trainings. Typische Formate sind Consulting-Sprints, Workshops, Live-Online-Kurse, Keynotes, Curriculum Support und Projektunterstützung."},
         {q: "Mit welchen Kundengruppen arbeitest du?", a: "Ich arbeite mit Bildungsanbietern, Hochschulen, Corporate-Learning-Teams, Bootcamps, Öffentlichen Organisationen, Startups, KMU und internationalen Bildungspartnern, die strukturierte Remote-Durchführung auf Deutsch oder Englisch brauchen."},
         {q: "Machst du ganze Kurse oder nur kurze Workshops?", a: "Beides. Möglich sind 90-Minuten-Expert-Sessions, Halbtagesworkshops, Trainingstage, Consulting-Sprints, mehrtägige Intensivtrainings, mehrwöchige Kursdurchführung und größere Projektprogramme für professionelle Bildungsanbieter oder Organisationen."},
         {q: "Welche AI-Themen werden besonders häufig angefragt?", a: "Häufige Themen sind AI Literacy, GenAI für Teams, Prompt Engineering, Agentic Workflows, Responsible AI, AI Governance, Automatisierungsrisiken und praktische AI-Adoption für Business- oder Bildungskontexte."},

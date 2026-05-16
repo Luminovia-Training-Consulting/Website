@@ -332,7 +332,7 @@ const topicDetailsEn = [
     },
     {
         slug: "business-informatics-digital-transformation",
-        title: "Business Informatics & Digital Transformation",
+        title: "Business Computer Science & Digital Transformation",
         category: "Business IT",
         summary: "Training that connects IT, business processes, data, digital transformation, systems thinking and management decisions.",
         audience: "Universities, academies, vocational education providers, corporate teams and business IT learners.",
@@ -340,7 +340,7 @@ const topicDetailsEn = [
         duration: "1 day to multi-week module delivery.",
         promise: "Learners understand digital transformation as more than tool adoption: it is the interaction of processes, data, people, systems, strategy and governance.",
         modules: [
-            "Business informatics foundations: information systems, process thinking, enterprise architecture, data flows and IT value creation.",
+            "Business Computer Science foundations: information systems, process thinking, enterprise architecture, data flows and IT value creation.",
             "Digital transformation: strategy, operating models, customer processes, automation, platform logic and organisational change.",
             "Systems and services: IT service management, cloud concepts, integrations, vendor decisions and technology lifecycle.",
             "Data and decision making: KPIs, process mining ideas, data governance, analytics use cases and business reporting.",
@@ -361,7 +361,7 @@ const topicDetailsEn = [
             "Stakeholder presentation tasks",
         ],
         related: ["business-consulting-new-work", "project-management-scrum-agile-classic", "python-sql-data-skills"],
-        matches: ["Business Informatics & Digital Transformation", "Wirtschaftsinformatik & digitale Transformation", "Business informatics", "Business IT", "Wirtschaftsinformatik", "Digital transformation", "Digitale Transformation", "IT service management", "IT Service Management", "Cloud concepts", "Cloud-Konzepte", "Cloud"],
+        matches: ["Business Computer Science & Digital Transformation", "Business Computer Science & digitale Transformation", "Business Computer Science", "Business IT", "Business Computer Science", "Digital transformation", "Digitale Transformation", "IT service management", "IT Service Management", "Cloud concepts", "Cloud-Konzepte", "Cloud"],
     },
     {
         slug: "cloud-devops-systems-foundations",
@@ -533,7 +533,7 @@ const topicDetailsEn = [
         slug: "coaching-keynotes-expert-talks",
         title: "Coaching, Keynotes & Expert Talks",
         category: "Talks and Advisory",
-        summary: "Bookable coaching, keynote speaking, guest lectures and expert talks across AI, IT, cybersecurity, software development, business informatics, digital transformation, digital law awareness and modern education.",
+        summary: "Bookable coaching, keynote speaking, guest lectures and expert talks across AI, IT, cybersecurity, software development, business computer science, digital transformation, digital law awareness and modern education.",
         audience: "Companies, universities, conferences, academies, education providers, leadership teams, project teams and event organisers looking for clear, credible and engaging technology input.",
         format: "Keynote, expert talk, guest lecture, leadership briefing, coaching session, panel input, workshop opening or custom advisory format.",
         duration: "30-minute impulse to full-day format, with custom preparation for audience, industry and learning goal.",
@@ -541,7 +541,7 @@ const topicDetailsEn = [
         modules: [
             "AI and GenAI keynotes: AI literacy, agentic AI, human oversight, AI governance, practical adoption and the future of digital work.",
             "IT and cybersecurity talks: secure behaviour, ethical hacking foundations, digital resilience, risk communication and practical security awareness.",
-            "Software, data and business informatics: how technical systems, data, processes and business value connect in modern organisations.",
+            "Software, data and business computer science: how technical systems, data, processes and business value connect in modern organisations.",
             "Digital education and learning design: adult education, blended learning, AI-supported teaching, learner activation and curriculum strategy.",
             "Digital law awareness: GDPR/DSGVO, AI Act, Cloud Act, IT law interfaces and responsible decision-making for non-lawyer audiences.",
             "Coaching and advisory formats: topic sparring, trainer enablement, project framing, stakeholder preparation and executive orientation.",
@@ -690,7 +690,7 @@ const deOverrides = {
     },
     "coaching-keynotes-expert-talks": {
         title: "Coaching, Keynotes & Expert Talks",
-        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Expert Talks zu AI, IT, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, digitaler Transformation, digitalem Recht und moderner Bildung.",
+        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Expert Talks zu AI, IT, Cybersecurity, Softwareentwicklung, Business Computer Science, digitaler Transformation, digitalem Recht und moderner Bildung.",
         audience: "Unternehmen, Hochschulen, Konferenzen, Akademien, Bildungsanbieter, Leadership-Teams, Projektteams und Veranstalterinnen.",
         format: "Keynote, Expert Talk, Gastvortrag, Leadership Briefing, Coaching Session, Panel Input oder individuelles Advisory-Format.",
         promise: "Komplexe Themen werden klar, greifbar und handlungsorientiert: Was ist relevant, wo liegen Risiken und welche nächsten Schritte sind sinnvoll?",

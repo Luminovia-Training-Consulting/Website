@@ -34,7 +34,7 @@ const enHomeContent = {
         },
     ],
     faqs: [
-        {q: "What can I book you for?", a: "You can book me for AI, IT and business consulting, individual projects, larger enablement programmes, AI governance work, cybersecurity awareness, software development topics, business informatics, digital transformation and digital education training. Typical formats are consulting sprints, workshops, live online courses, keynotes, curriculum support and project implementation support."},
+        {q: "What can I book you for?", a: "You can book me for IT and business consulting, individual projects, larger enablement programmes, AI governance work, cybersecurity awareness, software development topics, business computer science, digital transformation and digital education training. Typical formats are consulting sprints, workshops, live online courses, keynotes, curriculum support and project implementation support."},
         {q: "Who do you usually work with?", a: "I work with training providers, universities, corporate learning teams, bootcamps, public-sector organisations, startups, SMEs and international education partners that need structured remote delivery in English or German."},
         {q: "Do you deliver full courses or only short workshops?", a: "Both. I can deliver 90-minute expert sessions, half-day workshops, full training days, consulting sprints, multi-day intensives, multi-week course delivery and larger project programmes for professional education providers or organisations."},
         {q: "Which AI topics are most requested?", a: "Common requests include AI literacy, GenAI for teams, prompt engineering, agentic workflows, responsible AI, AI governance, automation risks and practical AI adoption for business or education contexts."},
@@ -52,7 +52,7 @@ const deHomeContent = {
         {value: "10k+", label: "dokumentierte Unterrichtsstunden"},
         {value: "4.7/5", label: "durchschnittliche Teilnehmerbewertung"},
         {value: "DE / EN", label: "Training auf Deutsch und Englisch"},
-        {value: "B.Sc. | M.Sc. | MBA", label: "Wirtschaftsinformatik und Management"},
+        {value: "B.Sc. | M.Sc. | MBA", label: "Business Computer Science und Management"},
     ],
     serviceOfferings: [
         {title: "AI & GenAI Training", description: "Praxisnahes Training zu generativer AI, Business Use Cases, Grenzen, Risiken und verantwortungsvoller Nutzung im Arbeitsalltag.", audience: "Unternehmen, Bildungsanbieter, Hochschulen und öffentliche Teams", format: "Remote-Live-Workshop, Trainingstag oder mehrtägiger Kurs", duration: "90 Minuten bis 3 Tage", outcomes: ["GenAI-Fähigkeiten und Grenzen verstehen", "realistische Use Cases erkennen", "Qualitäts- und Risikochecks anwenden"]},
@@ -60,7 +60,7 @@ const deHomeContent = {
         {title: "Prompt Engineering & Agentic Workflows", description: "Strukturiertes Prompting, Workflow-Zerlegung und betreute agentische Arbeitsmuster für reale Business-Prozesse.", audience: "Knowledge Worker, Projektteams, AI Champions und Transformationsteams", format: "Hands-on-Workshop mit Workflow-Übungen", duration: "1 bis 3 Tage", outcomes: ["wiederholbare Prompts entwerfen", "agentenfähige Aufgaben strukturieren", "menschliche Review-Punkte definieren"]},
     ],
     faqs: [
-        {q: "Wofür kann man dich buchen?", a: "Buchbar bin ich für AI-, IT- und Business-Consulting, Einzelprojekte, größere Enablement-Programme, AI Governance, Cybersecurity Awareness, Softwareentwicklungsthemen, Wirtschaftsinformatik, digitale Transformation und Digital-Education-Trainings. Typische Formate sind Consulting-Sprints, Workshops, Live-Online-Kurse, Keynotes, Curriculum Support und Projektunterstützung."},
+        {q: "Wofür kann man dich buchen?", a: "Buchbar bin ich für IT- und Business-Consulting, Einzelprojekte, größere Enablement-Programme, AI Governance, Cybersecurity Awareness, Softwareentwicklungsthemen, Business Computer Science, digitale Transformation und Digital-Education-Trainings. Typische Formate sind Consulting-Sprints, Workshops, Live-Online-Kurse, Keynotes, Curriculum Support und Projektunterstützung."},
         {q: "Mit welchen Kundengruppen arbeitest du?", a: "Ich arbeite mit Bildungsanbietern, Hochschulen, Corporate-Learning-Teams, Bootcamps, öffentlichen Organisationen, Startups, KMU und internationalen Bildungspartnern, die strukturierte Remote-Durchführung auf Deutsch oder Englisch brauchen."},
         {q: "Machst du ganze Kurse oder nur kurze Workshops?", a: "Beides. Möglich sind 90-Minuten-Expert-Sessions, Halbtagesworkshops, Trainingstage, Consulting-Sprints, mehrtägige Intensivtrainings, mehrwöchige Kursdurchführung und größere Projektprogramme für professionelle Bildungsanbieter oder Organisationen."},
         {q: "Welche AI-Themen werden besonders häufig angefragt?", a: "Häufige Themen sind AI Literacy, GenAI für Teams, Prompt Engineering, Agentic Workflows, Responsible AI, AI Governance, Automatisierungsrisiken und praktische AI-Adoption für Business- oder Bildungskontexte."},

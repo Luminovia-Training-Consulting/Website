@@ -4,7 +4,6 @@ import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
-import ClientProofSection from "../components/ClientProofSection.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
 
 export default function PortfolioPage() {
@@ -13,14 +12,14 @@ export default function PortfolioPage() {
     const copy = language === "de"
         ? {
             badge: "Referenzprojekte",
-            title: "Projektpraxis hinter AI-, IT- und Business-Trainings.",
+            title: "Projektpraxis hinter IT- und Business-Trainings.",
             intro: "Diese Auswahl zeigt Arbeitsbeispiele aus Software, AI, Research, digitalen Lernformaten und Bildungspartner-Kontexten. Sie macht sichtbar, dass technische Inhalte nicht nur theoretisch vermittelt werden, sondern aus eigener Praxis, Umsetzungserfahrung und didaktischer Übersetzung entstehen.",
             reference: "Referenz ansehen ->",
             jumpLabel: "Auf dieser Seite",
-            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Bereiche"], ["#publications", "Publikationen"], ["#projects", "Projekte"], ["#clients", "Nachweise"]],
+            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Bereiche"], ["#publications", "Publikationen"], ["#projects", "Projekte"]],
             consulting: {
                 eyebrow: "Consulting-Portfolio",
-                title: "IT-, AI- und Business-Consulting für Organisationen, die digitale Kompetenz wirklich nutzbar machen wollen.",
+                title: "IT- und Business-Consulting für Organisationen, die digitale Kompetenz wirklich nutzbar machen wollen.",
                 copy: "Neben Training und Lehre unterstütze ich Bildungsanbieter, Unternehmen und Institutionen bei der Einordnung, Planung und Umsetzung digitaler Vorhaben. Der Schwerpunkt liegt auf realistischen AI-Use-Cases, IT- und Prozessverständnis, verantwortungsvoller Tool-Nutzung, Lernarchitektur, Automatisierung und Business-Technology-Entscheidungen.",
                 signals: ["AI-Strategie und Enablement", "IT- und Prozessberatung", "Business-Technology-Workshops", "Curriculum- und Lernpfad-Design"],
             },
@@ -74,14 +73,14 @@ export default function PortfolioPage() {
         }
         : {
             badge: "Selected proof projects",
-            title: "Project practice behind AI, IT and business training.",
+            title: "Project practice behind IT and business training.",
             intro: "This selection shows practical work across software, AI, research, digital learning formats and education partner contexts. It demonstrates that technical topics are taught from implementation experience, applied problem-solving and didactic translation, not from slide theory alone.",
             reference: "View reference ->",
             jumpLabel: "On this page",
-            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Areas"], ["#publications", "Publications"], ["#projects", "Projects"], ["#clients", "Proof"]],
+            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Areas"], ["#publications", "Publications"], ["#projects", "Projects"]],
             consulting: {
                 eyebrow: "Consulting portfolio",
-                title: "IT, AI and business consulting for organisations that need digital capability to become usable.",
+                title: "IT and business consulting for organisations that need digital capability to become usable.",
                 copy: "Alongside training and teaching, I support education providers, companies and institutions with digital planning, decision-making and implementation. The focus is realistic AI use cases, IT and process understanding, responsible tool adoption, learning architecture, automation and business-technology decisions.",
                 signals: ["AI strategy and enablement", "IT and process advisory", "Business technology workshops", "Curriculum and learning-path design"],
             },
@@ -273,9 +272,6 @@ export default function PortfolioPage() {
                         </div>
                     </div>
                 </section>
-            </div>
-            <div id="clients" className="scroll-mt-36">
-                <ClientProofSection/>
             </div>
         </main>
     );

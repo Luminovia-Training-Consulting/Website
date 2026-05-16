@@ -5,11 +5,12 @@ import App from "../App.jsx";
 
 /** @type {[string, RegExp][]} */
 const routes = [
-    ["/training", /Training, lectures & consulting for AI/i],
+    ["/training", /Training, lectures & consulting for IT/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/skills", /Skill map for AI/i],
     ["/projects", /Practical projects/i],
-    ["/portfolio", /Project practice behind AI/i],
+    ["/portfolio", /Project practice behind IT/i],
+    ["/clients", /Clients, education partners and collaborations/i],
     ["/my-way", /A professional path through IT/i],
     ["/about", /I make complex digital topics teachable/i],
     ["/corporate", /Training solutions for companies/i],

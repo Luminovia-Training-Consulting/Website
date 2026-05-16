@@ -22,7 +22,7 @@ const expectedOfferLinks = [
     ["klassisch", "/training/project-management-scrum-agile-classic"],
     ["New Work", "/training/business-consulting-new-work"],
     ["Digitale Transformation", "/training/business-informatics-digital-transformation"],
-    ["Wirtschaftsinformatik", "/training/business-informatics-digital-transformation"],
+    ["Business Computer Science", "/training/business-informatics-digital-transformation"],
     ["Pentest fundamentals", "/training/cybersecurity-pentesting-ethical-hacking"],
     ["Ethical-Hacking-Grundlagen", "/training/cybersecurity-pentesting-ethical-hacking"],
     ["Arbeitsrecht", "/training/digital-law-gdpr-ai-act-cloud-act"],

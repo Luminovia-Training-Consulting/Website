@@ -47,7 +47,7 @@ The site is not meant to be a generic portfolio. It is a conversion-focused busi
 
 The core positioning is:
 
-> AI, IT and Business Lecturer for modern digital education.
+> IT and Business Lecturer for modern digital education.
 
 The website presents Carina as bookable for:
 
@@ -59,7 +59,7 @@ The website presents Carina as bookable for:
 - Software development and APIs
 - Cybersecurity and pentesting fundamentals
 - Scrum, agile and digital project work
-- Business informatics and digital transformation
+- Business computer science and digital transformation
 - Curriculum design and blended learning
 - Keynotes, expert talks and guest lectures
 - Remote live training from Brisbane for Europe, Australia and international education partners
@@ -83,7 +83,8 @@ The website includes:
 - A dedicated offers page for training, lectures, workshops and consulting.
 - A skills and topics map.
 - A project portfolio page with selected GitHub and publication downloads.
-- A portfolio/client proof page with consulting, project and publication sections.
+- A separate clients page for customers, education partners and collaboration proof.
+- A consulting/project portfolio page with selected project and publication sections.
 - A pricing page with language-specific price display.
 - A personal timeline page.
 - A blog overview and individual blog post pages.
@@ -173,7 +174,8 @@ The application is a React single page app with these routes:
 | `/skills` | Practical skill map for AI, IT, cybersecurity, consulting, data and business technology. |
 | `/projects` | Selected project work, GitHub projects and publication downloads. |
 | `/software` | Backwards-compatible alias for the project portfolio. |
-| `/portfolio` | Consulting portfolio, former clients, selected collaborations, publications and proof projects. |
+| `/portfolio` | Consulting portfolio, selected publications and proof projects. |
+| `/clients` | Clients, education partners and collaborations. |
 | `/pricing` | Orientation pricing in EUR or USD plus consulting/project pricing on request. |
 | `/my-way` | Personal and professional timeline. |
 | `/blog` | Blog overview with featured latest post and scrollable post list. |

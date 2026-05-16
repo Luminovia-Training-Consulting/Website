@@ -15,13 +15,13 @@ describe("App routing and language", () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT & Business Lecturer and Consultant/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /IT & Business Lecturer and Consultant/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
 
         await user.click(screen.getByRole("button", {name: /Switch language/i}));
 
-        expect(screen.getByRole("heading", {name: /AI-, IT- und Business-Dozentin & Consultant/i})).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /IT- und Business-Dozentin & Consultant/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
     });
@@ -31,8 +31,8 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Training, lectures & consulting for AI, IT and business technology/i})).toBeInTheDocument();
-        expect(screen.queryByRole("heading", {name: /Training, Lehre & Consulting für AI, IT und Business Technology/i})).not.toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training, lectures & consulting for IT and business technology/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Training, Lehre & Consulting für IT und Business Technology/i})).not.toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
@@ -43,7 +43,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Training, Lehre & Consulting für AI, IT und Business Technology/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training, Lehre & Consulting für IT und Business Technology/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
     });
 
@@ -55,7 +55,8 @@ describe("App routing and language", () => {
         ["/corporate", /Trainingslösungen für Unternehmen/i],
         ["/keynotes", /Keynotes und Expert Talks/i],
         ["/my-way", /professioneller Weg durch IT/i],
-        ["/portfolio", /Projektpraxis hinter AI-/i],
+        ["/portfolio", /Projektpraxis hinter IT-/i],
+        ["/clients", /Kunden, Bildungspartner und Kooperationen/i],
         ["/pricing", /Transparente Netto-Ab-Preise/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
     ])("renders %s with German page copy", async (route, heading) => {

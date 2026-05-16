@@ -36,6 +36,7 @@ const KeynotesPage = lazyWithRecovery(() => import("./pages/KeynotesPage.jsx"));
 const CorporatePage = lazyWithRecovery(() => import("./pages/CorporatePage.jsx"));
 const CredentialsPage = lazyWithRecovery(() => import("./pages/CredentialsPage.jsx"));
 const PortfolioPage = lazyWithRecovery(() => import("./pages/PortfolioPage.jsx"));
+const ClientsPage = lazyWithRecovery(() => import("./pages/ClientsPage.jsx"));
 const AboutPage = lazyWithRecovery(() => import("./pages/AboutPage.jsx"));
 const ContactPage = lazyWithRecovery(() => import("./pages/ContactPage.jsx"));
 const MyWayPage = lazyWithRecovery(() => import("./pages/MyWayPage.jsx"));
@@ -169,6 +170,7 @@ export default function App() {
                             <Route path="/corporate" element={routeElement(CorporatePage)}/>
                             <Route path="/credentials" element={routeElement(CredentialsPage)}/>
                             <Route path="/portfolio" element={routeElement(PortfolioPage)}/>
+                            <Route path="/clients" element={routeElement(ClientsPage)}/>
                             <Route path="/about" element={routeElement(AboutPage)}/>
                             <Route path="/contact" element={routeElement(ContactPage)}/>
                             <Route path="/my-way" element={routeElement(MyWayPage)}/>

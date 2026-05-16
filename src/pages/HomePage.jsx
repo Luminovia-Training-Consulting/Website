@@ -149,7 +149,7 @@ export default function HomePage() {
         ? {
             badge: "Consulting & Projekte",
             title: "Von einzelnen Beratungsprojekten bis zu größeren Digital- und AI-Programmen.",
-            copy: "Ich unterstütze Bildungsanbieter, Unternehmen und Institutionen nicht nur mit Trainings, sondern auch mit IT-, AI- und Business-Consulting, Konzeptarbeit, Workshops, Projektstruktur, AI-Use-Case-Design und Umsetzungsbegleitung. Kleine Einzelprojekte, Workshop-Sprints und größere Programmvorhaben sind möglich.",
+            copy: "Ich unterstütze Bildungsanbieter, Unternehmen und Institutionen nicht nur mit Trainings, sondern auch mit IT- und Business-Consulting, Konzeptarbeit, Workshops, Projektstruktur, AI-Use-Case-Design und Umsetzungsbegleitung. Kleine Einzelprojekte, Workshop-Sprints und größere Programmvorhaben sind möglich.",
             cards: [
                 ["Einzelprojekte", "Klare Fragestellung, kurzer Sprint, konkretes Ergebnis: etwa AI-Use-Case-Map, Prozessanalyse, Tool-Check, Workshop-Konzept oder Entscheidungsvorlage."],
                 ["Großprojekte", "Mehrteilige Vorhaben mit Trainingspfad, Consulting-Sprints, Stakeholder-Workshops, Roadmap, Materialien und fortlaufender Umsetzungsbegleitung."],
@@ -161,7 +161,7 @@ export default function HomePage() {
         : {
             badge: "Consulting & projects",
             title: "From individual advisory projects to larger digital and AI programmes.",
-            copy: "I support education providers, companies and institutions not only with training, but also with IT, AI and business consulting, concept work, workshops, project structure, AI use-case design and implementation support. Small individual projects, workshop sprints and larger programme work are possible.",
+            copy: "I support education providers, companies and institutions not only with training, but also with IT and business consulting, concept work, workshops, project structure, AI use-case design and implementation support. Small individual projects, workshop sprints and larger programme work are possible.",
             cards: [
                 ["Individual projects", "A clear question, short sprint and concrete result: for example an AI use-case map, process analysis, tool check, workshop concept or decision brief."],
                 ["Larger programmes", "Multi-part work with a training path, consulting sprints, stakeholder workshops, roadmap, materials and ongoing implementation support."],
