@@ -23,7 +23,7 @@ export default function MyWayPage() {
             skills: "Kompetenzen ansehen",
             request: "Training anfragen",
             education: "Bildung",
-            educationCopy: "Business Computer Science, Digital Business, AI, Forschung und professionelle Lehre.",
+            educationCopy: "Wirtschaftsinformatik, Digital Business, AI, Forschung und professionelle Lehre.",
             work: "Praxis",
             workCopy: "Softwareentwicklung, Training, Consulting, Unternehmertum und Forschungsassistenz.",
             now: "Heute",

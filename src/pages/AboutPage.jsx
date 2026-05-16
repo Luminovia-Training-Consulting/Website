@@ -30,7 +30,7 @@ const copy = {
     de: {
         badge: "Über Carina",
         title: "Ich mache komplexe digitale Themen lehrbar.",
-        intro: "Mein Schwerpunkt ist Lehre, Speaking und professionelle Weiterbildung. Ich verbinde Business Computer Science, AI, Cybersecurity, Softwareentwicklung und Didaktik, damit Lernende Konzepte üben, Risiken verstehen und digitale Fähigkeiten in echte Arbeit übertragen können.",
+        intro: "Mein Schwerpunkt ist Lehre, Speaking und professionelle Weiterbildung. Ich verbinde Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung und Didaktik, damit Lernende Konzepte üben, Risiken verstehen und digitale Fähigkeiten in echte Arbeit übertragen können.",
         follow: "Kunden buchen mich, wenn ein Thema klar strukturiert, verständlich erklärt, aktiv vermittelt und mit der Business-Realität verbunden werden muss.",
         linkedin: "LinkedIn ansehen",
         github: "GitHub ansehen",

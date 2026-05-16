@@ -361,7 +361,7 @@ const topicDetailsEn = [
             "Stakeholder presentation tasks",
         ],
         related: ["business-consulting-new-work", "project-management-scrum-agile-classic", "python-sql-data-skills"],
-        matches: ["Business Computer Science & Digital Transformation", "Business Computer Science & digitale Transformation", "Business Computer Science", "Business IT", "Business Computer Science", "Digital transformation", "Digitale Transformation", "IT service management", "IT Service Management", "Cloud concepts", "Cloud-Konzepte", "Cloud"],
+        matches: ["Business Computer Science & Digital Transformation", "Wirtschaftsinformatik & digitale Transformation", "Business Computer Science", "Wirtschaftsinformatik", "Business IT", "Digital transformation", "Digitale Transformation", "IT service management", "IT Service Management", "Cloud concepts", "Cloud-Konzepte", "Cloud"],
     },
     {
         slug: "cloud-devops-systems-foundations",
@@ -667,6 +667,13 @@ const deOverrides = {
         format: "Beratungsworkshop, Leadership Briefing, Teamtraining, Transformationssprint oder Enablement-Programm.",
         promise: "Technologie wirkt nur, wenn Rollen, Routinen, Kommunikation und Fähigkeiten zusammen gestaltet werden. Genau diese Verbindung steht im Mittelpunkt.",
     },
+    "business-informatics-digital-transformation": {
+        title: "Wirtschaftsinformatik & digitale Transformation",
+        summary: "Training, Lehre und Consulting zu Wirtschaftsinformatik, digitalen Prozessen, Systemdenken, Daten, IT-Management und organisatorischem Wandel.",
+        audience: "Hochschulen, Akademien, berufliche Weiterbildung, Bildungsanbieter, Corporate Teams und Business-IT-Lernende.",
+        format: "Vorlesungsreihe, Moduldurchführung, Corporate Workshop, Fallstudien-Lab oder Transformationstraining.",
+        promise: "Teilnehmende verstehen digitale Transformation als Zusammenspiel von Wirtschaft, IT, Prozessen, Daten, Menschen, Systemen, Strategie und Governance.",
+    },
     "cybersecurity-pentesting-ethical-hacking": {
         title: "Cybersecurity, Pentesting-Grundlagen & Ethical Hacking",
         summary: "Cybersecurity-Training von Awareness bis Technik: Web Security, Ethical Hacking, Pentesting-Grundlagen, SOC-Denken und sichere Arbeitsgewohnheiten.",
@@ -690,7 +697,7 @@ const deOverrides = {
     },
     "coaching-keynotes-expert-talks": {
         title: "Coaching, Keynotes & Expert Talks",
-        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Expert Talks zu IT, Cybersecurity, Softwareentwicklung, Business Computer Science, digitaler Transformation, digitalem Recht und moderner Bildung.",
+        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Expert Talks zu IT, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, digitaler Transformation, digitalem Recht und moderner Bildung.",
         audience: "Unternehmen, Hochschulen, Konferenzen, Akademien, Bildungsanbieter, Leadership-Teams, Projektteams und Veranstalterinnen.",
         format: "Keynote, Expert Talk, Gastvortrag, Leadership Briefing, Coaching Session, Panel Input oder individuelles Advisory-Format.",
         promise: "Komplexe Themen werden klar, greifbar und handlungsorientiert: Was ist relevant, wo liegen Risiken und welche nächsten Schritte sind sinnvoll?",

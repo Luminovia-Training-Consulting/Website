@@ -300,7 +300,7 @@ const dictionaries = {
             blogPreviewTitle: "Beiträge zu AI, Governance, digitaler Bildung und moderner Arbeit.",
             myWayPreview: "Professioneller Weg",
             myWayPreviewTitle: "Der professionelle Weg hinter der Trainingsarbeit.",
-            myWayPreviewCopy: "Die Timeline gibt Kontext zum Trainingsprofil: Business Computer Science, Softwarepraxis, Erwachsenenbildung, Unternehmertum, Brisbane und internationale Remote-Durchführung.",
+            myWayPreviewCopy: "Die Timeline gibt Kontext zum Trainingsprofil: Wirtschaftsinformatik, Softwarepraxis, Erwachsenenbildung, Unternehmertum, Brisbane und internationale Remote-Durchführung.",
             myWayHighlights: ["10k+ Unterrichtsstunden", "Business-IT und Cybersecurity", "Remote-Unterricht aus Brisbane"],
             faq: "FAQ",
             faqTitle: "Die wichtigsten Fragen vor einer Buchung.",

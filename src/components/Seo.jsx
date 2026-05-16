@@ -86,7 +86,7 @@ const routeMeta = {
         },
         "/skills": {
             title: "Kompetenzen & Consulting-Themen | IT, Cybersecurity und Business-Technology",
-            description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, IT-Consulting, AI-Consulting, Business Computer Science und digitale Bildung.",
+            description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, IT-Consulting, AI-Consulting, Wirtschaftsinformatik und digitale Bildung.",
         },
         "/projects": {
             title: "Projektportfolio | AI Research, Automatisierung und Consulting",
@@ -110,7 +110,7 @@ const routeMeta = {
         },
         "/my-way": {
             title: "Werdegang | Professionelle Timeline und Lehrprofil",
-            description: "Professioneller Werdegang von Business Computer Science, Softwarepraxis und Unternehmertum bis zu IT- und Cybersecurity-Training aus Brisbane.",
+            description: "Professioneller Werdegang von Wirtschaftsinformatik, Softwarepraxis und Unternehmertum bis zu IT- und Cybersecurity-Training aus Brisbane.",
         },
         "/blog": {
             title: "Blog | AI Governance, digitale Bildung und Business-IT",

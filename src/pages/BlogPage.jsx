@@ -104,7 +104,7 @@ export default function BlogPage() {
         {value: "Digital Education", label: language === "de" ? "Digitale Bildung" : "Digital Education"},
         {value: "Cybersecurity", label: "Cybersecurity"},
         {value: "Software Development", label: language === "de" ? "Softwareentwicklung" : "Software Development"},
-        {value: "Business Computer Science", label: language === "de" ? "Business Computer Science" : "Business Computer Science"},
+        {value: "Business Computer Science", label: language === "de" ? "Wirtschaftsinformatik" : "Business Computer Science"},
         {value: "Teaching & Learning", label: language === "de" ? "Lehre & Lernen" : "Teaching & Learning"},
         {value: "Career / Thought Leadership", label: language === "de" ? "Karriere / fachliche Positionierung" : "Career / Thought Leadership"},
     ];
