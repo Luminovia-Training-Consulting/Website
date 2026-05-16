@@ -232,7 +232,7 @@ const de = {
             ...enCoreOffers[2],
             kicker: "Talks & Vorträge",
             title: "Keynotes, Expert Talks & Gastvorträge",
-            outcome: "Klare moderne Vorträge zu AI, IT-Security und digitaler Transformation.",
+            outcome: "Klare moderne Vorträge zu IT-Security und digitaler Transformation.",
             copy: "Für Events, interne Lerntage, Leadership-Meetings und Bildungsformate, die komplexe Technologie verständlich und businessnah brauchen.",
             deliverables: ["AI im Business: Chancen, Grenzen und Risiken", "Responsible AI und Governance im Arbeitsalltag", "Cybersecurity Awareness für nicht-technische Teams", "Digitale Transformation und Future Skills", "Individuelle Talk-Konzeption"],
             bestFor: "Konferenzen, Business Events, Schulen, Hochschulen, interne Events",
@@ -282,7 +282,7 @@ const de = {
             duration: "1 Tag bis projektbasierte Begleitung",
             outcomes: ["strukturierte Kurspläne entwickeln", "Lernaktivierung verbessern", "Materialien an Outcomes ausrichten"]
         },
-        {title: "Coaching, Keynotes & Expert Talks", description: "Coaching, Keynotes, Gastvorträge und Expert Talks zu AI, IT, Cybersecurity, Business Computer Science, digitaler Transformation, digitalem Recht und moderner Bildung.", audience: "Unternehmen, Hochschulen, Konferenzen, Leadership-Teams, Bildungsanbieter und Veranstalterinnen", format: "Keynote, Expert Talk, Gastvortrag, Coaching Session, Leadership Briefing oder Panel Input", duration: "30 Minuten bis Tagesformat", outcomes: ["komplexe Themen verständlich machen", "klare nächste Schritte geben", "Führungskräfte, Trainerinnen und Teams unterstützen"]},
+        {title: "Coaching, Keynotes & Expert Talks", description: "Coaching, Keynotes, Gastvorträge und Expert Talks zu IT, Cybersecurity, Business Computer Science, digitaler Transformation, digitalem Recht und moderner Bildung.", audience: "Unternehmen, Hochschulen, Konferenzen, Leadership-Teams, Bildungsanbieter und Veranstalterinnen", format: "Keynote, Expert Talk, Gastvortrag, Coaching Session, Leadership Briefing oder Panel Input", duration: "30 Minuten bis Tagesformat", outcomes: ["komplexe Themen verständlich machen", "klare nächste Schritte geben", "Führungskräfte, Trainerinnen und Teams unterstützen"]},
     ],
     featuredTrainingTopics: [],
     trustSignals: [
@@ -301,7 +301,7 @@ const de = {
         {title: "Internationale Durchführung", value: "Remote-first", copy: "Sitz in Brisbane, Online-Trainings für Europa, Australien und die Welt auf Deutsch oder Englisch."},
     ],
     audienceCards: [
-        {title: "Bildungsanbieter", copy: "Zuverlässige Remote-Dozentin für strukturierte IT-, AI-, Cybersecurity- und Business-Technology-Kurse mit Erwachsenen.", bullets: ["mehrwöchige Kurse", "klare Materialstruktur", "Lernaktivierung", "Deutsch / Englisch"]},
+        {title: "Bildungsanbieter", copy: "Zuverlässige Remote-Dozentin für strukturierte IT-, Cybersecurity- und Business-Technology-Kurse mit Erwachsenen.", bullets: ["mehrwöchige Kurse", "klare Materialstruktur", "Lernaktivierung", "Deutsch / Englisch"]},
         {title: "Hochschulen", copy: "Gastvorträge und Future-Skills-Formate mit akademischer Glaubwürdigkeit und praktischen Beispielen.", bullets: ["Gastvorträge", "AI und Digitalisierung", "verständliche Erklärungen", "moderne Lernformate"]},
         {title: "Corporate-Learning-Teams", copy: "Praxisnahes Upskilling für Teams, die AI, Daten, Automatisierung oder Cybersecurity sicherer im Alltag einsetzen wollen.", bullets: ["Team-Workshops", "Hands-on-Workflows", "Risikobewusstsein", "Transfer"]},
         {title: "Öffentliche Organisationen", copy: "Klare digitale Kompetenzentwicklung für Teams mit Bedarf an Responsible AI, Security Awareness und Prozessverständnis.", bullets: ["Responsible AI", "Datenbewusstsein", "Governance", "zugänglich"]},

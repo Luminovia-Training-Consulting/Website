@@ -31,7 +31,7 @@ const routeMeta = {
             description: "Book IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation.",
         },
         "/skills": {
-            title: "Skills & Consulting Topics | AI, IT, Cybersecurity and Business Technology",
+            title: "Skills & Consulting Topics | IT, Cybersecurity and Business Technology",
             description: "A practical skill map for AI literacy, agentic workflows, Python, SQL, cybersecurity, IT consulting, AI consulting, business computer science and digital education.",
         },
         "/projects": {
@@ -56,7 +56,7 @@ const routeMeta = {
         },
         "/my-way": {
             title: "My Way | Professional Timeline and Teaching Background",
-            description: "Professional timeline from business computer science, software practice and entrepreneurship to AI, IT and cybersecurity training from Brisbane.",
+            description: "Professional timeline from business computer science, software practice and entrepreneurship to IT and cybersecurity training from Brisbane.",
         },
         "/blog": {
             title: "Blog | AI Governance, Digital Education and Business IT",
@@ -85,7 +85,7 @@ const routeMeta = {
             description: "Buchbare IT- und Business-Technology-Angebote: Live-Training, Vorlesungen, Workshops, Consulting-Sprints, Projektbegleitung, AI Governance, Cybersecurity und digitale Transformation.",
         },
         "/skills": {
-            title: "Kompetenzen & Consulting-Themen | AI, IT, Cybersecurity und Business-Technology",
+            title: "Kompetenzen & Consulting-Themen | IT, Cybersecurity und Business-Technology",
             description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, IT-Consulting, AI-Consulting, Business Computer Science und digitale Bildung.",
         },
         "/projects": {
@@ -110,7 +110,7 @@ const routeMeta = {
         },
         "/my-way": {
             title: "Werdegang | Professionelle Timeline und Lehrprofil",
-            description: "Professioneller Werdegang von Business Computer Science, Softwarepraxis und Unternehmertum bis zu AI-, IT- und Cybersecurity-Training aus Brisbane.",
+            description: "Professioneller Werdegang von Business Computer Science, Softwarepraxis und Unternehmertum bis zu IT- und Cybersecurity-Training aus Brisbane.",
         },
         "/blog": {
             title: "Blog | AI Governance, digitale Bildung und Business-IT",
@@ -234,7 +234,7 @@ export default function Seo() {
         description: language === "de" ? "Fachbeitrag von Carina Sophie Schoppe zu AI, Governance, digitaler Bildung, Business-IT oder moderner Arbeit." : "Long-form article by Carina Sophie Schoppe on AI, governance, digital education, business IT or modern work.",
     } : isTrainingTopicRoute ? {
         title: language === "de" ? "Trainingsthema | IT- und Business-Bildung" : "Training Topic | IT and Business Education",
-        description: language === "de" ? "Detaillierte Themenseite für AI, IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for AI, IT, software development, cybersecurity, project management, digital transformation or business education.",
+        description: language === "de" ? "Detaillierte Themenseite für IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for IT, software development, cybersecurity, project management, digital transformation or business education.",
     } : routeMeta[language][pathname] || {
         title: language === "de" ? "Seite nicht gefunden | Carina Sophie Schoppe" : "Page not found | Carina Sophie Schoppe",
         description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Angebote oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, offers or contact page to find the right information.",

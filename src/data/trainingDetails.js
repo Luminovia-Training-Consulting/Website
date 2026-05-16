@@ -533,7 +533,7 @@ const topicDetailsEn = [
         slug: "coaching-keynotes-expert-talks",
         title: "Coaching, Keynotes & Expert Talks",
         category: "Talks and Advisory",
-        summary: "Bookable coaching, keynote speaking, guest lectures and expert talks across AI, IT, cybersecurity, software development, business computer science, digital transformation, digital law awareness and modern education.",
+        summary: "Bookable coaching, keynote speaking, guest lectures and expert talks across IT, cybersecurity, software development, business computer science, digital transformation, digital law awareness and modern education.",
         audience: "Companies, universities, conferences, academies, education providers, leadership teams, project teams and event organisers looking for clear, credible and engaging technology input.",
         format: "Keynote, expert talk, guest lecture, leadership briefing, coaching session, panel input, workshop opening or custom advisory format.",
         duration: "30-minute impulse to full-day format, with custom preparation for audience, industry and learning goal.",
@@ -548,7 +548,7 @@ const topicDetailsEn = [
         ],
         outcomes: [
             "Give audiences a clear and memorable orientation around complex digital topics.",
-            "Translate AI, IT, cybersecurity and digital law questions into practical decisions.",
+            "Translate IT, cybersecurity and digital law questions into practical decisions.",
             "Support teams, trainers or leaders with coaching around real situations.",
             "Create event formats that feel modern, credible and useful rather than generic.",
             "Connect keynote inspiration with concrete next actions.",
@@ -606,7 +606,7 @@ const topicDetailsEn = [
         duration: "90 minutes to multi-session support.",
         promise: "Participants learn to explain complex topics clearly, write more structured content and present technical or business ideas with confidence.",
         modules: [
-            "Technical explanation: translating AI, IT, cybersecurity, software and data topics into language that different audiences can follow.",
+            "Technical explanation: translating IT, cybersecurity, software and data topics into language that different audiences can follow.",
             "Business communication: concise emails, stakeholder updates, decision notes, meeting summaries and audience-aware wording.",
             "Academic and professional writing: structure, argumentation, source discipline, clarity, revision and AI-supported writing boundaries.",
             "Presentation and public speaking: storylines, slide logic, speaking rhythm, handling questions and adapting to live or remote audiences.",
@@ -690,7 +690,7 @@ const deOverrides = {
     },
     "coaching-keynotes-expert-talks": {
         title: "Coaching, Keynotes & Expert Talks",
-        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Expert Talks zu AI, IT, Cybersecurity, Softwareentwicklung, Business Computer Science, digitaler Transformation, digitalem Recht und moderner Bildung.",
+        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Expert Talks zu IT, Cybersecurity, Softwareentwicklung, Business Computer Science, digitaler Transformation, digitalem Recht und moderner Bildung.",
         audience: "Unternehmen, Hochschulen, Konferenzen, Akademien, Bildungsanbieter, Leadership-Teams, Projektteams und Veranstalterinnen.",
         format: "Keynote, Expert Talk, Gastvortrag, Leadership Briefing, Coaching Session, Panel Input oder individuelles Advisory-Format.",
         promise: "Komplexe Themen werden klar, greifbar und handlungsorientiert: Was ist relevant, wo liegen Risiken und welche nächsten Schritte sind sinnvoll?",

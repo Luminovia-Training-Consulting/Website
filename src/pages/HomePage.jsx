@@ -16,7 +16,7 @@ function HeroVisual() {
         <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
             <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
                 <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl"/>
-                <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe for AI and IT lecturer profile" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="(min-width: 1024px) 520px, 0px"/>
+                <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe for IT lecturer profile" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="(min-width: 1024px) 520px, 0px"/>
                 <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>

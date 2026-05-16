@@ -24,7 +24,7 @@ const content = {
                 title: "Corporate training and non-funded education",
                 price: "from $120",
                 suffix: "per hour as planning average",
-                copy: "For companies, teams, universities, non-funded education providers and organisations booking practical AI, IT, cybersecurity or digital business training.",
+                copy: "For companies, teams, universities, non-funded education providers and organisations booking practical IT, cybersecurity or digital business training.",
                 details: ["Net starting price", "Average around $120 per hour", "Workshops, live training or course modules", "Custom materials can be quoted separately"],
             },
             {
@@ -74,7 +74,7 @@ const content = {
                 title: "Corporate-, Firmentraining und nicht geförderte Bildung",
                 price: "ab 75 EUR",
                 suffix: "pro 45-Minuten-Unterrichtseinheit",
-                copy: "Für Unternehmen, Teams, Hochschulen, nicht geförderte Bildungsanbieter und Organisationen, die praxisnahes AI-, IT-, Cybersecurity- oder Digital-Business-Training buchen.",
+                copy: "Für Unternehmen, Teams, Hochschulen, nicht geförderte Bildungsanbieter und Organisationen, die praxisnahes IT- und Cybersecurity- oder Digital-Business-Training buchen.",
                 details: ["Netto-Ab-Preis", "Standardpreis: 100 EUR pro Stunde", "Workshops, Live-Training oder Kursmodule", "Individuelle Materialien separat kalkulierbar"],
             },
             {

@@ -7,7 +7,7 @@ import App from "../App.jsx";
 const routes = [
     ["/training", /Training, lectures & consulting for IT/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
-    ["/skills", /Skill map for AI/i],
+    ["/skills", /Skill map for IT/i],
     ["/projects", /Practical projects/i],
     ["/portfolio", /Project practice behind IT/i],
     ["/clients", /Clients, education partners and collaborations/i],

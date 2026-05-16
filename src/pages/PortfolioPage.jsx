@@ -119,7 +119,7 @@ export default function PortfolioPage() {
             process: [
                 ["01", "Clarify context", "Audience, problem, system landscape, knowledge level and decision pressure are sorted out."],
                 ["02", "Structure the problem", "Use cases, risks, dependencies, learning needs and business goals become visible."],
-                ["03", "Design the answer", "We shape a roadmap, workshop, learning path, process change or AI/IT working model."],
+                ["03", "Design the answer", "We shape a roadmap, workshop, learning path, process change or IT working model."],
                 ["04", "Secure transfer", "Results are documented so teams, programme owners or decision-makers can continue working."],
             ],
             projectsTitle: "Practice and proof projects",

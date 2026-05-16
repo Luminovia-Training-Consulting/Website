@@ -53,7 +53,7 @@ export default function TrainingPage() {
         ? {
             badge: "Angebote",
             title: "Training, Lehre & Consulting für IT und Business Technology.",
-            intro: "Buchbare Remote-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Vorlesungen, Workshops, Consulting-Sprints und Projektbegleitung rund um AI, IT, Cybersecurity und digitale Business-Kompetenz.",
+            intro: "Buchbare Remote-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Vorlesungen, Workshops, Consulting-Sprints und Projektbegleitung rund um IT, Cybersecurity und digitale Business-Kompetenz.",
             topics: "Themen",
             areas: "Zentrale Lehrbereiche",
             custom: "Individuelles Thema anfragen",
@@ -78,7 +78,7 @@ export default function TrainingPage() {
         : {
             badge: "Offers",
             title: "Training, lectures & consulting for IT and business technology.",
-            intro: "Bookable remote offers for education providers, companies, universities and international teams: live training, lectures, workshops, consulting sprints and project support around AI, IT, cybersecurity and digital business capability.",
+            intro: "Bookable remote offers for education providers, companies, universities and international teams: live training, lectures, workshops, consulting sprints and project support around IT, cybersecurity and digital business capability.",
             topics: "Topics",
             areas: "Core teaching areas",
             custom: "Ask for custom topic",

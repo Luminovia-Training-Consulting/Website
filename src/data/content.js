@@ -41,7 +41,7 @@ export const coreOffers = [
     {
         kicker: "Talks & lectures",
         title: "Keynotes, Expert Talks & Guest Lectures",
-        outcome: "Clear, modern talks on AI, IT security and digital transformation.",
+        outcome: "Clear, modern talks on IT security and digital transformation.",
         copy: "For events, internal knowledge days, leadership meetings and education programmes that need a speaker who can make complex technology engaging and business-relevant.",
         deliverables: [
             "AI in business: opportunities, limits and risks",
@@ -180,7 +180,7 @@ export const serviceOfferings = [
     },
     {
         title: "Coaching, Keynotes & Expert Talks",
-        description: "Coaching, keynote speaking, guest lectures and expert talks across AI, IT, cybersecurity, business computer science, digital transformation, digital law and modern education.",
+        description: "Coaching, keynote speaking, guest lectures and expert talks across IT, cybersecurity, business computer science, digital transformation, digital law and modern education.",
         audience: "Companies, universities, conferences, leadership teams, education providers and event organisers",
         format: "Keynote, expert talk, guest lecture, coaching session, leadership briefing or panel input",
         duration: "30 minutes to full-day format",
@@ -202,7 +202,7 @@ export const capabilities = [
 ];
 
 export const audienceCards = [
-    {title: "Training providers", copy: "Reliable remote lecturer for structured IT, AI, cybersecurity and business technology courses with adult learners.", bullets: ["multi-week courses", "clear material structure", "learner activation", "German / English delivery"]},
+    {title: "Training providers", copy: "Reliable remote lecturer for structured IT, cybersecurity and business technology courses with adult learners.", bullets: ["multi-week courses", "clear material structure", "learner activation", "German / English delivery"]},
     {title: "Universities & higher education", copy: "Guest lectures, digital education formats and future-skills sessions that combine academic credibility with practical examples.", bullets: ["guest lectures", "AI and digitalisation", "student-friendly explanations", "modern learning design"]},
     {title: "Corporate L&D teams", copy: "Practical upskilling for teams that need to use AI, data, automation or cybersecurity more confidently at work.", bullets: ["team workshops", "hands-on workflows", "risk awareness", "transfer into daily work"]},
     {title: "Public sector organisations", copy: "Clear digital capability training for teams that need responsible AI use, security awareness and process understanding.", bullets: ["responsible AI", "data awareness", "clear governance", "accessible delivery"]},
@@ -407,7 +407,7 @@ export const lifeMilestones = [
         year: "2025",
         title: "Bachelor and Master in Business Computer Science",
         category: "Academic",
-        copy: "Completed the B.Sc. and M.Sc. foundation for business IT, AI, data, HCI, IT management and digital transformation topics.",
+        copy: "Completed the B.Sc. and M.Sc. foundation for business IT, data, HCI, IT management and digital transformation topics.",
     },
     {
         year: "2026",

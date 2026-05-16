@@ -27,7 +27,7 @@ export default function MyWayPage() {
             work: "Praxis",
             workCopy: "Softwareentwicklung, Training, Consulting, Unternehmertum und Forschungsassistenz.",
             now: "Heute",
-            nowCopy: "Sitz in Brisbane, remote AI- und IT-Trainings für Europa, Australien und die Welt.",
+            nowCopy: "Sitz in Brisbane, remote IT-Trainings für Europa, Australien und die Welt.",
             timeline: "Timeline",
             milestones: "Aktuelle Stationen zuerst."
         }
@@ -42,7 +42,7 @@ export default function MyWayPage() {
             work: "Practice",
             workCopy: "Software development, training, consulting, entrepreneurship and research assistance.",
             now: "Today",
-            nowCopy: "Based in Brisbane, delivering remote AI and IT training for Europe, Australia and the world.",
+            nowCopy: "Based in Brisbane, delivering remote IT training for Europe, Australia and the world.",
             timeline: "Timeline",
             milestones: "Current milestones first."
         };

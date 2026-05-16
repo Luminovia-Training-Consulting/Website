@@ -38,7 +38,7 @@ This website should answer the following questions within a few seconds:
 - What can she be booked for?
 - Which target groups does she work with?
 - Which training topics and services are available?
-- Why is she credible for AI, IT, cybersecurity and digital education work?
+- Why is she credible for IT, cybersecurity and digital education work?
 - How can a visitor contact her or book a call?
 
 The site is not meant to be a generic portfolio. It is a conversion-focused business website for booking Carina as a lecturer, trainer, consultant and speaker.
@@ -171,7 +171,7 @@ The application is a React single page app with these routes:
 | --- | --- |
 | `/` | Short conversion-focused homepage with positioning, core services, booking fit, process, FAQ and contact CTA. |
 | `/training` | Detailed offers page for training, lectures, workshops and consulting. |
-| `/skills` | Practical skill map for AI, IT, cybersecurity, consulting, data and business technology. |
+| `/skills` | Practical skill map for IT, cybersecurity, consulting, data and business technology. |
 | `/projects` | Selected project work, GitHub projects and publication downloads. |
 | `/software` | Backwards-compatible alias for the project portfolio. |
 | `/portfolio` | Consulting portfolio, selected publications and proof projects. |

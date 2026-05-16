@@ -23,7 +23,7 @@ export default function SkillsPage() {
     const copy = language === "de"
         ? {
             badge: "Kompetenzen & Themen",
-            title: "Eine praktische Kompetenzübersicht für AI, IT, Cybersecurity, Consulting und Business-Technology.",
+            title: "Eine praktische Kompetenzübersicht für IT, Cybersecurity, Consulting und Business-Technology.",
             formats: "Trainingsformate ansehen",
             credentials: "Nachweise ansehen",
             clusters: "Lehrcluster",
@@ -41,7 +41,7 @@ export default function SkillsPage() {
         }
         : {
             badge: "Skills & topics",
-            title: "A practical skill map for AI, IT, cybersecurity, consulting and business technology.",
+            title: "A practical skill map for IT, cybersecurity, consulting and business technology.",
             formats: "View training formats",
             credentials: "View credentials",
             clusters: "Teaching clusters",
