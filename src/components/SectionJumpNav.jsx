@@ -2,8 +2,8 @@ import {cn} from "./utils.js";
 
 export default function SectionJumpNav({items, label, fixed = false, className = ""}) {
     const variantClass = fixed
-        ? "fixed left-0 right-0 top-16 z-40 border-b border-t border-white/10 bg-[#070B16]/78 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 sm:py-4 lg:px-8"
-        : "sticky top-16 z-30 rounded-[1.65rem] border border-white/10 bg-[#070B16]/82 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-2xl";
+        ? "fixed left-0 right-0 top-16 z-40 border-b border-t border-white/10 bg-[#070B16]/78 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 lg:px-8"
+        : "sticky top-16 z-30 rounded-[1.65rem] border border-white/10 bg-[#070B16]/82 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-2xl";
 
     return (
         <nav className={cn(variantClass, className)} aria-label={label}>
@@ -11,7 +11,7 @@ export default function SectionJumpNav({items, label, fixed = false, className =
                 <span className="shrink-0 whitespace-nowrap border-white/10 text-xs font-black uppercase tracking-[0.16em] text-sky-100 lg:border-r lg:pr-9">
                     {label}
                 </span>
-                <div className="flex min-w-0 flex-1 snap-x gap-3 overflow-x-auto pb-1 pl-[5px] lg:gap-4 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
+                <div className="flex min-w-0 flex-1 snap-x items-center gap-3 overflow-x-auto py-1 pl-[5px] lg:gap-4 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
                     {items.map(([href, text]) => (
                         <a
                             key={href}
