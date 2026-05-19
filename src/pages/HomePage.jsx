@@ -174,7 +174,7 @@ export default function HomePage() {
     return (
         <main className="pb-28 sm:pb-24">
             <SectionJumpNav items={jumpNav} label={jumpNavLabel} fixed/>
-            <div className="h-[11.75rem] sm:h-[11.25rem]" aria-hidden="true"/>
+            <div className="h-[9.35rem] sm:h-[9.25rem]" aria-hidden="true"/>
 
             <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-10">
                 <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(56,189,248,.18),transparent_34%),linear-gradient(245deg,rgba(37,99,235,.17),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]"/>
