@@ -56,7 +56,23 @@ const routeMeta = {
         },
         "/my-way": {
             title: "My Way | Professional Timeline and Teaching Background",
-            description: "Professional timeline from business computer science, software practice and entrepreneurship to IT and cybersecurity training from Brisbane.",
+            description: "Professional timeline from business computer science, MBA without major, TAE40122, software practice and entrepreneurship to IT and cybersecurity training from Brisbane.",
+        },
+        "/about": {
+            title: "About | Carina Sophie Schoppe",
+            description: "Background and positioning for Carina Sophie Schoppe as an IT and business lecturer, trainer and consultant with academic, AI, cybersecurity and TAE40122 training proof.",
+        },
+        "/keynotes": {
+            title: "Keynotes & Expert Talks | Carina Sophie Schoppe",
+            description: "Book talks and expert sessions on AI, cybersecurity, digital transformation, business IT and modern digital education.",
+        },
+        "/corporate": {
+            title: "Corporate Training | IT and Digital Transformation",
+            description: "Corporate training solutions for AI literacy, cybersecurity, software, project work, data and digital transformation.",
+        },
+        "/credentials": {
+            title: "Credentials | Carina Sophie Schoppe",
+            description: "Credentials, teaching proof and professional background including MBA without major, TAE40122, AI certifications and 10k+ teaching hours.",
         },
         "/blog": {
             title: "Blog | AI Governance, Digital Education and Business IT",
@@ -110,7 +126,23 @@ const routeMeta = {
         },
         "/my-way": {
             title: "Werdegang | Professionelle Timeline und Lehrprofil",
-            description: "Professioneller Werdegang von Wirtschaftsinformatik, Softwarepraxis und Unternehmertum bis zu IT- und Cybersecurity-Training aus Brisbane.",
+            description: "Professioneller Werdegang von Wirtschaftsinformatik, MBA ohne Major, TAE40122, Softwarepraxis und Unternehmertum bis zu IT- und Cybersecurity-Training aus Brisbane.",
+        },
+        "/about": {
+            title: "Über Carina | Carina Sophie Schoppe",
+            description: "Hintergrund und Positionierung von Carina Sophie Schoppe als IT- und Business-Dozentin, Trainerin und Consultant mit akademischem, AI-, Cybersecurity- und TAE40122-Nachweis.",
+        },
+        "/keynotes": {
+            title: "Keynotes & Expert Talks | Carina Sophie Schoppe",
+            description: "Vorträge und Expert Sessions zu AI, Cybersecurity, digitaler Transformation, Business-IT und moderner digitaler Bildung.",
+        },
+        "/corporate": {
+            title: "Corporate Training | IT und digitale Transformation",
+            description: "Corporate-Training-Lösungen für AI Literacy, Cybersecurity, Software, Projektarbeit, Daten und digitale Transformation.",
+        },
+        "/credentials": {
+            title: "Nachweise | Carina Sophie Schoppe",
+            description: "Nachweise, Lehrprofil und professioneller Hintergrund mit MBA ohne Major, TAE40122, AI-Zertifikaten und 10k+ Unterrichtsstunden.",
         },
         "/blog": {
             title: "Blog | AI Governance, digitale Bildung und Business-IT",

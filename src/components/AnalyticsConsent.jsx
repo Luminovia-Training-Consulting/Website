@@ -51,7 +51,7 @@ export default function AnalyticsConsent() {
     }
 
     return (
-        <div className="fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-3xl rounded-3xl border border-white/15 bg-[#080D19]/95 p-4 shadow-2xl shadow-black/50 backdrop-blur-xl sm:bottom-5 sm:p-5">
+        <div className="analytics-consent fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-3xl rounded-3xl border border-white/15 bg-[#080D19]/95 p-4 shadow-2xl shadow-black/50 backdrop-blur-xl sm:bottom-5 sm:p-5">
             <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
                 <div>
                     <div className="text-sm font-black text-white">{t.analytics.title}</div>

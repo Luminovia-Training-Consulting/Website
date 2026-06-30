@@ -89,6 +89,11 @@ const deCredentialCopy = {
         meta: "10k+ Unterrichtsstunden | durchschnittliche Teilnehmerbewertung 4.7/5",
         detail: "Didaktik, Methoden, Lernplattformen, Materialerstellung, Lernchecks und technologiegestützte Lehre.",
     },
+    "Certificate IV in Training and Assessment TAE40122": {
+        title: "Certificate IV in Training and Assessment TAE40122",
+        meta: "RAM Training Services | abgeschlossen im Juni 2026",
+        detail: "Australische VET-Qualifikation für Planung, Durchführung und Bewertung kompetenzbasierter Trainings.",
+    },
     "SCHLAU NRW Educational Work": {
         title: "SCHLAU NRW Bildungsarbeit",
         meta: "Ehrenamtliche Bildungsarbeit | Dez. 2022 bis Nov. 2023",
@@ -101,8 +106,8 @@ const deCredentialCopy = {
     },
     "Master of Business Administration": {
         title: "Master of Business Administration",
-        meta: "IU Internationale Hochschule | abgeschlossen am 24.03.2026 | Gesamtergebnis Gut (2,2)",
-        detail: "Management-Kompetenz für IT, Consulting, Business-Strategie und kundennahe Beratung.",
+        meta: "IU Internationale Hochschule | abgeschlossen im April 2026 | MBA ohne Major | Gesamtergebnis Gut (2,2)",
+        detail: "Management-Kompetenz für IT, Consulting, Business-Strategie und kundennahe Beratung ohne ausgewiesenen Major.",
     },
     "Master of Science in Business Computer Science": {
         title: "Master of Science Wirtschaftsinformatik",
@@ -199,7 +204,7 @@ const deTimeline = [
     {year: "2022-2023", title: "Bildung und Moderation", copy: "Cyber-Lerngrundlagen aufgebaut und Bildungsworkshops sowie Moderation bei SCHLAU NRW unterstützt."},
     {year: "2023-2024", title: "Entrepreneurship und Lerndesign", copy: "Top Talent Programme und garage33 mit Design Thinking, Lean Startup, Pitching und agilen Arbeitsmethoden."},
     {year: "2025", title: "Akademisches Business-IT-Profil", copy: "B.Sc. und M.Sc. mit Fokus auf AI, Daten, HCI, IT-Management und Digitalisierung abgeschlossen."},
-    {year: "2026", title: "Internationale Dozentin und AI-Trainerin", copy: "MBA, AI-Zertifikate und remote-first Lehrprofil aus Brisbane für Europa, Australien und die Welt."},
+    {year: "2026", title: "Internationale Dozentin und AI-Trainerin", copy: "MBA ohne Major im April abgeschlossen, Certificate IV in Training and Assessment TAE40122 im Juni bei RAM Training Services abgeschlossen und remote-first Lehrprofil aus Brisbane aufgebaut."},
 ];
 
 const de = {
@@ -207,7 +212,7 @@ const de = {
         {value: "10k+", label: "dokumentierte Unterrichtsstunden"},
         {value: "4.7/5", label: "durchschnittliche Teilnehmerbewertung"},
         {value: "DE / EN", label: "Training auf Deutsch und Englisch"},
-        {value: "B.Sc. | M.Sc. | MBA", label: "Wirtschaftsinformatik und Management"},
+        {value: "B.Sc. | M.Sc. | MBA | TAE", label: "Wirtschaftsinformatik, Management und VET-Training"},
     ],
     coreOffers: [
         {
@@ -286,8 +291,9 @@ const de = {
     ],
     featuredTrainingTopics: [],
     trustSignals: [
-        {title: "Akademischer Hintergrund", copy: "B.Sc. und M.Sc. in Wirtschaftsinformatik sowie MBA in Digital Business."},
+        {title: "Akademischer Hintergrund", copy: "B.Sc. und M.Sc. in Wirtschaftsinformatik sowie MBA ohne Major, abgeschlossen im April 2026."},
         {title: "Lehrerfahrung", copy: "10k+ dokumentierte Unterrichtsstunden mit durchschnittlicher Teilnehmerbewertung von 4.7/5."},
+        {title: "Australische Trainingsqualifikation", copy: "Certificate IV in Training and Assessment TAE40122, abgeschlossen bei RAM Training Services im Juni 2026."},
         {title: "Expertisebereiche", copy: "AI, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, Daten, agile Arbeit und digitale Bildung."},
         {title: "Sprachen", copy: "Training auf Deutsch und Englisch, ergänzt durch Spanisch-Erfahrung."},
         {title: "Remote-Unterricht", copy: "Remote-Live-Training aus Brisbane für Europa, Australien und die Welt."},
@@ -296,6 +302,7 @@ const de = {
     capabilities: ["AI Literacy", "Prompt Engineering", "Generative AI Workflows", "Responsible AI", "AI Governance", "Python", "Java", "C#", "Kotlin", "SQL", "Datenbanken", "APIs & Automatisierung", "Fachinformatiker", "Bürokaufleute", "Data Analyst", "Data Scientist", "Data Engineer", "Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical Hacking", "DSGVO", "AI Act", "Cloud Act", "IT-Recht Awareness", "Cloud-Konzepte", "Wirtschaftsinformatik", "IT Service Management", "Digitale Transformation", "SCRUM", "Projektmanagement", "New Work", "Blended Learning", "Curriculum Design", "Erwachsenenbildung", "Coaching", "Keynote Speaker"],
     teachingProof: [
         {title: "Zertifizierte IT-Dozentin", value: "DiBak Trainer Certification", copy: "Umfasst Didaktik, Pädagogik, Lernplattformen, Materialerstellung, Lernchecks, technisches Troubleshooting und Qualitätssicherung."},
+        {title: "Australisches VET-Training", value: "TAE40122 Certificate IV", copy: "Certificate IV in Training and Assessment bei RAM Training Services im Juni 2026 abgeschlossen."},
         {title: "Teilnehmerbewertung", value: "4.7 / 5", copy: "Dokumentierte Durchschnittsbewertung nach 10k+ Unterrichtsstunden und starke Rückmeldung zur praktischen Vermittlung."},
         {title: "Stärke in Erwachsenenbildung", value: "Theorie + Praxis", copy: "Lernformate mit Beispielen, Übungen, Recaps, Aktivierung, Transferaufgaben und klaren Ergebnissen."},
         {title: "Internationale Durchführung", value: "Remote-first", copy: "Sitz in Brisbane, Online-Trainings für Europa, Australien und die Welt auf Deutsch oder Englisch."},
@@ -336,7 +343,7 @@ const de = {
         {year: "2021", title: "Hotelverwaltung und Unternehmensstruktur", category: "Management", copy: "Mitwirkung an administrativen und strukturellen Aufgaben im Umfeld der Baron von Münchhausen Hotelverwaltungs-GmbH."},
         {year: "2023", title: "bytes Coding GmbH", category: "Software und Bildung", copy: "Softwareentwicklung und Bildungsarbeit über bytes Coding erweitert und technische Umsetzung stärker mit Trainingsbedarf verbunden."},
         {year: "2025", title: "Bachelor und Master in Wirtschaftsinformatik", category: "Akademisch", copy: "Akademische Grundlage in Wirtschaftsinformatik, AI, Daten, HCI, IT-Management und digitaler Transformation abgeschlossen."},
-        {year: "2026", title: "MBA, Australien und internationales Trainingsprofil", category: "Aktuell", copy: "MBA Digital Business abgeschlossen, nach Brisbane gezogen und die Arbeit auf internationale IT- und Business-Technology-Bildung ausgerichtet."},
+        {year: "2026", title: "MBA, TAE40122 und internationales Trainingsprofil", category: "Aktuell", copy: "MBA ohne Major im April abgeschlossen, Certificate IV in Training and Assessment TAE40122 im Juni bei RAM Training Services abgeschlossen, nach Brisbane gezogen und die Arbeit auf internationale IT- und Business-Technology-Bildung ausgerichtet."},
     ],
     skillGroups: [
         {group: "Didaktik und Lerndesign", items: ["Erwachsenenbildung", "Curriculum Design", "Blended Learning", "Prüfungsvorbereitung", "Lernaktivierung", "Workshop-Facilitation", "Materialdesign", "Remote-Unterricht"]},

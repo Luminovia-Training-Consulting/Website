@@ -8,9 +8,21 @@ import Header from "./components/Header.jsx";
 import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import {isChunkLoadError, safeGetSessionItem, safeRemoveSessionItem, safeSetSessionItem} from "./utils/browser.js";
+import {isChunkLoadError, safeGetSessionItem, safeGetStorageItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
 
 const CHUNK_RECOVERY_KEY = "carina_chunk_recovery_v1";
+const THEME_KEY = "carina_color_scheme_v1";
+
+function getInitialTheme() {
+    const storedTheme = safeGetStorageItem(THEME_KEY);
+    if (storedTheme === "day" || storedTheme === "night") return storedTheme;
+
+    try {
+        return globalThis.matchMedia?.("(prefers-color-scheme: light)")?.matches ? "day" : "night";
+    } catch {
+        return "night";
+    }
+}
 
 function lazyWithRecovery(loader) {
     return lazy(async () => {
@@ -149,18 +161,27 @@ function routeElement(Component) {
 }
 
 export default function App() {
+    const [theme, setTheme] = useState(getInitialTheme);
+
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+        safeSetStorageItem(THEME_KEY, theme);
+    }, [theme]);
+
+    const toggleTheme = () => setTheme((current) => current === "day" ? "night" : "day");
+
     return (
         <LanguageProvider>
-            <BrowserRouter>
+            <BrowserRouter future={{v7_relativeSplatPath: true, v7_startTransition: true}}>
                 <Seo/>
                 <ScrollToHash/>
-                <div className="relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
+                <div data-theme={theme} className="theme-root relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
                     <div className="ambient-veil fixed inset-0 z-0"/>
                     <div className="ambient-wash fixed -inset-x-24 top-0 z-0 h-[68vh]"/>
                     <div className="ambient-ribbon fixed left-[-12vw] top-[14vh] z-0 h-32 w-[124vw] rotate-[-8deg] opacity-70"/>
                     <div className="ambient-ribbon fixed left-[-12vw] top-[72vh] z-0 h-28 w-[124vw] rotate-[7deg] opacity-45"/>
                     <DeferredAmbientIntelligence/>
-                    <Header/>
+                    <Header theme={theme} onToggleTheme={toggleTheme}/>
                     <div className="relative z-10">
                         <Routes>
                             <Route path="/" element={<AppErrorBoundary><HomePage/></AppErrorBoundary>}/>

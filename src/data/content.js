@@ -4,7 +4,7 @@ export const trustStats = [
     {value: "10k+", label: "documented teaching hours"},
     {value: "4.7/5", label: "average learner rating"},
     {value: "DE / EN", label: "German and English delivery"},
-    {value: "B.Sc. | M.Sc. | MBA", label: "business IT and management background"},
+    {value: "B.Sc. | M.Sc. | MBA | TAE", label: "business IT, management and VET training background"},
 ];
 
 export const coreOffers = [
@@ -214,14 +214,16 @@ export const audienceCards = [
 
 export const teachingProof = [
     {title: "Certified IT lecturer", value: "DiBak Trainer Certification", copy: "Covers didactics, pedagogy, learning platforms, material creation, learning checks, technical troubleshooting and quality assurance."},
+    {title: "Australian VET training", value: "TAE40122 Certificate IV", copy: "Completed Certificate IV in Training and Assessment with RAM Training Services in June 2026."},
     {title: "Learner rating", value: "4.7 / 5", copy: "Documented average rating after 10k+ teaching hours, showing strong learner satisfaction and practical delivery quality."},
     {title: "Adult education strength", value: "Theory + practice", copy: "Learning formats are built around examples, exercises, recaps, learner activation, transfer tasks and clear outcomes."},
     {title: "International delivery", value: "Remote-first", copy: "Based in Brisbane while delivering online training for European, Australian and global clients in German or English."},
 ];
 
 export const trustSignals = [
-    {title: "Academic background", copy: "B.Sc. and M.Sc. in Business Computer Science plus MBA in Digital Business."},
+    {title: "Academic background", copy: "B.Sc. and M.Sc. in Business Computer Science plus MBA without major, completed in April 2026."},
     {title: "Teaching experience", copy: "10k+ documented teaching hours with an average learner rating of 4.7/5."},
+    {title: "Australian training qualification", copy: "Certificate IV in Training and Assessment TAE40122, completed with RAM Training Services in June 2026."},
     {title: "Expertise areas", copy: "AI, cybersecurity, software development, business computer science, data, agile work and digital education."},
     {title: "Languages", copy: "Training delivery in German and English, with Spanish language experience."},
     {title: "Remote delivery", copy: "Remote live training from Brisbane for Europe, Australia and the world education partners."},
@@ -230,9 +232,10 @@ export const trustSignals = [
 
 export const credentials = [
     {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "10k+ teaching hours | average learner rating 4.7/5", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
+    {category: "Teaching", title: "Certificate IV in Training and Assessment TAE40122", meta: "RAM Training Services | completed Jun 2026", detail: "Australian vocational education and training qualification for planning, delivering and assessing competency-based learning."},
     {category: "Teaching", title: "SCHLAU NRW Educational Work", meta: "Volunteer educator | Dec 2022 to Nov 2023", detail: "Workshops, facilitation, reflection and professional youth education in diversity and anti-discrimination contexts."},
     {category: "Teaching", title: "Software Innovation Lab Work Reference", meta: "University of Paderborn | KMUeinfachSicher project | 2021", detail: "Content work around IT security, passwords, password managers, data handling and didactic preparation for SMEs."},
-    {category: "Academic", title: "Master of Business Administration", meta: "IU International University | completed 24 Mar 2026 | overall result Good (2.2)", detail: "Management credibility for IT, consulting, business strategy and client-facing advisory work."},
+    {category: "Academic", title: "Master of Business Administration", meta: "IU International University | completed Apr 2026 | MBA without major | overall result Good (2.2)", detail: "Management credibility for IT, consulting, business strategy and client-facing advisory work without a declared major."},
     {category: "Academic", title: "Master of Science in Business Computer Science", meta: "IU International University | completed 27 Nov 2025 | overall result Good (2.3)", detail: "120 ECTS covering AI, big data, research methods, IT services, UI/UX, cloud concepts and business IT."},
     {category: "Academic", title: "Bachelor of Science in Business Computer Science", meta: "University of Paderborn | completed 05 Feb 2025", detail: "Business, IT and information systems foundation for training, consulting and software-oriented work."},
     {category: "AI", title: "AI+ Developer™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Certified AI development profile for explaining and building AI-enabled systems."},
@@ -413,7 +416,7 @@ export const lifeMilestones = [
         year: "2026",
         title: "MBA, Australia and international training profile",
         category: "Current",
-        copy: "Completed an MBA in Digital Business, moved to Brisbane and aligned the work around international IT and business-technology education.",
+        copy: "Completed the MBA without major in April, completed Certificate IV in Training and Assessment TAE40122 with RAM Training Services in June, moved to Brisbane and aligned the work around international IT and business-technology education.",
     },
 ];
 
@@ -756,7 +759,7 @@ export const timeline = [
     {year: "2022-2023", title: "Education and facilitation", copy: "Built cyber learning foundations and contributed to SCHLAU NRW educational workshops and facilitation."},
     {year: "2023-2024", title: "Entrepreneurship and learning design", copy: "Top Talent Programme and garage33 with Design Thinking, Lean Startup, pitching and agile working methods."},
     {year: "2025", title: "Business IT academic profile", copy: "Completed B.Sc. and M.Sc. with AI, data, HCI, IT management and digitalisation focus areas."},
-    {year: "2026", title: "International lecturer and AI trainer", copy: "MBA, AI certifications and remote-first teaching profile based in Brisbane for Europe, Australia and the world."},
+    {year: "2026", title: "International lecturer and AI trainer", copy: "MBA without major completed in April, TAE40122 Certificate IV completed in June and remote-first teaching profile based in Brisbane for Europe, Australia and the world."},
 ];
 
 export const faqs = [

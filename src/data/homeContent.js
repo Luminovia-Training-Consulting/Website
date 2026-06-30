@@ -5,7 +5,7 @@ const enHomeContent = {
         {value: "10k+", label: "documented teaching hours"},
         {value: "4.7/5", label: "average learner rating"},
         {value: "DE / EN", label: "German and English delivery"},
-        {value: "B.Sc. | M.Sc. | MBA", label: "business IT and management background"},
+        {value: "B.Sc. | M.Sc. | MBA | TAE", label: "business IT, management and VET training background"},
     ],
     serviceOfferings: [
         {
@@ -52,7 +52,7 @@ const deHomeContent = {
         {value: "10k+", label: "dokumentierte Unterrichtsstunden"},
         {value: "4.7/5", label: "durchschnittliche Teilnehmerbewertung"},
         {value: "DE / EN", label: "Training auf Deutsch und Englisch"},
-        {value: "B.Sc. | M.Sc. | MBA", label: "Wirtschaftsinformatik und Management"},
+        {value: "B.Sc. | M.Sc. | MBA | TAE", label: "Wirtschaftsinformatik, Management und VET-Training"},
     ],
     serviceOfferings: [
         {title: "AI & GenAI Training", description: "Praxisnahes Training zu generativer AI, Business Use Cases, Grenzen, Risiken und verantwortungsvoller Nutzung im Arbeitsalltag.", audience: "Unternehmen, Bildungsanbieter, Hochschulen und öffentliche Teams", format: "Remote-Live-Workshop, Trainingstag oder mehrtägiger Kurs", duration: "90 Minuten bis 3 Tage", outcomes: ["GenAI-Fähigkeiten und Grenzen verstehen", "realistische Use Cases erkennen", "Qualitäts- und Risikochecks anwenden"]},

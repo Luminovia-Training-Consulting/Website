@@ -31,7 +31,28 @@ function LanguageToggle({language, toggleLanguage, t, className = ""}) {
     );
 }
 
-export default function Header() {
+function ThemeToggle({theme, onToggleTheme, language, className = ""}) {
+    const isDay = theme === "day";
+    const visibleLabel = language === "de" ? isDay ? "Tag" : "Nacht" : isDay ? "Day" : "Night";
+    const label = language === "de"
+        ? isDay ? "Farbschema auf Nacht wechseln" : "Farbschema auf Tag wechseln"
+        : isDay ? "Switch colour scheme to night" : "Switch colour scheme to day";
+
+    return (
+        <button
+            type="button"
+            onClick={onToggleTheme}
+            className={`theme-toggle inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.055] px-3 py-2 text-sm font-black text-zinc-200 transition hover:bg-white/[0.12] hover:text-white ${className}`}
+            aria-label={label}
+            aria-pressed={isDay}
+        >
+            <span className="theme-toggle-icon" data-mode={theme} aria-hidden="true"/>
+            <span>{visibleLabel}</span>
+        </button>
+    );
+}
+
+export default function Header({theme = "night", onToggleTheme = () => {}}) {
     const [open, setOpen] = useState(false);
     const {t, toggleLanguage, language} = useLanguage();
 
@@ -50,8 +71,11 @@ export default function Header() {
             <div className="sticky top-0 z-10 -mx-5 mb-8 flex items-center justify-between border-b border-white/10 bg-[#08090B]/92 px-5 py-4">
                 <span className="text-lg font-black text-white">{t.navigation}</span>
                 <div className="flex gap-2">
+                    <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language} className="px-4 text-white"/>
                     <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} className="px-4 text-white"/>
-                    <button onClick={() => setOpen(false)} className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-black text-white">{t.close}</button>
+                    <button onClick={() => setOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.08] text-sm font-black text-white" aria-label={t.close}>
+                        <span aria-hidden="true">X</span>
+                    </button>
                 </div>
             </div>
             <div className="grid gap-3 pb-8">
@@ -85,8 +109,9 @@ export default function Header() {
                     </nav>
 
                     <div className="hidden items-center gap-3 md:flex">
+                        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language}/>
                         <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t}/>
-                        <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white">{t.linkedin}</a>
+                        <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white 2xl:inline-flex">{t.linkedin}</a>
                         <Button to="/contact#contact-options">{t.bookTraining}</Button>
                     </div>
 
