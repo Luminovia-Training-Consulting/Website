@@ -31,7 +31,7 @@ export default function SoftwarePage() {
         <main className="pb-24 pt-32">
             <section className="px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
-                    <Badge>{copy.badge}</Badge>
+                    <Badge tone="blue">{copy.badge}</Badge>
                     <div className="mt-6 text-center">
                         <h1 className="mx-auto max-w-5xl text-5xl font-black tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
                             {copy.title}

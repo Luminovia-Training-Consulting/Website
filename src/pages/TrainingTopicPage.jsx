@@ -58,7 +58,7 @@ export default function TrainingTopicPage() {
         return (
             <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl text-center">
-                    <Badge>{copy.badge}</Badge>
+                    <Badge tone="orange">{copy.badge}</Badge>
                     <h1 className="mt-6 text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl">{copy.notFound}</h1>
                     <div className="mt-8 flex justify-center">
                         <Button to="/training">{copy.back}</Button>
@@ -81,7 +81,7 @@ export default function TrainingTopicPage() {
 
                 <section className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
                     <div>
-                        <Badge>{topic.category}</Badge>
+                        <Badge tone="rose">{topic.category}</Badge>
                         <h1 className="mt-5 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
                             {topic.title}
                         </h1>

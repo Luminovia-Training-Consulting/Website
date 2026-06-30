@@ -143,7 +143,7 @@ export default function BlogPage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
-                <Badge>Blog</Badge>
+                <Badge tone="rose">Blog</Badge>
                 <div className="mt-6 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
                     <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
                         {copy.title}
@@ -179,11 +179,11 @@ export default function BlogPage() {
                 {featuredPost && (
                     <section className="mt-12">
                         <div className="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-                            <Badge tone="cyan">{copy.featured}</Badge>
+                            <Badge tone="orange">{copy.featured}</Badge>
                             <Button to="/contact#contact-options" variant="secondary">{copy.suggest}</Button>
                         </div>
                         <Link to={`/blog/${featuredPost.slug}`} className="soft-link-card group flex min-h-[360px] flex-col p-6 sm:p-8">
-                            <Badge tone="cyan">{copy.featured}</Badge>
+                            <Badge tone="orange">{copy.featured}</Badge>
                             <div className="mt-6 flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.14em] text-slate-500">
                                 <span>{featuredPost.category}</span>
                                 <span>{featuredPost.date}</span>

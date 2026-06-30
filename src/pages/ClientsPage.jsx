@@ -19,7 +19,7 @@ export default function ClientsPage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl text-center">
-                <Badge>{copy.badge}</Badge>
+                <Badge tone="emerald">{copy.badge}</Badge>
                 <h1 className="mx-auto mt-6 max-w-5xl text-5xl font-black tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">{copy.title}</h1>
                 <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-slate-300">{copy.intro}</p>
             </div>

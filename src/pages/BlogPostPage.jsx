@@ -40,7 +40,7 @@ export default function BlogPostPage() {
                 </Link>
 
                 <header className="mt-8">
-                    <Badge>{post.category}</Badge>
+                    <Badge tone="rose">{post.category}</Badge>
                     <div className="mt-6 flex flex-wrap gap-3 text-xs font-black uppercase tracking-[0.14em] text-slate-400">
                         <span>{post.date}</span>
                         <span>{post.readTime}</span>

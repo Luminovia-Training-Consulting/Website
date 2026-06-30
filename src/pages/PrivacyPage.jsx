@@ -31,7 +31,7 @@ export default function PrivacyPage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-4xl">
-                <Badge>{isDe ? "Datenschutz" : "Data protection"}</Badge>
+                <Badge tone="emerald">{isDe ? "Datenschutz" : "Data protection"}</Badge>
                 <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{isDe ? "Datenschutzerklärung" : "Privacy Policy"}</h1>
                 <p className="mt-5 text-lg leading-8 text-slate-300">
                     {isDe ? "Diese Erklärung beschreibt, welche Daten bei der Nutzung dieser Website verarbeitet werden können." : "This policy explains what data may be processed when using this website and how analytics works."}

@@ -103,7 +103,7 @@ export default function TrainingPage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
-                <Badge>{copy.badge}</Badge>
+                <Badge tone="orange">{copy.badge}</Badge>
                 <div className="mt-6 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                     <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
                     <div>
@@ -136,7 +136,7 @@ export default function TrainingPage() {
                 <section id="services" className="mt-14 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
-                            <Badge tone="cyan">{copy.services}</Badge>
+                            <Badge tone="orange">{copy.services}</Badge>
                             <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">{copy.servicesTitle}</h2>
                         </div>
                         <p className="text-base leading-8 text-slate-300">{t.home.servicesCopy}</p>
@@ -149,7 +149,7 @@ export default function TrainingPage() {
                 <section id="details" className="mt-16 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
-                            <Badge tone="violet">{copy.detailPages}</Badge>
+                            <Badge tone="rose">{copy.detailPages}</Badge>
                             <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">{copy.detailPagesTitle}</h2>
                         </div>
                         <p className="text-base leading-8 text-slate-300">{copy.detailPagesCopy}</p>
@@ -168,7 +168,7 @@ export default function TrainingPage() {
                 </section>
 
                 <section id="audiences" className="mt-16 scroll-mt-36">
-                    <Badge tone="violet">{copy.audiences}</Badge>
+                    <Badge tone="amber">{copy.audiences}</Badge>
                     <h2 className="mt-4 text-3xl font-black text-white">{copy.audiencesTitle}</h2>
                     <div className="mt-6 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
                         {audienceCards.map((audience) => (
@@ -183,7 +183,7 @@ export default function TrainingPage() {
                 <div className="mt-16 grid items-start gap-6 lg:grid-cols-3">
                     {coreOffers.map((offer) => (
                         <Card key={offer.title} className={cn("bg-gradient-to-br", offer.gradient)}>
-                            <Badge tone="cyan">{offer.kicker}</Badge>
+                            <Badge tone="blue">{offer.kicker}</Badge>
                             <h2 className="mt-5 text-2xl font-black text-white">{offer.title}</h2>
                             <p className="mt-3 text-lg font-black text-sky-100">{offer.outcome}</p>
                             <p className="mt-4 text-sm leading-7 text-slate-300">{offer.copy}</p>
@@ -235,7 +235,7 @@ export default function TrainingPage() {
                 </section>
 
                 <section id="formats" className="mt-16 scroll-mt-36">
-                    <Badge tone="violet">{copy.formats}</Badge>
+                    <Badge tone="orange">{copy.formats}</Badge>
                     <h2 className="mt-4 text-3xl font-black text-white">{copy.formatsTitle}</h2>
                     <div className="mt-6 grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
                         {formats.map((format) => (

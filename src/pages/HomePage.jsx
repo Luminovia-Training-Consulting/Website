@@ -174,13 +174,12 @@ export default function HomePage() {
     return (
         <main className="pb-28 sm:pb-24">
             <SectionJumpNav items={jumpNav} label={jumpNavLabel} fixed/>
-            <div className="h-[9.35rem] sm:h-[9.25rem]" aria-hidden="true"/>
 
             <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-10">
                 <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(56,189,248,.18),transparent_34%),linear-gradient(245deg,rgba(37,99,235,.17),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]"/>
                 <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
                     <div>
-                        <Badge>{badge}</Badge>
+                        <Badge tone="rose">{badge}</Badge>
                         <MobileHeroSignal/>
                         <h1 className="hero-title mt-6 max-w-5xl text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
                             {title}
@@ -253,7 +252,7 @@ export default function HomePage() {
                 <div className="mx-auto max-w-7xl">
                     <div className="mb-8 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
-                            <Badge tone="cyan">{trainingOffers}</Badge>
+                            <Badge tone="orange">{trainingOffers}</Badge>
                             <h2 className="mt-5 text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{servicesTitle}</h2>
                         </div>
                         <p className="text-base leading-8 text-zinc-300">{servicesCopy}</p>
@@ -292,7 +291,7 @@ export default function HomePage() {
                 <div className="mx-auto max-w-7xl">
                     <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
-                            <Badge tone="cyan">{faq}</Badge>
+                        <Badge tone="rose">{faq}</Badge>
                             <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{faqTitle}</h2>
                         </div>
                         <p className="text-base leading-8 text-zinc-300">{faqCopy}</p>

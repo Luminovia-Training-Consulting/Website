@@ -47,7 +47,7 @@ export default function KeynotesPage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
-                <Badge>{c.badge}</Badge>
+                <Badge tone="orange">{c.badge}</Badge>
                 <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
                     <div>
                         <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl">{c.title}</h1>

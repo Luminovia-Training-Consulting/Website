@@ -43,7 +43,7 @@ export default function CorporatePage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
-                <Badge>{c.badge}</Badge>
+                <Badge tone="blue">{c.badge}</Badge>
                 <div className="mt-6 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                     <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl">{c.title}</h1>
                     <p className="text-lg leading-8 text-slate-300">{c.intro}</p>

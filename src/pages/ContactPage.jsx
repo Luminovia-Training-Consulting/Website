@@ -45,7 +45,7 @@ export default function ContactPage() {
                 <SectionJumpNav label={jumpLabel} items={jumpItems} className="mb-8 mt-0"/>
                 <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                     <div>
-                        <Badge>{t.contact.badge}</Badge>
+                        <Badge tone="rose">{t.contact.badge}</Badge>
                         <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{t.contact.title}</h1>
                         <p className="mt-6 text-lg leading-8 text-slate-300">{t.contact.copy}</p>
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

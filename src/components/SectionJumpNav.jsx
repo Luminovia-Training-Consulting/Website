@@ -2,8 +2,8 @@ import {cn} from "./utils.js";
 
 export default function SectionJumpNav({items, label, fixed = false, className = ""}) {
     const variantClass = fixed
-        ? "fixed left-0 right-0 top-16 z-40 border-b border-t border-white/10 bg-[#070B16]/78 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.24)] backdrop-blur-2xl sm:px-6 lg:px-8"
-        : "sticky top-16 z-30 rounded-[1.65rem] border border-white/10 bg-[#070B16]/82 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-2xl";
+        ? "relative z-30 border-b border-t border-white/10 bg-[#070B16]/78 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-2xl sm:px-6 lg:px-8"
+        : "relative z-30 rounded-[1.65rem] border border-white/10 bg-[#070B16]/82 px-4 py-4 shadow-[0_18px_70px_rgba(0,0,0,.18)] backdrop-blur-2xl";
 
     return (
         <nav className={cn("section-jump-nav", variantClass, className)} aria-label={label}>

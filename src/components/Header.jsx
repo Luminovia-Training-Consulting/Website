@@ -92,7 +92,7 @@ export default function Header({theme = "night", onToggleTheme = () => {}}) {
 
     return (
         <>
-            <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#08090B]/62 shadow-[0_14px_50px_rgba(0,0,0,.18)] backdrop-blur-2xl">
+            <header className="relative z-50 border-b border-white/10 bg-[#08090B]/62 shadow-[0_14px_50px_rgba(0,0,0,.18)] backdrop-blur-2xl">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
                     <NavLink to="/" className="group flex items-center gap-3 text-left">
                         <div className="grid h-10 w-10 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-white via-sky-50 to-blue-100 text-sm font-black text-zinc-950 shadow-[0_10px_32px_rgba(37,99,235,.22)] transition duration-500 group-hover:rotate-2">

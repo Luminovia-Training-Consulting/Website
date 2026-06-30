@@ -26,7 +26,7 @@ export default function CredentialsPage() {
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
-                <Badge>{copy.badge}</Badge>
+                <Badge tone="amber">{copy.badge}</Badge>
                 <div className="mt-6 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
                     <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
                     <p className="text-lg leading-8 text-slate-300">{copy.intro}</p>

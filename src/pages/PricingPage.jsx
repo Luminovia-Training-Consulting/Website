@@ -117,7 +117,7 @@ export default function PricingPage() {
             <div className="mx-auto max-w-7xl">
                 <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
                     <div>
-                        <Badge>{copy.badge}</Badge>
+                        <Badge tone="amber">{copy.badge}</Badge>
                         <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
                     </div>
                     <div>
