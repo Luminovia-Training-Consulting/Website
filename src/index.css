@@ -551,6 +551,11 @@
     opacity: .86;
 }
 
+.color-card .card-accent-pin {
+    background: linear-gradient(90deg, var(--accent-solid-a), var(--accent-solid-a));
+    box-shadow: 0 0 18px var(--accent-glow-a);
+}
+
 .color-card .card-accent-orb-a {
     background: radial-gradient(circle, var(--accent-glow-a), transparent 68%);
 }
@@ -566,10 +571,6 @@
 .color-card .card-accent-bottom {
     background: linear-gradient(90deg, transparent, var(--accent-solid-c), var(--accent-solid-a), transparent);
     box-shadow: 0 0 18px var(--accent-glow-a);
-}
-
-.color-button {
-    --button-shine: linear-gradient(110deg, transparent 0 18%, rgba(255, 255, 255, .28) 38%, transparent 58% 100%);
 }
 
 .color-badge {

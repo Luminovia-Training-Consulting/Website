@@ -2,7 +2,7 @@ import {createContext, useCallback, useContext, useEffect, useMemo, useState} fr
 import {safeGetStorageItem, safeSetStorageItem} from "./utils/browser.js";
 
 export const LANGUAGE_STORAGE_KEY = "carina_site_language_v2";
-export const DEFAULT_LANGUAGE = "en";
+const DEFAULT_LANGUAGE = "en";
 
 const dictionaries = {
     en: {
