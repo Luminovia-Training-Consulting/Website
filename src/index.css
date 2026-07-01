@@ -584,10 +584,30 @@
     box-shadow: 0 10px 28px var(--accent-glow-a), 0 0 18px var(--accent-glow-b) !important;
 }
 
-.theme-root .color-card [class*="bg-white/5"],
-.theme-root .color-card [class*="bg-white/[0.05]"] {
+.theme-root .color-card :is(div, span)[class*="bg-white/"] {
     border-color: color-mix(in srgb, var(--accent-solid-a) 24%, rgba(255, 255, 255, .10)) !important;
     background: linear-gradient(135deg, color-mix(in srgb, var(--accent-solid-a) 13%, transparent), color-mix(in srgb, var(--accent-solid-c) 9%, transparent)) !important;
+    box-shadow: inset 3px 0 0 var(--item-color, var(--accent-solid-a));
+}
+
+.theme-root .color-card :is(div, span)[class*="bg-white/"]:nth-child(5n+1) {
+    --item-color: #0ea5e9;
+}
+
+.theme-root .color-card :is(div, span)[class*="bg-white/"]:nth-child(5n+2) {
+    --item-color: #22c55e;
+}
+
+.theme-root .color-card :is(div, span)[class*="bg-white/"]:nth-child(5n+3) {
+    --item-color: #f59e0b;
+}
+
+.theme-root .color-card :is(div, span)[class*="bg-white/"]:nth-child(5n+4) {
+    --item-color: #e11d48;
+}
+
+.theme-root .color-card :is(div, span)[class*="bg-white/"]:nth-child(5n) {
+    --item-color: #8b5cf6;
 }
 
 .theme-root main section .flex.flex-wrap > span:nth-child(5n+1) {
@@ -613,6 +633,37 @@
 .theme-root main section .flex.flex-wrap > span:nth-child(5n) {
     border-color: rgba(196, 181, 253, .30) !important;
     background: linear-gradient(135deg, rgba(124, 58, 237, .16), rgba(5, 150, 105, .09)) !important;
+}
+
+.metric-tile {
+    border-color: color-mix(in srgb, var(--metric-color, #0ea5e9) 26%, rgba(255, 255, 255, .12)) !important;
+    background: radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--metric-color, #0ea5e9) 22%, transparent), transparent 38%),
+    linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .052)) !important;
+}
+
+.metric-accent {
+    background: var(--metric-color, #0ea5e9);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--metric-color, #0ea5e9) 50%, transparent);
+}
+
+.theme-root .metric-tile:nth-child(5n+1) {
+    --metric-color: #0ea5e9;
+}
+
+.theme-root .metric-tile:nth-child(5n+2) {
+    --metric-color: #22c55e;
+}
+
+.theme-root .metric-tile:nth-child(5n+3) {
+    --metric-color: #f59e0b;
+}
+
+.theme-root .metric-tile:nth-child(5n+4) {
+    --metric-color: #e11d48;
+}
+
+.theme-root .metric-tile:nth-child(5n) {
+    --metric-color: #7c3aed;
 }
 
 .theme-toggle {
@@ -703,31 +754,50 @@ html[data-theme="night"] .analytics-consent {
 }
 
 html[data-theme="night"] .section-jump-nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
     border-color: rgba(250, 204, 21, .14) !important;
     background: linear-gradient(135deg, rgba(14, 165, 233, .12), rgba(34, 197, 94, .08), rgba(244, 63, 94, .08)) !important;
 }
 
+html[data-theme="night"] .section-jump-nav a::before {
+    content: "";
+    width: .45rem;
+    height: .45rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--jump-dot, #38bdf8);
+    box-shadow: 0 0 16px var(--jump-dot, #38bdf8);
+}
+
 html[data-theme="night"] .section-jump-nav a:nth-child(5n+1) {
+    --jump-dot: #38bdf8;
     border-color: rgba(125, 211, 252, .24) !important;
     background: linear-gradient(135deg, rgba(14, 165, 233, .18), rgba(37, 99, 235, .10)) !important;
 }
 
 html[data-theme="night"] .section-jump-nav a:nth-child(5n+2) {
+    --jump-dot: #34d399;
     border-color: rgba(110, 231, 183, .22) !important;
     background: linear-gradient(135deg, rgba(5, 150, 105, .17), rgba(217, 119, 6, .09)) !important;
 }
 
 html[data-theme="night"] .section-jump-nav a:nth-child(5n+3) {
+    --jump-dot: #fb7185;
     border-color: rgba(253, 164, 175, .22) !important;
     background: linear-gradient(135deg, rgba(225, 29, 72, .17), rgba(249, 115, 22, .09)) !important;
 }
 
 html[data-theme="night"] .section-jump-nav a:nth-child(5n+4) {
+    --jump-dot: #facc15;
     border-color: rgba(251, 191, 36, .24) !important;
     background: linear-gradient(135deg, rgba(217, 119, 6, .18), rgba(14, 165, 233, .09)) !important;
 }
 
 html[data-theme="night"] .section-jump-nav a:nth-child(5n) {
+    --jump-dot: #a78bfa;
     border-color: rgba(196, 181, 253, .24) !important;
     background: linear-gradient(135deg, rgba(124, 58, 237, .18), rgba(5, 150, 105, .09)) !important;
 }
@@ -960,32 +1030,51 @@ html[data-theme="day"] .theme-root [class*="rgba(20,28,54"] {
 }
 
 html[data-theme="day"] .section-jump-nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
     border-color: rgba(14, 116, 144, .15) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, .80), rgba(224, 247, 255, .62)) !important;
     color: #102033 !important;
 }
 
+html[data-theme="day"] .section-jump-nav a::before {
+    content: "";
+    width: .45rem;
+    height: .45rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--jump-dot, #0284c7);
+    box-shadow: 0 0 14px color-mix(in srgb, var(--jump-dot, #0284c7) 44%, transparent);
+}
+
 html[data-theme="day"] .section-jump-nav a:nth-child(5n+1) {
+    --jump-dot: #0284c7;
     border-color: rgba(14, 116, 144, .20) !important;
     background: linear-gradient(135deg, rgba(224, 247, 255, .86), rgba(219, 234, 254, .68)) !important;
 }
 
 html[data-theme="day"] .section-jump-nav a:nth-child(5n+2) {
+    --jump-dot: #059669;
     border-color: rgba(5, 150, 105, .18) !important;
     background: linear-gradient(135deg, rgba(209, 250, 229, .82), rgba(254, 243, 199, .58)) !important;
 }
 
 html[data-theme="day"] .section-jump-nav a:nth-child(5n+3) {
+    --jump-dot: #e11d48;
     border-color: rgba(225, 29, 72, .18) !important;
     background: linear-gradient(135deg, rgba(255, 228, 230, .82), rgba(255, 237, 213, .58)) !important;
 }
 
 html[data-theme="day"] .section-jump-nav a:nth-child(5n+4) {
+    --jump-dot: #d97706;
     border-color: rgba(217, 119, 6, .20) !important;
     background: linear-gradient(135deg, rgba(254, 243, 199, .86), rgba(224, 247, 255, .56)) !important;
 }
 
 html[data-theme="day"] .section-jump-nav a:nth-child(5n) {
+    --jump-dot: #7c3aed;
     border-color: rgba(124, 58, 237, .18) !important;
     background: linear-gradient(135deg, rgba(237, 233, 254, .86), rgba(209, 250, 229, .56)) !important;
 }

@@ -8,10 +8,10 @@ export default function SectionJumpNav({items, label, fixed = false, className =
     return (
         <nav className={cn("section-jump-nav", variantClass, className)} aria-label={label}>
             <div className="mx-auto flex max-w-7xl translate-y-[2px] flex-col gap-4 lg:flex-row lg:items-center lg:gap-9">
-                <span className="shrink-0 whitespace-nowrap border-white/10 text-xs font-black uppercase tracking-[0.16em] text-sky-100 lg:border-r lg:pr-9">
+                <span className="section-jump-label shrink-0 whitespace-nowrap border-white/10 text-xs font-black uppercase tracking-[0.16em] text-sky-100 lg:border-r lg:pr-9">
                     {label}
                 </span>
-                <div className="flex min-w-0 flex-1 snap-x items-center gap-3 overflow-x-auto py-1 pl-[5px] lg:gap-4 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
+                <div className="section-jump-track flex min-w-0 flex-1 snap-x items-center gap-3 overflow-x-auto py-1 pl-[5px] lg:gap-4 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
                     {items.map(([href, text]) => (
                         <a
                             key={href}
