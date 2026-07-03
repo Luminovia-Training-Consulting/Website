@@ -1,4 +1,3 @@
-import {PROFILE} from "../data/profile.js";
 import {Link} from "react-router-dom";
 import {useSiteContent} from "../data/localizedContent.js";
 import {topicLinkForLabel, trainingDetailsForLanguage} from "../data/trainingDetails.js";
@@ -13,9 +12,8 @@ import {cn} from "../components/utils.js";
 function AssetButtons({t}) {
     return (
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{t.assets.lecturerProfile}</Button>
-            <Button href={PROFILE.trainingPortfolio} variant="secondary" download="carina-sophie-schoppe-training-portfolio.html" showArrow={false}>{t.assets.trainingPortfolio}</Button>
-            <Button href={PROFILE.trainingCatalogue} variant="secondary" download="carina-sophie-schoppe-ai-it-training-catalogue.html" showArrow={false}>{t.assets.trainingCatalogue}</Button>
+            <Button to="/offers" variant="secondary" showArrow={false}>{t.nav.offers}</Button>
+            <Button to="/contact#contact-options" variant="secondary" showArrow={false}>{t.nav.book}</Button>
         </div>
     );
 }
@@ -53,7 +51,7 @@ export default function TrainingPage() {
     const copy = language === "de"
         ? {
             badge: "Angebote",
-            title: "Konkrete Luminovia Offers für Training, Consulting und digitale Kompetenz.",
+            title: "Konkrete Luminovia-Angebote für Training, Consulting und digitale Kompetenz.",
             intro: "Buchbare Remote-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Workshops, Consulting-Sprints und Projektbegleitung rund um AI, IT, Cybersecurity und digitale Business-Kompetenz.",
             topics: "Themen",
             areas: "Zentrale Lehrbereiche",
@@ -77,7 +75,7 @@ export default function TrainingPage() {
             jumpItems: [["#consulting", "Consulting"], ["#services", "Angebote"], ["#demo-session", "Demo"], ["#details", "Details"], ["#audiences", "Zielgruppen"], ["#proof", "Nachweise"], ["#topics", "Themen"], ["#formats", "Formate"]],
         }
         : {
-            badge: "Offers",
+            badge: "Angebote",
             title: "Concrete Luminovia offers for training, consulting and digital capability.",
             intro: "Bookable remote offers for education providers, companies, universities and international teams: live training, workshops, consulting sprints and project support around AI, IT, cybersecurity and digital business capability.",
             topics: "Topics",

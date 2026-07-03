@@ -21,8 +21,8 @@ const copy = {
             ["Professional", "Remote-first, bilingual and built for adult learners, corporate teams and education providers."],
         ],
         links: [
-            ["Company background", "A compact timeline behind Luminovia's leadership, academic profile, training practice and international delivery model.", "/my-way"],
-            ["Skills", "A skill map for AI, software development, cybersecurity, business IT, teaching design and communication.", "/skills"],
+            ["Training", "Structured delivery across AI, software, cybersecurity, data and business technology.", "/training"],
+            ["Consulting", "Advisory and implementation support for AI use cases, roadmaps, learning architecture and digital enablement.", "/consulting"],
             ["Projects", "Selected digital, software, AI research and automation projects behind Luminovia's training and consulting profile.", "/projects"],
         ],
         timelineTitle: "Company and leadership background",
@@ -41,8 +41,8 @@ const copy = {
             ["Professionell", "Remote-first, zweisprachig und ausgelegt auf Erwachsenenbildung, Unternehmensteams und Bildungsanbieter."],
         ],
         links: [
-            ["Unternehmenshintergrund", "Eine kompakte Timeline hinter Luminovias Führung, akademischem Profil, Trainingspraxis und internationalem Liefermodell.", "/my-way"],
-            ["Kompetenzen", "Eine Kompetenzübersicht für AI, Softwareentwicklung, Cybersecurity, Business-IT, Didaktik und Kommunikation.", "/skills"],
+            ["Training", "Strukturierte Durchführung in AI, Software, Cybersecurity, Daten und Business Technology.", "/training"],
+            ["Consulting", "Beratung und Umsetzungsbegleitung für AI Use Cases, Roadmaps, Lernarchitektur und digitales Enablement.", "/consulting"],
             ["Projekte", "Ausgewählte Digital-, Software-, AI-Research- und Automatisierungsprojekte hinter dem Trainings- und Consulting-Profil von Luminovia.", "/projects"],
         ],
         timelineTitle: "Unternehmens- und Führungshintergrund",
@@ -66,7 +66,7 @@ export default function AboutPage() {
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                             <Button href={PROFILE.linkedin}>{c.linkedin}</Button>
                             <Button href={PROFILE.github} variant="secondary">{c.github}</Button>
-                            <Button to="/my-way" variant="secondary">{c.timeline}</Button>
+                            <Button to="/contact#contact-options" variant="secondary">{t.nav.book}</Button>
                         </div>
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2">

@@ -31,7 +31,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Konkrete Luminovia Offers/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Konkrete Luminovia-Angebote/i})).toBeInTheDocument();
         expect(screen.queryByRole("heading", {name: /Concrete Luminovia offers/i})).not.toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
@@ -49,13 +49,9 @@ describe("App routing and language", () => {
 
     it.each([
         ["/contact", /Kontakt für Luminovia Training/i],
-        ["/skills", /praktische Kompetenzübersicht/i],
         ["/about", /Luminovia Training & Consulting steht/i],
         ["/offers", /Klare Luminovia-Angebote/i],
         ["/consulting", /Projektpraxis hinter IT-/i],
-        ["/corporate", /Trainingslösungen für Unternehmen/i],
-        ["/keynotes", /Keynotes und Expert Talks/i],
-        ["/my-way", /professionelle Hintergrund hinter Luminovia/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
         ["/clients", /Ehemalige Kunden, Bildungspartner und Testimonial-Muster/i],
         ["/pricing", /Transparente Netto-Ab-Preise/i],
@@ -69,6 +65,15 @@ describe("App routing and language", () => {
 
         expect(await screen.findByRole("heading", {name: heading})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
+    });
+
+    it.each(["/skills", "/my-way", "/credentials", "/keynotes", "/corporate", "/software"])("does not expose removed legacy route %s", async (route) => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        window.history.pushState({}, `Removed ${route}`, route);
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {level: 1, name: /This page is not in the training plan/i})).toBeInTheDocument();
     });
 
     it("uses a German browser title on unknown pages after German was selected", async () => {

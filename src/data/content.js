@@ -230,30 +230,6 @@ export const trustSignals = [
     {title: "Sector fit", copy: "Experience with corporate training, higher education, retraining, bootcamps and professional academies."},
 ];
 
-export const credentials = [
-    {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "didactics | learning platforms | quality assurance", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
-    {category: "Teaching", title: "Certificate IV in Training and Assessment TAE40122", meta: "RAM Training Services | completed Jun 2026", detail: "Australian vocational education and training qualification for planning, delivering and assessing competency-based learning."},
-    {category: "Teaching", title: "SCHLAU NRW Educational Work", meta: "Volunteer educator | Dec 2022 to Nov 2023", detail: "Workshops, facilitation, reflection and professional youth education in diversity and anti-discrimination contexts."},
-    {category: "Teaching", title: "Software Innovation Lab Work Reference", meta: "University of Paderborn | KMUeinfachSicher project | 2021", detail: "Content work around IT security, passwords, password managers, data handling and didactic preparation for SMEs."},
-    {category: "Academic", title: "Master of Business Administration", meta: "IU International University | completed Apr 2026 | MBA without major | overall result Good (2.2)", detail: "Management credibility for IT, consulting, business strategy and client-facing advisory work without a declared major."},
-    {category: "Academic", title: "Master of Science in Business Computer Science", meta: "IU International University | completed 27 Nov 2025 | overall result Good (2.3)", detail: "120 ECTS covering AI, big data, research methods, IT services, UI/UX, cloud concepts and business IT."},
-    {category: "Academic", title: "Bachelor of Science in Business Computer Science", meta: "University of Paderborn | completed 05 Feb 2025", detail: "Business, IT and information systems foundation for training, consulting and software-oriented work."},
-    {category: "AI", title: "AI+ Developer™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Certified AI development profile for explaining and building AI-enabled systems."},
-    {category: "AI", title: "AI+ Researcher™", meta: "AI CERTs | granted 13 Mar 2026", detail: "Research-facing AI certification supporting academic and applied AI project work."},
-    {category: "AI", title: "AI+ Prompt Engineer Level 1™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Prompt design, AI interaction and practical workflow enablement."},
-    {category: "AI", title: "AI+ Executive™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Executive-level AI orientation for leadership, adoption and value creation."},
-    {category: "AI", title: "AI+ Foundation™ / AI+ Everyone™", meta: "AI CERTs | granted 05 Mar 2026", detail: "Broad AI literacy and foundation-level AI capability."},
-    {category: "AI", title: "AI+ Project Management Office Practitioner™", meta: "AI CERTs | granted 14 Apr 2026", detail: "AI project governance, PMO thinking and implementation control."},
-    {category: "Cybersecurity", title: "AI+ Ethical Hacker™", meta: "AI CERTs | granted 05 Mar 2026", detail: "AI and cybersecurity positioning for ethical hacking and defensive awareness."},
-    {category: "Cybersecurity", title: "TryHackMe Learning Paths", meta: "Web Fundamentals, Cyber Security, Pre Security, SOC Level 1, Complete Beginner, Pentest+, Jr Penetration Tester, Cyber Defense", detail: "Hands-on technical security learning for web, SOC, cyber defence and pentest foundations."},
-    {category: "Cybersecurity", title: "Password Security Certificate", meta: "KMU. Einfach Sicher. | 25 Mar 2021", detail: "Training certificate focused on password security for small and medium-sized businesses."},
-    {category: "Entrepreneurship", title: "garage33 Founding Certificate", meta: "Design Thinking | Lean Startup | Business Model Canvas | agile methods", detail: "Entrepreneurship training with prototype validation, USP, market, financial model and pricing work."},
-    {category: "Entrepreneurship", title: "Top Talent Programme #4", meta: "University of Paderborn / garage33 | 2023", detail: "Design Thinking, Lean Startup, SDG business models, pitching, teamwork and personal development."},
-    {category: "Language", title: "PTE Academic English", meta: "Overall 90 | valid until 18 Feb 2028", detail: "High-level English proof for international teaching, consulting and academic work."},
-];
-
-export const credentialCategories = ["All", "Teaching", "Academic", "AI", "Cybersecurity", "Entrepreneurship", "Language"];
-
 export const selectedProjects = [
     {title: "Digital Education Systems", tag: "Instructional design", stack: "ADDIE | blended learning | adult education", copy: "Course concepts, hands-on labs, learning checks and structured learning paths for IT, business and AI education providers.", link: PROFILE.appointmentSchedule},
     {title: "Cybersecurity Learning Labs", tag: "Teaching proof", stack: "TryHackMe | SOC | Web security | Pentest+", copy: "Hands-on security learning paths used to strengthen practical teaching capability in web security, SOC foundations and penetration-testing basics.", link: PROFILE.github},
@@ -360,63 +336,6 @@ export const testimonialProof = [
     {
         title: "Practical training, not slide reading",
         quote: "My courses focus on exercises, implementation thinking, learner activation and clear transfer into work or exams.",
-    },
-];
-
-export const lifeMilestones = [
-    {
-        year: "2000",
-        title: "Born and raised in Bodenwerder",
-        category: "Origin",
-        copy: "Raised in the Weserbergland region near Hameln, with an early mix of curiosity, independence and interest in technology.",
-    },
-    {
-        year: "2019",
-        title: "Business Computer Science studies",
-        category: "Academic start",
-        copy: "Started Business Computer Science at the University of Paderborn and connected business, IT, systems thinking and digital transformation from the beginning.",
-    },
-    {
-        year: "2019",
-        title: "Freelance lecturer and consultant for IT and business",
-        category: "Freelance start",
-        copy: "Started self-employment in October 2019 as a freelance lecturer and consultant for IT and business topics.",
-    },
-    {
-        year: "2011-2019",
-        title: "Gymnasium at Internat Solling",
-        category: "School",
-        copy: "Boarding-school education in Holzminden, combining academic breadth with independence, international orientation and early IT interest.",
-    },
-    {
-        year: "2013-2018",
-        title: "Language stays in Australia, England and Spain",
-        category: "International",
-        copy: "International language and culture stays that strengthened communication skills and a broader view of learning environments.",
-    },
-    {
-        year: "2021",
-        title: "Hotel management company",
-        category: "Management",
-        copy: "Contributed to business administration and restructuring work connected to Baron von Munchhausen Hotelverwaltungs-GmbH.",
-    },
-    {
-        year: "2023",
-        title: "bytes Coding GmbH",
-        category: "Software and education",
-        copy: "Expanded software-development and education work through bytes Coding, connecting practical implementation with teaching needs.",
-    },
-    {
-        year: "2025",
-        title: "Bachelor and Master in Business Computer Science",
-        category: "Academic",
-        copy: "Completed the B.Sc. and M.Sc. foundation for business IT, data, HCI, IT management and digital transformation topics.",
-    },
-    {
-        year: "2026",
-        title: "MBA, Australia and international training profile",
-        category: "Current",
-        copy: "Completed the MBA without major in April, completed Certificate IV in Training and Assessment TAE40122 with RAM Training Services in June, moved to Brisbane and aligned the work around international IT and business-technology education.",
     },
 ];
 

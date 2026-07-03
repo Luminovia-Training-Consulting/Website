@@ -38,15 +38,7 @@ const routeMeta = {
             title: "Consulting | IT, AI and Business Advisory",
             description: "Consulting portfolio for AI use cases, IT and process advisory, business technology, curriculum design, roadmaps and digital enablement.",
         },
-        "/skills": {
-            title: "Skills & Consulting Topics | IT, Cybersecurity and Business Technology",
-            description: "A practical skill map for AI literacy, agentic workflows, Python, SQL, cybersecurity, IT consulting, AI consulting, business computer science and digital education.",
-        },
         "/projects": {
-            title: "Project Portfolio | AI Research, Automation and Consulting Projects",
-            description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
-        },
-        "/software": {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
             description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
         },
@@ -62,25 +54,9 @@ const routeMeta = {
             title: "Pricing | IT and Business Training Rates",
             description: "Transparent orientation rates for education-sector teaching, corporate training, talks and workshops, plus consulting and project implementation pricing on request.",
         },
-        "/my-way": {
-            title: "My Way | Professional Timeline and Teaching Background",
-            description: "Professional timeline from business computer science, MBA without major, TAE40122, software practice and entrepreneurship to IT and cybersecurity training from Brisbane.",
-        },
         "/about": {
             title: "Company | Luminovia Training & Consulting",
             description: "Company profile for Luminovia Training & Consulting, led by CEO and founder Carina Sophie Schoppe.",
-        },
-        "/keynotes": {
-            title: "Keynotes & Expert Talks | Luminovia",
-            description: "Book talks and expert sessions on AI, cybersecurity, digital transformation, business IT and modern digital education.",
-        },
-        "/corporate": {
-            title: "Corporate Training | IT and Digital Transformation",
-            description: "Corporate training solutions for AI literacy, cybersecurity, software, project work, data and digital transformation.",
-        },
-        "/credentials": {
-            title: "Credentials | Luminovia",
-            description: "Credentials, qualifications and professional background behind Luminovia training and consulting delivery.",
         },
         "/contact": {
             title: "Contact & Booking | Book IT and Business Training",
@@ -116,15 +92,7 @@ const routeMeta = {
             title: "Consulting | IT-, AI- und Business-Beratung",
             description: "Consulting-Portfolio für AI Use Cases, IT- und Prozessberatung, Business Technology, Curriculum Design, Roadmaps und digitales Enablement.",
         },
-        "/skills": {
-            title: "Kompetenzen & Consulting-Themen | IT, Cybersecurity und Business-Technology",
-            description: "Eine praktische Kompetenzübersicht für AI Literacy, agentische Workflows, Python, SQL, Cybersecurity, IT-Consulting, AI-Consulting, Wirtschaftsinformatik und digitale Bildung.",
-        },
         "/projects": {
-            title: "Projektportfolio | AI Research, Automatisierung und Consulting",
-            description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, AI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
-        },
-        "/software": {
             title: "Projektportfolio | AI Research, Automatisierung und Consulting",
             description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, AI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
         },
@@ -140,25 +108,9 @@ const routeMeta = {
             title: "Preise | IT- und Business-Training",
             description: "Transparente Netto-Ab-Preise für geförderte Bildung, Corporate Training, Vorträge und Workshops sowie Consulting- und Projektpreise auf Anfrage.",
         },
-        "/my-way": {
-            title: "Werdegang | Professionelle Timeline und Lehrprofil",
-            description: "Professioneller Werdegang von Wirtschaftsinformatik, MBA ohne Major, TAE40122, Softwarepraxis und Unternehmertum bis zu IT- und Cybersecurity-Training aus Brisbane.",
-        },
         "/about": {
             title: "Unternehmen | Luminovia Training & Consulting",
             description: "Unternehmensprofil von Luminovia Training & Consulting, geführt von CEO und Gründerin Carina Sophie Schoppe.",
-        },
-        "/keynotes": {
-            title: "Keynotes & Expert Talks | Luminovia",
-            description: "Vorträge und Expert Sessions zu AI, Cybersecurity, digitaler Transformation, Business-IT und moderner digitaler Bildung.",
-        },
-        "/corporate": {
-            title: "Corporate Training | IT und digitale Transformation",
-            description: "Corporate-Training-Lösungen für AI Literacy, Cybersecurity, Software, Projektarbeit, Daten und digitale Transformation.",
-        },
-        "/credentials": {
-            title: "Nachweise | Luminovia",
-            description: "Nachweise, Qualifikationen und professioneller Hintergrund hinter der Luminovia Trainings- und Beratungsdurchführung.",
         },
         "/contact": {
             title: "Kontakt & Buchung | IT- und Business-Training buchen",

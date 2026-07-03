@@ -47,16 +47,11 @@ function lazyWithRecovery(loader) {
 
 const TrainingPage = lazyWithRecovery(() => import("./pages/TrainingPage.jsx"));
 const TrainingTopicPage = lazyWithRecovery(() => import("./pages/TrainingTopicPage.jsx"));
-const KeynotesPage = lazyWithRecovery(() => import("./pages/KeynotesPage.jsx"));
-const CorporatePage = lazyWithRecovery(() => import("./pages/CorporatePage.jsx"));
-const CredentialsPage = lazyWithRecovery(() => import("./pages/CredentialsPage.jsx"));
 const PortfolioPage = lazyWithRecovery(() => import("./pages/PortfolioPage.jsx"));
 const OffersPage = lazyWithRecovery(() => import("./pages/OffersPage.jsx"));
 const ClientsPage = lazyWithRecovery(() => import("./pages/ClientsPage.jsx"));
 const AboutPage = lazyWithRecovery(() => import("./pages/AboutPage.jsx"));
 const ContactPage = lazyWithRecovery(() => import("./pages/ContactPage.jsx"));
-const MyWayPage = lazyWithRecovery(() => import("./pages/MyWayPage.jsx"));
-const SkillsPage = lazyWithRecovery(() => import("./pages/SkillsPage.jsx"));
 const PricingPage = lazyWithRecovery(() => import("./pages/PricingPage.jsx"));
 const SoftwarePage = lazyWithRecovery(() => import("./pages/SoftwarePage.jsx"));
 const ImprintPage = lazyWithRecovery(() => import("./pages/ImprintPage.jsx"));
@@ -195,19 +190,13 @@ export default function App() {
                             <Route path="/training" element={routeElement(TrainingPage)}/>
                             <Route path="/offers" element={routeElement(OffersPage)}/>
                             <Route path="/training/:slug" element={routeElement(TrainingTopicPage)}/>
-                            <Route path="/keynotes" element={routeElement(KeynotesPage)}/>
-                            <Route path="/corporate" element={routeElement(CorporatePage)}/>
-                            <Route path="/credentials" element={routeElement(CredentialsPage)}/>
                             <Route path="/portfolio" element={routeElement(PortfolioPage)}/>
                             <Route path="/consulting" element={routeElement(PortfolioPage)}/>
                             <Route path="/clients" element={routeElement(ClientsPage)}/>
                             <Route path="/about" element={routeElement(AboutPage)}/>
                             <Route path="/contact" element={routeElement(ContactPage)}/>
-                            <Route path="/my-way" element={routeElement(MyWayPage)}/>
-                            <Route path="/skills" element={routeElement(SkillsPage)}/>
                             <Route path="/pricing" element={routeElement(PricingPage)}/>
                             <Route path="/projects" element={routeElement(SoftwarePage)}/>
-                            <Route path="/software" element={routeElement(SoftwarePage)}/>
                             <Route path="/imprint" element={routeElement(ImprintPage)}/>
                             <Route path="/privacy" element={routeElement(PrivacyPage)}/>
                             <Route path="/terms" element={routeElement(TermsPage)}/>

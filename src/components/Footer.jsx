@@ -61,9 +61,7 @@ export default function Footer() {
                     <div className="mt-4 grid gap-2">
                         <Link to="/contact#contact-options" className={linkClass}>{t.nav.book}</Link>
                         <a href={PROFILE.appointmentSchedule} target="_blank" rel="noreferrer" className={linkClass}>{labels.appointment}</a>
-                        <a href={PROFILE.lecturerProfile} target="_blank" rel="noreferrer" download="lecturer.zip" className={linkClass}>{t.assets.lecturerProfile}</a>
-                        <a href={PROFILE.trainingPortfolio} target="_blank" rel="noreferrer" download="carina-sophie-schoppe-training-portfolio.html" className={linkClass}>{t.assets.trainingPortfolio}</a>
-                        <a href={PROFILE.trainingCatalogue} target="_blank" rel="noreferrer" download="carina-sophie-schoppe-ai-it-training-catalogue.html" className={linkClass}>{t.assets.trainingCatalogue}</a>
+                        <Link to="/pricing" className={linkClass}>{t.nav.pricing}</Link>
                     </div>
                 </div>
 

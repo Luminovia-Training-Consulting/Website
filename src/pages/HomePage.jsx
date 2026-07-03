@@ -1,4 +1,4 @@
-import {IMAGES, PROFILE} from "../data/profile.js";
+import {IMAGES} from "../data/profile.js";
 import {useHomeContent} from "../data/homeContent.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
@@ -78,16 +78,6 @@ function MobileHeroSignal() {
                 <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
                 <div className="mt-2 inline-flex rounded-full bg-white px-3 py-1 text-[11px] font-black text-zinc-950">{t.home.remote}</div>
             </div>
-        </div>
-    );
-}
-
-function AssetButtons({t}) {
-    return (
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{t.assets.lecturerProfile}</Button>
-            <Button href={PROFILE.trainingPortfolio} variant="secondary" download="carina-sophie-schoppe-training-portfolio.html" showArrow={false}>{t.assets.trainingPortfolio}</Button>
-            <Button href={PROFILE.trainingCatalogue} variant="secondary" download="carina-sophie-schoppe-ai-it-training-catalogue.html" showArrow={false}>{t.assets.trainingCatalogue}</Button>
         </div>
     );
 }
@@ -277,10 +267,7 @@ export default function HomePage() {
                         <div className="button-stack mt-8 flex flex-col gap-3 sm:flex-row">
                             <Button to="/contact#appointment">{t.bookTrainingCall}</Button>
                             <Button to="/training" variant="secondary">{exploreCapability}</Button>
-                            <Button href={PROFILE.lecturerProfile} variant="secondary" download="lecturer.zip" showArrow={false}>{downloadProfile}</Button>
-                        </div>
-                        <div className="mt-5">
-                            <AssetButtons t={t}/>
+                            <Button to="/offers" variant="secondary" showArrow={false}>{downloadProfile}</Button>
                         </div>
                         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {trustStats.map((stat) => <Metric key={stat.label} {...stat} />)}
@@ -346,7 +333,10 @@ export default function HomePage() {
                     </div>
                     <div className="mt-7 flex flex-col justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.055] p-5 sm:flex-row sm:items-center">
                         <p className="text-sm leading-7 text-zinc-300">{t.assets.copy}</p>
-                        <AssetButtons t={t}/>
+                        <div className="flex flex-col gap-3 sm:flex-row">
+                            <Button to="/offers" variant="secondary">{t.nav.offers}</Button>
+                            <Button to="/contact#contact-options">{t.nav.book}</Button>
+                        </div>
                     </div>
                 </div>
             </section>

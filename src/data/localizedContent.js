@@ -3,13 +3,10 @@ import {
     audienceCards as enAudienceCards,
     capabilities as enCapabilities,
     coreOffers as enCoreOffers,
-    credentialCategories as enCredentialCategories,
-    credentials as enCredentials,
     faqs as enFaqs,
     featuredTrainingTopics as enFeaturedTrainingTopics,
     formats as enFormats,
     formerClients as enFormerClients,
-    lifeMilestones as enLifeMilestones,
     selectedProjects as enSelectedProjects,
     serviceOfferings as enServiceOfferings,
     skillGroups as enSkillGroups,
@@ -21,15 +18,6 @@ import {
     trustSignals as enTrustSignals,
     trustStats as enTrustStats,
 } from "./content.js";
-
-const deCredentialCategoryLabels = {
-    Teaching: "Lehre",
-    Academic: "Akademisch",
-    AI: "AI",
-    Cybersecurity: "Cybersecurity",
-    Entrepreneurship: "Unternehmertum",
-    Language: "Sprache",
-};
 
 const deFormerClientCopy = {
     "AI certification training": {
@@ -79,104 +67,6 @@ const deFormerClientCopy = {
     "Current Scrum training": {
         type: "Aktuelles Scrum-Training",
         work: "Scrum- und Agile-Training für professionelle Teams.",
-    },
-};
-
-const deCredentialCopy = {
-    "DiBak Certified IT Lecturer": {
-        title: "DiBak-zertifizierte IT-Dozentin",
-        meta: "Didaktik | Lernplattformen | Qualitätssicherung",
-        detail: "Didaktik, Methoden, Lernplattformen, Materialerstellung, Lernchecks und technologiegestützte Lehre.",
-    },
-    "Certificate IV in Training and Assessment TAE40122": {
-        title: "Certificate IV in Training and Assessment TAE40122",
-        meta: "RAM Training Services | abgeschlossen im Juni 2026",
-        detail: "Australische VET-Qualifikation für Planung, Durchführung und Bewertung kompetenzbasierter Trainings.",
-    },
-    "SCHLAU NRW Educational Work": {
-        title: "SCHLAU NRW Bildungsarbeit",
-        meta: "Ehrenamtliche Bildungsarbeit | Dez. 2022 bis Nov. 2023",
-        detail: "Workshops, Moderation, Reflexion und professionelle Jugendbildung im Kontext Vielfalt und Antidiskriminierung.",
-    },
-    "Software Innovation Lab Work Reference": {
-        title: "Software Innovation Lab Arbeitsreferenz",
-        meta: "Universität Paderborn | Projekt KMUeinfachSicher | 2021",
-        detail: "Inhaltliche Arbeit zu IT-Sicherheit, Passwörtern, Passwortmanagern, Datenumgang und didaktischer Aufbereitung für KMU.",
-    },
-    "Master of Business Administration": {
-        title: "Master of Business Administration",
-        meta: "IU Internationale Hochschule | abgeschlossen im April 2026 | MBA ohne Major | Gesamtergebnis Gut (2,2)",
-        detail: "Management-Kompetenz für IT, Consulting, Business-Strategie und kundennahe Beratung ohne ausgewiesenen Major.",
-    },
-    "Master of Science in Business Computer Science": {
-        title: "Master of Science Wirtschaftsinformatik",
-        meta: "IU Internationale Hochschule | abgeschlossen am 27.11.2025 | Gesamtergebnis Gut (2,3)",
-        detail: "120 ECTS mit AI, Big Data, Forschungsmethoden, IT-Services, UI/UX, Cloud-Konzepten und Business-IT.",
-    },
-    "Bachelor of Science in Business Computer Science": {
-        title: "Bachelor of Science Wirtschaftsinformatik",
-        meta: "Universität Paderborn | abgeschlossen am 05.02.2025",
-        detail: "Grundlage aus Business, IT und Informationssystemen für Training, Consulting und softwareorientierte Arbeit.",
-    },
-    "AI+ Developer™": {
-        title: "AI+ Developer™",
-        meta: "AI CERTs | verliehen am 05.03.2026",
-        detail: "Zertifiziertes AI-Development-Profil für Erklärung und Aufbau AI-gestützter Systeme.",
-    },
-    "AI+ Researcher™": {
-        title: "AI+ Researcher™",
-        meta: "AI CERTs | verliehen am 13.03.2026",
-        detail: "Research-orientierte AI-Zertifizierung für akademische und angewandte AI-Projektarbeit.",
-    },
-    "AI+ Prompt Engineer Level 1™": {
-        title: "AI+ Prompt Engineer Level 1™",
-        meta: "AI CERTs | verliehen am 05.03.2026",
-        detail: "Prompt Design, AI-Interaktion und praktische Workflow-Befähigung.",
-    },
-    "AI+ Executive™": {
-        title: "AI+ Executive™",
-        meta: "AI CERTs | verliehen am 05.03.2026",
-        detail: "AI-Orientierung auf Executive-Niveau für Führung, Adoption und Wertschöpfung.",
-    },
-    "AI+ Foundation™ / AI+ Everyone™": {
-        title: "AI+ Foundation™ / AI+ Everyone™",
-        meta: "AI CERTs | verliehen am 05.03.2026",
-        detail: "Breite AI-Literacy und grundlegende AI-Kompetenz.",
-    },
-    "AI+ Project Management Office Practitioner™": {
-        title: "AI+ Project Management Office Practitioner™",
-        meta: "AI CERTs | verliehen am 14.04.2026",
-        detail: "AI-Projektgovernance, PMO-Denken und Umsetzungskontrolle.",
-    },
-    "AI+ Ethical Hacker™": {
-        title: "AI+ Ethical Hacker™",
-        meta: "AI CERTs | verliehen am 05.03.2026",
-        detail: "AI- und Cybersecurity-Positionierung für Ethical Hacking und defensive Awareness.",
-    },
-    "TryHackMe Learning Paths": {
-        title: "TryHackMe Lernpfade",
-        meta: "Web Fundamentals, Cyber Security, Pre Security, SOC Level 1, Complete Beginner, Pentest+, Jr Penetration Tester, Cyber Defense",
-        detail: "Praktisches technisches Security-Lernen für Web, SOC, Cyber Defense und Pentest-Grundlagen.",
-    },
-    "Password Security Certificate": {
-        title: "Password Security Certificate",
-        meta: "KMU. Einfach Sicher. | 25.03.2021",
-        detail: "Trainingszertifikat mit Fokus auf Passwortsicherheit für kleine und mittlere Unternehmen.",
-    },
-    "garage33 Founding Certificate": {
-        title: "garage33 Gründungszertifikat",
-        meta: "Design Thinking | Lean Startup | Business Model Canvas | agile Methoden",
-        detail: "Entrepreneurship-Training mit Prototypvalidierung, USP, Markt, Finanzmodell und Pricing-Arbeit.",
-    },
-    "Top Talent Programme #4": {
-        title: "Top Talent Programme #4",
-        meta: "Universität Paderborn / garage33 | 2023",
-        detail: "Design Thinking, Lean Startup, SDG-Geschäftsmodelle, Pitching, Teamarbeit und Persönlichkeitsentwicklung.",
-    },
-    "PTE Academic English": {
-        title: "PTE Academic English",
-        meta: "Overall 90 | gültig bis 18.02.2028",
-        detail: "Englischnachweis auf hohem Niveau für internationale Lehre, Consulting und akademische Arbeit.",
     },
 };
 
@@ -316,12 +206,6 @@ const de = {
         {title: "DACH-Bildungsanbieter", copy: "Remote-Dozentin für deutsche, schweizerische und österreichische Anbieter, die professionelle deutschsprachige Lehre brauchen.", bullets: ["deutsche Durchführung", "Remote-Kursraum", "Europa-Zeiten", "Bildungssektor"]},
         {title: "Internationale Kunden", copy: "Englische oder deutsche Durchführung für verteilte Teams und Bildungspartner für Europa, Australien und die Welt.", bullets: ["EN / DE", "zeitzonenbewusst", "remote-first", "international"]},
     ],
-    credentials: enCredentials.map((credential) => ({
-        ...credential,
-        category: deCredentialCategoryLabels[credential.category] || credential.category,
-        ...(deCredentialCopy[credential.title] || {}),
-    })),
-    credentialCategories: ["Alle", "Lehre", "Akademisch", "AI", "Cybersecurity", "Unternehmertum", "Sprache"],
     selectedProjects: deSelectedProjects,
     formerClients: enFormerClients.map((client) => ({
         ...client,
@@ -332,17 +216,6 @@ const de = {
         {title: "Vertrauen von Bildungsanbietern", quote: "Wiederholte Buchungen in Weiterbildung, Umschulung, Akademien und Hochschulen zeigen, dass strukturierte Luminovia-Formate in der Erwachsenenbildung funktionieren."},
         {title: "Breit genug für gemischte IT-Gruppen", quote: "Von Fachinformatiker-Kohorten bis AI-Zertifikatsgruppen können Tiefe, Tempo und Beispiele an die Gruppe angepasst werden."},
         {title: "Praxis statt Folienvorlesen", quote: "Luminovia-Formate fokussieren Übungen, Implementation Thinking, Lernaktivierung und klaren Transfer in Arbeit oder Prüfung."},
-    ],
-    lifeMilestones: [
-        {year: "2000", title: "Aufgewachsen in Bodenwerder", category: "Herkunft", copy: "Aufgewachsen im Weserbergland nahe Hameln, mit früher Neugier für Technik, Lernen und eigenständiges Arbeiten."},
-        {year: "2019", title: "Wirtschaftsinformatik-Studium", category: "Akademischer Start", copy: "Wirtschaftsinformatik an der Universität Paderborn begonnen und Wirtschaft, IT, Systemdenken und digitale Transformation von Anfang an verbunden."},
-        {year: "2019", title: "Freelance Dozentin und Consultant für IT und Wirtschaft", category: "Start Selbstständigkeit", copy: "Im Oktober 2019 selbstständig gestartet als Freelance Lecturer und Consultant für IT- und Wirtschaftsthemen."},
-        {year: "2011-2019", title: "Gymnasium am Internat Solling", category: "Schule", copy: "Schulzeit in Holzminden mit breiter Allgemeinbildung, Selbstständigkeit, internationaler Orientierung und frühem IT-Interesse."},
-        {year: "2013-2018", title: "Sprachaufenthalte in Australien, England und Spanien", category: "International", copy: "Mehrere Sprach- und Kulturaufenthalte haben Kommunikation, Perspektivwechsel und internationales Arbeiten geprägt."},
-        {year: "2021", title: "Hotelverwaltung und Unternehmensstruktur", category: "Management", copy: "Mitwirkung an administrativen und strukturellen Aufgaben im Umfeld der Baron von Münchhausen Hotelverwaltungs-GmbH."},
-        {year: "2023", title: "bytes Coding GmbH", category: "Software und Bildung", copy: "Softwareentwicklung und Bildungsarbeit über bytes Coding erweitert und technische Umsetzung stärker mit Trainingsbedarf verbunden."},
-        {year: "2025", title: "Bachelor und Master in Wirtschaftsinformatik", category: "Akademisch", copy: "Akademische Grundlage in Wirtschaftsinformatik, AI, Daten, HCI, IT-Management und digitaler Transformation abgeschlossen."},
-        {year: "2026", title: "MBA, TAE40122 und internationales Trainingsprofil", category: "Aktuell", copy: "MBA ohne Major im April abgeschlossen, Certificate IV in Training and Assessment TAE40122 im Juni bei RAM Training Services abgeschlossen, nach Brisbane gezogen und die Arbeit auf internationale IT- und Business-Technology-Bildung ausgerichtet."},
     ],
     skillGroups: [
         {group: "Didaktik und Lerndesign", items: ["Erwachsenenbildung", "Curriculum Design", "Blended Learning", "Prüfungsvorbereitung", "Lernaktivierung", "Workshop-Facilitation", "Materialdesign", "Remote Delivery"]},
@@ -394,12 +267,9 @@ export function localizedSiteContentForLanguage(language) {
         capabilities: enCapabilities,
         audienceCards: enAudienceCards,
         teachingProof: enTeachingProof,
-        credentials: enCredentials,
-        credentialCategories: enCredentialCategories,
         selectedProjects: enSelectedProjects,
         formerClients: enFormerClients,
         testimonialProof: enTestimonialProof,
-        lifeMilestones: enLifeMilestones,
         skillGroups: enSkillGroups,
         softwareProjects: enSoftwareProjects,
         timeline: enTimeline,

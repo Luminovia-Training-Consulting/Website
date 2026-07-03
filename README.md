@@ -1,6 +1,6 @@
 # Luminovia Training & Consulting Website
 
-Static bilingual website for **Luminovia Training & Consulting**. The site presents the company as a remote-first training and consulting organisation led by CEO and founder **Carina Sophie Schoppe**, with bookable training, consulting, offers, former client proof, projects, pricing, credentials and contact options in German and English.
+Static bilingual website for **Luminovia Training & Consulting**. The site presents the company as a remote-first training and consulting organisation led by CEO and founder **Carina Sophie Schoppe**, with bookable training, consulting, offers, former client proof, projects, pricing and contact options in German and English.
 
 Production repository: https://github.com/Luminovia-Training-Consulting/Website.git
 
@@ -34,17 +34,14 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 | Route | Purpose |
 | --- | --- |
 | `/` | Homepage with hero, offers preview, customer proof, FAQ, CEO section and contact CTA. |
-| `/training` | Detailed training topics, service cards, formats, audiences and downloadable assets. |
-| `/offers` | Concrete bookable packages for training, consulting, curriculum, keynotes and larger programmes. |
+| `/training` | Detailed training topics, service cards, formats and audiences. |
+| `/offers` | Concrete bookable packages for training, consulting, curriculum, expert sessions and larger programmes. |
 | `/consulting` | Consulting portfolio for AI, IT, business, curriculum, roadmaps and digital enablement. |
 | `/clients` | Former clients, education partners and anonymized testimonial patterns. |
 | `/projects` | Project portfolio connected to training and consulting practice. |
 | `/pricing` | Net starting rates and consulting/project pricing on request. |
 | `/about` | CEO/founder profile for Carina Sophie Schoppe. |
 | `/contact` | Direct contact, appointment scheduler, email and phone links. |
-| `/skills` | Capability and skill map. |
-| `/keynotes` | Talks, guest lectures and expert sessions. |
-| `/credentials` | Qualifications, certificates and teaching proof. |
 | `/imprint` | Legal notice. |
 | `/privacy` | Privacy policy. |
 | `/terms` | Terms & Conditions, payment terms and bank information. |
@@ -216,13 +213,6 @@ Luminovia logo assets:
 - `public/images/luminovia-logo-mark.png`
 
 Carina profile images remain in `public/images/` and are used for the CEO/about sections.
-
-Downloadable public assets include:
-
-- `public/lecturer.zip`
-- `public/carina-sophie-schoppe-lecturer-profile.html`
-- `public/carina-sophie-schoppe-training-portfolio.html`
-- `public/carina-sophie-schoppe-ai-it-training-catalogue.html`
 
 ## Content Maintenance
 

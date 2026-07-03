@@ -93,10 +93,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://luminovia.org/skills</loc>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://luminovia.org/projects</loc>
         <priority>0.7</priority>
     </url>
@@ -113,23 +109,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://luminovia.org/my-way</loc>
-        <priority>0.6</priority>
-    </url>
-    <url>
         <loc>https://luminovia.org/about</loc>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/keynotes</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/corporate</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/credentials</loc>
         <priority>0.6</priority>
     </url>
     <url>

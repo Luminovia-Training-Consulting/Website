@@ -7,7 +7,7 @@ export default function NotFoundPage() {
     const {t} = useLanguage();
     const paths = [
         ["/training", t.nav.training],
-        ["/skills", t.nav.skills],
+        ["/consulting", t.nav.consulting],
         ["/projects", t.nav.software],
         ["/contact", t.nav.book],
     ];
