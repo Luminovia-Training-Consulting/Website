@@ -119,7 +119,7 @@ describe("App routing and language", () => {
 
         expect(screen.getByRole("heading", {name: /Transparente Netto-Ab-Preise/i})).toBeInTheDocument();
         expect(screen.getByText("ab 50 EUR")).toBeInTheDocument();
-        expect(screen.getByText("ab 1.000 EUR")).toBeInTheDocument();
+        expect(screen.getAllByText("ab 1.000 EUR").length).toBeGreaterThan(0);
     });
 
     it("scrolls to a hash target after route rendering", async () => {

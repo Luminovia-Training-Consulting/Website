@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {useLanguage} from "../i18n.jsx";
 import {useSiteContent} from "../data/localizedContent.js";
+import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {PROFILE} from "../data/profile.js";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -13,7 +14,7 @@ const content = {
         title: "Klare Luminovia-Angebote fuer Training, Consulting und digitale Umsetzung.",
                 intro: "Diese Seite sortiert, was konkret gebucht werden kann: Live-Training, Consulting-Sprints, Projektbegleitung, Expert Sessions, Curriculum Design und groessere Enablement-Programme. Ideal, wenn Sie schnell entscheiden wollen, welches Format zur Anfrage passt.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#packages", "Pakete"], ["#decision", "Auswahl"], ["#programmes", "Programme"], ["#proof", "Nachweise"], ["#next", "Anfrage"]],
+        jumpItems: [["#packages", "Pakete"], ["#decision", "Auswahl"], ["#scope", "Umfang"], ["#programmes", "Programme"], ["#proof", "Nachweise"], ["#next", "Anfrage"]],
         packagesTitle: "Buchbare Pakete",
         packagesCopy: "Jedes Paket kann auf Deutsch oder Englisch remote-first für Europa, Australien und internationale Teams geplant werden.",
         packages: [
@@ -22,6 +23,8 @@ const content = {
                 tag: "Training",
                 copy: "Praxisnahe Workshops und Kurse zu AI Literacy, GenAI, Prompt Engineering, Cybersecurity, Python, SQL, Business IT und digitaler Transformation.",
                 outcomes: ["klare Lernziele", "Uebungen und Transfer", "Live-Remote-Durchfuehrung", "Materialien und Recaps"],
+                scope: "90 Minuten bis mehrwoechige Kursdurchfuehrung",
+                pricing: "ab 50 EUR / 85 AUD / 65 USD je 45-Min.-UE oder ab 100 EUR / 165 AUD / 120 USD je Stunde",
                 to: "/training",
                 cta: "Training ansehen",
             },
@@ -30,6 +33,8 @@ const content = {
                 tag: "Consulting",
                 copy: "Beratung fuer Use Cases, Prozesse, Tool-Entscheidungen, AI Governance, Roadmaps, Lernarchitektur und digitale Arbeitsmodelle.",
                 outcomes: ["Use-Case-Map", "Roadmap", "Entscheidungsvorlage", "Guidelines"],
+                scope: "Consulting-Sprint, Workshop, Review oder laufende Projektbegleitung",
+                pricing: "individuell kalkuliert nach Verantwortung, Ergebnis und Laufzeit",
                 to: "/consulting",
                 cta: "Consulting ansehen",
             },
@@ -38,6 +43,8 @@ const content = {
                 tag: "Education",
                 copy: "Strukturierte Lernpfade, Trainingsprogramme, Workshop-Reihen, Slides, Labs, Lernchecks und Materialien fuer Bildungsanbieter.",
                 outcomes: ["Curriculum", "Blended-Learning-Struktur", "Labs und Aufgaben", "Qualitaetscheck"],
+                scope: "Konzeptphase, Materialdesign oder komplette Programmarchitektur",
+                pricing: "Projektangebot nach Umfang und Materialtiefe",
                 to: "/training#details",
                 cta: "Details ansehen",
             },
@@ -46,10 +53,16 @@ const content = {
                 tag: "Talks",
                 copy: "Vortraege zu Responsible AI, Cybersecurity Awareness, Future Skills, AI in Bildung, Industry 5.0 und digitaler Transformation.",
                 outcomes: ["Impulsvortrag", "Q&A", "Executive Briefing", "Event-Format"],
+                scope: "30-90 Minuten, Halbtag oder individuelles Eventformat",
+                pricing: "ab 1.000 EUR / 1.650 AUD / 1.200 USD",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "Talks ansehen",
             },
         ],
+        scopeTitle: "Was genau im Angebot enthalten sein kann",
+        scopeCopy: "Der konkrete Umfang wird vorab gescoped. Je nach Paket koennen Live-Durchfuehrung, Uebungen, Materialien, Roadmaps, Entscheidungsnotizen, Follow-up-Recaps oder Projekt-Reviews enthalten sein.",
+        scopeLabel: "Typischer Umfang",
+        priceLabel: "Preislogik",
         decisionTitle: "Welches Format passt?",
         decision: [
             ["Wir brauchen Skills im Team", "Training oder Workshop", "/training"],
@@ -77,7 +90,7 @@ const content = {
         title: "Clear Luminovia offers for training, consulting and digital implementation.",
         intro: "This page structures what can be booked concretely: live training, consulting sprints, project support, expert sessions, curriculum design and larger enablement programmes. Use it to decide quickly which format fits your request.",
         jumpLabel: "On this page",
-        jumpItems: [["#packages", "Packages"], ["#decision", "Choice"], ["#programmes", "Programmes"], ["#proof", "Proof"], ["#next", "Contact"]],
+        jumpItems: [["#packages", "Packages"], ["#decision", "Choice"], ["#scope", "Scope"], ["#programmes", "Programmes"], ["#proof", "Proof"], ["#next", "Contact"]],
         packagesTitle: "Bookable packages",
         packagesCopy: "Every package can be planned in English or German with remote-first delivery for Europe, Australia and international teams.",
         packages: [
@@ -86,6 +99,8 @@ const content = {
                 tag: "Training",
                 copy: "Practical workshops and courses on AI literacy, GenAI, prompt engineering, cybersecurity, Python, SQL, business IT and digital transformation.",
                 outcomes: ["clear learning goals", "exercises and transfer", "remote live delivery", "materials and recaps"],
+                scope: "90 minutes to multi-week course delivery",
+                pricing: "from EUR 50 / AUD 85 / USD 65 per 45-min unit or EUR 100 / AUD 165 / USD 120 per hour",
                 to: "/training",
                 cta: "View training",
             },
@@ -94,6 +109,8 @@ const content = {
                 tag: "Consulting",
                 copy: "Advisory work for use cases, processes, tool decisions, AI governance, roadmaps, learning architecture and digital working models.",
                 outcomes: ["use-case map", "roadmap", "decision brief", "guidelines"],
+                scope: "consulting sprint, workshop, review or ongoing project accompaniment",
+                pricing: "quoted by responsibility, deliverables and timeline",
                 to: "/consulting",
                 cta: "View consulting",
             },
@@ -102,6 +119,8 @@ const content = {
                 tag: "Education",
                 copy: "Structured learning paths, training programmes, workshop series, slides, labs, checks and materials for education providers.",
                 outcomes: ["curriculum", "blended learning structure", "labs and tasks", "quality check"],
+                scope: "concept phase, material design or full programme architecture",
+                pricing: "project quote by scope and material depth",
                 to: "/training#details",
                 cta: "View details",
             },
@@ -110,10 +129,16 @@ const content = {
                 tag: "Talks",
                 copy: "Talks on responsible AI, cybersecurity awareness, future skills, AI in education, Industry 5.0 and digital transformation.",
                 outcomes: ["impulse talk", "Q&A", "executive briefing", "event format"],
+                scope: "30-90 minutes, half-day or custom event format",
+                pricing: "from EUR 1,000 / AUD 1,650 / USD 1,200",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "View talks",
             },
         ],
+        scopeTitle: "What can be included in an offer",
+        scopeCopy: "The concrete scope is agreed upfront. Depending on the package, it can include live delivery, exercises, materials, roadmaps, decision notes, follow-up recaps or project reviews.",
+        scopeLabel: "Typical scope",
+        priceLabel: "Pricing logic",
         decisionTitle: "Which format fits?",
         decision: [
             ["We need team skills", "Training or workshop", "/training"],
@@ -141,6 +166,7 @@ const content = {
 export default function OffersPage() {
     const {language} = useLanguage();
     const {trustSignals} = useSiteContent();
+    const {consultingModels, methods} = businessOfferingsForLanguage(language);
     const copy = content[language];
 
     return (
@@ -168,6 +194,10 @@ export default function OffersPage() {
                                 <h3 className="mt-4 text-2xl font-black tracking-[-0.03em] text-white">{item.title}</h3>
                                 <p className="mt-4 text-sm leading-7 text-slate-300">{item.copy}</p>
                                 <div className="mt-5 grid gap-2">
+                                    <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm leading-6 text-slate-200"><strong className="text-sky-100">{copy.scopeLabel}:</strong> {item.scope}</div>
+                                    <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm leading-6 text-slate-200"><strong className="text-sky-100">{copy.priceLabel}:</strong> {item.pricing}</div>
+                                </div>
+                                <div className="mt-5 grid gap-2">
                                     {item.outcomes.map((outcome) => (
                                         <span key={outcome} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{outcome}</span>
                                     ))}
@@ -188,6 +218,40 @@ export default function OffersPage() {
                                 <span className="rounded-full border border-sky-100/18 bg-sky-100/10 px-4 py-2 text-sm font-black text-sky-100 transition group-hover:bg-sky-100/16">{answer}</span>
                             </Link>
                         ))}
+                    </div>
+                </section>
+
+                <section id="scope" className="mt-16 scroll-mt-36">
+                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+                        <div>
+                            <Badge tone="violet">{language === "de" ? "Umfang" : "Scope"}</Badge>
+                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.scopeTitle}</h2>
+                        </div>
+                        <p className="text-lg leading-8 text-slate-300">{copy.scopeCopy}</p>
+                    </div>
+                    <div className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+                        <Card className="p-5 sm:p-6">
+                            <h3 className="text-3xl font-black text-white">{language === "de" ? "Consulting und Projektbegleitung" : "Consulting and project accompaniment"}</h3>
+                            <div className="mt-6 grid gap-4">
+                                {consultingModels.map((model) => (
+                                    <div key={model.title} className="rounded-[1.15rem] border border-white/10 bg-white/[0.055] p-4">
+                                        <h4 className="text-lg font-black text-white">{model.title}</h4>
+                                        <p className="mt-2 text-sm leading-7 text-slate-300">{model.meaning}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </Card>
+                        <Card className="p-5 sm:p-6">
+                            <h3 className="text-3xl font-black text-white">{language === "de" ? "Methodik" : "Methods"}</h3>
+                            <div className="mt-6 grid gap-3">
+                                {methods.map(([title, description]) => (
+                                    <div key={title} className="rounded-[1.15rem] border border-sky-100/12 bg-[#071225]/72 p-4">
+                                        <h4 className="text-base font-black text-sky-100">{title}</h4>
+                                        <p className="mt-2 text-sm leading-7 text-slate-300">{description}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </Card>
                     </div>
                 </section>
 

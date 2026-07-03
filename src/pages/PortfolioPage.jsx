@@ -1,4 +1,5 @@
 import {useSiteContent} from "../data/localizedContent.js";
+import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -8,6 +9,7 @@ import SectionJumpNav from "../components/SectionJumpNav.jsx";
 export default function PortfolioPage() {
     const {language} = useLanguage();
     const {selectedProjects} = useSiteContent();
+    const {projectTypes, consultingModels, boundaries} = businessOfferingsForLanguage(language);
     const copy = language === "de"
         ? {
             badge: "Referenzprojekte",
@@ -15,7 +17,7 @@ export default function PortfolioPage() {
             intro: "Diese Auswahl zeigt Arbeitsbeispiele aus Software, AI, Research, digitalen Lernformaten und Bildungspartner-Kontexten. Sie macht sichtbar, dass technische Inhalte bei Luminovia aus Praxis, Umsetzungserfahrung und didaktischer Übersetzung entstehen.",
             reference: "Referenz ansehen ->",
             jumpLabel: "Auf dieser Seite",
-            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Bereiche"], ["#projects", "Projekte"]],
+            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Bereiche"], ["#project-accompaniment", "Begleitung"], ["#project-types", "Projektarten"], ["#projects", "Beispiele"]],
             consulting: {
                 eyebrow: "Consulting-Portfolio",
                 title: "IT- und Business-Consulting für Organisationen, die digitale Kompetenz wirklich nutzbar machen wollen.",
@@ -62,6 +64,11 @@ export default function PortfolioPage() {
             ],
             projectsTitle: "Praxis- und Referenzprojekte",
             projectsCopy: "Diese Beispiele zeigen den praktischen Unterbau: Software, Research Automation, Cybersecurity-Labs, digitale Lernsysteme und AI-Adoption fließen direkt in Beratung, Training und Umsetzungssparring ein.",
+            accompanimentTitle: "Was Projektbegleitung bedeutet",
+            accompanimentCopy: "Projektbegleitung ist keine unklare Dauerberatung. Sie bedeutet, dass Luminovia ein Vorhaben strukturiert mitdenkt: Scope, Risiken, Lernbedarf, technische Entscheidungen, Stakeholder-Kommunikation, Dokumentation und Reviewpunkte werden in sinnvolle Arbeitspakete uebersetzt.",
+            projectTypesTitle: "Welche Projektarten sinnvoll sind",
+            possibleTitle: "Moeglich im Scope",
+            notIncludedTitle: "Nicht Teil des Standardangebots",
             ctaTitle: "Consulting oder Training mit Beratungsanteil planen?",
             ctaCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage und gewünschtes Ergebnis. Luminovia schlägt vor, ob ein Workshop, Consulting-Sprint, Training, Vortrag oder kombiniertes Enablement-Format sinnvoll ist.",
             ctaPrimary: "Consulting anfragen",
@@ -73,7 +80,7 @@ export default function PortfolioPage() {
             intro: "This selection shows practical work across software, AI, research, digital learning formats and education partner contexts. It demonstrates that technical topics are taught from implementation experience, applied problem-solving and didactic translation, not from slide theory alone.",
             reference: "View reference ->",
             jumpLabel: "On this page",
-            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Areas"], ["#projects", "Projects"]],
+            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Areas"], ["#project-accompaniment", "Accompaniment"], ["#project-types", "Project types"], ["#projects", "Examples"]],
             consulting: {
                 eyebrow: "Consulting portfolio",
                 title: "IT and business consulting for organisations that need digital capability to become usable.",
@@ -120,6 +127,11 @@ export default function PortfolioPage() {
             ],
             projectsTitle: "Practice and proof projects",
             projectsCopy: "These examples show the practical foundation: software, research automation, cybersecurity labs, digital learning systems and AI adoption feed directly into advisory work, training and implementation sparring.",
+            accompanimentTitle: "What project accompaniment means",
+            accompanimentCopy: "Project accompaniment is not vague ongoing advice. It means Luminovia helps structure a project: scope, risks, learning needs, technical decisions, stakeholder communication, documentation and review points are translated into practical work packages.",
+            projectTypesTitle: "Which project types make sense",
+            possibleTitle: "Possible in scope",
+            notIncludedTitle: "Not part of the standard offer",
             ctaTitle: "Planning consulting or training with an advisory component?",
             ctaCopy: "Send the topic, audience, current situation and desired outcome. Luminovia will suggest whether a workshop, consulting sprint, training, talk or combined enablement format makes sense.",
             ctaPrimary: "Request consulting",
@@ -202,6 +214,61 @@ export default function PortfolioPage() {
                             ))}
                         </div>
                     </Card>
+                </section>
+
+                <section id="project-accompaniment" className="mt-16 scroll-mt-36">
+                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+                        <div>
+                            <Badge tone="cyan">{language === "de" ? "Projektbegleitung" : "Project accompaniment"}</Badge>
+                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.accompanimentTitle}</h2>
+                        </div>
+                        <p className="text-lg leading-8 text-slate-300">{copy.accompanimentCopy}</p>
+                    </div>
+                    <div className="mt-8 grid gap-5 lg:grid-cols-4">
+                        {consultingModels.map((model) => (
+                            <Card key={model.title}>
+                                <h3 className="text-xl font-black text-white">{model.title}</h3>
+                                <p className="mt-4 text-sm leading-7 text-slate-300">{model.meaning}</p>
+                                <div className="mt-5 grid gap-2">
+                                    {model.deliverables.map((deliverable) => (
+                                        <span key={deliverable} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{deliverable}</span>
+                                    ))}
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
+                    <div className="mt-6 grid gap-5 lg:grid-cols-2">
+                        <Card className="p-5 sm:p-6">
+                            <h3 className="text-2xl font-black text-white">{copy.possibleTitle}</h3>
+                            <div className="mt-5 grid gap-2">
+                                {boundaries.possible.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
+                            </div>
+                        </Card>
+                        <Card className="p-5 sm:p-6">
+                            <h3 className="text-2xl font-black text-white">{copy.notIncludedTitle}</h3>
+                            <div className="mt-5 grid gap-2">
+                                {boundaries.notIncluded.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
+                            </div>
+                        </Card>
+                    </div>
+                </section>
+
+                <section id="project-types" className="mt-16 scroll-mt-36">
+                    <Badge tone="amber">{copy.projectTypesTitle}</Badge>
+                    <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.projectTypesTitle}</h2>
+                    <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+                        {projectTypes.map((project) => (
+                            <Card key={project.title}>
+                                <h3 className="text-xl font-black text-white">{project.title}</h3>
+                                <p className="mt-4 text-sm leading-7 text-slate-300">{project.description}</p>
+                                <div className="mt-5 grid gap-2">
+                                    {project.examples.map((example) => (
+                                        <span key={example} className="rounded-2xl border border-white/10 bg-white/[0.055] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{example}</span>
+                                    ))}
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
                 </section>
 
                 <section id="projects" className="mt-16 scroll-mt-36">

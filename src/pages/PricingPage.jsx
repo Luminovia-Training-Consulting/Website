@@ -1,4 +1,5 @@
 import {PROFILE} from "../data/profile.js";
+import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -54,7 +55,9 @@ const content = {
         },
         footnote: "All prices are indicative net starting values, not binding offers. Travel, special preparation, licensing, materials, VAT/tax handling or third-party platform requirements may affect the final quote.",
         jumpLabel: "On this page",
-        jumpItems: [["#booking-eligibility", "Booking fit"], ["#rates", "Rates"], ["#custom", "Custom quote"]],
+        jumpItems: [["#booking-eligibility", "Booking fit"], ["#rates", "Rates"], ["#currency", "Currencies"], ["#custom", "Custom quote"]],
+        currencyTitle: "Planning prices in EUR, AUD and USD.",
+        currencyCopy: "Currency figures are orientation values for planning conversations. The final invoice currency, tax handling and exchange-rate logic are confirmed in the proposal.",
     },
     de: {
         badge: "Preise",
@@ -104,13 +107,16 @@ const content = {
         },
         footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Reiseaufwand, besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#booking-eligibility", "Buchungsfit"], ["#rates", "Preise"], ["#custom", "Anfrage"]],
+        jumpItems: [["#booking-eligibility", "Buchungsfit"], ["#rates", "Preise"], ["#currency", "Waehrungen"], ["#custom", "Anfrage"]],
+        currencyTitle: "Planungspreise in EUR, AUD und USD.",
+        currencyCopy: "Die Waehrungsangaben sind Orientierungswerte fuer Planungsgespraeche. Rechnungswaehrung, Steuerlogik und Wechselkursbasis werden im Angebot geklaert.",
     },
 };
 
 export default function PricingPage() {
     const {language} = useLanguage();
     const copy = content[language];
+    const {currencies} = businessOfferingsForLanguage(language);
 
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
@@ -161,6 +167,32 @@ export default function PricingPage() {
                             </div>
                         </Card>
                     ))}
+                </section>
+
+                <section id="currency" className="mt-14 scroll-mt-36">
+                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+                        <div>
+                            <Badge tone="cyan">{language === "de" ? "Waehrungen" : "Currencies"}</Badge>
+                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.currencyTitle}</h2>
+                        </div>
+                        <p className="text-lg leading-8 text-slate-300">{copy.currencyCopy}</p>
+                    </div>
+                    <div className="mt-8 grid gap-4 lg:grid-cols-2">
+                        {currencies.map((item) => (
+                            <Card key={item.title} className="p-5 sm:p-6">
+                                <h3 className="text-2xl font-black text-white">{item.title}</h3>
+                                <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                                    {[["EUR", item.eur], ["AUD", item.aud], ["USD", item.usd]].map(([currency, value]) => (
+                                        <div key={currency} className="rounded-[1.15rem] border border-white/10 bg-white/[0.06] p-4">
+                                            <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{currency}</div>
+                                            <div className="mt-2 text-sm font-black leading-6 text-white">{value}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <p className="mt-5 text-sm leading-7 text-slate-300">{item.note}</p>
+                            </Card>
+                        ))}
+                    </div>
                 </section>
 
                 <section id="custom" className="mt-14 scroll-mt-36 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_18%_0%,rgba(186,230,253,.16),transparent_42%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))] p-6 shadow-[0_28px_105px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-8">

@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {useSiteContent} from "../data/localizedContent.js";
 import {topicLinkForLabel, trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
@@ -47,6 +48,7 @@ function ServiceCard({detailLabel, service, t}) {
 export default function TrainingPage() {
     const {language, t} = useLanguage();
     const {coreOffers, trainingTopics, formats, serviceOfferings, audienceCards, trustSignals} = useSiteContent();
+    const {durationModels, methods, boundaries} = businessOfferingsForLanguage(language);
     const detailTopics = trainingDetailsForLanguage(language);
     const copy = language === "de"
         ? {
@@ -63,6 +65,13 @@ export default function TrainingPage() {
             detailPages: "Detailseiten",
             detailPagesTitle: "Themen mit klarer Zielgruppe, Inhalt und Durchführungslogik",
             detailPagesCopy: "Die Detailseiten zeigen, für wen ein Thema geeignet ist, welche Formate möglich sind, welche Inhalte behandelt werden und welche Materialien oder Ergebnisse sinnvoll sind.",
+            duration: "Umfang",
+            durationTitle: "Wie lange ein Training dauern kann und was dabei entsteht.",
+            durationCopy: "Luminovia plant Trainings nicht als starre Folienpakete, sondern nach Zielgruppe, Vorwissen, Business-Ziel und benoetigtem Transfer. Ein kurzes Briefing kann reichen; fuer echten Kompetenzaufbau sind Workshop- oder Kursformate sinnvoller.",
+            methods: "Methoden",
+            methodsTitle: "Arbeitsweise in Training und Enablement.",
+            possibleTitle: "Moeglich",
+            notIncludedTitle: "Nicht enthalten",
             details: "Details ansehen",
             audiences: "Zielgruppen",
             audiencesTitle: "Professionelle B2B- und Bildungsumgebungen",
@@ -72,7 +81,7 @@ export default function TrainingPage() {
             consultingCopy: "Training kann mit Beratung und Umsetzung kombiniert werden: AI-Use-Case-Workshops, IT- und Prozessanalyse, Business-Technology-Roadmaps, Curriculum-Design, Enablement-Sprints oder größere mehrteilige Programme. Preise und Umfang erfolgen auf Anfrage.",
             consultingPoints: ["Einzelprojekte", "Großprojekte", "Consulting-Sprints", "Preise auf Anfrage"],
             jumpLabel: "Auf dieser Seite",
-            jumpItems: [["#consulting", "Consulting"], ["#services", "Angebote"], ["#demo-session", "Demo"], ["#details", "Details"], ["#audiences", "Zielgruppen"], ["#proof", "Nachweise"], ["#topics", "Themen"], ["#formats", "Formate"]],
+            jumpItems: [["#consulting", "Consulting"], ["#duration", "Umfang"], ["#services", "Angebote"], ["#methods", "Methoden"], ["#details", "Details"], ["#topics", "Themen"], ["#formats", "Formate"]],
         }
         : {
             badge: "Angebote",
@@ -88,6 +97,13 @@ export default function TrainingPage() {
             detailPages: "Detail pages",
             detailPagesTitle: "Topics with clear audience, content and delivery logic",
             detailPagesCopy: "The detail pages show who each topic is for, which formats are possible, what content is covered and which materials or outcomes can be planned.",
+            duration: "Scope",
+            durationTitle: "How long training can run and what it produces.",
+            durationCopy: "Luminovia does not plan training as a fixed slide package. Scope depends on audience, prior knowledge, business goal and required transfer. A short briefing may be enough; real capability building usually needs workshop or course formats.",
+            methods: "Methods",
+            methodsTitle: "How training and enablement work.",
+            possibleTitle: "Possible",
+            notIncludedTitle: "Not included",
             details: "View details",
             audiences: "Who Luminovia works with",
             audiencesTitle: "Professional B2B and education-sector environments",
@@ -97,7 +113,7 @@ export default function TrainingPage() {
             consultingCopy: "Training can be combined with advisory and implementation work: AI use-case workshops, IT and process analysis, business-technology roadmaps, curriculum design, enablement sprints or larger multi-part programmes. Pricing and scope are available on request.",
             consultingPoints: ["Individual projects", "Large programmes", "Consulting sprints", "Pricing on request"],
             jumpLabel: "On this page",
-            jumpItems: [["#consulting", "Consulting"], ["#services", "Services"], ["#demo-session", "Demo"], ["#details", "Details"], ["#audiences", "Who"], ["#proof", "Proof"], ["#topics", "Topics"], ["#formats", "Formats"]],
+            jumpItems: [["#consulting", "Consulting"], ["#duration", "Scope"], ["#services", "Services"], ["#methods", "Methods"], ["#details", "Details"], ["#topics", "Topics"], ["#formats", "Formats"]],
         };
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
@@ -132,6 +148,25 @@ export default function TrainingPage() {
                     </div>
                 </section>
 
+                <section id="duration" className="mt-14 scroll-mt-36">
+                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+                        <div>
+                            <Badge tone="cyan">{copy.duration}</Badge>
+                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.durationTitle}</h2>
+                        </div>
+                        <p className="text-lg leading-8 text-slate-300">{copy.durationCopy}</p>
+                    </div>
+                    <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                        {durationModels.map((model) => (
+                            <Card key={model.title}>
+                                <h3 className="text-2xl font-black text-white">{model.title}</h3>
+                                <p className="mt-4 text-sm leading-7 text-slate-300">{model.scope}</p>
+                                <div className="mt-5 rounded-[1.15rem] border border-sky-100/12 bg-sky-100/[0.07] p-4 text-sm font-bold leading-7 text-sky-50">{model.output}</div>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
+
                 <section id="services" className="mt-14 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
@@ -146,6 +181,37 @@ export default function TrainingPage() {
                 </section>
 
                 <DemoVideoSection className="-mx-4 mt-4 sm:-mx-6 lg:-mx-8"/>
+
+                <section id="methods" className="mt-16 scroll-mt-36">
+                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+                        <div>
+                            <Badge tone="emerald">{copy.methods}</Badge>
+                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.methodsTitle}</h2>
+                        </div>
+                        <div className="grid gap-3 sm:grid-cols-2">
+                            <Card shine={false}>
+                                <h3 className="text-xl font-black text-white">{copy.possibleTitle}</h3>
+                                <div className="mt-4 grid gap-2">
+                                    {boundaries.possible.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
+                                </div>
+                            </Card>
+                            <Card shine={false}>
+                                <h3 className="text-xl font-black text-white">{copy.notIncludedTitle}</h3>
+                                <div className="mt-4 grid gap-2">
+                                    {boundaries.notIncluded.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
+                                </div>
+                            </Card>
+                        </div>
+                    </div>
+                    <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                        {methods.map(([title, description]) => (
+                            <Card key={title}>
+                                <h3 className="text-2xl font-black text-white">{title}</h3>
+                                <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
 
                 <section id="details" className="mt-16 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
