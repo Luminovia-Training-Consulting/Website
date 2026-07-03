@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carinaschoppe.com/sitemap.xml
+Sitemap: https://luminovia.org/sitemap.xml
+

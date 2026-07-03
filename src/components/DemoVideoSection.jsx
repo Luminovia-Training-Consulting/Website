@@ -10,9 +10,9 @@ const copy = {
     en: {
         badge: "Demo video",
         title: "See how a live AI session can feel before you book.",
-        intro: "This 12-minute demo shows how I explain productive and safe AI use in a business context: clear concepts, practical examples, realistic risks and a structure that works for professional learners.",
+        intro: "This 12-minute demo gives a realistic impression of a Luminovia live session on productive and safe AI use in a business context: clear concepts, practical examples, realistic risks and a structure that works for professional learners.",
         eyebrow: "AI in a company context",
-        videoTitle: "KI Unternehmenskontext Carina Schoppe",
+        videoTitle: "Luminovia AI session in a company context",
         meta: ["12-minute excerpt", "German demo", "Responsible AI use"],
         points: [
             "Calm, structured remote delivery instead of abstract AI hype.",
@@ -26,9 +26,9 @@ const copy = {
     de: {
         badge: "Demo-Video",
         title: "So kann eine Live-Session zu produktivem und sicherem KI-Einsatz aussehen.",
-        intro: "Dieser ca. 12-minutige Demo-Ausschnitt zeigt, wie ich KI im Unternehmenskontext erkläre: verständliche Konzepte, praktische Beispiele, realistische Risiken und eine Struktur, die für professionelle Lernende funktioniert.",
+        intro: "Dieser ca. 12-minutige Demo-Ausschnitt gibt einen realistischen Eindruck einer Luminovia Live-Session zu produktivem und sicherem KI-Einsatz im Unternehmenskontext: verständliche Konzepte, praktische Beispiele, realistische Risiken und eine Struktur, die für professionelle Lernende funktioniert.",
         eyebrow: "KI im Unternehmenskontext",
-        videoTitle: "KI Unternehmenskontext Carina Schoppe",
+        videoTitle: "Luminovia KI-Session im Unternehmenskontext",
         meta: ["ca. 12 Minuten", "deutsche Demo", "Responsible AI Use"],
         points: [
             "Ruhige, strukturierte Remote-Durchführung statt abstraktem KI-Hype.",

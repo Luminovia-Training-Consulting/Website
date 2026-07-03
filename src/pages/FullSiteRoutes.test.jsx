@@ -4,7 +4,7 @@ import {describe, expect, it} from "vitest";
 import App from "../App.jsx";
 import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
-const SITE_BASE_URL = "https://luminovia-training-consulting.github.io/Website";
+const SITE_BASE_URL = "https://luminovia.org";
 const sitemap = readFileSync("public/sitemap.xml", "utf8");
 const appRoutes = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
     .map((match) => match[1])
@@ -54,7 +54,8 @@ describe("full static site route coverage", () => {
         expect(within(headerNav).getByRole("link", {name: /^Offers$/i})).toHaveAttribute("href", "/offers");
         expect(within(headerNav).getByRole("link", {name: /^Clients$/i})).toHaveAttribute("href", "/clients");
         expect(within(headerNav).getByRole("link", {name: /^Projects$/i})).toHaveAttribute("href", "/projects");
-        expect(within(headerNav).getByRole("link", {name: /^CEO$/i})).toHaveAttribute("href", "/about");
+        expect(within(headerNav).getByRole("link", {name: /^Company$/i})).toHaveAttribute("href", "/about");
         expect(within(headerNav).getByRole("link", {name: /^Contact$/i})).toHaveAttribute("href", "/contact");
     });
 });
+

@@ -3,10 +3,10 @@ const base = import.meta.env.BASE_URL;
 export const PROFILE = {
     name: "Luminovia Training & Consulting",
     founder: "Carina Sophie Schoppe",
-    role: "Training & Consulting for AI, IT and digital business",
+    role: "Corporate training, digital capability and consulting",
     location: "Brisbane, Australia",
     addressLines: ["43/9 Eduard Place", "4116 Calamvale", "Brisbane, Australia"],
-    remote: "Remote training and consulting for Europe, Australia & the world",
+    remote: "Remote-first training and consulting for organisations in Europe, Australia and international markets",
     email: "info@carinaschoppe.com",
     phoneAustralia: "+61 451 448 724",
     phoneGermany: "+49 175 5738 757",
@@ -25,8 +25,8 @@ export const IMAGES = {
     headshot: `${base}images/carina-headshot.jpg`,
     outdoor: `${base}images/carina-outdoor.jpg`,
     fullBody: `${base}images/carina-fullbody.jpg`,
-    luminoviaLogoFull: `${base}images/luminovia-logo-full.png`,
-    luminoviaLogoMark: `${base}images/luminovia-logo-mark.png`,
+    luminoviaLogoFull: `${base}images/luminovia-logo-full.svg`,
+    luminoviaLogoMark: `${base}images/luminovia-logo-mark.svg`,
 };
 
 export const navItems = [

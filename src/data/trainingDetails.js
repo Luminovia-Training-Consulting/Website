@@ -527,7 +527,7 @@ const topicDetailsEn = [
             "Material quality checklist",
         ],
         related: ["ai-genai-training", "fachinformatiker-ihk-training-retraining", "office-management-ihk-business-training"],
-        matches: ["Curriculum Design & Blended Learning", "Curriculum design", "Blended learning", "Course material design", "Materialdesign", "Remote classroom delivery", "Remote-Unterricht", "Adult education", "Erwachsenenbildung", "Learner activation", "Lernaktivierung", "Workshop facilitation", "Workshop-Facilitation"],
+        matches: ["Curriculum Design & Blended Learning", "Curriculum design", "Blended learning", "Course material design", "Materialdesign", "Remote classroom delivery", "Remote Delivery", "Adult education", "Erwachsenenbildung", "Learner activation", "Lernaktivierung", "Workshop facilitation", "Workshop-Facilitation"],
     },
     {
         slug: "coaching-keynotes-expert-talks",
@@ -779,3 +779,4 @@ export function topicLinkForLabel(label) {
 
     return topic ? `/training/${topic.slug}` : null;
 }
+

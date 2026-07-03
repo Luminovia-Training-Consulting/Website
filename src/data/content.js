@@ -1,10 +1,10 @@
 import {PROFILE} from "./profile.js";
 
 export const trustStats = [
-    {value: "10k+", label: "documented teaching hours"},
-    {value: "4.7/5", label: "average learner rating"},
+    {value: "AI | IT | Security", label: "core digital capability areas"},
     {value: "DE / EN", label: "German and English delivery"},
-    {value: "B.Sc. | M.Sc. | MBA | TAE", label: "business IT, management and VET training background"},
+    {value: "Remote-first", label: "delivery for distributed organisations"},
+    {value: "Workshops to programmes", label: "formats from briefings to multi-week enablement"},
 ];
 
 export const coreOffers = [
@@ -24,10 +24,10 @@ export const coreOffers = [
         gradient: "from-sky-300/20 via-blue-400/10 to-violet-500/20",
     },
     {
-        kicker: "Freelance lecturer",
+        kicker: "Training delivery",
         title: "IT & Business Courses",
         outcome: "Structured teaching for adult learners and professional education.",
-        copy: "Remote-first course delivery for education providers, academies, universities, bootcamps and funded training programmes that need reliable, clear, practice-oriented instruction.",
+        copy: "Remote-first course and module delivery for education providers, academies, universities, bootcamps and funded training programmes that need reliable, clear, practice-oriented instruction.",
         deliverables: [
             "Python, SQL, databases, AI, cloud and cybersecurity",
             "Theory blocks combined with hands-on exercises",
@@ -215,23 +215,23 @@ export const audienceCards = [
 export const teachingProof = [
     {title: "Certified IT lecturer", value: "DiBak Trainer Certification", copy: "Covers didactics, pedagogy, learning platforms, material creation, learning checks, technical troubleshooting and quality assurance."},
     {title: "Australian VET training", value: "TAE40122 Certificate IV", copy: "Completed Certificate IV in Training and Assessment with RAM Training Services in June 2026."},
-    {title: "Learner rating", value: "4.7 / 5", copy: "Documented average rating after 10k+ teaching hours, showing strong learner satisfaction and practical delivery quality."},
+    {title: "Delivery quality", value: "Structured formats", copy: "Training formats are designed around clear outcomes, practical exercises, transfer tasks and professional preparation."},
     {title: "Adult education strength", value: "Theory + practice", copy: "Learning formats are built around examples, exercises, recaps, learner activation, transfer tasks and clear outcomes."},
     {title: "International delivery", value: "Remote-first", copy: "Based in Brisbane while delivering online training for European, Australian and global clients in German or English."},
 ];
 
 export const trustSignals = [
     {title: "Academic background", copy: "B.Sc. and M.Sc. in Business Computer Science plus MBA without major, completed in April 2026."},
-    {title: "Teaching experience", copy: "10k+ documented teaching hours with an average learner rating of 4.7/5."},
+    {title: "Company delivery model", copy: "Remote-first training and consulting with structured preparation, clear materials and practical outcomes."},
     {title: "Australian training qualification", copy: "Certificate IV in Training and Assessment TAE40122, completed with RAM Training Services in June 2026."},
     {title: "Expertise areas", copy: "AI, cybersecurity, software development, business computer science, data, agile work and digital education."},
     {title: "Languages", copy: "Training delivery in German and English, with Spanish language experience."},
-    {title: "Remote delivery", copy: "Remote live training from Brisbane for Europe, Australia and the world education partners."},
+    {title: "Remote delivery", copy: "Remote-first live training and consulting for Europe, Australia and international education partners."},
     {title: "Sector fit", copy: "Experience with corporate training, higher education, retraining, bootcamps and professional academies."},
 ];
 
 export const credentials = [
-    {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "10k+ teaching hours | average learner rating 4.7/5", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
+    {category: "Teaching", title: "DiBak Certified IT Lecturer", meta: "didactics | learning platforms | quality assurance", detail: "Didactics, methods, learning platforms, material creation, learning checks and technology-supported instruction."},
     {category: "Teaching", title: "Certificate IV in Training and Assessment TAE40122", meta: "RAM Training Services | completed Jun 2026", detail: "Australian vocational education and training qualification for planning, delivering and assessing competency-based learning."},
     {category: "Teaching", title: "SCHLAU NRW Educational Work", meta: "Volunteer educator | Dec 2022 to Nov 2023", detail: "Workshops, facilitation, reflection and professional youth education in diversity and anti-discrimination contexts."},
     {category: "Teaching", title: "Software Innovation Lab Work Reference", meta: "University of Paderborn | KMUeinfachSicher project | 2021", detail: "Content work around IT security, passwords, password managers, data handling and didactic preparation for SMEs."},
@@ -759,18 +759,18 @@ export const timeline = [
     {year: "2022-2023", title: "Education and facilitation", copy: "Built cyber learning foundations and contributed to SCHLAU NRW educational workshops and facilitation."},
     {year: "2023-2024", title: "Entrepreneurship and learning design", copy: "Top Talent Programme and garage33 with Design Thinking, Lean Startup, pitching and agile working methods."},
     {year: "2025", title: "Business IT academic profile", copy: "Completed B.Sc. and M.Sc. with AI, data, HCI, IT management and digitalisation focus areas."},
-    {year: "2026", title: "International lecturer and AI trainer", copy: "MBA without major completed in April, TAE40122 Certificate IV completed in June and remote-first teaching profile based in Brisbane for Europe, Australia and the world."},
+    {year: "2026", title: "Luminovia remote-first delivery model", copy: "MBA without major completed in April, TAE40122 Certificate IV completed in June and Luminovia positioned for structured training and consulting delivery across Europe, Australia and international teams."},
 ];
 
 export const faqs = [
-    {q: "What can I book you for?", a: "You can book me for IT and business consulting, individual projects, larger enablement programmes, AI governance work, cybersecurity awareness, software development topics, business computer science, digital transformation and digital education training. Typical formats are consulting sprints, workshops, live online courses, keynotes, curriculum support and project implementation support."},
-    {q: "Who do you usually work with?", a: "I work with training providers, universities, corporate learning teams, bootcamps, public-sector organisations, startups, SMEs and international education partners that need structured remote delivery in English or German."},
-    {q: "Do you deliver full courses or only short workshops?", a: "Both. I can deliver 90-minute expert sessions, half-day workshops, full training days, consulting sprints, multi-day intensives, multi-week course delivery and larger project programmes for professional education providers or organisations."},
+    {q: "What can organisations book Luminovia for?", a: "Luminovia provides IT and business consulting, training programmes, AI governance work, cybersecurity awareness, software and data training, digital transformation support and curriculum design. Typical formats are consulting sprints, workshops, live online courses, keynotes, enablement programmes and project implementation support."},
+    {q: "Who does Luminovia work with?", a: "Luminovia works with training providers, universities, corporate learning teams, bootcamps, public-sector organisations, startups, SMEs and international education partners that need structured delivery in English or German."},
+    {q: "Are full courses or only short workshops available?", a: "Both. Formats can include 90-minute expert sessions, half-day workshops, full training days, consulting sprints, multi-day intensives, multi-week course delivery and larger programme work for professional education providers or organisations."},
     {q: "Which AI topics are most requested?", a: "Common requests include AI literacy, GenAI for teams, prompt engineering, agentic workflows, responsible AI, AI governance, automation risks and practical AI adoption for business or education contexts."},
-    {q: "Can you teach technical topics like Python, SQL or cybersecurity?", a: "Yes. I teach Python, SQL, databases, APIs, software development foundations, cybersecurity awareness, web security, SOC basics, ethical hacking foundations and CompTIA PenTest+ preparation contexts."},
-    {q: "Do you teach in German or English?", a: "Yes. Training can be delivered in English or German. Spanish language experience is also part of my profile, but the primary training languages are English and German."},
-    {q: "How does remote delivery from Brisbane work?", a: "Remote delivery is planned around the target audience and time zone. I regularly position remote live sessions for German-speaking and international clients across Europe, Australia and the world."},
-    {q: "What makes your training practical?", a: "Sessions combine clear outcomes, examples, exercises, recaps, learner activation and transfer tasks. Participants do not only hear about tools; they practise how to use them in work, study or course contexts."},
-    {q: "Can you design materials or a curriculum?", a: "Yes. I can support curriculum design, blended learning concepts, slides, exercises, learning checks, labs, consulting documentation, AI use-case maps, roadmaps and training structures for academies, universities and corporate learning teams."},
-    {q: "How do we start a booking request?", a: "Send the topic, audience, learner level, project context, desired format, timeframe and outcome by email or book a short appointment. I will suggest a suitable consulting, training or project format and next steps."},
+    {q: "Can Luminovia cover technical topics like Python, SQL or cybersecurity?", a: "Yes. Programmes can cover Python, SQL, databases, APIs, software development foundations, cybersecurity awareness, web security, SOC basics, ethical hacking foundations and certification-oriented preparation contexts."},
+    {q: "Is delivery available in German and English?", a: "Yes. Training and consulting formats can be delivered in German or English, depending on audience, programme context and stakeholder needs."},
+    {q: "How does remote delivery work?", a: "Remote delivery is planned around the target audience, time zone and format. Luminovia supports German-speaking and international clients across Europe, Australia and distributed global teams."},
+    {q: "What makes the training practical?", a: "Sessions combine clear outcomes, examples, exercises, recaps, learner activation and transfer tasks. Participants do not only hear about tools; they practise how to use them in work, study or course contexts."},
+    {q: "Can Luminovia design materials or a curriculum?", a: "Yes. Luminovia can support curriculum design, blended-learning concepts, slides, exercises, learning checks, labs, consulting documentation, AI use-case maps, roadmaps and training structures for academies, universities and corporate learning teams."},
+    {q: "How does a booking request start?", a: "Send the topic, audience, learner level, project context, desired format, timeframe and target outcome by email or book a short appointment. Luminovia will suggest a suitable consulting, training or project format and next steps."},
 ];

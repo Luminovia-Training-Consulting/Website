@@ -13,20 +13,20 @@ export default function Footer() {
     const {language, t} = useLanguage();
     const labels = language === "de"
         ? {
-            summary: "Luminovia Training & Consulting mit Standort Brisbane, Australien. Remote-Consulting, Projektunterstützung und Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner. CEO und Gründerin: Carina Sophie Schoppe.",
+            summary: "Luminovia Training & Consulting ist ein remote-first Unternehmen für Corporate Training, Consulting, Projektunterstützung und Digital Enablement. Geführt von CEO und Gründerin Carina Sophie Schoppe.",
             location: "Standort: Brisbane, Australien",
-            delivery: "Remote-Unterricht: Europa, Australien und die Welt",
-            languages: "Sprachen: Deutsch / Englisch / Spanisch",
+            delivery: "Remote-first: Europa, Australien und internationale Teams",
+            languages: "Durchführung: Deutsch / Englisch",
             booking: "Buchung",
             appointment: "Termin buchen",
             website: "Website",
             topics: "Angebotsthemen",
         }
         : {
-            summary: "Luminovia Training & Consulting based in Brisbane, Australia. Remote consulting, project support and live training for education providers, companies, universities and international partners. CEO and founder: Carina Sophie Schoppe.",
+            summary: "Luminovia Training & Consulting is a remote-first company for corporate training, consulting, project support and digital enablement. Led by CEO and founder Carina Sophie Schoppe.",
             location: "Location: Brisbane, Australia",
-            delivery: "Remote delivery: Europe, Australia and the world",
-            languages: "Languages: German / English / Spanish",
+            delivery: "Remote-first: Europe, Australia and international teams",
+            languages: "Delivery: German / English",
             booking: "Booking",
             appointment: "Book appointment",
             website: "Website",

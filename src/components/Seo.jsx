@@ -4,8 +4,8 @@ import {seoHomeFaqs} from "../data/seoContent.js";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
-const SITE_URL = "https://luminovia-training-consulting.github.io/Website";
-const DEFAULT_IMAGE = `${SITE_URL}/images/carina-hero.jpg`;
+const SITE_URL = "https://luminovia.org";
+const DEFAULT_IMAGE = `${SITE_URL}/images/luminovia-logo-full.png`;
 const schemaServiceOffers = [
     ["AI & GenAI Training", "Practical training on generative AI concepts, business use cases, limits, risks and responsible day-to-day adoption."],
     ["AI Literacy for Teams", "Clear AI literacy training for shared language, practical confidence and sensible AI usage rules."],
@@ -24,7 +24,7 @@ const routeMeta = {
     en: {
         "/": {
             title: "Luminovia Training & Consulting | AI, IT and Digital Business",
-            description: "Book Luminovia Training & Consulting, led by Carina Sophie Schoppe, for AI, IT, cybersecurity, business technology training and consulting from Brisbane.",
+            description: "Luminovia provides corporate training, consulting and enablement programmes for AI, IT, cybersecurity, software, data and business technology.",
         },
         "/training": {
             title: "Offers | IT and Business Training, Lectures & Consulting",
@@ -44,11 +44,11 @@ const routeMeta = {
         },
         "/projects": {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
-            description: "Selected projects by Carina Sophie Schoppe across automation, AI research workflows, consulting support, Kotlin plugins, mobile apps and learning-friendly technical implementation.",
+            description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
         },
         "/software": {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
-            description: "Selected projects by Carina Sophie Schoppe across automation, AI research workflows, consulting support, Kotlin plugins, mobile apps and learning-friendly technical implementation.",
+            description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
         },
         "/portfolio": {
             title: "Consulting Portfolio | IT and Business Consulting",
@@ -67,11 +67,11 @@ const routeMeta = {
             description: "Professional timeline from business computer science, MBA without major, TAE40122, software practice and entrepreneurship to IT and cybersecurity training from Brisbane.",
         },
         "/about": {
-            title: "About | Carina Sophie Schoppe",
-            description: "Background and positioning for Carina Sophie Schoppe as an IT and business lecturer, trainer and consultant with academic, AI, cybersecurity and TAE40122 training proof.",
+            title: "Company | Luminovia Training & Consulting",
+            description: "Company profile for Luminovia Training & Consulting, led by CEO and founder Carina Sophie Schoppe.",
         },
         "/keynotes": {
-            title: "Keynotes & Expert Talks | Carina Sophie Schoppe",
+            title: "Keynotes & Expert Talks | Luminovia",
             description: "Book talks and expert sessions on AI, cybersecurity, digital transformation, business IT and modern digital education.",
         },
         "/corporate": {
@@ -79,8 +79,8 @@ const routeMeta = {
             description: "Corporate training solutions for AI literacy, cybersecurity, software, project work, data and digital transformation.",
         },
         "/credentials": {
-            title: "Credentials | Carina Sophie Schoppe",
-            description: "Credentials, teaching proof and professional background including MBA without major, TAE40122, AI certifications and 10k+ teaching hours.",
+            title: "Credentials | Luminovia",
+            description: "Credentials, qualifications and professional background behind Luminovia training and consulting delivery.",
         },
         "/blog": {
             title: "Blog | AI Governance, Digital Education and Business IT",
@@ -88,21 +88,21 @@ const routeMeta = {
         },
         "/contact": {
             title: "Contact & Booking | Book IT and Business Training",
-            description: "Contact Carina Sophie Schoppe for lectures, workshops, talks, course delivery and training consultations by email, phone or calendar booking.",
+            description: "Contact Luminovia for training, consulting, workshops, talks, course delivery and programme planning by email, phone or calendar booking.",
         },
         "/imprint": {
-            title: "Imprint | Carina Sophie Schoppe",
-            description: "Legal notice and contact details for Carina Sophie Schoppe.",
+            title: "Imprint | Luminovia",
+            description: "Legal notice and contact details for Luminovia Training & Consulting.",
         },
         "/privacy": {
-            title: "Privacy Policy | Carina Sophie Schoppe",
-            description: "Privacy policy for the Carina Sophie Schoppe website, including analytics and contact information.",
+            title: "Privacy Policy | Luminovia",
+            description: "Privacy policy for the Luminovia website, including analytics and contact information.",
         },
     },
     de: {
         "/": {
             title: "Luminovia Training & Consulting | AI, IT und Digital Business",
-            description: "Buchen Sie Luminovia Training & Consulting, geführt von Carina Sophie Schoppe, für AI-, IT-, Cybersecurity-, Business-Technology-Training und Consulting aus Brisbane.",
+            description: "Luminovia bietet Corporate Training, Consulting und Enablement-Programme für AI, IT, Cybersecurity, Software, Daten und Business Technology.",
         },
         "/training": {
             title: "Angebote | IT- und Business-Training, Lehre & Consulting",
@@ -122,11 +122,11 @@ const routeMeta = {
         },
         "/projects": {
             title: "Projektportfolio | AI Research, Automatisierung und Consulting",
-            description: "Ausgewählte Projekte von Carina Sophie Schoppe zu Automatisierung, AI-Research-Workflows, Consulting-Support, Kotlin-Plugins, mobilen Apps und technischer Umsetzung.",
+            description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, AI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
         },
         "/software": {
             title: "Projektportfolio | AI Research, Automatisierung und Consulting",
-            description: "Ausgewählte Projekte von Carina Sophie Schoppe zu Automatisierung, AI-Research-Workflows, Consulting-Support, Kotlin-Plugins, mobilen Apps und technischer Umsetzung.",
+            description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, AI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
         },
         "/portfolio": {
             title: "Consulting-Portfolio | IT- und Business-Consulting",
@@ -145,11 +145,11 @@ const routeMeta = {
             description: "Professioneller Werdegang von Wirtschaftsinformatik, MBA ohne Major, TAE40122, Softwarepraxis und Unternehmertum bis zu IT- und Cybersecurity-Training aus Brisbane.",
         },
         "/about": {
-            title: "Über Carina | Carina Sophie Schoppe",
-            description: "Hintergrund und Positionierung von Carina Sophie Schoppe als IT- und Business-Dozentin, Trainerin und Consultant mit akademischem, AI-, Cybersecurity- und TAE40122-Nachweis.",
+            title: "Unternehmen | Luminovia Training & Consulting",
+            description: "Unternehmensprofil von Luminovia Training & Consulting, geführt von CEO und Gründerin Carina Sophie Schoppe.",
         },
         "/keynotes": {
-            title: "Keynotes & Expert Talks | Carina Sophie Schoppe",
+            title: "Keynotes & Expert Talks | Luminovia",
             description: "Vorträge und Expert Sessions zu AI, Cybersecurity, digitaler Transformation, Business-IT und moderner digitaler Bildung.",
         },
         "/corporate": {
@@ -157,8 +157,8 @@ const routeMeta = {
             description: "Corporate-Training-Lösungen für AI Literacy, Cybersecurity, Software, Projektarbeit, Daten und digitale Transformation.",
         },
         "/credentials": {
-            title: "Nachweise | Carina Sophie Schoppe",
-            description: "Nachweise, Lehrprofil und professioneller Hintergrund mit MBA ohne Major, TAE40122, AI-Zertifikaten und 10k+ Unterrichtsstunden.",
+            title: "Nachweise | Luminovia",
+            description: "Nachweise, Qualifikationen und professioneller Hintergrund hinter der Luminovia Trainings- und Beratungsdurchführung.",
         },
         "/blog": {
             title: "Blog | AI Governance, digitale Bildung und Business-IT",
@@ -166,15 +166,15 @@ const routeMeta = {
         },
         "/contact": {
             title: "Kontakt & Buchung | IT- und Business-Training buchen",
-            description: "Kontaktieren Sie Carina Sophie Schoppe für Vorlesungen, Workshops, Vorträge, Kursdurchführung und Trainingsberatung per E-Mail, Telefon oder Kalenderbuchung.",
+            description: "Kontaktieren Sie Luminovia für Training, Consulting, Workshops, Vorträge, Kursdurchführung und Programmplanung per E-Mail, Telefon oder Kalenderbuchung.",
         },
         "/imprint": {
-            title: "Impressum | Carina Sophie Schoppe",
-            description: "Impressum und Kontaktinformationen von Carina Sophie Schoppe.",
+            title: "Impressum | Luminovia",
+            description: "Impressum und Kontaktinformationen von Luminovia Training & Consulting.",
         },
         "/privacy": {
-            title: "Datenschutzerklärung | Carina Sophie Schoppe",
-            description: "Datenschutzerklärung der Website von Carina Sophie Schoppe, inklusive Analytics- und Kontaktinformationen.",
+            title: "Datenschutzerklärung | Luminovia",
+            description: "Datenschutzerklärung der Luminovia-Website, inklusive Analytics- und Kontaktinformationen.",
         },
     },
 };
@@ -218,8 +218,8 @@ function removeJsonLd(id) {
 function buildBaseSchema() {
     return {
         "@context": "https://schema.org",
-        "@type": ["Person", "ProfessionalService"],
-        "@id": `${SITE_URL}/#carina-sophie-schoppe`,
+        "@type": "ProfessionalService",
+        "@id": `${SITE_URL}/#luminovia`,
         name: PROFILE.name,
         url: `${SITE_URL}/`,
         image: DEFAULT_IMAGE,
@@ -236,6 +236,12 @@ function buildBaseSchema() {
         areaServed: ["Germany", "Austria", "Switzerland", "Australia", "Europe", "Worldwide"],
         knowsLanguage: ["German", "English", "Spanish"],
         sameAs: [PROFILE.linkedin, PROFILE.github],
+        founder: {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#carina-sophie-schoppe`,
+            name: PROFILE.founder,
+            jobTitle: "CEO and Founder",
+        },
         serviceType: schemaServiceOffers.map(([title]) => title),
         makesOffer: schemaServiceOffers.map(([title, description]) => ({
             "@type": "Offer",
@@ -245,7 +251,7 @@ function buildBaseSchema() {
                 description,
                 audience: "Companies, universities, training providers, public-sector organisations and international education partners",
                 areaServed: ["Europe", "Australia", "Worldwide"],
-                provider: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
+                provider: {"@id": `${SITE_URL}/#luminovia`},
             },
         })),
     };
@@ -278,8 +284,8 @@ export default function Seo() {
     const isBlogPostRoute = /^\/blog\/[^/]+$/.test(pathname);
     const isTrainingTopicRoute = /^\/training\/[^/]+$/.test(pathname);
     const currentMeta = isBlogPostRoute ? {
-        title: language === "de" ? "Blogbeitrag | Carina Sophie Schoppe" : "Blog Article | Carina Sophie Schoppe",
-        description: language === "de" ? "Fachbeitrag von Carina Sophie Schoppe zu AI, Governance, digitaler Bildung, Business-IT oder moderner Arbeit." : "Long-form article by Carina Sophie Schoppe on AI, governance, digital education, business IT or modern work.",
+        title: language === "de" ? "Blogbeitrag | Luminovia" : "Blog Article | Luminovia",
+        description: language === "de" ? "Fachbeitrag aus dem Luminovia Wissenshub zu AI, Governance, digitaler Bildung, Business-IT oder moderner Arbeit." : "Long-form article from the Luminovia knowledge hub on AI, governance, digital education, business IT or modern work.",
     } : isTrainingTopicRoute ? {
         title: language === "de" ? "Trainingsthema | IT- und Business-Bildung" : "Training Topic | IT and Business Education",
         description: language === "de" ? "Detaillierte Themenseite für IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for IT, software development, cybersecurity, project management, digital transformation or business education.",
@@ -307,7 +313,7 @@ export default function Seo() {
         upsertLink('link[rel="alternate"][hreflang="en"]', {rel: "alternate", hreflang: "en", href: canonical});
         upsertLink('link[rel="alternate"][hreflang="de"]', {rel: "alternate", hreflang: "de", href: canonical});
 
-        upsertJsonLd("dynamic-person-service-schema", buildBaseSchema());
+        upsertJsonLd("dynamic-organisation-service-schema", buildBaseSchema());
         upsertJsonLd("dynamic-breadcrumb-schema", buildBreadcrumbSchema(pathname, title));
 
         if (pathname === "/") {
@@ -343,7 +349,7 @@ export default function Seo() {
             if (!post) return;
 
             const canonical = `${SITE_URL}${pathname}`;
-            const blogTitle = `${post.title} | Carina Sophie Schoppe Blog`;
+            const blogTitle = `${post.title} | Luminovia Blog`;
             document.title = blogTitle;
             upsertMeta('meta[name="description"]', {name: "description", content: post.excerpt});
             upsertMeta('meta[property="og:title"]', {property: "og:title", content: blogTitle});
@@ -357,8 +363,8 @@ export default function Seo() {
                 datePublished: post.date,
                 dateModified: post.date,
                 image: DEFAULT_IMAGE,
-                author: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
-                publisher: {"@id": `${SITE_URL}/#carina-sophie-schoppe`},
+                author: {"@id": `${SITE_URL}/#luminovia`},
+                publisher: {"@id": `${SITE_URL}/#luminovia`},
                 mainEntityOfPage: canonical,
             });
         });

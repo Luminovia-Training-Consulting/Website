@@ -8,44 +8,44 @@ import Photo from "../components/Photo.jsx";
 
 const copy = {
     en: {
-        badge: "CEO & founder",
-        title: "Carina Sophie Schoppe leads Luminovia Training & Consulting.",
-        intro: "Carina is the CEO and founder behind Luminovia. Her work combines teaching, consulting, speaking and professional training across business computer science, AI, cybersecurity, software development and didactics.",
-        follow: "Clients book Luminovia when they need complex digital topics structured clearly, explained elegantly, practised actively and connected to business reality.",
+        badge: "Company",
+        title: "Luminovia Training & Consulting is built for practical digital capability.",
+        intro: "Luminovia is a remote-first training and consulting company for organisations that need AI, IT, cybersecurity, software, data and business technology translated into usable capability.",
+        follow: "The company is led by CEO and founder Carina Sophie Schoppe. Her background in business computer science, AI, cybersecurity, software development, didactics and consulting shapes Luminovia's professional delivery model.",
         linkedin: "View LinkedIn",
         github: "View GitHub",
-        timeline: "My timeline",
+        timeline: "Company background",
         cards: [
-            ["Didactic", "I translate complex topics into structured, learner-friendly formats with exercises and transfer logic."],
+            ["Didactic", "Complex topics are translated into structured, learner-friendly formats with exercises and transfer logic."],
             ["Technical", "AI, software, cybersecurity, data and business IT are taught through systems, workflows and examples that connect concepts with implementation reality."],
-            ["Professional", "Remote-first, bilingual and comfortable with adult learners, corporate teams and education providers."],
+            ["Professional", "Remote-first, bilingual and built for adult learners, corporate teams and education providers."],
         ],
         links: [
-            ["My Way", "A compact life timeline from school and early programming to Brisbane, AI training and international teaching.", "/my-way"],
+            ["Company background", "A compact timeline behind Luminovia's leadership, academic profile, training practice and international delivery model.", "/my-way"],
             ["Skills", "A skill map for AI, software development, cybersecurity, business IT, teaching design and communication.", "/skills"],
             ["Blog", "Long-form articles on AI governance, digital education, automation risk, project work and responsible technology adoption.", "/blog"],
         ],
-        timelineTitle: "Teaching-focused timeline",
+        timelineTitle: "Company and leadership background",
     },
     de: {
-        badge: "CEO & Gründerin",
-        title: "Carina Sophie Schoppe führt Luminovia Training & Consulting.",
-        intro: "Carina ist CEO und Gründerin von Luminovia. Ihre Arbeit verbindet Lehre, Consulting, Speaking und professionelle Weiterbildung rund um Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung und Didaktik.",
-        follow: "Kunden buchen Luminovia, wenn komplexe digitale Themen klar strukturiert, elegant erklärt, aktiv geübt und mit Business-Realität verbunden werden müssen.",
+        badge: "Unternehmen",
+        title: "Luminovia Training & Consulting steht für praktische digitale Kompetenz.",
+        intro: "Luminovia ist ein remote-first Trainings- und Consulting-Unternehmen für Organisationen, die AI, IT, Cybersecurity, Software, Daten und Business Technology in nutzbare Kompetenz übersetzen wollen.",
+        follow: "Das Unternehmen wird von CEO und Gründerin Carina Sophie Schoppe geführt. Ihr Hintergrund in Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und Consulting prägt das professionelle Liefermodell von Luminovia.",
         linkedin: "LinkedIn ansehen",
         github: "GitHub ansehen",
-        timeline: "Werdegang",
+        timeline: "Unternehmenshintergrund",
         cards: [
-            ["Didaktisch", "Ich übersetze komplexe Themen in strukturierte, lernfreundliche Formate mit Übungen und Transferlogik."],
+            ["Didaktisch", "Komplexe Themen werden in strukturierte, lernfreundliche Formate mit Übungen und Transferlogik übersetzt."],
             ["Technisch", "AI, Software, Cybersecurity, Daten und Business-IT werden über Systeme, Arbeitsabläufe und Beispiele vermittelt, die Konzepte mit Umsetzungspraxis verbinden."],
-            ["Professionell", "Remote-first, zweisprachig und erfahren mit Erwachsenenbildung, Unternehmensteams und Bildungsanbietern."],
+            ["Professionell", "Remote-first, zweisprachig und ausgelegt auf Erwachsenenbildung, Unternehmensteams und Bildungsanbieter."],
         ],
         links: [
-            ["Werdegang", "Eine kompakte Timeline von Schule und frühem Programmieren bis Brisbane, AI-Training und internationaler Lehre.", "/my-way"],
+            ["Unternehmenshintergrund", "Eine kompakte Timeline hinter Luminovias Führung, akademischem Profil, Trainingspraxis und internationalem Liefermodell.", "/my-way"],
             ["Kompetenzen", "Eine Kompetenzübersicht für AI, Softwareentwicklung, Cybersecurity, Business-IT, Didaktik und Kommunikation.", "/skills"],
             ["Blog", "Ausführliche Beiträge zu AI Governance, digitaler Bildung, Automationsrisiken, Projektarbeit und verantwortungsvoller Technologieeinführung.", "/blog"],
         ],
-        timelineTitle: "Lehrorientierter Werdegang",
+        timelineTitle: "Unternehmens- und Führungshintergrund",
     },
 };
 
@@ -70,7 +70,7 @@ export default function AboutPage() {
                         </div>
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2">
-                        <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe for her lecturer and consultant profile" className="aspect-[3/4] rounded-2xl" imgClass="object-[50%_20%]"/>
+                        <Photo src={IMAGES.headshot} alt="Leadership portrait for Luminovia Training & Consulting" className="aspect-[3/4] rounded-2xl" imgClass="object-[50%_20%]"/>
                         <div className="grid gap-4">
                             {c.cards.map(([title, text]) => (
                                 <Card key={title}>

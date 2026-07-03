@@ -117,7 +117,7 @@ export default function BlogPage() {
     const copy = language === "de"
         ? {
             title: "Blog zu AI, Projektmanagement und Lehre mit KI.",
-            intro: "Der Blog ist als fachlicher Wissenshub für Bildungspartner, Unternehmen und Hochschulen gedacht. Hier ordne ich Entwicklungen rund um Agentic AI, AI Governance, digitale Bildung, Projektarbeit und verantwortungsvolle Automatisierung ein, mit Blick auf praktische Trainings, bessere Entscheidungen und den Transfer in echte Lern- und Arbeitsumgebungen.",
+            intro: "Der Blog ist als fachlicher Luminovia-Wissenshub für Bildungspartner, Unternehmen und Hochschulen gedacht. Hier werden Entwicklungen rund um Agentic AI, AI Governance, digitale Bildung, Projektarbeit und verantwortungsvolle Automatisierung eingeordnet, mit Blick auf praktische Trainings, bessere Entscheidungen und den Transfer in echte Lern- und Arbeitsumgebungen.",
             featured: "Neuester Beitrag",
             latest: "Alle Blogbeiträge",
             read: "Artikel lesen",
@@ -129,7 +129,7 @@ export default function BlogPage() {
         }
         : {
             title: "Blog on AI, project work and teaching with AI.",
-            intro: "This blog is designed as a professional knowledge hub for education partners, companies and universities. I use it to analyse developments in agentic AI, AI governance, digital education, project work and responsible automation, always with a focus on practical training, better decision-making and transfer into real learning and work environments.",
+            intro: "This blog is designed as the Luminovia professional knowledge hub for education partners, companies and universities. It analyses developments in agentic AI, AI governance, digital education, project work and responsible automation, always with a focus on practical training, better decision-making and transfer into real learning and work environments.",
             featured: "Featured latest post",
             latest: "All blog posts",
             read: "Read article",

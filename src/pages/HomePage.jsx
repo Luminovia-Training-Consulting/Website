@@ -18,7 +18,7 @@ function HeroVisual() {
         <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
             <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
                 <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl"/>
-                <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe, CEO and founder of Luminovia Training & Consulting" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="(min-width: 1024px) 520px, 0px"/>
+                <Photo src={IMAGES.hero} alt="Leadership portrait for Luminovia Training & Consulting" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="(min-width: 1024px) 520px, 0px"/>
                 <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>
@@ -31,7 +31,7 @@ function HeroVisual() {
             </div>
             <div className="absolute -right-2 top-8 rounded-[1.35rem] border border-sky-100/25 bg-[#071225]/92 p-4 shadow-[0_20px_80px_rgba(0,0,0,.42),0_0_44px_rgba(56,189,248,.15)] backdrop-blur-xl transition duration-700 hover:-translate-y-1 sm:-right-8">
                 <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100 drop-shadow-[0_1px_10px_rgba(0,0,0,.8)]">{t.home.learnerRating}</div>
-                <div className="mt-1 text-sm font-black text-white drop-shadow-[0_1px_10px_rgba(0,0,0,.85)]">4.7 / 5</div>
+                <div className="mt-1 text-sm font-black text-white drop-shadow-[0_1px_10px_rgba(0,0,0,.85)]">DE / EN · Remote</div>
             </div>
             <div className="absolute -left-10 top-1/3 grid gap-3">
                 <span className="signal-pill">{t.home.signalTeaching}</span>
@@ -45,7 +45,7 @@ function MobileHeroSignal() {
     const {t} = useLanguage();
     return (
         <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
-            <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe, CEO and founder of Luminovia" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="88px"/>
+            <Photo src={IMAGES.headshot} alt="Leadership headshot for Luminovia" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="88px"/>
             <div className="pr-2">
                 <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
                 <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
@@ -124,29 +124,29 @@ function FounderSection() {
     const {language} = useLanguage();
     const copy = language === "de"
         ? {
-            badge: "CEO & Gruenderin",
-            title: "Gefuehrt von Carina Sophie Schoppe.",
-            intro: "Carina verbindet Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und Business-Consulting. Luminovia steht dadurch fuer Trainings und Beratungsformate, die technisch fundiert, didaktisch klar und businessnah umgesetzt werden.",
-            imageAlt: "Carina Sophie Schoppe, CEO und Gruenderin von Luminovia Training & Consulting",
-            cta: "Mehr ueber Carina",
+            badge: "Unternehmensführung",
+            title: "Luminovia wird fachlich und strategisch von Carina Sophie Schoppe geführt.",
+            intro: "Das Unternehmen verbindet Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und Business-Consulting zu klaren Trainings- und Beratungsformaten. Die Marke steht dabei für strukturierte Lieferung, belastbare Inhalte und professionelle Umsetzung für Organisationen.",
+            imageAlt: "Carina Sophie Schoppe, CEO und Gründerin von Luminovia Training & Consulting",
+            cta: "Unternehmen ansehen",
             points: [
-                ["10k+", "dokumentierte Unterrichtsstunden"],
-                ["B.Sc. | M.Sc. | MBA", "Wirtschaftsinformatik und Management"],
-                ["TAE40122", "Training & Assessment Qualifikation"],
-                ["DE / EN", "Trainings auf Deutsch und Englisch"],
+                ["AI | IT | Security", "fachliche Kernbereiche"],
+                ["Training + Consulting", "kombinierte Leistungsbereiche"],
+                ["DE / EN", "Durchführung auf Deutsch und Englisch"],
+                ["Remote-first", "für verteilte Teams und Programme"],
             ],
         }
         : {
-            badge: "CEO & founder",
-            title: "Led by Carina Sophie Schoppe.",
-            intro: "Carina combines business computer science, AI, cybersecurity, software development, didactics and business consulting. Luminovia stands for training and advisory formats that are technically grounded, clearly taught and relevant to business decisions.",
+            badge: "Company leadership",
+            title: "Luminovia is led strategically and professionally by Carina Sophie Schoppe.",
+            intro: "The company connects business computer science, AI, cybersecurity, software development, didactics and business consulting into clear training and advisory formats. Luminovia stands for structured delivery, robust content and professional implementation for organisations.",
             imageAlt: "Carina Sophie Schoppe, CEO and founder of Luminovia Training & Consulting",
-            cta: "About Carina",
+            cta: "View company",
             points: [
-                ["10k+", "documented teaching hours"],
-                ["B.Sc. | M.Sc. | MBA", "business IT and management"],
-                ["TAE40122", "training and assessment qualification"],
+                ["AI | IT | Security", "core capability areas"],
+                ["Training + Consulting", "combined service divisions"],
                 ["DE / EN", "German and English delivery"],
+                ["Remote-first", "for distributed teams and programmes"],
             ],
         };
 

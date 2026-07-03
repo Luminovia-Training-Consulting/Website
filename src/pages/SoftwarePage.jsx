@@ -14,7 +14,7 @@ export default function SoftwarePage() {
             github: "GitHub-Profil öffnen",
             skills: "Kompetenzen ansehen",
             publicationsTitle: "Publikationen",
-            publicationsCopy: "Akademische Arbeiten zu generativer AI, AI Governance, Human-Machine Interaction und Cybersecurity, die meine Beratungs- und Trainingsarbeit fachlich stützen.",
+            publicationsCopy: "Akademische Arbeiten zu generativer AI, AI Governance, Human-Machine Interaction und Cybersecurity, die die Luminovia Beratungs- und Trainingsarbeit fachlich stützen.",
             download: "PDF herunterladen",
         }
         : {
@@ -24,7 +24,7 @@ export default function SoftwarePage() {
             github: "Open GitHub profile",
             skills: "View skills",
             publicationsTitle: "Publications",
-            publicationsCopy: "Academic work on generative AI, AI governance, human-machine interaction and cybersecurity that supports my consulting and training practice.",
+            publicationsCopy: "Academic work on generative AI, AI governance, human-machine interaction and cybersecurity that supports Luminovia consulting and training practice.",
             download: "Download PDF",
         };
     return (

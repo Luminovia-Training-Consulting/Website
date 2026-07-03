@@ -15,7 +15,7 @@ const content = {
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#packages", "Pakete"], ["#decision", "Auswahl"], ["#programmes", "Programme"], ["#proof", "Nachweise"], ["#next", "Anfrage"]],
         packagesTitle: "Buchbare Pakete",
-        packagesCopy: "Jedes Paket kann auf Deutsch oder Englisch remote aus Brisbane fuer Europa, Australien und internationale Teams geplant werden.",
+        packagesCopy: "Jedes Paket kann auf Deutsch oder Englisch remote-first für Europa, Australien und internationale Teams geplant werden.",
         packages: [
             {
                 title: "AI & Digital Skills Training",
@@ -68,7 +68,7 @@ const content = {
         ],
         proofTitle: "Warum Luminovia?",
         nextTitle: "Bereit fuer die naechste Anfrage?",
-        nextCopy: "Senden Sie Thema, Zielgruppe, Ziel, Zeitraum und gewuenschten Umfang. Danach schlage ich ein passendes Format vor.",
+        nextCopy: "Senden Sie Thema, Zielgruppe, Ziel, Zeitraum und gewünschten Umfang. Danach schlägt Luminovia ein passendes Format vor.",
         primary: "Kontakt aufnehmen",
         secondary: "Termin buchen",
     },
@@ -79,7 +79,7 @@ const content = {
         jumpLabel: "On this page",
         jumpItems: [["#packages", "Packages"], ["#decision", "Choice"], ["#programmes", "Programmes"], ["#proof", "Proof"], ["#next", "Contact"]],
         packagesTitle: "Bookable packages",
-        packagesCopy: "Every package can be planned in English or German, delivered remotely from Brisbane for Europe, Australia and international teams.",
+        packagesCopy: "Every package can be planned in English or German with remote-first delivery for Europe, Australia and international teams.",
         packages: [
             {
                 title: "AI & Digital Skills Training",
@@ -132,7 +132,7 @@ const content = {
         ],
         proofTitle: "Why Luminovia?",
         nextTitle: "Ready for the next request?",
-        nextCopy: "Send topic, audience, goal, timing and desired scope. I will suggest the right format.",
+        nextCopy: "Send topic, audience, goal, timing and desired scope. Luminovia will suggest the right format.",
         primary: "Contact Luminovia",
         secondary: "Book appointment",
     },

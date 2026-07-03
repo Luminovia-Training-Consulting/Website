@@ -17,9 +17,9 @@ export default function MyWayPage() {
     const orderedMilestones = [...lifeMilestones].sort((a, b) => latestYear(b.year) - latestYear(a.year));
     const copy = language === "de"
         ? {
-            badge: "Werdegang",
-            title: "Ein professioneller Weg durch IT, Business, Forschung und Lehre.",
-            intro: "Die Timeline zeigt kompakt, welche Stationen mein Profil als Dozentin, Trainerin und Consultant für digitale Bildung geprägt haben.",
+            badge: "Hintergrund",
+            title: "Der professionelle Hintergrund hinter Luminovia.",
+            intro: "Die Timeline zeigt kompakt, welche Stationen die fachliche und strategische Grundlage des Unternehmens geprägt haben.",
             skills: "Kompetenzen ansehen",
             request: "Training anfragen",
             education: "Bildung",
@@ -27,14 +27,14 @@ export default function MyWayPage() {
             work: "Praxis",
             workCopy: "Softwareentwicklung, Training, Consulting, Unternehmertum und Forschungsassistenz.",
             now: "Heute",
-            nowCopy: "Sitz in Brisbane, remote IT-Trainings für Europa, Australien und die Welt.",
+            nowCopy: "Remote-first Trainings- und Consultingmodell für Europa, Australien und internationale Teams.",
             timeline: "Timeline",
             milestones: "Aktuelle Stationen zuerst."
         }
         : {
-            badge: "My way",
-            title: "A professional path through IT, business, research and teaching.",
-            intro: "This timeline gives a compact view of the experience behind my profile as a lecturer, trainer and consultant for digital education.",
+            badge: "Background",
+            title: "The professional background behind Luminovia.",
+            intro: "This timeline gives a compact view of the experience behind the company's professional and strategic foundation.",
             skills: "View skills",
             request: "Request training",
             education: "Education",
@@ -42,7 +42,7 @@ export default function MyWayPage() {
             work: "Practice",
             workCopy: "Software development, training, consulting, entrepreneurship and research assistance.",
             now: "Today",
-            nowCopy: "Based in Brisbane, delivering remote IT training for Europe, Australia and the world.",
+            nowCopy: "Remote-first training and consulting model for Europe, Australia and international teams.",
             timeline: "Timeline",
             milestones: "Current milestones first."
         };
@@ -64,7 +64,7 @@ export default function MyWayPage() {
                         </div>
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2">
-                        <Photo src={IMAGES.outdoor} alt="Professional outdoor portrait of Carina Sophie Schoppe" className="aspect-[3/4] rounded-3xl" imgClass="object-[50%_20%]"/>
+                        <Photo src={IMAGES.outdoor} alt="Leadership portrait for the Luminovia company background" className="aspect-[3/4] rounded-3xl" imgClass="object-[50%_20%]"/>
                         <div className="grid gap-4">
                             <Card>
                                 <h2 className="text-2xl font-black text-white">{copy.education}</h2>

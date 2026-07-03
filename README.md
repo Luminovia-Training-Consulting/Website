@@ -1,6 +1,6 @@
 # Luminovia Training & Consulting Website
 
-Static bilingual website for **Luminovia Training & Consulting**, led by CEO and founder **Carina Sophie Schoppe**. The site presents bookable training, consulting, offers, former client proof, projects, pricing, credentials and contact options in German and English.
+Static bilingual website for **Luminovia Training & Consulting**. The site presents the company as a remote-first training and consulting organisation led by CEO and founder **Carina Sophie Schoppe**, with bookable training, consulting, offers, former client proof, projects, pricing, credentials and contact options in German and English.
 
 Production repository: https://github.com/Luminovia-Training-Consulting/Website.git
 
@@ -22,7 +22,7 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 - Dark mode and light mode.
 - Logo-based Luminovia visual system using navy, blue, cyan and gold.
 - Static React/Vite app with React Router routes.
-- GitHub Pages compatible project build under `/Website/`.
+- GitHub Pages custom-domain build for `https://luminovia.org/`.
 - Production build optimized through Preact compatibility mode.
 - Direct contact model through email, phone and Google Calendar booking.
 - Google Analytics consent banner.
@@ -175,7 +175,7 @@ SEO is handled in two places:
 - `src/components/Seo.jsx` updates runtime metadata and JSON-LD.
 - `vite.config.js` emits static `index.html` files for important routes during build.
 
-Production builds use the Vite base path `/Website/` and the router derives its basename from `import.meta.env.BASE_URL`, so generated assets, public files and internal routes work on GitHub Pages project hosting.
+Production builds use the root Vite base path `/` for the custom GitHub Pages domain `luminovia.org`, so generated assets, public files and internal routes match the live domain.
 
 When adding a major page, update:
 

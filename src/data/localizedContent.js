@@ -86,7 +86,7 @@ const deFormerClientCopy = {
 const deCredentialCopy = {
     "DiBak Certified IT Lecturer": {
         title: "DiBak-zertifizierte IT-Dozentin",
-        meta: "10k+ Unterrichtsstunden | durchschnittliche Teilnehmerbewertung 4.7/5",
+        meta: "Didaktik | Lernplattformen | Qualitätssicherung",
         detail: "Didaktik, Methoden, Lernplattformen, Materialerstellung, Lernchecks und technologiegestützte Lehre.",
     },
     "Certificate IV in Training and Assessment TAE40122": {
@@ -204,15 +204,15 @@ const deTimeline = [
     {year: "2022-2023", title: "Bildung und Moderation", copy: "Cyber-Lerngrundlagen aufgebaut und Bildungsworkshops sowie Moderation bei SCHLAU NRW unterstützt."},
     {year: "2023-2024", title: "Entrepreneurship und Lerndesign", copy: "Top Talent Programme und garage33 mit Design Thinking, Lean Startup, Pitching und agilen Arbeitsmethoden."},
     {year: "2025", title: "Akademisches Business-IT-Profil", copy: "B.Sc. und M.Sc. mit Fokus auf AI, Daten, HCI, IT-Management und Digitalisierung abgeschlossen."},
-    {year: "2026", title: "Internationale Dozentin und AI-Trainerin", copy: "MBA ohne Major im April abgeschlossen, Certificate IV in Training and Assessment TAE40122 im Juni bei RAM Training Services abgeschlossen und remote-first Lehrprofil aus Brisbane aufgebaut."},
+    {year: "2026", title: "Luminovia Remote-first Delivery Model", copy: "MBA ohne Major im April abgeschlossen, Certificate IV in Training and Assessment TAE40122 im Juni bei RAM Training Services abgeschlossen und Luminovia für strukturierte Trainings- und Consulting-Durchführung in Europa, Australien und internationalen Teams positioniert."},
 ];
 
 const de = {
     trustStats: [
-        {value: "10k+", label: "dokumentierte Unterrichtsstunden"},
-        {value: "4.7/5", label: "durchschnittliche Teilnehmerbewertung"},
-        {value: "DE / EN", label: "Training auf Deutsch und Englisch"},
-        {value: "B.Sc. | M.Sc. | MBA | TAE", label: "Wirtschaftsinformatik, Management und VET-Training"},
+        {value: "AI | IT | Security", label: "zentrale Kompetenzbereiche"},
+        {value: "DE / EN", label: "Durchführung auf Deutsch und Englisch"},
+        {value: "Remote-first", label: "für verteilte Organisationen"},
+        {value: "Workshops bis Programme", label: "Formate von Briefings bis Enablement-Pfaden"},
     ],
     coreOffers: [
         {
@@ -226,7 +226,7 @@ const de = {
         },
         {
             ...enCoreOffers[1],
-            kicker: "Freiberufliche Dozentin",
+            kicker: "Training Delivery",
             title: "IT- & Business-Kurse",
             outcome: "Strukturierte Lehre für Erwachsene und berufliche Weiterbildung.",
             copy: "Remote-first Kursdurchführung für Bildungsanbieter, Akademien, Hochschulen, Bootcamps und geförderte Weiterbildungen, die klare und praxisnahe Lehre brauchen.",
@@ -292,18 +292,18 @@ const de = {
     featuredTrainingTopics: [],
     trustSignals: [
         {title: "Akademischer Hintergrund", copy: "B.Sc. und M.Sc. in Wirtschaftsinformatik sowie MBA ohne Major, abgeschlossen im April 2026."},
-        {title: "Lehrerfahrung", copy: "10k+ dokumentierte Unterrichtsstunden mit durchschnittlicher Teilnehmerbewertung von 4.7/5."},
+        {title: "Unternehmensmodell", copy: "Remote-first Training und Consulting mit strukturierter Vorbereitung, klaren Materialien und praxisnahen Ergebnissen."},
         {title: "Australische Trainingsqualifikation", copy: "Certificate IV in Training and Assessment TAE40122, abgeschlossen bei RAM Training Services im Juni 2026."},
         {title: "Expertisebereiche", copy: "AI, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, Daten, agile Arbeit und digitale Bildung."},
         {title: "Sprachen", copy: "Training auf Deutsch und Englisch, ergänzt durch Spanisch-Erfahrung."},
-        {title: "Remote-Unterricht", copy: "Remote-Live-Training aus Brisbane für Europa, Australien und die Welt."},
+        {title: "Remote-first", copy: "Live-Online-Training und Consulting für deutschsprachige und internationale Organisationen."},
         {title: "Sektor-Fit", copy: "Erfahrung mit Corporate Training, Hochschulen, Umschulung, Bootcamps und professionellen Akademien."},
     ],
     capabilities: ["AI Literacy", "Prompt Engineering", "Generative AI Workflows", "Responsible AI", "AI Governance", "Python", "Java", "C#", "Kotlin", "SQL", "Datenbanken", "APIs & Automatisierung", "Fachinformatiker", "Bürokaufleute", "Data Analyst", "Data Scientist", "Data Engineer", "Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical Hacking", "DSGVO", "AI Act", "Cloud Act", "IT-Recht Awareness", "Cloud-Konzepte", "Wirtschaftsinformatik", "IT Service Management", "Digitale Transformation", "SCRUM", "Projektmanagement", "New Work", "Blended Learning", "Curriculum Design", "Erwachsenenbildung", "Coaching", "Keynote Speaker"],
     teachingProof: [
         {title: "Zertifizierte IT-Dozentin", value: "DiBak Trainer Certification", copy: "Umfasst Didaktik, Pädagogik, Lernplattformen, Materialerstellung, Lernchecks, technisches Troubleshooting und Qualitätssicherung."},
         {title: "Australisches VET-Training", value: "TAE40122 Certificate IV", copy: "Certificate IV in Training and Assessment bei RAM Training Services im Juni 2026 abgeschlossen."},
-        {title: "Teilnehmerbewertung", value: "4.7 / 5", copy: "Dokumentierte Durchschnittsbewertung nach 10k+ Unterrichtsstunden und starke Rückmeldung zur praktischen Vermittlung."},
+        {title: "Lieferqualität", value: "Strukturierte Formate", copy: "Trainingsformate werden um klare Ziele, praktische Übungen, Transferaufgaben und professionelle Vorbereitung gebaut."},
         {title: "Stärke in Erwachsenenbildung", value: "Theorie + Praxis", copy: "Lernformate mit Beispielen, Übungen, Recaps, Aktivierung, Transferaufgaben und klaren Ergebnissen."},
         {title: "Internationale Durchführung", value: "Remote-first", copy: "Sitz in Brisbane, Online-Trainings für Europa, Australien und die Welt auf Deutsch oder Englisch."},
     ],
@@ -330,9 +330,9 @@ const de = {
         work: deFormerClientCopy[client.type]?.work || client.work,
     })),
     testimonialProof: [
-        {title: "Vertrauen von Bildungsanbietern", quote: "Wiederholte Buchungen in Weiterbildung, Umschulung, Akademien und Hochschulen zeigen, dass meine Durchführung für strukturierte Erwachsenenbildung funktioniert."},
-        {title: "Breit genug für gemischte IT-Gruppen", quote: "Von Fachinformatiker-Kohorten bis AI-Zertifikatsgruppen kann ich Tiefe, Tempo und Beispiele an die Gruppe anpassen."},
-        {title: "Praxis statt Folienvorlesen", quote: "Meine Kurse fokussieren Übungen, Implementation Thinking, Lernaktivierung und klaren Transfer in Arbeit oder Prüfung."},
+        {title: "Vertrauen von Bildungsanbietern", quote: "Wiederholte Buchungen in Weiterbildung, Umschulung, Akademien und Hochschulen zeigen, dass strukturierte Luminovia-Formate in der Erwachsenenbildung funktionieren."},
+        {title: "Breit genug für gemischte IT-Gruppen", quote: "Von Fachinformatiker-Kohorten bis AI-Zertifikatsgruppen können Tiefe, Tempo und Beispiele an die Gruppe angepasst werden."},
+        {title: "Praxis statt Folienvorlesen", quote: "Luminovia-Formate fokussieren Übungen, Implementation Thinking, Lernaktivierung und klaren Transfer in Arbeit oder Prüfung."},
     ],
     lifeMilestones: [
         {year: "2000", title: "Aufgewachsen in Bodenwerder", category: "Herkunft", copy: "Aufgewachsen im Weserbergland nahe Hameln, mit früher Neugier für Technik, Lernen und eigenständiges Arbeiten."},
@@ -346,7 +346,7 @@ const de = {
         {year: "2026", title: "MBA, TAE40122 und internationales Trainingsprofil", category: "Aktuell", copy: "MBA ohne Major im April abgeschlossen, Certificate IV in Training and Assessment TAE40122 im Juni bei RAM Training Services abgeschlossen, nach Brisbane gezogen und die Arbeit auf internationale IT- und Business-Technology-Bildung ausgerichtet."},
     ],
     skillGroups: [
-        {group: "Didaktik und Lerndesign", items: ["Erwachsenenbildung", "Curriculum Design", "Blended Learning", "Prüfungsvorbereitung", "Lernaktivierung", "Workshop-Facilitation", "Materialdesign", "Remote-Unterricht"]},
+        {group: "Didaktik und Lerndesign", items: ["Erwachsenenbildung", "Curriculum Design", "Blended Learning", "Prüfungsvorbereitung", "Lernaktivierung", "Workshop-Facilitation", "Materialdesign", "Remote Delivery"]},
         {group: "AI und Automatisierung", items: ["AI Literacy", "Prompt Engineering", "Agentic AI", "Generative AI Workflows", "Responsible AI", "AI Governance Basics", "LangChain-Konzepte", "Research Automation"]},
         {group: "Softwareentwicklung", items: ["Python", "Java", "Kotlin", "C#", "Rust", "Dart", "Flutter", "Android", "APIs", "Microservices", "Spring", "React-Grundlagen"]},
         {group: "Daten und Systeme", items: ["SQL", "MySQL", "MongoDB", "Redis", "Datenmodellierung", "Data Pipelines", "Docker", "Kubernetes", "Ubuntu", "Cloud-Konzepte"]},
@@ -377,8 +377,8 @@ const de = {
                     paragraphs: ["Prompt Engineering wird oft so vermittelt, als ginge es hauptsächlich um Formulierungen. In agentischen Systemen ist die tiefere Fähigkeit Delegationskompetenz: wissen, was man abgibt, wie viel Freiheit sinnvoll ist, welche Prüfungen nötig sind und wie Ergebnisse bewertet werden. Ein Human-in-the-loop-Design ist kein Zeichen schwacher Automatisierung. Es ist der Weg, wie ernsthafte Automatisierung Vertrauen verdient.", "Für Teams heißt das: Training muss über Tool-Demos hinausgehen. Lernende müssen üben, Arbeit in agentenfähige Aufgaben zu zerlegen, Akzeptanzkriterien zu definieren, riskante Autonomie zu erkennen und Eskalationspunkte zu gestalten. Der zukünftige AI-Nutzer ist weniger Passagier und mehr Prozessdesigner."]
                 },
                 {
-                    heading: "Womit ich anfangen würde",
-                    paragraphs: ["In den meisten Organisationen würde ich nicht mit einem vollautonomen Agenten starten. Ich würde mit einem engen Assistenten beginnen, der Arbeit für eine menschliche Entscheidung vorbereitet: Meeting-Prep, Trainingsmaterial-Anpassung, wöchentliche Projektrisikoanalyse oder Research-Screening. Der Agent sollte in einem kleinen Workflow arbeiten, freigegebene Quellen nutzen, seine Grundlage sichtbar machen und Annahme, Ablehnung oder Korrektur einfach machen.", "Das ist weniger spektakulär als ein digitaler Mitarbeiter, trainiert aber die richtigen Muskeln: Datenqualität, Governance, Review-Routinen und Workflow-Redesign. Wenn diese Muskeln da sind, kann Autonomie vorsichtig wachsen. Agentic AI ist am stärksten, wenn sie als Organisationsdesign mit Software darin verstanden wird."]
+                    heading: "Womit Organisationen anfangen können",
+                    paragraphs: ["In den meisten Organisationen ist ein vollautonomer Agent nicht der sinnvolle Startpunkt. Besser ist oft ein enger Assistent, der Arbeit für eine menschliche Entscheidung vorbereitet: Meeting-Prep, Trainingsmaterial-Anpassung, wöchentliche Projektrisikoanalyse oder Research-Screening. Der Agent sollte in einem kleinen Workflow arbeiten, freigegebene Quellen nutzen, seine Grundlage sichtbar machen und Annahme, Ablehnung oder Korrektur einfach machen.", "Das ist weniger spektakulär als ein digitaler Mitarbeiter, trainiert aber die richtigen Muskeln: Datenqualität, Governance, Review-Routinen und Workflow-Redesign. Wenn diese Muskeln da sind, kann Autonomie vorsichtig wachsen. Agentic AI ist am stärksten, wenn sie als Organisationsdesign mit Software darin verstanden wird."]
                 },
             ],
             takeaway: "Das eigentliche Versprechen von Agentic AI ist nicht, Urteilskraft zu ersetzen. Es geht darum, kompetenten Menschen bessere Delegation zu ermöglichen, während Kontext, Verantwortung und Qualität sichtbar bleiben.",
@@ -430,7 +430,7 @@ const de = {
                 },
                 {
                     heading: "Lehrende werden Lernarchitekten",
-                    paragraphs: ["KI ersetzt Lehrende nicht. Sie erhöht den Anspruch an Learning Design. Lehrende müssen entscheiden, wo KI Lernen unterstützt, wo sie begrenzt wird, wie Nutzung offengelegt wird und wie Feedbackschleifen aussehen. In starken Kursen wird KI Teil der Lernumgebung, nicht die unsichtbare Abkürzung außerhalb davon.", "Genau das finde ich spannend. KI kann differenzierte Übungen erzeugen, Beispiele liefern, mehrsprachige Lernende unterstützen, Feedback beschleunigen und abstrakte Konzepte mit Praxis verbinden. Die menschliche Rolle bleibt zentral: Rahmen setzen, flache Antworten herausfordern, Verwirrung bemerken und Toolnutzung in echte Kompetenz verwandeln."]
+                    paragraphs: ["KI ersetzt Lehrende nicht. Sie erhöht den Anspruch an Learning Design. Lehrende müssen entscheiden, wo KI Lernen unterstützt, wo sie begrenzt wird, wie Nutzung offengelegt wird und wie Feedbackschleifen aussehen. In starken Kursen wird KI Teil der Lernumgebung, nicht die unsichtbare Abkürzung außerhalb davon.", "Darin liegt der eigentliche Wert für moderne Bildung. KI kann differenzierte Übungen erzeugen, Beispiele liefern, mehrsprachige Lernende unterstützen, Feedback beschleunigen und abstrakte Konzepte mit Praxis verbinden. Die menschliche Rolle bleibt zentral: Rahmen setzen, flache Antworten herausfordern, Verwirrung bemerken und Toolnutzung in echte Kompetenz verwandeln."]
                 },
             ],
             takeaway: "KI gehört in moderne Bildung, aber nicht als Ersatz für Lernen. Ziel sind Aufgaben, in denen KI Übung, Feedback und Transfer unterstützt, während Lernende weiterhin denken müssen.",
@@ -491,16 +491,16 @@ const de = {
     softwareProjects: deSoftwareProjects,
     timeline: deTimeline,
     faqs: [
-        {q: "Wofür kann man dich buchen?", a: "Buchbar bin ich für IT- und Business-Consulting, Einzelprojekte, größere Enablement-Programme, AI Governance, Cybersecurity Awareness, Softwareentwicklungsthemen, Wirtschaftsinformatik, digitale Transformation und Digital-Education-Trainings. Typische Formate sind Consulting-Sprints, Workshops, Live-Online-Kurse, Keynotes, Curriculum Support und Projektunterstützung."},
-        {q: "Mit welchen Kundengruppen arbeitest du?", a: "Ich arbeite mit Bildungsanbietern, Hochschulen, Corporate-Learning-Teams, Bootcamps, Öffentlichen Organisationen, Startups, KMU und internationalen Bildungspartnern, die strukturierte Remote-Durchführung auf Deutsch oder Englisch brauchen."},
-        {q: "Machst du ganze Kurse oder nur kurze Workshops?", a: "Beides. Möglich sind 90-Minuten-Expert-Sessions, Halbtagesworkshops, Trainingstage, Consulting-Sprints, mehrtägige Intensivtrainings, mehrwöchige Kursdurchführung und größere Projektprogramme für professionelle Bildungsanbieter oder Organisationen."},
+        {q: "Wofür kann man Luminovia buchen?", a: "Luminovia bietet IT- und Business-Consulting, Trainingsprogramme, AI Governance, Cybersecurity Awareness, Software- und Datentraining, digitale Transformation und Curriculum Design. Typische Formate sind Consulting-Sprints, Workshops, Live-Online-Kurse, Keynotes, Enablement-Programme und Projektunterstützung."},
+        {q: "Mit welchen Kundengruppen arbeitet Luminovia?", a: "Luminovia arbeitet mit Bildungsanbietern, Hochschulen, Corporate-Learning-Teams, Bootcamps, öffentlichen Organisationen, Startups, KMU und internationalen Bildungspartnern, die strukturierte Durchführung auf Deutsch oder Englisch brauchen."},
+        {q: "Gibt es ganze Kurse oder nur kurze Workshops?", a: "Beides. Möglich sind 90-Minuten-Expert-Sessions, Halbtagesworkshops, Trainingstage, Consulting-Sprints, mehrtägige Intensivtrainings, mehrwöchige Kursdurchführung und größere Projektprogramme für professionelle Bildungsanbieter oder Organisationen."},
         {q: "Welche AI-Themen werden besonders häufig angefragt?", a: "Häufige Themen sind AI Literacy, GenAI für Teams, Prompt Engineering, Agentic Workflows, Responsible AI, AI Governance, Automatisierungsrisiken und praktische AI-Adoption für Business- oder Bildungskontexte."},
-        {q: "Unterrichtest du technische Themen wie Python, SQL oder Cybersecurity?", a: "Ja. Ich unterrichte Python, SQL, Datenbanken, APIs, Softwareentwicklungsgrundlagen, Cybersecurity Awareness, Web Security, SOC Basics, Ethical-Hacking-Grundlagen und CompTIA-PenTest+-Vorbereitungskontexte."},
-        {q: "Unterrichtest du auf Deutsch oder Englisch?", a: "Ja. Trainings können auf Deutsch oder Englisch durchgeführt werden. Spanisch-Erfahrung gehört ebenfalls zum Profil, die primären Trainingssprachen sind aber Deutsch und Englisch."},
-        {q: "Wie funktioniert Remote-Unterricht aus Brisbane?", a: "Remote-Durchführung wird nach Zielgruppe und Zeitzone geplant. Ich positioniere Live-Online-Trainings für deutschsprachige und internationale Kunden in Europa, Australien und die Welt."},
-        {q: "Was macht deine Trainings praktisch?", a: "Sessions verbinden klare Lernziele, Beispiele, Übungen, Recaps, Aktivierung und Transferaufgaben. Teilnehmende hören nicht nur von Tools, sondern üben, wie sie diese in Arbeit, Studium oder Kurskontexten sinnvoll einsetzen."},
-        {q: "Kannst du Materialien oder ein Curriculum entwickeln?", a: "Ja. Ich kann Curriculum Design, Blended-Learning-Konzepte, Slides, Übungen, Lernchecks, Labs, Consulting-Dokumentation, AI-Use-Case-Maps, Roadmaps und Trainingsstrukturen für Akademien, Hochschulen und Corporate-Learning-Teams unterstützen."},
-        {q: "Wie startet eine Buchungsanfrage?", a: "Senden Sie Thema, Zielgruppe, Wissensstand, Projektkontext, Wunschformat, Zeitraum und Ziel per E-Mail oder buchen Sie einen kurzen Termin. Danach schlage ich ein passendes Consulting-, Trainings- oder Projektformat und die nächsten Schritte vor."},
+        {q: "Deckt Luminovia technische Themen wie Python, SQL oder Cybersecurity ab?", a: "Ja. Programme können Python, SQL, Datenbanken, APIs, Softwareentwicklungsgrundlagen, Cybersecurity Awareness, Web Security, SOC Basics, Ethical-Hacking-Grundlagen und prüfungsnahe Vorbereitungskontexte abdecken."},
+        {q: "Gibt es Durchführung auf Deutsch oder Englisch?", a: "Ja. Trainings und Consulting-Formate können je nach Zielgruppe, Programmkontext und Stakeholdern auf Deutsch oder Englisch durchgeführt werden."},
+        {q: "Wie funktioniert Remote-Durchführung?", a: "Remote-Durchführung wird nach Zielgruppe, Zeitzone und Format geplant. Luminovia unterstützt deutschsprachige und internationale Kunden in Europa, Australien und verteilten globalen Teams."},
+        {q: "Was macht die Trainings praktisch?", a: "Sessions verbinden klare Lernziele, Beispiele, Übungen, Recaps, Aktivierung und Transferaufgaben. Teilnehmende hören nicht nur von Tools, sondern üben, wie sie diese in Arbeit, Studium oder Kurskontexten sinnvoll einsetzen."},
+        {q: "Kann Luminovia Materialien oder ein Curriculum entwickeln?", a: "Ja. Luminovia unterstützt Curriculum Design, Blended-Learning-Konzepte, Slides, Übungen, Lernchecks, Labs, Consulting-Dokumentation, AI-Use-Case-Maps, Roadmaps und Trainingsstrukturen für Akademien, Hochschulen und Corporate-Learning-Teams."},
+        {q: "Wie startet eine Buchungsanfrage?", a: "Senden Sie Thema, Zielgruppe, Wissensstand, Projektkontext, Wunschformat, Zeitraum und Ziel per E-Mail oder buchen Sie einen kurzen Termin. Danach schlägt Luminovia ein passendes Consulting-, Trainings- oder Projektformat und die nächsten Schritte vor."},
     ],
 };
 
@@ -545,3 +545,4 @@ export function useSiteContent() {
     const {language} = useLanguage();
     return localizedSiteContentForLanguage(language);
 }
+

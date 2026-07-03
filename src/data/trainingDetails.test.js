@@ -4,7 +4,7 @@ import {capabilities, serviceOfferings, skillGroups, trainingTopics} from "./con
 import {localizedSiteContentForLanguage} from "./localizedContent.js";
 import {topicLinkForLabel, trainingDetailsForLanguage} from "./trainingDetails.js";
 
-const SITEMAP_BASE_URL = "https://luminovia-training-consulting.github.io/Website";
+const SITEMAP_BASE_URL = "https://luminovia.org";
 
 const expectedOfferLinks = [
     ["Softwareentwicklung", "/training/software-development-retraining-java-python-csharp-kotlin"],
@@ -109,3 +109,4 @@ describe("training detail coverage", () => {
         expect(missing).toEqual([]);
     });
 });
+
