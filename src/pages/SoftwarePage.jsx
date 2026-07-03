@@ -1,6 +1,7 @@
 import SoftwareProjectsSection from "../components/SoftwareProjectsSection.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
+import {PROFILE} from "../data/profile.js";
 import {publications} from "../data/publications.js";
 import {useLanguage} from "../i18n.jsx";
 
@@ -41,7 +42,7 @@ export default function SoftwarePage() {
                         </p>
                     </div>
                     <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                        <Button href="https://github.com/CarinaSchoppe">{copy.github}</Button>
+                        <Button href={PROFILE.github}>{copy.github}</Button>
                         <Button to="/skills" variant="secondary">{copy.skills}</Button>
                     </div>
                 </div>

@@ -71,7 +71,7 @@ export default function ContactPage() {
                             </a>
                             <a href={PROFILE.github} target="_blank" rel="noreferrer" className="block rounded-3xl border border-white/10 bg-white/[0.07] p-4 transition hover:border-sky-200/30 hover:bg-white/[0.11] focus:outline-none focus:ring-2 focus:ring-sky-200/70">
                                 <div className="text-xs uppercase tracking-[0.18em] text-slate-500">GitHub</div>
-                                <div className="mt-1 font-bold text-white">github.com/CarinaSchoppe</div>
+                                <div className="mt-1 font-bold text-white">github.com/Luminovia-Training-Consulting</div>
                             </a>
                         </div>
                     </div>

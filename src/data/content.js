@@ -257,7 +257,7 @@ export const credentialCategories = ["All", "Teaching", "Academic", "AI", "Cyber
 export const selectedProjects = [
     {title: "Digital Education Systems", tag: "Instructional design", stack: "ADDIE | blended learning | adult education", copy: "Course concepts, hands-on labs, learning checks and structured learning paths for IT, business and AI education providers.", link: PROFILE.appointmentSchedule},
     {title: "Cybersecurity Learning Labs", tag: "Teaching proof", stack: "TryHackMe | SOC | Web security | Pentest+", copy: "Hands-on security learning paths used to strengthen practical teaching capability in web security, SOC foundations and penetration-testing basics.", link: PROFILE.github},
-    {title: "PISMA Literature Review Pipeline", tag: "AI research automation", stack: "Python | AI | research tooling | data pipelines", copy: "A research workflow project for academic search, paper ranking, abstract analysis and structured systematic literature-review datasets.", link: "https://github.com/CarinaSchoppe/PISMA-Literature-Review-Pipeline-Automation-Tool"},
+    {title: "PISMA Literature Review Pipeline", tag: "AI research automation", stack: "Python | AI | research tooling | data pipelines", copy: "A research workflow project for academic search, paper ranking, abstract analysis and structured systematic literature-review datasets.", link: PROFILE.github},
     {title: "AI at Work Research", tag: "AI adoption and HCI", stack: "Systematic literature review | AI adoption | human-machine interaction", copy: "Research around opportunities and risks of generative AI tools in organisations, especially human-machine interaction in everyday work.", link: PROFILE.linkedin},
 ];
 
@@ -466,7 +466,7 @@ export const softwareProjects = [
         status: "Updated Apr 2026",
         description: "SMTP-based outreach automation system that organises recipients, templates and sending workflows.",
         stack: ["Python", "SMTP", "Automation", "GUI"],
-        href: "https://github.com/CarinaSchoppe/Automatic-Mail-Sender-System",
+        href: PROFILE.github,
     },
     {
         name: "PISMA Literature Review Pipeline",
@@ -474,7 +474,7 @@ export const softwareProjects = [
         status: "Updated Apr 2026",
         description: "AI-powered literature-review workflow for academic search, citation expansion and title/abstract relevance analysis.",
         stack: ["Python", "AI", "Research", "Data pipelines"],
-        href: "https://github.com/CarinaSchoppe/PISMA-Literature-Review-Pipeline-Automation-Tool",
+        href: PROFILE.github,
     },
     {
         name: "OneDrive Duplicate Cleaner",
@@ -482,7 +482,7 @@ export const softwareProjects = [
         status: "Updated Mar 2026",
         description: "Notebook-based utility for cleaning duplicate files and reducing manual OneDrive maintenance.",
         stack: ["Jupyter Notebook", "Python", "File cleanup"],
-        href: "https://github.com/CarinaSchoppe/OneDriveDublicateCleaner",
+        href: PROFILE.github,
     },
     {
         name: "Skylife",
@@ -490,7 +490,7 @@ export const softwareProjects = [
         status: "Updated Feb 2026",
         description: "Feature-rich PaperMC PvP minigame with lobby-to-match flow, loadouts, ranked UI, coin rewards and player progression.",
         stack: ["Kotlin", "PaperMC", "Minecraft", "Game systems"],
-        href: "https://github.com/CarinaSchoppe/Skylife",
+        href: PROFILE.github,
     },
     {
         name: "theHunter",
@@ -498,7 +498,7 @@ export const softwareProjects = [
         status: "Updated Jul 2025",
         description: "A remastered Kotlin recode of a theHunter plugin, showing game-plugin architecture and Kotlin migration work.",
         stack: ["Kotlin", "Plugin development", "Game logic"],
-        href: "https://github.com/CarinaSchoppe/theHunter",
+        href: PROFILE.github,
     },
     {
         name: "Soundboardz",
@@ -506,7 +506,7 @@ export const softwareProjects = [
         status: "Archive project",
         description: "Android soundboard app project and an example of mobile Kotlin development from earlier portfolio work.",
         stack: ["Kotlin", "Android", "Mobile app"],
-        href: "https://github.com/CarinaSchoppe/Soundboardz",
+        href: PROFILE.github,
     },
     {
         name: "Color Sweaper",
@@ -514,7 +514,7 @@ export const softwareProjects = [
         status: "Archive project",
         description: "Swing-based mini game showing older Java desktop UI and game-logic practice.",
         stack: ["Java", "Swing", "Game development"],
-        href: "https://github.com/CarinaSchoppe/Color-Sweaper",
+        href: PROFILE.github,
     },
     {
         name: "Remote Client Server",
@@ -522,7 +522,7 @@ export const softwareProjects = [
         status: "Archive project",
         description: "Remote access tooling for Minecraft Paper environments, reflecting earlier server and plugin experimentation.",
         stack: ["Kotlin", "Paper", "Remote tooling"],
-        href: "https://github.com/CarinaSchoppe/Remote-Client-Server",
+        href: PROFILE.github,
     },
 ];
 
