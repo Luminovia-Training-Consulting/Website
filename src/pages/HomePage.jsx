@@ -9,6 +9,8 @@ import Photo from "../components/Photo.jsx";
 import ConversionStrip from "../components/ConversionStrip.jsx";
 import StickyBookingBar from "../components/StickyBookingBar.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
+import DemoVideoSection from "../components/DemoVideoSection.jsx";
+import ClientProofSection from "../components/ClientProofSection.jsx";
 
 function HeroVisual() {
     const {t} = useLanguage();
@@ -16,7 +18,7 @@ function HeroVisual() {
         <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
             <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
                 <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl"/>
-                <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe for IT lecturer profile" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="(min-width: 1024px) 520px, 0px"/>
+                <Photo src={IMAGES.hero} alt="Portrait of Carina Sophie Schoppe, CEO and founder of Luminovia Training & Consulting" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="(min-width: 1024px) 520px, 0px"/>
                 <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>
@@ -43,7 +45,7 @@ function MobileHeroSignal() {
     const {t} = useLanguage();
     return (
         <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
-            <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="88px"/>
+            <Photo src={IMAGES.headshot} alt="Headshot of Carina Sophie Schoppe, CEO and founder of Luminovia" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="88px"/>
             <div className="pr-2">
                 <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
                 <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
@@ -118,6 +120,61 @@ function BookingFitSection({t}) {
     );
 }
 
+function FounderSection() {
+    const {language} = useLanguage();
+    const copy = language === "de"
+        ? {
+            badge: "CEO & Gruenderin",
+            title: "Gefuehrt von Carina Sophie Schoppe.",
+            intro: "Carina verbindet Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und Business-Consulting. Luminovia steht dadurch fuer Trainings und Beratungsformate, die technisch fundiert, didaktisch klar und businessnah umgesetzt werden.",
+            imageAlt: "Carina Sophie Schoppe, CEO und Gruenderin von Luminovia Training & Consulting",
+            cta: "Mehr ueber Carina",
+            points: [
+                ["10k+", "dokumentierte Unterrichtsstunden"],
+                ["B.Sc. | M.Sc. | MBA", "Wirtschaftsinformatik und Management"],
+                ["TAE40122", "Training & Assessment Qualifikation"],
+                ["DE / EN", "Trainings auf Deutsch und Englisch"],
+            ],
+        }
+        : {
+            badge: "CEO & founder",
+            title: "Led by Carina Sophie Schoppe.",
+            intro: "Carina combines business computer science, AI, cybersecurity, software development, didactics and business consulting. Luminovia stands for training and advisory formats that are technically grounded, clearly taught and relevant to business decisions.",
+            imageAlt: "Carina Sophie Schoppe, CEO and founder of Luminovia Training & Consulting",
+            cta: "About Carina",
+            points: [
+                ["10k+", "documented teaching hours"],
+                ["B.Sc. | M.Sc. | MBA", "business IT and management"],
+                ["TAE40122", "training and assessment qualification"],
+                ["DE / EN", "German and English delivery"],
+            ],
+        };
+
+    return (
+        <section id="founder" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
+            <div className="mx-auto grid max-w-7xl gap-7 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_15%_0%,rgba(125,211,252,.18),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.045))] p-5 shadow-[0_26px_100px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+                <Photo src={IMAGES.outdoor} alt={copy.imageAlt} className="aspect-[4/3] rounded-[1.7rem] lg:aspect-[5/4]" imgClass="object-[50%_20%]" sizes="(min-width: 1024px) 520px, 100vw"/>
+                <div>
+                    <Badge tone="cyan">{copy.badge}</Badge>
+                    <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{copy.title}</h2>
+                    <p className="mt-5 text-base leading-8 text-slate-300">{copy.intro}</p>
+                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                        {copy.points.map(([value, label]) => (
+                            <div key={value} className="rounded-[1.25rem] border border-white/12 bg-white/[0.07] p-4">
+                                <div className="text-xl font-black text-white">{value}</div>
+                                <div className="mt-1 text-sm leading-6 text-slate-300">{label}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mt-7">
+                        <Button to="/about" variant="secondary">{copy.cta}</Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
 export default function HomePage() {
     const {language, t} = useLanguage();
     const {trustStats, serviceOfferings, faqs} = useHomeContent();
@@ -147,9 +204,9 @@ export default function HomePage() {
     } = t.home;
     const consultingCopy = language === "de"
         ? {
-            badge: "Consulting & Projekte",
-            title: "Von einzelnen Beratungsprojekten bis zu größeren Digital- und AI-Programmen.",
-            copy: "Ich unterstütze Bildungsanbieter, Unternehmen und Institutionen nicht nur mit Trainings, sondern auch mit IT- und Business-Consulting, Konzeptarbeit, Workshops, Projektstruktur, AI-Use-Case-Design und Umsetzungsbegleitung. Kleine Einzelprojekte, Workshop-Sprints und größere Programmvorhaben sind möglich.",
+            badge: "Consulting-Bereich",
+            title: "Von klaren Einzelfragen bis zu größeren Digital- und AI-Programmen.",
+            copy: "Luminovia unterstützt Bildungsanbieter, Unternehmen und Institutionen mit IT- und Business-Consulting, Konzeptarbeit, Workshops, Projektstruktur, AI-Use-Case-Design und Umsetzungsbegleitung. Kleine Einzelprojekte, Workshop-Sprints und größere Programmvorhaben sind möglich.",
             cards: [
                 ["Einzelprojekte", "Klare Fragestellung, kurzer Sprint, konkretes Ergebnis: etwa AI-Use-Case-Map, Prozessanalyse, Tool-Check, Workshop-Konzept oder Entscheidungsvorlage."],
                 ["Großprojekte", "Mehrteilige Vorhaben mit Trainingspfad, Consulting-Sprints, Stakeholder-Workshops, Roadmap, Materialien und fortlaufender Umsetzungsbegleitung."],
@@ -159,9 +216,9 @@ export default function HomePage() {
             secondary: "Portfolio ansehen",
         }
         : {
-            badge: "Consulting & projects",
-            title: "From individual advisory projects to larger digital and AI programmes.",
-            copy: "I support education providers, companies and institutions not only with training, but also with IT and business consulting, concept work, workshops, project structure, AI use-case design and implementation support. Small individual projects, workshop sprints and larger programme work are possible.",
+            badge: "Consulting division",
+            title: "From clear individual questions to larger digital and AI programmes.",
+            copy: "Luminovia supports education providers, companies and institutions with IT and business consulting, concept work, workshops, project structure, AI use-case design and implementation support. Small individual projects, workshop sprints and larger programme work are possible.",
             cards: [
                 ["Individual projects", "A clear question, short sprint and concrete result: for example an AI use-case map, process analysis, tool check, workshop concept or decision brief."],
                 ["Larger programmes", "Multi-part work with a training path, consulting sprints, stakeholder workshops, roadmap, materials and ongoing implementation support."],
@@ -267,7 +324,11 @@ export default function HomePage() {
                 </div>
             </section>
 
+            <DemoVideoSection/>
+
             <BookingFitSection t={t}/>
+
+            <ClientProofSection compact/>
 
             <section id="process" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
@@ -314,6 +375,8 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
+
+            <FounderSection/>
 
             <div id="contact-cta" className="scroll-mt-40">
                 <ConversionStrip/>

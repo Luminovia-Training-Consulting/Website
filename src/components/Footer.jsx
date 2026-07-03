@@ -1,5 +1,5 @@
 import {Link, NavLink} from "react-router-dom";
-import {navItems, PROFILE} from "../data/profile.js";
+import {IMAGES, navItems, PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
 const linkClass = "rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white";
@@ -13,7 +13,7 @@ export default function Footer() {
     const {language, t} = useLanguage();
     const labels = language === "de"
         ? {
-            summary: "IT- und Business-Dozentin und Consultant mit Standort Brisbane, Australien. Remote-Consulting, Projektunterstützung und Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner.",
+            summary: "Luminovia Training & Consulting mit Standort Brisbane, Australien. Remote-Consulting, Projektunterstützung und Live-Trainings für Bildungsanbieter, Unternehmen, Hochschulen und internationale Partner. CEO und Gründerin: Carina Sophie Schoppe.",
             location: "Standort: Brisbane, Australien",
             delivery: "Remote-Unterricht: Europa, Australien und die Welt",
             languages: "Sprachen: Deutsch / Englisch / Spanisch",
@@ -23,7 +23,7 @@ export default function Footer() {
             topics: "Angebotsthemen",
         }
         : {
-            summary: "IT and business lecturer and consultant based in Brisbane, Australia. Remote consulting, project support and live training for education providers, companies, universities and international partners.",
+            summary: "Luminovia Training & Consulting based in Brisbane, Australia. Remote consulting, project support and live training for education providers, companies, universities and international partners. CEO and founder: Carina Sophie Schoppe.",
             location: "Location: Brisbane, Australia",
             delivery: "Remote delivery: Europe, Australia and the world",
             languages: "Languages: German / English / Spanish",
@@ -36,7 +36,12 @@ export default function Footer() {
         <footer className="border-t border-white/10 bg-[#060914]/72 px-4 py-14 sm:px-6 lg:px-8">
             <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr_0.9fr_0.9fr]">
                 <div>
-                    <div className="text-2xl font-black text-white">Carina Sophie Schoppe</div>
+                    <Link to="/" className="inline-flex items-center gap-3">
+                        <span className="luminovia-logo-shell grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-white/20 bg-white">
+                            <img src={IMAGES.luminoviaLogoMark} alt="" className="h-11 w-11 object-cover object-center" loading="lazy"/>
+                        </span>
+                        <span className="text-2xl font-black text-white">Luminovia Training & Consulting</span>
+                    </Link>
                     <p className="mt-3 max-w-xl text-sm leading-7 text-slate-400">
                         {labels.summary}
                     </p>

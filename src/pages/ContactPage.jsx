@@ -13,7 +13,7 @@ function cleanPhone(value) {
 export default function ContactPage() {
     const {language, t} = useLanguage();
     const {faqs} = useSiteContent();
-    const subject = encodeURIComponent(language === "de" ? "Trainings- oder Vortragsanfrage an Carina Sophie Schoppe" : "Training or lecture request for Carina Sophie Schoppe");
+    const subject = encodeURIComponent(language === "de" ? "Training- oder Consulting-Anfrage an Luminovia" : "Training or consulting request for Luminovia");
     const jumpLabel = language === "de" ? "Auf dieser Seite" : "On this page";
     const jumpItems = language === "de"
         ? [["#contact-options", "Kontaktwege"], ["#appointment", "Termin"], ["#contact-faq", "FAQ"]]

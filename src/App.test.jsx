@@ -11,52 +11,54 @@ describe("App routing and language", () => {
         vi.unstubAllGlobals();
     });
 
-    it("renders the homepage and switches the visible copy to German", async () => {
+    it("renders the homepage in German and switches the visible copy to English", async () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /IT & Business Lecturer and Consultant/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Luminovia Training & Consulting für digitale Kompetenz/i})).toBeInTheDocument();
+        expect(document.documentElement.lang).toBe("de");
+        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
+
+        await user.click(screen.getByRole("button", {name: /Sprache auf Englisch wechseln/i}));
+
+        expect(screen.getByRole("heading", {name: /Luminovia Training & Consulting for digital capability/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
+    });
 
-        await user.click(screen.getByRole("button", {name: /Switch language/i}));
+    it("uses German as the default page language when no language was selected before", async () => {
+        window.history.pushState({}, "Training", "/training");
 
-        expect(screen.getByRole("heading", {name: /IT- und Business-Dozentin & Consultant/i})).toBeInTheDocument();
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Konkrete Luminovia Offers/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Concrete Luminovia offers/i})).not.toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
     });
 
-    it("uses English as the default page language when no language was selected before", async () => {
+    it("keeps English after the visitor explicitly selected it", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Training", "/training");
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Training, lectures & consulting for IT and business technology/i})).toBeInTheDocument();
-        expect(screen.queryByRole("heading", {name: /Training, Lehre & Consulting für IT und Business Technology/i})).not.toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Concrete Luminovia offers/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
-        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
-    });
-
-    it("keeps German only after the visitor explicitly selected it", async () => {
-        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
-        window.history.pushState({}, "Training", "/training");
-
-        render(<App/>);
-
-        expect(await screen.findByRole("heading", {name: /Training, Lehre & Consulting für IT und Business Technology/i})).toBeInTheDocument();
-        expect(document.documentElement.lang).toBe("de");
     });
 
     it.each([
         ["/blog", /Blog zu AI, Projektmanagement und Lehre mit KI/i],
-        ["/contact", /Kontakt für Vorlesungen, Workshops, Trainings oder Vorträge/i],
+        ["/contact", /Kontakt für Luminovia Training/i],
         ["/skills", /praktische Kompetenzübersicht/i],
-        ["/about", /Ich mache komplexe digitale Themen lehrbar/i],
+        ["/about", /Carina Sophie Schoppe führt Luminovia/i],
+        ["/offers", /Klare Luminovia-Angebote/i],
+        ["/consulting", /Projektpraxis hinter IT-/i],
         ["/corporate", /Trainingslösungen für Unternehmen/i],
         ["/keynotes", /Keynotes und Expert Talks/i],
         ["/my-way", /professioneller Weg durch IT/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
-        ["/clients", /Kunden, Bildungspartner und Kooperationen/i],
+        ["/clients", /Ehemalige Kunden, Bildungspartner und Testimonial-Muster/i],
         ["/pricing", /Transparente Netto-Ab-Preise/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
     ])("renders %s with German page copy", async (route, heading) => {
@@ -76,7 +78,7 @@ describe("App routing and language", () => {
         render(<App/>);
 
         expect(await screen.findByRole("heading", {name: /Diese Seite ist nicht im Trainingsplan/i})).toBeInTheDocument();
-        await waitFor(() => expect(document.title).toBe("Seite nicht gefunden | Carina Sophie Schoppe"));
+        await waitFor(() => expect(document.title).toBe("Seite nicht gefunden | Luminovia"));
         expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
             "content",
             expect.stringContaining("Diese Seite wurde nicht gefunden"),
@@ -84,11 +86,12 @@ describe("App routing and language", () => {
     });
 
     it("renders direct contact links and the appointment scheduler without a form", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Contact", "/contact");
 
         render(<App/>);
 
-        await screen.findByRole("heading", {name: /Contact me for lectures/i});
+        await screen.findByRole("heading", {name: /Contact Luminovia/i});
         expect(screen.queryByRole("button", {name: /Send request/i})).not.toBeInTheDocument();
         expect(screen.getAllByRole("link", {name: /Write an email/i})[0]).toHaveAttribute("href", expect.stringContaining("mailto:info@carinaschoppe.com"));
         expect(screen.getAllByRole("link", {name: /\+61 451 448 724/i})[0]).toHaveAttribute("href", "tel:+61451448724");
@@ -98,6 +101,7 @@ describe("App routing and language", () => {
 
     it("renders pricing in USD by default and switches pricing to German EUR copy", async () => {
         const user = userEvent.setup();
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Pricing", "/pricing");
 
         render(<App/>);

@@ -2,10 +2,12 @@ import {render, screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vitest";
 import {MemoryRouter} from "react-router-dom";
-import {LanguageProvider} from "../i18n.jsx";
+import {LanguageProvider, LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 import AnalyticsConsent from "./AnalyticsConsent.jsx";
 
 function renderConsent() {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+
     return render(
         <LanguageProvider>
             <MemoryRouter>

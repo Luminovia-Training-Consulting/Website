@@ -1,18 +1,21 @@
 import {render, screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import {describe, expect, it} from "vitest";
+import {beforeEach, describe, expect, it} from "vitest";
 import App from "../App.jsx";
+import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
 /** @type {[string, RegExp][]} */
 const routes = [
-    ["/training", /Training, lectures & consulting for IT/i],
+    ["/training", /Concrete Luminovia offers/i],
+    ["/offers", /Clear Luminovia offers/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/skills", /Skill map for IT/i],
-    ["/projects", /Practical projects/i],
+    ["/projects", /Projects that make Luminovia/i],
     ["/portfolio", /Project practice behind IT/i],
-    ["/clients", /Clients, education partners and collaborations/i],
+    ["/consulting", /Project practice behind IT/i],
+    ["/clients", /Former clients, education partners and testimonial patterns/i],
     ["/my-way", /A professional path through IT/i],
-    ["/about", /I make complex digital topics teachable/i],
+    ["/about", /Carina Sophie Schoppe leads Luminovia/i],
     ["/corporate", /Training solutions for companies/i],
     ["/keynotes", /Keynotes and expert talks/i],
     ["/credentials", /Credentials for teaching/i],
@@ -22,6 +25,10 @@ const routes = [
 ];
 
 describe("static page routes", () => {
+    beforeEach(() => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+    });
+
     it.each(routes)("renders %s", async (route, heading) => {
         window.history.pushState({}, "Route", route);
         render(<App/>);

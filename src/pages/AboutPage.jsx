@@ -8,10 +8,10 @@ import Photo from "../components/Photo.jsx";
 
 const copy = {
     en: {
-        badge: "About Carina",
-        title: "I make complex digital topics teachable.",
-        intro: "My main work is teaching, speaking and professional training. I combine business computer science, AI, cybersecurity, software development and didactics so learners can practise concepts, understand risks and transfer digital skills into real work.",
-        follow: "Clients book me when they need someone who can structure a topic, explain it clearly, activate learners and connect technical knowledge to business reality.",
+        badge: "CEO & founder",
+        title: "Carina Sophie Schoppe leads Luminovia Training & Consulting.",
+        intro: "Carina is the CEO and founder behind Luminovia. Her work combines teaching, consulting, speaking and professional training across business computer science, AI, cybersecurity, software development and didactics.",
+        follow: "Clients book Luminovia when they need complex digital topics structured clearly, explained elegantly, practised actively and connected to business reality.",
         linkedin: "View LinkedIn",
         github: "View GitHub",
         timeline: "My timeline",
@@ -28,10 +28,10 @@ const copy = {
         timelineTitle: "Teaching-focused timeline",
     },
     de: {
-        badge: "Über Carina",
-        title: "Ich mache komplexe digitale Themen lehrbar.",
-        intro: "Mein Schwerpunkt ist Lehre, Speaking und professionelle Weiterbildung. Ich verbinde Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung und Didaktik, damit Lernende Konzepte üben, Risiken verstehen und digitale Fähigkeiten in echte Arbeit übertragen können.",
-        follow: "Kunden buchen mich, wenn ein Thema klar strukturiert, verständlich erklärt, aktiv vermittelt und mit der Business-Realität verbunden werden muss.",
+        badge: "CEO & Gründerin",
+        title: "Carina Sophie Schoppe führt Luminovia Training & Consulting.",
+        intro: "Carina ist CEO und Gründerin von Luminovia. Ihre Arbeit verbindet Lehre, Consulting, Speaking und professionelle Weiterbildung rund um Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung und Didaktik.",
+        follow: "Kunden buchen Luminovia, wenn komplexe digitale Themen klar strukturiert, elegant erklärt, aktiv geübt und mit Business-Realität verbunden werden müssen.",
         linkedin: "LinkedIn ansehen",
         github: "GitHub ansehen",
         timeline: "Werdegang",

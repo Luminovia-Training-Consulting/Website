@@ -4,6 +4,8 @@ import {capabilities, serviceOfferings, skillGroups, trainingTopics} from "./con
 import {localizedSiteContentForLanguage} from "./localizedContent.js";
 import {topicLinkForLabel, trainingDetailsForLanguage} from "./trainingDetails.js";
 
+const SITEMAP_BASE_URL = "https://luminovia-training-consulting.github.io/Website";
+
 const expectedOfferLinks = [
     ["Softwareentwicklung", "/training/software-development-retraining-java-python-csharp-kotlin"],
     ["Java", "/training/software-development-retraining-java-python-csharp-kotlin"],
@@ -102,7 +104,7 @@ describe("training detail coverage", () => {
         const sitemap = readFileSync("public/sitemap.xml", "utf8");
         const missing = trainingDetailsForLanguage("en")
             .map((topic) => `/training/${topic.slug}`)
-            .filter((path) => !sitemap.includes(`https://carinaschoppe.com${path}`));
+            .filter((path) => !sitemap.includes(`${SITEMAP_BASE_URL}${path}`));
 
         expect(missing).toEqual([]);
     });

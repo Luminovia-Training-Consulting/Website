@@ -4,7 +4,7 @@ import {seoHomeFaqs} from "../data/seoContent.js";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
-const SITE_URL = "https://carinaschoppe.com";
+const SITE_URL = "https://luminovia-training-consulting.github.io/Website";
 const DEFAULT_IMAGE = `${SITE_URL}/images/carina-hero.jpg`;
 const schemaServiceOffers = [
     ["AI & GenAI Training", "Practical training on generative AI concepts, business use cases, limits, risks and responsible day-to-day adoption."],
@@ -23,12 +23,20 @@ const schemaServiceOffers = [
 const routeMeta = {
     en: {
         "/": {
-            title: "Carina Sophie Schoppe | IT & Business Consultant",
-            description: "Book Carina Sophie Schoppe for IT and business consulting, project support, corporate training, cybersecurity, software development and digital education from Brisbane.",
+            title: "Luminovia Training & Consulting | AI, IT and Digital Business",
+            description: "Book Luminovia Training & Consulting, led by Carina Sophie Schoppe, for AI, IT, cybersecurity, business technology training and consulting from Brisbane.",
         },
         "/training": {
             title: "Offers | IT and Business Training, Lectures & Consulting",
             description: "Book IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation.",
+        },
+        "/offers": {
+            title: "Offers | Luminovia Training & Consulting",
+            description: "Clear Luminovia packages for live training, consulting sprints, project support, keynotes, curriculum design and larger digital enablement programmes.",
+        },
+        "/consulting": {
+            title: "Consulting | IT, AI and Business Advisory",
+            description: "Consulting portfolio for AI use cases, IT and process advisory, business technology, curriculum design, roadmaps and digital enablement.",
         },
         "/skills": {
             title: "Skills & Consulting Topics | IT, Cybersecurity and Business Technology",
@@ -93,12 +101,20 @@ const routeMeta = {
     },
     de: {
         "/": {
-            title: "Carina Sophie Schoppe | IT- und Business-Consultant",
-            description: "Buchen Sie Carina Sophie Schoppe für IT- und Business-Consulting, Projektunterstützung, Corporate Training, Cybersecurity, Softwareentwicklung und digitale Bildung aus Brisbane.",
+            title: "Luminovia Training & Consulting | AI, IT und Digital Business",
+            description: "Buchen Sie Luminovia Training & Consulting, geführt von Carina Sophie Schoppe, für AI-, IT-, Cybersecurity-, Business-Technology-Training und Consulting aus Brisbane.",
         },
         "/training": {
             title: "Angebote | IT- und Business-Training, Lehre & Consulting",
             description: "Buchbare IT- und Business-Technology-Angebote: Live-Training, Vorlesungen, Workshops, Consulting-Sprints, Projektbegleitung, AI Governance, Cybersecurity und digitale Transformation.",
+        },
+        "/offers": {
+            title: "Angebote | Luminovia Training & Consulting",
+            description: "Klare Luminovia-Pakete für Live-Training, Consulting-Sprints, Projektbegleitung, Keynotes, Curriculum Design und größere Digital-Enablement-Programme.",
+        },
+        "/consulting": {
+            title: "Consulting | IT-, AI- und Business-Beratung",
+            description: "Consulting-Portfolio für AI Use Cases, IT- und Prozessberatung, Business Technology, Curriculum Design, Roadmaps und digitales Enablement.",
         },
         "/skills": {
             title: "Kompetenzen & Consulting-Themen | IT, Cybersecurity und Business-Technology",
@@ -268,7 +284,7 @@ export default function Seo() {
         title: language === "de" ? "Trainingsthema | IT- und Business-Bildung" : "Training Topic | IT and Business Education",
         description: language === "de" ? "Detaillierte Themenseite für IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for IT, software development, cybersecurity, project management, digital transformation or business education.",
     } : routeMeta[language][pathname] || {
-        title: language === "de" ? "Seite nicht gefunden | Carina Sophie Schoppe" : "Page not found | Carina Sophie Schoppe",
+        title: language === "de" ? "Seite nicht gefunden | Luminovia" : "Page not found | Luminovia",
         description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Angebote oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, offers or contact page to find the right information.",
     };
     const {title, description} = currentMeta;

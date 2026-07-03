@@ -7,13 +7,13 @@ export default function ClientsPage() {
     const copy = language === "de"
         ? {
             badge: "Kunden",
-            title: "Kunden, Bildungspartner und Kooperationen.",
-            intro: "Diese Seite zeigt ausschließlich Kunden, Bildungspartner und Kooperationskontexte. Consulting-Felder und Projektleistungen stehen separat auf der Kompetenz- und Projektseite.",
+            title: "Ehemalige Kunden, Bildungspartner und Testimonial-Muster.",
+            intro: "Eine elegante Übersicht der Organisationen, Bildungspartner und Kooperationskontexte, die Carinas Arbeit und damit das Luminovia-Profil geprägt haben. Die Feedback-Texte sind anonymisierte Muster, keine benannten Kunden-Zitate.",
         }
         : {
             badge: "Clients",
-            title: "Clients, education partners and collaborations.",
-            intro: "This page shows clients, education partners and collaboration contexts only. Consulting areas and project services sit separately on the skills and projects pages.",
+            title: "Former clients, education partners and testimonial patterns.",
+            intro: "An elegant overview of the organisations, education partners and collaboration contexts that shaped Carina's work and the Luminovia profile. Feedback text is anonymised pattern language, not named customer quotes.",
         };
 
     return (

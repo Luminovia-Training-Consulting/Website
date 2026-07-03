@@ -6,6 +6,7 @@ import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
+import DemoVideoSection from "../components/DemoVideoSection.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
 import {cn} from "../components/utils.js";
 
@@ -52,15 +53,15 @@ export default function TrainingPage() {
     const copy = language === "de"
         ? {
             badge: "Angebote",
-            title: "Training, Lehre & Consulting für IT und Business Technology.",
-            intro: "Buchbare Remote-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Vorlesungen, Workshops, Consulting-Sprints und Projektbegleitung rund um IT, Cybersecurity und digitale Business-Kompetenz.",
+            title: "Konkrete Luminovia Offers für Training, Consulting und digitale Kompetenz.",
+            intro: "Buchbare Remote-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Workshops, Consulting-Sprints und Projektbegleitung rund um AI, IT, Cybersecurity und digitale Business-Kompetenz.",
             topics: "Themen",
             areas: "Zentrale Lehrbereiche",
             custom: "Individuelles Thema anfragen",
             formats: "Formate",
             formatsTitle: "Formate, die ich durchführen kann",
             services: "Angebote",
-            servicesTitle: "Buchbare Leistungen für Training, Lehre, Vorträge und Consulting",
+            servicesTitle: "Was Luminovia konkret anbietet",
             detailPages: "Detailseiten",
             detailPagesTitle: "Themen mit klarer Zielgruppe, Inhalt und Durchführungslogik",
             detailPagesCopy: "Die Detailseiten zeigen, für wen ein Thema geeignet ist, welche Formate möglich sind, welche Inhalte behandelt werden und welche Materialien oder Ergebnisse sinnvoll sind.",
@@ -73,19 +74,19 @@ export default function TrainingPage() {
             consultingCopy: "Training kann mit Beratung und Umsetzung kombiniert werden: AI-Use-Case-Workshops, IT- und Prozessanalyse, Business-Technology-Roadmaps, Curriculum-Design, Enablement-Sprints oder größere mehrteilige Programme. Preise und Umfang erfolgen auf Anfrage.",
             consultingPoints: ["Einzelprojekte", "Großprojekte", "Consulting-Sprints", "Preise auf Anfrage"],
             jumpLabel: "Auf dieser Seite",
-            jumpItems: [["#consulting", "Consulting"], ["#services", "Angebote"], ["#details", "Details"], ["#audiences", "Zielgruppen"], ["#proof", "Nachweise"], ["#topics", "Themen"], ["#formats", "Formate"]],
+            jumpItems: [["#consulting", "Consulting"], ["#services", "Angebote"], ["#demo-session", "Demo"], ["#details", "Details"], ["#audiences", "Zielgruppen"], ["#proof", "Nachweise"], ["#topics", "Themen"], ["#formats", "Formate"]],
         }
         : {
             badge: "Offers",
-            title: "Training, lectures & consulting for IT and business technology.",
-            intro: "Bookable remote offers for education providers, companies, universities and international teams: live training, lectures, workshops, consulting sprints and project support around IT, cybersecurity and digital business capability.",
+            title: "Concrete Luminovia offers for training, consulting and digital capability.",
+            intro: "Bookable remote offers for education providers, companies, universities and international teams: live training, workshops, consulting sprints and project support around AI, IT, cybersecurity and digital business capability.",
             topics: "Topics",
             areas: "Core teaching areas",
             custom: "Ask for custom topic",
             formats: "Formats",
             formatsTitle: "Formats I can deliver",
             services: "Services",
-            servicesTitle: "Bookable services for training, lectures, talks and consulting",
+            servicesTitle: "What Luminovia offers concretely",
             detailPages: "Detail pages",
             detailPagesTitle: "Topics with clear audience, content and delivery logic",
             detailPagesCopy: "The detail pages show who each topic is for, which formats are possible, what content is covered and which materials or outcomes can be planned.",
@@ -98,7 +99,7 @@ export default function TrainingPage() {
             consultingCopy: "Training can be combined with advisory and implementation work: AI use-case workshops, IT and process analysis, business-technology roadmaps, curriculum design, enablement sprints or larger multi-part programmes. Pricing and scope are available on request.",
             consultingPoints: ["Individual projects", "Large programmes", "Consulting sprints", "Pricing on request"],
             jumpLabel: "On this page",
-            jumpItems: [["#consulting", "Consulting"], ["#services", "Services"], ["#details", "Details"], ["#audiences", "Who"], ["#proof", "Proof"], ["#topics", "Topics"], ["#formats", "Formats"]],
+            jumpItems: [["#consulting", "Consulting"], ["#services", "Services"], ["#demo-session", "Demo"], ["#details", "Details"], ["#audiences", "Who"], ["#proof", "Proof"], ["#topics", "Topics"], ["#formats", "Formats"]],
         };
     return (
         <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
@@ -145,6 +146,8 @@ export default function TrainingPage() {
                         {serviceOfferings.map((service) => <ServiceCard key={service.title} detailLabel={copy.details} service={service} t={t}/>)}
                     </div>
                 </section>
+
+                <DemoVideoSection className="-mx-4 mt-4 sm:-mx-6 lg:-mx-8"/>
 
                 <section id="details" className="mt-16 scroll-mt-36">
                     <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">

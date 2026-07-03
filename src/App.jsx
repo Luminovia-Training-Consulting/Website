@@ -48,6 +48,7 @@ const KeynotesPage = lazyWithRecovery(() => import("./pages/KeynotesPage.jsx"));
 const CorporatePage = lazyWithRecovery(() => import("./pages/CorporatePage.jsx"));
 const CredentialsPage = lazyWithRecovery(() => import("./pages/CredentialsPage.jsx"));
 const PortfolioPage = lazyWithRecovery(() => import("./pages/PortfolioPage.jsx"));
+const OffersPage = lazyWithRecovery(() => import("./pages/OffersPage.jsx"));
 const ClientsPage = lazyWithRecovery(() => import("./pages/ClientsPage.jsx"));
 const AboutPage = lazyWithRecovery(() => import("./pages/AboutPage.jsx"));
 const ContactPage = lazyWithRecovery(() => import("./pages/ContactPage.jsx"));
@@ -186,11 +187,13 @@ export default function App() {
                         <Routes>
                             <Route path="/" element={<AppErrorBoundary><HomePage/></AppErrorBoundary>}/>
                             <Route path="/training" element={routeElement(TrainingPage)}/>
+                            <Route path="/offers" element={routeElement(OffersPage)}/>
                             <Route path="/training/:slug" element={routeElement(TrainingTopicPage)}/>
                             <Route path="/keynotes" element={routeElement(KeynotesPage)}/>
                             <Route path="/corporate" element={routeElement(CorporatePage)}/>
                             <Route path="/credentials" element={routeElement(CredentialsPage)}/>
                             <Route path="/portfolio" element={routeElement(PortfolioPage)}/>
+                            <Route path="/consulting" element={routeElement(PortfolioPage)}/>
                             <Route path="/clients" element={routeElement(ClientsPage)}/>
                             <Route path="/about" element={routeElement(AboutPage)}/>
                             <Route path="/contact" element={routeElement(ContactPage)}/>
