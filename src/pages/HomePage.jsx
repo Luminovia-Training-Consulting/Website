@@ -28,8 +28,6 @@ function HeroVisual() {
                         <div className="rounded-[1.9rem] border border-white/70 bg-white p-7 shadow-[0_24px_90px_rgba(0,0,0,.32),0_0_56px_rgba(125,211,252,.14)]">
                             <img
                                 src={IMAGES.luminoviaLogoFull}
-                                srcSet={`${IMAGES.luminoviaLogoFullSmall} 360w, ${IMAGES.luminoviaLogoFull} 720w`}
-                                sizes="(min-width: 1024px) 420px, 90vw"
                                 alt="Luminovia Training & Consulting logo"
                                 className="mx-auto h-auto w-full object-contain"
                                 loading="eager"
@@ -75,7 +73,7 @@ function MobileHeroSignal() {
     return (
         <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
             <div className="grid aspect-square place-items-center overflow-hidden rounded-[1.35rem] border border-white/70 bg-white p-2 shadow-[0_12px_42px_rgba(0,0,0,.2)]">
-                <img src={IMAGES.luminoviaLogoMarkWebp} alt="" className="h-full w-full object-contain" loading="eager" fetchPriority="high" width="88" height="88"/>
+                <img src={IMAGES.luminoviaLogoMark} alt="" className="h-full w-full object-contain" loading="eager" fetchPriority="high" width="88" height="88"/>
             </div>
             <div className="pr-2">
                 <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>

@@ -1,4 +1,4 @@
-import {lazy, Suspense, useEffect, useState} from "react";
+import {lazy, Suspense, useEffect, useRef, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
 import AmbientIntelligence from "./components/AmbientIntelligence.jsx";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
@@ -73,13 +73,20 @@ function getHashTarget(hash) {
 
 function ScrollToHash() {
     const {pathname, hash} = useLocation();
+    const isFirstRender = useRef(true);
 
     useEffect(() => {
         if (!hash) {
+            if (isFirstRender.current) {
+                isFirstRender.current = false;
+                return;
+            }
+
             window.scrollTo({top: 0, behavior: "auto"});
             return;
         }
 
+        isFirstRender.current = false;
         window.scrollTo({top: 0, behavior: "auto"});
 
         const scrollToTarget = () => {

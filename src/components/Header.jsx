@@ -96,7 +96,7 @@ export default function Header({theme = "night", onToggleTheme = () => {}}) {
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
                     <NavLink to="/" className="group flex items-center gap-3 text-left" aria-label="Luminovia Training & Consulting home">
                         <div className="luminovia-logo-shell grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_10px_32px_rgba(37,99,235,.22)] transition duration-500 group-hover:rotate-2">
-                            <img src={IMAGES.luminoviaLogoMarkWebp} alt="" className="h-11 w-11 object-cover object-center" loading="eager" width="44" height="44"/>
+                            <img src={IMAGES.luminoviaLogoMark} alt="" className="h-11 w-11 object-cover object-center" loading="eager" width="44" height="44"/>
                         </div>
                         <div className="hidden sm:block">
                             <div className="text-sm font-black tracking-tight text-white">Luminovia</div>

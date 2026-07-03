@@ -157,4 +157,22 @@ describe("App routing and language", () => {
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
         expect(requestAnimationFrame).toHaveBeenCalled();
     });
+
+    it("skips the initial no-hash scroll but scrolls on later route changes", async () => {
+        const user = userEvent.setup();
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+        window.history.pushState({}, "Home", "/");
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Luminovia Training & Consulting für digitale Kompetenz/i})).toBeInTheDocument();
+        expect(window.scrollTo).not.toHaveBeenCalled();
+
+        const trainingLink = screen.getAllByRole("link", {name: /^Training$/})
+            .find((link) => link.getAttribute("href") === "/training");
+        await user.click(trainingLink);
+
+        expect(await screen.findByRole("heading", {name: /Konkrete Luminovia-Angebote/i})).toBeInTheDocument();
+        expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
+    });
 });
