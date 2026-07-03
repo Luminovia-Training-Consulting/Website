@@ -1,1180 +1,275 @@
-# Carina Sophie Schoppe Website
+# Luminovia Training & Consulting Website
 
-Professional website for Carina Sophie Schoppe as an AI lecturer, IT trainer, cybersecurity and software-development educator, business technology consultant, keynote speaker and digital education expert.
+Static bilingual website for **Luminovia Training & Consulting**, led by CEO and founder **Carina Sophie Schoppe**. The site presents bookable training, consulting, offers, former client proof, projects, pricing, credentials and contact options in German and English.
 
-The site is built as a static React-style Vite application. Development and tests use React tooling, while the production browser build aliases the React runtime to Preact compatibility mode to keep the shipped JavaScript small. It is designed for deployment on classic static web hosting such as Hostinger, where the production build can be uploaded directly into `public_html/`. The project intentionally does not require a Node backend, serverless mail route, SMTP setup or production `.env` file.
-
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Business Positioning](#business-positioning)
-- [Current Website Scope](#current-website-scope)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Routes and Pages](#routes-and-pages)
-- [Content Architecture](#content-architecture)
-- [Internationalisation](#internationalisation)
-- [Contact and Booking Model](#contact-and-booking-model)
-- [Downloadable Business Assets](#downloadable-business-assets)
-- [Blog System](#blog-system)
-- [SEO, Metadata and Structured Data](#seo-metadata-and-structured-data)
-- [Google Analytics and Consent](#google-analytics-and-consent)
-- [Mobile and Performance Decisions](#mobile-and-performance-decisions)
-- [Local Development](#local-development)
-- [Quality Checks](#quality-checks)
-- [Production Build](#production-build)
-- [Hostinger Deployment](#hostinger-deployment)
-- [Environment Variables](#environment-variables)
-- [Maintenance Guide](#maintenance-guide)
-- [Troubleshooting](#troubleshooting)
-- [Repository Hygiene](#repository-hygiene)
-- [License and Content Ownership](#license-and-content-ownership)
+Production repository: https://github.com/Luminovia-Training-Consulting/Website.git
 
 ## Purpose
 
-This website should answer the following questions within a few seconds:
+The website is designed to answer these visitor questions quickly:
 
-- Who is Carina Sophie Schoppe?
-- What can she be booked for?
-- Which target groups does she work with?
-- Which training topics and services are available?
-- Why is she credible for IT, cybersecurity and digital education work?
-- How can a visitor contact her or book a call?
+- What does Luminovia Training & Consulting offer?
+- Which training, consulting and project formats can be booked?
+- Who is the CEO/founder and why is she credible?
+- Which former client and education partner contexts support the profile?
+- How can a company, academy, university or partner request a booking?
 
-The site is not meant to be a generic portfolio. It is a conversion-focused business website for booking Carina as a lecturer, trainer, consultant and speaker.
+The site is static. There is no backend, no server-side rendering, no form endpoint and no production `.env` requirement.
 
-## Business Positioning
+## Core Features
 
-The core positioning is:
+- German and English language switch.
+- Dark mode and light mode.
+- Logo-based Luminovia visual system using navy, blue, cyan and gold.
+- Static React/Vite app with React Router routes.
+- Production build optimized through Preact compatibility mode.
+- Direct contact model through email, phone and Google Calendar booking.
+- Google Analytics consent banner.
+- SEO metadata, canonical links, sitemap, robots file and JSON-LD structured data.
+- GitHub Pages deployment workflow that builds Vite into `dist`.
 
-> IT and Business Lecturer for modern digital education.
+## Main Pages
 
-The website presents Carina as bookable for:
+| Route | Purpose |
+| --- | --- |
+| `/` | Homepage with hero, offers preview, customer proof, FAQ, CEO section and contact CTA. |
+| `/training` | Detailed training topics, service cards, formats, audiences and downloadable assets. |
+| `/offers` | Concrete bookable packages for training, consulting, curriculum, keynotes and larger programmes. |
+| `/consulting` | Consulting portfolio for AI, IT, business, curriculum, roadmaps and digital enablement. |
+| `/clients` | Former clients, education partners and anonymized testimonial patterns. |
+| `/projects` | Project portfolio and publications connected to training and consulting practice. |
+| `/pricing` | Net starting rates and consulting/project pricing on request. |
+| `/about` | CEO/founder profile for Carina Sophie Schoppe. |
+| `/contact` | Direct contact, appointment scheduler, email and phone links. |
+| `/skills` | Capability and skill map. |
+| `/keynotes` | Talks, guest lectures and expert sessions. |
+| `/credentials` | Qualifications, certificates and teaching proof. |
+| `/blog` | Long-form articles on AI, education, project management and automation risk. |
+| `/imprint` | Legal notice. |
+| `/privacy` | Privacy policy. |
 
-- AI and GenAI training
-- AI literacy for teams
-- Prompt engineering and agentic workflows
-- AI governance and responsible AI
-- Python, SQL and data skills
-- Software development and APIs
-- Cybersecurity and pentesting fundamentals
-- Scrum, agile and digital project work
-- Business computer science and digital transformation
-- Curriculum design and blended learning
-- Keynotes, expert talks and guest lectures
-- Remote live training from Brisbane for Europe, Australia and international education partners
-
-The target audience includes:
-
-- Training providers
-- Universities and higher education institutions
-- Corporate learning and development teams
-- Public sector organisations
-- Startups and SMEs
-- Bootcamps and coding schools
-- German-speaking providers needing remote lecturers
-- International clients looking for English or German delivery
-
-## Current Website Scope
-
-The website includes:
-
-- A shortened homepage focused on conversion.
-- A dedicated offers page for training, lectures, workshops and consulting.
-- A skills and topics map.
-- A project portfolio page with selected GitHub and publication downloads.
-- A separate clients page for customers, education partners and collaboration proof.
-- A consulting/project portfolio page with selected project and publication sections.
-- A pricing page with language-specific price display.
-- A personal timeline page.
-- A blog overview and individual blog post pages.
-- A contact page with direct email, phone and Google Calendar booking.
-- Imprint and privacy pages.
-- A custom 404 page.
-- English and German UI/content switching.
-- Google Analytics with consent handling.
-- SEO metadata, sitemap, robots file and structured data.
-
-## Technology Stack
-
-Runtime and frontend:
-
-- React API for application code
-- Preact compatibility runtime for the production browser bundle
-- React Router
-- Vite
-- Tailwind CSS through `@tailwindcss/vite`
-- Static build output
-
-Quality and testing:
-
-- Vitest
-- Testing Library
-- jsdom
-- V8 coverage
-- ESLint flat config
-- React Hooks lint rules
-
-Deployment target:
-
-- Hostinger / Apache static hosting
-- Any static hosting provider that can serve a Vite build
-
-The project does not use:
-
-- Server-side rendering
-- A Node production server
-- Serverless functions
-- A contact form backend
-- SMTP in production
-- Runtime `.env` configuration for the public site
+Training detail pages live under `/training/:slug` and are generated from `src/data/trainingDetails.js`.
 
 ## Project Structure
 
 ```text
 .
-├── .github/
-│   └── workflows/
-│       └── node.js.yml
-├── .node-version
+├── .github/workflows/
+│   ├── node.js.yml          # CI: install, lint, build, test
+│   └── static.yml           # GitHub Pages deployment from dist
 ├── public/
-│   ├── .htaccess
+│   ├── images/              # Carina images and Luminovia logo assets
+│   ├── publications/        # PDF publication downloads
 │   ├── robots.txt
-│   ├── sitemap.xml
-│   ├── lecturer.zip
-│   ├── carina-sophie-schoppe-lecturer-profile.html
-│   ├── carina-sophie-schoppe-training-portfolio.html
-│   ├── carina-sophie-schoppe-ai-it-training-catalogue.html
-│   └── images/
+│   └── sitemap.xml
 ├── src/
-│   ├── components/
-│   ├── data/
-│   ├── pages/
-│   ├── test/
-│   ├── App.jsx
-│   ├── i18n.jsx
-│   ├── index.css
-│   └── main.jsx
-├── eslint.config.js
-├── index.html
-├── package.json
-├── package-lock.json
-├── vite.config.js
-└── README.md
+│   ├── components/          # Reusable UI components
+│   ├── data/                # Profile, localized content, training details, SEO data
+│   ├── pages/               # Route-level pages
+│   ├── test/                # Vitest setup and render helpers
+│   ├── App.jsx              # Router, theme, layout shell
+│   ├── i18n.jsx             # German/English language provider
+│   └── index.css            # Tailwind import, theme, animation and brand styling
+├── vite.config.js           # Build, test and prerender route configuration
+└── package.json
 ```
 
-## Routes and Pages
-
-The application is a React single page app with these routes:
-
-| Route | Purpose |
-| --- | --- |
-| `/` | Short conversion-focused homepage with positioning, core services, booking fit, process, FAQ and contact CTA. |
-| `/training` | Detailed offers page for training, lectures, workshops and consulting. |
-| `/skills` | Practical skill map for IT, cybersecurity, consulting, data and business technology. |
-| `/projects` | Selected project work, GitHub projects and publication downloads. |
-| `/software` | Backwards-compatible alias for the project portfolio. |
-| `/portfolio` | Consulting portfolio, selected publications and proof projects. |
-| `/clients` | Clients, education partners and collaborations. |
-| `/pricing` | Orientation pricing in EUR or USD plus consulting/project pricing on request. |
-| `/my-way` | Personal and professional timeline. |
-| `/blog` | Blog overview with featured latest post and scrollable post list. |
-| `/blog/:slug` | Individual blog post pages. |
-| `/contact` | Direct email, phone links and Google Calendar booking. |
-| `/imprint` | Legal notice / imprint. |
-| `/privacy` | Privacy policy. |
-| `*` | Custom 404 page. |
-
-Route registration lives in:
-
-```text
-src/App.jsx
-```
-
-Navigation items live in:
-
-```text
-src/data/profile.js
-```
-
-Navigation labels live in:
-
-```text
-src/i18n.jsx
-```
-
-## Content Architecture
-
-The project keeps most content in data files instead of scattering business copy across many components.
-
-### Profile, Links and Global Assets
-
-File:
-
-```text
-src/data/profile.js
-```
-
-This file contains:
-
-- Name
-- Role
-- Location
-- Address lines
-- Email
-- Australian phone number
-- German phone number
-- LinkedIn URL
-- GitHub URL
-- Google Calendar appointment URL
-- Google Analytics measurement ID
-- Download asset paths
-- Image paths
-- Top-level navigation items
-
-Change this file when updating core contact details, profile links, appointment links, downloadable asset paths or image references.
-
-### English Content
-
-File:
-
-```text
-src/data/content.js
-```
-
-This file contains the main English content:
-
-- Trust stats
-- Core offers
-- Delivery formats
-- Offer topics
-- Service offerings
-- Featured training topics
-- Capabilities
-- Audience cards
-- Teaching proof
-- Trust signals
-- Credentials
-- Former clients and collaborations
-- Testimonial/proof statements
-- Life milestones
-- Skill groups
-- Blog posts
-- Project work
-- Publications
-- Timeline
-- FAQ
-
-### German Localised Content
-
-File:
-
-```text
-src/data/localizedContent.js
-```
-
-This file maps the English content into German variants and returns the language-specific content through:
-
-```js
-useSiteContent()
-```
-
-It contains German versions of:
-
-- Trust stats
-- Services
-- Offer topics
-- Audience cards
-- FAQ
-- Blog posts
-- Timeline-related content
-- Other content collections used by pages
-
-### UI Labels and Static Interface Copy
-
-File:
-
-```text
-src/i18n.jsx
-```
-
-This file contains:
-
-- Navigation labels
-- Header labels
-- Button labels
-- Homepage section titles
-- Contact page labels
-- Analytics consent text
-- 404 text
-- Jump navigation items
-- Sticky booking bar copy
-- Language switch handling
-
-Use this file for short UI strings and repeated interface labels.
-
-## Internationalisation
-
-The website supports:
-
-- English
-- German
-
-Current behaviour:
-
-- Default language: English
-- Language state is stored in `localStorage`.
-- The `<html lang="...">` attribute is updated dynamically.
-- The header language switch shows a round flag icon and the target language label.
-- German mode uses German copy and EUR pricing.
-- English mode uses English copy and rounded USD orientation pricing.
-
-Important files:
-
-```text
-src/i18n.jsx
-src/data/localizedContent.js
-src/pages/PricingPage.jsx
-```
-
-## Contact and Booking Model
-
-The website intentionally does not include a contact form.
-
-Reasoning:
-
-- The site is static.
-- There is no backend mail route.
-- There is no SMTP configuration.
-- There are no production server environment variables.
-- Contact should not fail because of mail server settings.
-
-Contact options:
-
-- `mailto:` link to `info@carinaschoppe.com`
-- Australian phone number: `+61 451 448 724`
-- German phone number: `+49 175 5738 757`
-- Google Calendar appointment scheduling button
-- Embedded Google Calendar appointment scheduler
-
-Contact page:
-
-```text
-src/pages/ContactPage.jsx
-```
-
-Contact data:
-
-```text
-src/data/profile.js
-```
-
-## Downloadable Business Assets
-
-The site provides downloadable business assets from the `public/` folder:
-
-```text
-public/lecturer.zip
-public/carina-sophie-schoppe-lecturer-profile.html
-public/carina-sophie-schoppe-training-portfolio.html
-public/carina-sophie-schoppe-ai-it-training-catalogue.html
-```
-
-They are linked through:
-
-```text
-src/data/profile.js
-```
-
-During `npm run build`, Vite copies files from `public/` into `dist/` unchanged.
-
-To replace an asset:
-
-1. Replace the file in `public/`.
-2. Keep the same filename if possible.
-3. If the filename changes, update `src/data/profile.js`.
-4. Run the quality checks.
-5. Build and deploy.
-
-## Blog System
-
-Blog data lives in:
-
-```text
-src/data/content.js
-```
-
-Blog pages:
-
-```text
-src/pages/BlogPage.jsx
-src/pages/BlogPostPage.jsx
-```
-
-Tests:
-
-```text
-src/pages/BlogPage.test.jsx
-src/pages/BlogPostPage.test.jsx
-src/data/blogData.test.jsx
-```
-
-Each blog post should include:
-
-- `slug`
-- `title`
-- `date`
-- `category`
-- `hubCategory`
-- `readTime`
-- `excerpt`
-- `body`
-- `takeaway`
-- `sources`
-
-The blog overview:
-
-- Sorts posts newest-first.
-- Shows the latest post as a featured post.
-- Displays remaining posts in a horizontally scrollable list.
-- Includes category information, date, reading time, excerpt and read-more links.
-
-Individual blog post pages are generated from the same data source.
-
-## SEO, Metadata and Structured Data
-
-SEO is handled in several layers.
-
-### Static HTML Metadata
-
-File:
-
-```text
-index.html
-```
-
-Includes:
-
-- Charset and viewport
-- Meta description
-- Robots meta tag
-- Open Graph metadata
-- Twitter card metadata
-- Canonical URL
-- hreflang alternates
-- Responsive hero/headshot image preload
-- Base schema.org JSON-LD
-
-### Dynamic Route Metadata
-
-File:
-
-```text
-src/components/Seo.jsx
-```
-
-This component updates metadata per route:
-
-- `document.title`
-- Meta description
-- Robots tag
-- Open Graph title, description, URL, image and type
-- Twitter title and description
-- Canonical URL
-- hreflang links
-
-It also injects route-aware JSON-LD:
-
-- `Person`
-- `ProfessionalService`
-- `Offer`
-- `BreadcrumbList`
-- `FAQPage` on the homepage
-- `BlogPosting` on individual blog post pages
-
-### Robots and Sitemap
-
-Files:
-
-```text
-public/robots.txt
-public/sitemap.xml
-```
-
-`robots.txt` allows indexing and points crawlers to the sitemap.
-
-`sitemap.xml` lists:
-
-- Main pages
-- Training/service pages
-- Pricing
-- Blog overview
-- Individual blog posts
-- Contact
-- Legal pages
-
-When adding a new public route, update:
-
-```text
-public/sitemap.xml
-src/components/Seo.jsx
-```
-
-## Google Analytics and Consent
-
-Measurement ID:
-
-```text
-G-YNGD292XE5
-```
-
-Consent handling lives in:
-
-```text
-src/components/AnalyticsConsent.jsx
-```
-
-The consent component:
-
-- Shows a privacy-friendly analytics banner.
-- Stores the decision in `localStorage`.
-- Loads Google Analytics only after acceptance.
-- Sends route changes after consent.
-- Uses IP anonymisation.
-- Avoids a Google Tag Manager request on the initial page load before consent.
-
-The measurement ID is also stored in:
-
-```text
-src/data/profile.js
-```
-
-## Mobile and Performance Decisions
-
-The project has been adjusted to avoid mobile rendering issues, especially on Chrome mobile.
-
-Important decisions:
-
-- No flip cards for proof/client tiles.
-- No text reveal lazy loading.
-- No `IntersectionObserver`-based text visibility.
-- No content that depends on scroll-triggered reveal to become readable.
-- Expensive backdrop and animation effects are reduced on mobile.
-- Mobile hover effects are disabled or reduced.
-- Layout uses `overflow-x-hidden` to avoid horizontal clipping.
-- Buttons use explicit `data-button-variant` attributes for mobile CSS overrides.
-- Hero image uses high fetch priority.
-- The homepage is intentionally shorter than the detailed subpages.
-- The production build keeps only the small first-paint shell CSS inline. The full Tailwind application stylesheet is emitted as a hashed, cacheable asset and loaded asynchronously so it is no longer part of the initial HTML transfer.
-- The homepage has a tiny static first-paint shell in `index.html`, so the initial hero text and portrait can appear before React finishes loading.
-- Major subpages are code-split with `React.lazy`, while the homepage and footer stay in the initial render path to avoid layout shifts on the root URL.
-- Large content collections are kept out of the initial homepage bundle; blog posts, client proof, software projects and timeline data load with the routes that need them.
-- Google Analytics is consent-gated and does not create a tag-manager request on the first load before consent.
-- Responsive WebP image variants are generated for the portrait images and used through `srcset`/`sizes`.
-- The Vite build targets modern browsers with `es2022` output and disables the legacy modulepreload polyfill.
-- The production build uses Preact compatibility mode for the React API, reducing the framework vendor chunk while keeping the component code React-style.
-- Preact and React Router are isolated in a stable `ui-vendor` chunk for better long-term browser caching.
-- Non-critical analytics consent UI and ambient background animation code load after idle instead of blocking the first route render.
-- Apache cache headers keep hashed JavaScript/CSS assets immutable for one year, images and downloads for one month, and HTML short-lived for safe content updates.
-- Missing static assets return a real 404 instead of the React `index.html` fallback, preventing stale chunk URLs from being served with an HTML MIME type.
-- Known legacy entry chunks are emitted as tiny compatibility modules that forward stale cached HTML to the current entry bundle instead of producing a 404 console error.
-- The project standardises on Node `24.x` for local development and CI, but the deployed site remains static and does not require Node at runtime.
-
-Main CSS file:
-
-```text
-src/index.css
-```
-
-Key components:
-
-```text
-src/components/Button.jsx
-src/components/Card.jsx
-src/components/Header.jsx
-src/components/StickyBookingBar.jsx
-src/components/AmbientIntelligence.jsx
-```
+## Technology
+
+- Vite
+- React API for development and tests
+- Preact compatibility for production browser build
+- React Router
+- Tailwind CSS via `@tailwindcss/vite`
+- Vitest
+- Testing Library
+- jsdom
+- ESLint flat config
+
+The required Node version is declared in `package.json` as `>=24.0.0`; CI currently uses Node 26.
 
 ## Local Development
-
-Required Node.js version:
-
-```text
-Node.js >= 24.0.0
-```
-
-The repository includes a `.node-version` file with `24`, and GitHub Actions runs on Node `24.x`.
 
 Install dependencies:
 
 ```bash
-npm install
+npm ci
 ```
 
-Start development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Run production preview:
+Default local URL:
+
+```text
+http://127.0.0.1:5173/
+```
+
+Build the static site:
 
 ```bash
 npm run build
+```
+
+Preview the production build:
+
+```bash
 npm run preview
 ```
 
-## Quality Checks
+## Test Strategy
 
-Run linting:
+The project has unit, integration and full-route smoke coverage.
 
-```bash
-npm run lint
-```
+Important test files:
 
-Run tests with coverage:
+| File | Coverage |
+| --- | --- |
+| `src/App.test.jsx` | Language defaults, route rendering, contact links, pricing language switch. |
+| `src/pages/PagesSmoke.test.jsx` | Main static routes render in English. |
+| `src/pages/FullSiteRoutes.test.jsx` | Reads `public/sitemap.xml` and renders every internal app route. |
+| `src/data/trainingDetails.test.js` | Every training topic, service chip and sitemap training detail page is connected. |
+| `src/data/localizationQuality.test.js` | German localization text avoids common encoding/mojibake markers. |
+| `src/pages/BlogPage.test.jsx` | Blog overview, carousel controls, drag/keyboard behavior and language switch. |
+| `src/pages/BlogPostPage.test.jsx` | Full article rendering, German version and unknown slug redirect. |
+| `src/components/AnalyticsConsent.test.jsx` | Consent decline/accept behavior and Google tag script loading. |
+| `src/components/ClientProofSection.test.jsx` | Client proof and testimonial card rendering. |
+| `src/utils/browser.test.js` | Storage wrappers and stale chunk error detection. |
+
+Run all tests:
 
 ```bash
 npm test
 ```
 
-Run production build:
+The current coverage thresholds in `vite.config.js` are strict:
 
-```bash
-npm run build
+```text
+statements: 100%
+branches:   100%
+functions:  100%
+lines:      100%
 ```
 
-Recommended pre-deployment command sequence:
+## Full-Site Test Code
+
+`src/pages/FullSiteRoutes.test.jsx` is the broadest route-level safety net. It:
+
+- reads every URL from `public/sitemap.xml`,
+- keeps only internal app routes,
+- excludes PDF/download assets,
+- renders each route through `App`,
+- verifies that a `<main>` and level-one heading exist,
+- fails if the rendered page or browser title is a 404,
+- checks that primary navigation exposes Training, Consulting, Offers, Clients, Projects, CEO and Contact.
+
+This test is meant to catch broken routes whenever the sitemap, router or navigation changes.
+
+## SEO and Static Route Generation
+
+SEO is handled in two places:
+
+- `src/components/Seo.jsx` updates runtime metadata and JSON-LD.
+- `vite.config.js` emits static `index.html` files for important routes during build.
+
+When adding a major page, update:
+
+1. `src/App.jsx`
+2. `src/data/profile.js` if it belongs in navigation
+3. `src/i18n.jsx` navigation labels
+4. `src/components/Seo.jsx`
+5. `vite.config.js` `prerenderRoutes`
+6. `public/sitemap.xml`
+7. tests, especially `FullSiteRoutes.test.jsx` if route filtering changes
+
+## Deployment
+
+The target remote is:
+
+```text
+https://github.com/Luminovia-Training-Consulting/Website.git
+```
+
+Deployment runs through `.github/workflows/static.yml`:
+
+1. checkout repository,
+2. setup Node.js 26,
+3. `npm ci`,
+4. `npm run build`,
+5. upload `./dist`,
+6. deploy to GitHub Pages.
+
+CI runs through `.github/workflows/node.js.yml`:
+
+1. `npm ci`,
+2. `npm run lint --if-present`,
+3. `npm run build --if-present`,
+4. `npm test --if-present`.
+
+## Assets
+
+Luminovia logo assets:
+
+- `public/images/luminovia-logo-full.png`
+- `public/images/luminovia-logo-mark.png`
+
+Carina profile images remain in `public/images/` and are used for the CEO/about sections.
+
+Downloadable public assets include:
+
+- `public/lecturer.zip`
+- `public/carina-sophie-schoppe-lecturer-profile.html`
+- `public/carina-sophie-schoppe-training-portfolio.html`
+- `public/carina-sophie-schoppe-ai-it-training-catalogue.html`
+- PDFs in `public/publications/`
+
+## Content Maintenance
+
+Most business content is data-driven:
+
+- `src/data/profile.js`: company profile, contact links, image paths and navigation.
+- `src/data/content.js`: English base content.
+- `src/data/localizedContent.js`: German localized content and localized mappings.
+- `src/data/homeContent.js`: homepage trust stats, service offerings and FAQ content.
+- `src/data/trainingDetails.js`: detailed training pages and topic link mapping.
+- `src/data/publications.js`: publication cards and PDF links.
+- `src/i18n.jsx`: UI labels, homepage strings and contact copy.
+
+Prefer editing these data files before hardcoding copy into components.
+
+## Known Build Note
+
+Vite may print this warning during build:
+
+```text
+[INEFFECTIVE_DYNAMIC_IMPORT] src/data/localizedContent.js is dynamically imported by src/components/Seo.jsx but also statically imported ...
+```
+
+The build still succeeds. The warning means the module cannot be split into a separate lazy chunk because it is also imported statically elsewhere.
+
+## Pre-Push Checklist
+
+Before pushing changes:
 
 ```bash
-npm run lint
 npm test
 npm run build
+git status -sb
 ```
 
-Current test setup:
-
-- Vitest
-- Testing Library
-- jsdom
-- V8 coverage
-
-ESLint setup:
-
-```text
-eslint.config.js
-```
-
-The lint configuration checks:
-
-- Standard JavaScript issues through `@eslint/js`
-- React Hooks rules
-- Unused variables and parameters
-- Browser and Node globals
-
-Coverage output is text/JSON focused. HTML coverage output is intentionally not used to avoid IDE noise from generated coverage assets.
-
-## Production Build
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-Build output:
-
-```text
-dist/
-```
-
-The build includes:
-
-- `index.html`
-- Inlined production CSS
-- Bundled JavaScript
-- Files copied from `public/`
-- `.htaccess`
-- Images
-- Downloadable assets
-- `robots.txt`
-- `sitemap.xml`
-
-Do not commit `dist/`. It is build output and is ignored by Git.
-
-## Hostinger Deployment
-
-The site is designed for normal static hosting.
-
-Deployment steps:
-
-1. Install dependencies locally:
-
-   ```bash
-   npm install
-   ```
-
-2. Build the site:
-
-   ```bash
-   npm run build
-   ```
-
-3. Upload the contents of `dist/` into Hostinger:
-
-   ```text
-   public_html/
-   ```
-
-4. Upload the contents of `dist/`, not the project folder itself.
-
-5. Make sure this file exists on the server:
-
-   ```text
-   public_html/.htaccess
-   ```
-
-The `.htaccess` file is important because this is a React Router single page app. It makes direct URLs such as `/contact`, `/pricing` and `/blog/...` work on Apache hosting.
-
-## Environment Variables
-
-No production environment variables are required.
-
-Current production model:
-
-- No `.env` required.
-- No SMTP variables.
-- No mail backend.
-- No contact form API.
-- No Hostinger environment settings needed.
-- Google Analytics ID is public and stored in the code.
-- Contact is handled through direct links and Google Calendar booking.
-
-`.env` is ignored and should not be committed.
-
-## Maintenance Guide
-
-### Change Email, Phone Numbers, Address or Social Links
-
-Edit:
-
-```text
-src/data/profile.js
-```
-
-Then run:
-
-```bash
-npm run lint
-npm test
-npm run build
-```
-
-### Change Navigation
-
-Edit:
-
-```text
-src/data/profile.js
-src/i18n.jsx
-```
-
-Update route registration if a new page is added:
-
-```text
-src/App.jsx
-```
-
-Update SEO and sitemap:
-
-```text
-src/components/Seo.jsx
-public/sitemap.xml
-```
-
-### Change Homepage Sections
-
-Edit:
-
-```text
-src/pages/HomePage.jsx
-src/i18n.jsx
-src/data/content.js
-src/data/localizedContent.js
-```
-
-The homepage should remain short and conversion-focused. Detailed proof, software, blog and timeline content should stay on subpages where possible.
-
-### Change Services or Training Topics
-
-Edit English content:
-
-```text
-src/data/content.js
-```
-
-Edit German content:
-
-```text
-src/data/localizedContent.js
-```
-
-Service-related pages:
-
-```text
-src/pages/TrainingPage.jsx
-src/pages/SkillsPage.jsx
-src/pages/HomePage.jsx
-```
-
-### Change Pricing
-
-Edit:
-
-```text
-src/pages/PricingPage.jsx
-```
-
-Current pricing logic:
-
-- German view shows EUR values.
-- English view shows rounded USD orientation values.
-- All prices are non-binding orientation rates.
-
-### Change FAQ
-
-English FAQ:
-
-```text
-src/data/content.js
-```
-
-German FAQ:
-
-```text
-src/data/localizedContent.js
-```
-
-Homepage FAQ rendering:
-
-```text
-src/pages/HomePage.jsx
-```
-
-FAQ schema:
-
-```text
-src/components/Seo.jsx
-```
-
-### Add a Blog Post
-
-Edit:
-
-```text
-src/data/content.js
-```
-
-Add a new object to `blogPosts`.
-
-Required fields:
-
-```js
-{
-    slug: "example-slug",
-    title: "Example title",
-    date: "2026-04-27",
-    category: "AI & Governance",
-    hubCategory: "AI & Governance",
-    readTime: "8 min read",
-    excerpt: "Short summary.",
-    body: [
-        {
-            heading: "Section heading",
-            paragraphs: ["Paragraph text."]
-        }
-    ],
-    takeaway: "Main takeaway.",
-    sources: [
-        {label: "Source label", href: "https://example.com"}
-    ]
-}
-```
-
-Also update:
-
-```text
-public/sitemap.xml
-```
-
-If the blog post should have German content, add/adjust the German version in:
-
-```text
-src/data/localizedContent.js
-```
-
-### Change Images
-
-Image files live in:
-
-```text
-public/images/
-```
-
-Image references live in:
-
-```text
-src/data/profile.js
-```
-
-The site uses WebP variants for faster delivery while keeping JPG files as fallbacks through the `Photo` component:
-
-```text
-public/images/*.jpg
-public/images/*-480.webp
-public/images/*-640.webp
-public/images/*-960.webp
-src/components/Photo.jsx
-```
-
-When replacing images:
-
-- Keep filenames stable if possible.
-- Replace both the JPG fallback and the matching WebP variant.
-- Optimise image size before deploying.
-- Check mobile and desktop rendering.
-- Keep alt text meaningful.
-
-### Change Visual Style
-
-Main style file:
-
-```text
-src/index.css
-```
-
-Common component files:
-
-```text
-src/components/Button.jsx
-src/components/Card.jsx
-src/components/Header.jsx
-src/components/Footer.jsx
-src/components/ConversionStrip.jsx
-src/components/StickyBookingBar.jsx
-```
-
-Design direction:
-
-- Dark theme
-- Premium liquid glass feel
-- Blue, cyan, violet and subtle indigo accents
-- Strong readability
-- Avoid loud red/pink rainbow effects
-- Avoid layout-shifting hover effects
-- Avoid mobile-only content flicker
-
-### Change Google Analytics
-
-Edit:
-
-```text
-src/data/profile.js
-```
-
-If the measurement ID changes, update the profile setting. The Google script is loaded by `src/components/AnalyticsConsent.jsx` only after consent.
-
-### Change Legal Pages
-
-Edit:
-
-```text
-src/pages/ImprintPage.jsx
-src/pages/PrivacyPage.jsx
-```
-
-Legal/contact information should stay consistent with:
-
-```text
-src/data/profile.js
-```
-
-## GitHub Actions
-
-Workflow:
-
-```text
-.github/workflows/node.js.yml
-```
-
-The workflow runs on pushes and pull requests to `main`.
-
-It currently performs:
-
-```bash
-npm ci
-npm run lint
-npm run build --if-present
-npm test
-```
-
-The workflow uses Node `24.x`, matching the repository `.node-version` file and the package engine requirement.
-
-## Troubleshooting
-
-### Build Fails with a Node Version Error
-
-Symptom:
-
-```text
-Vite requires Node.js version 20.19+ or 22.12+
-```
-
-Fix:
-
-- Use Node.js `24.x` or newer.
-- If you use a version manager, let it read `.node-version`.
-- In GitHub Actions, keep the workflow on Node `24.x`.
-- Locally, update Node before running `npm install` or `npm run build`.
-
-### Direct Routes Return 404 on Hostinger
-
-Examples:
-
-```text
-/contact
-/pricing
-/blog/agentic-ai-from-demo-to-delegation
-```
-
-Check:
-
-- Was the content of `dist/` uploaded into `public_html/`?
-- Is `index.html` directly inside `public_html/`?
-- Is `.htaccess` directly inside `public_html/`?
-- Did Hostinger cache an old build?
-
-### Contact Form Is Missing
-
-This is intentional.
-
-The contact flow uses:
-
-- Email link
-- Phone links
-- Google Calendar booking
-
-There is no SMTP or contact form backend.
-
-### Google Analytics Does Not Track
-
-Check:
-
-- Has the visitor accepted the consent banner?
-- Is the measurement ID correct?
-- Is tracking blocked by the browser or an extension?
-- Is the Google Analytics realtime view open?
-- Are you testing on the deployed site rather than a local preview?
-
-### Mobile Content Appears Empty or Flickers
-
-Check:
-
-- Deploy the newest build.
-- Clear browser cache.
-- Clear Hostinger cache.
-- Test in Chrome mobile incognito.
-
-The current code avoids scroll-based text reveal and flip-card effects. If mobile content flickers again, inspect any newly added animation, lazy rendering or `IntersectionObserver` logic first.
-
-### IntelliJ Reports Unused CSS Selectors
-
-Some Tailwind-style class names and arbitrary values may confuse IDE inspections. The project already avoids the previous `btn-primary` / `btn-secondary` false-positive pattern by using:
-
-```text
-data-button-variant="primary"
-data-button-variant="secondary"
-```
-
-Mobile button overrides in CSS should target these attributes instead of dynamic class names.
-
-### Sitemap Is Outdated
-
-Edit:
-
-```text
-public/sitemap.xml
-```
-
-Update it when adding:
-
-- A public route
-- A blog post
-- A new important landing page
-
-### Blog Post Shows 404
-
-Check:
-
-- The `slug` in `src/data/content.js`.
-- The URL path.
-- The route `/blog/:slug` in `src/App.jsx`.
-- Whether the deployed build is current.
-
-## Repository Hygiene
-
-Ignored files include:
-
-- `node_modules/`
-- `dist/`
-- `coverage/`
-- `.env`
-- `.env.*`
-- local preview logs
-- screenshots
-- temporary files
-
-Do not commit:
-
-- Secrets
-- SMTP passwords
-- local `.env` files
-- generated build output
-- coverage output
-- temporary screenshots
-
-Before committing:
-
-```bash
-npm run lint
-npm test
-npm run build
-git diff --check
-git status --short
-```
-
-## Deployment Checklist
-
-Before uploading a build:
-
-- [ ] `npm run lint` passes.
-- [ ] `npm test` passes.
-- [ ] `npm run build` passes.
-- [ ] Homepage works on desktop.
-- [ ] Homepage works on mobile.
-- [ ] Contact page opens email, phone and booking links.
-- [ ] Pricing page shows correct language-specific pricing.
-- [ ] Blog overview and at least one blog post work.
-- [ ] `/imprint` and `/privacy` work.
-- [ ] Direct route reloads work after deployment.
-- [ ] `robots.txt` is reachable.
-- [ ] `sitemap.xml` is reachable.
-
-## License and Content Ownership
-
-This repository contains the website implementation and website-specific content for Carina Sophie Schoppe.
-
-The texts, images, downloadable profiles, training catalogues, personal data, branding and business positioning are intended for this website. They should not be reused for other projects without permission.
-
-Code dependencies are governed by their respective open-source licenses.
+For rendered UI changes, also verify at least:
+
+- desktop dark mode,
+- desktop light mode,
+- mobile dark mode,
+- language switch,
+- contact links,
+- no horizontal overflow,
+- no framework error overlay.
+
+## License
+
+The repository includes the license files committed in the project. Website copy, imagery and brand assets belong to their respective owners and should not be reused outside the Luminovia project without permission.
