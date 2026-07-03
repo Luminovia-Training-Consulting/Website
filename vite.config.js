@@ -49,6 +49,7 @@ const prerenderRoutes = [
     ["/contact", "Contact & Booking | Book IT and Business Training", "Contact Luminovia for training, consulting, workshops, talks, course delivery and programme planning by email, phone or calendar booking."],
     ["/imprint", "Imprint | Luminovia", "Legal notice and contact details for Luminovia Training & Consulting."],
     ["/privacy", "Privacy Policy | Luminovia", "Privacy policy for the Luminovia website, including analytics and contact information."],
+    ["/terms", "Terms & Conditions | Luminovia", "Terms and conditions, payment terms and bank information for Luminovia Training & Consulting invoices and services."],
 ];
 
 function escapeHtmlAttribute(value) {

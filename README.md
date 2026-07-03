@@ -38,7 +38,7 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 | `/offers` | Concrete bookable packages for training, consulting, curriculum, keynotes and larger programmes. |
 | `/consulting` | Consulting portfolio for AI, IT, business, curriculum, roadmaps and digital enablement. |
 | `/clients` | Former clients, education partners and anonymized testimonial patterns. |
-| `/projects` | Project portfolio and publications connected to training and consulting practice. |
+| `/projects` | Project portfolio connected to training and consulting practice. |
 | `/pricing` | Net starting rates and consulting/project pricing on request. |
 | `/about` | CEO/founder profile for Carina Sophie Schoppe. |
 | `/contact` | Direct contact, appointment scheduler, email and phone links. |
@@ -47,6 +47,7 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 | `/credentials` | Qualifications, certificates and teaching proof. |
 | `/imprint` | Legal notice. |
 | `/privacy` | Privacy policy. |
+| `/terms` | Terms & Conditions, payment terms and bank information. |
 
 Training detail pages live under `/training/:slug` and are generated from `src/data/trainingDetails.js`.
 
@@ -59,7 +60,6 @@ Training detail pages live under `/training/:slug` and are generated from `src/d
 │   └── static.yml           # GitHub Pages deployment from dist
 ├── public/
 │   ├── images/              # Carina images and Luminovia logo assets
-│   ├── publications/        # PDF publication downloads
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── src/
@@ -223,7 +223,6 @@ Downloadable public assets include:
 - `public/carina-sophie-schoppe-lecturer-profile.html`
 - `public/carina-sophie-schoppe-training-portfolio.html`
 - `public/carina-sophie-schoppe-ai-it-training-catalogue.html`
-- PDFs in `public/publications/`
 
 ## Content Maintenance
 
@@ -234,7 +233,6 @@ Most business content is data-driven:
 - `src/data/localizedContent.js`: German localized content and localized mappings.
 - `src/data/homeContent.js`: homepage trust stats, service offerings and FAQ content.
 - `src/data/trainingDetails.js`: detailed training pages and topic link mapping.
-- `src/data/publications.js`: publication cards and PDF links.
 - `src/i18n.jsx`: UI labels, homepage strings and contact copy.
 
 Prefer editing these data files before hardcoding copy into components.

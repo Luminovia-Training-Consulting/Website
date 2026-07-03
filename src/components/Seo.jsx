@@ -94,6 +94,10 @@ const routeMeta = {
             title: "Privacy Policy | Luminovia",
             description: "Privacy policy for the Luminovia website, including analytics and contact information.",
         },
+        "/terms": {
+            title: "Terms & Conditions | Luminovia",
+            description: "Terms and conditions, payment terms and bank information for Luminovia Training & Consulting invoices and services.",
+        },
     },
     de: {
         "/": {
@@ -167,6 +171,10 @@ const routeMeta = {
         "/privacy": {
             title: "Datenschutzerklärung | Luminovia",
             description: "Datenschutzerklärung der Luminovia-Website, inklusive Analytics- und Kontaktinformationen.",
+        },
+        "/terms": {
+            title: "Terms & Conditions | Luminovia",
+            description: "Terms & Conditions, Zahlungsbedingungen und Bankinformationen fuer Rechnungen und Leistungen von Luminovia Training & Consulting.",
         },
     },
 };

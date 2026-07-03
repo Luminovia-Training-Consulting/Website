@@ -59,6 +59,7 @@ describe("App routing and language", () => {
         ["/portfolio", /Projektpraxis hinter IT-/i],
         ["/clients", /Ehemalige Kunden, Bildungspartner und Testimonial-Muster/i],
         ["/pricing", /Transparente Netto-Ab-Preise/i],
+        ["/terms", /Terms & Conditions und Zahlungsinformationen/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
     ])("renders %s with German page copy", async (route, heading) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");

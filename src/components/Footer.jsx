@@ -73,6 +73,7 @@ export default function Footer() {
                         {navItems.map((item) => <NavLink key={item.to} to={item.to} className={linkClass}>{t.nav[item.key]}</NavLink>)}
                         <Link to="/imprint" className={linkClass}>{t.nav.imprint}</Link>
                         <Link to="/privacy" className={linkClass}>{t.nav.privacy}</Link>
+                        <Link to="/terms" className={linkClass}>{t.nav.terms}</Link>
                     </div>
                     <div className="mt-5 flex flex-wrap gap-2">
                         <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className={linkClass}>LinkedIn</a>

@@ -61,6 +61,7 @@ const PricingPage = lazyWithRecovery(() => import("./pages/PricingPage.jsx"));
 const SoftwarePage = lazyWithRecovery(() => import("./pages/SoftwarePage.jsx"));
 const ImprintPage = lazyWithRecovery(() => import("./pages/ImprintPage.jsx"));
 const PrivacyPage = lazyWithRecovery(() => import("./pages/PrivacyPage.jsx"));
+const TermsPage = lazyWithRecovery(() => import("./pages/TermsPage.jsx"));
 const NotFoundPage = lazyWithRecovery(() => import("./pages/NotFoundPage.jsx"));
 
 function getHashTarget(hash) {
@@ -209,6 +210,7 @@ export default function App() {
                             <Route path="/software" element={routeElement(SoftwarePage)}/>
                             <Route path="/imprint" element={routeElement(ImprintPage)}/>
                             <Route path="/privacy" element={routeElement(PrivacyPage)}/>
+                            <Route path="/terms" element={routeElement(TermsPage)}/>
                             <Route path="*" element={routeElement(NotFoundPage)}/>
                         </Routes>
                     </div>

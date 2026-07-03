@@ -10,7 +10,6 @@ const appRoutes = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
     .map((match) => match[1])
     .filter((url) => url.startsWith(SITE_BASE_URL))
     .map((url) => url.slice(SITE_BASE_URL.length) || "/")
-    .filter((path) => !path.startsWith("/publications/"))
     .filter((path) => !path.endsWith(".pdf"))
     .filter((path) => !path.endsWith(".html"));
 

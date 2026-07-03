@@ -1,5 +1,4 @@
 import {useSiteContent} from "../data/localizedContent.js";
-import {publications} from "../data/publications.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -16,7 +15,7 @@ export default function PortfolioPage() {
             intro: "Diese Auswahl zeigt Arbeitsbeispiele aus Software, AI, Research, digitalen Lernformaten und Bildungspartner-Kontexten. Sie macht sichtbar, dass technische Inhalte bei Luminovia aus Praxis, Umsetzungserfahrung und didaktischer Übersetzung entstehen.",
             reference: "Referenz ansehen ->",
             jumpLabel: "Auf dieser Seite",
-            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Bereiche"], ["#publications", "Publikationen"], ["#projects", "Projekte"]],
+            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Bereiche"], ["#projects", "Projekte"]],
             consulting: {
                 eyebrow: "Consulting-Portfolio",
                 title: "IT- und Business-Consulting für Organisationen, die digitale Kompetenz wirklich nutzbar machen wollen.",
@@ -63,9 +62,6 @@ export default function PortfolioPage() {
             ],
             projectsTitle: "Praxis- und Referenzprojekte",
             projectsCopy: "Diese Beispiele zeigen den praktischen Unterbau: Software, Research Automation, Cybersecurity-Labs, digitale Lernsysteme und AI-Adoption fließen direkt in Beratung, Training und Umsetzungssparring ein.",
-            publicationsTitle: "Publikationen und akademische Arbeiten",
-            publicationsCopy: "Diese Arbeiten bilden die wissenschaftliche Grundlage hinter der Luminovia Consulting- und Trainingsarbeit rund um generative AI, AI Governance, Human-Machine Interaction und Cybersecurity Awareness.",
-            downloadPublication: "PDF herunterladen",
             ctaTitle: "Consulting oder Training mit Beratungsanteil planen?",
             ctaCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage und gewünschtes Ergebnis. Luminovia schlägt vor, ob ein Workshop, Consulting-Sprint, Training, Vortrag oder kombiniertes Enablement-Format sinnvoll ist.",
             ctaPrimary: "Consulting anfragen",
@@ -77,7 +73,7 @@ export default function PortfolioPage() {
             intro: "This selection shows practical work across software, AI, research, digital learning formats and education partner contexts. It demonstrates that technical topics are taught from implementation experience, applied problem-solving and didactic translation, not from slide theory alone.",
             reference: "View reference ->",
             jumpLabel: "On this page",
-            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Areas"], ["#publications", "Publications"], ["#projects", "Projects"]],
+            jumpItems: [["#consulting", "Consulting"], ["#consulting-areas", "Areas"], ["#projects", "Projects"]],
             consulting: {
                 eyebrow: "Consulting portfolio",
                 title: "IT and business consulting for organisations that need digital capability to become usable.",
@@ -124,9 +120,6 @@ export default function PortfolioPage() {
             ],
             projectsTitle: "Practice and proof projects",
             projectsCopy: "These examples show the practical foundation: software, research automation, cybersecurity labs, digital learning systems and AI adoption feed directly into advisory work, training and implementation sparring.",
-            publicationsTitle: "Publications and academic work",
-            publicationsCopy: "These papers provide the academic foundation behind Luminovia consulting and training work around generative AI, AI governance, human-machine interaction and cybersecurity awareness.",
-            downloadPublication: "Download PDF",
             ctaTitle: "Planning consulting or training with an advisory component?",
             ctaCopy: "Send the topic, audience, current situation and desired outcome. Luminovia will suggest whether a workshop, consulting sprint, training, talk or combined enablement format makes sense.",
             ctaPrimary: "Request consulting",
@@ -209,34 +202,6 @@ export default function PortfolioPage() {
                             ))}
                         </div>
                     </Card>
-                </section>
-
-                <section id="publications" className="mt-16 scroll-mt-36">
-                    <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-                        <div>
-                            <Badge tone="emerald">{copy.publicationsTitle}</Badge>
-                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.publicationsTitle}</h2>
-                        </div>
-                        <p className="text-lg leading-8 text-slate-300">{copy.publicationsCopy}</p>
-                    </div>
-                    <div className="mt-8 grid gap-5 lg:grid-cols-3">
-                        {publications.map((publication) => (
-                            <a key={publication.key} href={publication.href} download className="soft-link-card group flex min-h-[330px] flex-col p-5 focus:outline-none focus:ring-2 focus:ring-sky-200/80">
-                                <div className="mb-5 flex items-start justify-between gap-3">
-                                    <div>
-                                        <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{publication.type[language]}</div>
-                                        <div className="mt-2 text-xs font-bold text-zinc-500">{publication.year}</div>
-                                    </div>
-                                    <span className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-black text-sky-100 transition group-hover:border-sky-100/40">
-                                        PDF
-                                    </span>
-                                </div>
-                                <h3 className="text-2xl font-black text-white">{publication.title[language]}</h3>
-                                <p className="mt-4 text-sm leading-7 text-zinc-300">{publication.description[language]}</p>
-                                <div className="mt-auto pt-6 text-sm font-black text-sky-200 transition group-hover:text-white">{copy.downloadPublication}</div>
-                            </a>
-                        ))}
-                    </div>
                 </section>
 
                 <section id="projects" className="mt-16 scroll-mt-36">

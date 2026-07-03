@@ -21,6 +21,7 @@ const routes = [
     ["/credentials", /Credentials for teaching/i],
     ["/imprint", /Imprint/i],
     ["/privacy", /Privacy policy/i],
+    ["/terms", /Terms & Conditions and payment information/i],
     ["/unknown-page", /This page is not in the training plan/i],
 ];
 
