@@ -24,17 +24,20 @@ describe("full static site route coverage", () => {
         expect(appRoutes).toContain("/projects");
         expect(appRoutes).toContain("/contact");
 
-        for (const route of appRoutes) {
-            window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
-            window.history.pushState({}, `Route ${route}`, route);
+        for (const language of ["en", "de"]) {
+            for (const route of appRoutes) {
+                window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+                window.history.pushState({}, `Route ${route}`, route);
 
-            const {unmount} = render(<App/>);
-            expect(await screen.findByRole("main")).toBeInTheDocument();
-            expect(await screen.findByRole("heading", {level: 1})).toBeInTheDocument();
-            expect(screen.queryByRole("heading", {name: /page not found/i})).not.toBeInTheDocument();
-            expect(screen.queryByRole("heading", {name: /seite nicht gefunden/i})).not.toBeInTheDocument();
-            expect(document.title).not.toMatch(/not found|nicht gefunden/i);
-            unmount();
+                const {unmount} = render(<App/>);
+                expect(await screen.findByRole("main")).toBeInTheDocument();
+                expect(await screen.findByRole("heading", {level: 1})).toBeInTheDocument();
+                expect(screen.queryByRole("heading", {name: /page not found/i})).not.toBeInTheDocument();
+                expect(screen.queryByRole("heading", {name: /seite nicht gefunden/i})).not.toBeInTheDocument();
+                expect(document.title).not.toMatch(/not found|nicht gefunden/i);
+                expect(document.documentElement.lang).toBe(language);
+                unmount();
+            }
         }
     }, 30000);
 

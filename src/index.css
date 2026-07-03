@@ -1735,6 +1735,52 @@ p {
     transform: scale(1.62);
 }
 
+.luminovia-logo-shell {
+    position: relative;
+}
+
+.luminovia-logo-shell::after {
+    content: "";
+    position: absolute;
+    inset: -40% -90%;
+    background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, .72), rgba(234, 165, 20, .42), transparent 68%);
+    transform: translateX(-120%) rotate(8deg);
+    transition: transform .8s cubic-bezier(.2, .8, .2, 1);
+    pointer-events: none;
+}
+
+.group:hover .luminovia-logo-shell::after,
+.luminovia-logo-shell:hover::after {
+    transform: translateX(120%) rotate(8deg);
+}
+
+header nav a {
+    position: relative;
+    overflow: hidden;
+}
+
+header nav a::after {
+    content: "";
+    position: absolute;
+    inset: auto 20% 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(88, 182, 255, .9), rgba(234, 165, 20, .75), transparent);
+    opacity: 0;
+    transform: scaleX(.45);
+    transition: opacity .35s ease, transform .35s ease;
+}
+
+header nav a:hover::after,
+header nav a[aria-current="page"]::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.soft-link-card:hover,
+.color-card:hover {
+    filter: saturate(1.08);
+}
+
 .ambient-veil {
     background: radial-gradient(1100px 720px at 12% -8%, rgba(11, 99, 246, .18), transparent 56%),
     radial-gradient(920px 620px at 78% 6%, rgba(88, 182, 255, .14), transparent 58%),

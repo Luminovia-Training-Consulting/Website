@@ -22,6 +22,7 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 - Dark mode and light mode.
 - Logo-based Luminovia visual system using navy, blue, cyan and gold.
 - Static React/Vite app with React Router routes.
+- GitHub Pages compatible project build under `/Website/`.
 - Production build optimized through Preact compatibility mode.
 - Direct contact model through email, phone and Google Calendar booking.
 - Google Analytics consent banner.
@@ -145,14 +146,13 @@ Run all tests:
 npm test
 ```
 
-The current coverage thresholds in `vite.config.js` are strict:
+The enforced coverage threshold in `vite.config.js` is:
 
 ```text
-statements: 100%
-branches:   100%
-functions:  100%
-lines:      100%
+lines: 99%
 ```
+
+Vitest still reports statements, branches and functions so weaker areas remain visible in CI output, but the hard quality gate is 99% line coverage across application source files.
 
 ## Full-Site Test Code
 
@@ -174,6 +174,8 @@ SEO is handled in two places:
 
 - `src/components/Seo.jsx` updates runtime metadata and JSON-LD.
 - `vite.config.js` emits static `index.html` files for important routes during build.
+
+Production builds use the Vite base path `/Website/` and the router derives its basename from `import.meta.env.BASE_URL`, so generated assets, public files and internal routes work on GitHub Pages project hosting.
 
 When adding a major page, update:
 

@@ -53,9 +53,31 @@ describe("browser utilities", () => {
         expect(safeGetSessionItem("site-test-session")).toBeNull();
     });
 
+    it("falls back cleanly when session storage is blocked", () => {
+        Object.defineProperty(globalThis, "sessionStorage", {
+            value: {
+                getItem: () => {
+                    throw new Error("blocked");
+                },
+                setItem: () => {
+                    throw new Error("blocked");
+                },
+                removeItem: () => {
+                    throw new Error("blocked");
+                },
+            },
+            configurable: true,
+        });
+
+        expect(safeGetSessionItem("site-test-session")).toBeNull();
+        expect(safeSetSessionItem("site-test-session", "ok")).toBe(false);
+        expect(safeRemoveSessionItem("site-test-session")).toBe(false);
+    });
+
     it("detects common stale chunk and module loading failures", () => {
         expect(isChunkLoadError(new Error("Failed to fetch dynamically imported module"))).toBe(true);
         expect(isChunkLoadError(new Error("Expected a JavaScript module script but got a MIME type"))).toBe(true);
+        expect(isChunkLoadError(null)).toBe(false);
         expect(isChunkLoadError(new Error("ordinary render error"))).toBe(false);
     });
 });

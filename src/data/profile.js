@@ -1,4 +1,4 @@
-const base = import.meta.env.BASE_URL || "/";
+const base = import.meta.env.BASE_URL;
 
 export const PROFILE = {
     name: "Luminovia Training & Consulting",

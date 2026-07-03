@@ -116,4 +116,23 @@ describe("App routing and language", () => {
         expect(screen.getByText("ab 50 EUR")).toBeInTheDocument();
         expect(screen.getByText("ab 1.000 EUR")).toBeInTheDocument();
     });
+
+    it("scrolls to a hash target after route rendering", async () => {
+        const scrollIntoView = vi.fn();
+        const requestAnimationFrame = vi.fn((callback) => {
+            callback();
+            return 1;
+        });
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        window.history.pushState({}, "Hash route", "/#faq");
+        window.requestAnimationFrame = requestAnimationFrame;
+        Element.prototype.scrollIntoView = scrollIntoView;
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Luminovia Training & Consulting/i})).toBeInTheDocument();
+        await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({behavior: "auto", block: "start"}));
+        expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
+        expect(requestAnimationFrame).toHaveBeenCalled();
+    });
 });

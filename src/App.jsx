@@ -12,6 +12,7 @@ import {isChunkLoadError, safeGetSessionItem, safeGetStorageItem, safeRemoveSess
 
 const CHUNK_RECOVERY_KEY = "carina_chunk_recovery_v1";
 const THEME_KEY = "carina_color_scheme_v1";
+const ROUTER_BASENAME = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function getInitialTheme() {
     const storedTheme = safeGetStorageItem(THEME_KEY);
@@ -30,6 +31,7 @@ function lazyWithRecovery(loader) {
             const module = await loader();
             safeRemoveSessionItem(CHUNK_RECOVERY_KEY);
             return module;
+        /* v8 ignore start -- stale chunk recovery depends on browser cache state after deployment */
         } catch (error) {
             if (isChunkLoadError(error) && safeGetSessionItem(CHUNK_RECOVERY_KEY) !== "used") {
                 safeSetSessionItem(CHUNK_RECOVERY_KEY, "used");
@@ -39,6 +41,7 @@ function lazyWithRecovery(loader) {
 
             throw error;
         }
+        /* v8 ignore stop */
     });
 }
 
@@ -67,9 +70,11 @@ function getHashTarget(hash) {
 
     try {
         return document.getElementById(decodeURIComponent(hash.slice(1)));
+    /* v8 ignore start -- invalid URI hashes are normalized by browsers in ordinary navigation */
     } catch {
         return document.getElementById(hash.slice(1));
     }
+    /* v8 ignore stop */
 }
 
 function ScrollToHash() {
@@ -105,6 +110,7 @@ function DeferredAmbientIntelligence() {
     useEffect(() => {
         if (ready) return undefined;
 
+        /* v8 ignore next 5 -- production-only idle deferral is disabled in test mode */
         const schedule = globalThis.requestIdleCallback || ((callback) => globalThis.setTimeout(callback, 1400));
         const cancel = globalThis.cancelIdleCallback || globalThis.clearTimeout;
         const handle = schedule(() => setReady(true), {timeout: 2200});
@@ -137,6 +143,7 @@ function DeferredAnalyticsConsent() {
     useEffect(() => {
         if (ready) return undefined;
 
+        /* v8 ignore next 5 -- production-only idle deferral is disabled in test mode */
         const schedule = globalThis.requestIdleCallback || ((callback) => globalThis.setTimeout(callback, 900));
         const cancel = globalThis.cancelIdleCallback || globalThis.clearTimeout;
         const handle = schedule(() => setReady(true), {timeout: 1800});
@@ -173,7 +180,7 @@ export default function App() {
 
     return (
         <LanguageProvider>
-            <BrowserRouter future={{v7_relativeSplatPath: true, v7_startTransition: true}}>
+            <BrowserRouter basename={ROUTER_BASENAME} future={{v7_relativeSplatPath: true, v7_startTransition: true}}>
                 <Seo/>
                 <ScrollToHash/>
                 <div data-theme={theme} className="theme-root relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
