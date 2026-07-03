@@ -67,6 +67,23 @@ describe("App routing and language", () => {
         expect(document.documentElement.lang).toBe("de");
     });
 
+    it.each([
+        ["/training/", /Konkrete Luminovia-Angebote/i],
+        ["/offers/", /Klare Luminovia-Angebote/i],
+        ["/consulting/", /Projektpraxis hinter IT-/i],
+        ["/projects/", /Projekte, die Luminovia-Training/i],
+        ["/pricing/", /Transparente Netto-Ab-Preise/i],
+        ["/terms/", /Terms & Conditions und Zahlungsinformationen/i],
+    ])("renders GitHub Pages trailing-slash route %s", async (route, heading) => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+        window.history.pushState({}, "Trailing slash route", route);
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: heading})).toBeInTheDocument();
+        await waitFor(() => expect(document.title).not.toBe("Seite nicht gefunden | Luminovia"));
+    });
+
     it.each(["/skills", "/my-way", "/credentials", "/keynotes", "/corporate", "/software"])("does not expose removed legacy route %s", async (route) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, `Removed ${route}`, route);

@@ -167,6 +167,11 @@ function removeJsonLd(id) {
     document.head.querySelector(`#${id}`)?.remove();
 }
 
+function normalizePathname(pathname) {
+    if (pathname === "/") return pathname;
+    return pathname.replace(/\/+$/, "");
+}
+
 function buildBaseSchema() {
     return {
         "@context": "https://schema.org",
@@ -233,18 +238,19 @@ function buildBreadcrumbSchema(pathname, title) {
 export default function Seo() {
     const {pathname} = useLocation();
     const {language} = useLanguage();
-    const isTrainingTopicRoute = /^\/training\/[^/]+$/.test(pathname);
+    const normalizedPathname = normalizePathname(pathname);
+    const isTrainingTopicRoute = /^\/training\/[^/]+$/.test(normalizedPathname);
     const currentMeta = isTrainingTopicRoute ? {
         title: language === "de" ? "Trainingsthema | IT- und Business-Bildung" : "Training Topic | IT and Business Education",
         description: language === "de" ? "Detaillierte Themenseite für IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for IT, software development, cybersecurity, project management, digital transformation or business education.",
-    } : routeMeta[language][pathname] || {
+    } : routeMeta[language][normalizedPathname] || {
         title: language === "de" ? "Seite nicht gefunden | Luminovia" : "Page not found | Luminovia",
         description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Angebote oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, offers or contact page to find the right information.",
     };
     const {title, description} = currentMeta;
 
     useEffect(() => {
-        const canonical = `${SITE_URL}${pathname === "/" ? "/" : pathname}`;
+        const canonical = `${SITE_URL}${normalizedPathname === "/" ? "/" : normalizedPathname}`;
         document.title = title;
 
         upsertMeta('meta[name="description"]', {name: "description", content: description});
@@ -262,9 +268,9 @@ export default function Seo() {
         upsertLink('link[rel="alternate"][hreflang="de"]', {rel: "alternate", hreflang: "de", href: canonical});
 
         upsertJsonLd("dynamic-organisation-service-schema", buildBaseSchema());
-        upsertJsonLd("dynamic-breadcrumb-schema", buildBreadcrumbSchema(pathname, title));
+        upsertJsonLd("dynamic-breadcrumb-schema", buildBreadcrumbSchema(normalizedPathname, title));
 
-        if (pathname === "/") {
+        if (normalizedPathname === "/") {
             upsertJsonLd("dynamic-faq-schema", {
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
@@ -280,7 +286,7 @@ export default function Seo() {
         } else {
             removeJsonLd("dynamic-faq-schema");
         }
-    }, [description, pathname, title]);
+    }, [description, normalizedPathname, title]);
 
     return null;
 }

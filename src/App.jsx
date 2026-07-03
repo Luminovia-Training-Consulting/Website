@@ -162,6 +162,16 @@ function routeElement(Component) {
     );
 }
 
+function routePaths(path) {
+    return path === "/" ? [path] : [path, `${path}/`];
+}
+
+function pageRoutes(path, Component) {
+    return routePaths(path).map((routePath) => (
+        <Route key={routePath} path={routePath} element={routeElement(Component)}/>
+    ));
+}
+
 export default function App() {
     const [theme, setTheme] = useState(getInitialTheme);
 
@@ -187,19 +197,19 @@ export default function App() {
                     <div className="relative z-10">
                         <Routes>
                             <Route path="/" element={<AppErrorBoundary><HomePage/></AppErrorBoundary>}/>
-                            <Route path="/training" element={routeElement(TrainingPage)}/>
-                            <Route path="/offers" element={routeElement(OffersPage)}/>
-                            <Route path="/training/:slug" element={routeElement(TrainingTopicPage)}/>
-                            <Route path="/portfolio" element={routeElement(PortfolioPage)}/>
-                            <Route path="/consulting" element={routeElement(PortfolioPage)}/>
-                            <Route path="/clients" element={routeElement(ClientsPage)}/>
-                            <Route path="/about" element={routeElement(AboutPage)}/>
-                            <Route path="/contact" element={routeElement(ContactPage)}/>
-                            <Route path="/pricing" element={routeElement(PricingPage)}/>
-                            <Route path="/projects" element={routeElement(SoftwarePage)}/>
-                            <Route path="/imprint" element={routeElement(ImprintPage)}/>
-                            <Route path="/privacy" element={routeElement(PrivacyPage)}/>
-                            <Route path="/terms" element={routeElement(TermsPage)}/>
+                            {pageRoutes("/training", TrainingPage)}
+                            {pageRoutes("/offers", OffersPage)}
+                            {pageRoutes("/training/:slug", TrainingTopicPage)}
+                            {pageRoutes("/portfolio", PortfolioPage)}
+                            {pageRoutes("/consulting", PortfolioPage)}
+                            {pageRoutes("/clients", ClientsPage)}
+                            {pageRoutes("/about", AboutPage)}
+                            {pageRoutes("/contact", ContactPage)}
+                            {pageRoutes("/pricing", PricingPage)}
+                            {pageRoutes("/projects", SoftwarePage)}
+                            {pageRoutes("/imprint", ImprintPage)}
+                            {pageRoutes("/privacy", PrivacyPage)}
+                            {pageRoutes("/terms", TermsPage)}
                             <Route path="*" element={routeElement(NotFoundPage)}/>
                         </Routes>
                     </div>
