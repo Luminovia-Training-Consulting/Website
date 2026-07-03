@@ -5,7 +5,7 @@ import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
 const SITE_URL = "https://luminovia.org";
-const DEFAULT_IMAGE = `${SITE_URL}/images/luminovia-logo-full.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/images/luminovia-og.jpg`;
 const schemaServiceOffers = [
     ["AI & GenAI Training", "Practical training on generative AI concepts, business use cases, limits, risks and responsible day-to-day adoption."],
     ["AI Literacy for Teams", "Clear AI literacy training for shared language, practical confidence and sensible AI usage rules."],

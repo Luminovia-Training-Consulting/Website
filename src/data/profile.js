@@ -22,8 +22,10 @@ export const IMAGES = {
     headshot: `${base}images/carina-headshot.jpg`,
     outdoor: `${base}images/carina-outdoor.jpg`,
     fullBody: `${base}images/carina-fullbody.jpg`,
-    luminoviaLogoFull: `${base}images/luminovia-logo-full.svg`,
+    luminoviaLogoFull: `${base}images/luminovia-logo-full-720.webp`,
+    luminoviaLogoFullSmall: `${base}images/luminovia-logo-full-360.webp`,
     luminoviaLogoMark: `${base}images/luminovia-logo-mark.svg`,
+    luminoviaLogoMarkWebp: `${base}images/luminovia-logo-mark-96.webp`,
 };
 
 export const navItems = [

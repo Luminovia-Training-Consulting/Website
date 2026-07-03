@@ -36,9 +36,9 @@ export default function Footer() {
         <footer className="border-t border-white/10 bg-[#060914]/72 px-4 py-14 sm:px-6 lg:px-8">
             <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr_0.9fr_0.9fr]">
                 <div>
-                    <Link to="/" className="inline-flex items-center gap-3">
+                    <Link to="/" className="inline-flex items-center gap-3" aria-label="Luminovia Training & Consulting home">
                         <span className="luminovia-logo-shell grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-white/20 bg-white">
-                            <img src={IMAGES.luminoviaLogoMark} alt="" className="h-11 w-11 object-cover object-center" loading="lazy"/>
+                            <img src={IMAGES.luminoviaLogoMarkWebp} alt="" className="h-11 w-11 object-cover object-center" loading="lazy" width="44" height="44"/>
                         </span>
                         <span className="text-2xl font-black text-white">Luminovia Training & Consulting</span>
                     </Link>

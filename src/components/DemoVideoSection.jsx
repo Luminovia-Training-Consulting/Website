@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "./Badge.jsx";
 import Button from "./Button.jsx";
@@ -21,7 +22,9 @@ const copy = {
         ],
         primary: "Discuss a demo format",
         secondary: "Watch on YouTube",
-        note: "Embedded with YouTube's privacy-enhanced domain.",
+        loadVideo: "Load video preview",
+        playHint: "Loads YouTube only after your click.",
+        note: "YouTube is not loaded until the preview is activated.",
     },
     de: {
         badge: "Demo-Video",
@@ -37,11 +40,14 @@ const copy = {
         ],
         primary: "Demo-Format besprechen",
         secondary: "Auf YouTube ansehen",
-        note: "Eingebettet über die datenschutzfreundlichere YouTube-NoCookie-Domain.",
+        loadVideo: "Video-Vorschau laden",
+        playHint: "YouTube wird erst nach Klick geladen.",
+        note: "YouTube wird erst geladen, wenn die Vorschau aktiv angeklickt wird.",
     },
 };
 
 export default function DemoVideoSection({className = ""}) {
+    const [videoLoaded, setVideoLoaded] = useState(false);
     const {language} = useLanguage();
     const t = copy[language];
 
@@ -76,15 +82,30 @@ export default function DemoVideoSection({className = ""}) {
                         </div>
                         <div>
                             <div className="demo-video-frame glass-sheen relative overflow-hidden rounded-[1.65rem] border border-white/14 bg-black shadow-[0_24px_90px_rgba(0,0,0,.36),0_0_42px_rgba(56,189,248,.10)]">
-                                <iframe
-                                    className="aspect-video w-full border-0"
-                                    src={DEMO_VIDEO_URL}
-                                    title={t.videoTitle}
-                                    loading="lazy"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerPolicy="strict-origin-when-cross-origin"
-                                    allowFullScreen
-                                />
+                                {videoLoaded ? (
+                                    <iframe
+                                        className="aspect-video w-full border-0"
+                                        src={DEMO_VIDEO_URL}
+                                        title={t.videoTitle}
+                                        loading="lazy"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        allowFullScreen
+                                    />
+                                ) : (
+                                    <button
+                                        type="button"
+                                        onClick={() => setVideoLoaded(true)}
+                                        className="group grid aspect-video w-full place-items-center bg-[radial-gradient(circle_at_18%_0%,rgba(125,211,252,.20),transparent_40%),linear-gradient(135deg,#06122d,#071225_58%,#0b1f4c)] p-6 text-center focus:outline-none focus:ring-2 focus:ring-sky-200/80"
+                                        aria-label={t.loadVideo}
+                                    >
+                                        <span className="grid gap-4">
+                                            <span className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-white/20 bg-white text-2xl font-black text-slate-950 shadow-[0_16px_50px_rgba(0,0,0,.32)] transition group-hover:scale-105">&gt;</span>
+                                            <span className="text-xl font-black text-white">{t.loadVideo}</span>
+                                            <span className="text-sm font-bold text-slate-300">{t.playHint}</span>
+                                        </span>
+                                    </button>
+                                )}
                             </div>
                             <p className="mt-3 text-xs font-bold leading-5 text-slate-400">{t.note}</p>
                         </div>

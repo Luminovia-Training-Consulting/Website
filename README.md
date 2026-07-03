@@ -209,8 +209,13 @@ CI runs through `.github/workflows/node.js.yml`:
 
 Luminovia logo assets:
 
-- `public/images/luminovia-logo-full.png`
-- `public/images/luminovia-logo-mark.png`
+- `public/images/luminovia-logo-full-720.webp`: homepage logo image.
+- `public/images/luminovia-logo-full-360.webp`: compact responsive logo source.
+- `public/images/luminovia-logo-mark-96.webp`: header/footer/app-shell mark.
+- `public/images/luminovia-logo-mark-256.webp`: larger compact mark for reuse.
+- `public/images/luminovia-logo-full.svg`: lightweight vector fallback/brand asset.
+- `public/images/luminovia-logo-mark.svg`: lightweight vector mark.
+- `public/images/luminovia-og.jpg`: small social sharing preview.
 
 Carina profile images remain in `public/images/` and are used for the CEO/about sections.
 

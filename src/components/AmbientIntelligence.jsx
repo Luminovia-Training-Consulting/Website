@@ -9,14 +9,23 @@ export default function AmbientIntelligence() {
         if (mobileQuery?.matches) return undefined;
 
         let frame = 0;
+        let scrollable = 0;
+
+        function measureScrollable() {
+            scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+        }
 
         function updateProgress() {
             cancelAnimationFrame(frame);
             frame = requestAnimationFrame(() => {
-                const scrollable = document.documentElement.scrollHeight - window.innerHeight;
                 const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
                 progressRef.current?.style.setProperty("--scroll-progress", progress);
             });
+        }
+
+        function handleResize() {
+            measureScrollable();
+            updateProgress();
         }
 
         function updatePointer(event) {
@@ -24,15 +33,16 @@ export default function AmbientIntelligence() {
             pointerRef.current?.style.setProperty("--pointer-y", `${(event.clientY / window.innerHeight) * 100}%`);
         }
 
+        measureScrollable();
         updateProgress();
         globalThis.addEventListener("scroll", updateProgress, {passive: true});
-        globalThis.addEventListener("resize", updateProgress);
+        globalThis.addEventListener("resize", handleResize);
         globalThis.addEventListener("pointermove", updatePointer, {passive: true});
 
         return () => {
             cancelAnimationFrame(frame);
             globalThis.removeEventListener("scroll", updateProgress);
-            globalThis.removeEventListener("resize", updateProgress);
+            globalThis.removeEventListener("resize", handleResize);
             globalThis.removeEventListener("pointermove", updatePointer);
         };
     }, []);
