@@ -145,30 +145,6 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://luminovia.org/blog</loc>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/blog/agentic-ai-from-demo-to-delegation</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/blog/project-management-in-the-age-of-ai</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/blog/teaching-with-ai-without-losing-learning</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/blog/from-industry-4-0-to-5-0-human-above-the-loop</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://luminovia.org/blog/ai-automation-risks-hallucinations-token-burn-rate-limits</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
         <loc>https://luminovia.org/contact</loc>
         <priority>0.9</priority>
     </url>

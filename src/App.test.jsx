@@ -48,7 +48,6 @@ describe("App routing and language", () => {
     });
 
     it.each([
-        ["/blog", /Blog zu AI, Projektmanagement und Lehre mit KI/i],
         ["/contact", /Kontakt für Luminovia Training/i],
         ["/skills", /praktische Kompetenzübersicht/i],
         ["/about", /Luminovia Training & Consulting steht/i],

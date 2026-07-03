@@ -58,8 +58,6 @@ const ContactPage = lazyWithRecovery(() => import("./pages/ContactPage.jsx"));
 const MyWayPage = lazyWithRecovery(() => import("./pages/MyWayPage.jsx"));
 const SkillsPage = lazyWithRecovery(() => import("./pages/SkillsPage.jsx"));
 const PricingPage = lazyWithRecovery(() => import("./pages/PricingPage.jsx"));
-const BlogPage = lazyWithRecovery(() => import("./pages/BlogPage.jsx"));
-const BlogPostPage = lazyWithRecovery(() => import("./pages/BlogPostPage.jsx"));
 const SoftwarePage = lazyWithRecovery(() => import("./pages/SoftwarePage.jsx"));
 const ImprintPage = lazyWithRecovery(() => import("./pages/ImprintPage.jsx"));
 const PrivacyPage = lazyWithRecovery(() => import("./pages/PrivacyPage.jsx"));
@@ -207,8 +205,6 @@ export default function App() {
                             <Route path="/my-way" element={routeElement(MyWayPage)}/>
                             <Route path="/skills" element={routeElement(SkillsPage)}/>
                             <Route path="/pricing" element={routeElement(PricingPage)}/>
-                            <Route path="/blog" element={routeElement(BlogPage)}/>
-                            <Route path="/blog/:slug" element={routeElement(BlogPostPage)}/>
                             <Route path="/projects" element={routeElement(SoftwarePage)}/>
                             <Route path="/software" element={routeElement(SoftwarePage)}/>
                             <Route path="/imprint" element={routeElement(ImprintPage)}/>

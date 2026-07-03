@@ -23,7 +23,7 @@ const copy = {
         links: [
             ["Company background", "A compact timeline behind Luminovia's leadership, academic profile, training practice and international delivery model.", "/my-way"],
             ["Skills", "A skill map for AI, software development, cybersecurity, business IT, teaching design and communication.", "/skills"],
-            ["Blog", "Long-form articles on AI governance, digital education, automation risk, project work and responsible technology adoption.", "/blog"],
+            ["Projects", "Selected digital, software, AI research and automation projects behind Luminovia's training and consulting profile.", "/projects"],
         ],
         timelineTitle: "Company and leadership background",
     },
@@ -43,7 +43,7 @@ const copy = {
         links: [
             ["Unternehmenshintergrund", "Eine kompakte Timeline hinter Luminovias Führung, akademischem Profil, Trainingspraxis und internationalem Liefermodell.", "/my-way"],
             ["Kompetenzen", "Eine Kompetenzübersicht für AI, Softwareentwicklung, Cybersecurity, Business-IT, Didaktik und Kommunikation.", "/skills"],
-            ["Blog", "Ausführliche Beiträge zu AI Governance, digitaler Bildung, Automationsrisiken, Projektarbeit und verantwortungsvoller Technologieeinführung.", "/blog"],
+            ["Projekte", "Ausgewählte Digital-, Software-, AI-Research- und Automatisierungsprojekte hinter dem Trainings- und Consulting-Profil von Luminovia.", "/projects"],
         ],
         timelineTitle: "Unternehmens- und Führungshintergrund",
     },

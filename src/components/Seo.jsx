@@ -82,10 +82,6 @@ const routeMeta = {
             title: "Credentials | Luminovia",
             description: "Credentials, qualifications and professional background behind Luminovia training and consulting delivery.",
         },
-        "/blog": {
-            title: "Blog | AI Governance, Digital Education and Business IT",
-            description: "Articles on agentic AI, AI governance, digital education, project management, cybersecurity, automation risk and modern teaching.",
-        },
         "/contact": {
             title: "Contact & Booking | Book IT and Business Training",
             description: "Contact Luminovia for training, consulting, workshops, talks, course delivery and programme planning by email, phone or calendar booking.",
@@ -159,10 +155,6 @@ const routeMeta = {
         "/credentials": {
             title: "Nachweise | Luminovia",
             description: "Nachweise, Qualifikationen und professioneller Hintergrund hinter der Luminovia Trainings- und Beratungsdurchführung.",
-        },
-        "/blog": {
-            title: "Blog | AI Governance, digitale Bildung und Business-IT",
-            description: "Beiträge zu Agentic AI, AI Governance, digitaler Bildung, Projektmanagement, Cybersecurity, Automatisierungsrisiken und moderner Lehre.",
         },
         "/contact": {
             title: "Kontakt & Buchung | IT- und Business-Training buchen",
@@ -281,12 +273,8 @@ function buildBreadcrumbSchema(pathname, title) {
 export default function Seo() {
     const {pathname} = useLocation();
     const {language} = useLanguage();
-    const isBlogPostRoute = /^\/blog\/[^/]+$/.test(pathname);
     const isTrainingTopicRoute = /^\/training\/[^/]+$/.test(pathname);
-    const currentMeta = isBlogPostRoute ? {
-        title: language === "de" ? "Blogbeitrag | Luminovia" : "Blog Article | Luminovia",
-        description: language === "de" ? "Fachbeitrag aus dem Luminovia Wissenshub zu AI, Governance, digitaler Bildung, Business-IT oder moderner Arbeit." : "Long-form article from the Luminovia knowledge hub on AI, governance, digital education, business IT or modern work.",
-    } : isTrainingTopicRoute ? {
+    const currentMeta = isTrainingTopicRoute ? {
         title: language === "de" ? "Trainingsthema | IT- und Business-Bildung" : "Training Topic | IT and Business Education",
         description: language === "de" ? "Detaillierte Themenseite für IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for IT, software development, cybersecurity, project management, digital transformation or business education.",
     } : routeMeta[language][pathname] || {
@@ -305,7 +293,7 @@ export default function Seo() {
         upsertMeta('meta[property="og:description"]', {property: "og:description", content: description});
         upsertMeta('meta[property="og:url"]', {property: "og:url", content: canonical});
         upsertMeta('meta[property="og:image"]', {property: "og:image", content: DEFAULT_IMAGE});
-        upsertMeta('meta[property="og:type"]', {property: "og:type", content: isBlogPostRoute ? "article" : "website"});
+        upsertMeta('meta[property="og:type"]', {property: "og:type", content: "website"});
         upsertMeta('meta[name="twitter:card"]', {name: "twitter:card", content: "summary_large_image"});
         upsertMeta('meta[name="twitter:title"]', {name: "twitter:title", content: title});
         upsertMeta('meta[name="twitter:description"]', {name: "twitter:description", content: description});
@@ -332,48 +320,7 @@ export default function Seo() {
         } else {
             removeJsonLd("dynamic-faq-schema");
         }
-
-        if (!isBlogPostRoute) {
-            removeJsonLd("dynamic-blogpost-schema");
-        }
-    }, [description, isBlogPostRoute, pathname, title]);
-
-    useEffect(() => {
-        const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
-        if (!blogMatch) return undefined;
-
-        let active = true;
-        import("../data/localizedContent.js").then(({localizedSiteContentForLanguage}) => {
-            if (!active) return;
-            const post = localizedSiteContentForLanguage(language).blogPosts.find((item) => item.slug === blogMatch[1]);
-            if (!post) return;
-
-            const canonical = `${SITE_URL}${pathname}`;
-            const blogTitle = `${post.title} | Luminovia Blog`;
-            document.title = blogTitle;
-            upsertMeta('meta[name="description"]', {name: "description", content: post.excerpt});
-            upsertMeta('meta[property="og:title"]', {property: "og:title", content: blogTitle});
-            upsertMeta('meta[property="og:description"]', {property: "og:description", content: post.excerpt});
-            upsertMeta('meta[property="og:type"]', {property: "og:type", content: "article"});
-            upsertJsonLd("dynamic-blogpost-schema", {
-                "@context": "https://schema.org",
-                "@type": "BlogPosting",
-                headline: post.title,
-                description: post.excerpt,
-                datePublished: post.date,
-                dateModified: post.date,
-                image: DEFAULT_IMAGE,
-                author: {"@id": `${SITE_URL}/#luminovia`},
-                publisher: {"@id": `${SITE_URL}/#luminovia`},
-                mainEntityOfPage: canonical,
-            });
-        });
-
-        return () => {
-            active = false;
-            removeJsonLd("dynamic-blogpost-schema");
-        };
-    }, [language, pathname]);
+    }, [description, pathname, title]);
 
     return null;
 }

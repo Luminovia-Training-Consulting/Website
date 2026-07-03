@@ -45,7 +45,6 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 | `/skills` | Capability and skill map. |
 | `/keynotes` | Talks, guest lectures and expert sessions. |
 | `/credentials` | Qualifications, certificates and teaching proof. |
-| `/blog` | Long-form articles on AI, education, project management and automation risk. |
 | `/imprint` | Legal notice. |
 | `/privacy` | Privacy policy. |
 
@@ -134,8 +133,6 @@ Important test files:
 | `src/pages/FullSiteRoutes.test.jsx` | Reads `public/sitemap.xml` and renders every internal app route. |
 | `src/data/trainingDetails.test.js` | Every training topic, service chip and sitemap training detail page is connected. |
 | `src/data/localizationQuality.test.js` | German localization text avoids common encoding/mojibake markers. |
-| `src/pages/BlogPage.test.jsx` | Blog overview, carousel controls, drag/keyboard behavior and language switch. |
-| `src/pages/BlogPostPage.test.jsx` | Full article rendering, German version and unknown slug redirect. |
 | `src/components/AnalyticsConsent.test.jsx` | Consent decline/accept behavior and Google tag script loading. |
 | `src/components/ClientProofSection.test.jsx` | Client proof and testimonial card rendering. |
 | `src/utils/browser.test.js` | Storage wrappers and stale chunk error detection. |

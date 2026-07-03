@@ -8,7 +8,6 @@ const sourceFiles = [
     "src/i18n.jsx",
     "src/data/localizedContent.js",
     "src/data/trainingDetails.js",
-    "src/pages/BlogPage.jsx",
     "src/pages/ContactPage.jsx",
     "src/pages/PricingPage.jsx",
     "src/pages/TrainingPage.jsx",
