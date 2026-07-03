@@ -22,7 +22,7 @@ function HeroVisual() {
                 <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl"/>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[2.1rem] border border-sky-100/14 bg-[radial-gradient(circle_at_20%_0%,rgba(125,211,252,.2),transparent_34%),linear-gradient(145deg,rgba(10,20,40,.96),rgba(7,13,27,.98)_55%,rgba(14,25,48,.96))] p-6">
                     <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.045)_1px,transparent_1px)] bg-[length:36px_36px] opacity-45"/>
-                    <div className="pointer-events-none absolute -right-20 top-10 h-56 w-56 rounded-full bg-sky-300/15 blur-3xl"/>
+                    <div className="pointer-events-none absolute -right-12 top-10 h-56 w-56 rounded-full bg-sky-300/15 blur-3xl xl:-right-20"/>
                     <div className="pointer-events-none absolute -bottom-24 left-4 h-64 w-64 rounded-full bg-blue-500/16 blur-3xl"/>
                     <div className="relative flex h-full flex-col justify-center gap-5">
                         <div className="rounded-[1.9rem] border border-white/70 bg-white p-7 shadow-[0_24px_90px_rgba(0,0,0,.32),0_0_56px_rgba(125,211,252,.14)]">
