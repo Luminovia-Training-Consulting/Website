@@ -14,11 +14,36 @@ import ClientProofSection from "../components/ClientProofSection.jsx";
 
 function HeroVisual() {
     const {t} = useLanguage();
+    const brandSignals = [t.home.signalTeaching, t.home.signalWorkflows, t.home.remote];
+
     return (
         <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
             <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
                 <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl"/>
-                <Photo src={IMAGES.hero} alt="Leadership portrait for Luminovia Training & Consulting" className="relative aspect-[4/5] rounded-[2.1rem]" imgClass="object-[50%_25%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="(min-width: 1024px) 520px, 0px"/>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2.1rem] border border-sky-100/14 bg-[radial-gradient(circle_at_20%_0%,rgba(125,211,252,.2),transparent_34%),linear-gradient(145deg,rgba(10,20,40,.96),rgba(7,13,27,.98)_55%,rgba(14,25,48,.96))] p-6">
+                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.045)_1px,transparent_1px)] bg-[length:36px_36px] opacity-45"/>
+                    <div className="pointer-events-none absolute -right-20 top-10 h-56 w-56 rounded-full bg-sky-300/15 blur-3xl"/>
+                    <div className="pointer-events-none absolute -bottom-24 left-4 h-64 w-64 rounded-full bg-blue-500/16 blur-3xl"/>
+                    <div className="relative flex h-full flex-col justify-center gap-5">
+                        <div className="rounded-[1.9rem] border border-white/70 bg-white p-7 shadow-[0_24px_90px_rgba(0,0,0,.32),0_0_56px_rgba(125,211,252,.14)]">
+                            <img
+                                src={IMAGES.luminoviaLogoFull}
+                                alt="Luminovia Training & Consulting logo"
+                                className="mx-auto h-auto w-full object-contain"
+                                loading="eager"
+                                fetchPriority="high"
+                            />
+                        </div>
+                        <div className="grid grid-cols-3 gap-3">
+                            {brandSignals.map((signal) => (
+                                <div key={signal} className="min-h-20 rounded-[1.15rem] border border-sky-100/18 bg-white/[0.075] px-3 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,.08)] backdrop-blur-xl">
+                                    <div className="h-1.5 w-8 rounded-full bg-gradient-to-r from-sky-100 via-blue-300 to-amber-300"/>
+                                    <div className="mt-3 text-[11px] font-black uppercase leading-4 tracking-[0.1em] text-white">{signal}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
                 <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>
@@ -45,7 +70,9 @@ function MobileHeroSignal() {
     const {t} = useLanguage();
     return (
         <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
-            <Photo src={IMAGES.headshot} alt="Leadership headshot for Luminovia" className="aspect-square rounded-[1.35rem]" imgClass="object-[50%_18%]" fallbackCopy={t.home.photoFallback} fetchPriority="high" sizes="88px"/>
+            <div className="grid aspect-square place-items-center overflow-hidden rounded-[1.35rem] border border-white/70 bg-white p-2 shadow-[0_12px_42px_rgba(0,0,0,.2)]">
+                <img src={IMAGES.luminoviaLogoMark} alt="" className="h-full w-full object-contain" loading="eager" fetchPriority="high"/>
+            </div>
             <div className="pr-2">
                 <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
                 <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
@@ -153,7 +180,7 @@ function FounderSection() {
     return (
         <section id="founder" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
             <div className="mx-auto grid max-w-7xl gap-7 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_15%_0%,rgba(125,211,252,.18),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.045))] p-5 shadow-[0_26px_100px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-                <Photo src={IMAGES.outdoor} alt={copy.imageAlt} className="aspect-[4/3] rounded-[1.7rem] lg:aspect-[5/4]" imgClass="object-[50%_20%]" sizes="(min-width: 1024px) 520px, 100vw"/>
+                <Photo src={IMAGES.hero} alt={copy.imageAlt} className="aspect-[4/3] rounded-[1.7rem] bg-white lg:aspect-[5/4]" imgClass="object-[50%_18%]" sizes="(min-width: 1024px) 520px, 100vw"/>
                 <div>
                     <Badge tone="cyan">{copy.badge}</Badge>
                     <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{copy.title}</h2>

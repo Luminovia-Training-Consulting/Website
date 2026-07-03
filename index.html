@@ -17,8 +17,7 @@
     <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
     <link href="/favicon.png" rel="alternate icon" type="image/png"/>
     <link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
-    <link href="/images/carina-hero-640.webp" rel="preload" as="image" type="image/webp" media="(min-width: 1024px)" imagesrcset="/images/carina-hero-480.webp 480w, /images/carina-hero-640.webp 640w, /images/carina-hero-960.webp 960w" imagesizes="520px" fetchpriority="high"/>
-    <link href="/images/carina-headshot-480.webp" rel="preload" as="image" type="image/webp" media="(max-width: 1023px)" imagesrcset="/images/carina-headshot-480.webp 480w, /images/carina-headshot-640.webp 640w, /images/carina-headshot-960.webp 960w" imagesizes="88px" fetchpriority="high"/>
+    <link href="/images/luminovia-logo-full.svg" rel="preload" as="image" type="image/svg+xml" fetchpriority="high"/>
     <title>Luminovia Training & Consulting | AI, IT and Digital Business</title>
     <script type="application/ld+json">
         {
@@ -205,20 +204,35 @@
 
         .static-home-shell__visual {
             position: relative;
-            display: block;
+            display: grid;
+            place-items: center;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, .14);
             border-radius: 3rem;
-            background: rgba(255, 255, 255, .08);
+            background:
+                radial-gradient(420px 320px at 22% 6%, rgba(125, 211, 252, .18), transparent 62%),
+                linear-gradient(145deg, rgba(10, 20, 40, .96), rgba(7, 13, 27, .98) 58%, rgba(14, 25, 48, .96));
+            padding: 1.5rem;
             box-shadow: 0 36px 135px rgba(0, 0, 0, .36);
+        }
+
+        .static-home-shell__logo-panel {
+            display: grid;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, .68);
+            border-radius: 2.1rem;
+            background: #fff;
+            padding: clamp(1.25rem, 4vw, 2rem);
+            box-shadow: 0 24px 90px rgba(0, 0, 0, .32);
         }
 
         .static-home-shell__visual img {
             display: block;
             width: 100%;
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            object-position: 50% 25%;
+            height: auto;
+            object-fit: contain;
         }
 
         @media (max-width: 1023px) {
@@ -236,11 +250,13 @@
                 width: 5.5rem;
                 margin-top: 1.25rem;
                 border-radius: 1.35rem;
+                padding: .35rem;
             }
 
-            .static-home-shell__visual img {
+            .static-home-shell__logo-panel {
                 aspect-ratio: 1;
-                object-position: 50% 18%;
+                border-radius: 1rem;
+                padding: .45rem;
             }
         }
     </style>
@@ -273,11 +289,11 @@
                     <span>Firmenprofil</span>
                 </div>
             </section>
-            <picture class="static-home-shell__visual">
-                <source media="(min-width: 1024px)" srcset="/images/carina-hero-480.webp 480w, /images/carina-hero-640.webp 640w, /images/carina-hero-960.webp 960w" sizes="520px" type="image/webp"/>
-                <source media="(max-width: 1023px)" srcset="/images/carina-headshot-480.webp 480w, /images/carina-headshot-640.webp 640w, /images/carina-headshot-960.webp 960w" sizes="88px" type="image/webp"/>
-                <img src="/images/carina-hero-640.webp" alt="Leadership portrait for Luminovia Training &amp; Consulting" fetchpriority="high" decoding="sync"/>
-            </picture>
+            <div class="static-home-shell__visual">
+                <div class="static-home-shell__logo-panel">
+                    <img src="/images/luminovia-logo-full.svg" alt="Luminovia Training &amp; Consulting logo" fetchpriority="high" decoding="sync"/>
+                </div>
+            </div>
         </main>
     </div>
 </div>

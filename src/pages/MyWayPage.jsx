@@ -64,7 +64,7 @@ export default function MyWayPage() {
                         </div>
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2">
-                        <Photo src={IMAGES.outdoor} alt="Leadership portrait for the Luminovia company background" className="aspect-[3/4] rounded-3xl" imgClass="object-[50%_20%]"/>
+                        <Photo src={IMAGES.hero} alt="Leadership portrait for the Luminovia company background" className="aspect-[3/4] rounded-3xl bg-white" imgClass="object-[50%_18%]"/>
                         <div className="grid gap-4">
                             <Card>
                                 <h2 className="text-2xl font-black text-white">{copy.education}</h2>
