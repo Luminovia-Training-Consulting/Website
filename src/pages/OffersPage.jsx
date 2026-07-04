@@ -7,6 +7,7 @@ import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
+import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 
 const content = {
     de: {
@@ -170,13 +171,21 @@ export default function OffersPage() {
     const copy = content[language];
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
+            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
+                <PageHero
+                    label={copy.badge}
+                    title={copy.title}
+                    copy={copy.intro}
+                    actions={<><Button to="/contact#contact-options">{copy.primary}</Button><Button to="/training" variant="secondary">{language === "de" ? "Training ansehen" : "View training"}</Button></>}
+                    visual={<TrustRail items={[
+                        {icon: "01", title: "Training", copy: "Workshops, courses and skills programmes"},
+                        {icon: "02", title: "Consulting", copy: "Sprints, reviews and decision support"},
+                        {icon: "03", title: "Programme design", copy: "Curriculum, labs and learning journeys"},
+                    ]}/>}
+                />
+            </div>
             <div className="mx-auto max-w-7xl">
-                <Badge tone="amber">{copy.badge}</Badge>
-                <div className="mt-6 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-                    <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
-                    <p className="text-lg leading-8 text-slate-300">{copy.intro}</p>
-                </div>
                 <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
 
                 <section id="packages" className="mt-12 scroll-mt-36">

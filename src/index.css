@@ -2525,6 +2525,959 @@ html[data-theme="day"] .system-route-card img {
     background: #ffffff !important;
 }
 
+/* Luminovia B2B capability brand redesign */
+:root {
+    --lumo-navy-950: #030712;
+    --lumo-navy-900: #050b1d;
+    --lumo-navy-850: #071226;
+    --lumo-navy-800: #0b1c38;
+    --lumo-cyan: #22d3ee;
+    --lumo-blue: #2478ff;
+    --lumo-gold: #f5b73b;
+    --lumo-violet: #a276ff;
+    --lumo-teal: #16d9c1;
+    --lumo-text: #f8fbff;
+    --lumo-muted: #a9b7cb;
+}
+
+html,
+body,
+.theme-root {
+    background:
+        radial-gradient(circle at 18% -12%, rgba(36, 120, 255, .28), transparent 34rem),
+        radial-gradient(circle at 82% 8%, rgba(162, 118, 255, .2), transparent 28rem),
+        linear-gradient(180deg, #030712 0%, #051025 36%, #050816 100%) !important;
+    color: var(--lumo-text);
+}
+
+.ambient-veil,
+.ambient-wash,
+.ambient-ribbon,
+.polygon-field,
+.ambient-grid,
+.intelligence-layer,
+.data-orbit {
+    opacity: .38;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid rgba(245, 183, 59, .95);
+    outline-offset: 4px;
+}
+
+.lumo-home {
+    padding-bottom: 6rem;
+}
+
+.lumo-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 6vw, 6.5rem) 0 2.4rem;
+    border-bottom: 1px solid rgba(125, 211, 252, .16);
+}
+
+.lumo-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(125, 211, 252, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 211, 252, .045) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .85), transparent 82%);
+    pointer-events: none;
+}
+
+.lumo-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -12vw -10rem;
+    height: 24rem;
+    background: radial-gradient(ellipse at center, rgba(245, 183, 59, .22), transparent 62%);
+    pointer-events: none;
+}
+
+.lumo-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+}
+
+.lumo-hero-copy h1 {
+    max-width: 12ch;
+    font-size: clamp(3.4rem, 8vw, 7.4rem);
+    font-weight: 950;
+    letter-spacing: -.055em;
+    line-height: .95;
+}
+
+.lumo-hero-copy p {
+    margin-top: 1.5rem;
+    max-width: 42rem;
+    color: #dbe7f6;
+    font-size: clamp(1.03rem, 1.45vw, 1.25rem);
+    line-height: 1.7;
+}
+
+.lumo-gradient-text {
+    background: linear-gradient(105deg, #fff 0%, #e6f7ff 38%, #6ca0ff 62%, #b587ff 79%, #ffe08a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.lumo-action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .9rem;
+    margin-top: 1.7rem;
+}
+
+.lumo-hero-chips,
+.lumo-founder-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+    margin-top: 1.5rem;
+}
+
+.lumo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    width: fit-content;
+    border: 1px solid rgba(125, 211, 252, .18);
+    border-radius: .8rem;
+    background: rgba(255, 255, 255, .065);
+    color: #dbeafe;
+    padding: .55rem .75rem;
+    font-size: .82rem;
+    font-weight: 850;
+    line-height: 1.2;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.lumo-chip[data-tone="gold"] {
+    border-color: rgba(245, 183, 59, .28);
+    color: #ffe8a3;
+    background: rgba(245, 183, 59, .08);
+}
+
+.lumo-orbit-visual {
+    position: relative;
+    min-height: min(82vw, 43rem);
+    border: 1px solid rgba(125, 211, 252, .18);
+    border-radius: 1.15rem;
+    background:
+        radial-gradient(circle at 50% 48%, rgba(36, 120, 255, .24), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(34, 211, 238, .18), transparent 26%),
+        radial-gradient(circle at 20% 74%, rgba(245, 183, 59, .14), transparent 28%),
+        linear-gradient(145deg, rgba(7, 18, 38, .78), rgba(3, 7, 18, .88));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 34px 130px rgba(0, 0, 0, .42), 0 0 90px rgba(36, 120, 255, .12);
+    overflow: hidden;
+}
+
+.lumo-orbit-visual::before {
+    content: "";
+    position: absolute;
+    inset: 7%;
+    border-radius: 50%;
+    background:
+        conic-gradient(from 20deg, transparent, rgba(36, 120, 255, .45), transparent 24%, rgba(162, 118, 255, .34), transparent 54%, rgba(245, 183, 59, .4), transparent 82%),
+        radial-gradient(circle, transparent 45%, rgba(34, 211, 238, .12) 46%, transparent 47%);
+    filter: blur(.2px);
+    animation: lumoSpin 24s linear infinite;
+}
+
+.lumo-orbit-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(186, 230, 253, .55) 1px, transparent 1.5px);
+    background-size: 42px 42px;
+    opacity: .25;
+    mask-image: radial-gradient(circle, black 0%, transparent 74%);
+}
+
+.lumo-orbit-ring {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    border: 1px solid rgba(125, 211, 252, .18);
+    box-shadow: 0 0 28px rgba(34, 211, 238, .12);
+}
+
+.lumo-orbit-ring-a {
+    width: 72%;
+    aspect-ratio: 1;
+}
+
+.lumo-orbit-ring-b {
+    width: 54%;
+    aspect-ratio: 1;
+}
+
+.lumo-orbit-ring-c {
+    width: 38%;
+    aspect-ratio: 1;
+    border-color: rgba(245, 183, 59, .22);
+}
+
+.lumo-orbit-core {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: min(40%, 14rem);
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    border: 1px solid rgba(125, 211, 252, .4);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, .16), rgba(10, 27, 55, .85) 58%, rgba(3, 7, 18, .95));
+    box-shadow: 0 0 42px rgba(36, 120, 255, .38), inset 0 1px 0 rgba(255, 255, 255, .2);
+    text-align: center;
+}
+
+.lumo-orbit-core img {
+    width: 42%;
+    height: auto;
+    margin-bottom: .25rem;
+}
+
+.lumo-orbit-core strong {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 950;
+}
+
+.lumo-orbit-core span {
+    color: #b8c8dd;
+    font-size: .72rem;
+    font-weight: 800;
+}
+
+.lumo-orbit-node {
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    min-width: 8.7rem;
+    gap: .4rem;
+    border: 1px solid rgba(125, 211, 252, .3);
+    border-radius: 1rem;
+    background: rgba(7, 18, 38, .74);
+    padding: .9rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 18px 54px rgba(0, 0, 0, .3), 0 0 28px rgba(36, 120, 255, .15);
+    backdrop-filter: blur(18px);
+}
+
+.lumo-orbit-node span {
+    color: #7dd3fc;
+    font-size: 1.05rem;
+    font-weight: 950;
+}
+
+.lumo-orbit-node strong {
+    color: #eef7ff;
+    font-size: .82rem;
+    line-height: 1.25;
+}
+
+.lumo-orbit-node[data-tone="gold"] {
+    border-color: rgba(245, 183, 59, .42);
+    box-shadow: 0 0 32px rgba(245, 183, 59, .16);
+}
+
+.lumo-orbit-node[data-tone="violet"] {
+    border-color: rgba(162, 118, 255, .4);
+    box-shadow: 0 0 32px rgba(162, 118, 255, .16);
+}
+
+.lumo-orbit-node-1 {
+    left: 50%;
+    top: 5%;
+    translate: -50% 0;
+}
+
+.lumo-orbit-node-2 {
+    left: 9%;
+    top: 30%;
+}
+
+.lumo-orbit-node-3 {
+    right: 8%;
+    top: 30%;
+}
+
+.lumo-orbit-node-4 {
+    left: 16%;
+    bottom: 24%;
+}
+
+.lumo-orbit-node-5 {
+    right: 13%;
+    bottom: 24%;
+}
+
+.lumo-orbit-node-6 {
+    left: 50%;
+    bottom: 12%;
+    translate: -50% 0;
+}
+
+.lumo-orbit-route {
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    width: min(24rem, calc(100% - 2rem));
+    translate: -50% 0;
+    border: 1px solid rgba(125, 211, 252, .18);
+    border-radius: .95rem;
+    background: rgba(3, 7, 18, .7);
+    padding: .75rem;
+    backdrop-filter: blur(18px);
+}
+
+.lumo-orbit-route img {
+    width: 6.2rem;
+    border-radius: .55rem;
+    background: white;
+    padding: .2rem;
+}
+
+.lumo-orbit-route span {
+    display: block;
+    color: #94a3b8;
+    font-size: .72rem;
+    font-weight: 850;
+}
+
+.lumo-orbit-route strong {
+    color: #f8fbff;
+    font-size: .92rem;
+}
+
+.lumo-section {
+    position: relative;
+}
+
+.lumo-section-header {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.lumo-section-label {
+    margin: 0 0 .7rem;
+    color: #f5b73b;
+    font-size: .82rem;
+    font-weight: 950;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.lumo-section-header h2,
+.lumo-founder-panel h2,
+.lumo-final-cta h2 {
+    max-width: 14ch;
+    color: white;
+    font-size: clamp(2.2rem, 5vw, 4.8rem);
+    font-weight: 950;
+    letter-spacing: -.045em;
+    line-height: 1;
+}
+
+.lumo-section-header-copy p {
+    max-width: 46rem;
+    color: #b8c8dd;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.lumo-trust-rail {
+    display: grid;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid rgba(125, 211, 252, .18);
+    border-radius: 1rem;
+    background: rgba(7, 18, 38, .58);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 22px 90px rgba(0, 0, 0, .28);
+    backdrop-filter: blur(20px);
+}
+
+.lumo-trust-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .35rem .85rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.lumo-trust-item span {
+    grid-row: span 2;
+    display: grid;
+    width: 2.7rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid rgba(125, 211, 252, .24);
+    border-radius: 50%;
+    color: #7dd3fc;
+    background: rgba(125, 211, 252, .08);
+}
+
+.lumo-trust-item strong {
+    color: white;
+    font-size: .96rem;
+    font-weight: 950;
+}
+
+.lumo-trust-item p {
+    color: #a9b7cb;
+    font-size: .8rem;
+    line-height: 1.35;
+}
+
+.lumo-route-grid,
+.lumo-offer-grid,
+.lumo-proof-grid {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.lumo-route-card,
+.lumo-offer-card,
+.lumo-proof-card,
+.lumo-text-link-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(125, 211, 252, .18);
+    border-radius: 1rem;
+    background:
+        radial-gradient(circle at 16% 0%, rgba(36, 120, 255, .22), transparent 35%),
+        linear-gradient(145deg, rgba(10, 28, 58, .86), rgba(4, 10, 24, .9));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .11), 0 24px 80px rgba(0, 0, 0, .3);
+}
+
+.lumo-route-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 29rem;
+    padding: 1.6rem;
+}
+
+.lumo-route-card[data-tone="teal"] {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(22, 217, 193, .24), transparent 38%),
+        linear-gradient(145deg, rgba(5, 52, 62, .88), rgba(4, 14, 27, .92));
+}
+
+.lumo-route-card[data-tone="violet"] {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(162, 118, 255, .28), transparent 38%),
+        linear-gradient(145deg, rgba(36, 24, 75, .9), rgba(8, 9, 26, .92));
+}
+
+.lumo-route-icon {
+    display: grid;
+    width: 4.2rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 1rem;
+    color: #95dfff;
+    background: rgba(125, 211, 252, .1);
+    border: 1px solid rgba(125, 211, 252, .22);
+    font-size: 2rem;
+    font-weight: 950;
+}
+
+.lumo-route-card h3,
+.lumo-offer-card h3,
+.lumo-proof-card h3 {
+    margin-top: 1.3rem;
+    color: white;
+    font-size: clamp(1.55rem, 2.5vw, 2rem);
+    font-weight: 950;
+    letter-spacing: -.025em;
+    line-height: 1.1;
+}
+
+.lumo-route-card p,
+.lumo-offer-card p,
+.lumo-proof-card p,
+.lumo-text-link-card p {
+    margin-top: .9rem;
+    color: #b8c8dd;
+    font-size: .96rem;
+    line-height: 1.65;
+}
+
+.lumo-route-card ul,
+.lumo-offer-card ul {
+    display: grid;
+    gap: .55rem;
+    margin: 1.2rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lumo-route-card li,
+.lumo-offer-card li {
+    display: flex;
+    gap: .55rem;
+    color: #dbeafe;
+    font-size: .9rem;
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+.lumo-route-card li::before,
+.lumo-offer-card li::before {
+    content: "✓";
+    color: #22d3ee;
+    font-weight: 950;
+}
+
+.lumo-route-card .lumo-secondary-action {
+    margin-top: auto;
+}
+
+.lumo-offer-card {
+    min-height: 26rem;
+    padding: 1.35rem;
+}
+
+.lumo-offer-card::after {
+    content: "";
+    position: absolute;
+    right: -18%;
+    top: -18%;
+    width: 15rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(36, 120, 255, .35), transparent 62%);
+    opacity: .75;
+}
+
+.lumo-offer-card[data-tone="cyan"]::after {
+    background: radial-gradient(circle, rgba(34, 211, 238, .32), transparent 62%);
+}
+
+.lumo-offer-card[data-tone="violet"]::after {
+    background: radial-gradient(circle, rgba(162, 118, 255, .34), transparent 62%);
+}
+
+.lumo-offer-card[data-tone="teal"]::after {
+    background: radial-gradient(circle, rgba(22, 217, 193, .3), transparent 62%);
+}
+
+.lumo-offer-card[data-tone="gold"]::after {
+    background: radial-gradient(circle, rgba(245, 183, 59, .3), transparent 62%);
+}
+
+.lumo-offer-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.lumo-offer-icon {
+    width: 3.2rem;
+    aspect-ratio: 1;
+    border: 1px solid rgba(125, 211, 252, .3);
+    border-radius: .9rem;
+    background:
+        linear-gradient(135deg, rgba(34, 211, 238, .34), transparent),
+        rgba(125, 211, 252, .08);
+    box-shadow: 0 0 26px rgba(34, 211, 238, .18);
+}
+
+.lumo-offer-card dl {
+    display: grid;
+    gap: .65rem;
+    margin: 1rem 0 0;
+}
+
+.lumo-offer-card dl div {
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: .75rem;
+    background: rgba(255, 255, 255, .055);
+    padding: .75rem;
+}
+
+.lumo-offer-card dt {
+    color: #7dd3fc;
+    font-size: .72rem;
+    font-weight: 950;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.lumo-offer-card dd {
+    margin: .25rem 0 0;
+    color: #dbeafe;
+    font-size: .84rem;
+    line-height: 1.45;
+}
+
+.lumo-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 1.25rem;
+}
+
+.lumo-process-timeline {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+}
+
+.lumo-process-timeline::before {
+    content: "";
+    position: absolute;
+    left: 1.75rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background: linear-gradient(#22d3ee, #a276ff, #f5b73b);
+}
+
+.lumo-process-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .9rem 1rem;
+    border: 1px solid rgba(125, 211, 252, .16);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .055);
+    padding: 1rem;
+    backdrop-filter: blur(16px);
+}
+
+.lumo-process-node {
+    z-index: 1;
+    display: grid;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(34, 211, 238, .42);
+    background: #071226;
+    color: #7dd3fc;
+    font-weight: 950;
+    box-shadow: 0 0 28px rgba(34, 211, 238, .2);
+}
+
+.lumo-process-step h3 {
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 950;
+}
+
+.lumo-process-step p {
+    margin-top: .35rem;
+    color: #a9b7cb;
+    font-size: .86rem;
+    line-height: 1.5;
+}
+
+.lumo-proof-card {
+    padding: 1.2rem;
+}
+
+.lumo-proof-card span {
+    display: grid;
+    width: 2.7rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 50%;
+    color: #f5b73b;
+    border: 1px solid rgba(245, 183, 59, .28);
+    background: rgba(245, 183, 59, .08);
+}
+
+.lumo-founder-panel {
+    display: grid;
+    gap: 1.5rem;
+    border: 1px solid rgba(125, 211, 252, .18);
+    border-radius: 1rem;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(245, 183, 59, .15), transparent 35%),
+        radial-gradient(circle at 88% 12%, rgba(36, 120, 255, .2), transparent 35%),
+        rgba(7, 18, 38, .72);
+    padding: 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 28px 105px rgba(0, 0, 0, .32);
+}
+
+.lumo-founder-media {
+    display: grid;
+    gap: .7rem;
+}
+
+.lumo-founder-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(245, 183, 59, .24);
+    border-radius: .75rem;
+    color: #ffe08a;
+    background: rgba(245, 183, 59, .08);
+    padding: .75rem 1rem;
+    font-weight: 950;
+}
+
+.lumo-founder-panel p:not(.lumo-section-label) {
+    margin-top: 1rem;
+    color: #c7d5e8;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.lumo-final-cta {
+    position: relative;
+    display: grid;
+    gap: 1.5rem;
+    overflow: hidden;
+    margin-top: 1rem;
+    border: 1px solid rgba(245, 183, 59, .22);
+    border-radius: 1rem;
+    background:
+        radial-gradient(circle at 0% 20%, rgba(245, 183, 59, .32), transparent 26%),
+        radial-gradient(circle at 92% 30%, rgba(162, 118, 255, .3), transparent 30%),
+        linear-gradient(135deg, rgba(9, 22, 43, .92), rgba(4, 10, 24, .96));
+    padding: clamp(1.4rem, 4vw, 2.6rem);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 30px 115px rgba(0, 0, 0, .34);
+}
+
+.lumo-final-cta p {
+    margin-top: .9rem;
+    max-width: 42rem;
+    color: #dbe7f6;
+    line-height: 1.7;
+}
+
+.lumo-page-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 5.5vw, 5rem) 0 2rem;
+    border-bottom: 1px solid rgba(125, 211, 252, .14);
+}
+
+.lumo-page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(36, 120, 255, .24), transparent 28rem),
+        radial-gradient(circle at 85% 16%, rgba(245, 183, 59, .16), transparent 24rem);
+    pointer-events: none;
+}
+
+.lumo-page-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+    align-items: end;
+}
+
+.lumo-page-hero-copy h1 {
+    max-width: 17ch;
+    color: white;
+    font-size: clamp(2.75rem, 5.2vw, 5.15rem);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -.048em;
+}
+
+.lumo-page-hero-copy > p {
+    margin-top: 1.35rem;
+    max-width: 47rem;
+    color: #c4d3e7;
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.lumo-page-hero-visual {
+    min-height: 18rem;
+}
+
+.lumo-subpage {
+    position: relative;
+}
+
+.lumo-subpage > .mx-auto.max-w-7xl,
+.lumo-subpage section:not(.lumo-page-hero) > .mx-auto.max-w-7xl {
+    position: relative;
+    z-index: 1;
+}
+
+.lumo-subpage .color-card,
+.lumo-subpage .lumo-panel {
+    border-radius: 1rem !important;
+}
+
+.lumo-footer {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 8% 0%, rgba(36, 120, 255, .2), transparent 28rem),
+        radial-gradient(circle at 82% 0%, rgba(245, 183, 59, .13), transparent 26rem),
+        linear-gradient(180deg, rgba(5, 11, 29, .92), rgba(3, 7, 18, .98));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+.lumo-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(125, 211, 252, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 211, 252, .03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, .9), transparent);
+    pointer-events: none;
+}
+
+.lumo-footer > * {
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 760px) {
+    .lumo-trust-rail {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .lumo-trust-item {
+        border-right: 1px solid rgba(255, 255, 255, .08);
+        border-bottom: 0;
+    }
+
+    .lumo-trust-item:last-child {
+        border-right: 0;
+    }
+
+    .lumo-route-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .lumo-offer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lumo-proof-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .lumo-founder-panel {
+        grid-template-columns: minmax(15rem, .45fr) 1fr;
+        align-items: center;
+        padding: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lumo-hero-grid,
+    .lumo-page-hero-grid {
+        grid-template-columns: .92fr 1.08fr;
+    }
+
+    .lumo-section-header {
+        grid-template-columns: .9fr 1fr;
+        align-items: end;
+    }
+
+    .lumo-offer-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .lumo-process-timeline {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0;
+    }
+
+    .lumo-process-timeline::before {
+        left: 2rem;
+        right: 2rem;
+        top: 2.75rem;
+        bottom: auto;
+        width: auto;
+        height: 2px;
+    }
+
+    .lumo-process-step {
+        grid-template-columns: 1fr;
+        border-color: transparent;
+        background: transparent;
+        padding: 0 1rem 1rem 0;
+    }
+}
+
+@media (max-width: 760px) {
+    .lumo-hero-copy h1,
+    .lumo-page-hero-copy h1 {
+        max-width: 11ch;
+    }
+
+    .lumo-orbit-visual {
+        min-height: 35rem;
+    }
+
+    .lumo-orbit-core {
+        width: 11.5rem;
+    }
+
+    .lumo-orbit-node {
+        min-width: 7.2rem;
+        padding: .7rem;
+    }
+
+    .lumo-orbit-node-2 {
+        left: .75rem;
+    }
+
+    .lumo-orbit-node-3 {
+        right: .75rem;
+    }
+
+    .lumo-orbit-node-4 {
+        left: 1.4rem;
+    }
+
+    .lumo-orbit-node-5 {
+        right: 1.4rem;
+    }
+
+    .lumo-action-row > * {
+        width: 100%;
+    }
+
+    .lumo-proof-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lumo-orbit-visual::before {
+        animation: none;
+    }
+}
+
+@keyframes lumoSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Full Luminovia premium redesign pass. */
 html {
     background: #050816;

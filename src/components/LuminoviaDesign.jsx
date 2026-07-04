@@ -1,154 +1,220 @@
 import {Link} from "react-router-dom";
 import Button from "./Button.jsx";
-import Card from "./Card.jsx";
 import {cn} from "./utils.js";
 
 export function Container({children, className = ""}) {
-    return <div className={cn("mx-auto max-w-7xl px-4 sm:px-6 lg:px-8", className)}>{children}</div>;
+    return <div className={cn("mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8", className)}>{children}</div>;
 }
 
 export function Section({children, id, className = "", tight = false}) {
     return (
-        <section id={id} className={cn("soft-section scroll-mt-40", tight ? "py-9" : "py-14 sm:py-16", className)}>
+        <section id={id} className={cn("lumo-section scroll-mt-32", tight ? "py-7" : "py-12 sm:py-16", className)}>
             <Container>{children}</Container>
         </section>
     );
 }
 
 export function GradientText({children}) {
+    return <span className="lumo-gradient-text">{children}</span>;
+}
+
+export function SectionHeader({label, badge, title, copy, action, className = ""}) {
+    const visibleLabel = label || badge;
+
     return (
-        <span className="bg-gradient-to-r from-white via-sky-100 to-amber-100 bg-clip-text text-transparent">
+        <div className={cn("lumo-section-header", className)}>
+            <div>
+                {visibleLabel ? <p className="lumo-section-label">{visibleLabel}</p> : null}
+                <h2>{title}</h2>
+            </div>
+            <div className="lumo-section-header-copy">
+                {copy ? <p>{copy}</p> : null}
+                {action}
+            </div>
+        </div>
+    );
+}
+
+export function CapabilityChip({children, icon, tone = "blue"}) {
+    return (
+        <span className="lumo-chip" data-tone={tone}>
+            {icon ? <span aria-hidden="true">{icon}</span> : null}
             {children}
         </span>
     );
 }
 
-export function SectionHeader({badge, title, copy, align = "left", className = ""}) {
+export function PageHero({label, title, copy, children, actions, visual, centered = false}) {
     return (
-        <div className={cn("mb-8 grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-end", align === "center" && "mx-auto max-w-4xl text-center lg:block", className)}>
-            <div>
-                {badge && <p className="brand-kicker">{badge}</p>}
-                <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-white sm:text-4xl lg:text-5xl">{title}</h2>
-            </div>
-            {copy && <p className={cn("text-base leading-8 text-slate-300 sm:text-lg", align === "center" && "mx-auto mt-5 max-w-3xl")}>{copy}</p>}
-        </div>
+        <section className={cn("lumo-page-hero", centered && "lumo-page-hero-centered")}>
+            <Container>
+                <div className="lumo-page-hero-grid">
+                    <div className="lumo-page-hero-copy">
+                        {label ? <p className="lumo-section-label">{label}</p> : null}
+                        <h1>{title}</h1>
+                        {copy ? <p>{copy}</p> : null}
+                        {actions ? <div className="lumo-action-row">{actions}</div> : null}
+                        {children}
+                    </div>
+                    {visual ? <div className="lumo-page-hero-visual">{visual}</div> : null}
+                </div>
+            </Container>
+        </section>
     );
 }
 
-export function CapabilityChip({children, tone = "blue"}) {
-    return <span data-tone={tone} className="capability-chip">{children}</span>;
-}
-
-export function LogoSystemVisual({logoFull, logoMark, alt, labels}) {
-    const nodes = labels.slice(0, 5);
+export function LogoSystemVisual({logoFull, logoMark, alt, labels = []}) {
+    const nodes = [
+        {code: "AI", label: labels[0] || "AI", tone: "blue"},
+        {code: "IT", label: labels[1] || "IT", tone: "cyan"},
+        {code: "SEC", label: labels[2] || "Cybersecurity", tone: "teal"},
+        {code: "LD", label: labels[3] || "Learning design", tone: "violet"},
+        {code: "RF", label: labels[4] || "Remote-first", tone: "blue"},
+        {code: "DE", label: labels[5] || "DE / EN", tone: "gold"},
+    ];
 
     return (
-        <div className="luminovia-system-visual" aria-label={alt}>
-            <div className="system-orbit" aria-hidden="true"/>
-            <div className="system-connector system-connector-a" aria-hidden="true"/>
-            <div className="system-connector system-connector-b" aria-hidden="true"/>
-            <div className="system-logo-panel">
-                <img src={logoMark} alt={alt} width="256" height="256" loading="eager" fetchPriority="high"/>
-                <span>Luminovia</span>
+        <div className="lumo-orbit-visual" aria-label={alt}>
+            <div className="lumo-orbit-ring lumo-orbit-ring-a" aria-hidden="true"/>
+            <div className="lumo-orbit-ring lumo-orbit-ring-b" aria-hidden="true"/>
+            <div className="lumo-orbit-ring lumo-orbit-ring-c" aria-hidden="true"/>
+            <div className="lumo-orbit-core">
+                <img src={logoMark} alt={alt} width="180" height="180" loading="eager" fetchPriority="high"/>
+                <strong>Luminovia</strong>
+                <span>Training & Consulting</span>
             </div>
-            <div className="system-node-grid">
+            <div className="lumo-orbit-node-wrap">
                 {nodes.map((node, index) => (
-                    <div key={node} className="system-node-card">
-                        <span className="system-node-index">{["AI", "IT", "SEC", "DE", "LD"][index] || String(index + 1).padStart(2, "0")}</span>
-                        <span>{node}</span>
+                    <div key={node.label} className={cn("lumo-orbit-node", `lumo-orbit-node-${index + 1}`)} data-tone={node.tone}>
+                        <span>{node.code}</span>
+                        <strong>{node.label}</strong>
                     </div>
                 ))}
             </div>
-            <div className="system-route-card">
-                <img src={logoFull} alt="" width="160" height="72" loading="eager"/>
+            <div className="lumo-orbit-route">
+                <img src={logoFull} alt="" width="132" height="58" loading="eager"/>
                 <div>
-                    <span>{labels[5]}</span>
-                    <strong>{labels[6]}</strong>
+                    <span>Delivery system</span>
+                    <strong>{labels[6] || "Workshops -> Programmes"}</strong>
                 </div>
             </div>
         </div>
     );
 }
 
-export function RouteCard({number, title, copy, bullets, cta, to, featured = false}) {
+export function TrustRail({items}) {
     return (
-        <Card className={cn("premium-route-card h-full p-5 sm:p-6", featured && "premium-route-card-featured")}>
-            <div className="flex items-start justify-between gap-4">
-                <div className="route-number">{number}</div>
-                {featured && <span className="route-feature-label">Core route</span>}
-            </div>
-            <h3 className="mt-6 text-2xl font-black tracking-[-0.02em] text-white">{title}</h3>
-            <p className="mt-4 text-sm leading-7 text-slate-300">{copy}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-                {bullets.map((bullet) => <CapabilityChip key={bullet}>{bullet}</CapabilityChip>)}
-            </div>
-            <div className="mt-7">
-                <Button to={to} variant={featured ? "primary" : "secondary"}>{cta}</Button>
-            </div>
-        </Card>
+        <div className="lumo-trust-rail">
+            {items.map((item) => (
+                <div key={item.title} className="lumo-trust-item">
+                    <span aria-hidden="true">{item.icon}</span>
+                    <strong>{item.title}</strong>
+                    <p>{item.copy}</p>
+                </div>
+            ))}
+        </div>
     );
 }
 
-export function OfferCard({service, labels, detailLabel, detailLink}) {
+export function RouteCard({title, copy, bullets, cta, to, tone = "blue", icon = "◇"}) {
     return (
-        <Card className="offer-card h-full p-5 sm:p-6">
-            <h3 className="text-2xl font-black tracking-[-0.025em] text-white">{service.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
-            <dl className="mt-5 grid gap-3">
-                <div className="offer-meta-row">
+        <article className="lumo-route-card" data-tone={tone}>
+            <div className="lumo-route-icon" aria-hidden="true">{icon}</div>
+            <h3>{title}</h3>
+            <p>{copy}</p>
+            <ul>
+                {bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+            </ul>
+            <Button to={to} variant="secondary">{cta}</Button>
+        </article>
+    );
+}
+
+export function OfferCard({service, labels, detailLabel, detailLink, tone = "blue"}) {
+    return (
+        <article className="lumo-offer-card" data-tone={tone}>
+            <div className="lumo-offer-icon" aria-hidden="true"/>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <dl>
+                <div>
                     <dt>{labels.bestFor}</dt>
                     <dd>{service.audience}</dd>
                 </div>
-                <div className="offer-meta-row">
+                <div>
                     <dt>{labels.format}</dt>
                     <dd>{service.format}</dd>
                 </div>
-                <div className="offer-meta-row">
+                <div>
                     <dt>{labels.duration}</dt>
                     <dd>{service.duration}</dd>
                 </div>
             </dl>
-            <div className="mt-5">
-                <p className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{labels.outcomes}</p>
-                <ul className="mt-3 grid gap-2">
-                    {service.outcomes.slice(0, 3).map((outcome) => (
-                        <li key={outcome} className="offer-outcome">{outcome}</li>
-                    ))}
-                </ul>
-            </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                {detailLink ? <Button to={detailLink}>{detailLabel}</Button> : null}
+            <ul>
+                {service.outcomes.slice(0, 3).map((outcome) => <li key={outcome}>{outcome}</li>)}
+            </ul>
+            <div className="lumo-card-actions">
+                {detailLink ? <Button to={detailLink} variant="secondary">{detailLabel}</Button> : null}
                 <Button to="/contact#contact-options" variant="secondary">{labels.request}</Button>
             </div>
-        </Card>
+        </article>
+    );
+}
+
+export function ProcessTimeline({steps}) {
+    return (
+        <div className="lumo-process-timeline">
+            {steps.map(([number, title, copy]) => (
+                <article key={number} className="lumo-process-step">
+                    <div className="lumo-process-node">{number}</div>
+                    <h3>{title}</h3>
+                    <p>{copy}</p>
+                </article>
+            ))}
+        </div>
     );
 }
 
 export function ProcessStep({number, title, copy}) {
     return (
-        <div className="process-step-card">
-            <div className="process-step-node">{number}</div>
-            <div>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-            </div>
-        </div>
+        <article className="lumo-process-step">
+            <div className="lumo-process-node">{number}</div>
+            <h3>{title}</h3>
+            <p>{copy}</p>
+        </article>
     );
 }
 
-export function ProofCard({title, copy}) {
+export function ProofCard({title, copy, icon = "◎"}) {
     return (
-        <div className="proof-card">
-            <div className="proof-mark" aria-hidden="true"/>
+        <article className="lumo-proof-card">
+            <span aria-hidden="true">{icon}</span>
             <h3>{title}</h3>
             <p>{copy}</p>
-        </div>
+        </article>
+    );
+}
+
+export function CTASection({title, copy, primary, secondary}) {
+    return (
+        <Container>
+            <section className="lumo-final-cta">
+                <div>
+                    <h2>{title}</h2>
+                    {copy ? <p>{copy}</p> : null}
+                </div>
+                <div className="lumo-action-row">
+                    {primary}
+                    {secondary}
+                </div>
+            </section>
+        </Container>
     );
 }
 
 export function TextLinkCard({to, title, copy, cta}) {
     return (
-        <Link to={to} className="text-link-card">
+        <Link to={to} className="lumo-text-link-card">
             <span>{title}</span>
             <p>{copy}</p>
             <strong>{cta}</strong>

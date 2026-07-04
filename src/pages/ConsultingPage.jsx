@@ -4,6 +4,7 @@ import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
+import {PageHero, ProcessTimeline} from "../components/LuminoviaDesign.jsx";
 
 const content = {
     en: {
@@ -78,19 +79,17 @@ export default function ConsultingPage() {
     const {methods, boundaries} = businessOfferingsForLanguage(language);
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
+            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
+                <PageHero
+                    label={c.badge}
+                    title={c.title}
+                    copy={c.intro}
+                    actions={<><Button to="/contact#contact-options">{c.primary}</Button><Button to="/offers" variant="secondary">{c.secondary}</Button></>}
+                    visual={<ProcessTimeline steps={t.home.processSteps}/>}
+                />
+            </div>
             <div className="mx-auto max-w-7xl">
-                <Badge tone="violet">{c.badge}</Badge>
-                <div className="mt-6 grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
-                    <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">{c.title}</h1>
-                    <div>
-                        <p className="text-lg leading-8 text-slate-300">{c.intro}</p>
-                        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                            <Button to="/contact#contact-options">{c.primary}</Button>
-                            <Button to="/offers" variant="secondary">{c.secondary}</Button>
-                        </div>
-                    </div>
-                </div>
                 <SectionJumpNav label={c.jumpLabel} items={c.jumpItems} className="mt-8"/>
 
                 <section id="consulting-areas" className="mt-12 scroll-mt-36 overflow-hidden rounded-[2.2rem] border border-sky-200/18 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.24),transparent_38%),radial-gradient(circle_at_92%_8%,rgba(234,165,20,.16),transparent_40%),linear-gradient(135deg,rgba(13,27,54,.96),rgba(7,12,25,.96)_58%,rgba(22,23,48,.94))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_30px_120px_rgba(0,0,0,.34)] sm:p-8">

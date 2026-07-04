@@ -2,6 +2,7 @@ import SoftwareProjectsSection from "../components/SoftwareProjectsSection.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
+import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
@@ -31,24 +32,20 @@ export default function SoftwarePage() {
             examplesLabel: "Possible artefacts",
         };
     return (
-        <main className="pb-24 pt-32">
-            <section className="px-4 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-                    <Badge tone="blue">{copy.badge}</Badge>
-                    <div className="mt-6 text-center">
-                        <h1 className="mx-auto max-w-5xl text-5xl font-black tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-                            {copy.title}
-                        </h1>
-                        <p className="mx-auto mt-7 max-w-4xl text-lg leading-8 text-slate-300">
-                            {copy.intro}
-                        </p>
-                    </div>
-                    <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                        <Button href={PROFILE.github}>{copy.github}</Button>
-                        <Button to="/consulting" variant="secondary">{copy.skills}</Button>
-                    </div>
-                </div>
-            </section>
+        <main className="lumo-subpage pb-24 pt-24">
+            <div className="-mt-24">
+                <PageHero
+                    label={copy.badge}
+                    title={copy.title}
+                    copy={copy.intro}
+                    actions={<><Button href={PROFILE.github}>{copy.github}</Button><Button to="/consulting" variant="secondary">{copy.skills}</Button></>}
+                    visual={<TrustRail items={[
+                        {icon: "PY", title: "Python automation", copy: "Research workflows and data cleanup"},
+                        {icon: "AI", title: "AI research tooling", copy: "Applied systems behind training examples"},
+                        {icon: "APP", title: "Software practice", copy: "Mobile, plugins and digital workflows"},
+                    ]}/>}
+                />
+            </div>
             <section className="px-4 py-14 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                     <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">

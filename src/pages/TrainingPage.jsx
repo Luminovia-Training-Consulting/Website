@@ -8,6 +8,7 @@ import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import DemoVideoSection from "../components/DemoVideoSection.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
+import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 import {cn} from "../components/utils.js";
 
 function AssetButtons({t}) {
@@ -116,18 +117,21 @@ export default function TrainingPage() {
             jumpItems: [["#consulting", "Consulting"], ["#duration", "Scope"], ["#services", "Services"], ["#methods", "Methods"], ["#details", "Details"], ["#topics", "Topics"], ["#formats", "Formats"]],
         };
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
+            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
+                <PageHero
+                    label={copy.badge}
+                    title={copy.title}
+                    copy={copy.intro}
+                    actions={<AssetButtons t={t}/>}
+                    visual={<TrustRail items={[
+                        {icon: "AI", title: "AI & GenAI", copy: "Workshops, literacy and applied workflows"},
+                        {icon: "SEC", title: "Cybersecurity", copy: "Awareness, web security and responsible practice"},
+                        {icon: "DATA", title: "Python / SQL / Data", copy: "Hands-on labs and applied analytics"},
+                    ]}/>}
+                />
+            </div>
             <div className="mx-auto max-w-7xl">
-                <Badge tone="orange">{copy.badge}</Badge>
-                <div className="mt-6 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                    <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
-                    <div>
-                        <p className="text-lg leading-8 text-slate-300">{copy.intro}</p>
-                        <div className="mt-6">
-                            <AssetButtons t={t}/>
-                        </div>
-                    </div>
-                </div>
                 <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
 
                 <section id="consulting" className="mt-10 scroll-mt-36 rounded-[2rem] border border-sky-200/18 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.2),transparent_38%),linear-gradient(135deg,rgba(14,35,66,.94),rgba(7,13,27,.95)_58%,rgba(20,28,54,.94))] p-6 shadow-[0_24px_95px_rgba(0,0,0,.28)] sm:p-8">

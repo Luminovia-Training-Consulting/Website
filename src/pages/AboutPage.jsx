@@ -1,10 +1,10 @@
 import {IMAGES, PROFILE} from "../data/profile.js";
 import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
-import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import Photo from "../components/Photo.jsx";
+import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 
 const copy = {
     en: {
@@ -59,32 +59,28 @@ export default function AboutPage() {
     const c = copy[language];
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
+            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
+                <PageHero
+                    label={c.badge}
+                    title={c.title}
+                    copy={`${c.intro} ${c.follow}`}
+                    actions={<><Button to="/contact#contact-options">{t.nav.book}</Button><Button href={PROFILE.founderPortfolio} variant="secondary">{c.portfolio}</Button></>}
+                    visual={<TrustRail items={c.cards.map(([title, text]) => ({icon: title.slice(0, 2).toUpperCase(), title, copy: text}))}/>}
+                />
+            </div>
             <div className="mx-auto max-w-7xl">
-                <Badge tone="rose">{c.badge}</Badge>
-                <div className="mt-6 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-                    <div>
-                        <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl">{c.title}</h1>
-                        <p className="mt-6 text-lg leading-8 text-slate-300">{c.intro}</p>
-                        <p className="mt-5 text-lg leading-8 text-slate-300">{c.follow}</p>
-                        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <div className="mt-10 grid gap-5 lg:grid-cols-[0.4fr_0.6fr] lg:items-start">
+                    <Photo src={IMAGES.headshot} alt="Leadership portrait for Luminovia Training & Consulting" className="aspect-[4/5] rounded-[1rem]" imgClass="object-[50%_20%]"/>
+                    <Card>
+                        <h2 className="text-3xl font-black text-white">{c.founderCard[0]}</h2>
+                        <p className="mt-4 text-base leading-8 text-slate-300">{c.founderCard[1]}</p>
+                        <div className="mt-6 flex flex-wrap gap-3">
                             <Button href={PROFILE.linkedin}>{c.linkedin}</Button>
                             <Button href={PROFILE.github} variant="secondary">{c.github}</Button>
                             <Button href={PROFILE.founderPortfolio} variant="secondary">{c.portfolio}</Button>
-                            <Button to="/contact#contact-options" variant="secondary">{t.nav.book}</Button>
                         </div>
-                    </div>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                        <Photo src={IMAGES.headshot} alt="Leadership portrait for Luminovia Training & Consulting" className="aspect-[3/4] rounded-2xl" imgClass="object-[50%_20%]"/>
-                        <div className="grid gap-4">
-                            {c.cards.map(([title, text]) => (
-                                <Card key={title}>
-                                    <h2 className="text-xl font-black text-white">{title}</h2>
-                                    <p className="mt-3 text-sm leading-7 text-slate-300">{text}</p>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
+                    </Card>
                 </div>
 
                 <div className="mt-16 grid gap-5 lg:grid-cols-3">

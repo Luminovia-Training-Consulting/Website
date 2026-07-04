@@ -5,6 +5,7 @@ import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
+import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 
 const content = {
     en: {
@@ -119,18 +120,22 @@ export default function PricingPage() {
     const {currencies} = businessOfferingsForLanguage(language);
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
+            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
+                <PageHero
+                    label={copy.badge}
+                    title={copy.title}
+                    copy={copy.intro}
+                    actions={<><Button to="/contact#contact-options">{copy.contact}</Button><Button href={PROFILE.appointmentSchedule} variant="secondary">{copy.appointment}</Button></>}
+                    visual={<TrustRail items={[
+                        {icon: "€", title: "EUR", copy: "German planning values"},
+                        {icon: "$", title: "AUD / USD", copy: "International planning values"},
+                        {icon: "?", title: "Scoped offers", copy: "Projects and programmes quoted individually"},
+                    ]}/>}
+                />
+            </div>
             <div className="mx-auto max-w-7xl">
-                <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-                    <div>
-                        <Badge tone="amber">{copy.badge}</Badge>
-                        <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
-                    </div>
-                    <div>
-                        <p className="text-lg leading-8 text-slate-300">{copy.intro}</p>
-                        <p className="mt-5 rounded-[1.5rem] border border-sky-100/16 bg-sky-100/[0.07] p-4 text-sm leading-7 text-slate-300">{copy.currencyNote}</p>
-                    </div>
-                </div>
+                <p className="mt-8 rounded-[1rem] border border-sky-100/16 bg-sky-100/[0.07] p-4 text-sm leading-7 text-slate-300">{copy.currencyNote}</p>
                 <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
 
                 <section id="booking-eligibility" className="mt-10 scroll-mt-36 overflow-hidden rounded-[2rem] border border-sky-200/24 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.25),transparent_38%),linear-gradient(135deg,rgba(14,35,66,.96),rgba(7,13,27,.94)_58%,rgba(20,28,54,.96))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,.13),0_30px_120px_rgba(0,0,0,.34),0_0_70px_rgba(56,189,248,.08)] sm:p-8">

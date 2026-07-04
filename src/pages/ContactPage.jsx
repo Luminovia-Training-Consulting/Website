@@ -1,10 +1,10 @@
 import {PROFILE} from "../data/profile.js";
 import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
-import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
+import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 
 function cleanPhone(value) {
     return value.replace(/[^\d+]/g, "");
@@ -40,18 +40,24 @@ export default function ContactPage() {
     ];
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
+            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
+                <PageHero
+                    label={t.contact.badge}
+                    title={t.contact.title}
+                    copy={t.contact.copy}
+                    actions={<><Button href={`mailto:${PROFILE.email}?subject=${subject}`} variant="secondary">{t.contact.emailButton}</Button><Button to="/contact#appointment">{t.contact.calendarFallback}</Button></>}
+                    visual={<TrustRail items={[
+                        {icon: "@", title: "Email", copy: PROFILE.email},
+                        {icon: "AU", title: language === "de" ? "Telefon Australien" : "Australia phone", copy: PROFILE.phoneAustralia},
+                        {icon: "DE", title: language === "de" ? "Telefon Deutschland" : "Germany phone", copy: PROFILE.phoneGermany},
+                    ]}/>}
+                />
+            </div>
             <div className="mx-auto max-w-7xl">
-                <SectionJumpNav label={jumpLabel} items={jumpItems} className="mb-8 mt-0"/>
+                <SectionJumpNav label={jumpLabel} items={jumpItems} className="mb-8 mt-8"/>
                 <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                     <div>
-                        <Badge tone="rose">{t.contact.badge}</Badge>
-                        <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{t.contact.title}</h1>
-                        <p className="mt-6 text-lg leading-8 text-slate-300">{t.contact.copy}</p>
-                        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                            <Button href={`mailto:${PROFILE.email}?subject=${subject}`} variant="secondary">{t.contact.emailButton}</Button>
-                            <Button to="/contact#appointment">{t.contact.calendarFallback}</Button>
-                        </div>
                         <div className="mt-8 rounded-[1.75rem] border border-sky-100/14 bg-[#071225]/72 p-5 shadow-[0_16px_60px_rgba(0,0,0,.2)]">
                             <h2 className="text-xl font-black text-white">{t.contact.briefTitle}</h2>
                             <p className="mt-2 text-sm leading-7 text-slate-300">{t.contact.briefCopy}</p>

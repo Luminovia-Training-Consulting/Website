@@ -1,6 +1,6 @@
 import ClientProofSection from "../components/ClientProofSection.jsx";
 import {useLanguage} from "../i18n.jsx";
-import Badge from "../components/Badge.jsx";
+import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 
 export default function ClientsPage() {
     const {language} = useLanguage();
@@ -17,11 +17,18 @@ export default function ClientsPage() {
         };
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl text-center">
-                <Badge tone="emerald">{copy.badge}</Badge>
-                <h1 className="mx-auto mt-6 max-w-5xl text-5xl font-black tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">{copy.title}</h1>
-                <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-slate-300">{copy.intro}</p>
+        <main className="lumo-subpage pb-24 pt-24">
+            <div className="-mt-24">
+                <PageHero
+                    label={copy.badge}
+                    title={copy.title}
+                    copy={copy.intro}
+                    visual={<TrustRail items={[
+                        {icon: "EDU", title: "Education contexts", copy: "Selected delivery environments"},
+                        {icon: "B2B", title: "Organisation fit", copy: "Training and enablement capability"},
+                        {icon: "NO", title: "No fake proof", copy: "No invented logos or testimonials"},
+                    ]}/>}
+                />
             </div>
             <ClientProofSection includeProof={false}/>
         </main>

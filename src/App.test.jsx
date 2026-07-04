@@ -146,7 +146,7 @@ describe("App routing and language", () => {
             return 1;
         });
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
-        window.history.pushState({}, "Hash route", "/#faq");
+        window.history.pushState({}, "Hash route", "/#offers");
         window.requestAnimationFrame = requestAnimationFrame;
         Element.prototype.scrollIntoView = scrollIntoView;
 
