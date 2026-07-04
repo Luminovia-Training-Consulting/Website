@@ -23,8 +23,8 @@ const dictionaries = {
             terms: "Terms",
         },
         headerTagline: "Training & Consulting",
-        bookTraining: "Contact",
-        bookTrainingCall: "Contact / book a call",
+        bookTraining: "Book discovery call",
+        bookTrainingCall: "Book discovery call",
         requestTraining: "Request training",
         bookConsultation: "Book consultation",
         serviceLabels: {
@@ -48,8 +48,8 @@ const dictionaries = {
         github: "GitHub",
         home: {
             badge: "AI | IT | digital business",
-            title: "Luminovia Training & Consulting for digital capability.",
-            intro: "Luminovia designs and delivers training, consulting and enablement programmes for AI literacy, cybersecurity, software, business technology and digital transformation. The company is led by CEO and founder Carina Sophie Schoppe and supports organisations in German and English.",
+            title: "AI, IT & Digital Capability Training for Modern Teams",
+            intro: "Luminovia designs and delivers practical workshops, training programmes and consulting for organisations that need usable digital skills: AI, IT, cybersecurity, software, data, business technology and learning design.",
             coreOffer: "Core offer:",
             coreCopy: "practical corporate training, consulting sprints, project support, workshops, professional development courses and learning architecture for organisations that need measurable outcomes and responsible AI capability.",
             exploreCapability: "View offers",
@@ -136,9 +136,9 @@ const dictionaries = {
             ["Company", "Company background, leadership and delivery model behind Luminovia.", "/about"],
         ],
         clientSection: {
-            badge: "Former clients",
-            title: "Trusted by academies, universities, companies and professional training providers.",
-            copy: "A selected overview of former clients, education partners and collaboration contexts behind Luminovia's training and consulting profile.",
+            badge: "Delivery contexts",
+            title: "Selected education, training and collaboration contexts.",
+            copy: "A careful overview of public collaboration contexts and topic areas behind Luminovia's training and consulting profile. No fake logos, ratings or invented testimonials.",
             feedbackLabel: "Feedback theme",
             feedbackNote: "Anonymised pattern, not a named customer quote.",
             feedbackThemes: [
@@ -216,8 +216,8 @@ const dictionaries = {
             terms: "Bedingungen",
         },
         headerTagline: "Training & Consulting",
-        bookTraining: "Kontakt",
-        bookTrainingCall: "Kontakt / Termin buchen",
+        bookTraining: "Discovery Call buchen",
+        bookTrainingCall: "Discovery Call buchen",
         requestTraining: "Training anfragen",
         bookConsultation: "Beratung buchen",
         serviceLabels: {
@@ -241,8 +241,8 @@ const dictionaries = {
         github: "GitHub",
         home: {
             badge: "AI | IT | Digital Business",
-            title: "Luminovia Training & Consulting für digitale Kompetenz.",
-            intro: "Luminovia konzipiert und liefert Training, Consulting und Enablement-Programme für AI Literacy, Cybersecurity, Software, Business Technology und digitale Transformation. Das Unternehmen wird von CEO und Gründerin Carina Sophie Schoppe geführt und unterstützt Organisationen auf Deutsch und Englisch.",
+            title: "AI, IT & Digital Capability Training für moderne Teams",
+            intro: "Luminovia entwickelt und liefert praxisnahe Workshops, Trainingsprogramme und Consulting für Organisationen, die nutzbare digitale Kompetenz brauchen: AI, IT, Cybersecurity, Software, Daten, Business Technology und Learning Design.",
             coreOffer: "Kernangebot:",
             coreCopy: "praxisnahes Corporate Training, Consulting-Sprints, Projektunterstützung, Workshops, Weiterbildungen und Learning Architecture für Organisationen, die messbare Ergebnisse und verantwortungsvolle AI-Kompetenz brauchen.",
             exploreCapability: "Angebote ansehen",
@@ -329,9 +329,9 @@ const dictionaries = {
             ["Unternehmen", "Unternehmenshintergrund, Führung und Liefermodell hinter Luminovia.", "/about"],
         ],
         clientSection: {
-            badge: "Ehemalige Kunden",
-            title: "Gebucht von Akademien, Hochschulen, Unternehmen und professionellen Bildungsanbietern.",
-            copy: "Eine ausgewählte Übersicht ehemaliger Kunden, Bildungspartner und Kooperationskontexte hinter dem Trainings- und Consulting-Profil von Luminovia.",
+            badge: "Lieferkontexte",
+            title: "Ausgewählte Bildungs-, Trainings- und Kooperationskontexte.",
+            copy: "Eine sorgfältige Übersicht öffentlicher Kooperationskontexte und Themenbereiche hinter dem Trainings- und Consulting-Profil von Luminovia. Keine erfundenen Logos, Ratings oder Testimonials.",
             feedbackLabel: "Feedback-Thema",
             feedbackNote: "Anonymisiertes Muster, kein benanntes Kunden-Zitat.",
             feedbackThemes: [

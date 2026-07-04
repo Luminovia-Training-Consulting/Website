@@ -12,7 +12,7 @@ const routes = [
     ["/projects", /Projects that make Luminovia/i],
     ["/portfolio", /Project practice behind IT/i],
     ["/consulting", /Project practice behind IT/i],
-    ["/clients", /Former clients, education partners and testimonial patterns/i],
+    ["/clients", /Education partners, collaboration contexts and topic areas/i],
     ["/about", /Luminovia Training & Consulting is built/i],
     ["/pricing", /Transparent starting rates/i],
     ["/contact", /Contact Luminovia/i],

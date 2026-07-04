@@ -1,406 +1,267 @@
 import {IMAGES, PROFILE} from "../data/profile.js";
 import {useHomeContent} from "../data/homeContent.js";
+import {useSiteContent} from "../data/localizedContent.js";
+import {topicLinkForLabel} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
-import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
-import Metric from "../components/Metric.jsx";
-import Photo from "../components/Photo.jsx";
 import ConversionStrip from "../components/ConversionStrip.jsx";
-import StickyBookingBar from "../components/StickyBookingBar.jsx";
+import Photo from "../components/Photo.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
-import DemoVideoSection from "../components/DemoVideoSection.jsx";
-import ClientProofSection from "../components/ClientProofSection.jsx";
+import StickyBookingBar from "../components/StickyBookingBar.jsx";
+import {
+    CapabilityChip,
+    Container,
+    GradientText,
+    LogoSystemVisual,
+    OfferCard,
+    ProcessStep,
+    ProofCard,
+    RouteCard,
+    Section,
+    SectionHeader,
+} from "../components/LuminoviaDesign.jsx";
 
-function HeroVisual() {
-    const {t} = useLanguage();
-    const brandSignals = [t.home.signalTeaching, t.home.signalWorkflows, t.home.remote];
-
-    return (
-        <div className="hero-float relative mx-auto hidden w-full max-w-[520px] lg:block">
-            <div className="glass-sheen relative rounded-[3rem] border border-white/12 bg-gradient-to-br from-white/[0.15] via-white/[0.07] to-white/[0.035] p-2 shadow-[0_36px_135px_rgba(0,0,0,.36)] backdrop-blur-2xl transition duration-700 hover:-translate-y-1.5">
-                <div className="breathing-halo pointer-events-none absolute -inset-2 rounded-[3.1rem] bg-gradient-to-br from-sky-200/22 via-transparent to-blue-300/18 opacity-75 blur-xl"/>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[2.1rem] border border-sky-100/14 bg-[radial-gradient(circle_at_20%_0%,rgba(125,211,252,.2),transparent_34%),linear-gradient(145deg,rgba(10,20,40,.96),rgba(7,13,27,.98)_55%,rgba(14,25,48,.96))] p-6">
-                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.045)_1px,transparent_1px)] bg-[length:36px_36px] opacity-45"/>
-                    <div className="pointer-events-none absolute -right-12 top-10 h-56 w-56 rounded-full bg-sky-300/15 blur-3xl xl:-right-20"/>
-                    <div className="pointer-events-none absolute -bottom-24 left-4 h-64 w-64 rounded-full bg-blue-500/16 blur-3xl"/>
-                    <div className="relative flex h-full flex-col justify-center gap-5">
-                        <div className="rounded-[1.9rem] border border-white/70 bg-white p-7 shadow-[0_24px_90px_rgba(0,0,0,.32),0_0_56px_rgba(125,211,252,.14)]">
-                            <img
-                                src={IMAGES.luminoviaLogoFull}
-                                alt="Luminovia Training & Consulting logo"
-                                className="mx-auto h-auto w-full object-contain"
-                                loading="eager"
-                                fetchPriority="high"
-                                width="720"
-                                height="720"
-                            />
-                        </div>
-                        <div className="grid grid-cols-3 gap-3">
-                            {brandSignals.map((signal) => (
-                                <div key={signal} className="min-h-20 rounded-[1.15rem] border border-sky-100/18 bg-white/[0.075] px-3 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,.08)] backdrop-blur-xl">
-                                    <div className="h-1.5 w-8 rounded-full bg-gradient-to-r from-sky-100 via-blue-300 to-amber-300"/>
-                                    <div className="mt-3 text-[11px] font-black uppercase leading-4 tracking-[0.1em] text-white">{signal}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 rounded-[1.6rem] border border-sky-100/20 bg-[#071225]/90 p-4 shadow-[0_18px_70px_rgba(0,0,0,.42),0_0_38px_rgba(56,189,248,.12)] backdrop-blur-xl">
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div>
-                            <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
-                            <div className="mt-1 text-lg font-black text-white">{t.home.focusValue}</div>
-                        </div>
-                        <div className="rounded-full bg-white px-3 py-1 text-xs font-black text-zinc-950">{t.home.remote}</div>
-                    </div>
-                </div>
-            </div>
-            <div className="absolute -right-2 top-8 rounded-[1.35rem] border border-sky-100/25 bg-[#071225]/92 p-4 shadow-[0_20px_80px_rgba(0,0,0,.42),0_0_44px_rgba(56,189,248,.15)] backdrop-blur-xl transition duration-700 hover:-translate-y-1 sm:-right-8">
-                <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100 drop-shadow-[0_1px_10px_rgba(0,0,0,.8)]">{t.home.learnerRating}</div>
-                <div className="mt-1 text-sm font-black text-white drop-shadow-[0_1px_10px_rgba(0,0,0,.85)]">DE / EN · Remote</div>
-            </div>
-            <div className="absolute -left-10 top-1/3 grid gap-3">
-                <span className="signal-pill">{t.home.signalTeaching}</span>
-                <span className="signal-pill translate-x-6">{t.home.signalWorkflows}</span>
-            </div>
-        </div>
-    );
-}
-
-function MobileHeroSignal() {
-    const {t} = useLanguage();
-    return (
-        <div className="glass-sheen mt-5 grid grid-cols-[5.5rem_1fr] items-center gap-4 rounded-[2rem] border border-white/10 bg-white/[0.085] p-2 shadow-[0_22px_80px_rgba(0,0,0,.2)] backdrop-blur-2xl lg:hidden">
-            <div className="grid aspect-square place-items-center overflow-hidden rounded-[1.35rem] border border-white/70 bg-white p-2 shadow-[0_12px_42px_rgba(0,0,0,.2)]">
-                <img src={IMAGES.luminoviaLogoMark} alt="" className="h-full w-full object-contain" loading="eager" fetchPriority="high" width="88" height="88"/>
-            </div>
-            <div className="pr-2">
-                <div className="text-[11px] font-black uppercase tracking-[0.14em] text-sky-100">{t.home.mainFocus}</div>
-                <div className="mt-1 text-sm font-black leading-5 text-white">{t.home.focusValue}</div>
-                <div className="mt-2 inline-flex rounded-full bg-white px-3 py-1 text-[11px] font-black text-zinc-950">{t.home.remote}</div>
-            </div>
-        </div>
-    );
-}
-
-function MiniServiceCard({service, t}) {
-    return (
-        <Card className="self-start">
-            <h3 className="text-xl font-black text-white">{service.title}</h3>
-            <p className="mt-4 text-sm leading-7 text-zinc-300">{service.description}</p>
-            <div className="mt-5 grid gap-2">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><strong className="text-sky-100">{t.serviceLabels.audience}:</strong> {service.audience}</div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><strong className="text-sky-100">{t.serviceLabels.format}:</strong> {service.format}</div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm text-zinc-200"><strong className="text-sky-100">{t.serviceLabels.duration}:</strong> {service.duration}</div>
-            </div>
-            <div className="mt-5">
-                <Button to="/contact#contact-options" variant="secondary">{t.requestTraining}</Button>
-            </div>
-        </Card>
-    );
-}
-
-function BookingFitSection({t}) {
-    const {bookingFit, bookingFitTitle, bookingFitCopy, bookingRoutes, popularRoute} = t.home;
-
-    return (
-        <section id="booking-fit" className="soft-section scroll-mt-40 px-4 py-14 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl">
-                <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                    <div>
-                        <Badge tone="emerald">{bookingFit}</Badge>
-                        <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{bookingFitTitle}</h2>
-                    </div>
-                    <p className="text-base leading-8 text-zinc-300">{bookingFitCopy}</p>
-                </div>
-                <div className="grid items-start gap-4 lg:grid-cols-3">
-                    {bookingRoutes.map((route, index) => (
-                        <Card key={route.title} className={index === 1 ? "self-start border-sky-200/30" : "self-start"}>
-                            <div className="flex items-start justify-between gap-4">
-                                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-sm font-black text-slate-950">{String(index + 1).padStart(2, "0")}</div>
-                                {index === 1 && <span className="rounded-full border border-sky-100/20 bg-sky-100/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-sky-100">{popularRoute}</span>}
-                            </div>
-                            <h3 className="mt-5 text-xl font-black text-white">{route.title}</h3>
-                            <p className="mt-4 text-sm leading-7 text-zinc-300">{route.copy}</p>
-                            <div className="mt-5 flex flex-wrap gap-2">
-                                {route.bullets.map((bullet) => (
-                                    <span key={String(bullet)} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{bullet}</span>
-                                ))}
-                            </div>
-                            <div className="mt-6">
-                                <Button to={route.to} variant={index === 1 ? "primary" : "secondary"}>{route.cta}</Button>
-                            </div>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function FounderSection() {
-    const {language} = useLanguage();
-    const copy = language === "de"
+function copyForLanguage(language) {
+    return language === "de"
         ? {
-            badge: "Unternehmensführung",
-            title: "Luminovia wird fachlich und strategisch von Carina Sophie Schoppe geführt.",
-            intro: "Das Unternehmen verbindet Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und Business-Consulting zu klaren Trainings- und Beratungsformaten. Die Marke steht dabei für strukturierte Lieferung, belastbare Inhalte und professionelle Umsetzung für Organisationen.",
-            imageAlt: "Carina Sophie Schoppe, CEO und Gründerin von Luminovia Training & Consulting",
-            cta: "Unternehmen ansehen",
-            portfolio: "Persönliches Portfolio",
-            points: [
-                ["AI | IT | Security", "fachliche Kernbereiche"],
-                ["Training + Consulting", "kombinierte Leistungsbereiche"],
-                ["DE / EN", "Durchführung auf Deutsch und Englisch"],
-                ["Remote-first", "für verteilte Teams und Programme"],
+            heroTitle: "AI, IT & Digital Capability Training für moderne Teams",
+            heroIntro: "Luminovia entwickelt und liefert praxisnahe Workshops, Trainingsprogramme und Consulting für Organisationen, die nutzbare digitale Kompetenz brauchen: AI, IT, Cybersecurity, Software, Daten, Business Technology und Learning Design.",
+            primary: "Discovery Call buchen",
+            secondary: "Training ansehen",
+            tertiary: "Consulting erkunden",
+            visualLabels: ["AI Enablement", "IT & Cybersecurity", "Software & Data", "Business Technology", "Learning Design", "Delivery model", "DE / EN · Remote-first"],
+            trustTitle: "Klar positioniert für professionelle Trainings- und Enablement-Anfragen.",
+            routesBadge: "Einstieg wählen",
+            routesTitle: "Das richtige Format für Ihre Organisation.",
+            routesCopy: "Ob fokussierter Workshop, individueller Trainingspfad oder Consulting-Unterstützung: Luminovia strukturiert die Arbeit um Zielgruppe, Kontext und praktische Ergebnisse.",
+            routes: [
+                {title: "Training & Workshops", copy: "Für Teams, Lernende, Bildungsanbieter und Organisationen, die strukturierte Live-Lernformate brauchen.", bullets: ["AI Literacy", "Cybersecurity", "Software & Data"], cta: "Training ansehen", to: "/training"},
+                {title: "Consulting & Enablement", copy: "Für Organisationen, die digitale Ziele in Use Cases, Workflows, Roadmaps oder Lernprogramme übersetzen wollen.", bullets: ["Use-Case Mapping", "Roadmaps", "Workflow Analyse"], cta: "Consulting anfragen", to: "/consulting", featured: true},
+                {title: "Custom Programmes", copy: "Für L&D-Teams, Akademien, Hochschulen, Bootcamps und internationale Partner mit mehrteiligen Programmen.", bullets: ["Curriculum", "Blended Learning", "Materialien"], cta: "Programm besprechen", to: "/offers"},
             ],
+            offersBadge: "Featured Offers",
+            offersTitle: "Buchbare Trainingsangebote mit klarer Zielgruppe, Dauer und Ergebnis.",
+            offersCopy: "Die wichtigsten Themen sind so strukturiert, dass Entscheider schnell erkennen, für wen ein Angebot passt, welches Format sinnvoll ist und welche Ergebnisse entstehen.",
+            consultingBadge: "Consulting",
+            consultingTitle: "Von Einzelfrage bis Digital-Capability-Programm.",
+            consultingCopy: "Luminovia unterstützt Organisationen mit fokussierter Beratung, Konzeptarbeit, AI-Use-Case-Design, Prozessanalyse, Trainingsstrategie, Curriculum Design und Umsetzungssparring.",
+            consultingCards: [
+                ["AI Use-Case Mapping", "Use Cases, Risiken, Datenfragen und menschliche Reviewpunkte strukturiert klären."],
+                ["Workflow & Prozessanalyse", "Arbeitsabläufe, Tool-Nutzung, Automatisierungsideen und Engpässe sichtbar machen."],
+                ["Digital Capability Roadmap", "Nächste Schritte für Skills, Formate, Materialien und Umsetzung priorisieren."],
+                ["Training Strategy", "Lernpfade, Zielgruppenlogik, Materialien und Transferaufgaben sauber planen."],
+                ["Curriculum Design", "Module, Labs, Slides, Lernchecks und Blended-Learning-Formate entwickeln."],
+                ["Project Support", "Vorhaben mit Scope, Reviewpunkten, Dokumentation und Entscheidungsmaterial begleiten."],
+            ],
+            processBadge: "Prozess",
+            processTitle: "Vom ersten Bedarf zu nutzbarer Kompetenz.",
+            proofBadge: "Nachweise",
+            proofTitle: "Glaubwürdigkeit ohne erfundene Logos oder Testimonials.",
+            founderBadge: "Founder-led expertise",
+            founderTitle: "Geführt von Carina Sophie Schoppe, aber klar als Unternehmensmarke aufgebaut.",
+            founderCopy: "Luminovia verbindet Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und praktische Lehre zu professionellen Trainings- und Beratungsformaten. Das persönliche Portfolio bleibt bewusst separat.",
+            founderProfile: "Unternehmensprofil ansehen",
+            founderPortfolio: "Carina Portfolio öffnen",
+            faqBadge: "FAQ",
+            finalTitle: "Lassen Sie uns das passende Trainings- oder Consulting-Format entwerfen.",
+            finalCopy: "Senden Sie Thema, Zielgruppe, Zeitraum, Sprache und Ziel. Luminovia schlägt ein passendes Workshop-, Consulting- oder Programmformat vor.",
+            detail: "Details",
+            request: "Anfragen",
+            jumpNavLabel: "Zu Abschnitt springen",
+            jumpNav: [["#routes", "Formate"], ["#offers", "Angebote"], ["#consulting", "Consulting"], ["#process", "Prozess"], ["#proof", "Nachweise"], ["#founder", "Founder"], ["#faq", "FAQ"], ["#contact-cta", "Kontakt"]],
         }
         : {
-            badge: "Company leadership",
-            title: "Luminovia is led strategically and professionally by Carina Sophie Schoppe.",
-            intro: "The company connects business computer science, AI, cybersecurity, software development, didactics and business consulting into clear training and advisory formats. Luminovia stands for structured delivery, robust content and professional implementation for organisations.",
-            imageAlt: "Carina Sophie Schoppe, CEO and founder of Luminovia Training & Consulting",
-            cta: "View company",
-            portfolio: "Personal portfolio",
-            points: [
-                ["AI | IT | Security", "core capability areas"],
-                ["Training + Consulting", "combined service divisions"],
-                ["DE / EN", "German and English delivery"],
-                ["Remote-first", "for distributed teams and programmes"],
+            heroTitle: "AI, IT & Digital Capability Training for Modern Teams",
+            heroIntro: "Luminovia designs and delivers practical workshops, training programmes and consulting for organisations that need usable digital skills: AI, IT, cybersecurity, software, data, business technology and learning design.",
+            primary: "Book discovery call",
+            secondary: "View training offers",
+            tertiary: "Explore consulting",
+            visualLabels: ["AI enablement", "IT & cybersecurity", "Software & data", "Business technology", "Learning design", "Delivery model", "DE / EN · Remote-first"],
+            trustTitle: "Positioned for professional training and enablement requests.",
+            routesBadge: "Choose your route",
+            routesTitle: "Choose the right format for your organisation.",
+            routesCopy: "Whether you need a focused workshop, a custom training path or consulting support around digital capability, Luminovia structures the work around your audience, goals and practical outcomes.",
+            routes: [
+                {title: "Training & Workshops", copy: "For teams, learners, education providers and organisations that need structured live learning.", bullets: ["AI literacy", "Cybersecurity", "Software & data"], cta: "View training", to: "/training"},
+                {title: "Consulting & Enablement", copy: "For organisations that need help turning digital goals into practical structures, use cases, workflows or learning programmes.", bullets: ["Use-case mapping", "Roadmaps", "Workflow analysis"], cta: "Request consulting", to: "/consulting", featured: true},
+                {title: "Custom Programmes", copy: "For corporate L&D teams, education providers, academies, bootcamps, universities and international partners.", bullets: ["Curriculum", "Blended learning", "Materials"], cta: "Discuss programme", to: "/offers"},
             ],
+            offersBadge: "Featured offers",
+            offersTitle: "Bookable training offers with clear audience, duration and outcomes.",
+            offersCopy: "Core topics are structured so buyers can quickly see who each offer is for, which format makes sense and what participants should be able to do afterwards.",
+            consultingBadge: "Consulting",
+            consultingTitle: "From individual questions to larger digital capability programmes.",
+            consultingCopy: "Luminovia supports organisations with focused consulting, concept work, AI use-case design, process analysis, training strategy, curriculum design and implementation support.",
+            consultingCards: [
+                ["AI use-case mapping", "Clarify use cases, risks, data questions and human review points."],
+                ["Workflow and process analysis", "Make work routines, tool use, automation ideas and bottlenecks visible."],
+                ["Digital capability roadmap", "Prioritise next steps for skills, formats, materials and implementation."],
+                ["Training strategy", "Plan learning paths, audience logic, materials and transfer tasks."],
+                ["Curriculum design", "Design modules, labs, slides, learning checks and blended-learning formats."],
+                ["Project support", "Support initiatives with scope, review points, documentation and decision material."],
+            ],
+            processBadge: "Process",
+            processTitle: "From first need to practical capability.",
+            proofBadge: "Proof",
+            proofTitle: "Credibility without invented logos or testimonials.",
+            founderBadge: "Founder-led expertise",
+            founderTitle: "Led by Carina Sophie Schoppe, but built as a company brand.",
+            founderCopy: "Luminovia connects business information systems, AI, cybersecurity, software development, instructional design and practical teaching into professional training and consulting formats. The personal portfolio stays deliberately separate.",
+            founderProfile: "View company profile",
+            founderPortfolio: "Open Carina portfolio",
+            faqBadge: "FAQ",
+            finalTitle: "Let’s design the right training or consulting format for your organisation.",
+            finalCopy: "Share your topic, audience, timeframe, language and target outcome. Luminovia will suggest a suitable workshop, consulting sprint or programme structure.",
+            detail: "Details",
+            request: "Request",
+            jumpNavLabel: "Jump to section",
+            jumpNav: [["#routes", "Formats"], ["#offers", "Offers"], ["#consulting", "Consulting"], ["#process", "Process"], ["#proof", "Proof"], ["#founder", "Founder"], ["#faq", "FAQ"], ["#contact-cta", "Contact"]],
         };
-
-    return (
-        <section id="founder" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
-            <div className="mx-auto grid max-w-7xl gap-7 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_15%_0%,rgba(125,211,252,.18),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.045))] p-5 shadow-[0_26px_100px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-                <Photo src={IMAGES.hero} alt={copy.imageAlt} className="aspect-[4/3] rounded-[1.7rem] bg-white lg:aspect-[5/4]" imgClass="object-[50%_18%]" sizes="(min-width: 1024px) 520px, 100vw"/>
-                <div>
-                    <Badge tone="cyan">{copy.badge}</Badge>
-                    <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{copy.title}</h2>
-                    <p className="mt-5 text-base leading-8 text-slate-300">{copy.intro}</p>
-                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                        {copy.points.map(([value, label]) => (
-                            <div key={value} className="rounded-[1.25rem] border border-white/12 bg-white/[0.07] p-4">
-                                <div className="text-xl font-black text-white">{value}</div>
-                                <div className="mt-1 text-sm leading-6 text-slate-300">{label}</div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="mt-7">
-                        <div className="flex flex-col gap-3 sm:flex-row">
-                            <Button to="/about" variant="secondary">{copy.cta}</Button>
-                            <Button href={PROFILE.founderPortfolio} variant="secondary">{copy.portfolio}</Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
 }
 
 export default function HomePage() {
     const {language, t} = useLanguage();
+    const c = copyForLanguage(language);
     const {trustStats, serviceOfferings, faqs} = useHomeContent();
-    const featuredServices = serviceOfferings;
-    const {
-        badge,
-        title,
-        intro,
-        coreOffer,
-        coreCopy,
-        exploreCapability,
-        downloadProfile,
-        remote,
-        remoteTitle,
-        remoteCopy,
-        trainingOffers,
-        servicesTitle,
-        servicesCopy,
-        process,
-        processTitle,
-        processSteps,
-        faq,
-        faqTitle,
-        faqCopy,
-        jumpNav,
-        jumpNavLabel,
-    } = t.home;
-    const consultingCopy = language === "de"
-        ? {
-            badge: "Consulting-Bereich",
-            title: "Von klaren Einzelfragen bis zu größeren Digital- und AI-Programmen.",
-            copy: "Luminovia unterstützt Bildungsanbieter, Unternehmen und Institutionen mit IT- und Business-Consulting, Konzeptarbeit, Workshops, Projektstruktur, AI-Use-Case-Design und Umsetzungsbegleitung. Kleine Einzelprojekte, Workshop-Sprints und größere Programmvorhaben sind möglich.",
-            cards: [
-                ["Einzelprojekte", "Klare Fragestellung, kurzer Sprint, konkretes Ergebnis: etwa AI-Use-Case-Map, Prozessanalyse, Tool-Check, Workshop-Konzept oder Entscheidungsvorlage."],
-                ["Großprojekte", "Mehrteilige Vorhaben mit Trainingspfad, Consulting-Sprints, Stakeholder-Workshops, Roadmap, Materialien und fortlaufender Umsetzungsbegleitung."],
-                ["Preise auf Anfrage", "Consulting und Projektumsetzung werden individuell kalkuliert, abhängig von Umfang, Verantwortung, Materialtiefe, Laufzeit und gewünschtem Ergebnis."],
-            ],
-            primary: "Consulting anfragen",
-            secondary: "Portfolio ansehen",
-        }
-        : {
-            badge: "Consulting division",
-            title: "From clear individual questions to larger digital and AI programmes.",
-            copy: "Luminovia supports education providers, companies and institutions with IT and business consulting, concept work, workshops, project structure, AI use-case design and implementation support. Small individual projects, workshop sprints and larger programme work are possible.",
-            cards: [
-                ["Individual projects", "A clear question, short sprint and concrete result: for example an AI use-case map, process analysis, tool check, workshop concept or decision brief."],
-                ["Larger programmes", "Multi-part work with a training path, consulting sprints, stakeholder workshops, roadmap, materials and ongoing implementation support."],
-                ["Pricing on request", "Consulting and project implementation are quoted individually depending on scope, responsibility, material depth, duration and target outcome."],
-            ],
-            primary: "Request consulting",
-            secondary: "View portfolio",
-        };
+    const {trustSignals} = useSiteContent();
+    const featuredOffers = serviceOfferings.slice(0, 8);
+    const heroChips = language === "de"
+        ? ["AI Enablement", "IT & Cybersecurity", "DE / EN", "Remote-first", "Workshops bis Programme"]
+        : ["AI enablement", "IT & cybersecurity", "DE / EN delivery", "Remote-first", "Workshops to programmes"];
 
     return (
         <main className="pb-28 sm:pb-24">
-            <SectionJumpNav items={jumpNav} label={jumpNavLabel} fixed/>
+            <SectionJumpNav items={c.jumpNav} label={c.jumpNavLabel} fixed/>
 
-            <section className="soft-section relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-10">
-                <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(56,189,248,.18),transparent_34%),linear-gradient(245deg,rgba(37,99,235,.17),transparent_34%),linear-gradient(180deg,rgba(255,255,255,.04),transparent_42%)]"/>
-                <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+            <section className="relative overflow-hidden border-b border-white/10 px-4 pb-14 pt-8 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
+                <div className="premium-hero-bg" aria-hidden="true"/>
+                <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.98fr_1.02fr]">
                     <div>
-                        <Badge tone="rose">{badge}</Badge>
-                        <MobileHeroSignal/>
-                        <h1 className="hero-title mt-6 max-w-5xl text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
-                            {title}
+                        <h1 className="hero-title max-w-5xl text-4xl font-black tracking-[-0.045em] text-white sm:text-5xl lg:text-7xl">
+                            <GradientText>{c.heroTitle}</GradientText>
                         </h1>
-                        <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
-                            {intro}
-                        </p>
-                        <div className="glass-sheen mt-7 rounded-[2rem] border border-white/10 bg-white/[0.08] p-4 text-sm leading-7 text-zinc-300 shadow-[0_18px_70px_rgba(0,0,0,.2)] backdrop-blur-2xl">
-                            <strong className="text-white">{coreOffer}</strong> {coreCopy}
+                        <p className="mt-6 max-w-3xl text-base leading-8 text-slate-200 sm:text-lg lg:text-xl lg:leading-9">{c.heroIntro}</p>
+                        <div className="button-stack mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                            <Button to="/contact#appointment">{c.primary}</Button>
+                            <Button to="/training" variant="secondary">{c.secondary}</Button>
+                            <Button to="/consulting" variant="secondary" showArrow={false}>{c.tertiary}</Button>
                         </div>
-                        <div className="button-stack mt-8 flex flex-col gap-3 sm:flex-row">
-                            <Button to="/contact#appointment">{t.bookTrainingCall}</Button>
-                            <Button to="/training" variant="secondary">{exploreCapability}</Button>
-                            <Button to="/offers" variant="secondary" showArrow={false}>{downloadProfile}</Button>
-                        </div>
-                        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                            {trustStats.map((stat) => <Metric key={stat.label} {...stat} />)}
+                        <div className="mt-8 flex flex-wrap gap-2">
+                            {heroChips.map((chip) => <CapabilityChip key={chip}>{chip}</CapabilityChip>)}
                         </div>
                     </div>
-                    <HeroVisual/>
+                    <LogoSystemVisual logoFull={IMAGES.luminoviaLogoFull} logoMark={IMAGES.luminoviaLogoMark} alt="Luminovia Training & Consulting logo-led capability system" labels={c.visualLabels}/>
                 </div>
             </section>
 
-            <section id="remote" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-sky-100/16 bg-[linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.08),rgba(255,255,255,.035))] p-5 shadow-[0_20px_80px_rgba(37,99,235,.12)] backdrop-blur-xl sm:p-7">
-                    <Badge tone="cyan">{remote}</Badge>
-                    <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
-                        <div>
-                            <h2 className="max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{remoteTitle}</h2>
-                            <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300">{remoteCopy}</p>
-                        </div>
-                        <div className="button-stack flex flex-col gap-3 sm:flex-row lg:flex-col">
-                            <Button to="/contact#appointment">{t.bookConsultation}</Button>
-                            <Button to="/pricing" variant="secondary">{t.nav.pricing}</Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="consulting-projects" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-                    <div className="rounded-[2.25rem] border border-sky-100/16 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.22),transparent_38%),linear-gradient(135deg,rgba(12,27,54,.94),rgba(7,12,25,.96)_60%,rgba(21,28,48,.94))] p-5 shadow-[0_24px_95px_rgba(0,0,0,.28)] sm:p-7">
-                        <div className="grid gap-7 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
-                            <div>
-                                <Badge tone="violet">{consultingCopy.badge}</Badge>
-                                <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{consultingCopy.title}</h2>
-                                <p className="mt-5 text-base leading-8 text-zinc-300">{consultingCopy.copy}</p>
-                                <div className="button-stack mt-7 flex flex-col gap-3 sm:flex-row">
-                                    <Button to="/contact#contact-options">{consultingCopy.primary}</Button>
-                                    <Button to="/portfolio#consulting" variant="secondary">{consultingCopy.secondary}</Button>
-                                </div>
+            <Section id="trust" tight>
+                <div className="trust-strip">
+                    <div className="trust-strip-title">{c.trustTitle}</div>
+                    <div className="trust-strip-grid">
+                        {trustStats.map((stat) => (
+                            <div key={stat.label} className="trust-strip-item">
+                                <strong>{stat.value}</strong>
+                                <span>{stat.label}</span>
                             </div>
-                            <div className="grid gap-3">
-                                {consultingCopy.cards.map(([cardTitle, cardCopy]) => (
-                                    <div key={cardTitle} className="rounded-[1.35rem] border border-white/12 bg-white/[0.07] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.08)]">
-                                        <h3 className="text-lg font-black text-white">{cardTitle}</h3>
-                                        <p className="mt-2 text-sm leading-7 text-slate-300">{cardCopy}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="services" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-                    <div className="mb-8 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                            <Badge tone="orange">{trainingOffers}</Badge>
-                            <h2 className="mt-5 text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{servicesTitle}</h2>
-                        </div>
-                        <p className="text-base leading-8 text-zinc-300">{servicesCopy}</p>
-                    </div>
-                    <div className="grid items-start gap-5 md:grid-cols-3">
-                        {featuredServices.map((service) => <MiniServiceCard key={service.title} service={service} t={t}/>)}
-                    </div>
-                    <div className="mt-7 flex flex-col justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.055] p-5 sm:flex-row sm:items-center">
-                        <p className="text-sm leading-7 text-zinc-300">{t.assets.copy}</p>
-                        <div className="flex flex-col gap-3 sm:flex-row">
-                            <Button to="/offers" variant="secondary">{t.nav.offers}</Button>
-                            <Button to="/contact#contact-options">{t.nav.book}</Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <DemoVideoSection/>
-
-            <BookingFitSection t={t}/>
-
-            <ClientProofSection compact/>
-
-            <section id="process" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-                    <div className="mb-8">
-                        <Badge tone="emerald">{process}</Badge>
-                        <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{processTitle}</h2>
-                    </div>
-                    <div className="grid items-start gap-4 md:grid-cols-5">
-                        {processSteps.map(([step, stepTitle, copy]) => (
-                            <Card key={String(step)}>
-                                <div className="grid h-11 w-11 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-base font-black text-slate-950">{step}</div>
-                                <h3 className="mt-5 text-lg font-black text-white">{stepTitle}</h3>
-                                <p className="mt-3 text-sm leading-7 text-zinc-300">{copy}</p>
-                            </Card>
                         ))}
                     </div>
                 </div>
-            </section>
+            </Section>
 
-            <section id="faq" className="soft-section scroll-mt-40 px-4 py-12 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-                    <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                        <Badge tone="rose">{faq}</Badge>
-                            <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{faqTitle}</h2>
+            <Section id="routes">
+                <SectionHeader badge={c.routesBadge} title={c.routesTitle} copy={c.routesCopy}/>
+                <div className="grid gap-5 lg:grid-cols-3">
+                    {c.routes.map((route, index) => (
+                        <RouteCard key={route.title} number={String(index + 1).padStart(2, "0")} {...route}/>
+                    ))}
+                </div>
+            </Section>
+
+            <Section id="offers">
+                <SectionHeader badge={c.offersBadge} title={c.offersTitle} copy={c.offersCopy}/>
+                <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-4">
+                    {featuredOffers.map((service) => (
+                        <OfferCard
+                            key={service.title}
+                            service={service}
+                            detailLabel={c.detail}
+                            detailLink={topicLinkForLabel(service.title)}
+                            labels={{...t.serviceLabels, request: t.requestTraining}}
+                        />
+                    ))}
+                </div>
+            </Section>
+
+            <Section id="consulting" className="consulting-band">
+                <SectionHeader badge={c.consultingBadge} title={c.consultingTitle} copy={c.consultingCopy}/>
+                <div className="consulting-map">
+                    {c.consultingCards.map(([title, copy], index) => (
+                        <div key={title} className="consulting-map-card">
+                            <span>{String(index + 1).padStart(2, "0")}</span>
+                            <h3>{title}</h3>
+                            <p>{copy}</p>
                         </div>
-                        <p className="text-base leading-8 text-zinc-300">{faqCopy}</p>
-                    </div>
-                    <div className="grid items-start gap-4 md:grid-cols-2">
-                        {faqs.slice(0, 6).map((item, index) => (
-                            <Card key={item.q} className="self-start">
-                                <div className="mb-4 grid h-10 w-10 place-items-center rounded-2xl border border-sky-100/20 bg-sky-100 text-sm font-black text-slate-950">{String(index + 1).padStart(2, "0")}</div>
-                                <h3 className="text-xl font-black text-white">{item.q}</h3>
-                                <p className="mt-3 text-sm leading-7 text-slate-300">{item.a}</p>
-                            </Card>
-                        ))}
-                    </div>
-                    <div className="mt-7 flex flex-col justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.055] p-5 sm:flex-row sm:items-center">
-                        <p className="text-sm leading-7 text-zinc-300">{faqCopy}</p>
-                        <div className="flex flex-col gap-3 sm:flex-row">
-                            <Button to="/training" variant="secondary">{exploreCapability}</Button>
-                            <Button to="/contact#contact-options">{t.bookTrainingCall}</Button>
+                    ))}
+                </div>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Button to="/consulting">{c.tertiary}</Button>
+                    <Button to="/contact#contact-options" variant="secondary">{c.request}</Button>
+                </div>
+            </Section>
+
+            <Section id="process">
+                <SectionHeader badge={c.processBadge} title={c.processTitle}/>
+                <div className="process-stepper">
+                    {t.home.processSteps.map(([number, title, copy]) => <ProcessStep key={number} number={number} title={title} copy={copy}/>)}
+                </div>
+            </Section>
+
+            <Section id="proof">
+                <SectionHeader badge={c.proofBadge} title={c.proofTitle}/>
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                    {trustSignals.slice(0, 8).map((signal) => <ProofCard key={signal.title} title={signal.title} copy={signal.copy}/>)}
+                </div>
+            </Section>
+
+            <Section id="founder">
+                <div className="founder-panel">
+                    <Photo src={IMAGES.hero} alt={language === "de" ? "Carina Sophie Schoppe, CEO und Gründerin von Luminovia" : "Carina Sophie Schoppe, CEO and founder of Luminovia"} className="aspect-[4/3] rounded-[1.7rem] bg-white lg:aspect-[5/4]" imgClass="object-[50%_18%]" sizes="(min-width: 1024px) 520px, 100vw"/>
+                    <div>
+                        <p className="brand-kicker">{c.founderBadge}</p>
+                        <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-white sm:text-4xl">{c.founderTitle}</h2>
+                        <p className="mt-5 text-base leading-8 text-slate-300">{c.founderCopy}</p>
+                        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                            <Button to="/about" variant="secondary">{c.founderProfile}</Button>
+                            <Button href={PROFILE.founderPortfolio} variant="secondary">{c.founderPortfolio}</Button>
                         </div>
                     </div>
                 </div>
-            </section>
+            </Section>
 
-            <FounderSection/>
+            <Section id="faq">
+                <SectionHeader badge={c.faqBadge} title={t.home.faqTitle} copy={t.home.faqCopy}/>
+                <div className="grid items-start gap-4 md:grid-cols-2">
+                    {faqs.map((item) => (
+                        <article key={item.q} className="faq-card">
+                            <h3>{item.q}</h3>
+                            <p>{item.a}</p>
+                        </article>
+                    ))}
+                </div>
+            </Section>
+
+            <Container>
+                <div className="final-cta-panel">
+                    <div>
+                        <h2>{c.finalTitle}</h2>
+                        <p>{c.finalCopy}</p>
+                    </div>
+                    <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                        <Button to="/contact#appointment">{c.primary}</Button>
+                        <Button to="/contact#contact-options" variant="secondary">{c.request}</Button>
+                    </div>
+                </div>
+            </Container>
 
             <div id="contact-cta" className="scroll-mt-40">
                 <ConversionStrip/>

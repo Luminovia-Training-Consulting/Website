@@ -15,13 +15,13 @@ describe("App routing and language", () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Luminovia Training & Consulting für digitale Kompetenz/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training für moderne Teams/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
 
         await user.click(screen.getByRole("button", {name: /Sprache auf Englisch wechseln/i}));
 
-        expect(screen.getByRole("heading", {name: /Luminovia Training & Consulting for digital capability/i})).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /AI, IT & Digital Capability Training for Modern Teams/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
@@ -53,7 +53,7 @@ describe("App routing and language", () => {
         ["/offers", /Klare Luminovia-Angebote/i],
         ["/consulting", /Projektpraxis hinter IT-/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
-        ["/clients", /Ehemalige Kunden, Bildungspartner und Testimonial-Muster/i],
+        ["/clients", /Bildungspartner, Kooperationskontexte und Themenbereiche/i],
         ["/pricing", /Transparente Netto-Ab-Preise/i],
         ["/terms", /Terms & Conditions und Zahlungsinformationen/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
@@ -152,7 +152,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Luminovia Training & Consulting/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training/i})).toBeInTheDocument();
         await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({behavior: "auto", block: "start"}));
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
         expect(requestAnimationFrame).toHaveBeenCalled();
@@ -165,7 +165,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Luminovia Training & Consulting für digitale Kompetenz/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training für moderne Teams/i})).toBeInTheDocument();
         expect(window.scrollTo).not.toHaveBeenCalled();
 
         const trainingLink = screen.getAllByRole("link", {name: /^Training$/})

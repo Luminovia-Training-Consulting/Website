@@ -23,8 +23,8 @@ const schemaServiceOffers = [
 const routeMeta = {
     en: {
         "/": {
-            title: "Luminovia Training & Consulting | AI, IT and Digital Business",
-            description: "Luminovia provides corporate training, consulting and enablement programmes for AI, IT, cybersecurity, software, data and business technology.",
+            title: "Luminovia Training & Consulting — AI, IT & Digital Capability Training",
+            description: "Luminovia Training & Consulting provides practical AI, IT, cybersecurity, software, digital business and learning-design training, workshops and consulting for organisations, education providers and remote-first teams.",
         },
         "/training": {
             title: "Offers | IT and Business Training, Lectures & Consulting",
@@ -77,8 +77,8 @@ const routeMeta = {
     },
     de: {
         "/": {
-            title: "Luminovia Training & Consulting | AI, IT und Digital Business",
-            description: "Luminovia bietet Corporate Training, Consulting und Enablement-Programme für AI, IT, Cybersecurity, Software, Daten und Business Technology.",
+            title: "Luminovia Training & Consulting — AI, IT & Digital Capability Training",
+            description: "Luminovia Training & Consulting bietet praxisnahes AI-, IT-, Cybersecurity-, Software-, Digital-Business- und Learning-Design-Training sowie Workshops und Consulting für Organisationen, Bildungsanbieter und Remote-first-Teams.",
         },
         "/training": {
             title: "Angebote | IT- und Business-Training, Lehre & Consulting",

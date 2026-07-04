@@ -6,14 +6,14 @@ export default function ClientsPage() {
     const {language} = useLanguage();
     const copy = language === "de"
         ? {
-            badge: "Kunden",
-            title: "Ehemalige Kunden, Bildungspartner und Testimonial-Muster.",
-            intro: "Eine elegante Übersicht der Organisationen, Bildungspartner und Kooperationskontexte, die Carinas Arbeit und damit das Luminovia-Profil geprägt haben. Die Feedback-Texte sind anonymisierte Muster, keine benannten Kunden-Zitate.",
+            badge: "Lieferkontexte",
+            title: "Bildungspartner, Kooperationskontexte und Themenbereiche.",
+            intro: "Eine sorgfältige Übersicht öffentlicher Organisationen, Bildungspartner und Kooperationskontexte, die das Luminovia-Profil fachlich geprägt haben. Die Feedback-Texte sind anonymisierte Muster, keine benannten Kunden-Zitate.",
         }
         : {
-            badge: "Clients",
-            title: "Former clients, education partners and testimonial patterns.",
-            intro: "An elegant overview of the organisations, education partners and collaboration contexts that shaped Carina's work and the Luminovia profile. Feedback text is anonymised pattern language, not named customer quotes.",
+            badge: "Delivery contexts",
+            title: "Education partners, collaboration contexts and topic areas.",
+            intro: "A careful overview of public organisations, education partners and collaboration contexts that shaped the Luminovia profile. Feedback text is anonymised pattern language, not named customer quotes.",
         };
 
     return (
