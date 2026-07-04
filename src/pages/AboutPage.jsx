@@ -14,6 +14,7 @@ const copy = {
         follow: "The company is led by CEO and founder Carina Sophie Schoppe. Her background in business computer science, AI, cybersecurity, software development, didactics and consulting shapes Luminovia's professional delivery model.",
         linkedin: "View LinkedIn",
         github: "View GitHub",
+        portfolio: "View personal portfolio",
         timeline: "Company background",
         cards: [
             ["Didactic", "Complex topics are translated into structured, learner-friendly formats with exercises and transfer logic."],
@@ -25,6 +26,7 @@ const copy = {
             ["Consulting", "Advisory and implementation support for AI use cases, roadmaps, learning architecture and digital enablement.", "/consulting"],
             ["Projects", "Selected digital, software, AI research and automation projects behind Luminovia's training and consulting profile.", "/projects"],
         ],
+        founderCard: ["Founder portfolio", "Carina's personal CV, software projects, writing and public profile live separately at carinaschoppe.com. Luminovia remains the business site for company services."],
         timelineTitle: "Company and leadership background",
     },
     de: {
@@ -34,6 +36,7 @@ const copy = {
         follow: "Das Unternehmen wird von CEO und Gründerin Carina Sophie Schoppe geführt. Ihr Hintergrund in Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und Consulting prägt das professionelle Liefermodell von Luminovia.",
         linkedin: "LinkedIn ansehen",
         github: "GitHub ansehen",
+        portfolio: "Persönliches Portfolio",
         timeline: "Unternehmenshintergrund",
         cards: [
             ["Didaktisch", "Komplexe Themen werden in strukturierte, lernfreundliche Formate mit Übungen und Transferlogik übersetzt."],
@@ -45,6 +48,7 @@ const copy = {
             ["Consulting", "Beratung und Umsetzungsbegleitung für AI Use Cases, Roadmaps, Lernarchitektur und digitales Enablement.", "/consulting"],
             ["Projekte", "Ausgewählte Digital-, Software-, AI-Research- und Automatisierungsprojekte hinter dem Trainings- und Consulting-Profil von Luminovia.", "/projects"],
         ],
+        founderCard: ["Portfolio der Gründerin", "Carinas persönlicher CV, Softwareprojekte, Texte und öffentliches Profil liegen separat auf carinaschoppe.com. Luminovia bleibt die Business-Seite für Firmenleistungen."],
         timelineTitle: "Unternehmens- und Führungshintergrund",
     },
 };
@@ -66,6 +70,7 @@ export default function AboutPage() {
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                             <Button href={PROFILE.linkedin}>{c.linkedin}</Button>
                             <Button href={PROFILE.github} variant="secondary">{c.github}</Button>
+                            <Button href={PROFILE.founderPortfolio} variant="secondary">{c.portfolio}</Button>
                             <Button to="/contact#contact-options" variant="secondary">{t.nav.book}</Button>
                         </div>
                     </div>
@@ -92,6 +97,13 @@ export default function AboutPage() {
                             </div>
                         </Card>
                     ))}
+                    <Card>
+                        <h2 className="text-2xl font-black text-white">{c.founderCard[0]}</h2>
+                        <p className="mt-4 text-sm leading-7 text-slate-300">{c.founderCard[1]}</p>
+                        <div className="mt-6">
+                            <Button href={PROFILE.founderPortfolio} variant="secondary">{c.portfolio}</Button>
+                        </div>
+                    </Card>
                 </div>
 
                 <div className="mt-16">

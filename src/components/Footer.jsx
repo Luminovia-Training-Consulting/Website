@@ -21,6 +21,8 @@ export default function Footer() {
             appointment: "Termin buchen",
             website: "Website",
             topics: "Angebotsthemen",
+            founder: "Portfolio der Gründerin",
+            founderCopy: "Persönliches Profil, CV, Projekte und Texte von Carina Sophie Schoppe.",
         }
         : {
             summary: "Luminovia Training & Consulting is a remote-first company for corporate training, consulting, project support and digital enablement. Led by CEO and founder Carina Sophie Schoppe.",
@@ -31,6 +33,8 @@ export default function Footer() {
             appointment: "Book appointment",
             website: "Website",
             topics: "Offer topics",
+            founder: "Founder portfolio",
+            founderCopy: "Personal profile, CV, projects and writing by Carina Sophie Schoppe.",
         };
     return (
         <footer className="border-t border-white/10 bg-[#060914]/72 px-4 py-14 sm:px-6 lg:px-8">
@@ -76,6 +80,7 @@ export default function Footer() {
                     <div className="mt-5 flex flex-wrap gap-2">
                         <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className={linkClass}>LinkedIn</a>
                         <a href={PROFILE.github} target="_blank" rel="noreferrer" className={linkClass}>GitHub</a>
+                        <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer" className={linkClass}>{labels.founder}</a>
                     </div>
                 </div>
 
@@ -87,6 +92,10 @@ export default function Footer() {
                                 {topic}
                             </Link>
                         ))}
+                        <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer" className="rounded-2xl border border-sky-100/20 bg-sky-100/10 px-4 py-3 text-sm font-bold text-slate-200 transition hover:border-sky-100/45 hover:bg-sky-100/16 hover:text-white">
+                            <span className="block text-sky-100">{labels.founder}</span>
+                            <span className="mt-1 block text-xs font-medium leading-5 text-slate-400">{labels.founderCopy}</span>
+                        </a>
                     </div>
                 </div>
             </div>

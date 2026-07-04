@@ -12,6 +12,7 @@ export const PROFILE = {
     phoneGermany: "+49 175 5738 757",
     github: "https://github.com/Luminovia-Training-Consulting",
     linkedin: "https://www.linkedin.com/in/carinaschoppe/",
+    founderPortfolio: "https://carinaschoppe.com",
     appointmentSchedule: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1DRa4OAiQN9y8F-86ull0Jqb25hCL2ZimE4Wo5dojeEF3eSVDBMk6mGJMUG0mZxUR8wSD5-BB6?gv=true",
     analyticsId: "G-YNGD292XE5",
 };

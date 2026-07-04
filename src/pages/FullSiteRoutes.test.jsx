@@ -55,6 +55,7 @@ describe("full static site route coverage", () => {
         expect(within(headerNav).getByRole("link", {name: /^Projects$/i})).toHaveAttribute("href", "/projects");
         expect(within(headerNav).getByRole("link", {name: /^Company$/i})).toHaveAttribute("href", "/about");
         expect(within(headerNav).getByRole("link", {name: /^Contact$/i})).toHaveAttribute("href", "/contact");
+        expect(screen.getAllByRole("link", {name: /^Carina portfolio$/i})[0]).toHaveAttribute("href", "https://carinaschoppe.com");
     });
 });
 

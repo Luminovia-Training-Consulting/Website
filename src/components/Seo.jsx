@@ -192,12 +192,14 @@ function buildBaseSchema() {
         },
         areaServed: ["Germany", "Austria", "Switzerland", "Australia", "Europe", "Worldwide"],
         knowsLanguage: ["German", "English", "Spanish"],
-        sameAs: [PROFILE.linkedin, PROFILE.github],
+        sameAs: [PROFILE.linkedin, PROFILE.github, PROFILE.founderPortfolio],
         founder: {
             "@type": "Person",
             "@id": `${SITE_URL}/#carina-sophie-schoppe`,
             name: PROFILE.founder,
             jobTitle: "CEO and Founder",
+            url: PROFILE.founderPortfolio,
+            sameAs: [PROFILE.linkedin, PROFILE.founderPortfolio],
         },
         serviceType: schemaServiceOffers.map(([title]) => title),
         makesOffer: schemaServiceOffers.map(([title, description]) => ({

@@ -85,6 +85,7 @@ export default function Header({theme = "night", onToggleTheme = () => {}}) {
             </div>
             <div className="grid gap-3 border-t border-white/10 pt-5">
                 <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="rounded-[1.5rem] border border-white/14 bg-white/[0.08] px-5 py-4 text-base font-black text-white">{t.linkedin}</a>
+                <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer" className="rounded-[1.5rem] border border-white/14 bg-white/[0.08] px-5 py-4 text-base font-black text-white">{t.founderPortfolio}</a>
                 <Button to="/contact#contact-options" onClick={() => setOpen(false)}>{t.bookTraining}</Button>
             </div>
         </div>
@@ -112,6 +113,7 @@ export default function Header({theme = "night", onToggleTheme = () => {}}) {
                         <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language}/>
                         <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t}/>
                         <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white 2xl:inline-flex">{t.linkedin}</a>
+                        <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer" className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white 2xl:inline-flex">{t.founderPortfolio}</a>
                         <Button to="/contact#contact-options">{t.bookTraining}</Button>
                     </div>
 

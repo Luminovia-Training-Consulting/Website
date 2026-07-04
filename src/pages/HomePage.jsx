@@ -1,4 +1,4 @@
-import {IMAGES} from "../data/profile.js";
+import {IMAGES, PROFILE} from "../data/profile.js";
 import {useHomeContent} from "../data/homeContent.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
@@ -148,6 +148,7 @@ function FounderSection() {
             intro: "Das Unternehmen verbindet Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Didaktik und Business-Consulting zu klaren Trainings- und Beratungsformaten. Die Marke steht dabei für strukturierte Lieferung, belastbare Inhalte und professionelle Umsetzung für Organisationen.",
             imageAlt: "Carina Sophie Schoppe, CEO und Gründerin von Luminovia Training & Consulting",
             cta: "Unternehmen ansehen",
+            portfolio: "Persönliches Portfolio",
             points: [
                 ["AI | IT | Security", "fachliche Kernbereiche"],
                 ["Training + Consulting", "kombinierte Leistungsbereiche"],
@@ -161,6 +162,7 @@ function FounderSection() {
             intro: "The company connects business computer science, AI, cybersecurity, software development, didactics and business consulting into clear training and advisory formats. Luminovia stands for structured delivery, robust content and professional implementation for organisations.",
             imageAlt: "Carina Sophie Schoppe, CEO and founder of Luminovia Training & Consulting",
             cta: "View company",
+            portfolio: "Personal portfolio",
             points: [
                 ["AI | IT | Security", "core capability areas"],
                 ["Training + Consulting", "combined service divisions"],
@@ -186,7 +188,10 @@ function FounderSection() {
                         ))}
                     </div>
                     <div className="mt-7">
-                        <Button to="/about" variant="secondary">{copy.cta}</Button>
+                        <div className="flex flex-col gap-3 sm:flex-row">
+                            <Button to="/about" variant="secondary">{copy.cta}</Button>
+                            <Button href={PROFILE.founderPortfolio} variant="secondary">{copy.portfolio}</Button>
+                        </div>
                     </div>
                 </div>
             </div>
