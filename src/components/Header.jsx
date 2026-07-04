@@ -27,7 +27,25 @@ function LanguageToggle({language, toggleLanguage, className = ""}) {
     );
 }
 
-export default function Header() {
+function ThemeToggle({theme, onToggleTheme, className = ""}) {
+    const isDay = theme === "day";
+    const label = isDay ? "Switch to night scheme" : "Switch to day scheme";
+
+    return (
+        <button
+            type="button"
+            onClick={onToggleTheme}
+            className={`lumo-theme-toggle ${className}`}
+            aria-label={label}
+            aria-pressed={isDay}
+        >
+            <span className="theme-toggle-icon" data-mode={isDay ? "day" : "night"} aria-hidden="true"/>
+            <span>{isDay ? "Day" : "Night"}</span>
+        </button>
+    );
+}
+
+export default function Header({theme = "night", onToggleTheme}) {
     const [open, setOpen] = useState(false);
     const {t, toggleLanguage, language} = useLanguage();
 
@@ -47,6 +65,7 @@ export default function Header() {
                 <span className="text-lg font-black text-white">{t.navigation}</span>
                 <div className="flex gap-2">
                     <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} className="px-4 text-white"/>
+                    <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} className="px-4"/>
                     <button onClick={() => setOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.08] text-sm font-black text-white" aria-label={t.close}>
                         <span aria-hidden="true">X</span>
                     </button>
@@ -83,6 +102,7 @@ export default function Header() {
 
                     <div className="hidden items-center gap-3 xl:flex">
                         <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t}/>
+                        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme}/>
                         <Button to="/contact#contact-options">{t.bookTraining}</Button>
                     </div>
 

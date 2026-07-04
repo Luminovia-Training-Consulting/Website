@@ -4038,6 +4038,28 @@ html[data-theme="day"] header .lumo-nav-link-active {
     background: rgba(8, 30, 60, .86);
 }
 
+.lumo-theme-toggle {
+    display: inline-flex;
+    min-height: 2.65rem;
+    align-items: center;
+    gap: .55rem;
+    border: 1px solid rgba(174, 205, 255, .22);
+    border-radius: .72rem;
+    background: rgba(4, 16, 35, .68);
+    padding: 0 1rem;
+    color: #eff6ff;
+    font-size: .86rem;
+    font-weight: 900;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+    transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.lumo-theme-toggle:hover,
+.lumo-theme-toggle:focus-visible {
+    border-color: rgba(245, 184, 51, .64);
+    background: rgba(8, 30, 60, .86);
+}
+
 html[data-theme="night"] .theme-root [data-button-variant="primary"],
 html[data-theme="day"] .theme-root [data-button-variant="primary"],
 html[data-theme="night"] .mobile-menu-overlay [data-button-variant="primary"],
@@ -4498,4 +4520,200 @@ html[data-theme="day"] .mobile-menu-overlay [data-button-variant="secondary"],
     .lumo-founder-panel {
         grid-template-columns: 1fr;
     }
+}
+
+/* Luminovia day scheme for the premium redesign. */
+html[data-theme="day"] .lumo-home {
+    background:
+        radial-gradient(circle at 78% 4%, rgba(39, 143, 255, .20), transparent 24rem),
+        radial-gradient(circle at 18% 22%, rgba(245, 184, 51, .16), transparent 24rem),
+        radial-gradient(circle at 70% 58%, rgba(134, 69, 255, .12), transparent 28rem),
+        linear-gradient(180deg, #f7fbff 0%, #edf7ff 44%, #f9fbff 100%);
+    color: #102033;
+}
+
+html[data-theme="day"] .lumo-site-header {
+    border-color: rgba(14, 92, 145, .16) !important;
+    background: rgba(255, 255, 255, .78) !important;
+    box-shadow: 0 18px 56px rgba(12, 74, 110, .10) !important;
+}
+
+html[data-theme="day"] .lumo-header-brand strong,
+html[data-theme="day"] .lumo-compact-section-head h2,
+html[data-theme="day"] .lumo-route-card h3,
+html[data-theme="day"] .lumo-offer-card h3,
+html[data-theme="day"] .lumo-process-step h3,
+html[data-theme="day"] .lumo-founder-panel h2,
+html[data-theme="day"] .lumo-final-cta h2 {
+    color: #0b1f38 !important;
+}
+
+html[data-theme="day"] .lumo-header-brand small,
+html[data-theme="day"] .lumo-hero-copy > p,
+html[data-theme="day"] .lumo-route-card p,
+html[data-theme="day"] .lumo-route-card li,
+html[data-theme="day"] .lumo-offer-card p,
+html[data-theme="day"] .lumo-offer-meta,
+html[data-theme="day"] .lumo-process-step p,
+html[data-theme="day"] .lumo-founder-panel p,
+html[data-theme="day"] .lumo-final-cta p {
+    color: #38506b !important;
+}
+
+html[data-theme="day"] .lumo-hero-copy h1 {
+    color: #07182d;
+}
+
+html[data-theme="day"] .lumo-gradient-text {
+    background: linear-gradient(100deg, #07182d 0%, #07182d 54%, #156bff 73%, #8b43ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+
+html[data-theme="day"] header .lumo-nav-link,
+html[data-theme="day"] header .lumo-nav-link:not([data-button-variant]) {
+    color: #18324f !important;
+}
+
+html[data-theme="day"] header .lumo-nav-link:hover,
+html[data-theme="day"] header .lumo-nav-link-active {
+    color: #07182d !important;
+}
+
+html[data-theme="day"] .lumo-language-toggle,
+html[data-theme="day"] .lumo-theme-toggle {
+    border-color: rgba(14, 92, 145, .18) !important;
+    background: rgba(255, 255, 255, .74) !important;
+    color: #102033 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 12px 34px rgba(12, 74, 110, .08) !important;
+}
+
+html[data-theme="day"] .lumo-language-toggle:hover,
+html[data-theme="day"] .lumo-theme-toggle:hover,
+html[data-theme="day"] .lumo-language-toggle:focus-visible,
+html[data-theme="day"] .lumo-theme-toggle:focus-visible {
+    border-color: rgba(21, 107, 255, .34) !important;
+    background: #fff !important;
+}
+
+html[data-theme="day"] .lumo-hero::before {
+    opacity: .55;
+    mix-blend-mode: multiply;
+}
+
+html[data-theme="day"] .lumo-hero-chips .lumo-chip {
+    color: #294763 !important;
+}
+
+html[data-theme="day"] .lumo-orbit-visual {
+    background:
+        radial-gradient(circle at 52% 49%, rgba(42, 169, 255, .28), transparent 6.5rem),
+        radial-gradient(circle at 50% 50%, rgba(21, 107, 255, .16), transparent 13rem),
+        radial-gradient(circle at 76% 28%, rgba(139, 67, 255, .14), transparent 18rem),
+        rgba(255, 255, 255, .16);
+}
+
+html[data-theme="day"] .lumo-orbit-visual::before {
+    opacity: .72;
+}
+
+html[data-theme="day"] .lumo-orbit-core,
+html[data-theme="day"] .lumo-orbit-node {
+    border-color: rgba(21, 107, 255, .22);
+    background: rgba(255, 255, 255, .72);
+    color: #0b1f38;
+    box-shadow: 0 18px 60px rgba(12, 74, 110, .12), inset 0 1px 0 rgba(255, 255, 255, .88);
+}
+
+html[data-theme="day"] .lumo-orbit-core strong,
+html[data-theme="day"] .lumo-orbit-core span,
+html[data-theme="day"] .lumo-orbit-node strong,
+html[data-theme="day"] .lumo-orbit-node span {
+    color: #0b1f38 !important;
+}
+
+html[data-theme="day"] .lumo-trust-rail,
+html[data-theme="day"] .lumo-route-card,
+html[data-theme="day"] .lumo-offer-card,
+html[data-theme="day"] .lumo-founder-panel,
+html[data-theme="day"] .lumo-final-cta {
+    border-color: rgba(21, 107, 255, .16) !important;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(42, 169, 255, .12), transparent 38%),
+        radial-gradient(circle at 90% 10%, rgba(139, 67, 255, .09), transparent 36%),
+        linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(239, 248, 255, .82)) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .86), 0 22px 70px rgba(12, 74, 110, .10) !important;
+}
+
+html[data-theme="day"] .lumo-trust-item {
+    border-color: rgba(21, 107, 255, .12);
+}
+
+html[data-theme="day"] .lumo-trust-item strong,
+html[data-theme="day"] .lumo-trust-item p {
+    color: #18324f !important;
+}
+
+html[data-theme="day"] .lumo-route-card[data-tone="blue"],
+html[data-theme="day"] .lumo-offer-card[data-tone="blue"] {
+    background:
+        radial-gradient(circle at 16% 0%, rgba(21, 107, 255, .18), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(228, 240, 255, .88)) !important;
+}
+
+html[data-theme="day"] .lumo-route-card[data-tone="teal"],
+html[data-theme="day"] .lumo-offer-card[data-tone="cyan"],
+html[data-theme="day"] .lumo-offer-card[data-tone="teal"] {
+    background:
+        radial-gradient(circle at 16% 0%, rgba(20, 184, 166, .18), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(224, 251, 248, .84)) !important;
+}
+
+html[data-theme="day"] .lumo-route-card[data-tone="violet"],
+html[data-theme="day"] .lumo-offer-card[data-tone="violet"] {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(139, 67, 255, .17), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(241, 235, 255, .86)) !important;
+}
+
+html[data-theme="day"] .lumo-offer-card[data-tone="gold"] {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(245, 184, 51, .22), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(255, 246, 222, .86)) !important;
+}
+
+html[data-theme="day"] .lumo-offer-arrow {
+    border-color: rgba(21, 107, 255, .20);
+    background: rgba(255, 255, 255, .78);
+    color: #0b1f38;
+}
+
+html[data-theme="day"] .lumo-process-timeline::before {
+    opacity: .48;
+}
+
+html[data-theme="day"] .lumo-process-node {
+    border-color: rgba(21, 107, 255, .26);
+    background: #fff;
+    color: #156bff;
+    box-shadow: 0 12px 34px rgba(21, 107, 255, .16);
+}
+
+html[data-theme="day"] .lumo-section-label,
+html[data-theme="day"] .lumo-founder-media a,
+html[data-theme="day"] .lumo-founder-tags .lumo-chip {
+    color: #9a6400 !important;
+}
+
+html[data-theme="day"] .lumo-founder-media a {
+    border-color: rgba(154, 100, 0, .20);
+    background: rgba(255, 255, 255, .78);
+}
+
+html[data-theme="day"] .lumo-final-cta {
+    background:
+        radial-gradient(circle at 8% 10%, rgba(245, 184, 51, .30), transparent 15rem),
+        radial-gradient(circle at 92% 50%, rgba(139, 67, 255, .20), transparent 18rem),
+        linear-gradient(105deg, rgba(255, 255, 255, .96), rgba(232, 244, 255, .86)) !important;
 }

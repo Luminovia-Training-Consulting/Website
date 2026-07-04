@@ -8,13 +8,16 @@ import Header from "./components/Header.jsx";
 import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import {isChunkLoadError, safeGetSessionItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
+import {isChunkLoadError, safeGetSessionItem, safeGetStorageItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
 
 const CHUNK_RECOVERY_KEY = "carina_chunk_recovery_v1";
 const THEME_KEY = "carina_color_scheme_v1";
 const ROUTER_BASENAME = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function getInitialTheme() {
+    const storedTheme = safeGetStorageItem(THEME_KEY);
+    if (storedTheme === "day" || storedTheme === "night") return storedTheme;
+
     return "night";
 }
 

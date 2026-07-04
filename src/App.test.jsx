@@ -37,6 +37,21 @@ describe("App routing and language", () => {
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
 
+    it("toggles and persists the day color scheme", async () => {
+        const user = userEvent.setup();
+
+        render(<App/>);
+
+        expect(await screen.findByRole("button", {name: /Switch to day scheme/i})).toBeInTheDocument();
+        expect(document.documentElement.dataset.theme).toBe("night");
+
+        await user.click(screen.getByRole("button", {name: /Switch to day scheme/i}));
+
+        expect(document.documentElement.dataset.theme).toBe("day");
+        expect(window.localStorage.getItem("carina_color_scheme_v1")).toBe("day");
+        expect(screen.getByRole("button", {name: /Switch to night scheme/i})).toBeInTheDocument();
+    });
+
     it("keeps English after the visitor explicitly selected it", async () => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Training", "/training");
