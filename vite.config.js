@@ -13,7 +13,7 @@ const legacyEntryChunkNames = [
 ];
 
 const prerenderRoutes = [
-    ["/training", "Offers | IT and Business Training, Lectures & Consulting", "Book IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation."],
+    ["/training", "Training | AI, IT & Digital Capability Training", "Explore practical AI training, IT training, cybersecurity training, software, data, digital business and curriculum-design workshops for organisations and education providers."],
     ["/offers", "Offers | Luminovia Training & Consulting", "Clear Luminovia packages for live training, consulting sprints, project support, keynotes, curriculum design and larger digital enablement programmes."],
     ["/consulting", "Consulting | IT, AI and Business Advisory", "Consulting portfolio for AI use cases, IT and process advisory, business technology, curriculum design, roadmaps and digital enablement."],
     ["/training/ai-genai-training", "AI & GenAI Training | Luminovia", "Practical AI and generative AI training for teams, education providers and organisations that need usable AI capability."],
@@ -37,10 +37,10 @@ const prerenderRoutes = [
     ["/training/languages-communication-presentation", "Languages, Communication & Presentation | Luminovia", "Training for technical explanation, academic writing, business communication, presentation, public speaking and multilingual delivery."],
     ["/projects", "Project Portfolio | AI Research, Automation and Consulting Projects", "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation."],
     ["/portfolio", "Consulting Portfolio | IT and Business Consulting", "Portfolio and proof for IT consulting, AI consulting, business consulting, digital education, technical project practice and professional training delivery."],
-    ["/clients", "Clients | Education Partners and Collaborations", "Selected clients, education providers, universities, academies and collaboration partners supported through teaching, training and research work."],
+    ["/clients", "Delivery Contexts | Education, Training and Collaboration Proof", "Selected public delivery contexts, education partners, topic areas and collaboration proof behind Luminovia's training and consulting profile."],
     ["/pricing", "Pricing | IT and Business Training Rates", "Transparent orientation rates for education-sector teaching, corporate training, talks and workshops, plus consulting and project implementation pricing on request."],
     ["/about", "Company | Luminovia Training & Consulting", "Company profile for Luminovia Training & Consulting, led by CEO and founder Carina Sophie Schoppe."],
-    ["/contact", "Contact & Booking | Book IT and Business Training", "Contact Luminovia for training, consulting, workshops, talks, course delivery and programme planning by email, phone or calendar booking."],
+    ["/contact", "Contact & Booking | Book Training or Consulting", "Contact Luminovia to book AI, IT and digital capability training, consulting, workshops, talks, course delivery or programme planning."],
     ["/imprint", "Imprint | Luminovia", "Legal notice and contact details for Luminovia Training & Consulting."],
     ["/privacy", "Privacy Policy | Luminovia", "Privacy policy for the Luminovia website, including analytics and contact information."],
     ["/terms", "Terms & Conditions | Luminovia", "Terms and conditions, payment terms and bank information for Luminovia Training & Consulting invoices and services."],

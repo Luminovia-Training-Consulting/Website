@@ -7,8 +7,8 @@ import {useLanguage} from "../i18n.jsx";
 
 function navClass({isActive}) {
     return isActive
-        ? "rounded-full bg-white px-3 py-2 text-sm font-bold text-zinc-950 shadow-[0_12px_34px_rgba(37,99,235,.18)]"
-        : "rounded-full px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.08] hover:text-white";
+        ? "rounded-[0.65rem] bg-sky-300/14 px-3 py-2 text-sm font-black text-white ring-1 ring-sky-200/28 shadow-[0_10px_28px_rgba(14,165,233,.16)]"
+        : "rounded-[0.65rem] px-3 py-2 text-sm font-bold text-slate-300 transition hover:bg-white/[0.07] hover:text-white";
 }
 
 function FlagIcon({country}) {
@@ -31,28 +31,7 @@ function LanguageToggle({language, toggleLanguage, t, className = ""}) {
     );
 }
 
-function ThemeToggle({theme, onToggleTheme, language, className = ""}) {
-    const isDay = theme === "day";
-    const visibleLabel = language === "de" ? isDay ? "Tag" : "Nacht" : isDay ? "Day" : "Night";
-    const label = language === "de"
-        ? isDay ? "Farbschema auf Nacht wechseln" : "Farbschema auf Tag wechseln"
-        : isDay ? "Switch colour scheme to night" : "Switch colour scheme to day";
-
-    return (
-        <button
-            type="button"
-            onClick={onToggleTheme}
-            className={`theme-toggle inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.055] px-3 py-2 text-sm font-black text-zinc-200 transition hover:bg-white/[0.12] hover:text-white ${className}`}
-            aria-label={label}
-            aria-pressed={isDay}
-        >
-            <span className="theme-toggle-icon" data-mode={theme} aria-hidden="true"/>
-            <span>{visibleLabel}</span>
-        </button>
-    );
-}
-
-export default function Header({theme = "night", onToggleTheme = () => {}}) {
+export default function Header() {
     const [open, setOpen] = useState(false);
     const {t, toggleLanguage, language} = useLanguage();
 
@@ -71,7 +50,6 @@ export default function Header({theme = "night", onToggleTheme = () => {}}) {
             <div className="sticky top-0 z-10 -mx-5 mb-8 flex items-center justify-between border-b border-white/10 bg-[#08090B]/92 px-5 py-4">
                 <span className="text-lg font-black text-white">{t.navigation}</span>
                 <div className="flex gap-2">
-                    <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language} className="px-4 text-white"/>
                     <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} className="px-4 text-white"/>
                     <button onClick={() => setOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.08] text-sm font-black text-white" aria-label={t.close}>
                         <span aria-hidden="true">X</span>
@@ -93,15 +71,15 @@ export default function Header({theme = "night", onToggleTheme = () => {}}) {
 
     return (
         <>
-            <header className="relative z-50 border-b border-white/10 bg-[#08090B]/62 shadow-[0_14px_50px_rgba(0,0,0,.18)] backdrop-blur-2xl">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+            <header className="sticky top-0 z-50 border-b border-sky-200/10 bg-[#050816]/86 shadow-[0_16px_54px_rgba(0,0,0,.36)] backdrop-blur-2xl">
+                <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
                     <NavLink to="/" className="group flex items-center gap-3 text-left" aria-label="Luminovia Training & Consulting home">
-                        <div className="luminovia-logo-shell grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_10px_32px_rgba(37,99,235,.22)] transition duration-500 group-hover:rotate-2">
-                            <img src={IMAGES.luminoviaLogoMark} alt="" className="h-11 w-11 object-cover object-center" loading="eager" width="44" height="44"/>
+                        <div className="luminovia-logo-shell grid h-11 w-11 place-items-center overflow-hidden rounded-[0.85rem] border border-sky-100/20 bg-white shadow-[0_10px_32px_rgba(37,99,235,.22)] transition duration-300 group-hover:-translate-y-0.5">
+                            <img src={IMAGES.luminoviaLogoMark} alt="" className="h-10 w-10 object-contain p-1" loading="eager" width="40" height="40"/>
                         </div>
                         <div className="hidden sm:block">
                             <div className="text-sm font-black tracking-tight text-white">Luminovia</div>
-                            <div className="text-[11px] uppercase tracking-[0.16em] text-zinc-400">{t.headerTagline}</div>
+                            <div className="text-[10px] uppercase tracking-[0.15em] text-slate-400">{t.headerTagline}</div>
                         </div>
                     </NavLink>
 
@@ -110,14 +88,11 @@ export default function Header({theme = "night", onToggleTheme = () => {}}) {
                     </nav>
 
                     <div className="hidden items-center gap-3 xl:flex">
-                        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language}/>
                         <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t}/>
-                        <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white 2xl:inline-flex">{t.linkedin}</a>
-                        <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer" className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/[0.09] hover:text-white 2xl:inline-flex">{t.founderPortfolio}</a>
                         <Button to="/contact#contact-options">{t.bookTraining}</Button>
                     </div>
 
-                    <button className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-black text-white backdrop-blur-xl xl:hidden" onClick={() => setOpen(true)} aria-label={`${t.open} ${t.menu}`}>{t.menu}</button>
+                    <button className="rounded-[0.72rem] border border-sky-200/16 bg-white/[0.06] px-4 py-2 text-sm font-black text-white backdrop-blur-xl xl:hidden" onClick={() => setOpen(true)} aria-label={`${t.open} ${t.menu}`}>{t.menu}</button>
                 </div>
             </header>
 

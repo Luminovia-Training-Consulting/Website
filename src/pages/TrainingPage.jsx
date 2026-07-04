@@ -143,7 +143,7 @@ export default function TrainingPage() {
                         </div>
                         <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
                             <Button to="/contact#contact-options">{t.bookConsultation}</Button>
-                            <Button to="/portfolio#consulting" variant="secondary">{language === "de" ? "Consulting ansehen" : "View consulting"}</Button>
+                            <Button to="/consulting" variant="secondary">{language === "de" ? "Consulting ansehen" : "View consulting"}</Button>
                         </div>
                     </div>
                 </section>

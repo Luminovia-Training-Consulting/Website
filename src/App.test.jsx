@@ -51,7 +51,7 @@ describe("App routing and language", () => {
         ["/contact", /Kontakt für Luminovia Training/i],
         ["/about", /Luminovia Training & Consulting steht/i],
         ["/offers", /Klare Luminovia-Angebote/i],
-        ["/consulting", /Projektpraxis hinter IT-/i],
+        ["/consulting", /Consulting fuer AI, IT und digitale Kompetenz/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
         ["/clients", /Bildungspartner, Kooperationskontexte und Themenbereiche/i],
         ["/pricing", /Transparente Netto-Ab-Preise/i],
@@ -70,7 +70,7 @@ describe("App routing and language", () => {
     it.each([
         ["/training/", /Konkrete Luminovia-Angebote/i],
         ["/offers/", /Klare Luminovia-Angebote/i],
-        ["/consulting/", /Projektpraxis hinter IT-/i],
+        ["/consulting/", /Consulting fuer AI, IT und digitale Kompetenz/i],
         ["/projects/", /Projekte, die Luminovia-Training/i],
         ["/pricing/", /Transparente Netto-Ab-Preise/i],
         ["/terms/", /Terms & Conditions und Zahlungsinformationen/i],

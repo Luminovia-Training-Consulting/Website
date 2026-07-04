@@ -45,19 +45,22 @@ export function LogoSystemVisual({logoFull, logoMark, alt, labels}) {
     return (
         <div className="luminovia-system-visual" aria-label={alt}>
             <div className="system-orbit" aria-hidden="true"/>
+            <div className="system-connector system-connector-a" aria-hidden="true"/>
+            <div className="system-connector system-connector-b" aria-hidden="true"/>
             <div className="system-logo-panel">
-                <img src={logoFull} alt={alt} width="720" height="720" loading="eager" fetchPriority="high"/>
+                <img src={logoMark} alt={alt} width="256" height="256" loading="eager" fetchPriority="high"/>
+                <span>Luminovia</span>
             </div>
             <div className="system-node-grid">
                 {nodes.map((node, index) => (
                     <div key={node} className="system-node-card">
-                        <span className="system-node-index">{String(index + 1).padStart(2, "0")}</span>
+                        <span className="system-node-index">{["AI", "IT", "SEC", "DE", "LD"][index] || String(index + 1).padStart(2, "0")}</span>
                         <span>{node}</span>
                     </div>
                 ))}
             </div>
             <div className="system-route-card">
-                <img src={logoMark} alt="" width="72" height="72" loading="eager"/>
+                <img src={logoFull} alt="" width="160" height="72" loading="eager"/>
                 <div>
                     <span>{labels[5]}</span>
                     <strong>{labels[6]}</strong>

@@ -7,7 +7,6 @@ import Button from "../components/Button.jsx";
 import ConversionStrip from "../components/ConversionStrip.jsx";
 import Photo from "../components/Photo.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
-import StickyBookingBar from "../components/StickyBookingBar.jsx";
 import {
     CapabilityChip,
     Container,
@@ -24,6 +23,7 @@ import {
 function copyForLanguage(language) {
     return language === "de"
         ? {
+            heroBadge: "Remote-first Training & Consulting",
             heroTitle: "AI, IT & Digital Capability Training für moderne Teams",
             heroIntro: "Luminovia entwickelt und liefert praxisnahe Workshops, Trainingsprogramme und Consulting für Organisationen, die nutzbare digitale Kompetenz brauchen: AI, IT, Cybersecurity, Software, Daten, Business Technology und Learning Design.",
             primary: "Discovery Call buchen",
@@ -71,6 +71,7 @@ function copyForLanguage(language) {
             jumpNav: [["#routes", "Formate"], ["#offers", "Angebote"], ["#consulting", "Consulting"], ["#process", "Prozess"], ["#proof", "Nachweise"], ["#founder", "Founder"], ["#faq", "FAQ"], ["#contact-cta", "Kontakt"]],
         }
         : {
+            heroBadge: "Remote-first training & consulting",
             heroTitle: "AI, IT & Digital Capability Training for Modern Teams",
             heroIntro: "Luminovia designs and delivers practical workshops, training programmes and consulting for organisations that need usable digital skills: AI, IT, cybersecurity, software, data, business technology and learning design.",
             primary: "Book discovery call",
@@ -122,8 +123,8 @@ function copyForLanguage(language) {
 export default function HomePage() {
     const {language, t} = useLanguage();
     const c = copyForLanguage(language);
-    const {trustStats, serviceOfferings, faqs} = useHomeContent();
-    const {trustSignals} = useSiteContent();
+    const {trustStats, faqs} = useHomeContent();
+    const {trustSignals, serviceOfferings} = useSiteContent();
     const featuredOffers = serviceOfferings.slice(0, 8);
     const heroChips = language === "de"
         ? ["AI Enablement", "IT & Cybersecurity", "DE / EN", "Remote-first", "Workshops bis Programme"]
@@ -137,6 +138,7 @@ export default function HomePage() {
                 <div className="premium-hero-bg" aria-hidden="true"/>
                 <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.98fr_1.02fr]">
                     <div>
+                        <p className="brand-kicker mb-5">{c.heroBadge}</p>
                         <h1 className="hero-title max-w-5xl text-4xl font-black tracking-[-0.045em] text-white sm:text-5xl lg:text-7xl">
                             <GradientText>{c.heroTitle}</GradientText>
                         </h1>
@@ -225,7 +227,7 @@ export default function HomePage() {
 
             <Section id="founder">
                 <div className="founder-panel">
-                    <Photo src={IMAGES.hero} alt={language === "de" ? "Carina Sophie Schoppe, CEO und Gründerin von Luminovia" : "Carina Sophie Schoppe, CEO and founder of Luminovia"} className="aspect-[4/3] rounded-[1.7rem] bg-white lg:aspect-[5/4]" imgClass="object-[50%_18%]" sizes="(min-width: 1024px) 520px, 100vw"/>
+                    <Photo src={IMAGES.headshot} alt={language === "de" ? "Carina Sophie Schoppe, CEO und Gründerin von Luminovia" : "Carina Sophie Schoppe, CEO and founder of Luminovia"} className="aspect-[4/3] rounded-[1.7rem] bg-white lg:aspect-[5/4]" imgClass="object-[50%_20%]" loading="eager" sizes="(min-width: 1024px) 520px, 100vw"/>
                     <div>
                         <p className="brand-kicker">{c.founderBadge}</p>
                         <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-white sm:text-4xl">{c.founderTitle}</h2>
@@ -266,7 +268,6 @@ export default function HomePage() {
             <div id="contact-cta" className="scroll-mt-40">
                 <ConversionStrip/>
             </div>
-            <StickyBookingBar/>
         </main>
     );
 }

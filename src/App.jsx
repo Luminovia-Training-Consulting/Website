@@ -8,21 +8,14 @@ import Header from "./components/Header.jsx";
 import Seo from "./components/Seo.jsx";
 import {LanguageProvider} from "./i18n.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import {isChunkLoadError, safeGetSessionItem, safeGetStorageItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
+import {isChunkLoadError, safeGetSessionItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
 
 const CHUNK_RECOVERY_KEY = "carina_chunk_recovery_v1";
 const THEME_KEY = "carina_color_scheme_v1";
 const ROUTER_BASENAME = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function getInitialTheme() {
-    const storedTheme = safeGetStorageItem(THEME_KEY);
-    if (storedTheme === "day" || storedTheme === "night") return storedTheme;
-
-    try {
-        return globalThis.matchMedia?.("(prefers-color-scheme: light)")?.matches ? "day" : "night";
-    } catch {
-        return "night";
-    }
+    return "night";
 }
 
 function lazyWithRecovery(loader) {
@@ -48,6 +41,7 @@ function lazyWithRecovery(loader) {
 const TrainingPage = lazyWithRecovery(() => import("./pages/TrainingPage.jsx"));
 const TrainingTopicPage = lazyWithRecovery(() => import("./pages/TrainingTopicPage.jsx"));
 const PortfolioPage = lazyWithRecovery(() => import("./pages/PortfolioPage.jsx"));
+const ConsultingPage = lazyWithRecovery(() => import("./pages/ConsultingPage.jsx"));
 const OffersPage = lazyWithRecovery(() => import("./pages/OffersPage.jsx"));
 const ClientsPage = lazyWithRecovery(() => import("./pages/ClientsPage.jsx"));
 const AboutPage = lazyWithRecovery(() => import("./pages/AboutPage.jsx"));
@@ -208,7 +202,7 @@ export default function App() {
                             {pageRoutes("/offers", OffersPage)}
                             {pageRoutes("/training/:slug", TrainingTopicPage)}
                             {pageRoutes("/portfolio", PortfolioPage)}
-                            {pageRoutes("/consulting", PortfolioPage)}
+                            {pageRoutes("/consulting", ConsultingPage)}
                             {pageRoutes("/clients", ClientsPage)}
                             {pageRoutes("/about", AboutPage)}
                             {pageRoutes("/contact", ContactPage)}

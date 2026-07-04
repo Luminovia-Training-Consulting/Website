@@ -27,8 +27,8 @@ const routeMeta = {
             description: "Luminovia Training & Consulting provides practical AI, IT, cybersecurity, software, digital business and learning-design training, workshops and consulting for organisations, education providers and remote-first teams.",
         },
         "/training": {
-            title: "Offers | IT and Business Training, Lectures & Consulting",
-            description: "Book IT and business technology offers: live training, lectures, workshops, consulting sprints, project support, AI governance, cybersecurity and digital transformation.",
+            title: "Training | AI, IT & Digital Capability Training",
+            description: "Explore practical AI training, IT training, cybersecurity training, software, data, digital business and curriculum-design workshops for organisations and education providers.",
         },
         "/offers": {
             title: "Offers | Luminovia Training & Consulting",
@@ -47,8 +47,8 @@ const routeMeta = {
             description: "Portfolio and proof for IT consulting, AI consulting, business consulting, digital education, technical project practice and professional training delivery.",
         },
         "/clients": {
-            title: "Clients | Education Partners and Collaborations",
-            description: "Selected clients, education providers, universities, academies and collaboration partners supported through teaching, training and research work.",
+            title: "Delivery Contexts | Education, Training and Collaboration Proof",
+            description: "Selected public delivery contexts, education partners, topic areas and collaboration proof behind Luminovia's training and consulting profile.",
         },
         "/pricing": {
             title: "Pricing | IT and Business Training Rates",
@@ -59,8 +59,8 @@ const routeMeta = {
             description: "Company profile for Luminovia Training & Consulting, led by CEO and founder Carina Sophie Schoppe.",
         },
         "/contact": {
-            title: "Contact & Booking | Book IT and Business Training",
-            description: "Contact Luminovia for training, consulting, workshops, talks, course delivery and programme planning by email, phone or calendar booking.",
+            title: "Contact & Booking | Book Training or Consulting",
+            description: "Contact Luminovia to book AI, IT and digital capability training, consulting, workshops, talks, course delivery or programme planning.",
         },
         "/imprint": {
             title: "Imprint | Luminovia",
@@ -81,8 +81,8 @@ const routeMeta = {
             description: "Luminovia Training & Consulting bietet praxisnahes AI-, IT-, Cybersecurity-, Software-, Digital-Business- und Learning-Design-Training sowie Workshops und Consulting für Organisationen, Bildungsanbieter und Remote-first-Teams.",
         },
         "/training": {
-            title: "Angebote | IT- und Business-Training, Lehre & Consulting",
-            description: "Buchbare IT- und Business-Technology-Angebote: Live-Training, Vorlesungen, Workshops, Consulting-Sprints, Projektbegleitung, AI Governance, Cybersecurity und digitale Transformation.",
+            title: "Training | AI, IT & Digital Capability Training",
+            description: "Praxisnahes AI-Training, IT-Training, Cybersecurity-Training, Software, Daten, Digital Business und Curriculum Design fuer Organisationen und Bildungsanbieter.",
         },
         "/offers": {
             title: "Angebote | Luminovia Training & Consulting",
@@ -101,8 +101,8 @@ const routeMeta = {
             description: "Portfolio und Nachweise für IT-Consulting, AI-Consulting, Business-Consulting, digitale Bildung, technische Projektpraxis und professionelle Trainingsdurchführung.",
         },
         "/clients": {
-            title: "Kunden | Bildungspartner und Kooperationen",
-            description: "Ausgewählte Kunden, Bildungsanbieter, Hochschulen, Akademien und Kooperationspartner aus Lehre, Training und Forschungsarbeit.",
+            title: "Lieferkontexte | Bildung, Training und Kooperationsnachweise",
+            description: "Ausgewaehlte oeffentliche Lieferkontexte, Bildungspartner, Themenbereiche und Kooperationsnachweise hinter dem Trainings- und Consulting-Profil von Luminovia.",
         },
         "/pricing": {
             title: "Preise | IT- und Business-Training",
@@ -113,8 +113,8 @@ const routeMeta = {
             description: "Unternehmensprofil von Luminovia Training & Consulting, geführt von CEO und Gründerin Carina Sophie Schoppe.",
         },
         "/contact": {
-            title: "Kontakt & Buchung | IT- und Business-Training buchen",
-            description: "Kontaktieren Sie Luminovia für Training, Consulting, Workshops, Vorträge, Kursdurchführung und Programmplanung per E-Mail, Telefon oder Kalenderbuchung.",
+            title: "Kontakt & Buchung | Training oder Consulting buchen",
+            description: "Kontaktieren Sie Luminovia fuer AI-, IT- und Digital-Capability-Training, Consulting, Workshops, Vortraege, Kursdurchfuehrung oder Programmplanung.",
         },
         "/imprint": {
             title: "Impressum | Luminovia",

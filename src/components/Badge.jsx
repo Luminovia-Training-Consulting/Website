@@ -13,7 +13,7 @@ export default function Badge({children, tone = "cyan"}) {
     };
 
     return (
-        <span data-accent={tone} className={cn("color-badge rainbow-edge inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] backdrop-blur-xl", tones[tone])}>
+        <span data-accent={tone} className={cn("color-badge lumo-badge inline-flex items-center gap-2 rounded-[0.62rem] border px-3.5 py-1.5 text-xs font-black uppercase tracking-[0.12em] backdrop-blur-xl", tones[tone])}>
       <span className="h-1.5 w-1.5 rounded-full bg-current shadow-[0_0_18px_currentColor]"/>
             {children}
     </span>

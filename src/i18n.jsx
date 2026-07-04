@@ -180,7 +180,7 @@ const dictionaries = {
             calendarFallback: "Book a call",
             briefTitle: "Helpful details for a fast reply",
             briefCopy: "A short request is enough. These details help Luminovia recommend the right format, scope and next step.",
-            briefItems: ["topic or training goal", "audience and learner level", "preferred timeframe", "format: talk, workshop or course", "language: English or German"],
+            briefItems: ["topic or training goal", "audience and learner level", "desired format", "preferred timeframe", "target outcome", "language and time zone"],
         },
         analytics: {
             title: "Privacy-friendly analytics",
@@ -373,7 +373,7 @@ const dictionaries = {
             calendarFallback: "Termin buchen",
             briefTitle: "Hilfreiche Angaben für eine schnelle Rückmeldung",
             briefCopy: "Eine kurze Anfrage reicht. Diese Angaben helfen Luminovia, Format, Umfang und nächsten Schritt passend vorzuschlagen.",
-            briefItems: ["Thema oder Trainingsziel", "Zielgruppe und Wissensstand", "gewünschter Zeitraum", "Format: Vortrag, Workshop oder Kurs", "Sprache: Deutsch oder Englisch"],
+            briefItems: ["Thema oder Trainingsziel", "Zielgruppe und Wissensstand", "gewünschtes Format", "gewünschter Zeitraum", "Ziel oder Ergebnis", "Sprache und Zeitzone"],
         },
         analytics: {
             title: "Datenschutzfreundliche Analyse",

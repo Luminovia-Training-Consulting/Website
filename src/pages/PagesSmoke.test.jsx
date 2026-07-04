@@ -11,7 +11,7 @@ const routes = [
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/projects", /Projects that make Luminovia/i],
     ["/portfolio", /Project practice behind IT/i],
-    ["/consulting", /Project practice behind IT/i],
+    ["/consulting", /Consulting for AI, IT and digital capability/i],
     ["/clients", /Education partners, collaboration contexts and topic areas/i],
     ["/about", /Luminovia Training & Consulting is built/i],
     ["/pricing", /Transparent starting rates/i],

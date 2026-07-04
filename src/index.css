@@ -1904,6 +1904,16 @@ header nav a[aria-current="page"]::after {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 34px 130px rgba(0, 0, 0, .36), 0 0 80px rgba(14, 165, 233, .10);
 }
 
+.luminovia-system-visual::after {
+    content: "";
+    position: absolute;
+    inset: 12% 10% 24%;
+    border-radius: 999px;
+    border: 1px dashed rgba(186, 230, 253, .16);
+    transform: rotate(10deg);
+    pointer-events: none;
+}
+
 .luminovia-system-visual::before {
     content: "";
     position: absolute;
@@ -2340,6 +2350,66 @@ header nav a[aria-current="page"]::after {
         grid-template-columns: 1fr auto;
         padding: 2rem;
     }
+
+    .luminovia-system-visual {
+        min-height: 39rem;
+        display: grid;
+        place-items: center;
+    }
+
+    .system-logo-panel {
+        width: min(58%, 26rem);
+        margin-top: -1.4rem;
+    }
+
+    .system-node-grid {
+        position: absolute;
+        inset: 1.3rem;
+        z-index: 2;
+        display: block;
+        pointer-events: none;
+    }
+
+    .system-node-card {
+        position: absolute;
+        width: min(13.25rem, 34%);
+        min-height: 5rem;
+        backdrop-filter: blur(18px);
+    }
+
+    .system-node-card:nth-child(1) {
+        left: 50%;
+        top: .2rem;
+        transform: translateX(-50%);
+    }
+
+    .system-node-card:nth-child(2) {
+        left: 0;
+        top: 22%;
+    }
+
+    .system-node-card:nth-child(3) {
+        right: 0;
+        top: 22%;
+    }
+
+    .system-node-card:nth-child(4) {
+        left: 9%;
+        bottom: 18%;
+    }
+
+    .system-node-card:nth-child(5) {
+        right: 9%;
+        bottom: 18%;
+    }
+
+    .system-route-card {
+        position: absolute;
+        left: 50%;
+        bottom: 1.3rem;
+        width: min(24rem, calc(100% - 2.6rem));
+        transform: translateX(-50%);
+    }
 }
 
 @media (max-width: 1023px) {
@@ -2453,4 +2523,434 @@ html[data-theme="day"] .final-cta-panel p {
 html[data-theme="day"] .system-logo-panel,
 html[data-theme="day"] .system-route-card img {
     background: #ffffff !important;
+}
+
+/* Full Luminovia premium redesign pass. */
+html {
+    background: #050816;
+}
+
+.theme-root {
+    --lumo-bg: #050816;
+    --lumo-bg-2: #07111f;
+    --lumo-surface: #081426;
+    --lumo-surface-2: #0b1730;
+    --lumo-line: rgba(125, 211, 252, .14);
+    --lumo-line-strong: rgba(125, 211, 252, .28);
+    --lumo-text: #f8fbff;
+    --lumo-muted: #a8b7cc;
+    --lumo-cyan: #58b6ff;
+    --lumo-blue: #0b63f6;
+    --lumo-gold: #f5b12a;
+    --lumo-violet: #8b5cf6;
+    background: #050816;
+    color: var(--lumo-text);
+    font-feature-settings: "ss01" on, "cv01" on;
+}
+
+.theme-root::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(125, 211, 252, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 211, 252, .035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+
+.ambient-veil {
+    background:
+        radial-gradient(900px 620px at 16% 0%, rgba(11, 99, 246, .24), transparent 58%),
+        radial-gradient(760px 560px at 90% 6%, rgba(88, 182, 255, .16), transparent 56%),
+        radial-gradient(760px 520px at 82% 74%, rgba(139, 92, 246, .14), transparent 58%),
+        radial-gradient(720px 480px at 16% 86%, rgba(245, 177, 42, .12), transparent 58%),
+        linear-gradient(180deg, #050816 0%, #07111f 44%, #050816 100%) !important;
+}
+
+.ambient-wash,
+.ambient-ribbon,
+.polygon-field,
+.ambient-grid {
+    opacity: .42 !important;
+}
+
+.theme-root main[class*="pt-32"] {
+    padding-top: 5.5rem !important;
+}
+
+header .luminovia-logo-shell {
+    border-radius: .85rem !important;
+    box-shadow: 0 14px 42px rgba(11, 99, 246, .22), 0 0 28px rgba(88, 182, 255, .08) !important;
+}
+
+.luminovia-logo-shell img {
+    transform: none !important;
+}
+
+.flag-icon,
+.theme-toggle-icon {
+    border-radius: 999px;
+}
+
+.mobile-menu-overlay {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(88, 182, 255, .20), transparent 42%),
+        linear-gradient(180deg, rgba(5, 8, 22, .98), rgba(8, 20, 38, .98)) !important;
+}
+
+.brand-kicker,
+.lumo-badge {
+    border-radius: .66rem !important;
+    border-color: rgba(125, 211, 252, .22) !important;
+    background: linear-gradient(135deg, rgba(88, 182, 255, .13), rgba(11, 99, 246, .08), rgba(245, 177, 42, .08)) !important;
+    color: #dff3ff !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 10px 28px rgba(11, 99, 246, .10) !important;
+}
+
+.brand-kicker::before {
+    background: #f5b12a !important;
+    box-shadow: 0 0 20px rgba(245, 177, 42, .75) !important;
+}
+
+.premium-hero-bg {
+    background:
+        radial-gradient(760px 440px at 18% 8%, rgba(88, 182, 255, .16), transparent 58%),
+        radial-gradient(640px 420px at 82% 12%, rgba(11, 99, 246, .22), transparent 60%),
+        radial-gradient(540px 360px at 82% 78%, rgba(245, 177, 42, .13), transparent 62%),
+        linear-gradient(180deg, rgba(255, 255, 255, .035), transparent 62%) !important;
+}
+
+.hero-title {
+    letter-spacing: -.055em !important;
+    text-shadow: 0 18px 70px rgba(0, 0, 0, .50);
+}
+
+.capability-chip {
+    min-height: 2.05rem !important;
+    border-radius: .7rem !important;
+    border-color: rgba(125, 211, 252, .18) !important;
+    background: rgba(8, 20, 38, .78) !important;
+    color: #dbeafe !important;
+    box-shadow: inset 3px 0 0 color-mix(in srgb, var(--accent-solid-a) 80%, #58b6ff 20%);
+}
+
+.luminovia-system-visual {
+    min-height: 37rem;
+    border-radius: 1.5rem !important;
+    border-color: rgba(88, 182, 255, .20) !important;
+    background:
+        radial-gradient(circle at 50% 44%, rgba(88, 182, 255, .22), transparent 26%),
+        radial-gradient(circle at 88% 14%, rgba(11, 99, 246, .20), transparent 38%),
+        radial-gradient(circle at 8% 80%, rgba(245, 177, 42, .12), transparent 38%),
+        linear-gradient(145deg, rgba(5, 8, 22, .98), rgba(8, 20, 38, .96) 54%, rgba(7, 17, 31, .98)) !important;
+}
+
+.luminovia-system-visual::before {
+    opacity: .75;
+}
+
+.luminovia-system-visual::after {
+    inset: 12% 13% 18% !important;
+    border-color: rgba(88, 182, 255, .18) !important;
+    box-shadow: 0 0 42px rgba(88, 182, 255, .08);
+}
+
+.system-connector {
+    position: absolute;
+    left: 13%;
+    right: 13%;
+    top: 45%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(88, 182, 255, .46), rgba(245, 177, 42, .22), transparent);
+    transform: rotate(-18deg);
+    opacity: .62;
+}
+
+.system-connector-b {
+    transform: rotate(18deg);
+    background: linear-gradient(90deg, transparent, rgba(245, 177, 42, .25), rgba(88, 182, 255, .48), transparent);
+}
+
+.system-logo-panel {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    max-width: 13.2rem !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(88, 182, 255, .42) !important;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(255, 255, 255, .96), rgba(240, 249, 255, .92) 45%, rgba(88, 182, 255, .14) 46%, rgba(7, 17, 31, .92) 72%) !important;
+    padding: 1.6rem !important;
+    box-shadow:
+        inset 0 0 0 10px rgba(88, 182, 255, .05),
+        0 0 0 1px rgba(255, 255, 255, .09),
+        0 24px 90px rgba(0, 0, 0, .38),
+        0 0 82px rgba(88, 182, 255, .22) !important;
+}
+
+.system-logo-panel img {
+    width: 68% !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+.system-logo-panel span {
+    margin-top: .35rem;
+    color: #07111f;
+    font-size: .78rem;
+    font-weight: 900;
+    letter-spacing: .02em;
+}
+
+.system-node-card {
+    border-radius: .95rem !important;
+    border-color: rgba(125, 211, 252, .20) !important;
+    background: linear-gradient(145deg, rgba(11, 23, 48, .88), rgba(8, 20, 38, .72)) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .09), 0 16px 42px rgba(0, 0, 0, .30) !important;
+}
+
+.system-node-index {
+    width: fit-content;
+    border-radius: .5rem;
+    border: 1px solid rgba(245, 177, 42, .24);
+    background: rgba(245, 177, 42, .10);
+    padding: .24rem .38rem;
+    color: #fde68a !important;
+}
+
+.system-route-card {
+    border-radius: .95rem !important;
+    border-color: rgba(245, 177, 42, .24) !important;
+    background: linear-gradient(135deg, rgba(245, 177, 42, .14), rgba(88, 182, 255, .10), rgba(11, 99, 246, .08)) !important;
+}
+
+.system-route-card img {
+    border-radius: .72rem !important;
+    background: rgba(255, 255, 255, .96) !important;
+    object-fit: contain;
+}
+
+.trust-strip,
+.founder-panel,
+.final-cta-panel {
+    border-radius: 1rem !important;
+    border-color: rgba(88, 182, 255, .16) !important;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(88, 182, 255, .14), transparent 38%),
+        linear-gradient(145deg, rgba(9, 22, 43, .95), rgba(6, 13, 27, .92)) !important;
+}
+
+.trust-strip {
+    padding: .85rem !important;
+}
+
+.trust-strip-title {
+    color: #f8fbff !important;
+}
+
+.trust-strip-item {
+    border-radius: .72rem !important;
+    background: rgba(5, 12, 24, .78) !important;
+}
+
+.premium-route-card,
+.offer-card {
+    border-radius: 1rem !important;
+}
+
+.premium-route-card {
+    min-height: 100%;
+}
+
+.premium-route-card::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 1.1rem;
+    background:
+        linear-gradient(90deg, transparent 48%, rgba(88, 182, 255, .28) 49% 51%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(245, 177, 42, .18) 49% 51%, transparent 52%);
+    background-size: 1rem 1rem;
+    opacity: .34;
+    pointer-events: none;
+}
+
+.route-number,
+.process-step-node {
+    border-radius: .7rem !important;
+    background: linear-gradient(135deg, #58b6ff, #0b63f6 58%, #f5b12a) !important;
+}
+
+.route-feature-label {
+    border-radius: .62rem !important;
+}
+
+.offer-card {
+    min-height: 100%;
+}
+
+.offer-meta-row {
+    border-radius: .66rem !important;
+    border-color: rgba(125, 211, 252, .12) !important;
+    background: rgba(5, 12, 24, .74) !important;
+}
+
+.offer-outcome {
+    border-radius: .58rem !important;
+    background: rgba(8, 20, 38, .82) !important;
+    box-shadow: inset 3px 0 0 color-mix(in srgb, var(--accent-solid-a) 78%, #58b6ff 22%);
+}
+
+.consulting-band > div,
+section[id="consulting-areas"],
+section[id="booking-eligibility"],
+section[id="programmes"] {
+    border-radius: 1.35rem !important;
+    border-color: rgba(88, 182, 255, .18) !important;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(88, 182, 255, .16), transparent 36%),
+        radial-gradient(circle at 88% 12%, rgba(245, 177, 42, .12), transparent 38%),
+        linear-gradient(145deg, rgba(8, 20, 38, .96), rgba(5, 8, 22, .96)) !important;
+}
+
+.consulting-map-card,
+.process-step-card,
+.proof-card,
+.faq-card {
+    border-radius: .9rem !important;
+    border-color: rgba(125, 211, 252, .12) !important;
+    background: linear-gradient(145deg, rgba(9, 22, 43, .84), rgba(5, 12, 24, .88)) !important;
+}
+
+.process-stepper {
+    position: relative;
+}
+
+.process-stepper::before {
+    content: "";
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    top: 1.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(88, 182, 255, .55), rgba(245, 177, 42, .45), rgba(139, 92, 246, .45));
+    opacity: .55;
+}
+
+.process-step-card {
+    position: relative;
+    z-index: 1;
+}
+
+.proof-card {
+    padding: 1rem !important;
+}
+
+.proof-mark {
+    height: .26rem !important;
+}
+
+.founder-panel {
+    grid-template-columns: minmax(0, .55fr) minmax(0, 1.45fr) !important;
+}
+
+.founder-panel img {
+    filter: saturate(.92) contrast(1.02);
+}
+
+.final-cta-panel {
+    background:
+        radial-gradient(circle at 0% 0%, rgba(245, 177, 42, .16), transparent 38%),
+        radial-gradient(circle at 96% 4%, rgba(88, 182, 255, .18), transparent 38%),
+        linear-gradient(135deg, rgba(9, 22, 43, .98), rgba(5, 8, 22, .96)) !important;
+}
+
+.section-jump-nav {
+    border-radius: .95rem !important;
+    border-color: rgba(88, 182, 255, .16) !important;
+    background: rgba(5, 12, 24, .82) !important;
+}
+
+.section-jump-track a,
+footer a,
+.soft-link-card {
+    border-radius: .72rem !important;
+}
+
+.client-proof-card,
+.soft-link-card {
+    border: 1px solid rgba(125, 211, 252, .12) !important;
+    background:
+        radial-gradient(circle at 14% 0%, rgba(88, 182, 255, .12), transparent 36%),
+        linear-gradient(145deg, rgba(9, 22, 43, .92), rgba(5, 12, 24, .94)) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 18px 60px rgba(0, 0, 0, .30) !important;
+}
+
+footer {
+    border-color: rgba(88, 182, 255, .12) !important;
+    background:
+        radial-gradient(circle at 14% 0%, rgba(88, 182, 255, .12), transparent 42%),
+        linear-gradient(180deg, #060b17, #050816) !important;
+}
+
+.analytics-consent,
+.booking-bar {
+    border-radius: .95rem !important;
+}
+
+@media (min-width: 1024px) {
+    .theme-root > .relative.z-10 > main > section:first-child {
+        padding-top: 2.4rem;
+    }
+
+    .luminovia-system-visual {
+        min-height: 38.5rem;
+    }
+
+    .system-logo-panel {
+        width: 13.2rem !important;
+    }
+}
+
+@media (max-width: 1023px) {
+    .process-stepper::before {
+        left: 1.5rem;
+        right: auto;
+        top: 1.5rem;
+        bottom: 1.5rem;
+        width: 1px;
+        height: auto;
+        background: linear-gradient(180deg, rgba(88, 182, 255, .55), rgba(245, 177, 42, .45), rgba(139, 92, 246, .45));
+    }
+
+    .founder-panel {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: clamp(2.35rem, 12vw, 3.35rem) !important;
+        line-height: .98 !important;
+    }
+
+    .brand-kicker,
+    .lumo-badge {
+        font-size: .72rem !important;
+        letter-spacing: .08em !important;
+    }
+
+    .luminovia-system-visual {
+        min-height: 34rem;
+    }
+
+    .system-logo-panel {
+        max-width: 10.5rem !important;
+    }
 }

@@ -17,6 +17,7 @@ export default function Footer() {
             location: "Standort: Brisbane, Australien",
             delivery: "Remote-first: Europa, Australien und internationale Teams",
             languages: "Durchführung: Deutsch / Englisch",
+            legalAddress: "Vollständige rechtliche Angaben im Impressum",
             booking: "Buchung",
             appointment: "Termin buchen",
             website: "Website",
@@ -29,6 +30,7 @@ export default function Footer() {
             location: "Location: Brisbane, Australia",
             delivery: "Remote-first: Europe, Australia and international teams",
             languages: "Delivery: German / English",
+            legalAddress: "Full legal details in the imprint",
             booking: "Booking",
             appointment: "Book appointment",
             website: "Website",
@@ -54,9 +56,9 @@ export default function Footer() {
                         <a href={`tel:${PROFILE.phoneAustralia.replaceAll(" ", "")}`} className="text-slate-300 hover:text-white">{PROFILE.phoneAustralia}</a>
                         <a href={`tel:${PROFILE.phoneGermany.replaceAll(" ", "")}`} className="text-slate-300 hover:text-white">{PROFILE.phoneGermany}</a>
                         <span>{labels.location}</span>
-                        {PROFILE.addressLines.map((line) => <span key={line}>{line}</span>)}
                         <span>{labels.delivery}</span>
                         <span>{labels.languages}</span>
+                        <Link to="/imprint" className="font-bold text-sky-100 hover:text-white">{labels.legalAddress}</Link>
                     </div>
                 </div>
 
