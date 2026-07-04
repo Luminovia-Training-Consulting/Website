@@ -7,26 +7,22 @@ import {useLanguage} from "../i18n.jsx";
 
 function navClass({isActive}) {
     return isActive
-        ? "rounded-[0.65rem] bg-sky-300/14 px-3 py-2 text-sm font-black text-white ring-1 ring-sky-200/28 shadow-[0_10px_28px_rgba(14,165,233,.16)]"
-        : "rounded-[0.65rem] px-3 py-2 text-sm font-bold text-slate-300 transition hover:bg-white/[0.07] hover:text-white";
+        ? "lumo-nav-link lumo-nav-link-active"
+        : "lumo-nav-link";
 }
 
-function FlagIcon({country}) {
-    return <span className={`flag-icon flag-${country}`} aria-hidden="true"/>;
-}
-
-function LanguageToggle({language, toggleLanguage, t, className = ""}) {
-    const targetCountry = language === "en" ? "de" : "us";
+function LanguageToggle({language, toggleLanguage, className = ""}) {
     const label = language === "de" ? "Sprache auf Englisch wechseln" : "Switch language to German";
 
     return (
         <button
             onClick={toggleLanguage}
-            className={`inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/[0.09] hover:text-white ${className}`}
+            className={`lumo-language-toggle ${className}`}
             aria-label={label}
         >
-            <FlagIcon country={targetCountry}/>
-            <span>{t.switchLabel}</span>
+            <span>DE</span>
+            <span aria-hidden="true">/</span>
+            <span>EN</span>
         </button>
     );
 }
@@ -71,16 +67,14 @@ export default function Header() {
 
     return (
         <>
-            <header className="sticky top-0 z-50 border-b border-sky-200/10 bg-[#050816]/86 shadow-[0_16px_54px_rgba(0,0,0,.36)] backdrop-blur-2xl">
+            <header className="lumo-site-header sticky top-0 z-50">
                 <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-                    <NavLink to="/" className="group flex items-center gap-3 text-left" aria-label="Luminovia Training & Consulting home">
-                        <div className="luminovia-logo-shell grid h-11 w-11 place-items-center overflow-hidden rounded-[0.85rem] border border-sky-100/20 bg-white shadow-[0_10px_32px_rgba(37,99,235,.22)] transition duration-300 group-hover:-translate-y-0.5">
-                            <img src={IMAGES.luminoviaLogoMark} alt="" className="h-10 w-10 object-contain p-1" loading="eager" width="40" height="40"/>
-                        </div>
-                        <div className="hidden sm:block">
-                            <div className="text-sm font-black tracking-tight text-white">Luminovia</div>
-                            <div className="text-[10px] uppercase tracking-[0.15em] text-slate-400">{t.headerTagline}</div>
-                        </div>
+                    <NavLink to="/" className="lumo-header-brand group" aria-label="Luminovia Training & Consulting home">
+                        <img src={IMAGES.luminoviaLogoMark} alt="" loading="eager" width="52" height="52"/>
+                        <span>
+                            <strong>Luminovia</strong>
+                            <small>Training & Consulting</small>
+                        </span>
                     </NavLink>
 
                     <nav className="hidden items-center gap-0.5 xl:flex">

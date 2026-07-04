@@ -3907,3 +3907,595 @@ footer {
         max-width: 10.5rem !important;
     }
 }
+
+/* Reference fidelity pass for the Luminovia premium dark homepage. */
+.lumo-home {
+    background:
+        radial-gradient(circle at 78% 7%, rgba(36, 117, 255, .28), transparent 26rem),
+        radial-gradient(circle at 48% 32%, rgba(134, 69, 255, .14), transparent 24rem),
+        linear-gradient(180deg, #020917 0%, #041125 42%, #031020 100%);
+}
+
+.lumo-site-header {
+    border-bottom: 1px solid rgba(125, 187, 255, .1);
+    background: rgba(2, 9, 23, .74);
+    box-shadow: none;
+    backdrop-filter: blur(20px);
+}
+
+.lumo-header-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .85rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.lumo-header-brand img {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    filter: drop-shadow(0 0 18px rgba(45, 169, 255, .44));
+}
+
+.lumo-header-brand span {
+    display: grid;
+    gap: .08rem;
+}
+
+.lumo-header-brand strong {
+    color: #f8fbff;
+    font-size: 1.56rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1;
+}
+
+.lumo-header-brand small {
+    color: rgba(232, 242, 255, .82);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.1;
+}
+
+.lumo-nav-link {
+    position: relative;
+    padding: .75rem .52rem;
+    color: rgba(226, 238, 255, .86);
+    font-size: .82rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+html[data-theme="night"] header .lumo-nav-link,
+html[data-theme="day"] header .lumo-nav-link,
+html[data-theme="night"] header .lumo-nav-link:not([data-button-variant]),
+html[data-theme="day"] header .lumo-nav-link:not([data-button-variant]) {
+    border: 0 !important;
+    background: transparent !important;
+    color: rgba(226, 238, 255, .86) !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="night"] header .lumo-nav-link:hover,
+html[data-theme="day"] header .lumo-nav-link:hover,
+html[data-theme="night"] header .lumo-nav-link-active,
+html[data-theme="day"] header .lumo-nav-link-active {
+    color: #fff !important;
+}
+
+.lumo-nav-link::after {
+    position: absolute;
+    right: .55rem;
+    bottom: .42rem;
+    left: .55rem;
+    height: 1px;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    background: linear-gradient(90deg, #26d9ff, #f5b940);
+    transition: transform .2s ease;
+}
+
+.lumo-nav-link:hover,
+.lumo-nav-link-active {
+    color: #fff;
+}
+
+.lumo-nav-link.active,
+.lumo-nav-link.lumo-nav-link-active {
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.lumo-nav-link:hover::after,
+.lumo-nav-link-active::after {
+    transform: scaleX(1);
+}
+
+.lumo-language-toggle {
+    display: inline-flex;
+    min-height: 2.65rem;
+    align-items: center;
+    gap: .45rem;
+    border: 1px solid rgba(174, 205, 255, .22);
+    border-radius: .72rem;
+    background: rgba(4, 16, 35, .68);
+    padding: 0 1rem;
+    color: #eff6ff;
+    font-size: .86rem;
+    font-weight: 900;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.lumo-language-toggle:hover,
+.lumo-language-toggle:focus-visible {
+    border-color: rgba(56, 189, 248, .56);
+    background: rgba(8, 30, 60, .86);
+}
+
+html[data-theme="night"] .theme-root [data-button-variant="primary"],
+html[data-theme="day"] .theme-root [data-button-variant="primary"],
+html[data-theme="night"] .mobile-menu-overlay [data-button-variant="primary"],
+html[data-theme="day"] .mobile-menu-overlay [data-button-variant="primary"],
+.theme-root [data-button-variant="primary"],
+.mobile-menu-overlay [data-button-variant="primary"],
+.lumo-primary-action {
+    border: 1px solid rgba(255, 227, 138, .56) !important;
+    background: linear-gradient(135deg, #ffe082 0%, #f8b833 22%, #d89013 100%) !important;
+    color: #07111f !important;
+    box-shadow: 0 18px 44px rgba(214, 145, 18, .34), inset 0 1px 0 rgba(255, 255, 255, .48) !important;
+}
+
+html[data-theme="night"] .theme-root [data-button-variant="secondary"],
+html[data-theme="day"] .theme-root [data-button-variant="secondary"],
+html[data-theme="night"] .mobile-menu-overlay [data-button-variant="secondary"],
+html[data-theme="day"] .mobile-menu-overlay [data-button-variant="secondary"],
+.theme-root [data-button-variant="secondary"],
+.mobile-menu-overlay [data-button-variant="secondary"],
+.lumo-secondary-action {
+    border-color: rgba(169, 204, 255, .22) !important;
+    background: rgba(5, 17, 37, .72) !important;
+    color: #eef6ff !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08) !important;
+}
+
+.lumo-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 6vw, 6.2rem) 0 2.25rem;
+}
+
+.lumo-hero::before {
+    position: absolute;
+    inset: -16rem -10rem auto 35%;
+    height: 44rem;
+    content: "";
+    pointer-events: none;
+    background:
+        radial-gradient(circle, rgba(26, 216, 255, .22), transparent 3px) 0 0 / 78px 78px,
+        radial-gradient(circle, rgba(251, 184, 44, .16), transparent 2px) 24px 30px / 132px 132px;
+    mask-image: radial-gradient(ellipse, #000 0%, transparent 69%);
+}
+
+.lumo-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(34rem, 1.1fr);
+    align-items: center;
+    gap: clamp(1.75rem, 5vw, 5.5rem);
+}
+
+.lumo-hero-copy {
+    max-width: 44rem;
+}
+
+.lumo-hero-copy h1 {
+    max-width: 17.2ch;
+    margin: 0;
+    color: #f7fbff;
+    font-size: clamp(3.15rem, 4.35vw, 5.1rem);
+    line-height: .99;
+    letter-spacing: 0;
+}
+
+.lumo-gradient-text {
+    background: linear-gradient(100deg, #f8fbff 0%, #f8fbff 58%, #4e8bff 74%, #b66bff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.lumo-hero-copy > p {
+    max-width: 33rem;
+    margin-top: 1.75rem;
+    color: rgba(224, 238, 255, .82);
+    font-size: 1.08rem;
+    line-height: 1.65;
+}
+
+.lumo-action-row {
+    gap: .95rem;
+}
+
+.lumo-hero-chips {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .9rem;
+    margin-top: 2.25rem;
+}
+
+.lumo-hero-chips .lumo-chip {
+    justify-content: flex-start;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: rgba(232, 242, 255, .84);
+    box-shadow: none;
+    white-space: normal;
+}
+
+.lumo-orbit-visual {
+    min-height: clamp(31rem, 45vw, 42rem);
+    border: 0;
+    background:
+        radial-gradient(circle at 52% 49%, rgba(50, 180, 255, .32), transparent 6.5rem),
+        radial-gradient(circle at 50% 50%, rgba(23, 114, 255, .18), transparent 13rem),
+        radial-gradient(circle at 76% 28%, rgba(128, 78, 255, .19), transparent 18rem);
+    box-shadow: none;
+    isolation: isolate;
+}
+
+.lumo-orbit-visual::before {
+    inset: 2rem 1rem;
+    border-radius: 999px;
+    opacity: .95;
+    background:
+        repeating-radial-gradient(circle at 50% 50%, rgba(61, 182, 255, .42) 0 1px, transparent 1px 5.2rem),
+        conic-gradient(from 18deg, transparent, rgba(28, 171, 255, .52), transparent 22%, rgba(248, 181, 41, .42), transparent 43%, rgba(151, 82, 255, .52), transparent 66%, rgba(26, 224, 255, .5), transparent);
+    filter: drop-shadow(0 0 28px rgba(32, 177, 255, .42));
+}
+
+.lumo-orbit-visual::after {
+    opacity: .58;
+    background:
+        radial-gradient(circle at 38% 38%, rgba(43, 190, 255, .95) 0 2px, transparent 3px),
+        radial-gradient(circle at 68% 31%, rgba(111, 124, 255, .95) 0 2px, transparent 3px),
+        radial-gradient(circle at 72% 68%, rgba(250, 183, 44, .75) 0 2px, transparent 3px),
+        radial-gradient(circle at 31% 68%, rgba(174, 84, 255, .78) 0 2px, transparent 3px);
+}
+
+.lumo-orbit-core {
+    width: clamp(10.2rem, 14vw, 12.2rem);
+    height: clamp(10.2rem, 14vw, 12.2rem);
+    border-color: rgba(96, 202, 255, .56);
+    background: radial-gradient(circle at 50% 36%, rgba(52, 190, 255, .2), rgba(6, 19, 43, .94) 64%);
+    box-shadow: 0 0 0 8px rgba(11, 107, 213, .16), 0 0 56px rgba(30, 170, 255, .48), inset 0 0 38px rgba(76, 193, 255, .24);
+}
+
+.lumo-orbit-core img {
+    width: 5.1rem;
+    height: 5.1rem;
+}
+
+.lumo-orbit-node {
+    width: clamp(7.1rem, 9.2vw, 8.6rem);
+    min-height: clamp(6.4rem, 8.5vw, 7.8rem);
+    border-radius: 1.25rem;
+    background: rgba(5, 22, 50, .78);
+    backdrop-filter: blur(16px);
+}
+
+.lumo-orbit-node span {
+    color: currentColor;
+    font-size: clamp(1.45rem, 2vw, 2.05rem);
+}
+
+.lumo-orbit-node strong {
+    font-size: .88rem;
+}
+
+.lumo-orbit-node-1 { top: 5%; left: 49%; }
+.lumo-orbit-node-2 { top: 30%; left: 12%; }
+.lumo-orbit-node-3 { top: 30%; right: 8%; }
+.lumo-orbit-node-4 { bottom: 21%; left: 22%; }
+.lumo-orbit-node-5 { bottom: 20%; right: 17%; }
+.lumo-orbit-node-6 { bottom: 4%; left: 51%; }
+
+.lumo-section {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+}
+
+.lumo-trust-rail {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-radius: .82rem;
+    padding: 1.15rem;
+    background: rgba(8, 22, 47, .72);
+}
+
+.lumo-trust-item {
+    min-height: 5.5rem;
+    border-right: 1px solid rgba(152, 190, 255, .14);
+    border-bottom: 0;
+    background: transparent;
+    padding: .65rem 1rem .65rem 4rem;
+}
+
+.lumo-trust-item:last-child {
+    border-right: 0;
+}
+
+.lumo-route-grid,
+.lumo-offer-grid {
+    gap: 1.25rem;
+}
+
+.lumo-route-card {
+    min-height: 22.5rem;
+    border-radius: .82rem;
+    padding: 2rem;
+}
+
+.lumo-route-icon {
+    margin-bottom: 1.45rem;
+    color: currentColor;
+    font-size: 3rem;
+}
+
+.lumo-route-card h3 {
+    font-size: 1.55rem;
+}
+
+.lumo-route-card p,
+.lumo-route-card li {
+    font-size: 1rem;
+}
+
+.lumo-route-card ul {
+    margin: 1.45rem 0 1.6rem;
+}
+
+.lumo-compact-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 1rem;
+}
+
+.lumo-compact-section-head h2 {
+    margin: 0;
+    color: #f8fbff;
+    font-size: 1.5rem;
+    line-height: 1.15;
+}
+
+.lumo-compact-section-head [data-button-variant="secondary"] {
+    min-height: auto;
+    border: 0 !important;
+    background: transparent !important;
+    padding: .25rem 0;
+    color: rgba(231, 242, 255, .86) !important;
+    box-shadow: none !important;
+}
+
+.lumo-offer-card {
+    min-height: 18.25rem;
+    border-radius: .82rem;
+    padding: 2rem;
+}
+
+.lumo-offer-icon {
+    width: 3.7rem;
+    height: 3.7rem;
+    margin-bottom: 1.8rem;
+}
+
+.lumo-offer-card h3 {
+    max-width: 15rem;
+    margin-bottom: .8rem;
+    font-size: 1.48rem;
+    line-height: 1.18;
+}
+
+.lumo-offer-card p {
+    max-width: 20rem;
+    min-height: 4.35rem;
+    color: rgba(225, 238, 255, .78);
+    font-size: 1rem;
+    line-height: 1.48;
+}
+
+.lumo-offer-card dl,
+.lumo-offer-card ul,
+.lumo-card-actions {
+    display: none;
+}
+
+.lumo-offer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.35rem;
+    color: rgba(231, 242, 255, .78);
+    font-size: .9rem;
+    font-weight: 750;
+}
+
+.lumo-offer-arrow {
+    display: grid;
+    width: 2.8rem;
+    height: 2.8rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid rgba(193, 220, 255, .34);
+    border-radius: 999px;
+    background: rgba(8, 20, 42, .62);
+    color: #eff6ff;
+    text-decoration: none;
+    transition: transform .2s ease, border-color .2s ease;
+}
+
+.lumo-offer-arrow:hover,
+.lumo-offer-arrow:focus-visible {
+    border-color: rgba(56, 189, 248, .7);
+    transform: translateX(2px);
+}
+
+.lumo-process-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.1rem;
+    padding-top: 2rem;
+}
+
+.lumo-process-timeline::before {
+    position: absolute;
+    top: 3.85rem;
+    right: 1.5rem;
+    left: 1.5rem;
+    height: 2px;
+    content: "";
+    background: linear-gradient(90deg, #2787ff, #1ee9df, #a75cff, #f5b52f);
+    opacity: .76;
+}
+
+.lumo-process-step {
+    position: relative;
+    z-index: 1;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.lumo-process-node {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1.25rem;
+    border-color: rgba(64, 205, 255, .64);
+    background: rgba(4, 20, 42, .82);
+    color: #86f3ff;
+    box-shadow: 0 0 30px rgba(42, 191, 255, .34);
+}
+
+.lumo-process-step h3 {
+    color: #f8fbff;
+    font-size: 1rem;
+}
+
+.lumo-process-step p {
+    max-width: 11.5rem;
+    color: rgba(221, 235, 255, .73);
+    font-size: .86rem;
+}
+
+.lumo-founder-panel {
+    grid-template-columns: 18rem 1fr;
+    border-radius: .82rem;
+    background: linear-gradient(110deg, rgba(27, 31, 68, .86), rgba(5, 21, 51, .9) 52%, rgba(31, 48, 130, .78));
+}
+
+.lumo-founder-panel h2 {
+    font-size: clamp(1.75rem, 2.4vw, 2.45rem);
+}
+
+.lumo-founder-media a {
+    border-radius: .52rem;
+    background: rgba(5, 17, 36, .75);
+}
+
+.lumo-founder-tags {
+    margin-top: 1.5rem;
+}
+
+.lumo-founder-panel .lumo-action-row {
+    display: none;
+}
+
+.lumo-final-cta {
+    min-height: 11rem;
+    border-radius: .82rem;
+    background:
+        radial-gradient(circle at 9% 10%, rgba(250, 177, 35, .45), transparent 15rem),
+        radial-gradient(circle at 93% 50%, rgba(160, 65, 255, .5), transparent 18rem),
+        linear-gradient(105deg, rgba(7, 22, 47, .94), rgba(8, 25, 55, .76));
+}
+
+.lumo-final-cta h2 {
+    max-width: 16ch;
+    font-size: clamp(2rem, 3.4vw, 3.1rem);
+}
+
+@media (max-width: 1180px) {
+    .lumo-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lumo-hero-copy h1 {
+        max-width: 13ch;
+    }
+
+    .lumo-orbit-visual {
+        max-width: 48rem;
+        margin: 0 auto;
+    }
+
+    .lumo-trust-rail,
+    .lumo-process-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lumo-trust-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(152, 190, 255, .14);
+    }
+
+    .lumo-process-timeline::before {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .lumo-hero {
+        padding-top: 2.2rem;
+    }
+
+    .lumo-hero-copy h1 {
+        font-size: clamp(2.7rem, 13vw, 4rem);
+    }
+
+    .lumo-hero-chips,
+    .lumo-trust-rail,
+    .lumo-process-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .lumo-orbit-visual {
+        min-height: 27rem;
+    }
+
+    .lumo-orbit-node {
+        width: 6.2rem;
+        min-height: 5.5rem;
+    }
+
+    .lumo-orbit-node strong {
+        font-size: .72rem;
+    }
+
+    .lumo-compact-section-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .lumo-founder-panel {
+        grid-template-columns: 1fr;
+    }
+}

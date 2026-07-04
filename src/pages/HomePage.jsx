@@ -12,10 +12,8 @@ import {
     LogoSystemVisual,
     OfferCard,
     ProcessTimeline,
-    ProofCard,
     RouteCard,
     Section,
-    SectionHeader,
     TrustRail,
 } from "../components/LuminoviaDesign.jsx";
 
@@ -38,20 +36,13 @@ function copyForLanguage(language) {
                 {icon: "↗", title: "Workshops to programmes", copy: "Von Kurzformat bis Lernpfad"},
                 {icon: "▣", title: "Training + consulting", copy: "Enablement und Umsetzung"},
             ],
-            routesLabel: "Drei Einstiege",
-            routesTitle: "Wählen Sie den passenden Weg für Ihre Organisation.",
-            routesCopy: "Luminovia trennt Training, Consulting und Programm-Design klar, damit Anfragen schnell in ein geeignetes Format übersetzt werden.",
             routes: [
-                {title: "Training & Workshops", copy: "Für Teams, Bildungspartner und Organisationen, die direkt anwendbare Skills brauchen.", bullets: ["AI & Data", "Cybersecurity", "Software & Business IT"], cta: "Training ansehen", to: "/training", tone: "blue", icon: "□"},
-                {title: "Consulting & Enablement", copy: "Für Organisationen, die Ziele, Use Cases, Workflows und Roadmaps strukturieren müssen.", bullets: ["AI Strategy", "Workflows", "Capability Roadmaps"], cta: "Consulting erkunden", to: "/consulting", tone: "teal", icon: "◎"},
-                {title: "Custom Programmes", copy: "Für L&D, Akademien und internationale Partner mit mehrteiligen Lern- oder Enablement-Journeys.", bullets: ["Curriculum", "Blended Learning", "Materials"], cta: "Programm besprechen", to: "/offers", tone: "violet", icon: "▱"},
+                {title: "Training & Workshops", copy: "Rollenbasierte Trainings und praktische Workshops für moderne Teams.", bullets: ["Aktuelle Skills, sofort anwendbar", "Hands-on, interaktiv, praktisch", "Kurze Formate bis Deep-Dive-Kurse", "Vor Ort, online und hybrid"], cta: "Training ansehen", to: "/training", tone: "blue", icon: "□"},
+                {title: "Consulting & Enablement", copy: "Strategisches und praktisches Consulting, um digitale Herausforderungen in Capability zu übersetzen.", bullets: ["AI-, IT- und Cybersecurity-Strategie", "Prozesse, Workflows und Tool Advisory", "Roadmaps, Governance und Guidance", "Implementation und Change Support"], cta: "Consulting erkunden", to: "/consulting", tone: "teal", icon: "◎"},
+                {title: "Custom Programmes", copy: "Maßgeschneiderte Lernreisen rund um Ziele und Kontext.", bullets: ["Skill-Assessments und Alignment", "Curriculum und Content Design", "Blended Learning und Enablement", "Coaching, Support und Evaluation"], cta: "Programme ansehen", to: "/offers", tone: "violet", icon: "▱"},
             ],
             offersLabel: "Featured Training Offers",
-            offersTitle: "Polierte Trainingsangebote mit klarer Zielgruppe, Format und Ergebnis.",
-            offersCopy: "Die wichtigsten Angebote sind buyer-freundlich strukturiert: Promise, Best-fit, Dauer, Outcome und nächster Schritt.",
             processLabel: "Consulting approach",
-            processTitle: "Discover -> Assess -> Design -> Enable -> Evolve",
-            processCopy: "Ein klarer Beratungsprozess sorgt dafür, dass digitale Kompetenz nicht bei Ideen stehen bleibt, sondern als Training, Roadmap oder Arbeitsroutine nutzbar wird.",
             processSteps: [
                 ["1", "Discover", "Ziele, Zielgruppe, Kontext und Risiken klären."],
                 ["2", "Assess", "Skills, Prozesse, Tools und Ausgangslage analysieren."],
@@ -59,10 +50,8 @@ function copyForLanguage(language) {
                 ["4", "Enable", "Training, Beratung, Reviews und Umsetzungssupport liefern."],
                 ["5", "Evolve", "Transfer prüfen und nächste Capability-Stufe planen."],
             ],
-            proofLabel: "Vertrauen ohne erfundene Logos",
-            proofTitle: "Founder-led Expertise statt künstlicher Case-Study-Fassade.",
             founderLabel: "Founder-led expertise",
-            founderTitle: "Luminovia ist founder-led durch Carina Sophie Schoppe.",
+            founderTitle: "Connecting disciplines. Delivering capability.",
             founderCopy: "Luminovia verbindet Wirtschaftsinformatik, AI, Cybersecurity, Softwareentwicklung, Instructional Design und praktische Lehre zu professionellen Trainings- und Consulting-Formaten. Carinas persönliches Portfolio bleibt separat.",
             companyProfile: "Unternehmen ansehen",
             portfolio: "carinaschoppe.com öffnen",
@@ -84,20 +73,13 @@ function copyForLanguage(language) {
                 {icon: "↗", title: "Workshops to programmes", copy: "From short formats to journeys"},
                 {icon: "▣", title: "Training + consulting", copy: "Learning and implementation"},
             ],
-            routesLabel: "Three buyer routes",
-            routesTitle: "Choose the right path for your organisation.",
-            routesCopy: "Luminovia separates training, consulting and programme design so requests can quickly become a suitable delivery format.",
             routes: [
-                {title: "Training & Workshops", copy: "For teams, education partners and organisations that need practical skills people can apply immediately.", bullets: ["AI & data", "Cybersecurity", "Software & business IT"], cta: "Explore training", to: "/training", tone: "blue", icon: "□"},
-                {title: "Consulting & Enablement", copy: "For organisations that need to structure goals, use cases, workflows, roadmaps and enablement decisions.", bullets: ["AI strategy", "Workflows", "Capability roadmaps"], cta: "Explore consulting", to: "/consulting", tone: "teal", icon: "◎"},
-                {title: "Custom Programmes", copy: "For L&D teams, academies and international partners building multi-part learning or enablement journeys.", bullets: ["Curriculum", "Blended learning", "Materials"], cta: "Explore programmes", to: "/offers", tone: "violet", icon: "▱"},
+                {title: "Training & Workshops", copy: "Role-based training and practical workshops for modern teams.", bullets: ["Current skills, immediately applicable", "Hands-on, interactive, practical", "Short formats to deep-dive courses", "Onsite, online and hybrid"], cta: "Explore training", to: "/training", tone: "blue", icon: "□"},
+                {title: "Consulting & Enablement", copy: "Strategic and practical consulting to turn digital challenges into capability.", bullets: ["AI, IT and cybersecurity strategy", "Process, workflow and tool advisory", "Roadmaps, governance and guidance", "Implementation and change support"], cta: "Explore consulting", to: "/consulting", tone: "teal", icon: "◎"},
+                {title: "Custom Programmes", copy: "Bespoke learning journeys designed around your goals and context.", bullets: ["Skills assessments and alignment", "Curriculum and content design", "Blended learning and enablement", "Coaching, support and evaluation"], cta: "Explore programmes", to: "/offers", tone: "violet", icon: "▱"},
             ],
             offersLabel: "Featured training offers",
-            offersTitle: "Polished offers with clear audience, format and outcomes.",
-            offersCopy: "The key offers are structured for buyers: promise, best fit, delivery format, outcomes and a clear next step.",
             processLabel: "Consulting approach",
-            processTitle: "Discover -> Assess -> Design -> Enable -> Evolve",
-            processCopy: "A structured consulting process keeps digital capability from staying abstract and turns it into training, roadmaps or usable working routines.",
             processSteps: [
                 ["1", "Discover", "Understand goals, audience, context and risk."],
                 ["2", "Assess", "Analyse needs, skills, processes and tools."],
@@ -105,10 +87,8 @@ function copyForLanguage(language) {
                 ["4", "Enable", "Deliver training, guidance, reviews and implementation support."],
                 ["5", "Evolve", "Measure transfer and plan the next capability stage."],
             ],
-            proofLabel: "Trust without invented logos",
-            proofTitle: "Founder-led expertise, not a fake case-study facade.",
             founderLabel: "Founder-led expertise",
-            founderTitle: "Luminovia is founder-led by Carina Sophie Schoppe.",
+            founderTitle: "Connecting disciplines. Delivering capability.",
             founderCopy: "Luminovia connects business information systems, AI, cybersecurity, software development, instructional design and practical teaching into professional training and consulting formats. Carina's personal portfolio stays separate.",
             companyProfile: "View company profile",
             portfolio: "Open carinaschoppe.com",
@@ -135,7 +115,7 @@ function selectFeaturedOffers(serviceOfferings) {
 export default function HomePage() {
     const {language, t} = useLanguage();
     const c = copyForLanguage(language);
-    const {trustSignals, serviceOfferings} = useSiteContent();
+    const {serviceOfferings} = useSiteContent();
     const featuredOffers = selectFeaturedOffers(serviceOfferings);
 
     return (
@@ -164,19 +144,16 @@ export default function HomePage() {
             </Section>
 
             <Section id="routes">
-                <SectionHeader label={c.routesLabel} title={c.routesTitle} copy={c.routesCopy}/>
                 <div className="lumo-route-grid">
                     {c.routes.map((route) => <RouteCard key={route.title} {...route}/>)}
                 </div>
             </Section>
 
             <Section id="offers">
-                <SectionHeader
-                    label={c.offersLabel}
-                    title={c.offersTitle}
-                    copy={c.offersCopy}
-                    action={<Button to="/offers" variant="secondary">{language === "de" ? "Alle Angebote ansehen" : "View all offers"}</Button>}
-                />
+                <div className="lumo-compact-section-head">
+                    <h2>{c.offersLabel}</h2>
+                    <Button to="/offers" variant="secondary">{language === "de" ? "Alle Angebote ansehen" : "View all offers"}</Button>
+                </div>
                 <div className="lumo-offer-grid">
                     {featuredOffers.map((service, index) => (
                         <OfferCard
@@ -192,15 +169,10 @@ export default function HomePage() {
             </Section>
 
             <Section id="process">
-                <SectionHeader label={c.processLabel} title={c.processTitle} copy={c.processCopy}/>
-                <ProcessTimeline steps={c.processSteps}/>
-            </Section>
-
-            <Section id="proof">
-                <SectionHeader label={c.proofLabel} title={c.proofTitle}/>
-                <div className="lumo-proof-grid">
-                    {trustSignals.slice(0, 5).map((signal) => <ProofCard key={signal.title} title={signal.title} copy={signal.copy}/>)}
+                <div className="lumo-compact-section-head">
+                    <h2>{c.processLabel}</h2>
                 </div>
+                <ProcessTimeline steps={c.processSteps}/>
             </Section>
 
             <Section id="founder" className="lumo-founder-section">

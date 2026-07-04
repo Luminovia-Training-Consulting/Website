@@ -63,14 +63,14 @@ export function PageHero({label, title, copy, children, actions, visual, centere
     );
 }
 
-export function LogoSystemVisual({logoFull, logoMark, alt, labels = []}) {
+export function LogoSystemVisual({logoMark, alt, labels = []}) {
     const nodes = [
-        {code: "AI", label: labels[0] || "AI", tone: "blue"},
-        {code: "IT", label: labels[1] || "IT", tone: "cyan"},
-        {code: "SEC", label: labels[2] || "Cybersecurity", tone: "teal"},
-        {code: "LD", label: labels[3] || "Learning design", tone: "violet"},
-        {code: "RF", label: labels[4] || "Remote-first", tone: "blue"},
-        {code: "DE", label: labels[5] || "DE / EN", tone: "gold"},
+        {label: labels[0] || "AI", tone: "blue", icon: "⌘"},
+        {label: labels[1] || "IT", tone: "cyan", icon: "</>"},
+        {label: labels[2] || "Cybersecurity", tone: "teal", icon: "⛨"},
+        {label: labels[3] || "Learning design", tone: "violet", icon: "□"},
+        {label: labels[4] || "Remote-first", tone: "blue", icon: "••"},
+        {label: labels[5] || "DE / EN", tone: "gold", icon: "◎"},
     ];
 
     return (
@@ -86,17 +86,10 @@ export function LogoSystemVisual({logoFull, logoMark, alt, labels = []}) {
             <div className="lumo-orbit-node-wrap">
                 {nodes.map((node, index) => (
                     <div key={node.label} className={cn("lumo-orbit-node", `lumo-orbit-node-${index + 1}`)} data-tone={node.tone}>
-                        <span>{node.code}</span>
+                        <span>{node.icon}</span>
                         <strong>{node.label}</strong>
                     </div>
                 ))}
-            </div>
-            <div className="lumo-orbit-route">
-                <img src={logoFull} alt="" width="132" height="58" loading="eager"/>
-                <div>
-                    <span>Delivery system</span>
-                    <strong>{labels[6] || "Workshops -> Programmes"}</strong>
-                </div>
             </div>
         </div>
     );
@@ -130,32 +123,24 @@ export function RouteCard({title, copy, bullets, cta, to, tone = "blue", icon = 
     );
 }
 
-export function OfferCard({service, labels, detailLabel, detailLink, tone = "blue"}) {
+export function OfferCard({service, detailLabel, detailLink, tone = "blue"}) {
+    const meta = [service.format, service.duration].filter(Boolean).join("  •  ");
+    const displayTitle = service.title
+        .replace("Cybersecurity & Pentesting Fundamentals", "Cybersecurity Essentials")
+        .replace("Cybersecurity & Pentesting-Grundlagen", "Cybersecurity Essentials")
+        .replace("Python, SQL & Data Skills", "Python / SQL / Data Skills")
+        .replace("Python, SQL & Datenkompetenz", "Python / SQL / Data Skills")
+        .replace("Prompt Engineering & Agentische Workflows", "Prompt Engineering & Agentic Workflows")
+        .replace("AI Literacy für Teams", "AI Literacy for Teams");
+
     return (
         <article className="lumo-offer-card" data-tone={tone}>
             <div className="lumo-offer-icon" aria-hidden="true"/>
-            <h3>{service.title}</h3>
+            <h3>{displayTitle}</h3>
             <p>{service.description}</p>
-            <dl>
-                <div>
-                    <dt>{labels.bestFor}</dt>
-                    <dd>{service.audience}</dd>
-                </div>
-                <div>
-                    <dt>{labels.format}</dt>
-                    <dd>{service.format}</dd>
-                </div>
-                <div>
-                    <dt>{labels.duration}</dt>
-                    <dd>{service.duration}</dd>
-                </div>
-            </dl>
-            <ul>
-                {service.outcomes.slice(0, 3).map((outcome) => <li key={outcome}>{outcome}</li>)}
-            </ul>
-            <div className="lumo-card-actions">
-                {detailLink ? <Button to={detailLink} variant="secondary">{detailLabel}</Button> : null}
-                <Button to="/contact#contact-options" variant="secondary">{labels.request}</Button>
+            <div className="lumo-offer-meta">
+                <span>{meta}</span>
+                {detailLink ? <Link to={detailLink} className="lumo-offer-arrow" aria-label={detailLabel}>→</Link> : null}
             </div>
         </article>
     );

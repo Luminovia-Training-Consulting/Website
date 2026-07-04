@@ -11,30 +11,30 @@ describe("App routing and language", () => {
         vi.unstubAllGlobals();
     });
 
-    it("renders the homepage in German and switches the visible copy to English", async () => {
+    it("renders the homepage in English and switches the visible copy to German", async () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training für moderne Teams/i})).toBeInTheDocument();
-        expect(document.documentElement.lang).toBe("de");
-        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
-
-        await user.click(screen.getByRole("button", {name: /Sprache auf Englisch wechseln/i}));
-
-        expect(screen.getByRole("heading", {name: /AI, IT & Digital Capability Training for Modern Teams/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training for Modern Teams/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
+
+        await user.click(screen.getByRole("button", {name: /Switch language to German/i}));
+
+        expect(screen.getByRole("heading", {name: /AI, IT & Digital Capability Training für moderne Teams/i})).toBeInTheDocument();
+        expect(document.documentElement.lang).toBe("de");
+        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
     });
 
-    it("uses German as the default page language when no language was selected before", async () => {
+    it("uses English as the default page language when no language was selected before", async () => {
         window.history.pushState({}, "Training", "/training");
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Konkrete Luminovia-Angebote/i})).toBeInTheDocument();
-        expect(screen.queryByRole("heading", {name: /Concrete Luminovia offers/i})).not.toBeInTheDocument();
-        expect(document.documentElement.lang).toBe("de");
-        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
+        expect(await screen.findByRole("heading", {name: /Concrete Luminovia offers/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Konkrete Luminovia-Angebote/i})).not.toBeInTheDocument();
+        expect(document.documentElement.lang).toBe("en");
+        expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
 
     it("keeps English after the visitor explicitly selected it", async () => {

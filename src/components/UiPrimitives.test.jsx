@@ -43,7 +43,7 @@ describe("UI primitive branches", () => {
     it("renders the compact project section with a view-all link", () => {
         renderWithShell(<SoftwareProjectsSection compact/>);
 
-        expect(screen.getByRole("link", {name: /Projektportfolio ansehen|view all projects/i})).toHaveAttribute("href", "/projects");
+        expect(screen.getByRole("link", {name: /Projektportfolio ansehen|view all projects|view project portfolio/i})).toHaveAttribute("href", "/projects");
     });
 
     it("renders Luminovia design primitives and utility cards", () => {
