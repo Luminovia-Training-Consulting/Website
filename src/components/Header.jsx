@@ -27,9 +27,14 @@ function LanguageToggle({language, toggleLanguage, className = ""}) {
     );
 }
 
-function ThemeToggle({theme, onToggleTheme, className = ""}) {
+function ThemeToggle({theme, onToggleTheme, language = "en", className = ""}) {
     const isDay = theme === "day";
-    const label = isDay ? "Switch to night scheme" : "Switch to day scheme";
+    const label = language === "de"
+        ? isDay ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"
+        : isDay ? "Switch to night scheme" : "Switch to day scheme";
+    const visibleLabel = language === "de"
+        ? isDay ? "Hell" : "Dunkel"
+        : isDay ? "Day" : "Night";
 
     return (
         <button
@@ -40,7 +45,7 @@ function ThemeToggle({theme, onToggleTheme, className = ""}) {
             aria-pressed={isDay}
         >
             <span className="theme-toggle-icon" data-mode={isDay ? "day" : "night"} aria-hidden="true"/>
-            <span>{isDay ? "Day" : "Night"}</span>
+            <span>{visibleLabel}</span>
         </button>
     );
 }
@@ -64,8 +69,8 @@ export default function Header({theme = "night", onToggleTheme}) {
             <div className="sticky top-0 z-10 -mx-5 mb-8 flex items-center justify-between border-b border-white/10 bg-[#08090B]/92 px-5 py-4">
                 <span className="text-lg font-black text-white">{t.navigation}</span>
                 <div className="flex gap-2">
-                    <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t} className="px-4 text-white"/>
-                    <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} className="px-4"/>
+                    <LanguageToggle language={language} toggleLanguage={toggleLanguage} className="px-4 text-white"/>
+                    <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language} className="px-4"/>
                     <button onClick={() => setOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.08] text-sm font-black text-white" aria-label={t.close}>
                         <span aria-hidden="true">X</span>
                     </button>
@@ -101,12 +106,20 @@ export default function Header({theme = "night", onToggleTheme}) {
                     </nav>
 
                     <div className="hidden items-center gap-3 xl:flex">
-                        <LanguageToggle language={language} toggleLanguage={toggleLanguage} t={t}/>
-                        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme}/>
+                        <LanguageToggle language={language} toggleLanguage={toggleLanguage}/>
+                        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language}/>
                         <Button to="/contact#contact-options">{t.bookTraining}</Button>
                     </div>
 
-                    <button className="rounded-[0.72rem] border border-sky-200/16 bg-white/[0.06] px-4 py-2 text-sm font-black text-white backdrop-blur-xl xl:hidden" onClick={() => setOpen(true)} aria-label={`${t.open} ${t.menu}`}>{t.menu}</button>
+                    <div className="lumo-mobile-header-actions xl:hidden">
+                        <LanguageToggle language={language} toggleLanguage={toggleLanguage} className="lumo-mobile-toggle"/>
+                        <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language} className="lumo-mobile-toggle"/>
+                        <button className="lumo-mobile-menu-button" onClick={() => setOpen(true)} aria-label={`${t.open} ${t.menu}`}>
+                            <span aria-hidden="true"/>
+                            <span aria-hidden="true"/>
+                            <span aria-hidden="true"/>
+                        </button>
+                    </div>
                 </div>
             </header>
 

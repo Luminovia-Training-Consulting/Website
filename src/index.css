@@ -4717,3 +4717,114 @@ html[data-theme="day"] .lumo-final-cta {
         radial-gradient(circle at 92% 50%, rgba(139, 67, 255, .20), transparent 18rem),
         linear-gradient(105deg, rgba(255, 255, 255, .96), rgba(232, 244, 255, .86)) !important;
 }
+
+/* Mobile header and offer icon polish. */
+.lumo-mobile-header-actions {
+    display: none;
+    align-items: center;
+    gap: .45rem;
+}
+
+.lumo-mobile-toggle {
+    min-height: 2.35rem;
+    border-radius: .65rem;
+    padding: 0 .68rem;
+    font-size: .72rem;
+}
+
+.lumo-mobile-toggle .theme-toggle-icon {
+    width: .98rem;
+    height: .98rem;
+}
+
+.lumo-mobile-menu-button {
+    display: inline-grid;
+    width: 2.35rem;
+    height: 2.35rem;
+    place-items: center;
+    border: 1px solid rgba(174, 205, 255, .22);
+    border-radius: .65rem;
+    background: rgba(4, 16, 35, .68);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+.lumo-mobile-menu-button span {
+    display: block;
+    width: 1rem;
+    height: 2px;
+    border-radius: 999px;
+    background: #eff6ff;
+}
+
+.lumo-offer-icon {
+    display: grid;
+    place-items: center;
+    color: #6ee7ff;
+}
+
+.lumo-offer-icon svg {
+    width: 2.35rem;
+    height: 2.35rem;
+    filter: drop-shadow(0 0 18px rgba(56, 189, 248, .26));
+}
+
+html[data-theme="day"] .lumo-mobile-menu-button {
+    border-color: rgba(14, 92, 145, .18);
+    background: rgba(255, 255, 255, .74);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 12px 34px rgba(12, 74, 110, .08);
+}
+
+html[data-theme="day"] .lumo-mobile-menu-button span {
+    background: #102033;
+}
+
+html[data-theme="day"] .lumo-offer-icon {
+    color: #156bff;
+}
+
+@media (max-width: 1279px) {
+    .lumo-mobile-header-actions {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 760px) {
+    .lumo-site-header > div {
+        min-height: 3.8rem;
+        gap: .65rem;
+        padding: .55rem .75rem;
+    }
+
+    .lumo-header-brand {
+        min-width: 0;
+        gap: .45rem;
+    }
+
+    .lumo-header-brand img {
+        width: 2.05rem;
+        height: 2.05rem;
+    }
+
+    .lumo-header-brand strong {
+        font-size: .9rem;
+    }
+
+    .lumo-header-brand small {
+        display: block;
+        max-width: 5.8rem;
+        overflow: hidden;
+        font-size: .52rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 410px) {
+    .lumo-mobile-toggle {
+        padding: 0 .5rem;
+    }
+
+    .lumo-mobile-toggle span:not(.theme-toggle-icon) {
+        font-size: .66rem;
+    }
+}

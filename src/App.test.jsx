@@ -19,9 +19,9 @@ describe("App routing and language", () => {
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
 
-        await user.click(screen.getByRole("button", {name: /Switch language to German/i}));
+        await user.click(screen.getAllByRole("button", {name: /Switch language to German/i})[0]);
 
-        expect(screen.getByRole("heading", {name: /AI, IT & Digital Capability Training für moderne Teams/i})).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /KI-, IT- & Digitalkompetenz-Training für moderne Teams/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
     });
@@ -42,14 +42,14 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("button", {name: /Switch to day scheme/i})).toBeInTheDocument();
+        expect((await screen.findAllByRole("button", {name: /Switch to day scheme/i}))[0]).toBeInTheDocument();
         expect(document.documentElement.dataset.theme).toBe("night");
 
-        await user.click(screen.getByRole("button", {name: /Switch to day scheme/i}));
+        await user.click(screen.getAllByRole("button", {name: /Switch to day scheme/i})[0]);
 
         expect(document.documentElement.dataset.theme).toBe("day");
         expect(window.localStorage.getItem("carina_color_scheme_v1")).toBe("day");
-        expect(screen.getByRole("button", {name: /Switch to night scheme/i})).toBeInTheDocument();
+        expect(screen.getAllByRole("button", {name: /Switch to night scheme/i})[0]).toBeInTheDocument();
     });
 
     it("keeps English after the visitor explicitly selected it", async () => {
@@ -147,7 +147,7 @@ describe("App routing and language", () => {
         expect(screen.getByText("from $65")).toBeInTheDocument();
         expect(screen.getByText("from $1,200")).toBeInTheDocument();
 
-        await user.click(screen.getByRole("button", {name: /Switch language/i}));
+        await user.click(screen.getAllByRole("button", {name: /Switch language/i})[0]);
 
         expect(screen.getByRole("heading", {name: /Transparente Netto-Ab-Preise/i})).toBeInTheDocument();
         expect(screen.getByText("ab 50 EUR")).toBeInTheDocument();
@@ -180,7 +180,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training für moderne Teams/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /KI-, IT- & Digitalkompetenz-Training für moderne Teams/i})).toBeInTheDocument();
         expect(window.scrollTo).not.toHaveBeenCalled();
 
         const trainingLink = screen.getAllByRole("link", {name: /^Training$/})
