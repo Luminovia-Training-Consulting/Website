@@ -153,9 +153,10 @@ function RouteIcon({type}) {
 
     return (
         <svg {...iconProps}>
-            <path d="M6 18l18-9 18 9-18 9-18-9z" {...pathProps}/>
-            <path d="M14 23v9c3 3 6.4 4.5 10 4.5S31 35 34 32v-9" {...pathProps}/>
-            <path d="M42 18v12" {...pathProps}/>
+            <path d="M5 18.5 24 8l19 10.5L24 29 5 18.5z" {...pathProps}/>
+            <path d="M13.5 24v8.5c2.9 3.6 6.4 5.4 10.5 5.4s7.6-1.8 10.5-5.4V24" {...pathProps}/>
+            <path d="M39 21.5v9.8" {...pathProps}/>
+            <path d="M39 31.3 36.5 36" {...pathProps}/>
         </svg>
     );
 }
