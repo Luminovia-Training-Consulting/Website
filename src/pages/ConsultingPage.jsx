@@ -41,18 +41,18 @@ const content = {
     },
     de: {
         badge: "Consulting & Enablement",
-        title: "Consulting fuer AI, IT und digitale Kompetenz, die praktisch nutzbar wird.",
-        intro: "Luminovia unterstuetzt Organisationen dabei, digitale Fragen in klare Strukturen zu uebersetzen: AI Use Cases, Workflow-Entscheidungen, Lernarchitektur, Curriculum Design, Roadmaps und Umsetzungsbegleitung.",
+        title: "Consulting für AI, IT und digitale Kompetenz, die praktisch nutzbar wird.",
+        intro: "Luminovia unterstützt Organisationen dabei, digitale Fragen in klare Strukturen zu übersetzen: AI Use Cases, Workflow-Entscheidungen, Lernarchitektur, Curriculum Design, Roadmaps und Umsetzungsbegleitung.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#consulting-areas", "Bereiche"], ["#deliverables", "Ergebnisse"], ["#process", "Prozess"], ["#scope", "Scope"], ["#next", "Anfrage"]],
         areasTitle: "Von Einzelfrage bis Digital-Capability-Programm.",
-        areasCopy: "Consulting kann als Workshop, Audit, Sparring, Konzeptphase, Umsetzungsreview oder Enablement-Sprint gescoped werden. Ziel ist eine klarere naechste Entscheidung, nicht mehr generische Theorie.",
+        areasCopy: "Consulting kann als Workshop, Audit, Sparring, Konzeptphase, Umsetzungsreview oder Enablement-Sprint gescoped werden. Ziel ist eine klarere nächste Entscheidung, nicht mehr generische Theorie.",
         areas: [
-            ["AI Use-Case Mapping", "Klaeren, wo AI helfen kann, wo sie noch nicht sinnvoll ist und welche menschlichen Reviewpunkte gebraucht werden."],
-            ["Workflow- und Prozessanalyse", "Arbeitsablaeufe, Tool-Nutzung, Uebergaben, Automatisierungsideen und Engpaesse vor Training oder Umsetzung sichtbar machen."],
-            ["Digital Capability Roadmap", "Skills, Formate, Materialien und Entscheidungen fuer eine realistische naechste Phase priorisieren."],
+            ["AI Use-Case Mapping", "Klären, wo AI helfen kann, wo sie noch nicht sinnvoll ist und welche menschlichen Reviewpunkte gebraucht werden."],
+            ["Workflow- und Prozessanalyse", "Arbeitsabläufe, Tool-Nutzung, Übergaben, Automatisierungsideen und Engpässe vor Training oder Umsetzung sichtbar machen."],
+            ["Digital Capability Roadmap", "Skills, Formate, Materialien und Entscheidungen für eine realistische nächste Phase priorisieren."],
             ["Trainingsstrategie und Lernpfade", "Enablement-Programme nach Zielgruppe, Lernstand, Transferaufgaben und Business-Zielen formen."],
-            ["Curriculum und Materialdesign", "Module, Labs, Slides, Lernchecks und Blended-Learning-Strukturen fuer professionelle Kohorten entwickeln."],
+            ["Curriculum und Materialdesign", "Module, Labs, Slides, Lernchecks und Blended-Learning-Strukturen für professionelle Kohorten entwickeln."],
             ["Projekt- und Umsetzungsbegleitung", "Vorhaben mit Scope, Reviewpunkten, Dokumentation und Entscheidungsmaterial begleiten."],
         ],
         deliverablesTitle: "Typische Consulting-Ergebnisse",
@@ -60,14 +60,14 @@ const content = {
             "Use-Case-Map mit Priorisierung nach Nutzen, Risiko und Umsetzbarkeit",
             "Workflow- oder Prozesslandkarte mit praktischen Empfehlungen",
             "AI-Nutzungsleitlinien, Reviewroutinen oder Governance-Notizen",
-            "Digital-Capability-Roadmap mit naechsten Schritten und Lernbedarf",
+            "Digital-Capability-Roadmap mit nächsten Schritten und Lernbedarf",
             "Workshop-, Trainingspfad- oder Curriculum-Architektur",
-            "Entscheidungsvorlage fuer Management, Programmleitung oder Bildungsanbieter",
+            "Entscheidungsvorlage für Management, Programmleitung oder Bildungsanbieter",
         ],
         processTitle: "Ein strukturierter Weg von der ersten Idee zu praktischer Kompetenz.",
         scopeTitle: "Was im Scope liegt, und was nicht.",
-        nextTitle: "Consulting-Unterstuetzung fuer Ihre Organisation anfragen.",
-        nextCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage, Zeitraum, Sprache und Ziel. Luminovia schlaegt ein passendes Consulting-Sprint-, Workshop-, Roadmap- oder kombiniertes Trainingsformat vor.",
+        nextTitle: "Consulting-Unterstützung für Ihre Organisation anfragen.",
+        nextCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage, Zeitraum, Sprache und Ziel. Luminovia schlägt ein passendes Consulting-Sprint-, Workshop-, Roadmap- oder kombiniertes Trainingsformat vor.",
         primary: "Consulting anfragen",
         secondary: "Angebote ansehen",
     },
@@ -153,7 +153,7 @@ export default function ConsultingPage() {
 
                 <section id="scope" className="mt-16 grid scroll-mt-36 gap-5 lg:grid-cols-2">
                     <Card className="p-5 sm:p-6">
-                        <h2 className="text-3xl font-black text-white">{language === "de" ? "Moeglich im Scope" : "Possible in scope"}</h2>
+                        <h2 className="text-3xl font-black text-white">{language === "de" ? "Möglich im Scope" : "Possible in scope"}</h2>
                         <div className="mt-5 grid gap-2">
                             {boundaries.possible.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
                         </div>

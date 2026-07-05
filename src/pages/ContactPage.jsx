@@ -48,7 +48,7 @@ export default function ContactPage() {
                     copy={t.contact.copy}
                     actions={<><Button href={`mailto:${PROFILE.email}?subject=${subject}`} variant="secondary">{t.contact.emailButton}</Button><Button to="/contact#appointment">{t.contact.calendarFallback}</Button></>}
                     visual={<TrustRail items={[
-                        {icon: "@", title: "Email", copy: PROFILE.email},
+                        {icon: "@", title: language === "de" ? "E-Mail" : "Email", copy: PROFILE.email},
                         {icon: "AU", title: language === "de" ? "Telefon Australien" : "Australia phone", copy: PROFILE.phoneAustralia},
                         {icon: "DE", title: language === "de" ? "Telefon Deutschland" : "Germany phone", copy: PROFILE.phoneGermany},
                     ]}/>}

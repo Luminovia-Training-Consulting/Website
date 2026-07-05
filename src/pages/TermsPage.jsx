@@ -40,7 +40,7 @@ export default function TermsPage() {
         ? {
             badge: "Terms & Conditions",
             title: "Terms & Conditions und Zahlungsinformationen.",
-            intro: "Diese Bedingungen gelten fuer Rechnungen, Trainings, Consulting, Lernmaterialien, Dokumentation und zugehoerige Leistungen von Luminovia Training & Consulting, sofern nichts anderes schriftlich vereinbart wurde.",
+            intro: "Diese Bedingungen gelten für Rechnungen, Trainings, Consulting, Lernmaterialien, Dokumentation und zugehörige Leistungen von Luminovia Training & Consulting, sofern nichts anderes schriftlich vereinbart wurde.",
             termsTitle: "Rechnungs- und Leistungsbedingungen",
             bankTitle: "Bankinformationen",
         }

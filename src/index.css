@@ -4824,7 +4824,252 @@ html[data-theme="day"] .lumo-offer-icon {
         padding: 0 .5rem;
     }
 
-    .lumo-mobile-toggle span:not(.theme-toggle-icon) {
+.lumo-mobile-toggle span:not(.theme-toggle-icon) {
         font-size: .66rem;
+    }
+}
+
+/* Subpage hero, rail and day-theme polish. */
+.lumo-page-hero {
+    padding: clamp(4.25rem, 6vw, 6.25rem) 0 clamp(3rem, 5vw, 4.5rem);
+}
+
+.lumo-page-hero-grid {
+    align-items: center;
+    gap: clamp(2.25rem, 5vw, 5rem);
+}
+
+.lumo-page-hero-copy {
+    max-width: 47rem;
+}
+
+.lumo-page-hero-copy h1 {
+    max-width: 16.5ch;
+    font-size: clamp(2.75rem, 4vw, 4.35rem);
+    hyphens: auto;
+    line-height: 1.03;
+    letter-spacing: -.025em;
+    overflow-wrap: break-word;
+}
+
+.lumo-page-hero-copy > p {
+    max-width: 44rem;
+    color: rgba(220, 232, 249, .88);
+    font-size: clamp(1rem, 1.2vw, 1.12rem);
+}
+
+.lumo-page-hero-visual {
+    min-height: auto;
+}
+
+.lumo-page-hero-visual .lumo-trust-rail {
+    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+    gap: .9rem;
+    overflow: visible;
+    padding: 1rem;
+}
+
+.lumo-page-hero-visual .lumo-trust-item {
+    min-height: 0;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: .6rem .8rem;
+    border: 1px solid rgba(125, 211, 252, .14);
+    border-radius: .8rem;
+    background: rgba(4, 17, 37, .38);
+    padding: .95rem;
+}
+
+.lumo-page-hero-visual .lumo-trust-item:last-child {
+    border-right: 1px solid rgba(125, 211, 252, .14);
+}
+
+.lumo-page-hero-visual .lumo-trust-item span {
+    grid-row: 1;
+    width: 2.45rem;
+    font-size: .74rem;
+    font-weight: 950;
+    letter-spacing: 0;
+}
+
+.lumo-page-hero-visual .lumo-trust-item strong {
+    align-self: center;
+    color: #f8fbff;
+    font-size: clamp(.95rem, 1.05vw, 1.08rem);
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+}
+
+.lumo-page-hero-visual .lumo-trust-item p {
+    grid-column: 1 / -1;
+    color: rgba(207, 220, 238, .86);
+    font-size: .88rem;
+    line-height: 1.45;
+}
+
+.lumo-page-hero-visual .lumo-process-timeline {
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: .85rem;
+    border: 1px solid rgba(125, 211, 252, .18);
+    border-radius: 1rem;
+    background: rgba(8, 22, 47, .42);
+    padding: 1rem;
+}
+
+.lumo-page-hero-visual .lumo-process-timeline::before {
+    display: none;
+}
+
+.lumo-page-hero-visual .lumo-process-step {
+    min-height: 0;
+    border: 1px solid rgba(125, 211, 252, .14);
+    border-radius: .9rem;
+    background: rgba(4, 17, 37, .38);
+    padding: .95rem;
+}
+
+.lumo-page-hero-visual .lumo-process-step h3 {
+    margin-top: .9rem;
+    font-size: .98rem;
+    line-height: 1.2;
+}
+
+.lumo-page-hero-visual .lumo-process-step p {
+    font-size: .82rem;
+    line-height: 1.45;
+}
+
+.lumo-trust-item {
+    padding-left: 1rem;
+}
+
+.lumo-route-icon svg {
+    width: 3.35rem;
+    height: 3.35rem;
+    filter: drop-shadow(0 0 18px rgba(125, 211, 252, .22));
+}
+
+.lumo-hero-chips .lumo-chip {
+    min-height: 3rem;
+    align-items: center;
+    gap: .65rem;
+    border: 1px solid rgba(125, 211, 252, .10);
+    border-radius: .85rem;
+    background: rgba(8, 24, 48, .30);
+    padding: .65rem .8rem;
+}
+
+.lumo-hero-chips .lumo-chip::before {
+    content: "";
+    width: .48rem;
+    height: .48rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #22d3ee, #f5b73b);
+    box-shadow: 0 0 16px rgba(34, 211, 238, .45);
+}
+
+html[data-theme="day"] .lumo-subpage {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(42, 169, 255, .15), transparent 28rem),
+        radial-gradient(circle at 88% 6%, rgba(139, 67, 255, .10), transparent 26rem),
+        linear-gradient(180deg, #f7fbff 0%, #eef7ff 52%, #f9fbff 100%);
+    color: #102033;
+}
+
+html[data-theme="day"] .lumo-page-hero {
+    border-bottom-color: rgba(21, 107, 255, .12);
+}
+
+html[data-theme="day"] .lumo-page-hero::before {
+    opacity: .45;
+    mix-blend-mode: multiply;
+}
+
+html[data-theme="day"] .lumo-page-hero-copy h1 {
+    color: #07182d !important;
+}
+
+html[data-theme="day"] .lumo-page-hero-copy > p {
+    color: #294763 !important;
+}
+
+html[data-theme="day"] .lumo-page-hero-visual .lumo-trust-rail,
+html[data-theme="day"] .lumo-page-hero-visual .lumo-process-timeline {
+    border-color: rgba(21, 107, 255, .16) !important;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(42, 169, 255, .10), transparent 38%),
+        linear-gradient(145deg, rgba(255, 255, 255, .88), rgba(238, 247, 255, .78)) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .86), 0 22px 70px rgba(12, 74, 110, .10) !important;
+}
+
+html[data-theme="day"] .lumo-page-hero-visual .lumo-trust-item,
+html[data-theme="day"] .lumo-page-hero-visual .lumo-process-step {
+    border-color: rgba(21, 107, 255, .12) !important;
+    background: rgba(255, 255, 255, .62);
+}
+
+html[data-theme="day"] .lumo-page-hero-visual .lumo-trust-item span,
+html[data-theme="day"] .lumo-page-hero-visual .lumo-process-node {
+    border-color: rgba(42, 169, 255, .28);
+    background: rgba(229, 245, 255, .90);
+    color: #0875c9;
+}
+
+html[data-theme="day"] .lumo-page-hero-visual .lumo-trust-item strong,
+html[data-theme="day"] .lumo-page-hero-visual .lumo-process-step h3 {
+    color: #0b1f38 !important;
+}
+
+html[data-theme="day"] .lumo-page-hero-visual .lumo-trust-item p,
+html[data-theme="day"] .lumo-page-hero-visual .lumo-process-step p {
+    color: #38506b !important;
+}
+
+html[data-theme="day"] .lumo-header-brand small {
+    color: #31506d !important;
+}
+
+.lumo-header-brand:focus-visible {
+    border-radius: .85rem;
+    outline: 2px solid rgba(34, 211, 238, .78);
+    outline-offset: .28rem;
+}
+
+html[data-theme="day"] .lumo-hero-chips .lumo-chip {
+    border-color: rgba(21, 107, 255, .12);
+    background: rgba(255, 255, 255, .54);
+    color: #1b3858 !important;
+}
+
+html[data-theme="day"] .lumo-route-icon svg {
+    filter: drop-shadow(0 0 16px rgba(21, 107, 255, .16));
+}
+
+@media (min-width: 1024px) {
+    .lumo-page-hero-grid {
+        grid-template-columns: minmax(0, .96fr) minmax(24rem, .92fr);
+    }
+}
+
+@media (max-width: 1023px) {
+    .lumo-page-hero {
+        padding-top: 3.5rem;
+    }
+
+    .lumo-page-hero-copy h1 {
+        max-width: 18ch;
+    }
+}
+
+@media (max-width: 760px) {
+    .lumo-page-hero-copy h1 {
+        max-width: 12.5ch;
+        font-size: clamp(2.35rem, 12vw, 3.45rem);
+    }
+
+    .lumo-page-hero-visual .lumo-trust-rail,
+    .lumo-page-hero-visual .lumo-process-timeline {
+        grid-template-columns: 1fr;
     }
 }

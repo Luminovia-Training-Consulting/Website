@@ -12,8 +12,8 @@ import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 const content = {
     de: {
         badge: "Angebote",
-        title: "Klare Luminovia-Angebote fuer Training, Consulting und digitale Umsetzung.",
-                intro: "Diese Seite sortiert, was konkret gebucht werden kann: Live-Training, Consulting-Sprints, Projektbegleitung, Expert Sessions, Curriculum Design und groessere Enablement-Programme. Ideal, wenn Sie schnell entscheiden wollen, welches Format zur Anfrage passt.",
+        title: "Klare Luminovia-Angebote für Training, Consulting und digitale Umsetzung.",
+        intro: "Diese Seite sortiert, was konkret gebucht werden kann: Live-Training, Consulting-Sprints, Projektbegleitung, Expert Sessions, Curriculum Design und größere Enablement-Programme. Ideal, wenn Sie schnell entscheiden wollen, welches Format zur Anfrage passt.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#packages", "Pakete"], ["#decision", "Auswahl"], ["#scope", "Umfang"], ["#programmes", "Programme"], ["#proof", "Nachweise"], ["#next", "Anfrage"]],
         packagesTitle: "Buchbare Pakete",
@@ -23,8 +23,8 @@ const content = {
                 title: "AI & Digital Skills Training",
                 tag: "Training",
                 copy: "Praxisnahe Workshops und Kurse zu AI Literacy, GenAI, Prompt Engineering, Cybersecurity, Python, SQL, Business IT und digitaler Transformation.",
-                outcomes: ["klare Lernziele", "Uebungen und Transfer", "Live-Remote-Durchfuehrung", "Materialien und Recaps"],
-                scope: "90 Minuten bis mehrwoechige Kursdurchfuehrung",
+                outcomes: ["klare Lernziele", "Übungen und Transfer", "Live-Remote-Durchführung", "Materialien und Recaps"],
+                scope: "90 Minuten bis mehrwöchige Kursdurchführung",
                 pricing: "ab 50 EUR / 85 AUD / 65 USD je 45-Min.-UE oder ab 100 EUR / 165 AUD / 120 USD je Stunde",
                 to: "/training",
                 cta: "Training ansehen",
@@ -32,7 +32,7 @@ const content = {
             {
                 title: "AI, IT & Business Consulting",
                 tag: "Consulting",
-                copy: "Beratung fuer Use Cases, Prozesse, Tool-Entscheidungen, AI Governance, Roadmaps, Lernarchitektur und digitale Arbeitsmodelle.",
+                copy: "Beratung für Use Cases, Prozesse, Tool-Entscheidungen, AI Governance, Roadmaps, Lernarchitektur und digitale Arbeitsmodelle.",
                 outcomes: ["Use-Case-Map", "Roadmap", "Entscheidungsvorlage", "Guidelines"],
                 scope: "Consulting-Sprint, Workshop, Review oder laufende Projektbegleitung",
                 pricing: "individuell kalkuliert nach Verantwortung, Ergebnis und Laufzeit",
@@ -42,7 +42,7 @@ const content = {
             {
                 title: "Curriculum & Programme Design",
                 tag: "Education",
-                copy: "Strukturierte Lernpfade, Trainingsprogramme, Workshop-Reihen, Slides, Labs, Lernchecks und Materialien fuer Bildungsanbieter.",
+                copy: "Strukturierte Lernpfade, Trainingsprogramme, Workshop-Reihen, Slides, Labs, Lernchecks und Materialien für Bildungsanbieter.",
                 outcomes: ["Curriculum", "Blended-Learning-Struktur", "Labs und Aufgaben", "Qualitaetscheck"],
                 scope: "Konzeptphase, Materialdesign oder komplette Programmarchitektur",
                 pricing: "Projektangebot nach Umfang und Materialtiefe",
@@ -52,7 +52,7 @@ const content = {
             {
                 title: "Expert Sessions & Talks",
                 tag: "Talks",
-                copy: "Vortraege zu Responsible AI, Cybersecurity Awareness, Future Skills, AI in Bildung, Industry 5.0 und digitaler Transformation.",
+                copy: "Vorträge zu Responsible AI, Cybersecurity Awareness, Future Skills, AI in Bildung, Industry 5.0 und digitaler Transformation.",
                 outcomes: ["Impulsvortrag", "Q&A", "Executive Briefing", "Event-Format"],
                 scope: "30-90 Minuten, Halbtag oder individuelles Eventformat",
                 pricing: "ab 1.000 EUR / 1.650 AUD / 1.200 USD",
@@ -61,27 +61,27 @@ const content = {
             },
         ],
         scopeTitle: "Was genau im Angebot enthalten sein kann",
-        scopeCopy: "Der konkrete Umfang wird vorab gescoped. Je nach Paket koennen Live-Durchfuehrung, Uebungen, Materialien, Roadmaps, Entscheidungsnotizen, Follow-up-Recaps oder Projekt-Reviews enthalten sein.",
+        scopeCopy: "Der konkrete Umfang wird vorab gescoped. Je nach Paket können Live-Durchführung, Übungen, Materialien, Roadmaps, Entscheidungsnotizen, Follow-up-Recaps oder Projekt-Reviews enthalten sein.",
         scopeLabel: "Typischer Umfang",
         priceLabel: "Preislogik",
         decisionTitle: "Welches Format passt?",
         decision: [
             ["Wir brauchen Skills im Team", "Training oder Workshop", "/training"],
-            ["Wir muessen Entscheidungen treffen", "Consulting-Sprint", "/consulting"],
+            ["Wir müssen Entscheidungen treffen", "Consulting-Sprint", "/consulting"],
             ["Wir bauen ein Bildungsprogramm", "Curriculum & Materialdesign", "/training#details"],
             ["Wir brauchen einen starken Impuls", "Expert Session oder Talk", "/training/coaching-keynotes-expert-talks"],
-            ["Wir wollen Umfang und Budget klaeren", "Preis- und Fit-Gespraech", "/pricing"],
+            ["Wir wollen Umfang und Budget klären", "Preis- und Fit-Gespräch", "/pricing"],
         ],
-        programmesTitle: "Groessere Programme",
-        programmesCopy: "Fuer groessere Kunden kann Luminovia mehrere Formate verbinden: Erstberatung, Zielbild, Training, Umsetzungssparring, Materialentwicklung und Review.",
+        programmesTitle: "Größere Programme",
+        programmesCopy: "Für größere Kunden kann Luminovia mehrere Formate verbinden: Erstberatung, Zielbild, Training, Umsetzungssparring, Materialentwicklung und Review.",
         programmeSteps: [
-            ["01", "Scope", "Zielgruppe, Ausgangslage, Risiken, Zeitfenster und Erfolgskriterien klaeren."],
+            ["01", "Scope", "Zielgruppe, Ausgangslage, Risiken, Zeitfenster und Erfolgskriterien klären."],
             ["02", "Architecture", "Formatmix aus Training, Consulting, Projektarbeit und Materialdesign planen."],
             ["03", "Delivery", "Live-Sessions, Workshops, Reviews und asynchrone Arbeitsartefakte umsetzen."],
-            ["04", "Transfer", "Roadmap, Guidelines, Lernpfade und naechste Schritte dokumentieren."],
+            ["04", "Transfer", "Roadmap, Guidelines, Lernpfade und nächste Schritte dokumentieren."],
         ],
         proofTitle: "Warum Luminovia?",
-        nextTitle: "Bereit fuer die naechste Anfrage?",
+        nextTitle: "Bereit für die nächste Anfrage?",
         nextCopy: "Senden Sie Thema, Zielgruppe, Ziel, Zeitraum und gewünschten Umfang. Danach schlägt Luminovia ein passendes Format vor.",
         primary: "Kontakt aufnehmen",
         secondary: "Termin buchen",
@@ -179,9 +179,9 @@ export default function OffersPage() {
                     copy={copy.intro}
                     actions={<><Button to="/contact#contact-options">{copy.primary}</Button><Button to="/training" variant="secondary">{language === "de" ? "Training ansehen" : "View training"}</Button></>}
                     visual={<TrustRail items={[
-                        {icon: "01", title: "Training", copy: "Workshops, courses and skills programmes"},
-                        {icon: "02", title: "Consulting", copy: "Sprints, reviews and decision support"},
-                        {icon: "03", title: "Programme design", copy: "Curriculum, labs and learning journeys"},
+                        {icon: "01", title: "Training", copy: language === "de" ? "Workshops, Kurse und Kompetenzprogramme" : "Workshops, courses and skills programmes"},
+                        {icon: "02", title: "Consulting", copy: language === "de" ? "Sprints, Reviews und Entscheidungshilfe" : "Sprints, reviews and decision support"},
+                        {icon: "03", title: language === "de" ? "Programmdesign" : "Programme design", copy: language === "de" ? "Curriculum, Labs und Lernreisen" : "Curriculum, labs and learning journeys"},
                     ]}/>}
                 />
             </div>

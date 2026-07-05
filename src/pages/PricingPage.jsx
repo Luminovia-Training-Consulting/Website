@@ -108,9 +108,9 @@ const content = {
         },
         footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Reiseaufwand, besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#booking-eligibility", "Buchungsfit"], ["#rates", "Preise"], ["#currency", "Waehrungen"], ["#custom", "Anfrage"]],
+        jumpItems: [["#booking-eligibility", "Buchungsfit"], ["#rates", "Preise"], ["#currency", "Währungen"], ["#custom", "Anfrage"]],
         currencyTitle: "Planungspreise in EUR, AUD und USD.",
-        currencyCopy: "Die Waehrungsangaben sind Orientierungswerte fuer Planungsgespraeche. Rechnungswaehrung, Steuerlogik und Wechselkursbasis werden im Angebot geklaert.",
+        currencyCopy: "Die Währungsangaben sind Orientierungswerte für Planungsgespräche. Rechnungswährung, Steuerlogik und Wechselkursbasis werden im Angebot geklärt.",
     },
 };
 
@@ -128,9 +128,9 @@ export default function PricingPage() {
                     copy={copy.intro}
                     actions={<><Button to="/contact#contact-options">{copy.contact}</Button><Button href={PROFILE.appointmentSchedule} variant="secondary">{copy.appointment}</Button></>}
                     visual={<TrustRail items={[
-                        {icon: "€", title: "EUR", copy: "German planning values"},
-                        {icon: "$", title: "AUD / USD", copy: "International planning values"},
-                        {icon: "?", title: "Scoped offers", copy: "Projects and programmes quoted individually"},
+                        {icon: "€", title: "EUR", copy: language === "de" ? "Planungswerte für Deutschland" : "German planning values"},
+                        {icon: "$", title: "AUD / USD", copy: language === "de" ? "Internationale Planungswerte" : "International planning values"},
+                        {icon: "?", title: language === "de" ? "Individuelle Angebote" : "Scoped offers", copy: language === "de" ? "Projekte und Programme nach Scope" : "Projects and programmes quoted individually"},
                     ]}/>}
                 />
             </div>
@@ -177,7 +177,7 @@ export default function PricingPage() {
                 <section id="currency" className="mt-14 scroll-mt-36">
                     <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
-                            <Badge tone="cyan">{language === "de" ? "Waehrungen" : "Currencies"}</Badge>
+                            <Badge tone="cyan">{language === "de" ? "Währungen" : "Currencies"}</Badge>
                             <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.currencyTitle}</h2>
                         </div>
                         <p className="text-lg leading-8 text-slate-300">{copy.currencyCopy}</p>

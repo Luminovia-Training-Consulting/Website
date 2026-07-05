@@ -68,10 +68,10 @@ export default function TrainingPage() {
             detailPagesCopy: "Die Detailseiten zeigen, für wen ein Thema geeignet ist, welche Formate möglich sind, welche Inhalte behandelt werden und welche Materialien oder Ergebnisse sinnvoll sind.",
             duration: "Umfang",
             durationTitle: "Wie lange ein Training dauern kann und was dabei entsteht.",
-            durationCopy: "Luminovia plant Trainings nicht als starre Folienpakete, sondern nach Zielgruppe, Vorwissen, Business-Ziel und benoetigtem Transfer. Ein kurzes Briefing kann reichen; fuer echten Kompetenzaufbau sind Workshop- oder Kursformate sinnvoller.",
+            durationCopy: "Luminovia plant Trainings nicht als starre Folienpakete, sondern nach Zielgruppe, Vorwissen, Business-Ziel und benötigtem Transfer. Ein kurzes Briefing kann reichen; für echten Kompetenzaufbau sind Workshop- oder Kursformate sinnvoller.",
             methods: "Methoden",
             methodsTitle: "Arbeitsweise in Training und Enablement.",
-            possibleTitle: "Moeglich",
+            possibleTitle: "Möglich",
             notIncludedTitle: "Nicht enthalten",
             details: "Details ansehen",
             audiences: "Zielgruppen",
@@ -125,9 +125,9 @@ export default function TrainingPage() {
                     copy={copy.intro}
                     actions={<AssetButtons t={t}/>}
                     visual={<TrustRail items={[
-                        {icon: "AI", title: "AI & GenAI", copy: "Workshops, literacy and applied workflows"},
-                        {icon: "SEC", title: "Cybersecurity", copy: "Awareness, web security and responsible practice"},
-                        {icon: "DATA", title: "Python / SQL / Data", copy: "Hands-on labs and applied analytics"},
+                        {icon: "AI", title: language === "de" ? "KI & GenAI" : "AI & GenAI", copy: language === "de" ? "Workshops, Kompetenzaufbau und Workflows" : "Workshops, literacy and applied workflows"},
+                        {icon: "SEC", title: "Cybersecurity", copy: language === "de" ? "Awareness, Web Security und verantwortliche Praxis" : "Awareness, web security and responsible practice"},
+                        {icon: "DATA", title: language === "de" ? "Python / SQL / Daten" : "Python / SQL / Data", copy: language === "de" ? "Praxislabs und angewandte Analyse" : "Hands-on labs and applied analytics"},
                     ]}/>}
                 />
             </div>

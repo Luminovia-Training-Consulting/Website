@@ -109,10 +109,65 @@ export function TrustRail({items}) {
     );
 }
 
-export function RouteCard({title, copy, bullets, cta, to, tone = "blue", icon = "◇"}) {
+function routeIconForTitle(title) {
+    const normalized = title.toLowerCase();
+    if (normalized.includes("consulting") || normalized.includes("beratung")) return "target";
+    if (normalized.includes("programme") || normalized.includes("programm")) return "layers";
+    return "training";
+}
+
+function RouteIcon({type}) {
+    const iconProps = {
+        viewBox: "0 0 48 48",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        "aria-hidden": "true",
+    };
+    const pathProps = {
+        stroke: "currentColor",
+        strokeWidth: "3.2",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+    };
+
+    if (type === "target") {
+        return (
+            <svg {...iconProps}>
+                <circle cx="24" cy="24" r="16" {...pathProps}/>
+                <circle cx="24" cy="24" r="8" {...pathProps}/>
+                <path d="M24 6V2M24 46v-4M42 24h4M2 24h4" {...pathProps}/>
+                <path d="M30 18l8-8M35 10h3v3" {...pathProps}/>
+            </svg>
+        );
+    }
+
+    if (type === "layers") {
+        return (
+            <svg {...iconProps}>
+                <path d="M24 5L42 15 24 25 6 15 24 5z" {...pathProps}/>
+                <path d="M10 24l14 8 14-8" {...pathProps}/>
+                <path d="M10 33l14 8 14-8" {...pathProps}/>
+            </svg>
+        );
+    }
+
+    return (
+        <svg {...iconProps}>
+            <path d="M6 18l18-9 18 9-18 9-18-9z" {...pathProps}/>
+            <path d="M14 23v9c3 3 6.4 4.5 10 4.5S31 35 34 32v-9" {...pathProps}/>
+            <path d="M42 18v12" {...pathProps}/>
+        </svg>
+    );
+}
+
+export function RouteCard({title, copy, bullets, cta, to, tone = "blue"}) {
+    const iconType = routeIconForTitle(title);
+
     return (
         <article className="lumo-route-card" data-tone={tone}>
-            <div className="lumo-route-icon" aria-hidden="true">{icon}</div>
+            <div className="lumo-route-icon">
+                <RouteIcon type={iconType}/>
+            </div>
             <h3>{title}</h3>
             <p>{copy}</p>
             <ul>

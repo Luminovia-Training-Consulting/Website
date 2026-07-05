@@ -24,9 +24,9 @@ export default function ClientsPage() {
                     title={copy.title}
                     copy={copy.intro}
                     visual={<TrustRail items={[
-                        {icon: "EDU", title: "Education contexts", copy: "Selected delivery environments"},
-                        {icon: "B2B", title: "Organisation fit", copy: "Training and enablement capability"},
-                        {icon: "NO", title: "No fake proof", copy: "No invented logos or testimonials"},
+                        {icon: "EDU", title: language === "de" ? "Bildungskontexte" : "Education contexts", copy: language === "de" ? "Ausgewählte Lieferumfelder" : "Selected delivery environments"},
+                        {icon: "B2B", title: language === "de" ? "Organisationsfit" : "Organisation fit", copy: language === "de" ? "Training und Enablement" : "Training and enablement capability"},
+                        {icon: "OK", title: language === "de" ? "Ehrliche Nachweise" : "Honest proof", copy: language === "de" ? "Keine erfundenen Logos oder Testimonials" : "No invented logos or testimonials"},
                     ]}/>}
                 />
             </div>

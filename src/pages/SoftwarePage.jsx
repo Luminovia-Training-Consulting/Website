@@ -19,7 +19,7 @@ export default function SoftwarePage() {
             skills: "Consulting ansehen",
             typesTitle: "Was diese Projekte für Kunden bedeuten können",
             typesCopy: "Die Projektseite ist kein Software-Shop mit fertigen Produkten. Sie zeigt, welche Arten von Arbeit Luminovia in Training, Consulting und Projektbegleitung sinnvoll einordnen, strukturieren oder begleiten kann.",
-            examplesLabel: "Moegliche Artefakte",
+            examplesLabel: "Mögliche Artefakte",
         }
         : {
             badge: "Project portfolio",
@@ -40,9 +40,9 @@ export default function SoftwarePage() {
                     copy={copy.intro}
                     actions={<><Button href={PROFILE.github}>{copy.github}</Button><Button to="/consulting" variant="secondary">{copy.skills}</Button></>}
                     visual={<TrustRail items={[
-                        {icon: "PY", title: "Python automation", copy: "Research workflows and data cleanup"},
-                        {icon: "AI", title: "AI research tooling", copy: "Applied systems behind training examples"},
-                        {icon: "APP", title: "Software practice", copy: "Mobile, plugins and digital workflows"},
+                        {icon: "PY", title: language === "de" ? "Python-Automation" : "Python automation", copy: language === "de" ? "Research-Workflows und Datenbereinigung" : "Research workflows and data cleanup"},
+                        {icon: "AI", title: language === "de" ? "AI-Research-Tools" : "AI research tooling", copy: language === "de" ? "Praxisnahe Systeme hinter Trainingsbeispielen" : "Applied systems behind training examples"},
+                        {icon: "APP", title: language === "de" ? "Softwarepraxis" : "Software practice", copy: language === "de" ? "Mobile, Plugins und digitale Workflows" : "Mobile, plugins and digital workflows"},
                     ]}/>}
                 />
             </div>

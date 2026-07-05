@@ -140,13 +140,13 @@ const catalog = {
         durationModels: [
             {
                 title: "90-Minuten-Briefing",
-                scope: "Orientierung fuer Führung, Teams oder Programmverantwortliche.",
-                output: "Gemeinsame Sprache, Risikoblick, Themenlandkarte und empfohlene naechste Schritte.",
+                scope: "Orientierung für Führung, Teams oder Programmverantwortliche.",
+                output: "Gemeinsame Sprache, Risikoblick, Themenlandkarte und empfohlene nächste Schritte.",
             },
             {
                 title: "Halbtages- oder Tagesworkshop",
-                scope: "Interaktives Training fuer Team, Kohorte oder Learning Day.",
-                output: "Uebungen, Beispiele, Checklisten und konkrete Transferaufgaben.",
+                scope: "Interaktives Training für Team, Kohorte oder Learning Day.",
+                output: "Übungen, Beispiele, Checklisten und konkrete Transferaufgaben.",
             },
             {
                 title: "2-3 Tage Intensivtraining",
@@ -155,13 +155,13 @@ const catalog = {
             },
             {
                 title: "5-Tage-Bootcamp",
-                scope: "Kompakter Lernpfad fuer Kohorten mit strukturiertem Fortschritt.",
-                output: "Sequenzierte Module, Uebungen, Recaps, Lernsupport und Abschlusslogik.",
+                scope: "Kompakter Lernpfad für Kohorten mit strukturiertem Fortschritt.",
+                output: "Sequenzierte Module, Übungen, Recaps, Lernsupport und Abschlusslogik.",
             },
             {
                 title: "Mehrwoechige Kursdurchfuehrung",
-                scope: "Wiederkehrende Sessions fuer Akademien, Hochschulen, Umschulungsanbieter oder Unternehmensprogramme.",
-                output: "Kursplan, Live-Durchfuehrung, Lernchecks, Materialien und Stakeholder-Abstimmung.",
+                scope: "Wiederkehrende Sessions für Akademien, Hochschulen, Umschulungsanbieter oder Unternehmensprogramme.",
+                output: "Kursplan, Live-Durchführung, Lernchecks, Materialien und Stakeholder-Abstimmung.",
             },
             {
                 title: "Programm- oder Projektbegleitung",
@@ -172,18 +172,18 @@ const catalog = {
         consultingModels: [
             {
                 title: "AI-Use-Case- und Governance-Consulting",
-                meaning: "Klaert, wo AI sinnvoll hilft, welche Risiken bestehen und welche Nutzungsregeln, Workflows oder Reviewpunkte gebraucht werden.",
+                meaning: "Klärt, wo AI sinnvoll hilft, welche Risiken bestehen und welche Nutzungsregeln, Workflows oder Reviewpunkte gebraucht werden.",
                 deliverables: ["Use-Case-Map", "Risiko- und Datennotizen", "AI-Nutzungsleitlinien", "Workflow-Empfehlungen"],
             },
             {
                 title: "IT- und Prozessberatung",
-                meaning: "Uebersetzt Business-Probleme in technische Optionen, Tool-Entscheidungen, Automatisierungsideen und realistische Umsetzungsschritte.",
+                meaning: "Übersetzt Business-Probleme in technische Optionen, Tool-Entscheidungen, Automatisierungsideen und realistische Umsetzungsschritte.",
                 deliverables: ["Prozesslandkarte", "Tool-Bewertung", "technische Roadmap", "Entscheidungsvorlage"],
             },
             {
                 title: "Learning Architecture und Curriculum Design",
-                meaning: "Baut Programme, Kursstrukturen, Workshop-Reihen und Lernmaterialien fuer Erwachsene und professionelle Kohorten.",
-                deliverables: ["Lernpfad", "Modulstruktur", "Slide- oder Uebungslogik", "Assessment-/Checklogik"],
+                meaning: "Baut Programme, Kursstrukturen, Workshop-Reihen und Lernmaterialien für Erwachsene und professionelle Kohorten.",
+                deliverables: ["Lernpfad", "Modulstruktur", "Slide- oder Übungslogik", "Assessment-/Checklogik"],
             },
             {
                 title: "Projektbegleitung",
@@ -192,12 +192,12 @@ const catalog = {
             },
         ],
         methods: [
-            ["Discovery", "Zielgruppe, Business-Ziel, Rahmenbedingungen, vorhandene Tools und Entscheidungsdruck klaeren."],
-            ["Outcome Mapping", "Vage Trainings- oder Beratungsbedarfe in Lernziele, Entscheidungen, Artefakte und Erfolgskriterien uebersetzen."],
-            ["Praxislabs", "Hands-on-Uebungen, Beispiele, Workflow-Reviews und Transferaufgaben statt passiver Foliendurchfuehrung."],
+            ["Discovery", "Zielgruppe, Business-Ziel, Rahmenbedingungen, vorhandene Tools und Entscheidungsdruck klären."],
+            ["Outcome Mapping", "Vage Trainings- oder Beratungsbedarfe in Lernziele, Entscheidungen, Artefakte und Erfolgskriterien übersetzen."],
+            ["Praxislabs", "Hands-on-Übungen, Beispiele, Workflow-Reviews und Transferaufgaben statt passiver Foliendurchführung."],
             ["Governance-Blick", "AI, Daten, Datenschutz, Qualitaet und menschliche Aufsicht mit alltagstauglichen Arbeitsroutinen verbinden."],
             ["Dokumentation", "Zusammenfassungen, Checklisten, Roadmaps, Lernpfade oder Entscheidungsnotizen liefern, wenn es im Scope liegt."],
-            ["Review und Transfer", "Mit naechsten Schritten, Risikohinweisen und Anwendungsempfehlungen abschliessen."],
+            ["Review und Transfer", "Mit nächsten Schritten, Risikohinweisen und Anwendungsempfehlungen abschließen."],
         ],
         projectTypes: [
             {
@@ -207,8 +207,8 @@ const catalog = {
             },
             {
                 title: "Trainingsprogramm- oder Curriculum-Projekt",
-                description: "Ein Themenfeld in ein lehrbares Programm mit Modulen, Uebungen, Lernchecks und Trainerstruktur uebersetzen.",
-                examples: ["mehrwoechiger Syllabus", "Workshop-Reihe", "Uebungs-/Lab-Konzept", "Assessment-Logik"],
+                description: "Ein Themenfeld in ein lehrbares Programm mit Modulen, Übungen, Lernchecks und Trainerstruktur übersetzen.",
+                examples: ["mehrwöchiger Syllabus", "Workshop-Reihe", "Übungs-/Lab-Konzept", "Assessment-Logik"],
             },
             {
                 title: "Automatisierungs- oder Datenprozess-Projekt",
@@ -218,7 +218,7 @@ const catalog = {
             {
                 title: "Cybersecurity- oder Compliance-Awareness-Projekt",
                 description: "Praxisnahe Awareness zu sicherem Verhalten, AI-Risiken, DSGVO-/AI-Act-Schnittstellen und belastbaren Routinen aufbauen.",
-                examples: ["Security-Awareness-Session", "Risiko-Checkliste", "Policy-Briefing", "Szenario-Uebungen"],
+                examples: ["Security-Awareness-Session", "Risiko-Checkliste", "Policy-Briefing", "Szenario-Übungen"],
             },
             {
                 title: "Digital-Transformation- und Business-IT-Projekt",
@@ -232,11 +232,11 @@ const catalog = {
                 "Corporate Workshops, gefoerderte Bildung und Hochschulformate",
                 "AI, IT, Cybersecurity, Daten, Software, Projekt- und Business-Technology-Themen",
                 "Consulting-Sprints, Roadmaps, Learning Architecture und Projektbegleitung",
-                "Materialien, Uebungen, Recaps, Checklisten und Entscheidungsartefakte im vereinbarten Scope",
+                "Materialien, Übungen, Recaps, Checklisten und Entscheidungsartefakte im vereinbarten Scope",
             ],
             notIncluded: [
                 "Rechts-, Steuer- oder Finanzberatung",
-                "ungepruefter Produktivbetrieb oder Betriebsverantwortung fuer Kundensysteme",
+                "ungeprüfter Produktivbetrieb oder Betriebsverantwortung für Kundensysteme",
                 "garantierte Zertifikats-, Pruefungs- oder Job-Ergebnisse",
                 "Weiterverkauf von Kundenmaterialien oder lizenzierten Drittinhalten",
                 "Vor-Ort-Reisen, sofern nicht explizit kalkuliert und geplant",
@@ -244,18 +244,18 @@ const catalog = {
         },
         currencies: [
             {
-                title: "Gefoerderte Bildung / AZAV-nahe Durchfuehrung",
+                title: "Geförderte Bildung / AZAV-nahe Durchführung",
                 eur: "ab 50 EUR pro 45-Min.-UE",
                 aud: "ab 85 AUD pro 45-Min.-UE",
                 usd: "ab 65 USD pro 45-Min.-UE",
-                note: "Geeignet fuer laengere Kursbloecke und strukturierte Bildungsanbieter-Durchfuehrung.",
+                note: "Geeignet für längere Kursblöcke und strukturierte Bildungsanbieter-Durchführung.",
             },
             {
                 title: "Corporate Training und Workshops",
                 eur: "ab 100 EUR pro Stunde",
                 aud: "ab 165 AUD pro Stunde",
                 usd: "ab 120 USD pro Stunde",
-                note: "Planungswert fuer nicht gefoerderte Bildung, Unternehmen, Hochschulen und Teams.",
+                note: "Planungswert für nicht geförderte Bildung, Unternehmen, Hochschulen und Teams.",
             },
             {
                 title: "Vortraege und Expert Sessions",
