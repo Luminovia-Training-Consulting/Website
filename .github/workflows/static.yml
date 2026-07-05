@@ -45,6 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+          overwrite: true # Add this line to overwrite existing artifacts
 
       - name: Deploy to GitHub Pages
         id: deployment
