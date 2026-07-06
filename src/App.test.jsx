@@ -69,7 +69,7 @@ describe("App routing and language", () => {
         ["/consulting", /Consulting für AI, IT und digitale Kompetenz/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
         ["/clients", /Bildungspartner, Kooperationskontexte und Themenbereiche/i],
-        ["/pricing", /Transparente Netto-Ab-Preise/i],
+        ["/pricing", /Klare Preisorientierung/i],
         ["/terms", /Terms & Conditions und Zahlungsinformationen/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
     ])("renders %s with German page copy", async (route, heading) => {
@@ -87,7 +87,7 @@ describe("App routing and language", () => {
         ["/offers/", /Klare Luminovia-Angebote/i],
         ["/consulting/", /Consulting für AI, IT und digitale Kompetenz/i],
         ["/projects/", /Projekte, die Luminovia-Training/i],
-        ["/pricing/", /Transparente Netto-Ab-Preise/i],
+        ["/pricing/", /Klare Preisorientierung/i],
         ["/terms/", /Terms & Conditions und Zahlungsinformationen/i],
     ])("renders GitHub Pages trailing-slash route %s", async (route, heading) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
@@ -122,7 +122,7 @@ describe("App routing and language", () => {
         );
     });
 
-    it("renders direct contact links and the appointment scheduler without a form", async () => {
+    it("renders direct contact links and the appointment booking link without a form", async () => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Contact", "/contact");
 
@@ -133,7 +133,7 @@ describe("App routing and language", () => {
         expect(screen.getAllByRole("link", {name: /Write an email/i})[0]).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org"));
         expect(screen.getAllByRole("link", {name: /\+61 451 448 724/i})[0]).toHaveAttribute("href", "tel:+61451448724");
         expect(screen.getAllByRole("link", {name: /\+49 175 5738 757/i})[0]).toHaveAttribute("href", "tel:+491755738757");
-        expect(screen.getByTitle(/Google Calendar appointment scheduler/i)).toHaveAttribute("src", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
+        expect(screen.getAllByRole("link", {name: /Book an appointment/i})[0]).toHaveAttribute("href", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
     });
 
     it("renders pricing in USD by default and switches pricing to German EUR copy", async () => {
@@ -143,13 +143,13 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Transparent starting rates/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Clear pricing guidance/i})).toBeInTheDocument();
         expect(screen.getByText("from $65")).toBeInTheDocument();
         expect(screen.getByText("from $1,200")).toBeInTheDocument();
 
         await user.click(screen.getAllByRole("button", {name: /Switch language/i})[0]);
 
-        expect(screen.getByRole("heading", {name: /Transparente Netto-Ab-Preise/i})).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /Klare Preisorientierung/i})).toBeInTheDocument();
         expect(screen.getByText("ab 50 EUR")).toBeInTheDocument();
         expect(screen.getAllByText("ab 1.000 EUR").length).toBeGreaterThan(0);
     });

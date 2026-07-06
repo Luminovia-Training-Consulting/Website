@@ -71,7 +71,7 @@ export default function AboutPage() {
             </div>
             <div className="mx-auto max-w-7xl">
                 <div className="mt-10 grid gap-5 lg:grid-cols-[0.4fr_0.6fr] lg:items-start">
-                    <Photo src={IMAGES.headshot} alt="Leadership portrait for Luminovia Training & Consulting" className="aspect-[4/5] rounded-[1rem]" imgClass="object-[50%_20%]"/>
+                    <Photo src={IMAGES.headshot} alt="Leadership portrait for Luminovia Training & Consulting" className="aspect-[4/5] rounded-[1rem]" imgClass="object-[50%_20%]" loading="eager" fetchPriority="high"/>
                     <Card>
                         <h2 className="text-3xl font-black text-white">{c.founderCard[0]}</h2>
                         <p className="mt-4 text-base leading-8 text-slate-300">{c.founderCard[1]}</p>

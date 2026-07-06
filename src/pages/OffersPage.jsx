@@ -13,7 +13,7 @@ const content = {
     de: {
         badge: "Angebote",
         title: "Klare Luminovia-Angebote für Training, Consulting und digitale Umsetzung.",
-        intro: "Diese Seite sortiert, was konkret gebucht werden kann: Live-Training, Consulting-Sprints, Projektbegleitung, Expert Sessions, Curriculum Design und größere Enablement-Programme. Ideal, wenn Sie schnell entscheiden wollen, welches Format zur Anfrage passt.",
+        intro: "Diese Seite zeigt die buchbaren Luminovia-Formate: Live-Training, Consulting-Sprints, Projektbegleitung, Expert Sessions, Curriculum Design und größere Enablement-Programme. So lässt sich schnell klären, welches Format zu Ziel, Zielgruppe und Budget passt.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#packages", "Pakete"], ["#decision", "Auswahl"], ["#scope", "Umfang"], ["#programmes", "Programme"], ["#proof", "Nachweise"], ["#next", "Anfrage"]],
         packagesTitle: "Buchbare Pakete",
@@ -22,10 +22,10 @@ const content = {
             {
                 title: "AI & Digital Skills Training",
                 tag: "Training",
-                copy: "Praxisnahe Workshops und Kurse zu AI Literacy, GenAI, Prompt Engineering, Cybersecurity, Python, SQL, Business IT und digitaler Transformation.",
+                copy: "Praxisnahe Workshops und Kurse zu AI Literacy, GenAI, Prompt Engineering, Cybersecurity, Python, SQL, Business IT und digitaler Transformation - mit Übungen, Transferaufgaben und klaren Lernzielen.",
                 outcomes: ["klare Lernziele", "Übungen und Transfer", "Live-Remote-Durchführung", "Materialien und Recaps"],
                 scope: "90 Minuten bis mehrwöchige Kursdurchführung",
-                pricing: "ab 50 EUR / 85 AUD / 65 USD je 45-Min.-UE oder ab 100 EUR / 165 AUD / 120 USD je Stunde",
+                pricing: "ab 50 EUR je 45-Min.-UE oder ab 100 EUR pro Stunde; AUD/USD als Planungswerte",
                 to: "/training",
                 cta: "Training ansehen",
             },
@@ -55,7 +55,7 @@ const content = {
                 copy: "Vorträge zu Responsible AI, Cybersecurity Awareness, Future Skills, AI in Bildung, Industry 5.0 und digitaler Transformation.",
                 outcomes: ["Impulsvortrag", "Q&A", "Executive Briefing", "Event-Format"],
                 scope: "30-90 Minuten, Halbtag oder individuelles Eventformat",
-                pricing: "ab 1.000 EUR / 1.650 AUD / 1.200 USD",
+                pricing: "ab 1.000 EUR; internationale Planung auf Anfrage",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "Talks ansehen",
             },
@@ -89,7 +89,7 @@ const content = {
     en: {
         badge: "Offers",
         title: "Clear Luminovia offers for training, consulting and digital implementation.",
-        intro: "This page structures what can be booked concretely: live training, consulting sprints, project support, expert sessions, curriculum design and larger enablement programmes. Use it to decide quickly which format fits your request.",
+        intro: "This page shows the Luminovia formats that can be booked: live training, consulting sprints, project support, expert sessions, curriculum design and larger enablement programmes. It helps clarify which format fits the goal, audience and budget.",
         jumpLabel: "On this page",
         jumpItems: [["#packages", "Packages"], ["#decision", "Choice"], ["#scope", "Scope"], ["#programmes", "Programmes"], ["#proof", "Proof"], ["#next", "Contact"]],
         packagesTitle: "Bookable packages",
@@ -98,10 +98,10 @@ const content = {
             {
                 title: "AI & Digital Skills Training",
                 tag: "Training",
-                copy: "Practical workshops and courses on AI literacy, GenAI, prompt engineering, cybersecurity, Python, SQL, business IT and digital transformation.",
+                copy: "Practical workshops and courses on AI literacy, GenAI, prompt engineering, cybersecurity, Python, SQL, business IT and digital transformation - with exercises, transfer tasks and clear learning goals.",
                 outcomes: ["clear learning goals", "exercises and transfer", "remote live delivery", "materials and recaps"],
                 scope: "90 minutes to multi-week course delivery",
-                pricing: "from EUR 50 / AUD 85 / USD 65 per 45-min unit or EUR 100 / AUD 165 / USD 120 per hour",
+                pricing: "from EUR 50 per 45-min unit or EUR 100 per hour; AUD/USD available as planning values",
                 to: "/training",
                 cta: "View training",
             },
@@ -131,7 +131,7 @@ const content = {
                 copy: "Talks on responsible AI, cybersecurity awareness, future skills, AI in education, Industry 5.0 and digital transformation.",
                 outcomes: ["impulse talk", "Q&A", "executive briefing", "event format"],
                 scope: "30-90 minutes, half-day or custom event format",
-                pricing: "from EUR 1,000 / AUD 1,650 / USD 1,200",
+                pricing: "from EUR 1,000; international planning values on request",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "View talks",
             },
@@ -182,6 +182,7 @@ export default function OffersPage() {
                         {icon: "01", title: "Training", copy: language === "de" ? "Workshops, Kurse und Kompetenzprogramme" : "Workshops, courses and skills programmes"},
                         {icon: "02", title: "Consulting", copy: language === "de" ? "Sprints, Reviews und Entscheidungshilfe" : "Sprints, reviews and decision support"},
                         {icon: "03", title: language === "de" ? "Programmdesign" : "Programme design", copy: language === "de" ? "Curriculum, Labs und Lernreisen" : "Curriculum, labs and learning journeys"},
+                        {icon: "04", title: language === "de" ? "Expert Sessions" : "Expert sessions", copy: language === "de" ? "Vorträge, Briefings und Impulse" : "Talks, briefings and impulses"},
                     ]}/>}
                 />
             </div>
@@ -198,7 +199,7 @@ export default function OffersPage() {
                     </div>
                     <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
                         {copy.packages.map((item) => (
-                            <Card key={item.title}>
+                            <Card key={item.title} className="offer-package-card">
                                 <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{item.tag}</div>
                                 <h3 className="mt-4 text-2xl font-black tracking-[-0.03em] text-white">{item.title}</h3>
                                 <p className="mt-4 text-sm leading-7 text-slate-300">{item.copy}</p>
@@ -239,7 +240,7 @@ export default function OffersPage() {
                         <p className="text-lg leading-8 text-slate-300">{copy.scopeCopy}</p>
                     </div>
                     <div className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-                        <Card className="p-5 sm:p-6">
+                        <Card className="offer-scope-card p-5 sm:p-6">
                             <h3 className="text-3xl font-black text-white">{language === "de" ? "Consulting und Projektbegleitung" : "Consulting and project accompaniment"}</h3>
                             <div className="mt-6 grid gap-4">
                                 {consultingModels.map((model) => (
@@ -250,7 +251,7 @@ export default function OffersPage() {
                                 ))}
                             </div>
                         </Card>
-                        <Card className="p-5 sm:p-6">
+                        <Card className="offer-scope-card p-5 sm:p-6">
                             <h3 className="text-3xl font-black text-white">{language === "de" ? "Methodik" : "Methods"}</h3>
                             <div className="mt-6 grid gap-3">
                                 {methods.map(([title, description]) => (

@@ -33,6 +33,14 @@ const content = {
             "Decision brief for management, programme owners or education providers",
         ],
         processTitle: "A structured path from first idea to practical capability.",
+        processSteps: [
+            ["1", "Short consultation", "Clarify audience, constraints, target outcome and the decision the work must support."],
+            ["2", "Scope", "Define the practical format, responsibilities, materials and review points before work starts."],
+            ["3", "Proposal", "Receive a clear recommendation with format, preparation needs, deliverables and next steps."],
+            ["4", "Delivery", "Run workshops, reviews or consulting sessions with structured material and active decision support."],
+            ["5", "Transfer", "Turn results into notes, roadmap items, guidelines or training actions your team can use."],
+            ["6", "Follow-up", "Review open questions, update artefacts where useful and plan the next practical step."],
+        ],
         scopeTitle: "What is in scope, and what is not.",
         nextTitle: "Request consulting support for your organisation.",
         nextCopy: "Send the topic, audience, current situation, timeframe, language and target outcome. Luminovia will suggest a suitable consulting sprint, workshop, roadmap or combined training format.",
@@ -65,6 +73,14 @@ const content = {
             "Entscheidungsvorlage für Management, Programmleitung oder Bildungsanbieter",
         ],
         processTitle: "Ein strukturierter Weg von der ersten Idee zu praktischer Kompetenz.",
+        processSteps: [
+            ["1", "Kurzgespräch", "Zielgruppe, Rahmenbedingungen, Zielbild und die zu klärende Entscheidung erfassen."],
+            ["2", "Scope", "Format, Verantwortlichkeiten, Materialien und Reviewpunkte vor Beginn konkret festlegen."],
+            ["3", "Vorschlag", "Sie erhalten eine klare Empfehlung mit Format, Vorbereitung, Ergebnissen und nächsten Schritten."],
+            ["4", "Durchführung", "Workshops, Reviews oder Beratungssessions laufen mit strukturiertem Material und Entscheidungshilfe."],
+            ["5", "Transfer", "Ergebnisse werden in Notizen, Roadmap-Punkte, Guidelines oder Trainingsmaßnahmen übersetzt."],
+            ["6", "Follow-up", "Offene Fragen werden geprüft, Artefakte bei Bedarf angepasst und der nächste Schritt geplant."],
+        ],
         scopeTitle: "Was im Scope liegt, und was nicht.",
         nextTitle: "Consulting-Unterstützung für Ihre Organisation anfragen.",
         nextCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage, Zeitraum, Sprache und Ziel. Luminovia schlägt ein passendes Consulting-Sprint-, Workshop-, Roadmap- oder kombiniertes Trainingsformat vor.",
@@ -74,7 +90,7 @@ const content = {
 };
 
 export default function ConsultingPage() {
-    const {language, t} = useLanguage();
+    const {language} = useLanguage();
     const c = content[language];
     const {methods, boundaries} = businessOfferingsForLanguage(language);
 
@@ -86,7 +102,7 @@ export default function ConsultingPage() {
                     title={c.title}
                     copy={c.intro}
                     actions={<><Button to="/contact#contact-options">{c.primary}</Button><Button to="/offers" variant="secondary">{c.secondary}</Button></>}
-                    visual={<ProcessTimeline steps={t.home.processSteps}/>}
+                    visual={<ProcessTimeline steps={c.processSteps}/>}
                 />
             </div>
             <div className="mx-auto max-w-7xl">
@@ -139,7 +155,7 @@ export default function ConsultingPage() {
                     <Badge tone="cyan">{language === "de" ? "Prozess" : "Process"}</Badge>
                     <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{c.processTitle}</h2>
                     <div className="process-stepper mt-8">
-                        {t.home.processSteps.map(([number, title, copy]) => (
+                        {c.processSteps.map(([number, title, copy]) => (
                             <div key={number} className="process-step-card">
                                 <div className="process-step-node">{number}</div>
                                 <div>

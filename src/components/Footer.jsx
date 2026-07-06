@@ -48,7 +48,7 @@ export default function Footer() {
                         </span>
                         <span>
                             <span className="block text-2xl font-black tracking-[-0.03em] text-white">Luminovia</span>
-                            <span className="block text-xs font-black uppercase tracking-[0.12em] text-sky-100/80">Training & Consulting</span>
+                            <span className="lumo-footer-tagline block text-xs font-black uppercase tracking-[0.12em] text-sky-100/80">Training & Consulting</span>
                         </span>
                     </Link>
                     <p className="mt-3 max-w-xl text-sm leading-7 text-slate-400">

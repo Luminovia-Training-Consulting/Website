@@ -20,10 +20,16 @@ export default function ContactPage() {
         : [["#contact-options", "Contact"], ["#appointment", "Appointment"], ["#contact-faq", "FAQ"]];
     const contacts = [
         {
-            label: language === "de" ? "E-Mail" : "Email",
+            label: language === "de" ? "Luminovia E-Mail" : "Luminovia email",
             value: PROFILE.email,
             href: `mailto:${PROFILE.email}?subject=${subject}`,
-            copy: language === "de" ? "Direkte Anfrage per E-Mail" : "Direct request by email",
+            copy: language === "de" ? "Für Training, Consulting und Projektanfragen" : "For training, consulting and project requests",
+        },
+        {
+            label: language === "de" ? "Direkt an Carina" : "Direct to Carina",
+            value: "info@carinaschoppe.com",
+            href: `mailto:info@carinaschoppe.com?subject=${subject}`,
+            copy: language === "de" ? "Alternative E-Mail für persönliche Abstimmung" : "Alternative email for direct coordination",
         },
         {
             label: language === "de" ? "Telefon Australien" : "Australia phone",
@@ -49,6 +55,7 @@ export default function ContactPage() {
                     actions={<><Button href={`mailto:${PROFILE.email}?subject=${subject}`} variant="secondary">{t.contact.emailButton}</Button><Button to="/contact#appointment">{t.contact.calendarFallback}</Button></>}
                     visual={<TrustRail items={[
                         {icon: "@", title: language === "de" ? "E-Mail" : "Email", copy: PROFILE.email},
+                        {icon: "CS", title: language === "de" ? "Carina direkt" : "Carina direct", copy: "info@carinaschoppe.com"},
                         {icon: "AU", title: language === "de" ? "Telefon Australien" : "Australia phone", copy: PROFILE.phoneAustralia},
                         {icon: "DE", title: language === "de" ? "Telefon Deutschland" : "Germany phone", copy: PROFILE.phoneGermany},
                     ]}/>}
@@ -101,7 +108,7 @@ export default function ContactPage() {
                             </div>
                         </Card>
 
-                        <section id="appointment" className="glass-sheen scroll-mt-32 rounded-[2.15rem] border border-white/13 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,.16),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.055)_48%,rgba(255,255,255,.035))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,.1),0_26px_96px_rgba(0,0,0,.28)] backdrop-blur-2xl sm:p-6">
+                        <section id="appointment" className="booking-embed-panel glass-sheen scroll-mt-32 rounded-[2.15rem] border border-white/13 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,.16),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.055)_48%,rgba(255,255,255,.035))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,.1),0_26px_96px_rgba(0,0,0,.28)] backdrop-blur-2xl sm:p-6">
                             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                                 <div>
                                     <h2 className="text-2xl font-black text-white">{t.contact.appointmentTitle}</h2>
@@ -109,13 +116,19 @@ export default function ContactPage() {
                                 </div>
                                 <Button href={PROFILE.appointmentSchedule}>{t.contact.appointment}</Button>
                             </div>
-                            <div className="mt-5 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
-                                <iframe
-                                    src={PROFILE.appointmentSchedule}
-                                    title={t.contact.calendarTitle}
-                                    className="h-[600px] w-full"
-                                    style={{border: 0}}
-                                />
+                            <div className="booking-embed-frame mt-5 rounded-[1.5rem] border border-white/10 bg-white p-5 sm:p-6">
+                                <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+                                    <div>
+                                        <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{language === "de" ? "Google Calendar" : "Google Calendar"}</div>
+                                        <h3 className="mt-3 text-2xl font-black text-white">{language === "de" ? "Terminfenster extern auswählen" : "Choose an appointment slot externally"}</h3>
+                                        <p className="mt-3 text-sm leading-7 text-slate-300">
+                                            {language === "de"
+                                                ? "Der Kalender öffnet in einem neuen Tab. Das vermeidet dunkle oder abgeschnittene eingebettete Google-Ansichten und funktioniert zuverlässig auf Mobilgeräten."
+                                                : "The calendar opens in a new tab. This avoids dark or clipped embedded Google views and works reliably on mobile devices."}
+                                        </p>
+                                    </div>
+                                    <Button href={PROFILE.appointmentSchedule}>{t.contact.appointment}</Button>
+                                </div>
                             </div>
                         </section>
                     </div>

@@ -5305,3 +5305,240 @@ html[data-theme="day"] .lumo-process-node {
         max-width: none;
     }
 }
+
+/* Cross-page polish for CTA contrast, dense cards, footer readability and embeds. */
+.lumo-secondary-action {
+    color: #f8fbff !important;
+}
+
+.lumo-hero-chips {
+    grid-template-columns: minmax(7rem, 1fr) minmax(7rem, 1fr) minmax(7rem, 1fr) minmax(11.5rem, 1.35fr);
+}
+
+.lumo-hero-chips .lumo-chip {
+    min-height: 4.4rem;
+    padding: .85rem 1rem;
+}
+
+.lumo-footer-tagline {
+    color: rgba(186, 230, 253, .92) !important;
+}
+
+.consulting-map-card,
+.process-step-card,
+.offer-package-card,
+.offer-scope-card,
+.pricing-rate-card,
+.pricing-currency-card {
+    color: #e8f2ff;
+}
+
+.consulting-map-card h3,
+.process-step-card h3,
+.offer-package-card h2,
+.offer-package-card h3,
+.offer-scope-card h3,
+.pricing-rate-card h2,
+.pricing-currency-card h3 {
+    color: #f8fbff !important;
+}
+
+.consulting-map-card p,
+.process-step-card p,
+.offer-package-card p,
+.offer-scope-card p,
+.pricing-rate-card p,
+.pricing-currency-card p {
+    color: rgba(217, 230, 247, .84) !important;
+}
+
+.offer-package-card [data-button-variant="secondary"],
+.pricing-rate-card [data-button-variant="secondary"],
+.pricing-currency-card [data-button-variant="secondary"] {
+    margin-top: auto;
+}
+
+.price-chip {
+    background:
+        radial-gradient(circle at 10% 0%, rgba(88, 182, 255, .20), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .045)) !important;
+}
+
+.booking-embed-panel {
+    overflow: hidden;
+}
+
+.booking-embed-frame {
+    background:
+        radial-gradient(circle at 12% 0%, rgba(88, 182, 255, .16), transparent 38%),
+        linear-gradient(145deg, rgba(9, 22, 43, .94), rgba(5, 12, 24, .94)) !important;
+}
+
+.booking-embed-frame iframe {
+    display: block;
+    min-width: 100%;
+}
+
+html[data-theme="day"] .theme-root .lumo-secondary-action,
+html[data-theme="day"] .mobile-menu-overlay .lumo-secondary-action,
+html[data-theme="day"] .lumo-subpage .lumo-secondary-action,
+html[data-theme="day"] .lumo-home .lumo-secondary-action {
+    border-color: rgba(21, 107, 255, .22) !important;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(42, 169, 255, .16), transparent 36%),
+        linear-gradient(135deg, rgba(255, 255, 255, .96), rgba(225, 242, 255, .88)) !important;
+    color: #0b1f38 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .88), 0 14px 38px rgba(12, 74, 110, .12) !important;
+}
+
+html[data-theme="day"] .theme-root .lumo-secondary-action:hover,
+html[data-theme="day"] .lumo-subpage .lumo-secondary-action:hover,
+html[data-theme="day"] .lumo-home .lumo-secondary-action:hover {
+    border-color: rgba(21, 107, 255, .34) !important;
+    background: linear-gradient(135deg, #ffffff, #dff2ff) !important;
+}
+
+html[data-theme="day"] .lumo-primary-action,
+html[data-theme="day"] .lumo-primary-action * {
+    color: #07182d !important;
+}
+
+html[data-theme="day"] .lumo-hero-chips .lumo-chip {
+    border-color: rgba(21, 107, 255, .13) !important;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(245, 184, 51, .12), transparent 38%),
+        linear-gradient(145deg, rgba(255, 255, 255, .78), rgba(241, 248, 255, .70)) !important;
+    color: #18324f !important;
+}
+
+html[data-theme="day"] .lumo-footer-tagline {
+    color: #24415f !important;
+}
+
+html[data-theme="day"] .lumo-footer p,
+html[data-theme="day"] .lumo-footer span,
+html[data-theme="day"] .lumo-footer a:not([data-button-variant]) {
+    color: #31506d !important;
+}
+
+html[data-theme="day"] .lumo-footer a:hover {
+    color: #07182d !important;
+}
+
+html[data-theme="day"] .lumo-footer h2,
+html[data-theme="day"] .lumo-footer .font-black,
+html[data-theme="day"] .lumo-footer .font-bold {
+    color: #0b1f38 !important;
+}
+
+html[data-theme="day"] section[id="consulting-areas"],
+html[data-theme="day"] section[id="booking-eligibility"],
+html[data-theme="day"] section[id="programmes"] {
+    border-color: rgba(21, 107, 255, .16) !important;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(42, 169, 255, .13), transparent 38%),
+        radial-gradient(circle at 92% 10%, rgba(245, 184, 51, .12), transparent 38%),
+        linear-gradient(145deg, rgba(255, 255, 255, .92), rgba(232, 244, 255, .82)) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .88), 0 22px 70px rgba(12, 74, 110, .10) !important;
+}
+
+html[data-theme="day"] .consulting-map-card,
+html[data-theme="day"] .process-step-card,
+html[data-theme="day"] .offer-package-card,
+html[data-theme="day"] .offer-scope-card,
+html[data-theme="day"] .pricing-rate-card,
+html[data-theme="day"] .pricing-currency-card {
+    border-color: rgba(21, 107, 255, .13) !important;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(42, 169, 255, .11), transparent 40%),
+        linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(239, 248, 255, .82)) !important;
+    color: #102033 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .88), 0 18px 52px rgba(12, 74, 110, .08) !important;
+}
+
+html[data-theme="day"] .consulting-map-card h3,
+html[data-theme="day"] .process-step-card h3,
+html[data-theme="day"] .offer-package-card h2,
+html[data-theme="day"] .offer-package-card h3,
+html[data-theme="day"] .offer-scope-card h3,
+html[data-theme="day"] .pricing-rate-card h2,
+html[data-theme="day"] .pricing-currency-card h3 {
+    color: #0b1f38 !important;
+}
+
+html[data-theme="day"] .consulting-map-card p,
+html[data-theme="day"] .process-step-card p,
+html[data-theme="day"] .offer-package-card p,
+html[data-theme="day"] .offer-scope-card p,
+html[data-theme="day"] .pricing-rate-card p,
+html[data-theme="day"] .pricing-currency-card p {
+    color: #38506b !important;
+}
+
+html[data-theme="day"] .consulting-map-card span,
+html[data-theme="day"] .process-step-node,
+html[data-theme="day"] .offer-package-card .text-sky-100,
+html[data-theme="day"] .pricing-rate-card .text-sky-100,
+html[data-theme="day"] .pricing-currency-card .text-sky-100 {
+    color: #0875c9 !important;
+}
+
+html[data-theme="day"] .offer-package-card .bg-\[\#071225\]\/72,
+html[data-theme="day"] .pricing-rate-card .bg-\[\#071225\]\/72,
+html[data-theme="day"] .offer-scope-card .bg-\[\#071225\]\/72,
+html[data-theme="day"] .pricing-currency-card .bg-white\/\[0\.06\] {
+    border-color: rgba(21, 107, 255, .12) !important;
+    background: rgba(255, 255, 255, .62) !important;
+    color: #18324f !important;
+}
+
+html[data-theme="day"] .price-chip {
+    border-color: rgba(21, 107, 255, .14) !important;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(245, 184, 51, .17), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, .86), rgba(232, 244, 255, .70)) !important;
+}
+
+html[data-theme="day"] .booking-embed-panel {
+    border-color: rgba(21, 107, 255, .16) !important;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(42, 169, 255, .13), transparent 38%),
+        linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(232, 244, 255, .82)) !important;
+}
+
+html[data-theme="day"] .booking-embed-frame {
+    border-color: rgba(21, 107, 255, .18) !important;
+    background: #f8fbff !important;
+    box-shadow: 0 18px 60px rgba(12, 74, 110, .12) !important;
+}
+
+@media (min-width: 1024px) {
+    .process-stepper {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .lumo-page-hero-visual .lumo-process-timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .lumo-hero-chips {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .lumo-hero-chips {
+        grid-template-columns: 1fr;
+    }
+
+    .lumo-hero-chips .lumo-chip {
+        min-height: 2.7rem;
+        padding: .62rem .75rem;
+    }
+
+    .booking-embed-frame iframe {
+        height: 680px;
+    }
+}

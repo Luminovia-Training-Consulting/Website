@@ -10,9 +10,9 @@ import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 const content = {
     en: {
         badge: "Pricing",
-        title: "Transparent starting rates for training, teaching and talks.",
-        intro: "The rates below are net starting prices and planning averages for funded vocational education, non-funded education, corporate training and speaking engagements. Final pricing depends on audience, preparation effort, duration, materials, delivery format and booking scope.",
-        currencyNote: "English prices are shown as rounded USD planning figures, based on an approximate EUR/USD rate of 1.17. Prices are net starting prices. EUR invoices, VAT/tax handling or local requirements can be discussed individually.",
+        title: "Clear pricing guidance for training, teaching and talks.",
+        intro: "These are net starting rates for planning conversations. Final pricing depends on audience, preparation effort, duration, materials, delivery format and booking scope.",
+        currencyNote: "Prices are planning values, not fixed quotes. EUR is the reference currency; AUD and USD values can be discussed for international bookings.",
         unit: "Teaching unit",
         cards: [
             {
@@ -20,21 +20,21 @@ const content = {
                 price: "from $65",
                 suffix: "per 45-minute teaching unit",
                 copy: "For publicly funded German vocational education, AZAV-style measures, retraining cohorts and structured long-form course delivery.",
-                details: ["Net starting price", "Average around $65 per teaching unit", "Remote live teaching", "Suitable for longer funded course blocks"],
+                details: ["Net starting price", "Remote live teaching", "Suitable for longer funded course blocks", "Quoted by timetable and scope"],
             },
             {
                 title: "Corporate training and non-funded education",
                 price: "from $120",
                 suffix: "per hour as planning average",
                 copy: "For companies, teams, universities, non-funded education providers and organisations booking practical IT, cybersecurity or digital business training.",
-                details: ["Net starting price", "Average around $120 per hour", "Workshops, live training or course modules", "Custom materials can be quoted separately"],
+                details: ["Net starting price", "Workshops, live training or course modules", "Custom materials can be scoped separately", "Quoted by audience and outcome"],
             },
             {
                 title: "Talks, keynotes and expert sessions",
                 price: "from $1,200",
                 suffix: "per talk / keynote",
                 copy: "For individual talks, conferences, expert sessions, leadership briefings or special event formats. Pricing depends strongly on audience, topic, preparation depth, event visibility and time-zone requirements.",
-                details: ["Net starting price", "Based on EUR 1,000+ per talk or keynote", "Short impulse talks or custom event formats", "Remote-first delivery from Brisbane for Europe, Australia and the world"],
+                details: ["Net starting price", "Short impulse talks or custom event formats", "Remote-first delivery from Brisbane", "Quoted by topic and preparation depth"],
             },
             {
                 title: "Consulting and project implementation",
@@ -51,10 +51,10 @@ const content = {
         eligibility: {
             eyebrow: "Pricing scope",
             title: "These rates apply to education-related bookings.",
-            copy: "The listed orientation prices are for AZAV-style or otherwise education-funded programmes, education providers, academies, universities, corporate training and professional learning contexts. Consulting, implementation support, non-education projects, larger programmes or special scopes are quoted individually.",
+            copy: "The listed orientation prices are for education providers, academies, universities, corporate training and professional learning contexts. Consulting, implementation support, larger programmes and special scopes are quoted individually.",
             points: ["AZAV-style and funded education", "Corporate training and professional learning", "Consulting and project work on request"],
         },
-        footnote: "All prices are indicative net starting values, not binding offers. Travel, special preparation, licensing, materials, VAT/tax handling or third-party platform requirements may affect the final quote.",
+        footnote: "All prices are indicative net starting values, not binding offers. Special preparation, licensing, materials, VAT/tax handling or third-party platform requirements may affect the final quote.",
         jumpLabel: "On this page",
         jumpItems: [["#booking-eligibility", "Booking fit"], ["#rates", "Rates"], ["#currency", "Currencies"], ["#custom", "Custom quote"]],
         currencyTitle: "Planning prices in EUR, AUD and USD.",
@@ -62,9 +62,9 @@ const content = {
     },
     de: {
         badge: "Preise",
-        title: "Transparente Netto-Ab-Preise für Trainings, Lehre und Vorträge.",
-        intro: "Die folgenden Preise sind Ab-Preise und verstehen sich netto. Sie dienen als Planungsdurchschnitt für AZAV- beziehungsweise bildungsgeförderte Maßnahmen, nicht geförderte Bildungsangebote, Corporate Training, Firmentraining und Vorträge. Die finale Kalkulation hängt von Zielgruppe, Vorbereitung, Dauer, Materialien, Format und Umfang der Buchung ab.",
-        currencyNote: "Alle deutschen Preisangaben sind Netto-Ab-Preise. Umsatzsteuer, Rechnungsstellung, internationale Währungen oder besondere Plattformanforderungen können individuell geklärt werden.",
+        title: "Klare Preisorientierung für Training, Lehre und Vorträge.",
+        intro: "Die folgenden Angaben sind Netto-Ab-Preise für Planungsgespräche. Die finale Kalkulation hängt von Zielgruppe, Vorbereitung, Dauer, Materialien, Format und Buchungsumfang ab.",
+        currencyNote: "EUR ist die Referenzwährung. AUD- und USD-Werte können für internationale Buchungen als Planungswerte geklärt werden.",
         unit: "Unterrichtseinheit",
         cards: [
             {
@@ -72,21 +72,21 @@ const content = {
                 price: "ab 50 EUR",
                 suffix: "pro 45-Minuten-Unterrichtseinheit",
                 copy: "Für AZAV-Kontexte, bildungsgeförderte Maßnahmen, Umschulungen, Weiterbildungen und strukturierte Kursdurchführung im deutschen geförderten Bildungsbereich.",
-                details: ["Netto-Ab-Preis", "Orientierung: Standard 55 EUR pro Unterrichtseinheit", "Remote-Live-Unterricht", "Geeignet für längere geförderte Kursblöcke"],
+                details: ["Netto-Ab-Preis", "Remote-Live-Unterricht", "Geeignet für längere geförderte Kursblöcke", "Kalkulation nach Zeitplan und Scope"],
             },
             {
                 title: "Corporate-, Firmentraining und nicht geförderte Bildung",
                 price: "ab 75 EUR",
                 suffix: "pro 45-Minuten-Unterrichtseinheit",
                 copy: "Für Unternehmen, Teams, Hochschulen, nicht geförderte Bildungsanbieter und Organisationen, die praxisnahes IT- und Cybersecurity- oder Digital-Business-Training buchen.",
-                details: ["Netto-Ab-Preis", "Standardpreis: 100 EUR pro Stunde", "Workshops, Live-Training oder Kursmodule", "Individuelle Materialien separat kalkulierbar"],
+                details: ["Netto-Ab-Preis", "Workshops, Live-Training oder Kursmodule", "Materialien separat scopebar", "Kalkulation nach Zielgruppe und Ergebnis"],
             },
             {
                 title: "Vorträge, Keynotes und Expert Sessions",
                 price: "ab 1.000 EUR",
                 suffix: "pro Vortrag / Keynote",
                 copy: "Für einzelne Vorträge, Keynotes, Konferenzen, Expert Sessions, Leadership Briefings oder besondere Veranstaltungsformate. Der Preis hängt stark von Zielgruppe, Gruppengröße, Thema, Vorbereitung und Sichtbarkeit der Veranstaltung ab.",
-                details: ["Netto-Ab-Preis", "Ab 1.000 EUR je Vortrag oder Keynote", "Impulsvortrag oder individuelles Eventformat", "Remote-first aus Brisbane für Europa, Australien und die Welt"],
+                details: ["Netto-Ab-Preis", "Impulsvortrag oder individuelles Eventformat", "Remote-first aus Brisbane", "Kalkulation nach Thema und Vorbereitung"],
             },
             {
                 title: "Consulting und Projektumsetzung",
@@ -103,10 +103,10 @@ const content = {
         eligibility: {
             eyebrow: "Buchungshinweis",
             title: "Diese Preise gelten für bildungsbezogene Buchungen.",
-            copy: "Die aufgeführten Orientierungspreise beziehen sich auf AZAV- beziehungsweise bildungsgeförderte Maßnahmen, Bildungsanbieter, Akademien, Hochschulen, Corporate Training, Firmentraining und professionelle Weiterbildungskontexte. Consulting, Umsetzungsbegleitung, nicht bildungsbezogene Projekte, größere Programme oder Sonderumfänge werden individuell angefragt und kalkuliert.",
+            copy: "Die aufgeführten Orientierungspreise beziehen sich auf Bildungsanbieter, Akademien, Hochschulen, Corporate Training, Firmentraining und professionelle Weiterbildungskontexte. Consulting, Umsetzungsbegleitung, größere Programme oder Sonderumfänge werden individuell kalkuliert.",
             points: ["AZAV und bildungsgeförderter Bereich", "Corporate Training und professionelle Weiterbildung", "Consulting und Projektarbeit auf Anfrage"],
         },
-        footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Reiseaufwand, besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
+        footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#booking-eligibility", "Buchungsfit"], ["#rates", "Preise"], ["#currency", "Währungen"], ["#custom", "Anfrage"]],
         currencyTitle: "Planungspreise in EUR, AUD und USD.",
@@ -157,10 +157,10 @@ export default function PricingPage() {
 
                 <section id="rates" className="mt-14 grid scroll-mt-36 gap-5 md:grid-cols-2 xl:grid-cols-4">
                     {copy.cards.map((item) => (
-                        <Card key={item.title} className="self-start">
+                        <Card key={item.title} className="pricing-rate-card self-start">
                             <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{copy.unit}</div>
                             <h2 className="mt-4 text-2xl font-black text-white">{item.title}</h2>
-                            <div className="mt-6 rounded-[1.4rem] border border-white/12 bg-white/[0.08] p-4">
+                            <div className="price-chip mt-6 rounded-[1.4rem] border border-white/12 bg-white/[0.08] p-4">
                                 <div className="text-4xl font-black tracking-[-0.04em] text-white">{item.price}</div>
                                 <div className="mt-2 text-sm font-bold text-slate-300">{item.suffix}</div>
                             </div>
@@ -184,7 +184,7 @@ export default function PricingPage() {
                     </div>
                     <div className="mt-8 grid gap-4 lg:grid-cols-2">
                         {currencies.map((item) => (
-                            <Card key={item.title} className="p-5 sm:p-6">
+                            <Card key={item.title} className="pricing-currency-card p-5 sm:p-6">
                                 <h3 className="text-2xl font-black text-white">{item.title}</h3>
                                 <div className="mt-5 grid gap-3 sm:grid-cols-3">
                                     {[["EUR", item.eur], ["AUD", item.aud], ["USD", item.usd]].map(([currency, value]) => (
