@@ -5653,12 +5653,105 @@ html[data-theme="day"] button.lumo-secondary-action {
     color: #0b1f38 !important;
 }
 
+.lumo-site-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    transform: translateZ(0);
+}
+
+.lumo-hero-chips {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: .62rem !important;
+    align-items: stretch;
+}
+
+.lumo-hero-chips .lumo-chip {
+    width: 100% !important;
+    min-width: 0;
+    min-height: 3.35rem !important;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: .62rem .68rem !important;
+    font-size: clamp(.68rem, .72vw, .78rem);
+    line-height: 1.14;
+    white-space: normal;
+    text-wrap: balance;
+}
+
+.lumo-hero-chips .lumo-chip::before {
+    flex: 0 0 auto;
+}
+
+html[data-theme="day"] .lumo-subpage .training-core-output,
+html[data-theme="day"] .lumo-subpage .training-core-output.text-white,
+html[data-theme="day"] .lumo-subpage .training-core-output *,
+html[data-theme="day"] .training-core-output,
+html[data-theme="day"] .training-core-output *,
+html[data-theme="day"] .training-duration-output,
+html[data-theme="day"] .training-duration-output * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.training-duration-output {
+    border-color: rgba(255, 255, 255, .24) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .26);
+}
+
+html[data-theme="day"] .process-step-node,
+html[data-theme="day"] .lumo-subpage .process-step-node,
+html[data-theme="day"] .lumo-subpage .lumo-process-node,
+html[data-theme="day"] .lumo-page-hero-visual .lumo-process-node {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+}
+
+html[data-theme="day"] .process-step-node {
+    background: linear-gradient(135deg, #0ea5ff, #1463ff 58%, #d99a18) !important;
+}
+
+html[data-theme="day"] .lumo-page-hero-visual .lumo-process-node {
+    background: linear-gradient(135deg, #0ea5ff, #1463ff 58%, #d99a18) !important;
+    border-color: rgba(255, 255, 255, .44) !important;
+}
+
 @media (max-width: 760px) {
+    .lumo-site-header > div {
+        min-height: 4.9rem;
+    }
+
+    .lumo-site-header {
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+
     .lumo-page-hero-visual .lumo-trust-rail {
         grid-template-columns: 1fr;
     }
 
     .lumo-page-hero-visual .lumo-trust-item {
         min-height: auto;
+    }
+
+    .lumo-hero-chips {
+        grid-template-columns: 1fr !important;
+    }
+
+    .lumo-hero-chips .lumo-chip {
+        min-height: 2.75rem !important;
+        font-size: .86rem;
+    }
+
+    .lumo-orbit-visual::before,
+    .lumo-orbit-visual::after,
+    .lumo-orbit-ring,
+    .data-orbit,
+    .intelligence-layer {
+        animation: none !important;
     }
 }

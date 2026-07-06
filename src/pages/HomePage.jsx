@@ -23,12 +23,12 @@ function copyForLanguage(language) {
     return language === "de"
         ? {
             title: "KI-, IT- & Digitalkompetenz-Training für moderne Teams",
-            intro: "Praxisnahe Workshops, Trainingsprogramme und Beratung für Organisationen, die nutzbare digitale Fähigkeiten brauchen - keine generische Theorie.",
+            intro: "Praxisnahe Workshops, Trainingsprogramme und Beratung für Organisationen, die digitale Kompetenz sicher im Arbeitsalltag einsetzen wollen.",
             primary: "Erstgespräch buchen",
             secondary: "Training-Angebote ansehen",
             consulting: "Training oder Beratung anfragen",
             visualLabels: ["KI", "IT", "Cybersecurity", "Lerndesign", "Remote-first", "DE / EN", "Workshops bis Programme"],
-            heroChips: ["Praxisnah", "Arbeitsrelevant", "Transferorientiert", "Strategie bis Enablement"],
+            heroChips: ["Praxisnah", "Jobrelevant", "Transferklar", "Strategie bis Enablement"],
             trust: [
                 {icon: "◎", title: "AI | IT | Security", copy: "Kernbereiche für digitale Kompetenz"},
                 {icon: "◇", title: "DE / EN Durchführung", copy: "Deutsch und Englisch"},
@@ -37,9 +37,9 @@ function copyForLanguage(language) {
                 {icon: "▣", title: "Training + Beratung", copy: "Kompetenzaufbau und Umsetzung"},
             ],
             routes: [
-                {title: "Training & Workshops", copy: "Rollenbasierte Trainings und praktische Workshops für moderne Teams.", bullets: ["Aktuelle Kompetenzen, sofort anwendbar", "Hands-on, interaktiv und praxisnah", "Kurze Formate bis Deep-Dive-Kurse", "Vor Ort, online und hybrid"], cta: "Training ansehen", to: "/training", tone: "blue", icon: "□"},
-                {title: "Beratung & Kompetenzaufbau", copy: "Strategische und praktische Beratung, um digitale Herausforderungen in belastbare Kompetenz zu übersetzen.", bullets: ["KI-, IT- und Cybersecurity-Strategie", "Prozesse, Workflows und Tool-Beratung", "Roadmaps, Governance und Orientierung", "Umsetzung und Change-Begleitung"], cta: "Beratung erkunden", to: "/consulting", tone: "teal", icon: "◎"},
-                {title: "Individuelle Programme", copy: "Maßgeschneiderte Lernreisen rund um Ziele, Zielgruppen und Kontext.", bullets: ["Kompetenzanalyse und Abstimmung", "Curriculum- und Content-Design", "Blended Learning und Befähigung", "Coaching, Support und Evaluation"], cta: "Programme ansehen", to: "/offers", tone: "violet", icon: "▱"},
+                {title: "Training & Workshops", copy: "Rollenbasierte Trainings und praktische Workshops für Teams, die konkrete digitale Aufgaben lösen müssen.", bullets: ["Aktuelle Kompetenzen, sofort anwendbar", "Hands-on, interaktiv und praxisnah", "Kurze Formate bis Deep-Dive-Kurse", "Remote, vor Ort oder hybrid"], cta: "Training ansehen", to: "/training", tone: "blue", icon: "□"},
+                {title: "Beratung & Kompetenzaufbau", copy: "Strukturierte Beratung, die digitale Herausforderungen in Entscheidungen, Roadmaps und umsetzbare Kompetenz übersetzt.", bullets: ["KI-, IT- und Cybersecurity-Strategie", "Prozesse, Workflows und Tool-Beratung", "Roadmaps, Governance und Orientierung", "Umsetzung und Change-Begleitung"], cta: "Beratung erkunden", to: "/consulting", tone: "teal", icon: "◎"},
+                {title: "Individuelle Programme", copy: "Programme für Zielgruppen, Rollen und Organisationen, die mehr brauchen als einen Einzelworkshop.", bullets: ["Kompetenzanalyse und Abstimmung", "Curriculum- und Content-Design", "Blended Learning und Befähigung", "Coaching, Support und Evaluation"], cta: "Programme ansehen", to: "/offers", tone: "violet", icon: "▱"},
             ],
             offersLabel: "Ausgewählte Trainingsangebote",
             processLabel: "Consulting-Ansatz",
@@ -56,16 +56,16 @@ function copyForLanguage(language) {
             companyProfile: "Unternehmen ansehen",
             portfolio: "carinaschoppe.com öffnen",
             finalTitle: "Bauen wir die nächste Fähigkeit Ihres Teams.",
-            finalCopy: "Senden Sie Thema, Zielgruppe, Zeitraum, Sprache und Ziel. Luminovia schlägt ein passendes Training, Consulting-Sprint oder Programmformat vor.",
+            finalCopy: "Senden Sie Thema, Zielgruppe, Zeitraum, Sprache und Ziel. Luminovia schlägt ein passendes Training, einen Consulting-Sprint oder ein Programmformat vor.",
         }
         : {
             title: "AI, IT & Digital Capability Training for Modern Teams",
-            intro: "Practical workshops, training programmes and consulting for organisations that need usable digital skills - not generic theory.",
+            intro: "Practical workshops, training programmes and consulting for organisations that need digital capability people can use at work.",
             primary: "Book discovery call",
             secondary: "View training offers",
             consulting: "Request training or consulting",
             visualLabels: ["AI", "IT", "Cybersecurity", "Learning Design", "Remote-first", "DE / EN", "Workshops to programmes"],
-            heroChips: ["Practical", "Relevant", "Outcomes", "Strategy to enablement"],
+            heroChips: ["Practical", "Work-ready", "Outcome-led", "Strategy to enablement"],
             trust: [
                 {icon: "◎", title: "AI | IT | Security", copy: "Core capability areas"},
                 {icon: "◇", title: "DE / EN delivery", copy: "Bilingual training and consulting"},
@@ -74,9 +74,9 @@ function copyForLanguage(language) {
                 {icon: "▣", title: "Training + consulting", copy: "Learning and implementation"},
             ],
             routes: [
-                {title: "Training & Workshops", copy: "Role-based training and practical workshops for modern teams.", bullets: ["Current skills, immediately applicable", "Hands-on, interactive, practical", "Short formats to deep-dive courses", "Onsite, online and hybrid"], cta: "Explore training", to: "/training", tone: "blue", icon: "□"},
-                {title: "Consulting & Enablement", copy: "Strategic and practical consulting to turn digital challenges into capability.", bullets: ["AI, IT and cybersecurity strategy", "Process, workflow and tool advisory", "Roadmaps, governance and guidance", "Implementation and change support"], cta: "Explore consulting", to: "/consulting", tone: "teal", icon: "◎"},
-                {title: "Custom Programmes", copy: "Bespoke learning journeys designed around your goals and context.", bullets: ["Skills assessments and alignment", "Curriculum and content design", "Blended learning and enablement", "Coaching, support and evaluation"], cta: "Explore programmes", to: "/offers", tone: "violet", icon: "▱"},
+                {title: "Training & Workshops", copy: "Role-based training and practical workshops for teams that need to handle real digital tasks.", bullets: ["Current skills, immediately applicable", "Hands-on, interactive, practical", "Short formats to deep-dive courses", "Remote, onsite or hybrid"], cta: "Explore training", to: "/training", tone: "blue", icon: "□"},
+                {title: "Consulting & Enablement", copy: "Structured consulting that turns digital challenges into decisions, roadmaps and usable capability.", bullets: ["AI, IT and cybersecurity strategy", "Process, workflow and tool advisory", "Roadmaps, governance and guidance", "Implementation and change support"], cta: "Explore consulting", to: "/consulting", tone: "teal", icon: "◎"},
+                {title: "Custom Programmes", copy: "Programmes for audiences, roles and organisations that need more than a single workshop.", bullets: ["Skills assessments and alignment", "Curriculum and content design", "Blended learning and enablement", "Coaching, support and evaluation"], cta: "Explore programmes", to: "/offers", tone: "violet", icon: "▱"},
             ],
             offersLabel: "Featured training offers",
             processLabel: "Consulting approach",

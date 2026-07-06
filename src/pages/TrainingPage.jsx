@@ -54,8 +54,8 @@ export default function TrainingPage() {
     const copy = language === "de"
         ? {
             badge: "Angebote",
-            title: "Konkrete Luminovia-Angebote für Training, Consulting und digitale Kompetenz.",
-            intro: "Buchbare Remote-Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Workshops, Consulting-Sprints und Projektbegleitung rund um AI, IT, Cybersecurity und digitale Business-Kompetenz.",
+            title: "Buchbare Luminovia-Angebote für Training, Consulting und digitale Kompetenz.",
+            intro: "Remote-first Angebote für Bildungsanbieter, Unternehmen, Hochschulen und internationale Teams: Live-Training, Workshops, Consulting-Sprints und Projektbegleitung rund um AI, IT, Cybersecurity und digitale Business-Kompetenz.",
             topics: "Themen",
             areas: "Zentrale Lehrbereiche",
             custom: "Individuelles Thema anfragen",
@@ -67,8 +67,8 @@ export default function TrainingPage() {
             detailPagesTitle: "Themen mit klarer Zielgruppe, Inhalt und Durchführungslogik",
             detailPagesCopy: "Die Detailseiten zeigen, für wen ein Thema geeignet ist, welche Formate möglich sind, welche Inhalte behandelt werden und welche Materialien oder Ergebnisse sinnvoll sind.",
             duration: "Umfang",
-            durationTitle: "Wie lange ein Training dauern kann und was dabei entsteht.",
-            durationCopy: "Luminovia plant Trainings nicht als starre Folienpakete, sondern nach Zielgruppe, Vorwissen, Business-Ziel und benötigtem Transfer. Ein kurzes Briefing kann reichen; für echten Kompetenzaufbau sind Workshop- oder Kursformate sinnvoller.",
+            durationTitle: "Welche Formate sinnvoll sind und was dabei entsteht.",
+            durationCopy: "Luminovia plant Trainings nach Zielgruppe, Vorwissen, Business-Ziel und benötigtem Transfer. Ein kurzes Briefing kann für Orientierung reichen; für Kompetenzaufbau sind Workshop-, Intensiv- oder Kursformate belastbarer.",
             methods: "Methoden",
             methodsTitle: "Arbeitsweise in Training und Enablement.",
             possibleTitle: "Möglich",
@@ -79,15 +79,15 @@ export default function TrainingPage() {
             proof: "Vertrauen & Nachweise",
             proofTitle: "Nachweise für zuverlässige Lehre, Trainings- und Consulting-Arbeit",
             consultingTitle: "Consulting, Einzelprojekte und größere Programme",
-            consultingCopy: "Training kann mit Beratung und Umsetzung kombiniert werden: AI-Use-Case-Workshops, IT- und Prozessanalyse, Business-Technology-Roadmaps, Curriculum-Design, Enablement-Sprints oder größere mehrteilige Programme. Preise und Umfang erfolgen auf Anfrage.",
+            consultingCopy: "Training kann mit Beratung und Umsetzung kombiniert werden: AI-Use-Case-Workshops, IT- und Prozessanalyse, Business-Technology-Roadmaps, Curriculum Design, Enablement-Sprints oder größere Programme. Umfang und Preis werden nach Ziel und Verantwortung gescoped.",
             consultingPoints: ["Einzelprojekte", "Großprojekte", "Consulting-Sprints", "Preise auf Anfrage"],
             jumpLabel: "Auf dieser Seite",
             jumpItems: [["#consulting", "Consulting"], ["#duration", "Umfang"], ["#services", "Angebote"], ["#methods", "Methoden"], ["#details", "Details"], ["#topics", "Themen"], ["#formats", "Formate"]],
         }
         : {
             badge: "Angebote",
-            title: "Concrete Luminovia offers for training, consulting and digital capability.",
-            intro: "Bookable remote offers for education providers, companies, universities and international teams: live training, workshops, consulting sprints and project support around AI, IT, cybersecurity and digital business capability.",
+            title: "Bookable Luminovia offers for training, consulting and digital capability.",
+            intro: "Remote-first offers for education providers, companies, universities and international teams: live training, workshops, consulting sprints and project support around AI, IT, cybersecurity and digital business capability.",
             topics: "Topics",
             areas: "Core teaching areas",
             custom: "Ask for custom topic",
@@ -99,8 +99,8 @@ export default function TrainingPage() {
             detailPagesTitle: "Topics with clear audience, content and delivery logic",
             detailPagesCopy: "The detail pages show who each topic is for, which formats are possible, what content is covered and which materials or outcomes can be planned.",
             duration: "Scope",
-            durationTitle: "How long training can run and what it produces.",
-            durationCopy: "Luminovia does not plan training as a fixed slide package. Scope depends on audience, prior knowledge, business goal and required transfer. A short briefing may be enough; real capability building usually needs workshop or course formats.",
+            durationTitle: "Which formats fit and what they produce.",
+            durationCopy: "Luminovia scopes training around audience, prior knowledge, business goal and required transfer. A short briefing can create orientation; stronger capability building usually needs workshop, intensive or course formats.",
             methods: "Methods",
             methodsTitle: "How training and enablement work.",
             possibleTitle: "Possible",
@@ -111,7 +111,7 @@ export default function TrainingPage() {
             proof: "Trust & proof",
             proofTitle: "Proof for reliable teaching, training and consulting work",
             consultingTitle: "Consulting, individual projects and larger programmes",
-            consultingCopy: "Training can be combined with advisory and implementation work: AI use-case workshops, IT and process analysis, business-technology roadmaps, curriculum design, enablement sprints or larger multi-part programmes. Pricing and scope are available on request.",
+            consultingCopy: "Training can be combined with advisory and implementation work: AI use-case workshops, IT and process analysis, business-technology roadmaps, curriculum design, enablement sprints or larger programmes. Scope and pricing are based on the target outcome and responsibility.",
             consultingPoints: ["Individual projects", "Large programmes", "Consulting sprints", "Pricing on request"],
             jumpLabel: "On this page",
             jumpItems: [["#consulting", "Consulting"], ["#duration", "Scope"], ["#services", "Services"], ["#methods", "Methods"], ["#details", "Details"], ["#topics", "Topics"], ["#formats", "Formats"]],
@@ -166,7 +166,7 @@ export default function TrainingPage() {
                             <Card key={model.title}>
                                 <h3 className="text-2xl font-black text-white">{model.title}</h3>
                                 <p className="mt-4 text-sm leading-7 text-slate-300">{model.scope}</p>
-                                <div className="mt-5 rounded-[1.15rem] border border-sky-100/12 bg-sky-100/[0.07] p-4 text-sm font-bold leading-7 text-sky-50">{model.output}</div>
+                                <div className="training-duration-output mt-5 rounded-[1.15rem] border border-sky-100/12 bg-sky-100/[0.07] p-4 text-sm font-bold leading-7 text-sky-50">{model.output}</div>
                             </Card>
                         ))}
                     </div>

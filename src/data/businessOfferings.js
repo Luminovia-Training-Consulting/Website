@@ -3,28 +3,28 @@ const catalog = {
         durationModels: [
             {
                 title: "90-minute briefing",
-                scope: "Orientation for leaders, teams or programme owners.",
-                output: "Shared language, risk view, topic map and recommended next steps.",
+                scope: "A focused orientation session for leaders, teams or programme owners.",
+                output: "Shared language, risk view, topic map and clear next steps.",
             },
             {
                 title: "Half-day or full-day workshop",
                 scope: "Interactive training for a team, cohort or learning day.",
-                output: "Exercises, examples, checklists and concrete transfer tasks.",
+                output: "Exercises, examples, checklists and transfer tasks for day-to-day work.",
             },
             {
                 title: "2-3 day intensive training",
                 scope: "Focused capability build in AI, cybersecurity, software, data or business IT.",
-                output: "Deeper labs, guided practice, feedback loops and reusable materials.",
+                output: "Deeper labs, guided practice, feedback loops and reusable working materials.",
             },
             {
                 title: "5-day bootcamp",
                 scope: "Compact learning path for cohorts that need structured progress.",
-                output: "Sequenced modules, exercises, recaps, learner support and completion logic.",
+                output: "Sequenced modules, exercises, recaps, learner support and completion criteria.",
             },
             {
                 title: "Multi-week course delivery",
                 scope: "Recurring sessions for academies, universities, retraining providers or company programmes.",
-                output: "Course plan, live delivery, learning checks, materials and coordination with stakeholders.",
+                output: "Course plan, live delivery, learning checks, materials and stakeholder coordination.",
             },
             {
                 title: "Programme or project support",
@@ -140,18 +140,18 @@ const catalog = {
         durationModels: [
             {
                 title: "90-Minuten-Briefing",
-                scope: "Orientierung für Führung, Teams oder Programmverantwortliche.",
-                output: "Gemeinsame Sprache, Risikoblick, Themenlandkarte und empfohlene nächste Schritte.",
+                scope: "Fokussierte Orientierung für Führung, Teams oder Programmverantwortliche.",
+                output: "Gemeinsame Sprache, Risikoblick, Themenlandkarte und klare nächste Schritte.",
             },
             {
                 title: "Halbtages- oder Tagesworkshop",
                 scope: "Interaktives Training für Team, Kohorte oder Learning Day.",
-                output: "Übungen, Beispiele, Checklisten und konkrete Transferaufgaben.",
+                output: "Übungen, Beispiele, Checklisten und Transferaufgaben für den Arbeitsalltag.",
             },
             {
                 title: "2-3 Tage Intensivtraining",
                 scope: "Gezielter Kompetenzaufbau in AI, Cybersecurity, Software, Daten oder Business IT.",
-                output: "Vertiefende Labs, gefuehrte Praxis, Feedbackschleifen und wiederverwendbare Materialien.",
+                output: "Vertiefende Labs, geführte Praxis, Feedbackschleifen und wiederverwendbare Materialien.",
             },
             {
                 title: "5-Tage-Bootcamp",
@@ -159,7 +159,7 @@ const catalog = {
                 output: "Sequenzierte Module, Übungen, Recaps, Lernsupport und Abschlusslogik.",
             },
             {
-                title: "Mehrwoechige Kursdurchfuehrung",
+                title: "Mehrwöchige Kursdurchführung",
                 scope: "Wiederkehrende Sessions für Akademien, Hochschulen, Umschulungsanbieter oder Unternehmensprogramme.",
                 output: "Kursplan, Live-Durchführung, Lernchecks, Materialien und Stakeholder-Abstimmung.",
             },
@@ -187,7 +187,7 @@ const catalog = {
             },
             {
                 title: "Projektbegleitung",
-                meaning: "Begleitet Teams, waehrend ein digitales, AI-, Lern- oder IT-Projekt strukturiert, geprueft oder in Umsetzung gebracht wird.",
+                meaning: "Begleitet Teams, während ein digitales, AI-, Lern- oder IT-Projekt strukturiert, geprüft oder in Umsetzung gebracht wird.",
                 deliverables: ["Scope-Definition", "Meilenstein-Review", "Umsetzungssparring", "Handover-Dokumentation"],
             },
         ],
@@ -202,7 +202,7 @@ const catalog = {
         projectTypes: [
             {
                 title: "AI-Adoption- und Workflow-Projekt",
-                description: "Sinnvolle AI-Workflows identifizieren, Prompt-Muster definieren, Qualitaetsrisiken pruefen und Teamroutinen gestalten.",
+                description: "Sinnvolle AI-Workflows identifizieren, Prompt-Muster definieren, Qualitätsrisiken prüfen und Teamroutinen gestalten.",
                 examples: ["AI-Use-Case-Workshop", "Prompt-Workflow-Library", "Review-Checkliste", "Team-Enablement-Pfad"],
             },
             {
@@ -212,7 +212,7 @@ const catalog = {
             },
             {
                 title: "Automatisierungs- oder Datenprozess-Projekt",
-                description: "Wiederholbare Arbeit, Datenfluesse oder Reportingbedarf analysieren und eine realistische Automatisierungsroute definieren.",
+                description: "Wiederholbare Arbeit, Datenflüsse oder Reportingbedarf analysieren und eine realistische Automatisierungsroute definieren.",
                 examples: ["Python-Automation-Konzept", "Data-Cleanup-Plan", "Reporting-Workflow", "API-/Prozesslandkarte"],
             },
             {
@@ -222,14 +222,14 @@ const catalog = {
             },
             {
                 title: "Digital-Transformation- und Business-IT-Projekt",
-                description: "Eine digitale Veraenderungsfrage entlang von Prozessen, Menschen, Systemen, Trainingsbedarf und Umsetzungsreihenfolge strukturieren.",
+                description: "Eine digitale Veränderungsfrage entlang von Prozessen, Menschen, Systemen, Trainingsbedarf und Umsetzungsreihenfolge strukturieren.",
                 examples: ["Roadmap", "Stakeholder-Workshop", "Tool-Entscheidungsvorlage", "Operating-Model-Skizze"],
             },
         ],
         boundaries: {
             possible: [
                 "Remote-Live-Training auf Deutsch oder Englisch",
-                "Corporate Workshops, gefoerderte Bildung und Hochschulformate",
+                "Corporate Workshops, geförderte Bildung und Hochschulformate",
                 "AI, IT, Cybersecurity, Daten, Software, Projekt- und Business-Technology-Themen",
                 "Consulting-Sprints, Roadmaps, Learning Architecture und Projektbegleitung",
                 "Materialien, Übungen, Recaps, Checklisten und Entscheidungsartefakte im vereinbarten Scope",
@@ -237,7 +237,7 @@ const catalog = {
             notIncluded: [
                 "Rechts-, Steuer- oder Finanzberatung",
                 "ungeprüfter Produktivbetrieb oder Betriebsverantwortung für Kundensysteme",
-                "garantierte Zertifikats-, Pruefungs- oder Job-Ergebnisse",
+                "garantierte Zertifikats-, Prüfungs- oder Job-Ergebnisse",
                 "Weiterverkauf von Kundenmaterialien oder lizenzierten Drittinhalten",
                 "Vor-Ort-Reisen, sofern nicht explizit kalkuliert und geplant",
             ],
@@ -258,11 +258,11 @@ const catalog = {
                 note: "Planungswert für nicht geförderte Bildung, Unternehmen, Hochschulen und Teams.",
             },
             {
-                title: "Vortraege und Expert Sessions",
+                title: "Vorträge und Expert Sessions",
                 eur: "ab 1.000 EUR",
                 aud: "ab 1.650 AUD",
                 usd: "ab 1.200 USD",
-                note: "Abhaengig von Thema, Vorbereitung, Zielgruppe, Event-Sichtbarkeit und Zeitzone.",
+                note: "Abhängig von Thema, Vorbereitung, Zielgruppe, Event-Sichtbarkeit und Zeitzone.",
             },
             {
                 title: "Consulting und Projektbegleitung",

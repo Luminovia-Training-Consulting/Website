@@ -31,8 +31,8 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Concrete Luminovia offers/i})).toBeInTheDocument();
-        expect(screen.queryByRole("heading", {name: /Konkrete Luminovia-Angebote/i})).not.toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Bookable Luminovia offers/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Buchbare Luminovia-Angebote/i})).not.toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
@@ -58,7 +58,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Concrete Luminovia offers/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Bookable Luminovia offers/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
     });
 
@@ -83,7 +83,7 @@ describe("App routing and language", () => {
     });
 
     it.each([
-        ["/training/", /Konkrete Luminovia-Angebote/i],
+        ["/training/", /Buchbare Luminovia-Angebote/i],
         ["/offers/", /Klare Luminovia-Angebote/i],
         ["/consulting/", /Consulting für AI, IT und digitale Kompetenz/i],
         ["/projects/", /Projekte, die Luminovia-Training/i],
@@ -188,7 +188,7 @@ describe("App routing and language", () => {
             .find((link) => link.getAttribute("href") === "/training");
         await user.click(trainingLink);
 
-        expect(await screen.findByRole("heading", {name: /Konkrete Luminovia-Angebote/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Buchbare Luminovia-Angebote/i})).toBeInTheDocument();
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
     });
 });
