@@ -1,6 +1,6 @@
 /* global caches, fetch, self, URL */
 
-const CACHE_VERSION = "luminovia-v1";
+const CACHE_VERSION = "luminovia-v2";
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 const CACHEABLE_ASSET_PATHS = ["/assets/", "/images/"];
@@ -21,7 +21,7 @@ async function cacheFirst(request, cacheName) {
 
     const response = await fetch(request);
     if (response.ok) {
-        cache.put(request, response.clone());
+        await cache.put(request, response.clone());
     }
 
     return response;

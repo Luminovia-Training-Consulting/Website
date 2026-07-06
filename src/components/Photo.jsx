@@ -16,6 +16,9 @@ export default function Photo({
     const {t} = useLanguage();
     const [failed, setFailed] = useState(false);
     const fallbackText = fallbackCopy || t.home.photoFallback;
+    const avifSrcSet = src.endsWith(".jpg")
+        ? [480, 640, 960].map((width) => `${src.replace(/\.jpg$/, `-${width}.avif`)} ${width}w`).join(", ")
+        : null;
     const webpSrcSet = src.endsWith(".jpg")
         ? [480, 640, 960].map((width) => `${src.replace(/\.jpg$/, `-${width}.webp`)} ${width}w`).join(", ")
         : null;
@@ -27,6 +30,7 @@ export default function Photo({
         <div className={cn("relative overflow-hidden bg-gradient-to-br from-sky-200/20 via-slate-900 to-blue-300/16 shadow-[0_24px_90px_rgba(0,0,0,.24)]", className)}>
             {!failed ? (
                 <picture>
+                    {avifSrcSet && <source srcSet={avifSrcSet} sizes={sizes} type="image/avif"/>}
                     {webpSrcSet && <source srcSet={webpSrcSet} sizes={sizes} type="image/webp"/>}
                     <img
                         src={src}

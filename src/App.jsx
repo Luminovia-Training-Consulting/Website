@@ -184,6 +184,19 @@ export default function App() {
         safeSetStorageItem(THEME_KEY, theme);
     }, [theme]);
 
+    useEffect(() => {
+        /* v8 ignore start -- production-only service worker registration is verified by the Pages build */
+        if (!import.meta.env.PROD || !("serviceWorker" in navigator)) return undefined;
+
+        const register = () => {
+            navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {});
+        };
+
+        globalThis.addEventListener("load", register, {once: true});
+        return () => globalThis.removeEventListener("load", register);
+        /* v8 ignore stop */
+    }, []);
+
     const toggleTheme = () => setTheme((current) => current === "day" ? "night" : "day");
 
     return (
