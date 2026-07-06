@@ -5654,10 +5654,17 @@ html[data-theme="day"] button.lumo-secondary-action {
 }
 
 .lumo-site-header {
-    position: sticky !important;
+    position: fixed !important;
     top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     transform: translateZ(0);
+}
+
+.lumo-site-header + .relative.z-10 {
+    padding-top: var(--lumo-fixed-header-offset, 5.7rem);
 }
 
 .lumo-hero-chips {
@@ -5721,6 +5728,10 @@ html[data-theme="day"] .lumo-page-hero-visual .lumo-process-node {
 }
 
 @media (max-width: 760px) {
+    html {
+        --lumo-fixed-header-offset: 5.15rem;
+    }
+
     .lumo-site-header > div {
         min-height: 4.9rem;
     }
