@@ -116,19 +116,16 @@ export default function ContactPage() {
                                 </div>
                                 <Button href={PROFILE.appointmentSchedule}>{t.contact.appointment}</Button>
                             </div>
-                            <div className="booking-embed-frame mt-5 rounded-[1.5rem] border border-white/10 bg-white p-5 sm:p-6">
-                                <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
-                                    <div>
-                                        <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{language === "de" ? "Google Calendar" : "Google Calendar"}</div>
-                                        <h3 className="mt-3 text-2xl font-black text-white">{language === "de" ? "Terminfenster extern auswählen" : "Choose an appointment slot externally"}</h3>
-                                        <p className="mt-3 text-sm leading-7 text-slate-300">
-                                            {language === "de"
-                                                ? "Der Kalender öffnet in einem neuen Tab. Das vermeidet dunkle oder abgeschnittene eingebettete Google-Ansichten und funktioniert zuverlässig auf Mobilgeräten."
-                                                : "The calendar opens in a new tab. This avoids dark or clipped embedded Google views and works reliably on mobile devices."}
-                                        </p>
-                                    </div>
-                                    <Button href={PROFILE.appointmentSchedule}>{t.contact.appointment}</Button>
-                                </div>
+                            <div className="booking-embed-frame mt-5 rounded-[1.5rem] border border-white/10 bg-white p-0 sm:p-0">
+                                <iframe
+                                    src={PROFILE.appointmentSchedule}
+                                    title={t.contact.calendarTitle}
+                                    style={{border: 0}}
+                                    width="100%"
+                                    height="600"
+                                    frameBorder="0"
+                                    loading="lazy"
+                                />
                             </div>
                         </section>
                     </div>

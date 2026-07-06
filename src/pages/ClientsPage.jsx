@@ -26,6 +26,7 @@ export default function ClientsPage() {
                     visual={<TrustRail items={[
                         {icon: "EDU", title: language === "de" ? "Bildungskontexte" : "Education contexts", copy: language === "de" ? "Ausgewählte Lieferumfelder" : "Selected delivery environments"},
                         {icon: "B2B", title: language === "de" ? "Organisationsfit" : "Organisation fit", copy: language === "de" ? "Training und Enablement" : "Training and enablement capability"},
+                        {icon: "TOP", title: language === "de" ? "Themenbreite" : "Topic breadth", copy: language === "de" ? "AI, IT, Security und Learning Design" : "AI, IT, security and learning design"},
                         {icon: "OK", title: language === "de" ? "Ehrliche Nachweise" : "Honest proof", copy: language === "de" ? "Keine erfundenen Logos oder Testimonials" : "No invented logos or testimonials"},
                     ]}/>}
                 />

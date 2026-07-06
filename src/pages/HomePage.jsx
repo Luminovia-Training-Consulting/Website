@@ -28,7 +28,7 @@ function copyForLanguage(language) {
             secondary: "Training-Angebote ansehen",
             consulting: "Training oder Beratung anfragen",
             visualLabels: ["KI", "IT", "Cybersecurity", "Lerndesign", "Remote-first", "DE / EN", "Workshops bis Programme"],
-            heroChips: ["Praxisnah", "Arbeitsrelevant", "Transferorientiert", "Partner von Strategie bis Enablement"],
+            heroChips: ["Praxisnah", "Arbeitsrelevant", "Transferorientiert", "Strategie bis Enablement"],
             trust: [
                 {icon: "◎", title: "AI | IT | Security", copy: "Kernbereiche für digitale Kompetenz"},
                 {icon: "◇", title: "DE / EN Durchführung", copy: "Deutsch und Englisch"},
@@ -65,7 +65,7 @@ function copyForLanguage(language) {
             secondary: "View training offers",
             consulting: "Request training or consulting",
             visualLabels: ["AI", "IT", "Cybersecurity", "Learning Design", "Remote-first", "DE / EN", "Workshops to programmes"],
-            heroChips: ["Practical", "Relevant", "Outcomes", "Partner from strategy to enablement"],
+            heroChips: ["Practical", "Relevant", "Outcomes", "Strategy to enablement"],
             trust: [
                 {icon: "◎", title: "AI | IT | Security", copy: "Core capability areas"},
                 {icon: "◇", title: "DE / EN delivery", copy: "Bilingual training and consulting"},

@@ -19,6 +19,7 @@ const copy = {
         cards: [
             ["Didactic", "Complex topics are translated into structured, learner-friendly formats with exercises and transfer logic."],
             ["Technical", "AI, software, cybersecurity, data and business IT are taught through systems, workflows and examples that connect concepts with implementation reality."],
+            ["Business", "Training and consulting are connected to roles, decisions, stakeholder needs and practical operating routines."],
             ["Professional", "Remote-first, bilingual and built for adult learners, corporate teams and education providers."],
         ],
         links: [
@@ -41,6 +42,7 @@ const copy = {
         cards: [
             ["Didaktisch", "Komplexe Themen werden in strukturierte, lernfreundliche Formate mit Übungen und Transferlogik übersetzt."],
             ["Technisch", "AI, Software, Cybersecurity, Daten und Business-IT werden über Systeme, Arbeitsabläufe und Beispiele vermittelt, die Konzepte mit Umsetzungspraxis verbinden."],
+            ["Business", "Training und Consulting werden mit Rollen, Entscheidungen, Stakeholder-Bedarf und praktischen Arbeitsroutinen verbunden."],
             ["Professionell", "Remote-first, zweisprachig und ausgelegt auf Erwachsenenbildung, Unternehmensteams und Bildungsanbieter."],
         ],
         links: [

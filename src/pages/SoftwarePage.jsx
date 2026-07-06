@@ -43,6 +43,7 @@ export default function SoftwarePage() {
                         {icon: "PY", title: language === "de" ? "Python-Automation" : "Python automation", copy: language === "de" ? "Research-Workflows und Datenbereinigung" : "Research workflows and data cleanup"},
                         {icon: "AI", title: language === "de" ? "AI-Research-Tools" : "AI research tooling", copy: language === "de" ? "Praxisnahe Systeme hinter Trainingsbeispielen" : "Applied systems behind training examples"},
                         {icon: "APP", title: language === "de" ? "Softwarepraxis" : "Software practice", copy: language === "de" ? "Mobile, Plugins und digitale Workflows" : "Mobile, plugins and digital workflows"},
+                        {icon: "OPS", title: language === "de" ? "Umsetzungsbezug" : "Implementation context", copy: language === "de" ? "Projektlogik für Consulting und Training" : "Project logic for consulting and training"},
                     ]}/>}
                 />
             </div>

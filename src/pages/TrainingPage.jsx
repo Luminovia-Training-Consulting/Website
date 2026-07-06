@@ -128,6 +128,7 @@ export default function TrainingPage() {
                         {icon: "AI", title: language === "de" ? "KI & GenAI" : "AI & GenAI", copy: language === "de" ? "Workshops, Kompetenzaufbau und Workflows" : "Workshops, literacy and applied workflows"},
                         {icon: "SEC", title: "Cybersecurity", copy: language === "de" ? "Awareness, Web Security und verantwortliche Praxis" : "Awareness, web security and responsible practice"},
                         {icon: "DATA", title: language === "de" ? "Python / SQL / Daten" : "Python / SQL / Data", copy: language === "de" ? "Praxislabs und angewandte Analyse" : "Hands-on labs and applied analytics"},
+                        {icon: "BIZ", title: language === "de" ? "Business Enablement" : "Business enablement", copy: language === "de" ? "Transfer in Prozesse, Rollen und Entscheidungen" : "Transfer into processes, roles and decisions"},
                     ]}/>}
                 />
             </div>
@@ -253,13 +254,13 @@ export default function TrainingPage() {
 
                 <div className="mt-16 grid items-start gap-6 lg:grid-cols-3">
                     {coreOffers.map((offer) => (
-                        <Card key={offer.title} className={cn("bg-gradient-to-br", offer.gradient)}>
+                        <Card key={offer.title} className={cn("training-core-offer-card bg-gradient-to-br", offer.gradient)}>
                             <Badge tone="blue">{offer.kicker}</Badge>
                             <h2 className="mt-5 text-2xl font-black text-white">{offer.title}</h2>
                             <p className="mt-3 text-lg font-black text-sky-100">{offer.outcome}</p>
                             <p className="mt-4 text-sm leading-7 text-slate-300">{offer.copy}</p>
                             <div className="mt-7 grid gap-3">
-                                {offer.deliverables.map((item) => <div key={String(item)} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">{item}</div>)}
+                                {offer.deliverables.map((item) => <div key={String(item)} className="training-core-output rounded-2xl border border-white/14 bg-slate-950/36 p-4 text-sm font-bold leading-6 text-white">{item}</div>)}
                             </div>
                         </Card>
                     ))}

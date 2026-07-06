@@ -131,6 +131,7 @@ export default function PricingPage() {
                         {icon: "€", title: "EUR", copy: language === "de" ? "Planungswerte für Deutschland" : "German planning values"},
                         {icon: "$", title: "AUD / USD", copy: language === "de" ? "Internationale Planungswerte" : "International planning values"},
                         {icon: "?", title: language === "de" ? "Individuelle Angebote" : "Scoped offers", copy: language === "de" ? "Projekte und Programme nach Scope" : "Projects and programmes quoted individually"},
+                        {icon: "B2B", title: language === "de" ? "B2B Scope" : "B2B scope", copy: language === "de" ? "Budgetklarheit vor Angebot" : "Budget clarity before proposal"},
                     ]}/>}
                 />
             </div>

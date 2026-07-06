@@ -3927,6 +3927,8 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: .85rem;
+    padding: .34rem .52rem;
+    border-radius: 1rem;
     color: #fff;
     text-decoration: none;
 }
@@ -5540,5 +5542,123 @@ html[data-theme="day"] .booking-embed-frame {
 
     .booking-embed-frame iframe {
         height: 680px;
+    }
+}
+
+/* Final consistency pass: 4-up hero rails, logo containment and readable gradient cards. */
+.lumo-orbit-core {
+    overflow: hidden;
+    padding: .82rem;
+}
+
+.lumo-orbit-core img {
+    width: clamp(4.3rem, 6.3vw, 4.85rem);
+    height: clamp(4.3rem, 6.3vw, 4.85rem);
+    margin-bottom: .1rem;
+}
+
+.lumo-orbit-core strong {
+    max-width: 88%;
+    color: #f8fbff;
+    font-size: clamp(.92rem, 1.35vw, 1.12rem);
+    line-height: 1.02;
+}
+
+.lumo-orbit-core span {
+    display: block;
+    max-width: 82%;
+    color: rgba(219, 234, 254, .9);
+    font-size: clamp(.5rem, .72vw, .58rem);
+    font-weight: 900;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+}
+
+.lumo-header-brand {
+    min-height: 4rem;
+}
+
+.lumo-header-brand:focus-visible {
+    border-radius: 1.05rem;
+    outline-offset: .18rem;
+}
+
+.lumo-page-hero-visual .lumo-trust-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lumo-page-hero-visual .lumo-trust-item {
+    min-height: 7.15rem;
+}
+
+.training-core-offer-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.training-core-offer-card::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background: rgba(5, 15, 31, .18);
+}
+
+.training-core-offer-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.training-core-output,
+html[data-theme="day"] .training-core-output {
+    border-color: rgba(255, 255, 255, .24) !important;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(255, 255, 255, .18), transparent 42%),
+        linear-gradient(135deg, rgba(7, 18, 38, .74), rgba(5, 13, 29, .64)) !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .32);
+}
+
+html[data-theme="day"] .training-core-offer-card {
+    background-color: #1c2f49 !important;
+}
+
+html[data-theme="day"] .training-core-offer-card h2,
+html[data-theme="day"] .training-core-offer-card p,
+html[data-theme="day"] .training-core-offer-card .text-sky-100,
+html[data-theme="day"] .training-core-offer-card .text-white {
+    color: #ffffff !important;
+}
+
+.booking-embed-frame {
+    background: #ffffff !important;
+}
+
+.booking-embed-frame iframe {
+    display: block;
+    width: 100%;
+    min-height: 600px;
+    border-radius: 1.5rem;
+    background: #ffffff;
+}
+
+html[data-theme="day"] .booking-embed-frame iframe {
+    background: #ffffff;
+}
+
+html[data-theme="day"] .lumo-secondary-action,
+html[data-theme="day"] .lumo-secondary-action *,
+html[data-theme="day"] a.lumo-secondary-action,
+html[data-theme="day"] button.lumo-secondary-action {
+    color: #0b1f38 !important;
+}
+
+@media (max-width: 760px) {
+    .lumo-page-hero-visual .lumo-trust-rail {
+        grid-template-columns: 1fr;
+    }
+
+    .lumo-page-hero-visual .lumo-trust-item {
+        min-height: auto;
     }
 }
