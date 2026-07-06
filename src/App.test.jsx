@@ -48,7 +48,7 @@ describe("App routing and language", () => {
         await user.click(screen.getAllByRole("button", {name: /Switch to day scheme/i})[0]);
 
         expect(document.documentElement.dataset.theme).toBe("day");
-        expect(window.localStorage.getItem("carina_color_scheme_v1")).toBe("day");
+        expect(window.localStorage.getItem("luminovia_color_scheme_v1")).toBe("day");
         expect(screen.getAllByRole("button", {name: /Switch to night scheme/i})[0]).toBeInTheDocument();
     });
 

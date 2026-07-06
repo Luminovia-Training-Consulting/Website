@@ -10,8 +10,9 @@ import {LanguageProvider} from "./i18n.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import {isChunkLoadError, safeGetSessionItem, safeGetStorageItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
 
-const CHUNK_RECOVERY_KEY = "carina_chunk_recovery_v1";
-const THEME_KEY = "carina_color_scheme_v1";
+const CHUNK_RECOVERY_KEY = "luminovia_chunk_recovery_v1";
+const SW_RELOAD_KEY = "luminovia_sw_reload_version";
+const THEME_KEY = "luminovia_color_scheme_v1";
 const ROUTER_BASENAME = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function getInitialTheme() {
@@ -188,12 +189,27 @@ export default function App() {
         /* v8 ignore start -- production-only service worker registration is verified by the Pages build */
         if (!import.meta.env.PROD || !("serviceWorker" in navigator)) return undefined;
 
-        const register = () => {
-            navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {});
+        const handleMessage = (event) => {
+            if (event.data?.type !== "LUMINOVIA_SW_ACTIVATED" || !event.data.version) return;
+            if (safeGetSessionItem(SW_RELOAD_KEY) === event.data.version) return;
+
+            safeSetSessionItem(SW_RELOAD_KEY, event.data.version);
+            globalThis.location.reload();
         };
 
+        const register = () => {
+            navigator.serviceWorker
+                .register(`${import.meta.env.BASE_URL}sw.js`, {updateViaCache: "none"})
+                .then((registration) => registration.update().catch(() => {}))
+                .catch(() => {});
+        };
+
+        navigator.serviceWorker.addEventListener("message", handleMessage);
         globalThis.addEventListener("load", register, {once: true});
-        return () => globalThis.removeEventListener("load", register);
+        return () => {
+            navigator.serviceWorker.removeEventListener("message", handleMessage);
+            globalThis.removeEventListener("load", register);
+        };
         /* v8 ignore stop */
     }, []);
 

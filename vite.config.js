@@ -4,14 +4,6 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 const siteUrl = "https://luminovia.org";
-const legacyEntryChunkNames = [
-    "assets/index-BHwT2ryf.js",
-    "assets/index-BXzdP6Lr.js",
-    "assets/index-DO8wLb-v.js",
-    "assets/index-DUbK75q5.js",
-    "assets/index-BTxBA96Y.js",
-];
-
 const prerenderRoutes = [
     ["/training", "Training | AI, IT & Digital Capability Training", "Explore practical AI training, IT training, cybersecurity training, software, data, digital business and curriculum-design workshops for organisations and education providers."],
     ["/offers", "Offers | Luminovia Training & Consulting", "Clear Luminovia packages for live training, consulting sprints, project support, keynotes, curriculum design and larger digital enablement programmes."],
@@ -71,30 +63,12 @@ function withRouteHead(html, [path, title, description]) {
         .replace(/<link href="[^"]*" hreflang="de" rel="alternate"\/>/, `<link href="${canonical}" hreflang="de" rel="alternate"/>`);
 }
 
-function legacyEntryChunkSource() {
-    return `import("./legacy-entry-loader.js");
-`;
-}
-
 function htmlPerformancePlugin() {
     return {
         name: "html-performance-pass",
         enforce: "post",
         apply: "build",
         generateBundle(_options, bundle) {
-            const entryChunk = Object.values(bundle).find((asset) => asset.type === "chunk" && asset.isEntry);
-            if (entryChunk) {
-                legacyEntryChunkNames.forEach((fileName) => {
-                    if (bundle[fileName]) return;
-
-                    this.emitFile({
-                        type: "asset",
-                        fileName,
-                        source: legacyEntryChunkSource(),
-                    });
-                });
-            }
-
             const htmlAsset = Object.values(bundle).find((asset) => asset.type === "asset" && asset.fileName.endsWith(".html"));
             if (!htmlAsset || typeof htmlAsset.source !== "string") return;
 
