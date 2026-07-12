@@ -5,6 +5,7 @@ import {describe, expect, it, vi} from "vitest";
 import Button from "./Button.jsx";
 import Metric from "./Metric.jsx";
 import Photo from "./Photo.jsx";
+import SectionJumpNav from "./SectionJumpNav.jsx";
 import SoftwareProjectsSection from "./SoftwareProjectsSection.jsx";
 import {CapabilityChip, Container, GradientText, LogoSystemVisual, ProofCard, Section, SectionHeader, TextLinkCard} from "./LuminoviaDesign.jsx";
 import {LanguageProvider} from "../i18n.jsx";
@@ -44,6 +45,19 @@ describe("UI primitive branches", () => {
         renderWithShell(<SoftwareProjectsSection compact/>);
 
         expect(screen.getByRole("link", {name: /Projektportfolio ansehen|view all projects|view project portfolio/i})).toHaveAttribute("href", "/projects");
+    });
+
+    it("keeps section navigation keyboard focusable for horizontal scrolling", () => {
+        renderWithShell(
+            <SectionJumpNav
+                label="On this page"
+                items={[["#areas", "Areas"], ["#outcomes", "Outcomes"], ["#process", "Process"]]}
+            />,
+        );
+
+        const nav = screen.getByRole("navigation", {name: "On this page"});
+        expect(nav.querySelector(".section-jump-track")).toHaveAttribute("tabindex", "0");
+        expect(screen.getByRole("link", {name: "Process"})).toHaveAttribute("href", "#process");
     });
 
     it("renders Luminovia design primitives and utility cards", () => {

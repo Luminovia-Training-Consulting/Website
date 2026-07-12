@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import {BookOpenCheck, BrainCircuit, Code2, Languages, ShieldCheck, UsersRound} from "lucide-react";
 import Button from "./Button.jsx";
 import {cn} from "./utils.js";
 
@@ -65,29 +66,28 @@ export function PageHero({label, title, copy, children, actions, visual, centere
 
 export function LogoSystemVisual({logoMark, alt, labels = []}) {
     const nodes = [
-        {label: labels[0] || "AI", tone: "blue", icon: "⌘"},
-        {label: labels[1] || "IT", tone: "cyan", icon: "</>"},
-        {label: labels[2] || "Cybersecurity", tone: "teal", icon: "⛨"},
-        {label: labels[3] || "Learning design", tone: "violet", icon: "□"},
-        {label: labels[4] || "Remote-first", tone: "blue", icon: "••"},
-        {label: labels[5] || "DE / EN", tone: "gold", icon: "◎"},
+        {label: labels[0] || "AI", tone: "blue", Icon: BrainCircuit},
+        {label: labels[1] || "IT", tone: "cyan", Icon: Code2},
+        {label: labels[2] || "Cybersecurity", tone: "teal", Icon: ShieldCheck},
+        {label: labels[3] || "Learning design", tone: "violet", Icon: BookOpenCheck},
+        {label: labels[4] || "Remote-first", tone: "blue", Icon: UsersRound},
+        {label: labels[5] || "DE / EN", tone: "gold", Icon: Languages},
     ];
 
     return (
         <div className="lumo-orbit-visual" aria-label={alt}>
-            <div className="lumo-orbit-ring lumo-orbit-ring-a" aria-hidden="true"/>
-            <div className="lumo-orbit-ring lumo-orbit-ring-b" aria-hidden="true"/>
-            <div className="lumo-orbit-ring lumo-orbit-ring-c" aria-hidden="true"/>
             <div className="lumo-orbit-core">
                 <img src={logoMark} alt={alt} width="180" height="180" loading="eager" fetchPriority="high"/>
-                <strong>Luminovia</strong>
-                <span>Training & Consulting</span>
+                <div>
+                    <strong>Luminovia</strong>
+                    <span>Training & Consulting</span>
+                </div>
             </div>
             <div className="lumo-orbit-node-wrap">
-                {nodes.map((node, index) => (
-                    <div key={node.label} className={cn("lumo-orbit-node", `lumo-orbit-node-${index + 1}`)} data-tone={node.tone}>
-                        <span>{node.icon}</span>
-                        <strong>{node.label}</strong>
+                {nodes.map(({label, tone, Icon}) => (
+                    <div key={label} className="lumo-orbit-node" data-tone={tone}>
+                        <span><Icon aria-hidden="true" strokeWidth={1.8}/></span>
+                        <strong>{label}</strong>
                     </div>
                 ))}
             </div>

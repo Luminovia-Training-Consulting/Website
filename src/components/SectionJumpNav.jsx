@@ -11,7 +11,10 @@ export default function SectionJumpNav({items, label, fixed = false, className =
                 <span className="section-jump-label shrink-0 whitespace-nowrap border-white/10 text-[10px] font-black uppercase tracking-[0.12em] text-sky-100 sm:text-xs sm:tracking-[0.16em] lg:border-r lg:pr-9">
                     {label}
                 </span>
-                <div className="section-jump-track flex min-w-0 flex-1 snap-x items-center gap-2 overflow-x-auto py-0.5 pl-[2px] sm:gap-3 sm:py-1 sm:pl-[5px] lg:gap-4 [scrollbar-color:rgba(125,211,252,.42)_rgba(255,255,255,.06)] [scrollbar-width:thin]">
+                <div
+                    className="section-jump-track flex min-w-0 flex-1 snap-x items-center gap-2 overflow-x-auto py-0.5 pl-[2px] sm:gap-3 sm:py-1 sm:pl-[5px] lg:gap-4"
+                    tabIndex="0"
+                >
                     {items.map(([href, text]) => (
                         <a
                             key={href}
