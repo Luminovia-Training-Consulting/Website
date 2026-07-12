@@ -65,7 +65,7 @@ export default function Header({theme = "night", onToggleTheme}) {
     }, [open]);
 
     const mobileMenu = open ? (
-        <div className="mobile-menu-overlay xl:hidden" role="dialog" aria-modal="true" aria-label={t.navigation}>
+        <div className="mobile-menu-overlay min-[1380px]:hidden" role="dialog" aria-modal="true" aria-label={t.navigation}>
             <div className="sticky top-0 z-10 -mx-5 mb-8 flex items-center justify-between border-b border-white/10 bg-[#08090B]/92 px-5 py-4">
                 <span className="text-lg font-black text-white">{t.navigation}</span>
                 <div className="flex gap-2">
@@ -101,17 +101,17 @@ export default function Header({theme = "night", onToggleTheme}) {
                         </span>
                     </NavLink>
 
-                    <nav className="hidden items-center gap-0.5 xl:flex">
+                    <nav className="hidden items-center gap-0.5 min-[1380px]:flex">
                         {navItems.map((item) => <NavLink key={item.to} to={item.to} className={navClass}>{t.nav[item.key]}</NavLink>)}
                     </nav>
 
-                    <div className="hidden items-center gap-3 xl:flex">
+                    <div className="hidden items-center gap-3 min-[1380px]:flex">
                         <LanguageToggle language={language} toggleLanguage={toggleLanguage}/>
                         <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language}/>
                         <Button to="/contact#contact-options">{t.bookTraining}</Button>
                     </div>
 
-                    <div className="lumo-mobile-header-actions xl:hidden">
+                    <div className="lumo-mobile-header-actions min-[1380px]:hidden">
                         <LanguageToggle language={language} toggleLanguage={toggleLanguage} className="lumo-mobile-toggle"/>
                         <ThemeToggle theme={theme} onToggleTheme={onToggleTheme} language={language} className="lumo-mobile-toggle"/>
                         <button className="lumo-mobile-menu-button" onClick={() => setOpen(true)} aria-label={`${t.open} ${t.menu}`}>
