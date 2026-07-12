@@ -1,7 +1,9 @@
 import {Link} from "react-router-dom";
-import {BookOpenCheck, BrainCircuit, Code2, Languages, ShieldCheck, UsersRound} from "lucide-react";
+import {BookOpenCheck, BrainCircuit, BriefcaseBusiness, Code2, Globe2, Languages, ShieldCheck, UsersRound, Waypoints} from "lucide-react";
 import Button from "./Button.jsx";
 import {cn} from "./utils.js";
+
+const TRUST_ICONS = [ShieldCheck, Languages, Globe2, Waypoints, BriefcaseBusiness];
 
 export function Container({children, className = ""}) {
     return <div className={cn("mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8", className)}>{children}</div>;
@@ -98,13 +100,14 @@ export function LogoSystemVisual({logoMark, alt, labels = []}) {
 export function TrustRail({items}) {
     return (
         <div className="lumo-trust-rail">
-            {items.map((item) => (
-                <div key={item.title} className="lumo-trust-item">
-                    <span aria-hidden="true">{item.icon}</span>
+            {items.map((item, index) => {
+                const Icon = TRUST_ICONS[index % TRUST_ICONS.length];
+                return <div key={item.title} className="lumo-trust-item">
+                    <span aria-hidden="true"><Icon strokeWidth={1.8}/></span>
                     <strong>{item.title}</strong>
                     <p>{item.copy}</p>
-                </div>
-            ))}
+                </div>;
+            })}
         </div>
     );
 }

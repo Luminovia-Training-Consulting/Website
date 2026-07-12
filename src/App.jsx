@@ -1,6 +1,5 @@
 import {lazy, Suspense, useEffect, useRef, useState} from "react";
 import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
-import AmbientIntelligence from "./components/AmbientIntelligence.jsx";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
@@ -87,53 +86,28 @@ function ScrollToHash() {
         isFirstRender.current = false;
         window.scrollTo({top: 0, behavior: "auto"});
 
+        let frame;
         const scrollToTarget = () => {
-            getHashTarget(hash)?.scrollIntoView({behavior: "auto", block: "start"});
+            const target = getHashTarget(hash);
+            if (!target) return false;
+
+            frame = globalThis.requestAnimationFrame(() => target.scrollIntoView({behavior: "auto", block: "start"}));
+            return true;
         };
 
-        globalThis.requestAnimationFrame(scrollToTarget);
-        const timeout = globalThis.setTimeout(scrollToTarget, 120);
-        const lateTimeout = globalThis.setTimeout(scrollToTarget, 360);
+        const observer = scrollToTarget() ? null : new MutationObserver(() => {
+            if (scrollToTarget()) observer.disconnect();
+        });
+        observer?.observe(document.getElementById("root"), {childList: true, subtree: true});
+        const timeout = globalThis.setTimeout(() => observer?.disconnect(), 1200);
         return () => {
+            if (frame) globalThis.cancelAnimationFrame(frame);
+            observer?.disconnect();
             globalThis.clearTimeout(timeout);
-            globalThis.clearTimeout(lateTimeout);
         };
     }, [pathname, hash]);
 
     return null;
-}
-
-function DeferredAmbientIntelligence() {
-    const [ready, setReady] = useState(import.meta.env.MODE === "test");
-
-    useEffect(() => {
-        if (ready) return undefined;
-
-        /* v8 ignore next 5 -- production-only idle deferral is disabled in test mode */
-        const schedule = globalThis.requestIdleCallback || ((callback) => globalThis.setTimeout(callback, 1400));
-        const cancel = globalThis.cancelIdleCallback || globalThis.clearTimeout;
-        const handle = schedule(() => setReady(true), {timeout: 2200});
-
-        return () => cancel(handle);
-    }, [ready]);
-
-    return ready ? (
-        <>
-            <div className="polygon-field fixed inset-0 z-0" aria-hidden="true">
-                <span/>
-                <span/>
-                <span/>
-                <span/>
-                <span/>
-                <span/>
-                <span/>
-            </div>
-            <div className="ambient-grid fixed inset-0 z-0 opacity-70"/>
-            <AppErrorBoundary fallback={null}>
-                <AmbientIntelligence/>
-            </AppErrorBoundary>
-        </>
-    ) : null;
 }
 
 function DeferredAnalyticsConsent() {
@@ -157,10 +131,29 @@ function DeferredAnalyticsConsent() {
     ) : null;
 }
 
+function RouteFallback() {
+    return (
+        <main className="lumo-route-fallback" aria-busy="true">
+            <span className="sr-only">Loading page</span>
+            <div className="lumo-route-fallback-copy" aria-hidden="true">
+                <span/>
+                <span/>
+                <span/>
+            </div>
+            <div className="lumo-route-fallback-panel" aria-hidden="true">
+                <span/>
+                <span/>
+                <span/>
+                <span/>
+            </div>
+        </main>
+    );
+}
+
 function routeElement(Component) {
     return (
         <AppErrorBoundary>
-            <Suspense fallback={<div className="min-h-[55vh] bg-[#08090b]" aria-hidden="true"/>}>
+            <Suspense fallback={<RouteFallback/>}>
                 <Component/>
             </Suspense>
         </AppErrorBoundary>
@@ -222,10 +215,6 @@ export default function App() {
                 <ScrollToHash/>
                 <div data-theme={theme} className="theme-root relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
                     <div className="ambient-veil fixed inset-0 z-0"/>
-                    <div className="ambient-wash fixed -inset-x-24 top-0 z-0 h-[68vh]"/>
-                    <div className="ambient-ribbon fixed left-[-12vw] top-[14vh] z-0 h-32 w-[124vw] rotate-[-8deg] opacity-70"/>
-                    <div className="ambient-ribbon fixed left-[-12vw] top-[72vh] z-0 h-28 w-[124vw] rotate-[7deg] opacity-45"/>
-                    <DeferredAmbientIntelligence/>
                     <Header theme={theme} onToggleTheme={toggleTheme}/>
                     <div className="relative z-10">
                         <Routes>
