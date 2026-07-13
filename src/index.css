@@ -5619,9 +5619,7 @@ body,
     padding-bottom: 3.25rem;
 }
 
-.lumo-section[id]:not(#capabilities),
-.lumo-founder-section,
-.lumo-footer {
+.lumo-subpage section[id] {
     content-visibility: auto;
     contain-intrinsic-size: auto 720px;
 }
@@ -5739,7 +5737,7 @@ body,
 
 .lumo-route-fallback {
     display: grid;
-    min-height: 58vh;
+    min-height: calc(100svh - 5rem);
     grid-template-columns: minmax(0, 1fr) minmax(20rem, .75fr);
     align-items: center;
     gap: 4rem;
@@ -5871,7 +5869,7 @@ html[data-theme="day"] .lumo-page-hero-visual .lumo-process-step {
     }
 
     .lumo-route-fallback {
-        min-height: 65vh;
+        min-height: calc(100svh - 4.5rem);
         grid-template-columns: 1fr;
         gap: 1.5rem;
         padding-block: 3rem;
@@ -6475,12 +6473,6 @@ html[data-theme="day"] .lumo-final-cta p {
     .lumo-section {
         padding-top: 3.25rem !important;
         padding-bottom: 3.25rem !important;
-    }
-
-    .lumo-section[id]:not(#capabilities),
-    .lumo-founder-section,
-    .lumo-footer {
-        contain-intrinsic-size: auto 540px;
     }
 
     .lumo-route-card,

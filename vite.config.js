@@ -53,6 +53,7 @@ function routeFileName(path) {
 function withRouteHead(html, [path, title, description]) {
     const canonical = `${siteUrl}${path}`;
     return html
+        .replace(/<!-- static-home-shell:start -->[\s\S]*?<!-- static-home-shell:end -->/, "")
         .replace(/<title>.*?<\/title>/, `<title>${escapeHtmlAttribute(title)}</title>`)
         .replace(/<meta content="[^"]*" name="description"\/>/, `<meta content="${escapeHtmlAttribute(description)}" name="description"/>`)
         .replace(/<meta content="[^"]*" property="og:title"\/>/, `<meta content="${escapeHtmlAttribute(title)}" property="og:title"/>`)

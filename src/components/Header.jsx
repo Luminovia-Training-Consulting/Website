@@ -12,40 +12,43 @@ function navClass({isActive}) {
 }
 
 function LanguageToggle({language, toggleLanguage, className = ""}) {
-    const label = language === "de" ? "Sprache auf Englisch wechseln" : "Switch language to German";
+    const label = language === "de" ? "DE / EN, Sprache auf Englisch wechseln" : "DE / EN, switch language to German";
 
     return (
         <button
             onClick={toggleLanguage}
             className={`lumo-language-toggle ${className}`}
-            aria-label={label}
+            title={label}
         >
             <span>DE</span>
-            <span aria-hidden="true">/</span>
+            <span>/</span>
             <span>EN</span>
+            <span className="sr-only">{label}</span>
         </button>
     );
 }
 
 function ThemeToggle({theme, onToggleTheme, language = "en", className = ""}) {
     const isDay = theme === "day";
-    const label = language === "de"
-        ? isDay ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"
-        : isDay ? "Switch to night scheme" : "Switch to day scheme";
     const visibleLabel = language === "de"
         ? isDay ? "Hell" : "Dunkel"
         : isDay ? "Day" : "Night";
+    const actionLabel = language === "de"
+        ? isDay ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"
+        : isDay ? "Switch to night scheme" : "Switch to day scheme";
+    const label = `${visibleLabel}, ${actionLabel}`;
 
     return (
         <button
             type="button"
             onClick={onToggleTheme}
             className={`lumo-theme-toggle ${className}`}
-            aria-label={label}
+            title={label}
             aria-pressed={isDay}
         >
             <span className="theme-toggle-icon" data-mode={isDay ? "day" : "night"} aria-hidden="true"/>
             <span>{visibleLabel}</span>
+            <span className="sr-only">{actionLabel}</span>
         </button>
     );
 }
@@ -93,7 +96,7 @@ export default function Header({theme = "night", onToggleTheme}) {
         <>
             <header className="lumo-site-header sticky top-0 z-50">
                 <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-                    <NavLink to="/" className="lumo-header-brand group" aria-label="Luminovia Training & Consulting home">
+                    <NavLink to="/" className="lumo-header-brand group">
                         <img src={IMAGES.luminoviaLogoMark} alt="" loading="eager" width="52" height="52"/>
                         <span>
                             <strong>Luminovia</strong>

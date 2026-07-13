@@ -42,7 +42,7 @@ export default function Footer() {
         <footer className="lumo-footer border-t border-sky-100/12 px-4 py-12 sm:px-6 lg:px-8">
             <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-[1.35fr_0.75fr_0.9fr_0.9fr]">
                 <div>
-                    <Link to="/" className="inline-flex items-center gap-3" aria-label="Luminovia Training & Consulting home">
+                    <Link to="/" className="inline-flex items-center gap-3">
                         <span className="luminovia-logo-shell grid h-12 w-12 place-items-center overflow-hidden rounded-[0.85rem] border border-sky-100/24 bg-white shadow-[0_0_32px_rgba(56,189,248,.16)]">
                             <img src={IMAGES.luminoviaLogoMark} alt="" className="h-10 w-10 object-contain p-1" loading="lazy" width="40" height="40"/>
                         </span>

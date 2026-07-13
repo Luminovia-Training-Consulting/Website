@@ -50,25 +50,25 @@ const content = {
     de: {
         badge: "Beratung & Kompetenzaufbau",
         title: "Beratung für KI, IT und digitale Kompetenz, die im Arbeitsalltag funktioniert.",
-        intro: "Luminovia unterstützt Organisationen dabei, digitale Vorhaben klar zu strukturieren: KI-Anwendungsfälle, Arbeitsabläufe, Lernarchitektur, Curriculum-Planung, Roadmaps und Umsetzungsbegleitung.",
+        intro: "Luminovia unterstützt Organisationen dabei, digitale Vorhaben klar zu strukturieren: von KI-Anwendungsfällen und Arbeitsabläufen bis zu Lernarchitektur, Curricula, Umsetzungsfahrplänen und Projektbegleitung.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#consulting-areas", "Bereiche"], ["#deliverables", "Ergebnisse"], ["#process", "Prozess"], ["#scope", "Umfang"], ["#next", "Anfrage"]],
         areasTitle: "Von der konkreten Frage zum umsetzbaren Kompetenzplan.",
-        areasCopy: "Beratung kann als Workshop, Analyse, Sparring, Konzeptphase, Umsetzungsreview oder Enablement-Sprint beauftragt werden. Jedes Format liefert eine belastbare Grundlage für die nächste Entscheidung.",
+        areasCopy: "Beratung kann als Workshop, Analyse, Konzeptphase, fachliche Prüfung oder zeitlich begrenzter Beratungssprint beauftragt werden. Jedes Format liefert eine belastbare Grundlage für die nächste Entscheidung.",
         areas: [
             ["KI-Anwendungsfälle bewerten", "Klären, wo KI sinnvoll ist, wo sie noch nicht eingesetzt werden sollte und welche menschlichen Prüfpunkte erforderlich sind."],
-            ["Workflow- und Prozessanalyse", "Arbeitsabläufe, Tool-Nutzung, Übergaben, Automatisierungsideen und Engpässe vor Training oder Umsetzung sichtbar machen."],
+            ["Arbeitsablauf- und Prozessanalyse", "Arbeitsabläufe, Werkzeugnutzung, Übergaben, Automatisierungsideen und Engpässe vor Training oder Umsetzung sichtbar machen."],
             ["Digitaler Kompetenzfahrplan", "Kompetenzen, Formate, Materialien und Entscheidungen für die nächste realistische Phase priorisieren."],
-            ["Trainingsstrategie und Lernpfade", "Enablement-Programme nach Zielgruppe, Lernstand, Transferaufgaben und Business-Zielen formen."],
-            ["Curriculum und Materialdesign", "Module, Labs, Slides, Lernchecks und Blended-Learning-Strukturen für professionelle Kohorten entwickeln."],
-            ["Projekt- und Umsetzungsbegleitung", "Vorhaben mit Scope, Reviewpunkten, Dokumentation und Entscheidungsmaterial begleiten."],
+            ["Trainingsstrategie und Lernpfade", "Kompetenzprogramme an Zielgruppe, Lernstand, Transferaufgaben und Geschäftszielen ausrichten."],
+            ["Curriculum und Materialentwicklung", "Module, Praxislabore, Präsentationen, Lernchecks und Blended-Learning-Strukturen für professionelle Lerngruppen entwickeln."],
+            ["Projekt- und Umsetzungsbegleitung", "Vorhaben mit klarem Leistungsumfang, Prüfpunkten, Dokumentation und Entscheidungsmaterial begleiten."],
         ],
         deliverablesTitle: "Typische Beratungsergebnisse",
         deliverables: [
-            "Use-Case-Map mit Priorisierung nach Nutzen, Risiko und Umsetzbarkeit",
-            "Workflow- oder Prozesslandkarte mit praktischen Empfehlungen",
-            "AI-Nutzungsleitlinien, Reviewroutinen oder Governance-Notizen",
-            "Digital-Capability-Roadmap mit nächsten Schritten und Lernbedarf",
+            "Anwendungsfallkarte mit Priorisierung nach Nutzen, Risiko und Umsetzbarkeit",
+            "Arbeitsablauf- oder Prozesslandkarte mit praktischen Empfehlungen",
+            "KI-Nutzungsleitlinien, Prüfroutinen oder Governance-Hinweise",
+            "Kompetenzfahrplan mit nächsten Schritten und Lernbedarf",
             "Workshop-, Trainingspfad- oder Curriculum-Architektur",
             "Entscheidungsvorlage für Management, Programmleitung oder Bildungsanbieter",
         ],
@@ -82,8 +82,8 @@ const content = {
             ["6", "Nachbereitung", "Offene Fragen werden geklärt, Unterlagen bei Bedarf angepasst und der nächste Schritt geplant."],
         ],
         scopeTitle: "Was enthalten ist – und was nicht.",
-        nextTitle: "Consulting-Unterstützung für Ihre Organisation anfragen.",
-        nextCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage, Zeitraum, Sprache und Ziel. Luminovia schlägt ein passendes Consulting-Sprint-, Workshop-, Roadmap- oder kombiniertes Trainingsformat vor.",
+        nextTitle: "Beratung für Ihre Organisation anfragen.",
+        nextCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage, Zeitraum, Sprache und gewünschtes Ergebnis. Luminovia empfiehlt anschließend einen passenden Beratungssprint, Workshop, Fahrplan oder ein kombiniertes Trainingsformat.",
         primary: "Beratung anfragen",
         secondary: "Angebote ansehen",
     },
@@ -169,7 +169,7 @@ export default function ConsultingPage() {
 
                 <section id="scope" className="mt-16 grid scroll-mt-36 gap-5 lg:grid-cols-2">
                     <Card className="p-5 sm:p-6">
-                        <h2 className="text-3xl font-black text-white">{language === "de" ? "Möglich im Scope" : "Possible in scope"}</h2>
+                        <h2 className="text-3xl font-black text-white">{language === "de" ? "Möglicher Leistungsumfang" : "Possible in scope"}</h2>
                         <div className="mt-5 grid gap-2">
                             {boundaries.possible.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
                         </div>
