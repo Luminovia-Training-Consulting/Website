@@ -30,7 +30,7 @@ function copyForLanguage(language) {
             visualLabels: ["KI", "IT", "Cybersecurity", "Lerndesign", "Remote-first", "DE / EN", "Workshops bis Programme"],
             heroChips: ["Praxisnah", "Jobrelevant", "Transferklar", "Strategie bis Enablement"],
             trust: [
-                {icon: "◎", title: "AI | IT | Security", copy: "Kernbereiche für digitale Kompetenz"},
+                {icon: "◎", title: "KI | IT | Security", copy: "Kernbereiche für digitale Kompetenz"},
                 {icon: "◇", title: "DE / EN Durchführung", copy: "Deutsch und Englisch"},
                 {icon: "✦", title: "Remote-first", copy: "Flexible Live-Durchführung"},
                 {icon: "↗", title: "Workshops bis Programme", copy: "Von Kurzformat bis Lernpfad"},
@@ -55,7 +55,7 @@ function copyForLanguage(language) {
             founderCopy: "Luminovia verbindet Wirtschaftsinformatik, KI, Cybersecurity, Softwareentwicklung, Lerndesign und praktische Lehre zu professionellen Trainings- und Beratungsformaten. Carinas persönliches Portfolio bleibt separat.",
             companyProfile: "Unternehmen ansehen",
             portfolio: "carinaschoppe.com öffnen",
-            finalTitle: "Bauen wir die nächste Fähigkeit Ihres Teams.",
+            finalTitle: "Entwickeln wir die nächste Kompetenzstufe Ihres Teams.",
             finalCopy: "Senden Sie Thema, Zielgruppe, Zeitraum, Sprache und Ziel. Luminovia schlägt ein passendes Training, einen Consulting-Sprint oder ein Programmformat vor.",
         }
         : {

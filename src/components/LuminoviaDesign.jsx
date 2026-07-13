@@ -172,7 +172,7 @@ export function RouteCard({title, copy, bullets, cta, to, tone = "blue"}) {
             <div className="lumo-route-icon">
                 <RouteIcon type={iconType}/>
             </div>
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <p>{copy}</p>
             <ul>
                 {bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
@@ -294,13 +294,15 @@ export function OfferCard({service, detailLabel, detailLink, tone = "blue"}) {
     );
 }
 
-export function ProcessTimeline({steps}) {
+export function ProcessTimeline({steps, headingLevel = 3}) {
+    const Heading = `h${headingLevel}`;
+
     return (
         <div className="lumo-process-timeline">
             {steps.map(([number, title, copy]) => (
                 <article key={number} className="lumo-process-step">
                     <div className="lumo-process-node">{number}</div>
-                    <h3>{title}</h3>
+                    <Heading>{title}</Heading>
                     <p>{copy}</p>
                 </article>
             ))}

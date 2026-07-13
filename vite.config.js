@@ -72,21 +72,7 @@ function htmlPerformancePlugin() {
             const htmlAsset = Object.values(bundle).find((asset) => asset.type === "asset" && asset.fileName.endsWith(".html"));
             if (!htmlAsset || typeof htmlAsset.source !== "string") return;
 
-            let html = htmlAsset.source.replace(/<link rel="stylesheet" crossorigin href="(\/(?:Website\/)?[^"]+\.css)">/g, (_match, href) => {
-                return `<link rel="preload" href="${href}" as="style" crossorigin onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="${href}"></noscript>`;
-            });
-
-            const moduleScripts = [];
-            html = html.replace(/\s*<script type="module" crossorigin src="\/([^"]+\.js)"><\/script>/g, (match) => {
-                moduleScripts.push(match.trim());
-                return "";
-            });
-
-            if (moduleScripts.length > 0) {
-                html = html.replace("</body>", `${moduleScripts.map((script) => `\n${script}`).join("")}\n</body>`);
-            }
-
-            htmlAsset.source = html;
+            const html = htmlAsset.source;
 
             prerenderRoutes.forEach((route) => {
                 this.emitFile({

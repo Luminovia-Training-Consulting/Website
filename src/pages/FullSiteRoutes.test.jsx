@@ -31,6 +31,12 @@ describe("full static site route coverage", () => {
                 const {unmount} = render(<App/>);
                 expect(await screen.findByRole("main")).toBeInTheDocument();
                 expect(await screen.findByRole("heading", {level: 1})).toBeInTheDocument();
+                const headingLevels = [...document.querySelector("main").querySelectorAll("h1, h2, h3, h4, h5, h6")]
+                    .map((heading) => Number(heading.tagName.slice(1)));
+                expect(headingLevels[0]).toBe(1);
+                headingLevels.slice(1).forEach((level, index) => {
+                    expect(level, `${language} ${route} heading levels: ${headingLevels.join(",")}`).toBeLessThanOrEqual(headingLevels[index] + 1);
+                });
                 expect(screen.queryByRole("heading", {name: /page not found/i})).not.toBeInTheDocument();
                 expect(screen.queryByRole("heading", {name: /seite nicht gefunden/i})).not.toBeInTheDocument();
                 expect(document.title).not.toMatch(/not found|nicht gefunden/i);

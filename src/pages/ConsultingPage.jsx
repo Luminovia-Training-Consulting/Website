@@ -48,13 +48,13 @@ const content = {
         secondary: "View offers",
     },
     de: {
-        badge: "Consulting & Enablement",
-        title: "Consulting für AI, IT und digitale Kompetenz, die Teams anwenden können.",
-        intro: "Luminovia unterstützt Organisationen dabei, digitale Entscheidungen zu strukturieren: AI Use Cases, Workflow Design, Lernarchitektur, Curriculum-Planung, Roadmaps und Umsetzungsbegleitung.",
+        badge: "Beratung & Kompetenzaufbau",
+        title: "Beratung für KI, IT und digitale Kompetenz, die im Arbeitsalltag funktioniert.",
+        intro: "Luminovia unterstützt Organisationen dabei, digitale Vorhaben klar zu strukturieren: KI-Anwendungsfälle, Arbeitsabläufe, Lernarchitektur, Curriculum-Planung, Roadmaps und Umsetzungsbegleitung.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#consulting-areas", "Bereiche"], ["#deliverables", "Ergebnisse"], ["#process", "Prozess"], ["#scope", "Scope"], ["#next", "Anfrage"]],
-        areasTitle: "Von der konkreten Frage zum tragfähigen Digital-Capability-Plan.",
-        areasCopy: "Consulting kann als Workshop, Audit, Sparring, Konzeptphase, Umsetzungsreview oder Enablement-Sprint gescoped werden. Jedes Format soll eine konkrete nächste Entscheidung ermöglichen.",
+        areasTitle: "Von der konkreten Frage zum umsetzbaren Kompetenzplan.",
+        areasCopy: "Beratung kann als Workshop, Analyse, Sparring, Konzeptphase, Umsetzungsreview oder Enablement-Sprint beauftragt werden. Jedes Format liefert eine belastbare Grundlage für die nächste Entscheidung.",
         areas: [
             ["AI Use-Case Mapping", "Klären, wo AI sinnvoll ist, wo sie noch nicht eingesetzt werden sollte und welche menschlichen Reviewpunkte gebraucht werden."],
             ["Workflow- und Prozessanalyse", "Arbeitsabläufe, Tool-Nutzung, Übergaben, Automatisierungsideen und Engpässe vor Training oder Umsetzung sichtbar machen."],
@@ -102,7 +102,7 @@ export default function ConsultingPage() {
                     title={c.title}
                     copy={c.intro}
                     actions={<><Button to="/contact#contact-options">{c.primary}</Button><Button to="/offers" variant="secondary">{c.secondary}</Button></>}
-                    visual={<ProcessTimeline steps={c.processSteps}/>}
+                    visual={<ProcessTimeline steps={c.processSteps} headingLevel={2}/>}
                 />
             </div>
             <div className="mx-auto max-w-7xl">
