@@ -15,13 +15,13 @@ describe("App routing and language", () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training for Modern Teams/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT and Digital Capability for Modern Teams/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
 
         await user.click(screen.getAllByRole("button", {name: /Switch language to German/i})[0]);
 
-        expect(screen.getByRole("heading", {name: /KI-, IT- & Digitalkompetenz-Training für moderne Teams/i})).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /KI-, IT- und Digitalkompetenz für moderne Teams/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
     });
@@ -31,8 +31,8 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Bookable Luminovia offers/i})).toBeInTheDocument();
-        expect(screen.queryByRole("heading", {name: /Buchbare Luminovia-Angebote/i})).not.toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training that improves digital work/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Training, das digitale Arbeit besser macht/i})).not.toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
@@ -58,13 +58,13 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Bookable Luminovia offers/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training that improves digital work/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
     });
 
     it.each([
         ["/contact", /Kontakt für Luminovia Training/i],
-        ["/about", /Luminovia Training & Consulting steht/i],
+        ["/about", /Digitale Expertise, klar vermittelt/i],
         ["/offers", /Klare Luminovia-Angebote/i],
         ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
@@ -83,7 +83,7 @@ describe("App routing and language", () => {
     });
 
     it.each([
-        ["/training/", /Buchbare Luminovia-Angebote/i],
+        ["/training/", /Training, das digitale Arbeit besser macht/i],
         ["/offers/", /Klare Luminovia-Angebote/i],
         ["/consulting/", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/projects/", /Projekte, die Luminovia-Training/i],
@@ -168,7 +168,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT & Digital Capability Training/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /AI, IT and Digital Capability/i})).toBeInTheDocument();
         await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({behavior: "auto", block: "start"}));
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
         expect(requestAnimationFrame).toHaveBeenCalled();
@@ -181,14 +181,14 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /KI-, IT- & Digitalkompetenz-Training für moderne Teams/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /KI-, IT- und Digitalkompetenz für moderne Teams/i})).toBeInTheDocument();
         expect(window.scrollTo).not.toHaveBeenCalled();
 
         const trainingLink = screen.getAllByRole("link", {name: /^Training$/})
             .find((link) => link.getAttribute("href") === "/training");
         await user.click(trainingLink);
 
-        expect(await screen.findByRole("heading", {name: /Buchbare Luminovia-Angebote/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training, das digitale Arbeit besser macht/i})).toBeInTheDocument();
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
     });
 });

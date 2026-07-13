@@ -1,5 +1,20 @@
 import {Link} from "react-router-dom";
-import {BookOpenCheck, BrainCircuit, BriefcaseBusiness, Code2, Globe2, Languages, ShieldCheck, UsersRound, Waypoints} from "lucide-react";
+import {
+    BookOpenCheck,
+    BrainCircuit,
+    BriefcaseBusiness,
+    Code2,
+    Database,
+    Globe2,
+    GraduationCap,
+    Languages,
+    Layers3,
+    ShieldCheck,
+    Target,
+    UsersRound,
+    Waypoints,
+    Workflow,
+} from "lucide-react";
 import Button from "./Button.jsx";
 import {cn} from "./utils.js";
 
@@ -120,48 +135,8 @@ function routeIconForTitle(title) {
 }
 
 function RouteIcon({type}) {
-    const iconProps = {
-        viewBox: "0 0 48 48",
-        fill: "none",
-        xmlns: "http://www.w3.org/2000/svg",
-        "aria-hidden": "true",
-    };
-    const pathProps = {
-        stroke: "currentColor",
-        strokeWidth: "3.2",
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-    };
-
-    if (type === "target") {
-        return (
-            <svg {...iconProps}>
-                <circle cx="24" cy="24" r="16" {...pathProps}/>
-                <circle cx="24" cy="24" r="8" {...pathProps}/>
-                <path d="M24 6V2M24 46v-4M42 24h4M2 24h4" {...pathProps}/>
-                <path d="M30 18l8-8M35 10h3v3" {...pathProps}/>
-            </svg>
-        );
-    }
-
-    if (type === "layers") {
-        return (
-            <svg {...iconProps}>
-                <path d="M24 5L42 15 24 25 6 15 24 5z" {...pathProps}/>
-                <path d="M10 24l14 8 14-8" {...pathProps}/>
-                <path d="M10 33l14 8 14-8" {...pathProps}/>
-            </svg>
-        );
-    }
-
-    return (
-        <svg {...iconProps}>
-            <path d="M5 18.5 24 8l19 10.5L24 29 5 18.5z" {...pathProps}/>
-            <path d="M13.5 24v8.5c2.9 3.6 6.4 5.4 10.5 5.4s7.6-1.8 10.5-5.4V24" {...pathProps}/>
-            <path d="M39 21.5v9.8" {...pathProps}/>
-            <path d="M39 31.3 36.5 36" {...pathProps}/>
-        </svg>
-    );
+    const Icon = type === "target" ? Target : type === "layers" ? Layers3 : GraduationCap;
+    return <Icon aria-hidden="true" strokeWidth={1.8}/>;
 }
 
 export function RouteCard({title, copy, bullets, cta, to, tone = "blue"}) {
@@ -193,77 +168,16 @@ function offerIconForTitle(title) {
 }
 
 function OfferIcon({type}) {
-    const iconProps = {
-        viewBox: "0 0 48 48",
-        fill: "none",
-        xmlns: "http://www.w3.org/2000/svg",
-        "aria-hidden": "true",
+    const icons = {
+        team: UsersRound,
+        workflow: Workflow,
+        shield: ShieldCheck,
+        database: Database,
+        book: BookOpenCheck,
+        brain: BrainCircuit,
     };
-
-    const pathProps = {
-        stroke: "currentColor",
-        strokeWidth: "3",
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-    };
-
-    if (type === "team") {
-        return (
-            <svg {...iconProps}>
-                <circle cx="18" cy="17" r="6" {...pathProps}/>
-                <circle cx="32" cy="19" r="5" {...pathProps}/>
-                <path d="M7 36c2.4-6.4 6.2-9.6 11-9.6S26.6 29.6 29 36" {...pathProps}/>
-                <path d="M26 30c1.7-2.4 3.9-3.6 6.4-3.6 4 0 7.1 2.6 8.6 7.6" {...pathProps}/>
-            </svg>
-        );
-    }
-
-    if (type === "workflow") {
-        return (
-            <svg {...iconProps}>
-                <path d="M12 13h8v8h-8zM28 27h8v8h-8z" {...pathProps}/>
-                <path d="M20 17h5.5A6.5 6.5 0 0 1 32 23.5V27" {...pathProps}/>
-                <path d="M16 30.5V28a5 5 0 0 1 5-5h6" {...pathProps}/>
-                <path d="M34 9l1.2 4.1L39 15l-3.8 1.9L34 21l-1.2-4.1L29 15l3.8-1.9L34 9z" {...pathProps}/>
-            </svg>
-        );
-    }
-
-    if (type === "shield") {
-        return (
-            <svg {...iconProps}>
-                <path d="M24 6l15 6v10c0 9.6-5.6 16.1-15 20-9.4-3.9-15-10.4-15-20V12l15-6z" {...pathProps}/>
-                <path d="M18 24l4 4 9-10" {...pathProps}/>
-            </svg>
-        );
-    }
-
-    if (type === "database") {
-        return (
-            <svg {...iconProps}>
-                <ellipse cx="24" cy="11" rx="14" ry="6" {...pathProps}/>
-                <path d="M10 11v10c0 3.3 6.3 6 14 6s14-2.7 14-6V11" {...pathProps}/>
-                <path d="M10 21v10c0 3.3 6.3 6 14 6s14-2.7 14-6V21" {...pathProps}/>
-            </svg>
-        );
-    }
-
-    if (type === "book") {
-        return (
-            <svg {...iconProps}>
-                <path d="M9 10h12c4 0 7 3 7 7v22c0-3.3-3-6-7-6H9V10z" {...pathProps}/>
-                <path d="M39 10H27c-4 0-7 3-7 7v22c0-3.3 3-6 7-6h12V10z" {...pathProps}/>
-            </svg>
-        );
-    }
-
-    return (
-        <svg {...iconProps}>
-            <path d="M18 9a7 7 0 0 0-7 7 7.5 7.5 0 0 0 .4 2.4A8.5 8.5 0 0 0 13 35h6" {...pathProps}/>
-            <path d="M30 9a7 7 0 0 1 7 7 7.5 7.5 0 0 1-.4 2.4A8.5 8.5 0 0 1 35 35h-6" {...pathProps}/>
-            <path d="M18 9v30M30 9v30M18 18h-5M30 18h5M18 27h-6M30 27h6M22 14h4M22 24h4M22 34h4" {...pathProps}/>
-        </svg>
-    );
+    const Icon = icons[type] || BrainCircuit;
+    return <Icon aria-hidden="true" strokeWidth={1.8}/>;
 }
 
 export function OfferCard({service, detailLabel, detailLink, tone = "blue"}) {

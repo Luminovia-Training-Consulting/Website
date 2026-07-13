@@ -6,14 +6,14 @@ import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
 /** @type {[string, RegExp][]} */
 const routes = [
-    ["/training", /Bookable Luminovia offers/i],
+    ["/training", /Training that improves digital work/i],
     ["/offers", /Clear Luminovia offers/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/projects", /Projects that make Luminovia/i],
     ["/portfolio", /Project practice behind IT/i],
     ["/consulting", /Consulting for AI, IT and digital capability/i],
     ["/clients", /Education partners, collaboration contexts and topic areas/i],
-    ["/about", /Luminovia Training & Consulting is built/i],
+    ["/about", /Digital expertise, clearly taught/i],
     ["/pricing", /Clear pricing guidance/i],
     ["/contact", /Contact Luminovia/i],
     ["/imprint", /Imprint/i],
