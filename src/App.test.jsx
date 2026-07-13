@@ -65,10 +65,10 @@ describe("App routing and language", () => {
     it.each([
         ["/contact", /Kontakt für Luminovia Training/i],
         ["/about", /Digitale Expertise, klar vermittelt/i],
-        ["/offers", /Klare Luminovia-Angebote/i],
+        ["/offers", /Buchbare Formate für Training/i],
         ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
-        ["/clients", /Bildungspartner, Kooperationskontexte und Themenbereiche/i],
+        ["/clients", /Erfahrung aus Bildung, Kooperationen/i],
         ["/pricing", /Klare Preisorientierung/i],
         ["/terms", /Terms & Conditions und Zahlungsinformationen/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
@@ -84,9 +84,9 @@ describe("App routing and language", () => {
 
     it.each([
         ["/training/", /Training, das digitale Arbeit besser macht/i],
-        ["/offers/", /Klare Luminovia-Angebote/i],
+        ["/offers/", /Buchbare Formate für Training/i],
         ["/consulting/", /Beratung für KI, IT und digitale Kompetenz/i],
-        ["/projects/", /Projekte, die Luminovia-Training/i],
+        ["/projects/", /Projekte als praktische Grundlage/i],
         ["/pricing/", /Klare Preisorientierung/i],
         ["/terms/", /Terms & Conditions und Zahlungsinformationen/i],
     ])("renders GitHub Pages trailing-slash route %s", async (route, heading) => {

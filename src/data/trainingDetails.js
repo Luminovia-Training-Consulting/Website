@@ -30,7 +30,7 @@ const topicDetailsEn = [
             "Follow-up recommendations for further training",
         ],
         related: ["ai-literacy-for-teams", "prompt-engineering-agentic-workflows", "ai-governance-responsible-ai"],
-        matches: ["AI & GenAI Training", "Generative AI workflows", "AI for office productivity", "AI für Office-Produktivitaet", "AI literacy", "AI", "GenAI"],
+        matches: ["AI & GenAI Training", "Generative AI workflows", "Arbeitsabläufe mit generativer KI", "AI for office productivity", "AI für Office-Produktivitaet", "KI für Büroproduktivität", "AI literacy", "AI", "GenAI"],
     },
     {
         slug: "ai-literacy-for-teams",
@@ -63,7 +63,7 @@ const topicDetailsEn = [
             "Optional internal AI policy starter",
         ],
         related: ["ai-genai-training", "ai-governance-responsible-ai", "digital-law-gdpr-ai-act-cloud-act"],
-        matches: ["AI Literacy for Teams", "AI Literacy für Teams", "AI Literacy für Teams", "AI literacy", "AI Literacy", "AI awareness"],
+        matches: ["AI Literacy for Teams", "AI Literacy für Teams", "KI-Kompetenz für Teams", "AI literacy", "AI Literacy", "AI awareness"],
     },
     {
         slug: "prompt-engineering-agentic-workflows",
@@ -129,7 +129,7 @@ const topicDetailsEn = [
             "Training roadmap recommendations",
         ],
         related: ["digital-law-gdpr-ai-act-cloud-act", "ai-literacy-for-teams", "business-consulting-new-work"],
-        matches: ["AI Governance & Responsible AI", "Responsible AI", "AI governance basics", "AI Governance", "Responsible AI"],
+        matches: ["AI Governance & Responsible AI", "KI-Governance und verantwortungsvolle KI", "Responsible AI", "Verantwortungsvolle KI", "AI governance basics", "Grundlagen der KI-Governance", "AI Governance"],
     },
     {
         slug: "software-development-retraining-java-python-csharp-kotlin",

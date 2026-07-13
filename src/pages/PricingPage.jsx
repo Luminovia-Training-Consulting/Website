@@ -97,18 +97,18 @@ const content = {
             },
         ],
         customTitle: "Andere Situation oder größerer Umfang?",
-        customCopy: "Für Curriculum Design, mehrwöchige Durchführung, Blended Learning, Beratung, Paketbuchungen oder besondere Eventformate bitte ein individuelles Angebot anfragen.",
+        customCopy: "Für Curriculum-Entwicklung, mehrwöchige Durchführung, Blended Learning, Beratung, Paketbuchungen oder besondere Veranstaltungsformate erstellen wir ein individuelles Angebot.",
         contact: "Preise anfragen",
         appointment: "Preisgespräch buchen",
         eligibility: {
             eyebrow: "Buchungshinweis",
             title: "Diese Preise gelten für bildungsbezogene Buchungen.",
-            copy: "Die aufgeführten Orientierungspreise beziehen sich auf Bildungsanbieter, Akademien, Hochschulen, Corporate Training, Firmentraining und professionelle Weiterbildungskontexte. Consulting, Umsetzungsbegleitung, größere Programme oder Sonderumfänge werden individuell kalkuliert.",
+            copy: "Die aufgeführten Orientierungspreise beziehen sich auf Bildungsanbieter, Akademien, Hochschulen, Firmentraining und professionelle Weiterbildung. Beratung, Umsetzungsbegleitung, größere Programme oder besondere Leistungsumfänge werden individuell kalkuliert.",
             points: ["AZAV und bildungsgeförderter Bereich", "Firmentraining und professionelle Weiterbildung", "Beratung und Projektarbeit auf Anfrage"],
         },
         footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#booking-eligibility", "Buchungsfit"], ["#rates", "Preise"], ["#currency", "Währungen"], ["#custom", "Anfrage"]],
+        jumpItems: [["#booking-eligibility", "Eignung"], ["#rates", "Preise"], ["#currency", "Währungen"], ["#custom", "Anfrage"]],
         currencyTitle: "Planungspreise in EUR, AUD und USD.",
         currencyCopy: "Die Währungsangaben sind Orientierungswerte für Planungsgespräche. Rechnungswährung, Steuerlogik und Wechselkursbasis werden im Angebot geklärt.",
     },
@@ -130,8 +130,8 @@ export default function PricingPage() {
                     visual={<TrustRail items={[
                         {icon: "€", title: "EUR", copy: language === "de" ? "Planungswerte für Deutschland" : "German planning values"},
                         {icon: "$", title: "AUD / USD", copy: language === "de" ? "Internationale Planungswerte" : "International planning values"},
-                        {icon: "?", title: language === "de" ? "Individuelle Angebote" : "Scoped offers", copy: language === "de" ? "Projekte und Programme nach Scope" : "Projects and programmes quoted individually"},
-                        {icon: "B2B", title: language === "de" ? "B2B Scope" : "B2B scope", copy: language === "de" ? "Budgetklarheit vor Angebot" : "Budget clarity before proposal"},
+                        {icon: "?", title: language === "de" ? "Individuelle Angebote" : "Scoped offers", copy: language === "de" ? "Projekte und Programme nach Leistungsumfang" : "Projects and programmes quoted individually"},
+                        {icon: "B2B", title: language === "de" ? "Geschäftskunden" : "B2B scope", copy: language === "de" ? "Budgetklarheit vor dem Angebot" : "Budget clarity before proposal"},
                     ]}/>}
                 />
             </div>

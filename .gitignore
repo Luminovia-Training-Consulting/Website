@@ -98,3 +98,5 @@ preview.log
 preview.err.log
 prompts.txt
 *.png
+audit-layout-final/
+audit-pagespeed/

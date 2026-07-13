@@ -23,7 +23,7 @@ export default function ContactPage() {
             label: language === "de" ? "Luminovia E-Mail" : "Luminovia email",
             value: PROFILE.email,
             href: `mailto:${PROFILE.email}?subject=${subject}`,
-            copy: language === "de" ? "Für Training, Consulting und Projektanfragen" : "For training, consulting and project requests",
+            copy: language === "de" ? "Für Training, Beratung und Projektanfragen" : "For training, consulting and project requests",
         },
         {
             label: language === "de" ? "Direkt an Carina" : "Direct to Carina",

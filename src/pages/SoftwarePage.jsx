@@ -13,12 +13,12 @@ export default function SoftwarePage() {
     const copy = language === "de"
         ? {
             badge: "Projektportfolio",
-            title: "Projekte, die Luminovia-Training und Consulting praktisch machen.",
-            intro: "Dieses Portfolio zeigt ausgewählte Projektarbeit, die in Trainings, Beratung und Umsetzung als Praxisbezug dient: Automatisierung mit Python, AI-gestützte Research-Workflows, Datenbereinigung, Kotlin-Plugins, Mobile Apps, Game-Systeme und digitale Arbeitsabläufe.",
+            title: "Projekte als praktische Grundlage für Training und Beratung.",
+            intro: "Ausgewählte Projektarbeit schafft den Praxisbezug für Trainings und Beratung: darunter Python-Automatisierung, KI-gestützte Rechercheabläufe, Datenbereinigung, Kotlin-Erweiterungen, mobile Anwendungen und digitale Arbeitsprozesse.",
             github: "GitHub-Profil öffnen",
             skills: "Consulting ansehen",
             typesTitle: "Was diese Projekte für Kunden bedeuten können",
-            typesCopy: "Die Projektseite ist kein Software-Shop mit fertigen Produkten. Sie zeigt, welche Arten von Arbeit Luminovia in Training, Consulting und Projektbegleitung sinnvoll einordnen, strukturieren oder begleiten kann.",
+            typesCopy: "Die Projektseite zeigt keine Produktpalette, sondern technische Erfahrung aus realen Entwicklungs- und Forschungskontexten. Sie macht sichtbar, welche Aufgaben Luminovia in Training, Beratung und Projektbegleitung fachlich einordnen kann.",
             examplesLabel: "Mögliche Artefakte",
         }
         : {

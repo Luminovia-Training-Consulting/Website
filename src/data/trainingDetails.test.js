@@ -40,7 +40,7 @@ const expectedOfferLinks = [
     ["IHK Rahmenlehrplan Fachinformatiker", "/training/fachinformatiker-ihk-training-retraining"],
     ["Kaufmann fuer Bueromanagement", "/training/office-management-ihk-business-training"],
     ["Digital Law, GDPR & AI Act Awareness", "/training/digital-law-gdpr-ai-act-cloud-act"],
-    ["AI Literacy für Teams", "/training/ai-literacy-for-teams"],
+    ["KI-Kompetenz für Teams", "/training/ai-literacy-for-teams"],
     ["Softwareentwicklung & APIs", "/training/software-development-retraining-java-python-csharp-kotlin"],
     ["Cybersecurity & Pentesting-Grundlagen", "/training/cybersecurity-pentesting-ethical-hacking"],
     ["Digitales Recht, DSGVO & AI Act Awareness", "/training/digital-law-gdpr-ai-act-cloud-act"],
