@@ -55,8 +55,8 @@ function copyForLanguage(language) {
             founderCopy: "Luminovia wird von Carina Sophie Schoppe geführt. Ihre Erfahrung in Wirtschaftsinformatik, KI, Cybersecurity, Softwareentwicklung und Lerndesign prägt Formate, die fachlich belastbar und im Arbeitsalltag nutzbar sind.",
             companyProfile: "Unternehmen ansehen",
             portfolio: "carinaschoppe.com öffnen",
-            finalTitle: "Entwickeln wir die nächste Kompetenzstufe Ihres Teams.",
-            finalCopy: "Beschreiben Sie Thema, Zielgruppe, Zeitraum und gewünschtes Ergebnis. Sie erhalten eine klare Empfehlung für Format, Umfang und nächsten Schritt.",
+            finalTitle: "Nächste digitale Kompetenz gezielt aufbauen.",
+            finalCopy: "Nennen Sie Thema, Zielgruppe, Zeitrahmen und gewünschtes Ergebnis. Luminovia empfiehlt ein passendes Format mit klarem Leistungsumfang und nächsten Schritten.",
         }
         : {
             title: "AI, IT and Digital Capability for Modern Teams",
@@ -92,8 +92,8 @@ function copyForLanguage(language) {
             founderCopy: "Luminovia is led by Carina Sophie Schoppe. Her background in business information systems, AI, cybersecurity, software development and instructional design shapes formats that are technically sound and useful at work.",
             companyProfile: "View company profile",
             portfolio: "Open carinaschoppe.com",
-            finalTitle: "Let’s build your team’s next capability.",
-            finalCopy: "Share your topic, audience, timeframe and target outcome. You will receive a clear recommendation for the format, scope and next step.",
+            finalTitle: "Build capability for your next digital priority.",
+            finalCopy: "Share the topic, audience, timeframe and required outcome. Luminovia will recommend a suitable format, clear scope and practical next steps.",
         };
 }
 

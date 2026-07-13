@@ -9,6 +9,8 @@ if (!rootElement) {
     throw new Error("Application root element #root was not found.");
 }
 
+rootElement.replaceChildren();
+
 createRoot(rootElement).render(
     <React.StrictMode>
         <App/>
