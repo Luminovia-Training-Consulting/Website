@@ -94,7 +94,6 @@
     --accent-soft-c: rgba(225, 29, 72, .08);
     background: var(--theme-surface);
     color: var(--theme-text);
-    transition: background-color .45s ease, color .45s ease;
 }
 
 .theme-root main[class*="pt-32"] {
