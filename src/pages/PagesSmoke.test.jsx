@@ -10,7 +10,7 @@ const routes = [
     ["/offers", /Clear Luminovia offers/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/projects", /Projects that make Luminovia/i],
-    ["/portfolio", /Project practice behind IT/i],
+    ["/portfolio", /Projects that make Luminovia/i],
     ["/consulting", /Consulting for AI, IT and digital capability/i],
     ["/clients", /Education partners, collaboration contexts and topic areas/i],
     ["/about", /Digital expertise, clearly taught/i],

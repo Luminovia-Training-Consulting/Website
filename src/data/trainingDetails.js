@@ -37,7 +37,7 @@ const topicDetailsEn = [
         title: "AI Literacy for Teams",
         category: "Artificial Intelligence",
         summary: "AI literacy training for non-technical and mixed teams that need shared vocabulary, realistic expectations and safe day-to-day routines for AI-supported work.",
-        audience: "Non-technical teams, managers, L&D departments, office teams, education staff and organisations starting their AI enablement journey.",
+        audience: "Non-technical teams, managers, L&D departments, office teams, education staff and organisations establishing practical AI use.",
         format: "Introductory workshop, team enablement day, internal learning path or recurring learning series.",
         duration: "Half day to 2 days, with optional follow-up clinics.",
         promise: "The goal is confidence without hype: people understand enough to use AI sensibly, question outputs and decide when human judgement matters.",
@@ -633,11 +633,32 @@ const topicDetailsEn = [
 
 const deOverrides = {
     "ai-genai-training": {
-        title: "AI & GenAI Training",
-        summary: "Praxisnahes AI-Training für Teams, Bildungsanbieter und Organisationen, die generative AI verstehen, verantwortungsvoll nutzen und in sinnvolle Arbeitsabläufe übersetzen wollen.",
+        title: "KI- und GenAI-Training",
+        summary: "Praxisnahes KI-Training für Teams, Bildungsanbieter und Organisationen, die generative KI verstehen, verantwortungsvoll nutzen und in sinnvolle Arbeitsabläufe übersetzen wollen.",
         audience: "Unternehmen, Hochschulen, Akademien, öffentliche Organisationen, Bildungsanbieter und gemischte Lerngruppen.",
         format: "Remote-Live-Workshop, Vorlesungsreihe, Trainingstag, mehrtägiger Kurs oder internes Programm.",
-        promise: "Teilnehmende verstehen moderne AI realistisch: Möglichkeiten, Grenzen, Qualitätsprüfung, Datenschutz, Verantwortlichkeit und konkrete Anwendung im Alltag.",
+        promise: "Teilnehmende verstehen moderne KI realistisch: Möglichkeiten, Grenzen, Qualitätsprüfung, Datenschutz, Verantwortlichkeit und konkrete Anwendung im Alltag.",
+    },
+    "ai-literacy-for-teams": {
+        title: "KI-Kompetenz für Teams",
+        summary: "Grundlagentraining für nichttechnische und gemischte Teams, die KI-Begriffe sicher einordnen, Risiken erkennen und gemeinsame Nutzungsregeln entwickeln wollen.",
+        audience: "Fach- und Führungsteams, Verwaltung, Bildung, Projektgruppen und Organisationen mit unterschiedlichen technischen Vorkenntnissen.",
+        format: "Interaktiver Workshop, internes Enablement-Modul, halber oder ganzer Trainingstag.",
+        promise: "Das Team gewinnt eine gemeinsame Sprache, kann Ergebnisse realistischer bewerten und trifft im Arbeitsalltag nachvollziehbare Entscheidungen über den KI-Einsatz.",
+    },
+    "prompt-engineering-agentic-workflows": {
+        title: "Prompt Engineering und agentische Workflows",
+        summary: "Training für strukturierte Prompts, nachvollziehbare Workflow-Zerlegung und beaufsichtigte agentische Arbeitsmuster in realen Geschäftsprozessen.",
+        audience: "Fach- und Projektteams, Wissensarbeitende, Trainerinnen, Content-Teams und Organisationen mit konkreten KI-Anwendungsfällen.",
+        format: "Praxisworkshop, Workflow-Lab, Trainingstag oder mehrteilige Anwendungswerkstatt.",
+        promise: "Teilnehmende entwickeln wiederholbare Arbeitsabläufe mit klaren Eingaben, Prüfpunkten, Qualitätskriterien und menschlicher Verantwortung.",
+    },
+    "ai-governance-responsible-ai": {
+        title: "KI-Governance und verantwortungsvolle KI",
+        summary: "Training und Beratung für Organisationen, die Verantwortlichkeiten, Risikoprüfung, Dokumentation und menschliche Aufsicht praxistauglich organisieren wollen.",
+        audience: "Führungskräfte, Projekt- und Compliance-Teams, Bildungsträger, öffentliche Organisationen und Verantwortliche für KI-Einführung.",
+        format: "Executive Briefing, Governance-Workshop, Policy-Sprint, Trainingsmodul oder KI-Risiko-Review.",
+        promise: "Governance wird in konkrete Routinen übersetzt: Was braucht eine Regel, was eine Prüfung, was Dokumentation und was sollte nicht automatisiert werden?",
     },
     "software-development-retraining-java-python-csharp-kotlin": {
         title: "Softwareentwicklung, APIs & Umschulung",
@@ -674,6 +695,20 @@ const deOverrides = {
         format: "Vorlesungsreihe, Moduldurchführung, Corporate Workshop, Fallstudien-Lab oder Transformationstraining.",
         promise: "Teilnehmende verstehen digitale Transformation als Zusammenspiel von Wirtschaft, IT, Prozessen, Daten, Menschen, Systemen, Strategie und Governance.",
     },
+    "python-sql-data-skills": {
+        title: "Python, SQL und Datenkompetenz",
+        summary: "Angewandtes Programmier- und Datentraining für Automatisierung, Analyse, Reporting und den sicheren Umgang mit Datenbanken.",
+        audience: "Berufliche Weiterbildung, Fachinformatiker-Kohorten, Business-Analystinnen, Einsteigerinnen und Teams mit praktischen Datenaufgaben.",
+        format: "Live-Kurs, Bootcamp, Lab-Reihe, Prüfungsvorbereitung oder mehrwöchiges Trainingsmodul.",
+        promise: "Lernende bearbeiten realistische Datenaufgaben, schreiben nachvollziehbaren Code und verstehen, wie Abfragen, Datenqualität und Automatisierung zusammenspielen.",
+    },
+    "data-analytics-data-science-engineering": {
+        title: "Lernpfade für Data Analysts, Data Scientists und Data Engineers",
+        summary: "Rollenbezogene Lernpfade von Datenanalyse und Statistikgrundlagen bis zu Datenpipelines, Modellverständnis und technischer Umsetzung.",
+        audience: "Data-Einsteigerinnen, Umschulungen, Hochschulen, Akademien und Teams, die Rollenprofile und Kompetenzaufbau klar strukturieren wollen.",
+        format: "Kursmodul, Bootcamp-Block, Lab-Reihe, Portfolio-Projektcoaching oder Curriculum-Support.",
+        promise: "Inhalte werden am angestrebten Rollenprofil ausgerichtet, damit Werkzeuge, Methoden und Praxisaufgaben zu den späteren Verantwortlichkeiten passen.",
+    },
     "cybersecurity-pentesting-ethical-hacking": {
         title: "Cybersecurity, Pentesting-Grundlagen & Ethical Hacking",
         summary: "Cybersecurity-Training von Awareness bis Technik: Web Security, Ethical Hacking, Pentesting-Grundlagen, SOC-Denken und sichere Arbeitsgewohnheiten.",
@@ -695,9 +730,16 @@ const deOverrides = {
         format: "Kursdurchführung, Modulunterricht, Teilqualifikation, Prüfungsvorbereitung, Digital-Skills-Workshop oder Geschäftsprozess-Training.",
         promise: "Das Training verbindet kaufmännische Grundlagen mit digitaler Kompetenz, damit Lernende sicherer mit Prozessen, Kommunikation, Daten, Dokumenten und modernen Office-Tools arbeiten.",
     },
+    "curriculum-design-blended-learning": {
+        title: "Curriculum-Design und Blended Learning",
+        summary: "Konzeption von Lernpfaden, Modulen, Übungen, Labs, Präsentationen, Lernchecks und Blended-Learning-Strukturen für professionelle Bildungsangebote.",
+        audience: "Bildungsanbieter, Akademien, Hochschulen, interne Learning-&-Development-Teams und Fachverantwortliche mit neuen Trainingsprogrammen.",
+        format: "Curriculum-Sprint, Konzeptworkshop, Materialentwicklung, Qualitätsprüfung oder begleitete Programmarchitektur.",
+        promise: "Aus Lernzielen entsteht eine belastbare Struktur mit passenden Aktivitäten, Materialien, Prüfungen und Transferpunkten statt einer losen Foliensammlung.",
+    },
     "coaching-keynotes-expert-talks": {
-        title: "Coaching, Keynotes & Expert Talks",
-        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Expert Talks zu IT, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, digitaler Transformation, digitalem Recht und moderner Bildung.",
+        title: "Coaching, Keynotes und Fachvorträge",
+        summary: "Buchbare Coachings, Keynotes, Gastvorträge und Fachimpulse zu IT, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, digitaler Transformation, digitalem Recht und moderner Bildung.",
         audience: "Unternehmen, Hochschulen, Konferenzen, Akademien, Bildungsanbieter, Leadership-Teams, Projektteams und Veranstalterinnen.",
         format: "Keynote, Expert Talk, Gastvortrag, Leadership Briefing, Coaching Session, Panel Input oder individuelles Advisory-Format.",
         promise: "Komplexe Themen werden klar, greifbar und handlungsorientiert: Was ist relevant, wo liegen Risiken und welche nächsten Schritte sind sinnvoll?",
@@ -710,7 +752,7 @@ const deOverrides = {
         promise: "Lernende verstehen, wie moderne Anwendungen betrieben, ausgeliefert und verbunden werden, ohne dass Infrastruktur abstrakt bleibt.",
     },
     "creative-web-digital-media-tools": {
-        title: "Creative, Web & Digital Media Tools",
+        title: "Web-, Kreativ- und Digital-Media-Tools",
         summary: "Training und Lernsupport für Web-, Content- und Kreativtools wie WordPress, Elementor, UI/UX-Grundlagen und Adobe-nahe Medienworkflows.",
         audience: "Bildungsanbieter, Office- und Business-Lernende, Marketingteams, Gründerinnen, Content-Teams und berufliche Bildung.",
         format: "Tool-Workshop, Kursmodul, projektbasiertes Lab, Website-/Content-Sprint oder Blended-Digital-Skills-Training.",

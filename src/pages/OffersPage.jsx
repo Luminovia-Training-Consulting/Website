@@ -183,7 +183,7 @@ export default function OffersPage() {
                     visual={<TrustRail items={[
                         {icon: "01", title: "Training", copy: language === "de" ? "Workshops, Kurse und Kompetenzprogramme" : "Workshops, courses and skills programmes"},
                         {icon: "02", title: language === "de" ? "Beratung" : "Consulting", copy: language === "de" ? "Analysen, Prüfungen und Entscheidungshilfe" : "Sprints, reviews and decision support"},
-                        {icon: "03", title: language === "de" ? "Programmdesign" : "Programme design", copy: language === "de" ? "Curriculum, Labs und Lernreisen" : "Curriculum, labs and learning journeys"},
+                        {icon: "03", title: language === "de" ? "Programmdesign" : "Programme design", copy: language === "de" ? "Curriculum, Praxislabs und Lernpfade" : "Curriculum, practical labs and learning paths"},
                         {icon: "04", title: language === "de" ? "Fachimpulse" : "Expert sessions", copy: language === "de" ? "Vorträge, Briefings und Impulse" : "Talks, briefings and impulses"},
                     ]}/>}
                 />

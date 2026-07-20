@@ -4,7 +4,7 @@ import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 import {safeGetStorageItem, safeSetStorageItem} from "../utils/browser.js";
 
-const CONSENT_KEY = "carina_analytics_consent";
+export const ANALYTICS_CONSENT_KEY = "luminovia_analytics_consent_v1";
 
 function loadAnalytics(measurementId) {
     if (!measurementId || globalThis.gtag) return;
@@ -25,7 +25,7 @@ function loadAnalytics(measurementId) {
 export default function AnalyticsConsent() {
     const location = useLocation();
     const {t} = useLanguage();
-    const [consent, setConsent] = useState(() => safeGetStorageItem(CONSENT_KEY));
+    const [consent, setConsent] = useState(() => safeGetStorageItem(ANALYTICS_CONSENT_KEY));
     const enabled = Boolean(PROFILE.analyticsId);
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function AnalyticsConsent() {
     if (!enabled || consent) return null;
 
     function choose(value) {
-        safeSetStorageItem(CONSENT_KEY, value);
+        safeSetStorageItem(ANALYTICS_CONSENT_KEY, value);
         setConsent(value);
     }
 

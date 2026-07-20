@@ -67,10 +67,10 @@ describe("App routing and language", () => {
         ["/about", /Digitale Expertise, klar vermittelt/i],
         ["/offers", /Buchbare Formate für Training/i],
         ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
-        ["/portfolio", /Projektpraxis hinter IT-/i],
+        ["/portfolio", /Projekte als praktische Grundlage/i],
         ["/clients", /Erfahrung aus Bildung, Kooperationen/i],
         ["/pricing", /Klare Preise für Training/i],
-        ["/terms", /Terms & Conditions und Zahlungsinformationen/i],
+        ["/terms", /Geschäfts- und Zahlungsbedingungen/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
     ])("renders %s with German page copy", async (route, heading) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
@@ -88,7 +88,7 @@ describe("App routing and language", () => {
         ["/consulting/", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/projects/", /Projekte als praktische Grundlage/i],
         ["/pricing/", /Klare Preise für Training/i],
-        ["/terms/", /Terms & Conditions und Zahlungsinformationen/i],
+        ["/terms/", /Geschäfts- und Zahlungsbedingungen/i],
     ])("renders GitHub Pages trailing-slash route %s", async (route, heading) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
         window.history.pushState({}, "Trailing slash route", route);
@@ -135,6 +135,20 @@ describe("App routing and language", () => {
         expect(screen.getAllByRole("link", {name: /\+49 175 5738 757/i})[0]).toHaveAttribute("href", "tel:+491755738757");
         expect(screen.getAllByRole("link", {name: /Book an appointment/i})[0]).toHaveAttribute("href", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
         expect(screen.getByTitle(/Google Calendar appointment scheduler/i)).toHaveAttribute("src", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
+    });
+
+    it("uses topic-specific German metadata on direct training routes", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+        window.history.pushState({}, "KI training", "/training/ai-genai-training");
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {level: 1, name: /KI- und GenAI-Training/i})).toBeInTheDocument();
+        await waitFor(() => expect(document.title).toBe("KI- und GenAI-Training | Luminovia"));
+        expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
+            "content",
+            expect.stringContaining("verantwortungsvoll einsetzen"),
+        );
     });
 
     it("renders consistent EUR pricing and switches the pricing copy to German", async () => {

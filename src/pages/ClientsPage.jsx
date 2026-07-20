@@ -8,12 +8,12 @@ export default function ClientsPage() {
         ? {
             badge: "Lieferkontexte",
             title: "Erfahrung aus Bildung, Kooperationen und digitaler Praxis.",
-            intro: "Diese Seite ordnet öffentlich belegbare Bildungs- und Kooperationskontexte ein, die das fachliche Profil von Luminovia geprägt haben. Anonymisierte Rückmeldungen werden ausdrücklich nicht als benannte Kundenstimmen dargestellt.",
+            intro: "Diese Seite dokumentiert öffentlich belegbare Bildungs- und Kooperationskontexte, die die Arbeitsweise von Luminovia geprägt haben. Benannte Referenzen führen zu öffentlichen Quellen; Rückmeldungsthemen werden keinem einzelnen Auftraggeber zugeschrieben.",
         }
         : {
             badge: "Delivery contexts",
             title: "Education partners, collaboration contexts and topic areas.",
-            intro: "A careful overview of public organisations, education partners and collaboration contexts that shaped the Luminovia profile. Feedback text is anonymised pattern language, not named customer quotes.",
+            intro: "This page documents public education and collaboration contexts that shaped Luminovia's delivery practice. Named references link to public sources; feedback themes are not attributed to individual clients.",
         };
 
     return (
@@ -27,7 +27,7 @@ export default function ClientsPage() {
                         {icon: "EDU", title: language === "de" ? "Bildungskontexte" : "Education contexts", copy: language === "de" ? "Ausgewählte Lehr- und Lernumfelder" : "Selected delivery environments"},
                         {icon: "B2B", title: language === "de" ? "Organisationen" : "Organisation fit", copy: language === "de" ? "Training und Kompetenzaufbau" : "Training and enablement capability"},
                         {icon: "TOP", title: language === "de" ? "Themenbreite" : "Topic breadth", copy: language === "de" ? "AI, IT, Security und Learning Design" : "AI, IT, security and learning design"},
-                        {icon: "OK", title: language === "de" ? "Transparente Nachweise" : "Honest proof", copy: language === "de" ? "Keine erfundenen Logos oder Kundenstimmen" : "No invented logos or testimonials"},
+                        {icon: "OK", title: language === "de" ? "Quellenklarheit" : "Source clarity", copy: language === "de" ? "Öffentliche Quellen und klar eingeordnete Kontexte" : "Public references and clearly labelled context"},
                     ]}/>}
                 />
             </div>

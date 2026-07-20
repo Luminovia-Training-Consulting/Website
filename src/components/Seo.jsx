@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import {seoHomeFaqs} from "../data/seoContent.js";
 import {PROFILE} from "../data/profile.js";
@@ -43,8 +43,8 @@ const routeMeta = {
             description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
         },
         "/portfolio": {
-            title: "Consulting Portfolio | IT and Business Consulting",
-            description: "Portfolio and proof for IT consulting, AI consulting, business consulting, digital education, technical project practice and professional training delivery.",
+            title: "Project Portfolio | AI Research, Automation and Consulting Projects",
+            description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
         },
         "/clients": {
             title: "Delivery Contexts | Education, Training and Collaboration Proof",
@@ -78,31 +78,31 @@ const routeMeta = {
     de: {
         "/": {
             title: "Luminovia Training & Consulting — AI, IT & Digital Capability Training",
-            description: "Luminovia Training & Consulting bietet praxisnahes AI-, IT-, Cybersecurity-, Software-, Digital-Business- und Learning-Design-Training sowie Workshops und Consulting für Organisationen, Bildungsanbieter und Remote-first-Teams.",
+            description: "Luminovia Training & Consulting bietet praxisnahes KI-, IT-, Cybersecurity-, Software-, Digital-Business- und Learning-Design-Training sowie Workshops und Consulting für Organisationen, Bildungsanbieter und Remote-first-Teams.",
         },
         "/training": {
-            title: "Training | AI, IT & Digital Capability Training",
-            description: "Praxisnahes AI-Training, IT-Training, Cybersecurity-Training, Software, Daten, Digital Business und Curriculum Design fuer Organisationen und Bildungsanbieter.",
+            title: "Training | KI, IT und digitale Kompetenz",
+            description: "Praxisnahes KI-, IT- und Cybersecurity-Training sowie Kurse zu Software, Daten, Digital Business und Curriculum-Design für Organisationen und Bildungsanbieter.",
         },
         "/offers": {
             title: "Angebote | Luminovia Training & Consulting",
             description: "Klare Luminovia-Pakete für Live-Training, Consulting-Sprints, Projektbegleitung, Keynotes, Curriculum Design und größere Digital-Enablement-Programme.",
         },
         "/consulting": {
-            title: "Consulting | IT-, AI- und Business-Beratung",
-            description: "Consulting-Portfolio für AI Use Cases, IT- und Prozessberatung, Business Technology, Curriculum Design, Roadmaps und digitales Enablement.",
+            title: "Consulting | IT-, KI- und Business-Beratung",
+            description: "Consulting für KI-Anwendungsfälle, IT- und Prozessfragen, Business Technology, Curriculum-Design, Roadmaps und digitalen Kompetenzaufbau.",
         },
         "/projects": {
-            title: "Projektportfolio | AI Research, Automatisierung und Consulting",
-            description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, AI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
+            title: "Projektportfolio | KI-Research, Automatisierung und Consulting",
+            description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, KI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
         },
         "/portfolio": {
-            title: "Consulting-Portfolio | IT- und Business-Consulting",
-            description: "Portfolio und Nachweise für IT-Consulting, AI-Consulting, Business-Consulting, digitale Bildung, technische Projektpraxis und professionelle Trainingsdurchführung.",
+            title: "Projektportfolio | KI-Research, Automatisierung und Consulting",
+            description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, KI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
         },
         "/clients": {
             title: "Lieferkontexte | Bildung, Training und Kooperationsnachweise",
-            description: "Ausgewaehlte oeffentliche Lieferkontexte, Bildungspartner, Themenbereiche und Kooperationsnachweise hinter dem Trainings- und Consulting-Profil von Luminovia.",
+            description: "Ausgewählte öffentliche Lieferkontexte, Bildungspartner, Themenbereiche und Kooperationsnachweise hinter dem Trainings- und Consulting-Profil von Luminovia.",
         },
         "/pricing": {
             title: "Preise | Training, Beratung und Sessions",
@@ -114,7 +114,7 @@ const routeMeta = {
         },
         "/contact": {
             title: "Kontakt & Buchung | Training oder Consulting buchen",
-            description: "Kontaktieren Sie Luminovia fuer AI-, IT- und Digital-Capability-Training, Consulting, Workshops, Vortraege, Kursdurchfuehrung oder Programmplanung.",
+            description: "Kontaktieren Sie Luminovia für KI-, IT- und Digitalkompetenz-Training, Consulting, Workshops, Vorträge, Kursdurchführung oder Programmplanung.",
         },
         "/imprint": {
             title: "Impressum | Luminovia",
@@ -125,8 +125,8 @@ const routeMeta = {
             description: "Datenschutzerklärung der Luminovia-Website, inklusive Analytics- und Kontaktinformationen.",
         },
         "/terms": {
-            title: "Terms & Conditions | Luminovia",
-            description: "Terms & Conditions, Zahlungsbedingungen und Bankinformationen fuer Rechnungen und Leistungen von Luminovia Training & Consulting.",
+            title: "Geschäfts- und Zahlungsbedingungen | Luminovia",
+            description: "Geschäfts- und Zahlungsbedingungen sowie Bankinformationen für Rechnungen und Leistungen von Luminovia Training & Consulting.",
         },
     },
 };
@@ -242,16 +242,40 @@ export default function Seo() {
     const {language} = useLanguage();
     const normalizedPathname = normalizePathname(pathname);
     const isTrainingTopicRoute = /^\/training\/[^/]+$/.test(normalizedPathname);
-    const currentMeta = isTrainingTopicRoute ? {
-        title: language === "de" ? "Trainingsthema | IT- und Business-Bildung" : "Training Topic | IT and Business Education",
-        description: language === "de" ? "Detaillierte Themenseite für IT, Softwareentwicklung, Cybersecurity, Projektmanagement, digitale Transformation oder Business-Bildung." : "Detailed training topic page for IT, software development, cybersecurity, project management, digital transformation or business education.",
-    } : routeMeta[language][normalizedPathname] || {
+    const [trainingTopicState, setTrainingTopicState] = useState(null);
+    const trainingTopicMeta = trainingTopicState?.pathname === normalizedPathname && trainingTopicState.language === language
+        ? trainingTopicState.meta
+        : null;
+
+    useEffect(() => {
+        let active = true;
+
+        if (!isTrainingTopicRoute) return undefined;
+
+        import("../data/trainingSeo.js").then(({trainingSeoForPath}) => {
+            if (active) {
+                setTrainingTopicState({
+                    pathname: normalizedPathname,
+                    language,
+                    meta: trainingSeoForPath(normalizedPathname, language) || null,
+                });
+            }
+        });
+
+        return () => {
+            active = false;
+        };
+    }, [isTrainingTopicRoute, language, normalizedPathname]);
+
+    const currentMeta = trainingTopicMeta || routeMeta[language][normalizedPathname] || {
         title: language === "de" ? "Seite nicht gefunden | Luminovia" : "Page not found | Luminovia",
         description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Angebote oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, offers or contact page to find the right information.",
     };
     const {title, description} = currentMeta;
 
     useEffect(() => {
+        if (isTrainingTopicRoute && !trainingTopicMeta) return;
+
         const canonical = `${SITE_URL}${normalizedPathname === "/" ? "/" : normalizedPathname}`;
         document.title = title;
 
@@ -288,7 +312,7 @@ export default function Seo() {
         } else {
             removeJsonLd("dynamic-faq-schema");
         }
-    }, [description, normalizedPathname, title]);
+    }, [description, isTrainingTopicRoute, normalizedPathname, title, trainingTopicMeta]);
 
     return null;
 }

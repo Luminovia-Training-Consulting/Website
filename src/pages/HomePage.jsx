@@ -70,7 +70,7 @@ function copyForLanguage(language) {
                 {icon: "◎", title: "AI | IT | Security", copy: "Core capability areas"},
                 {icon: "◇", title: "DE / EN delivery", copy: "Bilingual training and consulting"},
                 {icon: "✦", title: "Remote-first", copy: "Global teams, flexible delivery"},
-                {icon: "↗", title: "Workshops to programmes", copy: "From short formats to journeys"},
+                {icon: "↗", title: "Workshops to programmes", copy: "From short formats to structured programmes"},
                 {icon: "▣", title: "Training + consulting", copy: "Learning and implementation"},
             ],
             routes: [

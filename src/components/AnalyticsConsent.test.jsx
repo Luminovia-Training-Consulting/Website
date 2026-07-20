@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vitest";
 import {MemoryRouter} from "react-router-dom";
 import {LanguageProvider, LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
-import AnalyticsConsent from "./AnalyticsConsent.jsx";
+import AnalyticsConsent, {ANALYTICS_CONSENT_KEY} from "./AnalyticsConsent.jsx";
 
 function renderConsent() {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
@@ -25,7 +25,7 @@ describe("AnalyticsConsent", () => {
         expect(screen.getByText(/Privacy-friendly analytics/i)).toBeInTheDocument();
         await user.click(screen.getByRole("button", {name: /Decline/i}));
 
-        expect(window.localStorage.getItem("carina_analytics_consent")).toBe("declined");
+        expect(window.localStorage.getItem(ANALYTICS_CONSENT_KEY)).toBe("declined");
         expect(screen.queryByText(/Privacy-friendly analytics/i)).not.toBeInTheDocument();
     });
 
@@ -35,7 +35,7 @@ describe("AnalyticsConsent", () => {
 
         await user.click(screen.getByRole("button", {name: /Accept/i}));
 
-        expect(window.localStorage.getItem("carina_analytics_consent")).toBe("accepted");
+        expect(window.localStorage.getItem(ANALYTICS_CONSENT_KEY)).toBe("accepted");
         expect(document.querySelector('script[src*="googletagmanager.com"]')).toBeTruthy();
     });
 });

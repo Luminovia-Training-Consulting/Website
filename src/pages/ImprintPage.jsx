@@ -10,14 +10,11 @@ export default function ImprintPage() {
             badge: "Rechtliches",
             title: "Impressum",
             intro: "Rechtliche Angaben für diese Website.",
-            info: "Angaben gemäß Section 5 TMG",
+            info: "Angaben gemäß § 5 DDG",
             contact: "Kontakt",
             phone: "Telefon",
             email: "E-Mail",
             editorial: "Redaktionell verantwortlich",
-            odr: "EU-Streitschlichtung",
-            odrCopy: "Die Europaeische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:",
-            odrTail: "Die E-Mail-Adresse finden Sie oben im Impressum.",
             consumer: "Verbraucherstreitbeilegung",
             consumerCopy: "Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
             australia: "Australien",
@@ -27,14 +24,11 @@ export default function ImprintPage() {
             badge: "Legal notice",
             title: "Imprint",
             intro: "Legal information for this website.",
-            info: "Information according to Section 5 TMG",
+            info: "Information according to Section 5 DDG (German Digital Services Act)",
             contact: "Contact",
             phone: "Phone",
             email: "Email",
             editorial: "Editorial responsibility",
-            odr: "EU dispute resolution",
-            odrCopy: "The European Commission provides a platform for online dispute resolution:",
-            odrTail: "You can find the email address in the legal notice above.",
             consumer: "Consumer dispute resolution",
             consumerCopy: "I am not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
             australia: "Australia",
@@ -69,13 +63,6 @@ export default function ImprintPage() {
                     <Card>
                         <h2 className="text-2xl font-black text-white">{copy.editorial}</h2>
                         <p className="mt-5 text-slate-300">{PROFILE.name}</p>
-                    </Card>
-
-                    <Card>
-                        <h2 className="text-2xl font-black text-white">{copy.odr}</h2>
-                        <p className="mt-5 leading-7 text-slate-300">
-                            {copy.odrCopy} <a className="font-bold text-sky-100 hover:text-white" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">https://ec.europa.eu/consumers/odr/</a>. {copy.odrTail}
-                        </p>
                     </Card>
 
                     <Card>

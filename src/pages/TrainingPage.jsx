@@ -14,8 +14,8 @@ import {cn} from "../components/utils.js";
 function AssetButtons({t}) {
     return (
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button to="/contact#contact-options" showArrow={false}>{t.nav.book}</Button>
             <Button to="/offers" variant="secondary" showArrow={false}>{t.nav.offers}</Button>
-            <Button to="/contact#contact-options" variant="secondary" showArrow={false}>{t.nav.book}</Button>
         </div>
     );
 }

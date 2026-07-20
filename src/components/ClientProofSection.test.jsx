@@ -10,6 +10,6 @@ describe("ClientProofSection", () => {
         const card = screen.getByRole("link", {name: /Fast Lane \/ AI CERTs/i});
 
         expect(card).toHaveTextContent(/Feedback theme/i);
-        expect(card).toHaveTextContent(/Anonymised pattern/i);
+        expect(card).toHaveTextContent(/not attributed to an individual client/i);
     });
 });

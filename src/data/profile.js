@@ -18,11 +18,7 @@ export const PROFILE = {
 };
 
 export const IMAGES = {
-    hero: `${base}images/carina-hero.jpg`,
-    tablet: `${base}images/carina-tablet.jpg`,
     headshot: `${base}images/carina-headshot.jpg`,
-    outdoor: `${base}images/carina-outdoor.jpg`,
-    fullBody: `${base}images/carina-fullbody.jpg`,
     luminoviaLogoFull: `${base}images/luminovia-logo-full.svg`,
     luminoviaLogoMark: `${base}images/luminovia-logo-mark.svg`,
 };

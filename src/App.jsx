@@ -1,5 +1,5 @@
 import {lazy, Suspense, useEffect, useRef, useState} from "react";
-import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes, useLocation} from "react-router-dom";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
@@ -43,7 +43,6 @@ function lazyWithRecovery(loader) {
 
 const TrainingPage = lazyWithRecovery(() => import("./pages/TrainingPage.jsx"));
 const TrainingTopicPage = lazyWithRecovery(() => import("./pages/TrainingTopicPage.jsx"));
-const PortfolioPage = lazyWithRecovery(() => import("./pages/PortfolioPage.jsx"));
 const ConsultingPage = lazyWithRecovery(() => import("./pages/ConsultingPage.jsx"));
 const OffersPage = lazyWithRecovery(() => import("./pages/OffersPage.jsx"));
 const ClientsPage = lazyWithRecovery(() => import("./pages/ClientsPage.jsx"));
@@ -222,7 +221,9 @@ export default function App() {
                             {pageRoutes("/training", TrainingPage)}
                             {pageRoutes("/offers", OffersPage)}
                             {pageRoutes("/training/:slug", TrainingTopicPage)}
-                            {pageRoutes("/portfolio", PortfolioPage)}
+                            {routePaths("/portfolio").map((routePath) => (
+                                <Route key={routePath} path={routePath} element={<Navigate to="/projects" replace/>}/>
+                            ))}
                             {pageRoutes("/consulting", ConsultingPage)}
                             {pageRoutes("/clients", ClientsPage)}
                             {pageRoutes("/about", AboutPage)}

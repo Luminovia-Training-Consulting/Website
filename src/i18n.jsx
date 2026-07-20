@@ -138,9 +138,9 @@ const dictionaries = {
         clientSection: {
             badge: "Delivery contexts",
             title: "Selected education, training and collaboration contexts.",
-            copy: "A careful overview of public collaboration contexts and topic areas behind Luminovia's training and consulting profile. No fake logos, ratings or invented testimonials.",
+            copy: "Public education and collaboration contexts behind Luminovia's training and consulting practice. Named references link to public sources; feedback themes are presented without assigning them to individual clients.",
             feedbackLabel: "Feedback theme",
-            feedbackNote: "Anonymised pattern, not a named customer quote.",
+            feedbackNote: "Cross-engagement feedback theme, not attributed to an individual client.",
             feedbackThemes: [
                 "Clear structure, practical examples and calm remote delivery.",
                 "Technical depth translated into language learners can actually use.",
@@ -331,9 +331,9 @@ const dictionaries = {
         clientSection: {
             badge: "Lieferkontexte",
             title: "Ausgewählte Bildungs-, Trainings- und Kooperationskontexte.",
-            copy: "Eine sorgfältige Übersicht öffentlicher Kooperationskontexte und Themenbereiche hinter dem Trainings- und Consulting-Profil von Luminovia. Keine erfundenen Logos, Ratings oder Testimonials.",
+            copy: "Öffentliche Bildungs- und Kooperationskontexte hinter der Trainings- und Consulting-Praxis von Luminovia. Benannte Referenzen führen zu öffentlichen Quellen; Rückmeldungsthemen werden keinem einzelnen Auftraggeber zugeschrieben.",
             feedbackLabel: "Feedback-Thema",
-            feedbackNote: "Anonymisiertes Muster, kein benanntes Kunden-Zitat.",
+            feedbackNote: "Übergreifendes Rückmeldungsthema ohne Zuordnung zu einem einzelnen Auftraggeber.",
             feedbackThemes: [
                 "Klare Struktur, praktische Beispiele und ruhige Remote-Durchführung.",
                 "Technische Tiefe wird in Sprache übersetzt, die Lernende nutzen können.",

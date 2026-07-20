@@ -146,7 +146,7 @@ const de = {
         {group: "Cybersecurity", items: ["Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical-Hacking-Grundlagen", "Passwort- und Datensicherheit"]},
         {group: "Wirtschaftsinformatik", items: ["Wirtschaftsinformatik", "IT-Service-Management", "Cloud-Konzepte", "Digitale Transformation", "Scrum und agiles Arbeiten", "Prozessoptimierung"]},
         {group: "Berufliche Bildung & IHK", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute / Büromanagement", "Teilqualifikation", "IHK Prüfungsvorbereitung", "Erwachsenenbildung"]},
-        {group: "Recht, Coaching & Vortraege", items: ["Digitales Recht und DSGVO", "AI Act und Cloud Act", "IT-Recht Awareness", "Coaching", "Keynote Speaker", "Gastvorträge"]},
+        {group: "Recht, Coaching & Vorträge", items: ["Digitales Recht und DSGVO", "AI Act und Cloud Act", "IT-Recht Awareness", "Coaching", "Keynote Speaker", "Gastvorträge"]},
     ],
     serviceOfferings: [
         {title: "AI & GenAI Training", description: "Praxisnahes Training zu generativer KI, geeigneten Anwendungsfällen, Grenzen, Risiken und verantwortungsvoller Nutzung im Arbeitsalltag.", audience: "Unternehmen, Bildungsanbieter, Hochschulen und öffentliche Teams", format: "Remote-Live-Workshop, Trainingstag oder mehrtägiger Kurs", duration: "90 Minuten bis 3 Tage", outcomes: ["Fähigkeiten und Grenzen generativer KI verstehen", "realistische Anwendungsfälle erkennen", "Qualitäts- und Risikoprüfungen anwenden"]},
@@ -224,7 +224,7 @@ const de = {
         {group: "Daten und Systeme", items: ["SQL", "MySQL", "MongoDB", "Redis", "Datenmodellierung", "Data Pipelines", "Docker", "Kubernetes", "Ubuntu", "Cloud-Konzepte"]},
         {group: "Cybersecurity", items: ["Security Awareness", "Ethical-Hacking-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Web Security", "SOC-Grundlagen", "Kali Linux", "Passwortsicherheit", "Risikokommunikation"]},
         {group: "Business und Management", items: ["Digitale Transformation", "Wirtschaftsinformatik", "Projektmanagement", "SCRUM", "IT Service Management", "Prozessoptimierung", "Entrepreneurship", "Stakeholder-Kommunikation"]},
-        {group: "Berufliche Bildung, Recht und Vortraege", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute", "DSGVO", "AI Act", "Cloud Act", "IT-Recht Awareness", "Coaching", "Keynote Speaker", "Gastvorträge"]},
+        {group: "Berufliche Bildung, Recht und Vorträge", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute", "DSGVO", "AI Act", "Cloud Act", "IT-Recht Awareness", "Coaching", "Keynote Speaker", "Gastvorträge"]},
         {group: "Kreativ- und Webtools", items: ["WordPress", "Elementor", "Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Audition", "UI/UX-Grundlagen"]},
         {group: "Sprachen und Kommunikation", items: ["Deutsch", "Englisch", "Spanisch-Grundlagen", "Technische Erklärung", "Akademisches Schreiben", "Business-Kommunikation", "Präsentation", "Public Speaking"]},
     ],

@@ -2,35 +2,20 @@ import {defineConfig} from "vitest/config";
 import preact from "@preact/preset-vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import {trainingSeoEntries} from "./src/data/trainingSeo.js";
 
 const siteUrl = "https://luminovia.org";
+const redirectRoutes = new Map([["/portfolio", "/projects"]]);
+const trainingPrerenderRoutes = trainingSeoEntries.map(({slug, en}) => [`/training/${slug}`, en.title, en.description]);
 const prerenderRoutes = [
     ["/training", "Training | AI, IT & Digital Capability Training", "Explore practical AI training, IT training, cybersecurity training, software, data, digital business and curriculum-design workshops for organisations and education providers."],
     ["/offers", "Offers | Luminovia Training & Consulting", "Clear Luminovia packages for live training, consulting sprints, project support, keynotes, curriculum design and larger digital enablement programmes."],
     ["/consulting", "Consulting | IT, AI and Business Advisory", "Consulting portfolio for AI use cases, IT and process advisory, business technology, curriculum design, roadmaps and digital enablement."],
-    ["/training/ai-genai-training", "AI & GenAI Training | Luminovia", "Practical AI and generative AI training for teams, education providers and organisations that need usable AI capability."],
-    ["/training/ai-literacy-for-teams", "AI Literacy for Teams | Luminovia", "AI literacy training for non-technical and mixed teams that need shared language, safe routines and practical confidence."],
-    ["/training/prompt-engineering-agentic-workflows", "Prompt Engineering & Agentic Workflows | Luminovia", "Prompt engineering and agentic workflow training for repeatable AI-supported work with human review and governance."],
-    ["/training/ai-governance-responsible-ai", "AI Governance & Responsible AI | Luminovia", "AI governance and responsible AI training for practical oversight, risk awareness, policy routines and accountable adoption."],
-    ["/training/software-development-retraining-java-python-csharp-kotlin", "Software Development, APIs & Retraining | Luminovia", "Software development training and retraining around Java, Python, C#, Kotlin, APIs and applied programming."],
-    ["/training/fachinformatiker-ihk-training-retraining", "Fachinformatiker Training, Ausbildung & Umschulung | Luminovia", "Training support for Fachinformatiker Ausbildung, Umschulung, IHK preparation, IT projects, databases and software foundations."],
-    ["/training/python-sql-data-skills", "Python, SQL & Data Skills | Luminovia", "Applied Python, SQL and database training for analysis, automation, reporting and technical retraining contexts."],
-    ["/training/data-analytics-data-science-engineering", "Data Analyst, Data Scientist & Data Engineer Training | Luminovia", "Data analyst, data scientist and data engineer pathway training for analytics, data science foundations and data engineering concepts."],
-    ["/training/project-management-scrum-agile-classic", "Project Management, Scrum, Agile & Classic Delivery | Luminovia", "Project management training across Scrum, agile, classic and hybrid delivery, stakeholder communication and AI-supported coordination."],
-    ["/training/business-consulting-new-work", "Business Consulting, New Work & Organisational Change | Luminovia", "Consulting and training for New Work, digital collaboration, AI adoption, process redesign and learning culture."],
-    ["/training/business-informatics-digital-transformation", "Business Computer Science & Digital Transformation | Luminovia", "Business computer science and digital transformation training connecting IT, processes, data, cloud, systems and business value."],
-    ["/training/cloud-devops-systems-foundations", "Cloud, DevOps & Systems Foundations | Luminovia", "Training around cloud concepts, Docker, Kubernetes, Linux, Ubuntu and operational foundations for software, data and IT learners."],
-    ["/training/cybersecurity-pentesting-ethical-hacking", "Cybersecurity, Pentesting & Ethical Hacking Training | Luminovia", "Cybersecurity training from awareness to web security, pentesting fundamentals, ethical hacking, SOC basics and defensive thinking."],
-    ["/training/digital-law-gdpr-ai-act-cloud-act", "Digital Law, GDPR, AI Act & Cloud Act Awareness | Luminovia", "Awareness training around labour, business, private and IT law, GDPR, AI Act, Cloud Act and digital compliance questions."],
-    ["/training/office-management-ihk-business-training", "Office Management, Business Administration & IHK Training | Luminovia", "IHK-oriented business, office management and Bürokaufleute training for digital tools, business processes and commercial communication."],
-    ["/training/curriculum-design-blended-learning", "Curriculum Design & Blended Learning | Luminovia", "Curriculum design and blended learning support for learning paths, exercises, labs, slides, assessments and course materials."],
-    ["/training/coaching-keynotes-expert-talks", "Coaching, Expert Talks & Briefings | Luminovia", "Book coaching, expert talks, guest lectures and briefings on IT, cybersecurity, digital transformation, digital law and modern education."],
-    ["/training/creative-web-digital-media-tools", "Creative, Web & Digital Media Tools | Luminovia", "Training for WordPress, Elementor, UI/UX basics, creative tools and digital media workflows in education and business contexts."],
-    ["/training/languages-communication-presentation", "Languages, Communication & Presentation | Luminovia", "Training for technical explanation, academic writing, business communication, presentation, public speaking and multilingual delivery."],
+    ...trainingPrerenderRoutes,
     ["/projects", "Project Portfolio | AI Research, Automation and Consulting Projects", "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation."],
-    ["/portfolio", "Consulting Portfolio | IT and Business Consulting", "Portfolio and proof for IT consulting, AI consulting, business consulting, digital education, technical project practice and professional training delivery."],
+    ["/portfolio", "Project Portfolio | AI Research, Automation and Consulting Projects", "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation."],
     ["/clients", "Delivery Contexts | Education, Training and Collaboration Proof", "Selected public delivery contexts, education partners, topic areas and collaboration proof behind Luminovia's training and consulting profile."],
-    ["/pricing", "Pricing | IT and Business Training Rates", "Transparent orientation rates for education-sector teaching, corporate training, talks and workshops, plus consulting and project implementation pricing on request."],
+    ["/pricing", "Pricing | Training, Consulting and Session Rates", "Transparent net rates: EUR 55 per 45-minute teaching unit, EUR 100 per consulting hour, EUR 500 half day and EUR 1,000 full day including preparation and agreed standard materials."],
     ["/about", "Company | Luminovia Training & Consulting", "Company profile for Luminovia Training & Consulting, led by CEO and founder Carina Sophie Schoppe."],
     ["/contact", "Contact & Booking | Book Training or Consulting", "Contact Luminovia to book AI, IT and digital capability training, consulting, workshops, talks, course delivery or programme planning."],
     ["/imprint", "Imprint | Luminovia", "Legal notice and contact details for Luminovia Training & Consulting."],
@@ -51,8 +36,9 @@ function routeFileName(path) {
 }
 
 function withRouteHead(html, [path, title, description]) {
-    const canonical = `${siteUrl}${path}`;
-    return html
+    const redirectTarget = redirectRoutes.get(path);
+    const canonical = `${siteUrl}${redirectTarget || path}`;
+    const routeHtml = html
         .replace(/<!-- static-home-shell:start -->[\s\S]*?<!-- static-home-shell:end -->/, "")
         .replace(/<title>.*?<\/title>/, `<title>${escapeHtmlAttribute(title)}</title>`)
         .replace(/<meta content="[^"]*" name="description"\/>/, `<meta content="${escapeHtmlAttribute(description)}" name="description"/>`)
@@ -62,6 +48,10 @@ function withRouteHead(html, [path, title, description]) {
         .replace(/<link href="[^"]*" rel="canonical"\/>/, `<link href="${canonical}" rel="canonical"/>`)
         .replace(/<link href="[^"]*" hreflang="en" rel="alternate"\/>/, `<link href="${canonical}" hreflang="en" rel="alternate"/>`)
         .replace(/<link href="[^"]*" hreflang="de" rel="alternate"\/>/, `<link href="${canonical}" hreflang="de" rel="alternate"/>`);
+
+    return redirectTarget
+        ? routeHtml.replace("<head>", `<head><meta content="0;url=${redirectTarget}" http-equiv="refresh"/>`)
+        : routeHtml;
 }
 
 function htmlPerformancePlugin() {
