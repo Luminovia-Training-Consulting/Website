@@ -191,7 +191,7 @@ export default function OffersPage() {
             <div className="mx-auto max-w-7xl">
                 <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
 
-                <section id="packages" className="mt-12 scroll-mt-36">
+                <section id="packages" className="deferred-render mt-12 scroll-mt-36">
                     <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
                         <div>
                             <Badge tone="blue">{copy.packagesTitle}</Badge>
@@ -220,7 +220,7 @@ export default function OffersPage() {
                     </div>
                 </section>
 
-                <section id="decision" className="mt-16 scroll-mt-36">
+                <section id="decision" className="deferred-render mt-16 scroll-mt-36">
                     <Badge tone="cyan">{copy.decisionTitle}</Badge>
                     <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.decisionTitle}</h2>
                     <div className="mt-8 grid gap-3">
@@ -233,7 +233,7 @@ export default function OffersPage() {
                     </div>
                 </section>
 
-                <section id="scope" className="mt-16 scroll-mt-36">
+                <section id="scope" className="deferred-render mt-16 scroll-mt-36">
                     <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
                         <div>
                             <Badge tone="violet">{language === "de" ? "Umfang" : "Scope"}</Badge>
@@ -267,7 +267,7 @@ export default function OffersPage() {
                     </div>
                 </section>
 
-                <section id="programmes" className="mt-16 scroll-mt-36 overflow-hidden rounded-[2.1rem] border border-sky-200/18 bg-[radial-gradient(circle_at_15%_0%,rgba(125,211,252,.24),transparent_38%),radial-gradient(circle_at_92%_12%,rgba(245,158,11,.17),transparent_38%),linear-gradient(135deg,rgba(13,27,54,.95),rgba(7,12,25,.96)_58%,rgba(21,28,48,.94))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_28px_110px_rgba(0,0,0,.32)] sm:p-8">
+                <section id="programmes" className="deferred-render mt-16 scroll-mt-36 overflow-hidden rounded-[2.1rem] border border-sky-200/18 bg-[radial-gradient(circle_at_15%_0%,rgba(125,211,252,.24),transparent_38%),radial-gradient(circle_at_92%_12%,rgba(245,158,11,.17),transparent_38%),linear-gradient(135deg,rgba(13,27,54,.95),rgba(7,12,25,.96)_58%,rgba(21,28,48,.94))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_28px_110px_rgba(0,0,0,.32)] sm:p-8">
                     <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                         <div>
                             <div className="text-xs font-black uppercase tracking-[0.18em] text-amber-100">{copy.programmesTitle}</div>
@@ -288,7 +288,7 @@ export default function OffersPage() {
                     </div>
                 </section>
 
-                <section id="proof" className="mt-16 scroll-mt-36">
+                <section id="proof" className="deferred-render mt-16 scroll-mt-36">
                     <Badge tone="emerald">{copy.proofTitle}</Badge>
                     <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.proofTitle}</h2>
                     <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -301,7 +301,7 @@ export default function OffersPage() {
                     </div>
                 </section>
 
-                <section id="next" className="mt-16 scroll-mt-36 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_18%_0%,rgba(186,230,253,.16),transparent_42%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))] p-6 shadow-[0_28px_105px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-8">
+                <section id="next" className="deferred-render mt-16 scroll-mt-36 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_18%_0%,rgba(186,230,253,.16),transparent_42%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))] p-6 shadow-[0_28px_105px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-8">
                     <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                         <div>
                             <h2 className="text-3xl font-black text-white">{copy.nextTitle}</h2>

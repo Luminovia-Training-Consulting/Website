@@ -98,8 +98,8 @@ function ScrollToHash() {
             if (scrollToTarget()) observer.disconnect();
         });
         observer?.observe(document.getElementById("root"), {childList: true, subtree: true});
-        const retryTimers = [100, 300, 700, 1200].map((delay) => globalThis.setTimeout(scrollToTarget, delay));
-        const timeout = globalThis.setTimeout(() => observer?.disconnect(), 1400);
+        const retryTimers = [100, 300, 700, 1200, 1800, 2400].map((delay) => globalThis.setTimeout(scrollToTarget, delay));
+        const timeout = globalThis.setTimeout(() => observer?.disconnect(), 2600);
         return () => {
             if (frame) globalThis.cancelAnimationFrame(frame);
             retryTimers.forEach((timer) => globalThis.clearTimeout(timer));

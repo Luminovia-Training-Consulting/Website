@@ -109,7 +109,7 @@ export default function ContactPage() {
             </div>
             <div className="mx-auto max-w-7xl">
                 <SectionJumpNav label={jumpLabel} items={jumpItems} className="mb-8 mt-8"/>
-                <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                <div className="deferred-render grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                     <div>
                         <div className="mt-8 rounded-[1.75rem] border border-sky-100/14 bg-[#071225]/72 p-5 shadow-[0_16px_60px_rgba(0,0,0,.2)]">
                             <h2 className="text-xl font-black text-white">{t.contact.briefTitle}</h2>
@@ -170,7 +170,7 @@ export default function ContactPage() {
                         </section>
                     </div>
                 </div>
-                <div id="contact-faq" className="mt-16 grid scroll-mt-36 gap-4 lg:grid-cols-4">
+                <div id="contact-faq" className="deferred-render mt-16 grid scroll-mt-36 gap-4 lg:grid-cols-4">
                     {faqs.map((item) => (
                         <Card key={item.q}>
                             <h3 className="text-lg font-black text-white">{item.q}</h3>

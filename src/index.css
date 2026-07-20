@@ -96,6 +96,11 @@
     color: var(--theme-text);
 }
 
+.deferred-render {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+}
+
 .theme-root main[class*="pt-32"] {
     padding-top: 2.5rem !important;
 }
