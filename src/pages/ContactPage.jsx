@@ -1,3 +1,4 @@
+import {useEffect, useRef, useState} from "react";
 import {PROFILE} from "../data/profile.js";
 import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
@@ -8,6 +9,51 @@ import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 
 function cleanPhone(value) {
     return value.replace(/[^\d+]/g, "");
+}
+
+function CalendarEmbed({src, title, loadingLabel}) {
+    const frameHostRef = useRef(null);
+    const [shouldLoad, setShouldLoad] = useState(false);
+
+    useEffect(() => {
+        if (shouldLoad || !frameHostRef.current) return undefined;
+        if (!("IntersectionObserver" in window)) {
+            const fallbackTimer = window.setTimeout(() => setShouldLoad(true), 0);
+            return () => window.clearTimeout(fallbackTimer);
+        }
+
+        const observer = new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) return;
+            setShouldLoad(true);
+            observer.disconnect();
+        }, {rootMargin: "0px 0px 120px"});
+
+        observer.observe(frameHostRef.current);
+        return () => observer.disconnect();
+    }, [shouldLoad]);
+
+    return (
+        <div ref={frameHostRef} className="booking-embed-frame mt-5 min-h-[600px] rounded-[1.5rem] border border-white/10 bg-white p-0 sm:p-0">
+            {shouldLoad ? (
+                <iframe
+                    src={src}
+                    title={title}
+                    style={{border: 0}}
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    loading="lazy"
+                />
+            ) : (
+                <div className="grid min-h-[600px] place-items-center p-6 text-center" role="status">
+                    <div>
+                        <div className="mx-auto h-8 w-8 rounded-full border-4 border-sky-100/25 border-t-sky-500" aria-hidden="true"/>
+                        <p className="mt-4 text-sm font-bold text-slate-700">{loadingLabel}</p>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default function ContactPage() {
@@ -116,17 +162,11 @@ export default function ContactPage() {
                                 </div>
                                 <Button href={PROFILE.appointmentSchedule}>{t.contact.appointment}</Button>
                             </div>
-                            <div className="booking-embed-frame mt-5 rounded-[1.5rem] border border-white/10 bg-white p-0 sm:p-0">
-                                <iframe
-                                    src={PROFILE.appointmentSchedule}
-                                    title={t.contact.calendarTitle}
-                                    style={{border: 0}}
-                                    width="100%"
-                                    height="600"
-                                    frameBorder="0"
-                                    loading="lazy"
-                                />
-                            </div>
+                            <CalendarEmbed
+                                src={PROFILE.appointmentSchedule}
+                                title={t.contact.calendarTitle}
+                                loadingLabel={language === "de" ? "Terminkalender wird geladen" : "Loading appointment calendar"}
+                            />
                         </section>
                     </div>
                 </div>
