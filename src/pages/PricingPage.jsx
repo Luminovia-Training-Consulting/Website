@@ -1,5 +1,5 @@
 import {PROFILE} from "../data/profile.js";
-import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
+import {pricingForLanguage} from "../data/pricing.js";
 import {useLanguage} from "../i18n.jsx";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -10,114 +10,52 @@ import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
 const content = {
     en: {
         badge: "Pricing",
-        title: "Clear pricing guidance for training, teaching and talks.",
-        intro: "These are net starting rates for planning conversations. Final pricing depends on audience, preparation effort, duration, materials, delivery format and booking scope.",
-        currencyNote: "Prices are planning values, not fixed quotes. EUR is the reference currency; AUD and USD values can be discussed for international bookings.",
-        unit: "Teaching unit",
-        cards: [
-            {
-                title: "Funded vocational education / AZAV-style programmes",
-                price: "from $65",
-                suffix: "per 45-minute teaching unit",
-                copy: "For publicly funded German vocational education, AZAV-style measures, retraining cohorts and structured long-form course delivery.",
-                details: ["Net starting price", "Remote live teaching", "Suitable for longer funded course blocks", "Quoted by timetable and scope"],
-            },
-            {
-                title: "Corporate training and non-funded education",
-                price: "from $120",
-                suffix: "per hour as planning average",
-                copy: "For companies, teams, universities, non-funded education providers and organisations booking practical IT, cybersecurity or digital business training.",
-                details: ["Net starting price", "Workshops, live training or course modules", "Custom materials can be scoped separately", "Quoted by audience and outcome"],
-            },
-            {
-                title: "Talks, keynotes and expert sessions",
-                price: "from $1,200",
-                suffix: "per talk / keynote",
-                copy: "For individual talks, conferences, expert sessions, leadership briefings or special event formats. Pricing depends strongly on audience, topic, preparation depth, event visibility and time-zone requirements.",
-                details: ["Net starting price", "Short impulse talks or custom event formats", "Remote-first delivery from Brisbane", "Quoted by topic and preparation depth"],
-            },
-            {
-                title: "Consulting and project implementation",
-                price: "on request",
-                suffix: "for individual projects or larger programmes",
-                copy: "For IT and business consulting, implementation support, use-case workshops, roadmaps, curriculum programmes and larger digital enablement projects.",
-                details: ["Scoped individually", "Single projects or major programmes", "Consulting sprints and implementation support", "Proposal after fit check"],
-            },
-        ],
+        title: "Clear rates for training, consulting and working sessions.",
+        intro: "Luminovia uses four transparent net rates: recurring teaching by 45-minute unit, consulting by hour, and fixed half-day or full-day session packages.",
+        currencyNote: "EUR is the reference currency. AUD or USD can be agreed in the proposal without publishing exchange-rate values that may become outdated.",
         customTitle: "Need something outside these ranges?",
-        customCopy: "For curriculum design, multi-week delivery, blended learning, advisory work, bundled training programmes or special event formats, please request an individual quote.",
+        customCopy: "Larger curriculum projects, extensive custom material production, multi-week programmes, licensing, travel or implementation responsibility receive a scoped proposal before work begins.",
         contact: "Request pricing",
         appointment: "Book a pricing call",
         eligibility: {
             eyebrow: "Pricing scope",
-            title: "These rates apply to education-related bookings.",
-            copy: "The listed orientation prices are for education providers, academies, universities, corporate training and professional learning contexts. Consulting, implementation support, larger programmes and special scopes are quoted individually.",
-            points: ["AZAV-style and funded education", "Corporate training and professional learning", "Consulting and project work on request"],
+            title: "The rate follows the way the work is delivered.",
+            copy: "The teaching-unit rate is intended for recurring course delivery. Focused advisory work uses the consulting rate. Standalone workshops, training days, talks and intensive sessions use the half-day or full-day package rate.",
+            points: ["EUR 55 per 45-minute teaching unit", "EUR 100 per 60 minutes of consulting", "EUR 500 half day / EUR 1,000 full day"],
         },
-        footnote: "All prices are indicative net starting values, not binding offers. Special preparation, licensing, materials, VAT/tax handling or third-party platform requirements may affect the final quote.",
+        footnote: "All prices are net planning rates, not binding offers. The proposal confirms the exact duration, deliverables, invoice currency, tax treatment and any additional costs before booking.",
         jumpLabel: "On this page",
-        jumpItems: [["#booking-eligibility", "Booking fit"], ["#rates", "Rates"], ["#currency", "Currencies"], ["#custom", "Custom quote"]],
-        currencyTitle: "Planning prices in EUR, AUD and USD.",
-        currencyCopy: "Currency figures are orientation values for planning conversations. The final invoice currency, tax handling and exchange-rate logic are confirmed in the proposal.",
+        jumpItems: [["#booking-eligibility", "Rate model"], ["#rates", "Rates"], ["#currency", "International quotes"], ["#custom", "Custom quote"]],
+        currencyTitle: "EUR reference rates, international quotes on request.",
+        currencyCopy: "AUD and USD amounts are calculated from the EUR reference when the proposal is prepared. This keeps international quotes current and avoids misleading fixed exchange-rate figures.",
     },
     de: {
         badge: "Preise",
-        title: "Klare Preisorientierung für Training, Lehre und Vorträge.",
-        intro: "Die folgenden Angaben sind Netto-Ab-Preise für Planungsgespräche. Die finale Kalkulation hängt von Zielgruppe, Vorbereitung, Dauer, Materialien, Format und Buchungsumfang ab.",
-        currencyNote: "EUR ist die Referenzwährung. AUD- und USD-Werte können für internationale Buchungen als Planungswerte geklärt werden.",
-        unit: "Unterrichtseinheit",
-        cards: [
-            {
-                title: "AZAV / bildungsgeförderter Bereich",
-                price: "ab 50 EUR",
-                suffix: "pro 45-Minuten-Unterrichtseinheit",
-                copy: "Für AZAV-Kontexte, bildungsgeförderte Maßnahmen, Umschulungen, Weiterbildungen und strukturierte Kursdurchführung im deutschen geförderten Bildungsbereich.",
-                details: ["Netto-Ab-Preis", "Remote-Live-Unterricht", "Geeignet für längere geförderte Kursblöcke", "Kalkulation nach Zeitplan und Umfang"],
-            },
-            {
-                title: "Corporate-, Firmentraining und nicht geförderte Bildung",
-                price: "ab 75 EUR",
-                suffix: "pro 45-Minuten-Unterrichtseinheit",
-                copy: "Für Unternehmen, Teams, Hochschulen und Bildungsanbieter, die praxisnahes Training zu IT, Cybersecurity oder digitaler Arbeit buchen.",
-                details: ["Netto-Ab-Preis", "Workshops, Live-Training oder Kursmodule", "Materialien werden separat kalkuliert", "Kalkulation nach Zielgruppe und Ergebnis"],
-            },
-            {
-                title: "Vorträge, Keynotes und Fachimpulse",
-                price: "ab 1.000 EUR",
-                suffix: "pro Vortrag / Keynote",
-                copy: "Für Vorträge, Konferenzen, Fachimpulse oder Briefings. Der Preis richtet sich nach Zielgruppe, Thema, Vorbereitung, Gruppengröße und Veranstaltungsrahmen.",
-                details: ["Netto-Ab-Preis", "Impulsvortrag oder individuelles Eventformat", "Remote-first aus Brisbane", "Kalkulation nach Thema und Vorbereitung"],
-            },
-            {
-                title: "Beratung und Projektbegleitung",
-                price: "auf Anfrage",
-                suffix: "für Einzelprojekte oder größere Programme",
-                copy: "Für digitale Vorhaben, Prozess- und Bedarfsanalysen, Lernarchitektur, Umsetzungsbegleitung und größere Programme.",
-                details: ["Individuell kalkuliert", "Einzelprojekte oder Programme", "Beratung und Umsetzungsbegleitung", "Angebot nach Erstgespräch"],
-            },
-        ],
+        title: "Klare Preise für Training, Beratung und Sessions.",
+        intro: "Luminovia arbeitet mit vier transparenten Netto-Sätzen: Unterricht je 45-Minuten-Einheit, Beratung je Stunde sowie festen Halb- und Tagessätzen.",
+        currencyNote: "EUR ist die Referenzwährung. AUD oder USD werden im Angebot vereinbart, ohne schnell veraltende feste Wechselkurswerte zu veröffentlichen.",
         customTitle: "Andere Situation oder größerer Umfang?",
-        customCopy: "Für Curriculum-Entwicklung, mehrwöchige Durchführung, Blended Learning, Beratung, Paketbuchungen oder besondere Veranstaltungsformate erstellen wir ein individuelles Angebot.",
+        customCopy: "Größere Curriculum-Projekte, umfangreiche individuelle Materialproduktion, mehrwöchige Programme, Lizenzen, Reisen oder Umsetzungsverantwortung werden vor Beginn als klar abgegrenztes Projekt angeboten.",
         contact: "Preise anfragen",
         appointment: "Preisgespräch buchen",
         eligibility: {
             eyebrow: "Buchungshinweis",
-            title: "Diese Preise gelten für bildungsbezogene Buchungen.",
-            copy: "Die aufgeführten Orientierungspreise beziehen sich auf Bildungsanbieter, Akademien, Hochschulen, Firmentraining und professionelle Weiterbildung. Beratung, Umsetzungsbegleitung, größere Programme oder besondere Leistungsumfänge werden individuell kalkuliert.",
-            points: ["AZAV und bildungsgeförderter Bereich", "Firmentraining und professionelle Weiterbildung", "Beratung und Projektarbeit auf Anfrage"],
+            title: "Der Preis richtet sich nach der Durchführungsform.",
+            copy: "Der Unterrichtssatz gilt für laufende Kursdurchführung. Fokussierte Fachberatung wird nach Beratungszeit abgerechnet. Einzelne Workshops, Trainingstage, Vorträge und intensive Sessions nutzen den Halb- oder Tagessatz.",
+            points: ["55 EUR je 45-Minuten-Unterrichtseinheit", "100 EUR je 60 Minuten Beratung", "500 EUR Halbtag / 1.000 EUR Tag"],
         },
-        footnote: "Alle Preise sind unverbindliche Netto-Ab-Preise und keine bindenden Angebote. Besondere Vorbereitung, Lizenzen, Materialien, Umsatzsteuer-/Steuerfragen oder Plattformanforderungen können das finale Angebot beeinflussen.",
+        footnote: "Alle Preise sind Netto-Planungswerte und keine bindenden Angebote. Das Angebot bestätigt Dauer, Leistungen, Rechnungswährung, steuerliche Behandlung und mögliche Zusatzkosten vor der Buchung.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#booking-eligibility", "Eignung"], ["#rates", "Preise"], ["#currency", "Währungen"], ["#custom", "Anfrage"]],
-        currencyTitle: "Planungspreise in EUR, AUD und USD.",
-        currencyCopy: "Die Währungsangaben sind Orientierungswerte für Planungsgespräche. Rechnungswährung, Steuerlogik und Wechselkursbasis werden im Angebot geklärt.",
+        jumpItems: [["#booking-eligibility", "Preismodell"], ["#rates", "Preise"], ["#currency", "International"], ["#custom", "Anfrage"]],
+        currencyTitle: "EUR-Referenzpreise, internationale Angebote auf Anfrage.",
+        currencyCopy: "AUD- und USD-Beträge werden bei Angebotserstellung aus dem EUR-Referenzwert berechnet. So bleiben internationale Angebote aktuell und enthalten keine irreführenden festen Wechselkurswerte.",
     },
 };
 
 export default function PricingPage() {
     const {language} = useLanguage();
     const copy = content[language];
-    const {currencies} = businessOfferingsForLanguage(language);
+    const {rates, currencies} = pricingForLanguage(language);
 
     return (
         <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
@@ -128,10 +66,10 @@ export default function PricingPage() {
                     copy={copy.intro}
                     actions={<><Button to="/contact#contact-options">{copy.contact}</Button><Button href={PROFILE.appointmentSchedule} variant="secondary">{copy.appointment}</Button></>}
                     visual={<TrustRail items={[
-                        {icon: "€", title: "EUR", copy: language === "de" ? "Planungswerte für Deutschland" : "German planning values"},
-                        {icon: "$", title: "AUD / USD", copy: language === "de" ? "Internationale Planungswerte" : "International planning values"},
-                        {icon: "?", title: language === "de" ? "Individuelle Angebote" : "Scoped offers", copy: language === "de" ? "Projekte und Programme nach Leistungsumfang" : "Projects and programmes quoted individually"},
-                        {icon: "B2B", title: language === "de" ? "Geschäftskunden" : "B2B scope", copy: language === "de" ? "Budgetklarheit vor dem Angebot" : "Budget clarity before proposal"},
+                        {icon: "45", title: language === "de" ? "55 EUR / 45 Min." : "EUR 55 / 45 min", copy: language === "de" ? "Laufende Kursdurchführung" : "Recurring course delivery"},
+                        {icon: "60", title: language === "de" ? "100 EUR / 60 Min." : "EUR 100 / 60 min", copy: language === "de" ? "Consulting und Fachberatung" : "Consulting and advisory"},
+                        {icon: "1/2", title: language === "de" ? "500 EUR Halbtag" : "EUR 500 half day", copy: language === "de" ? "Vorbereitung und Materialien inklusive" : "Preparation and materials included"},
+                        {icon: "1", title: language === "de" ? "1.000 EUR Tag" : "EUR 1,000 full day", copy: language === "de" ? "Vorbereitung und Materialien inklusive" : "Preparation and materials included"},
                     ]}/>}
                 />
             </div>
@@ -157,9 +95,9 @@ export default function PricingPage() {
                 </section>
 
                 <section id="rates" className="mt-14 grid scroll-mt-36 gap-5 md:grid-cols-2 xl:grid-cols-4">
-                    {copy.cards.map((item) => (
+                    {rates.map((item) => (
                         <Card key={item.title} className="pricing-rate-card self-start">
-                            <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{copy.unit}</div>
+                            <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{item.label}</div>
                             <h2 className="mt-4 text-2xl font-black text-white">{item.title}</h2>
                             <div className="price-chip mt-6 rounded-[1.4rem] border border-white/12 bg-white/[0.08] p-4">
                                 <div className="text-4xl font-black tracking-[-0.04em] text-white">{item.price}</div>

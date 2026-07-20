@@ -69,7 +69,7 @@ describe("App routing and language", () => {
         ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/portfolio", /Projektpraxis hinter IT-/i],
         ["/clients", /Erfahrung aus Bildung, Kooperationen/i],
-        ["/pricing", /Klare Preisorientierung/i],
+        ["/pricing", /Klare Preise für Training/i],
         ["/terms", /Terms & Conditions und Zahlungsinformationen/i],
         ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
     ])("renders %s with German page copy", async (route, heading) => {
@@ -87,7 +87,7 @@ describe("App routing and language", () => {
         ["/offers/", /Buchbare Formate für Training/i],
         ["/consulting/", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/projects/", /Projekte als praktische Grundlage/i],
-        ["/pricing/", /Klare Preisorientierung/i],
+        ["/pricing/", /Klare Preise für Training/i],
         ["/terms/", /Terms & Conditions und Zahlungsinformationen/i],
     ])("renders GitHub Pages trailing-slash route %s", async (route, heading) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
@@ -137,22 +137,26 @@ describe("App routing and language", () => {
         expect(screen.getByTitle(/Google Calendar appointment scheduler/i)).toHaveAttribute("src", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
     });
 
-    it("renders pricing in USD by default and switches pricing to German EUR copy", async () => {
+    it("renders consistent EUR pricing and switches the pricing copy to German", async () => {
         const user = userEvent.setup();
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Pricing", "/pricing");
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Clear pricing guidance/i})).toBeInTheDocument();
-        expect(screen.getByText("from $65")).toBeInTheDocument();
-        expect(screen.getByText("from $1,200")).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Clear rates for training/i})).toBeInTheDocument();
+        expect(screen.getByText("EUR 55")).toBeInTheDocument();
+        expect(screen.getByText("EUR 100")).toBeInTheDocument();
+        expect(screen.getAllByText("EUR 500").length).toBeGreaterThan(0);
+        expect(screen.getAllByText("EUR 1,000").length).toBeGreaterThan(0);
 
         await user.click(screen.getAllByRole("button", {name: /Switch language/i})[0]);
 
-        expect(screen.getByRole("heading", {name: /Klare Preisorientierung/i})).toBeInTheDocument();
-        expect(screen.getByText("ab 50 EUR")).toBeInTheDocument();
-        expect(screen.getAllByText("ab 1.000 EUR").length).toBeGreaterThan(0);
+        expect(screen.getByRole("heading", {name: /Klare Preise für Training/i})).toBeInTheDocument();
+        expect(screen.getByText("55 EUR")).toBeInTheDocument();
+        expect(screen.getByText("100 EUR")).toBeInTheDocument();
+        expect(screen.getAllByText("500 EUR").length).toBeGreaterThan(0);
+        expect(screen.getAllByText("1.000 EUR").length).toBeGreaterThan(0);
     });
 
     it("scrolls to a hash target after route rendering", async () => {

@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import {useLanguage} from "../i18n.jsx";
 import {useSiteContent} from "../data/localizedContent.js";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
+import {pricingForLanguage} from "../data/pricing.js";
 import {PROFILE} from "../data/profile.js";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
@@ -25,7 +26,7 @@ const content = {
                 copy: "Praxisnahe Workshops und Kurse zu KI-Kompetenz, generativer KI, Prompt Engineering, Cybersecurity, Python, SQL, Wirtschaftsinformatik und digitaler Transformation.",
                 outcomes: ["klare Lernziele", "Übungen und Transferaufgaben", "Remote-Live-Durchführung", "wiederverwendbare Materialien"],
                 scope: "90 Minuten bis mehrwöchige Kursdurchführung",
-                pricing: "ab 50 EUR je 45-Min.-UE oder ab 100 EUR pro Stunde; AUD/USD als Planungswerte",
+                pricingKey: "training",
                 to: "/training",
                 cta: "Training ansehen",
             },
@@ -35,7 +36,7 @@ const content = {
                 copy: "Beratung zu KI-Anwendungsfällen, Prozessen, Werkzeugauswahl, KI-Governance, Umsetzungsfahrplänen, Lernarchitektur und digitalen Arbeitsmodellen.",
                 outcomes: ["Anwendungsfallkarte", "Umsetzungsfahrplan", "Entscheidungsvorlage", "Nutzungsleitlinien"],
                 scope: "Beratungssprint, Workshop, fachliche Prüfung oder laufende Projektbegleitung",
-                pricing: "individuell kalkuliert nach Verantwortung, Ergebnis und Laufzeit",
+                pricingKey: "consulting",
                 to: "/consulting",
                 cta: "Consulting ansehen",
             },
@@ -45,7 +46,7 @@ const content = {
                 copy: "Strukturierte Lernpfade, Trainingsprogramme, Workshop-Reihen, Präsentationen, Praxislabore, Lernchecks und Materialien für Bildungsanbieter.",
                 outcomes: ["Curriculum", "Blended-Learning-Struktur", "Praxislabore und Aufgaben", "Qualitätsprüfung"],
                 scope: "Konzeptphase, Materialentwicklung oder vollständige Programmarchitektur",
-                pricing: "Projektangebot nach Umfang und Materialtiefe",
+                pricingKey: "education",
                 to: "/training#details",
                 cta: "Details ansehen",
             },
@@ -55,7 +56,7 @@ const content = {
                 copy: "Fachimpulse zu verantwortungsvoller KI, Sicherheitsbewusstsein, Zukunftskompetenzen, KI in der Bildung, Industrie 5.0 und digitaler Transformation.",
                 outcomes: ["Impulsvortrag", "Fragerunde", "Führungskräfte-Briefing", "Veranstaltungsformat"],
                 scope: "30-90 Minuten, Halbtag oder individuelles Eventformat",
-                pricing: "ab 1.000 EUR; internationale Planung auf Anfrage",
+                pricingKey: "talks",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "Talks ansehen",
             },
@@ -101,7 +102,7 @@ const content = {
                 copy: "Practical workshops and courses on AI literacy, GenAI, prompt engineering, cybersecurity, Python, SQL, business IT and digital transformation - with exercises, transfer tasks and clear learning goals.",
                 outcomes: ["clear learning goals", "exercises and transfer", "remote live delivery", "materials and recaps"],
                 scope: "90 minutes to multi-week course delivery",
-                pricing: "from EUR 50 per 45-min unit or EUR 100 per hour; AUD/USD available as planning values",
+                pricingKey: "training",
                 to: "/training",
                 cta: "View training",
             },
@@ -111,7 +112,7 @@ const content = {
                 copy: "Advisory work for use cases, processes, tool decisions, AI governance, roadmaps, learning architecture and digital working models.",
                 outcomes: ["use-case map", "roadmap", "decision brief", "guidelines"],
                 scope: "consulting sprint, workshop, review or ongoing project accompaniment",
-                pricing: "quoted by responsibility, deliverables and timeline",
+                pricingKey: "consulting",
                 to: "/consulting",
                 cta: "View consulting",
             },
@@ -121,7 +122,7 @@ const content = {
                 copy: "Structured learning paths, training programmes, workshop series, slides, labs, checks and materials for education providers.",
                 outcomes: ["curriculum", "blended learning structure", "labs and tasks", "quality check"],
                 scope: "concept phase, material design or full programme architecture",
-                pricing: "project quote by scope and material depth",
+                pricingKey: "education",
                 to: "/training#details",
                 cta: "View details",
             },
@@ -131,7 +132,7 @@ const content = {
                 copy: "Talks on responsible AI, cybersecurity awareness, future skills, AI in education, Industry 5.0 and digital transformation.",
                 outcomes: ["impulse talk", "Q&A", "executive briefing", "event format"],
                 scope: "30-90 minutes, half-day or custom event format",
-                pricing: "from EUR 1,000; international planning values on request",
+                pricingKey: "talks",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "View talks",
             },
@@ -168,6 +169,7 @@ export default function OffersPage() {
     const {language} = useLanguage();
     const {trustSignals} = useSiteContent();
     const {consultingModels, methods} = businessOfferingsForLanguage(language);
+    const {offerPricing} = pricingForLanguage(language);
     const copy = content[language];
 
     return (
@@ -177,7 +179,7 @@ export default function OffersPage() {
                     label={copy.badge}
                     title={copy.title}
                     copy={copy.intro}
-                    actions={<><Button to="/contact#contact-options">{copy.primary}</Button><Button to="/training" variant="secondary">{language === "de" ? "Training ansehen" : "View training"}</Button></>}
+                    actions={<><Button to="/pricing">{language === "de" ? "Preise ansehen" : "View pricing"}</Button><Button to="/contact#contact-options" variant="secondary">{copy.primary}</Button></>}
                     visual={<TrustRail items={[
                         {icon: "01", title: "Training", copy: language === "de" ? "Workshops, Kurse und Kompetenzprogramme" : "Workshops, courses and skills programmes"},
                         {icon: "02", title: language === "de" ? "Beratung" : "Consulting", copy: language === "de" ? "Analysen, Prüfungen und Entscheidungshilfe" : "Sprints, reviews and decision support"},
@@ -205,7 +207,7 @@ export default function OffersPage() {
                                 <p className="mt-4 text-sm leading-7 text-slate-300">{item.copy}</p>
                                 <div className="mt-5 grid gap-2">
                                     <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm leading-6 text-slate-200"><strong className="text-sky-100">{copy.scopeLabel}:</strong> {item.scope}</div>
-                                    <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm leading-6 text-slate-200"><strong className="text-sky-100">{copy.priceLabel}:</strong> {item.pricing}</div>
+                                    <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm leading-6 text-slate-200"><strong className="text-sky-100">{copy.priceLabel}:</strong> {offerPricing[item.pricingKey]}</div>
                                 </div>
                                 <div className="mt-5 grid gap-2">
                                     {item.outcomes.map((outcome) => (

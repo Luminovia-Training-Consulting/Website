@@ -14,7 +14,7 @@ const routes = [
     ["/consulting", /Consulting for AI, IT and digital capability/i],
     ["/clients", /Education partners, collaboration contexts and topic areas/i],
     ["/about", /Digital expertise, clearly taught/i],
-    ["/pricing", /Clear pricing guidance/i],
+    ["/pricing", /Clear rates for training/i],
     ["/contact", /Contact Luminovia/i],
     ["/imprint", /Imprint/i],
     ["/privacy", /Privacy policy/i],

@@ -51,8 +51,8 @@ const routeMeta = {
             description: "Selected public delivery contexts, education partners, topic areas and collaboration proof behind Luminovia's training and consulting profile.",
         },
         "/pricing": {
-            title: "Pricing | IT and Business Training Rates",
-            description: "Transparent orientation rates for education-sector teaching, corporate training, talks and workshops, plus consulting and project implementation pricing on request.",
+            title: "Pricing | Training, Consulting and Session Rates",
+            description: "Transparent net rates: EUR 55 per 45-minute teaching unit, EUR 100 per consulting hour, EUR 500 half day and EUR 1,000 full day including preparation and agreed standard materials.",
         },
         "/about": {
             title: "Company | Luminovia Training & Consulting",
@@ -105,8 +105,8 @@ const routeMeta = {
             description: "Ausgewaehlte oeffentliche Lieferkontexte, Bildungspartner, Themenbereiche und Kooperationsnachweise hinter dem Trainings- und Consulting-Profil von Luminovia.",
         },
         "/pricing": {
-            title: "Preise | IT- und Business-Training",
-            description: "Transparente Netto-Ab-Preise für geförderte Bildung, Corporate Training, Vorträge und Workshops sowie Consulting- und Projektpreise auf Anfrage.",
+            title: "Preise | Training, Beratung und Sessions",
+            description: "Transparente Netto-Sätze: 55 EUR je 45-Minuten-Unterrichtseinheit, 100 EUR je Beratungsstunde, 500 EUR je Halbtag und 1.000 EUR je Tag inklusive Vorbereitung und vereinbarten Standardmaterialien.",
         },
         "/about": {
             title: "Unternehmen | Luminovia Training & Consulting",

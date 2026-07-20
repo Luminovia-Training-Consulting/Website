@@ -1,3 +1,5 @@
+import {pricingForLanguage} from "./pricing.js";
+
 const catalog = {
     en: {
         durationModels: [
@@ -105,36 +107,7 @@ const catalog = {
                 "onsite travel unless explicitly quoted and scheduled",
             ],
         },
-        currencies: [
-            {
-                title: "Funded education / AZAV-style delivery",
-                eur: "from EUR 50 per 45-min unit",
-                aud: "from AUD 85 per 45-min unit",
-                usd: "from USD 65 per 45-min unit",
-                note: "Best for longer course blocks and structured education-provider delivery.",
-            },
-            {
-                title: "Corporate training and workshops",
-                eur: "from EUR 100 per hour",
-                aud: "from AUD 165 per hour",
-                usd: "from USD 120 per hour",
-                note: "Planning average for non-funded education, companies, universities and teams.",
-            },
-            {
-                title: "Talks and expert sessions",
-                eur: "from EUR 1,000",
-                aud: "from AUD 1,650",
-                usd: "from USD 1,200",
-                note: "Depends on topic, preparation, audience, event visibility and time-zone requirements.",
-            },
-            {
-                title: "Consulting and project accompaniment",
-                eur: "quoted individually",
-                aud: "quoted individually",
-                usd: "quoted individually",
-                note: "Scoped by responsibility, depth, deliverables, timeline and review cadence.",
-            },
-        ],
+        currencies: pricingForLanguage("en").currencies,
     },
     de: {
         durationModels: [
@@ -242,36 +215,7 @@ const catalog = {
                 "Vor-Ort-Reisen, sofern nicht explizit kalkuliert und geplant",
             ],
         },
-        currencies: [
-            {
-                title: "Geförderte Bildung / AZAV-nahe Durchführung",
-                eur: "ab 50 EUR pro 45-Min.-UE",
-                aud: "ab 85 AUD pro 45-Min.-UE",
-                usd: "ab 65 USD pro 45-Min.-UE",
-                note: "Geeignet für längere Kursblöcke und strukturierte Bildungsanbieter-Durchführung.",
-            },
-            {
-                title: "Corporate Training und Workshops",
-                eur: "ab 100 EUR pro Stunde",
-                aud: "ab 165 AUD pro Stunde",
-                usd: "ab 120 USD pro Stunde",
-                note: "Planungswert für nicht geförderte Bildung, Unternehmen, Hochschulen und Teams.",
-            },
-            {
-                title: "Vorträge und Fachimpulse",
-                eur: "ab 1.000 EUR",
-                aud: "ab 1.650 AUD",
-                usd: "ab 1.200 USD",
-                note: "Abhängig von Thema, Vorbereitung, Zielgruppe, Event-Sichtbarkeit und Zeitzone.",
-            },
-            {
-                title: "Consulting und Projektbegleitung",
-                eur: "individuell kalkuliert",
-                aud: "individuell kalkuliert",
-                usd: "individuell kalkuliert",
-                note: "Individuell kalkuliert nach Verantwortung, fachlicher Tiefe, Ergebnissen, Laufzeit und Prüfrhythmus.",
-            },
-        ],
+        currencies: pricingForLanguage("de").currencies,
     },
 };
 

@@ -31,7 +31,7 @@ export const navItems = [
     {to: "/", key: "home"},
     {to: "/training", key: "training"},
     {to: "/consulting", key: "consulting"},
-    {to: "/offers", key: "offers"},
+    {to: "/pricing", key: "pricing"},
     {to: "/clients", key: "clients"},
     {to: "/projects", key: "software"},
     {to: "/about", key: "about"},
