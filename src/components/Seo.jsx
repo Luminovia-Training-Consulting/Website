@@ -243,7 +243,9 @@ export default function Seo() {
     const normalizedPathname = normalizePathname(pathname);
     const isTrainingTopicRoute = /^\/training\/[^/]+$/.test(normalizedPathname);
     const [trainingTopicState, setTrainingTopicState] = useState(null);
-    const trainingTopicMeta = trainingTopicState?.pathname === normalizedPathname && trainingTopicState.language === language
+    const isTrainingTopicResolved = trainingTopicState?.pathname === normalizedPathname
+        && trainingTopicState.language === language;
+    const trainingTopicMeta = isTrainingTopicResolved
         ? trainingTopicState.meta
         : null;
 
@@ -267,20 +269,28 @@ export default function Seo() {
         };
     }, [isTrainingTopicRoute, language, normalizedPathname]);
 
-    const currentMeta = trainingTopicMeta || routeMeta[language][normalizedPathname] || {
+    const routeMetadata = routeMeta[language][normalizedPathname];
+    const isMetadataPending = isTrainingTopicRoute && !isTrainingTopicResolved;
+    const isNotFoundRoute = !isMetadataPending && !routeMetadata && !trainingTopicMeta;
+    const currentMeta = trainingTopicMeta || routeMetadata || {
         title: language === "de" ? "Seite nicht gefunden | Luminovia" : "Page not found | Luminovia",
         description: language === "de" ? "Diese Seite wurde nicht gefunden. Nutzen Sie Startseite, Angebote oder Kontakt, um zur passenden Information zu gelangen." : "This page was not found. Use the homepage, offers or contact page to find the right information.",
     };
     const {title, description} = currentMeta;
 
     useEffect(() => {
-        if (isTrainingTopicRoute && !trainingTopicMeta) return;
+        if (isMetadataPending) return;
 
-        const canonical = `${SITE_URL}${normalizedPathname === "/" ? "/" : normalizedPathname}`;
+        const canonical = isNotFoundRoute
+            ? `${SITE_URL}/`
+            : `${SITE_URL}${normalizedPathname === "/" ? "/" : normalizedPathname}`;
         document.title = title;
 
         upsertMeta('meta[name="description"]', {name: "description", content: description});
-        upsertMeta('meta[name="robots"]', {name: "robots", content: "index, follow, max-image-preview:large"});
+        upsertMeta('meta[name="robots"]', {
+            name: "robots",
+            content: isNotFoundRoute ? "noindex, follow" : "index, follow, max-image-preview:large",
+        });
         upsertMeta('meta[property="og:title"]', {property: "og:title", content: title});
         upsertMeta('meta[property="og:description"]', {property: "og:description", content: description});
         upsertMeta('meta[property="og:url"]', {property: "og:url", content: canonical});
@@ -292,6 +302,13 @@ export default function Seo() {
         upsertLink('link[rel="canonical"]', {rel: "canonical", href: canonical});
         upsertLink('link[rel="alternate"][hreflang="en"]', {rel: "alternate", hreflang: "en", href: canonical});
         upsertLink('link[rel="alternate"][hreflang="de"]', {rel: "alternate", hreflang: "de", href: canonical});
+
+        if (isNotFoundRoute) {
+            removeJsonLd("dynamic-organisation-service-schema");
+            removeJsonLd("dynamic-breadcrumb-schema");
+            removeJsonLd("dynamic-faq-schema");
+            return;
+        }
 
         upsertJsonLd("dynamic-organisation-service-schema", buildBaseSchema());
         upsertJsonLd("dynamic-breadcrumb-schema", buildBreadcrumbSchema(normalizedPathname, title));
@@ -312,7 +329,7 @@ export default function Seo() {
         } else {
             removeJsonLd("dynamic-faq-schema");
         }
-    }, [description, isTrainingTopicRoute, normalizedPathname, title, trainingTopicMeta]);
+    }, [description, isMetadataPending, isNotFoundRoute, normalizedPathname, title]);
 
     return null;
 }

@@ -4,6 +4,7 @@ import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import {findTrainingDetailTopic, trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
+import NotFoundPage from "./NotFoundPage.jsx";
 
 function DetailList({items}) {
     return (
@@ -34,7 +35,6 @@ export default function TrainingTopicPage() {
             outcomes: "Lernergebnisse",
         deliverables: "Mögliche Materialien und Ergebnisse",
             related: "Passende Anschlussseiten",
-            notFound: "Dieses Training ist noch nicht als Detailseite angelegt.",
             contact: "Training anfragen",
             pricing: "Preise ansehen",
         }
@@ -49,23 +49,12 @@ export default function TrainingTopicPage() {
             outcomes: "Learning outcomes",
             deliverables: "Possible materials and deliverables",
             related: "Related topic pages",
-            notFound: "This training topic is not available as a detail page yet.",
             contact: "Request training",
             pricing: "View pricing",
         };
 
     if (!topic) {
-        return (
-            <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-4xl text-center">
-                    <Badge tone="orange">{copy.badge}</Badge>
-                    <h1 className="mt-6 text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl">{copy.notFound}</h1>
-                    <div className="mt-8 flex justify-center">
-                        <Button to="/training">{copy.back}</Button>
-                    </div>
-                </div>
-            </main>
-        );
+        return <NotFoundPage/>;
     }
 
     const relatedTopics = topic.related

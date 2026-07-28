@@ -235,6 +235,7 @@ export default function App() {
                             {pageRoutes("/imprint", ImprintPage)}
                             {pageRoutes("/privacy", PrivacyPage)}
                             {pageRoutes("/terms", TermsPage)}
+                            {pageRoutes("/not-found", NotFoundPage)}
                             <Route path="*" element={routeElement(NotFoundPage)}/>
                         </Routes>
                     </div>

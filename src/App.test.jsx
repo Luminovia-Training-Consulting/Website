@@ -71,7 +71,7 @@ describe("App routing and language", () => {
         ["/clients", /Erfahrung aus Bildung, Kooperationen/i],
         ["/pricing", /Klare Preise für Training/i],
         ["/terms", /Geschäfts- und Zahlungsbedingungen/i],
-        ["/unknown-page", /Diese Seite ist nicht im Trainingsplan/i],
+        ["/unknown-page", /Huch, hier ist nichts/i],
     ])("renders %s with German page copy", async (route, heading) => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
         window.history.pushState({}, "German route", route);
@@ -105,7 +105,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {level: 1, name: /This page is not in the training plan/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {level: 1, name: /Oops, there is nothing here/i})).toBeInTheDocument();
     });
 
     it("uses a German browser title on unknown pages after German was selected", async () => {
@@ -114,12 +114,37 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Diese Seite ist nicht im Trainingsplan/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Huch, hier ist nichts/i})).toBeInTheDocument();
         await waitFor(() => expect(document.title).toBe("Seite nicht gefunden | Luminovia"));
         expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
             "content",
             expect.stringContaining("Diese Seite wurde nicht gefunden"),
         );
+        expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+        expect(document.head.querySelector('link[rel="canonical"]')).toHaveAttribute("href", "https://luminovia.org/");
+    });
+
+    it("restores the requested address after the GitHub Pages redirect bridge", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+        window.history.pushState({}, "404 bridge", "/not-found?from=%2Fjiushfe");
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Huch, hier ist nichts/i})).toBeInTheDocument();
+        expect(screen.getByText("/jiushfe")).toBeInTheDocument();
+        await waitFor(() => expect(window.location.pathname).toBe("/jiushfe"));
+        expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+    });
+
+    it("resolves unknown training slugs to noindex not-found metadata", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        window.history.pushState({}, "Unknown training", "/training/not-a-real-offer");
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Oops, there is nothing here/i})).toBeInTheDocument();
+        await waitFor(() => expect(document.title).toBe("Page not found | Luminovia"));
+        expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
     });
 
     it("renders direct contact links and the embedded appointment scheduler without a form", async () => {

@@ -19,7 +19,7 @@ const routes = [
     ["/imprint", /Imprint/i],
     ["/privacy", /Privacy policy/i],
     ["/terms", /Terms & Conditions and payment information/i],
-    ["/unknown-page", /This page is not in the training plan/i],
+    ["/unknown-page", /Oops, there is nothing here/i],
 ];
 
 describe("static page routes", () => {

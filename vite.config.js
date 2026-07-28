@@ -21,6 +21,7 @@ const prerenderRoutes = [
     ["/imprint", "Imprint | Luminovia", "Legal notice and contact details for Luminovia Training & Consulting."],
     ["/privacy", "Privacy Policy | Luminovia", "Privacy policy for the Luminovia website, including analytics and contact information."],
     ["/terms", "Terms & Conditions | Luminovia", "Terms and conditions, payment terms and bank information for Luminovia Training & Consulting invoices and services."],
+    ["/not-found", "Page not found | Luminovia", "This page was not found. Use the homepage, offers or contact page to find the right information.", {noindex: true, canonical: `${siteUrl}/`}],
 ];
 
 function escapeHtmlAttribute(value) {
@@ -35,9 +36,9 @@ function routeFileName(path) {
     return `${path.replace(/^\//, "")}/index.html`;
 }
 
-function withRouteHead(html, [path, title, description]) {
+function withRouteHead(html, [path, title, description, options = {}]) {
     const redirectTarget = redirectRoutes.get(path);
-    const canonical = `${siteUrl}${redirectTarget || path}`;
+    const canonical = options.canonical || `${siteUrl}${redirectTarget || path}`;
     const routeHtml = html
         .replace(/<!-- static-home-shell:start -->[\s\S]*?<!-- static-home-shell:end -->/, "")
         .replace(/<title>.*?<\/title>/, `<title>${escapeHtmlAttribute(title)}</title>`)
@@ -45,6 +46,10 @@ function withRouteHead(html, [path, title, description]) {
         .replace(/<meta content="[^"]*" property="og:title"\/>/, `<meta content="${escapeHtmlAttribute(title)}" property="og:title"/>`)
         .replace(/<meta content="[^"]*" property="og:description"\/>/, `<meta content="${escapeHtmlAttribute(description)}" property="og:description"/>`)
         .replace(/<meta content="[^"]*" property="og:url"\/>/, `<meta content="${canonical}" property="og:url"/>`)
+        .replace(
+            /<meta content="[^"]*" name="robots"\/>/,
+            `<meta content="${options.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}" name="robots"/>`,
+        )
         .replace(/<link href="[^"]*" rel="canonical"\/>/, `<link href="${canonical}" rel="canonical"/>`)
         .replace(/<link href="[^"]*" hreflang="en" rel="alternate"\/>/, `<link href="${canonical}" hreflang="en" rel="alternate"/>`)
         .replace(/<link href="[^"]*" hreflang="de" rel="alternate"\/>/, `<link href="${canonical}" hreflang="de" rel="alternate"/>`);
@@ -52,6 +57,37 @@ function withRouteHead(html, [path, title, description]) {
     return redirectTarget
         ? routeHtml.replace("<head>", `<head><meta content="0;url=${redirectTarget}" http-equiv="refresh"/>`)
         : routeHtml;
+}
+
+function pages404Redirect() {
+    return `<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex, follow">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#08090b">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+    <title>Seite nicht gefunden | Luminovia</title>
+    <script>
+        (function () {
+            var requested = location.pathname + location.search + location.hash;
+            var safePath = requested.charAt(0) === "/" && requested.slice(0, 2) !== "//" ? requested : "/";
+            location.replace("/not-found/?from=" + encodeURIComponent(safePath));
+        }());
+    </script>
+</head>
+<body style="margin:0;background:#08090b;color:#f8fafc;font-family:system-ui,sans-serif">
+    <main style="display:grid;min-height:100vh;place-items:center;padding:2rem;text-align:center">
+        <div>
+            <h1>Huch, hier ist nichts.</h1>
+            <p style="color:#cbd5e1">Sie werden zur Luminovia-Übersicht weitergeleitet.</p>
+            <a href="/not-found/" style="color:#7dd3fc">Weiter zur Fehlerseite</a>
+        </div>
+    </main>
+</body>
+</html>`;
 }
 
 function htmlPerformancePlugin() {
@@ -71,6 +107,12 @@ function htmlPerformancePlugin() {
                     fileName: routeFileName(route[0]),
                     source: withRouteHead(html, route),
                 });
+            });
+
+            this.emitFile({
+                type: "asset",
+                fileName: "404.html",
+                source: pages404Redirect(),
             });
         },
     };

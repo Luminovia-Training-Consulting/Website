@@ -1,10 +1,36 @@
+import {useEffect} from "react";
+import {useLocation} from "react-router-dom";
 import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import {useLanguage} from "../i18n.jsx";
 
+function safeRequestedPath(search, fallbackPath) {
+    const requestedPath = new URLSearchParams(search).get("from");
+    if (
+        !requestedPath?.startsWith("/")
+        || requestedPath.startsWith("//")
+        || requestedPath.includes("\\")
+        || requestedPath.startsWith("/not-found")
+    ) {
+        return fallbackPath;
+    }
+
+    return requestedPath;
+}
+
 export default function NotFoundPage() {
     const {t} = useLanguage();
+    const location = useLocation();
+    const requestedPath = safeRequestedPath(location.search, location.pathname);
+    const isRedirectBridge = requestedPath !== location.pathname;
+
+    useEffect(() => {
+        if (!isRedirectBridge) return;
+
+        globalThis.history.replaceState(globalThis.history.state, "", requestedPath);
+    }, [isRedirectBridge, requestedPath]);
+
     const paths = [
         ["/training", t.nav.training],
         ["/consulting", t.nav.consulting],
@@ -25,6 +51,12 @@ export default function NotFoundPage() {
                     <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                         {t.notFound.copy}
                     </p>
+                    <div className="mt-5 max-w-2xl rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3">
+                        <span className="block text-xs font-bold uppercase tracking-[0.08em] text-sky-200">
+                            {t.notFound.requestedPathLabel}
+                        </span>
+                        <code className="mt-1 block break-all text-sm text-slate-300">{requestedPath}</code>
+                    </div>
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                         <Button to="/">{t.notFound.home}</Button>
                         <Button to="/contact#contact-options" variant="secondary">{t.notFound.contact}</Button>
