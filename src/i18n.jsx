@@ -196,7 +196,10 @@ const dictionaries = {
             contact: "Contact / booking",
             training: "View offers",
             hint: "Choose a useful route below or return to the homepage.",
-            requestedPathLabel: "Requested address",
+            requestedPathLabel: "Requested page",
+            requestedPathPrefix: "The page",
+            requestedPathSuffix: "could not be found.",
+            referenceLabel: "Error reference",
         },
     },
     de: {
@@ -390,7 +393,10 @@ const dictionaries = {
             contact: "Kontakt / Buchung",
             training: "Angebote ansehen",
             hint: "Wählen Sie unten einen passenden Bereich oder gehen Sie zurück zur Startseite.",
-            requestedPathLabel: "Aufgerufene Adresse",
+            requestedPathLabel: "Eingegebene Seite",
+            requestedPathPrefix: "Die Seite",
+            requestedPathSuffix: "wurde nicht gefunden.",
+            referenceLabel: "Fehlerreferenz",
         },
     },
 };

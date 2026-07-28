@@ -131,9 +131,28 @@ describe("App routing and language", () => {
         render(<App/>);
 
         expect(await screen.findByRole("heading", {name: /Huch, hier ist nichts/i})).toBeInTheDocument();
-        expect(screen.getByText("/jiushfe")).toBeInTheDocument();
+        expect(screen.getByText(/Die Seite/)).toHaveTextContent("Die Seite “/jiushfe” wurde nicht gefunden.");
+        expect(screen.getByText(/^LV-[0-9A-F]{16}$/)).toBeInTheDocument();
         await waitFor(() => expect(window.location.pathname).toBe("/jiushfe"));
         expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+    });
+
+    it("uses a different reference for every unknown address", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        window.history.pushState({}, "First 404", "/first-missing-page");
+
+        const firstRender = render(<App/>);
+        const firstReference = (await screen.findByText(/^LV-[0-9A-F]{16}$/)).textContent;
+        firstRender.unmount();
+
+        window.history.pushState({}, "Second 404", "/second-missing-page");
+        render(<App/>);
+
+        const secondReference = (await screen.findByText(/^LV-[0-9A-F]{16}$/)).textContent;
+        expect(secondReference).not.toBe(firstReference);
+        expect(screen.getByText(/The page/)).toHaveTextContent(
+            "The page “/second-missing-page” could not be found.",
+        );
     });
 
     it("resolves unknown training slugs to noindex not-found metadata", async () => {

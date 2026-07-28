@@ -4,6 +4,7 @@ import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
 import Card from "../components/Card.jsx";
 import {useLanguage} from "../i18n.jsx";
+import {buildNotFoundReference} from "../utils/notFound.js";
 
 function safeRequestedPath(search, fallbackPath) {
     const requestedPath = new URLSearchParams(search).get("from");
@@ -22,8 +23,11 @@ function safeRequestedPath(search, fallbackPath) {
 export default function NotFoundPage() {
     const {t} = useLanguage();
     const location = useLocation();
-    const requestedPath = safeRequestedPath(location.search, location.pathname);
-    const isRedirectBridge = requestedPath !== location.pathname;
+    const currentAddress = `${location.pathname}${location.search}${location.hash}`;
+    const requestedPath = safeRequestedPath(location.search, currentAddress);
+    const reference = buildNotFoundReference(requestedPath);
+    const isRedirectBridge = location.pathname.replace(/\/+$/, "") === "/not-found"
+        && requestedPath !== currentAddress;
 
     useEffect(() => {
         if (!isRedirectBridge) return;
@@ -51,11 +55,21 @@ export default function NotFoundPage() {
                     <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                         {t.notFound.copy}
                     </p>
-                    <div className="mt-5 max-w-2xl rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3">
+                    <div className="mt-5 max-w-2xl rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-4">
                         <span className="block text-xs font-bold uppercase tracking-[0.08em] text-sky-200">
                             {t.notFound.requestedPathLabel}
                         </span>
-                        <code className="mt-1 block break-all text-sm text-slate-300">{requestedPath}</code>
+                        <p className="mt-2 text-sm leading-6 text-slate-300">
+                            {t.notFound.requestedPathPrefix}{" "}
+                            <code className="break-all font-bold text-white">“{requestedPath}”</code>{" "}
+                            {t.notFound.requestedPathSuffix}
+                        </p>
+                        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-white/10 pt-3">
+                            <span className="text-xs font-bold uppercase tracking-[0.08em] text-slate-400">
+                                {t.notFound.referenceLabel}
+                            </span>
+                            <code className="text-xs font-bold text-sky-200">{reference}</code>
+                        </div>
                     </div>
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                         <Button to="/">{t.notFound.home}</Button>
