@@ -1,6 +1,6 @@
 /* global caches, fetch, Response, self, URL */
 
-const CACHE_VERSION = "luminovia-v4";
+const CACHE_VERSION = "luminovia-v5";
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 const CACHEABLE_ASSET_PATHS = ["/assets/", "/images/"];

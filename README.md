@@ -209,9 +209,11 @@ CI runs through `.github/workflows/node.js.yml`:
 
 Luminovia logo assets:
 
-- `public/images/luminovia-logo-full.svg`: lightweight homepage and brand logo.
-- `public/images/luminovia-logo-mark.svg`: lightweight header/footer/app-shell mark.
-- `public/images/luminovia-og.jpg`: small social sharing preview.
+- `public/images/luminovia-logo-full.svg`: original supplied full logo.
+- `public/images/luminovia-logo-mark.svg`: original supplied icon, with its outer whitespace reduced for header/footer/app-shell use.
+- `public/images/luminovia-og.jpg`: social sharing preview derived from the supplied full logo.
+
+Browser icons (`public/favicon.svg`, `public/favicon.ico`) and `public/apple-touch-icon.png` are resized from the supplied icon. Logo URLs are versioned and the service-worker cache is updated when replacing branding.
 
 Carina profile images remain in `public/images/` and are used for the CEO/about sections.
 

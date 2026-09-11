@@ -19,8 +19,8 @@ export const PROFILE = {
 
 export const IMAGES = {
     headshot: `${base}images/carina-headshot.jpg`,
-    luminoviaLogoFull: `${base}images/luminovia-logo-full.svg`,
-    luminoviaLogoMark: `${base}images/luminovia-logo-mark.svg`,
+    luminoviaLogoFull: `${base}images/luminovia-logo-full.svg?v=20260911`,
+    luminoviaLogoMark: `${base}images/luminovia-logo-mark.svg?v=20260911`,
 };
 
 export const navItems = [
