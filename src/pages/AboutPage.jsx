@@ -16,6 +16,7 @@ const copy = {
         intro: "Luminovia provides live training and consulting in AI, IT and cybersecurity for companies, universities and education providers.",
         founder: "Founder and trainer",
         image: "Portrait of Carina Sophie Schoppe",
+        nenadImage: "Portrait of Nenad Kalicanin",
         credentials: ["Business information systems", "Training and assessment", "Brisbane · working internationally"],
         team: {
             title: "Our team",
@@ -44,6 +45,7 @@ const copy = {
         intro: "Luminovia bietet Live-Trainings und Beratung zu KI, IT und Cybersecurity für Unternehmen, Hochschulen und Bildungsanbieter.",
         founder: "Gründerin und Trainerin",
         image: "Porträt von Carina Sophie Schoppe",
+        nenadImage: "Porträt von Nenad Kalicanin",
         credentials: ["Wirtschaftsinformatik", "Berufs- und Erwachsenenbildung", "Brisbane · international tätig"],
         team: {
             title: "Unser Team",
@@ -75,15 +77,22 @@ export default function AboutPage() {
     return (
         <main className="lumo-subpage people-page">
             <Container>
-                <section className="people-about-hero" aria-labelledby="about-heading">
+                <section id="team" className="people-about-hero" aria-labelledby="about-heading">
                     <div className="people-about-intro">
                         <p className="lumo-section-label">{c.label}</p>
                         <h1 id="about-heading" className="people-display">{c.title}{" "}<span>{c.titleAccent}</span></h1>
                     </div>
-                    <figure className="people-founder">
-                        <Photo src={IMAGES.headshot} alt={c.image} className="people-founder-photo" imgClass="object-[50%_24%]" fetchPriority="high" sizes="(min-width: 960px) 420px, (min-width: 620px) 360px, 90vw"/>
-                        <figcaption><strong>{PROFILE.founder}</strong><span>{c.founder}</span></figcaption>
-                    </figure>
+                    <div className="people-team-portraits">
+                        <figure className="people-team-portrait">
+                            <Photo src={IMAGES.headshot} alt={c.image} className="people-team-photo" imgClass="object-[50%_8%]"
+                                fetchPriority="high" sizes="(max-width: 700px) 44vw, 280px"/>
+                            <figcaption><strong>{PROFILE.founder}</strong><span>{c.founder}</span></figcaption>
+                        </figure>
+                        <figure className="people-team-portrait">
+                            <Photo src={IMAGES.nenadPortrait} alt={c.nenadImage} className="people-team-photo" fallback="NK" loading="eager"/>
+                            <figcaption><strong>{PROFILE.nenad.name}</strong><span>{c.team.nenadRole}</span></figcaption>
+                        </figure>
+                    </div>
                     <div className="people-about-bio">
                         <p className="people-lead">{c.intro}</p>
                         <ul className="people-tags">{c.credentials.map((item) => <li key={item}>{item}</li>)}</ul>
@@ -95,7 +104,7 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                <section id="team" className="people-section" aria-labelledby="team-heading">
+                <section className="people-section" aria-labelledby="team-heading">
                     <h2 id="team-heading">{c.team.title}</h2>
                     <div className="people-team-grid">
                         <article className="people-team-member">
