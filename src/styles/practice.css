@@ -1,10 +1,10 @@
 .practice-lab {
-    --lab-paper: #fffdf8;
-    --lab-ink: #201932;
-    --lab-muted: #55495f;
-    --lab-accent: #49239c;
-    --lab-rule: #d4c8d7;
-    --lab-selection: #f1e8fc;
+    --lab-paper: var(--surface);
+    --lab-ink: var(--ink);
+    --lab-muted: var(--muted);
+    --lab-accent: var(--accent);
+    --lab-rule: var(--line);
+    --lab-selection: color-mix(in srgb, var(--lab-accent) 12%, var(--lab-paper));
     position: relative;
     min-width: 0;
     padding: clamp(1rem, 3vw, 1.8rem);
@@ -13,15 +13,6 @@
     border-radius: .5rem 1.35rem .5rem .5rem;
     background: var(--lab-paper);
     color: var(--lab-ink);
-}
-
-[data-theme="night"] .practice-lab {
-    --lab-paper: #20192e;
-    --lab-ink: #fbf6ff;
-    --lab-muted: #d4c8e0;
-    --lab-accent: #d2baff;
-    --lab-rule: #695a7b;
-    --lab-selection: #35264e;
 }
 
 .practice-masthead {
@@ -68,14 +59,14 @@
 .practice-code {
     padding: .8rem;
     border-radius: .35rem;
-    background: #211b2e;
+    background: var(--navy);
     color: #d3f4e5;
     font-size: clamp(.79rem, 1.2vw, .9rem);
     line-height: 1.6;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
 }
-[data-theme="night"] .practice-code { background: #171121; }
+[data-theme="night"] .practice-code { background: #0d1729; }
 .practice-code span { color: #ffdc93; }
 
 .practice-table {

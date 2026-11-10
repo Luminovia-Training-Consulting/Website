@@ -1,6 +1,6 @@
 /* Service pages share a reading rhythm while giving catalogues, plans and rates their own layouts. */
 .business-page {
-    --biz-art: var(--lilac);
+    --biz-art: var(--blue-soft);
     --biz-line: color-mix(in srgb, currentColor 23%, transparent);
     --biz-muted: color-mix(in srgb, currentColor 78%, transparent);
     padding-bottom: clamp(3rem, 7vw, 6rem);
@@ -164,8 +164,8 @@
 .business-panel[data-tone] {
     --ink: var(--dark-ink);
     --line: #6b5f76;
-    --accent: var(--violet);
-    --accent-hover: #3f189a;
+    --accent: var(--brand-blue);
+    --accent-hover: var(--brand-blue-hover);
     --on-accent: #fff;
     color: var(--dark-ink);
     background-color: var(--lilac);
@@ -174,7 +174,10 @@
 
 .business-panel[data-tone="mint"] { background-color: var(--mint); }
 .business-panel[data-tone="yellow"] { background-color: var(--yellow); }
-.business-panel[data-tone="coral"] { background-color: var(--coral); }
+.business-panel[data-tone="coral"] {
+    --accent: var(--brand-blue-hover);
+    background-color: var(--coral);
+}
 
 .business-list {
     list-style: disc;

@@ -68,12 +68,12 @@ function pages404Redirect() {
         }());
     </script>
 </head>
-<body style="margin:0;background:#f8f5ee;color:#201932;font-family:system-ui,sans-serif">
+<body style="margin:0;background:#f8f5ee;color:#14233b;font-family:system-ui,sans-serif">
     <main style="display:grid;min-height:100vh;place-items:center;padding:2rem;text-align:center">
         <div>
             <h1>Page not found</h1>
             <p style="color:#4e435f">We couldn’t find that page. You can continue from the homepage.</p>
-            <a href="/" style="color:#5024b8">Go to the homepage</a>
+            <a href="/" style="color:#1749b5">Go to the homepage</a>
         </div>
     </main>
 </body>

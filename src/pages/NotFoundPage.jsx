@@ -77,7 +77,7 @@ export default function NotFoundPage() {
                 </section>
 
                 <Card className="relative overflow-hidden p-6 sm:p-8">
-                    <div className="grid h-24 w-24 place-items-center rounded-md bg-[var(--yellow)] text-3xl font-bold text-[#201932]">
+                    <div className="grid h-24 w-24 place-items-center rounded-md bg-[var(--yellow)] text-3xl font-bold text-[var(--dark-ink)]">
                         404
                     </div>
                     <p className="mt-6 text-base leading-8 text-slate-300">{t.notFound.hint}</p>
