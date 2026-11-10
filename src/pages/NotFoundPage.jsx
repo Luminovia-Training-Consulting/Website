@@ -43,9 +43,7 @@ export default function NotFoundPage() {
     ];
 
     return (
-        <main className="relative overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-            <div className="pointer-events-none absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-sky-300/14 blur-3xl"/>
-            <div className="pointer-events-none absolute right-[-8rem] top-48 h-96 w-96 rounded-full bg-blue-500/12 blur-3xl"/>
+        <main className="not-found-page px-4 sm:px-6 lg:px-8">
             <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <section>
                     <Badge tone="cyan">{t.notFound.badge}</Badge>
@@ -55,7 +53,7 @@ export default function NotFoundPage() {
                     <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                         {t.notFound.copy}
                     </p>
-                    <div className="mt-5 max-w-2xl rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-4">
+                    <div className="mt-5 max-w-2xl rounded-2xl border legal-inset px-4 py-4">
                         <span className="block text-xs font-bold uppercase tracking-[0.08em] text-sky-200">
                             {t.notFound.requestedPathLabel}
                         </span>
@@ -64,7 +62,7 @@ export default function NotFoundPage() {
                             <code className="break-all font-bold text-white">“{requestedPath}”</code>{" "}
                             {t.notFound.requestedPathSuffix}
                         </p>
-                        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-white/10 pt-3">
+                        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-[var(--line)] pt-3">
                             <span className="text-xs font-bold uppercase tracking-[0.08em] text-slate-400">
                                 {t.notFound.referenceLabel}
                             </span>
@@ -79,8 +77,7 @@ export default function NotFoundPage() {
                 </section>
 
                 <Card className="relative overflow-hidden p-6 sm:p-8">
-                    <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/70 to-transparent"/>
-                    <div className="grid h-24 w-24 place-items-center rounded-[2rem] border border-sky-100/25 bg-sky-100 text-3xl font-black text-slate-950 shadow-[0_18px_70px_rgba(56,189,248,.22)]">
+                    <div className="grid h-24 w-24 place-items-center rounded-md bg-[var(--yellow)] text-3xl font-bold text-[#201932]">
                         404
                     </div>
                     <p className="mt-6 text-base leading-8 text-slate-300">{t.notFound.hint}</p>
@@ -89,7 +86,7 @@ export default function NotFoundPage() {
                             <a
                                 key={to}
                                 href={to}
-                                className="rounded-[1.4rem] border border-white/10 bg-white/[0.06] px-4 py-3 text-sm font-black text-slate-200 transition hover:-translate-y-0.5 hover:border-sky-200/35 hover:bg-white/[0.1] hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-200/80"
+                                className="rounded-md border border-[var(--line)] px-4 py-3 text-sm font-bold hover:underline"
                             >
                                 {label}
                             </a>

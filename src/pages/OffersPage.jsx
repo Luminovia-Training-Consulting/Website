@@ -3,21 +3,25 @@ import {useLanguage} from "../i18n.jsx";
 import {useSiteContent} from "../data/localizedContent.js";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {pricingForLanguage} from "../data/pricing.js";
-import {PROFILE} from "../data/profile.js";
-import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
-import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
+import {Container, CTASection, PageHero} from "../components/LuminoviaDesign.jsx";
+import "../styles/business.css";
+
+const tones = ["lilac", "mint", "yellow", "coral"];
 
 const content = {
     de: {
         badge: "Angebote",
         title: "Buchbare Formate für Training, Beratung und digitale Umsetzung.",
-        intro: "Von kompakten Workshops bis zur mehrmonatigen Programmbegleitung: Diese Übersicht zeigt, welches Format zu Ziel, Zielgruppe, Zeitrahmen und Budget passt.",
+        intro: "Vergleichen Sie vier Formate vom Fachvortrag bis zum mehrwöchigen Programm. Zu jedem Angebot finden Sie den typischen Umfang, Beispiele und Richtpreise.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#packages", "Pakete"], ["#decision", "Auswahl"], ["#scope", "Umfang"], ["#programmes", "Programme"], ["#proof", "Nachweise"], ["#next", "Anfrage"]],
-        packagesTitle: "Buchbare Pakete",
+        jumpItems: [["#packages", "Pakete"], ["#decision", "Auswahl"], ["#programmes", "Programme"], ["#scope", "Umfang"], ["#proof", "Nachweise"], ["#next", "Anfrage"]],
+        packagesTitle: "Vier Formate im Vergleich",
+        outcomesLabel: "Mögliche Ergebnisse",
+        methods: "Arbeitsweise",
+        consulting: "Beratung und Projektbegleitung",
+        pricing: "Preise ansehen",
         packagesCopy: "Jedes Paket kann auf Deutsch oder Englisch remote-first für Europa, Australien und internationale Teams geplant werden.",
         packages: [
             {
@@ -47,8 +51,8 @@ const content = {
                 outcomes: ["Curriculum", "Blended-Learning-Struktur", "Praxislabore und Aufgaben", "Qualitätsprüfung"],
                 scope: "Konzeptphase, Materialentwicklung oder vollständige Programmarchitektur",
                 pricingKey: "education",
-                to: "/training#details",
-                cta: "Details ansehen",
+                to: "/training/curriculum-design-blended-learning",
+                cta: "Lerndesign ansehen",
             },
             {
                 title: "Fachimpulse und Vorträge",
@@ -64,14 +68,14 @@ const content = {
         scopeTitle: "Was genau im Angebot enthalten sein kann",
         scopeCopy: "Der Leistungsumfang wird vor der Beauftragung verbindlich festgelegt. Je nach Paket umfasst er Live-Durchführung, Übungen, Materialien, Fahrpläne, Entscheidungsnotizen, Ergebniszusammenfassungen oder fachliche Prüfungen.",
         scopeLabel: "Typischer Umfang",
-        priceLabel: "Preislogik",
+        priceLabel: "Richtpreis",
         decisionTitle: "Welches Format passt?",
         decision: [
-            ["Wir brauchen Skills im Team", "Training oder Workshop", "/training"],
+            ["Unser Team soll etwas Neues lernen", "Training oder Workshop", "/training"],
             ["Wir müssen Entscheidungen treffen", "Beratungssprint", "/consulting"],
             ["Wir bauen ein Bildungsprogramm", "Curriculum- und Materialentwicklung", "/training#details"],
             ["Wir brauchen einen fachlichen Impuls", "Fachvortrag oder Expertengespräch", "/training/coaching-keynotes-expert-talks"],
-            ["Wir wollen Umfang und Budget klären", "Preis- und Eignungsgespräch", "/pricing"],
+            ["Wir wollen Umfang und Budget klären", "Preise und Angebotsanfrage", "/pricing"],
         ],
         programmesTitle: "Größere Programme",
         programmesCopy: "Für größere Vorhaben verbindet Luminovia Beratung, Zielbild, Training, Umsetzungsbegleitung, Materialentwicklung und Auswertung zu einem abgestimmten Programm.",
@@ -82,18 +86,22 @@ const content = {
             ["04", "Transfer sichern", "Fahrplan, Leitlinien, Lernpfade und nächste Schritte dokumentieren."],
         ],
         proofTitle: "Warum Luminovia?",
-        nextTitle: "Bereit für die nächste Anfrage?",
+        nextTitle: "Was haben Sie vor?",
         nextCopy: "Senden Sie Thema, Zielgruppe, Ziel, Zeitraum und gewünschten Umfang. Danach schlägt Luminovia ein passendes Format vor.",
         primary: "Kontakt aufnehmen",
-        secondary: "Termin buchen",
+        secondary: "Erstgespräch anfragen",
     },
     en: {
         badge: "Offers",
         title: "Clear Luminovia offers for training, consulting and digital implementation.",
-        intro: "This page shows the Luminovia formats that can be booked: live training, consulting sprints, project support, expert sessions, curriculum design and larger enablement programmes. It helps clarify which format fits the goal, audience and budget.",
+        intro: "Compare four ways to work with Luminovia, from a guest talk to a training programme. Each format lists its scope, example deliverables and planning rates.",
         jumpLabel: "On this page",
-        jumpItems: [["#packages", "Packages"], ["#decision", "Choice"], ["#scope", "Scope"], ["#programmes", "Programmes"], ["#proof", "Proof"], ["#next", "Contact"]],
-        packagesTitle: "Bookable packages",
+        jumpItems: [["#packages", "Packages"], ["#decision", "Choice"], ["#programmes", "Programmes"], ["#scope", "Scope"], ["#proof", "Proof"], ["#next", "Contact"]],
+        packagesTitle: "Compare the four formats",
+        outcomesLabel: "Possible deliverables",
+        methods: "How we work",
+        consulting: "Consulting and project support",
+        pricing: "View pricing",
         packagesCopy: "Every package can be planned in English or German with remote-first delivery for Europe, Australia and international teams.",
         packages: [
             {
@@ -123,8 +131,8 @@ const content = {
                 outcomes: ["curriculum", "blended learning structure", "labs and tasks", "quality check"],
                 scope: "concept phase, material design or full programme architecture",
                 pricingKey: "education",
-                to: "/training#details",
-                cta: "View details",
+                to: "/training/curriculum-design-blended-learning",
+                cta: "Explore learning design",
             },
             {
                 title: "Expert Sessions & Talks",
@@ -140,14 +148,14 @@ const content = {
         scopeTitle: "What can be included in an offer",
         scopeCopy: "The concrete scope is agreed upfront. Depending on the package, it can include live delivery, exercises, materials, roadmaps, decision notes, follow-up recaps or project reviews.",
         scopeLabel: "Typical scope",
-        priceLabel: "Pricing logic",
+        priceLabel: "Planning rates",
         decisionTitle: "Which format fits?",
         decision: [
             ["We need team skills", "Training or workshop", "/training"],
             ["We need to make decisions", "Consulting sprint", "/consulting"],
             ["We are building an education programme", "Curriculum and material design", "/training#details"],
-            ["We need a strong impulse", "Expert session or talk", "/training/coaching-keynotes-expert-talks"],
-            ["We need scope and budget clarity", "Pricing and fit call", "/pricing"],
+            ["We’re planning an event or briefing", "Expert session or talk", "/training/coaching-keynotes-expert-talks"],
+            ["We need scope and budget clarity", "Pricing and quotes", "/pricing"],
         ],
         programmesTitle: "Larger programmes",
         programmesCopy: "For larger clients, Luminovia can combine several formats: discovery, target state, training, implementation sparring, material development and review.",
@@ -158,10 +166,10 @@ const content = {
             ["04", "Transfer", "Document roadmap, guidelines, learning paths and next steps."],
         ],
         proofTitle: "Why Luminovia?",
-        nextTitle: "Ready for the next request?",
+        nextTitle: "What are you planning?",
         nextCopy: "Send topic, audience, goal, timing and desired scope. Luminovia will suggest the right format.",
         primary: "Contact Luminovia",
-        secondary: "Book appointment",
+        secondary: "Request an introductory call",
     },
 };
 
@@ -170,149 +178,97 @@ export default function OffersPage() {
     const {trustSignals} = useSiteContent();
     const {consultingModels, methods} = businessOfferingsForLanguage(language);
     const {offerPricing} = pricingForLanguage(language);
-    const copy = content[language];
+    const c = content[language];
 
     return (
-        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
-            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
-                <PageHero
-                    label={copy.badge}
-                    title={copy.title}
-                    copy={copy.intro}
-                    actions={<><Button to="/pricing">{language === "de" ? "Preise ansehen" : "View pricing"}</Button><Button to="/contact#contact-options" variant="secondary">{copy.primary}</Button></>}
-                    visual={<TrustRail items={[
-                        {icon: "01", title: "Training", copy: language === "de" ? "Workshops, Kurse und Kompetenzprogramme" : "Workshops, courses and skills programmes"},
-                        {icon: "02", title: language === "de" ? "Beratung" : "Consulting", copy: language === "de" ? "Analysen, Prüfungen und Entscheidungshilfe" : "Sprints, reviews and decision support"},
-                        {icon: "03", title: language === "de" ? "Programmdesign" : "Programme design", copy: language === "de" ? "Curriculum, Praxislabs und Lernpfade" : "Curriculum, practical labs and learning paths"},
-                        {icon: "04", title: language === "de" ? "Fachimpulse" : "Expert sessions", copy: language === "de" ? "Vorträge, Briefings und Impulse" : "Talks, briefings and impulses"},
-                    ]}/>}
-                />
-            </div>
-            <div className="mx-auto max-w-7xl">
-                <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
+        <main className="business-page">
+            <PageHero
+                label={c.badge}
+                title={c.title}
+                copy={c.intro}
+                actions={<><a href="#packages" className="business-link">{c.packagesTitle}<span aria-hidden="true">↓</span></a><Button to="/pricing" variant="secondary">{c.pricing}</Button></>}
+            />
+            <Container className="business-body">
+                <SectionJumpNav label={c.jumpLabel} items={c.jumpItems}/>
 
-                <section id="packages" className="deferred-render mt-12 scroll-mt-36">
-                    <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-                        <div>
-                            <Badge tone="blue">{copy.packagesTitle}</Badge>
-                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.packagesTitle}</h2>
-                        </div>
-                        <p className="text-lg leading-8 text-slate-300">{copy.packagesCopy}</p>
-                    </div>
-                    <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-                        {copy.packages.map((item) => (
-                            <Card key={item.title} className="offer-package-card">
-                                <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{item.tag}</div>
-                                <h3 className="mt-4 text-2xl font-black tracking-[-0.03em] text-white">{item.title}</h3>
-                                <p className="mt-4 text-sm leading-7 text-slate-300">{item.copy}</p>
-                                <div className="mt-5 grid gap-2">
-                                    <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm leading-6 text-slate-200"><strong className="text-sky-100">{copy.scopeLabel}:</strong> {item.scope}</div>
-                                    <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-sm leading-6 text-slate-200"><strong className="text-sky-100">{copy.priceLabel}:</strong> {offerPricing[item.pricingKey]}</div>
-                                </div>
-                                <div className="mt-5 grid gap-2">
-                                    {item.outcomes.map((outcome) => (
-                                        <span key={outcome} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{outcome}</span>
-                                    ))}
-                                </div>
-                                <Button to={item.to} variant="secondary">{item.cta}</Button>
-                            </Card>
+                <section id="packages">
+                    <div className="business-heading"><h2>{c.packagesTitle}</h2><p>{c.packagesCopy}</p></div>
+                    <div className="business-grid business-grid--two">
+                        {c.packages.map((offer, index) => (
+                            <article key={offer.title} className="business-panel business-stack business-package" data-tone={tones[index]}>
+                                <p className="business-kicker">{offer.tag}</p>
+                                <h3>{offer.title}</h3>
+                                <p>{offer.copy}</p>
+                                <dl className="business-facts">
+                                    <div><dt>{c.scopeLabel}</dt><dd>{offer.scope}</dd></div>
+                                    <div><dt>{c.outcomesLabel}</dt><dd>{offer.outcomes.join(" · ")}</dd></div>
+                                    <div><dt>{c.priceLabel}</dt><dd>{offerPricing[offer.pricingKey]}</dd></div>
+                                </dl>
+                                <Link to={offer.to} className="business-link">{offer.cta}<span aria-hidden="true">↗</span></Link>
+                            </article>
                         ))}
                     </div>
                 </section>
 
-                <section id="decision" className="deferred-render mt-16 scroll-mt-36">
-                    <Badge tone="cyan">{copy.decisionTitle}</Badge>
-                    <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.decisionTitle}</h2>
-                    <div className="mt-8 grid gap-3">
-                        {copy.decision.map(([need, answer, to]) => (
-                            <Link key={need} to={to} className="group grid gap-3 rounded-[1.35rem] border border-white/12 bg-white/[0.065] p-4 transition hover:border-sky-200/35 hover:bg-white/[0.10] sm:grid-cols-[1fr_auto] sm:items-center">
-                                <span className="text-lg font-black text-white">{need}</span>
-                                <span className="rounded-full border border-sky-100/18 bg-sky-100/10 px-4 py-2 text-sm font-black text-sky-100 transition group-hover:bg-sky-100/16">{answer}</span>
-                            </Link>
+                <section id="decision" className="business-layout business-layout--reverse">
+                    <div className="business-heading"><h2>{c.decisionTitle}</h2></div>
+                    <ul>
+                        {c.decision.map(([need, answer, to]) => (
+                            <li key={need} className="business-row">
+                                <p>{need}</p>
+                                <Link to={to} className="business-link">{answer}<span aria-hidden="true">↗</span></Link>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </section>
 
-                <section id="scope" className="deferred-render mt-16 scroll-mt-36">
-                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                            <Badge tone="violet">{language === "de" ? "Umfang" : "Scope"}</Badge>
-                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.scopeTitle}</h2>
-                        </div>
-                        <p className="text-lg leading-8 text-slate-300">{copy.scopeCopy}</p>
-                    </div>
-                    <div className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-                        <Card className="offer-scope-card p-5 sm:p-6">
-                            <h3 className="text-3xl font-black text-white">{language === "de" ? "Consulting und Projektbegleitung" : "Consulting and project accompaniment"}</h3>
-                            <div className="mt-6 grid gap-4">
+                <section id="programmes">
+                    <div className="business-heading"><h2>{c.programmesTitle}</h2><p>{c.programmesCopy}</p></div>
+                    <ol className="business-process">
+                        {c.programmeSteps.map(([number, title, description]) => (
+                            <li key={number}><span aria-hidden="true">{number}</span><h3>{title}</h3><p>{description}</p></li>
+                        ))}
+                    </ol>
+                </section>
+
+                <section id="scope">
+                    <div className="business-heading"><h2>{c.scopeTitle}</h2><p>{c.scopeCopy}</p></div>
+                    <div className="business-grid business-grid--two">
+                        <div className="business-stack">
+                            <h3>{c.consulting}</h3>
+                            <div className="business-accordion">
                                 {consultingModels.map((model) => (
-                                    <div key={model.title} className="rounded-[1.15rem] border border-white/10 bg-white/[0.055] p-4">
-                                        <h4 className="text-lg font-black text-white">{model.title}</h4>
-                                        <p className="mt-2 text-sm leading-7 text-slate-300">{model.meaning}</p>
-                                    </div>
+                                    <details key={model.title}><summary>{model.title}</summary><p>{model.meaning}</p></details>
                                 ))}
                             </div>
-                        </Card>
-                        <Card className="offer-scope-card p-5 sm:p-6">
-                            <h3 className="text-3xl font-black text-white">{language === "de" ? "Methodik" : "Methods"}</h3>
-                            <div className="mt-6 grid gap-3">
+                        </div>
+                        <div className="business-stack">
+                            <h3>{c.methods}</h3>
+                            <div className="business-accordion">
                                 {methods.map(([title, description]) => (
-                                    <div key={title} className="rounded-[1.15rem] border border-sky-100/12 bg-[#071225]/72 p-4">
-                                        <h4 className="text-base font-black text-sky-100">{title}</h4>
-                                        <p className="mt-2 text-sm leading-7 text-slate-300">{description}</p>
-                                    </div>
+                                    <details key={title}><summary>{title}</summary><p>{description}</p></details>
                                 ))}
                             </div>
-                        </Card>
-                    </div>
-                </section>
-
-                <section id="programmes" className="deferred-render mt-16 scroll-mt-36 overflow-hidden rounded-[2.1rem] border border-sky-200/18 bg-[radial-gradient(circle_at_15%_0%,rgba(125,211,252,.24),transparent_38%),radial-gradient(circle_at_92%_12%,rgba(245,158,11,.17),transparent_38%),linear-gradient(135deg,rgba(13,27,54,.95),rgba(7,12,25,.96)_58%,rgba(21,28,48,.94))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_28px_110px_rgba(0,0,0,.32)] sm:p-8">
-                    <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-                        <div>
-                            <div className="text-xs font-black uppercase tracking-[0.18em] text-amber-100">{copy.programmesTitle}</div>
-                            <h2 className="mt-4 text-4xl font-black tracking-[-0.035em] text-white sm:text-5xl">{copy.programmesTitle}</h2>
-                            <p className="mt-5 text-base leading-8 text-slate-200">{copy.programmesCopy}</p>
-                        </div>
-                        <div className="grid gap-4">
-                            {copy.programmeSteps.map(([number, title, text]) => (
-                                <div key={number} className="grid gap-4 rounded-[1.2rem] border border-white/12 bg-white/[0.075] p-4 sm:grid-cols-[auto_1fr]">
-                                    <div className="grid h-12 w-12 place-items-center rounded-2xl border border-amber-100/24 bg-amber-100/12 text-sm font-black text-amber-100">{number}</div>
-                                    <div>
-                                        <h3 className="text-lg font-black text-white">{title}</h3>
-                                        <p className="mt-2 text-sm leading-7 text-slate-300">{text}</p>
-                                    </div>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 </section>
 
-                <section id="proof" className="deferred-render mt-16 scroll-mt-36">
-                    <Badge tone="emerald">{copy.proofTitle}</Badge>
-                    <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.proofTitle}</h2>
-                    <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <section id="proof">
+                    <div className="business-heading"><h2>{c.proofTitle}</h2></div>
+                    <div className="business-index">
                         {trustSignals.map((signal) => (
-                            <Card key={signal.title}>
-                                <h3 className="text-xl font-black text-white">{signal.title}</h3>
-                                <p className="mt-3 text-sm leading-7 text-slate-300">{signal.copy}</p>
-                            </Card>
+                            <article key={signal.title}><h3>{signal.title}</h3><p>{signal.copy}</p></article>
                         ))}
                     </div>
                 </section>
-
-                <section id="next" className="deferred-render mt-16 scroll-mt-36 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_18%_0%,rgba(186,230,253,.16),transparent_42%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))] p-6 shadow-[0_28px_105px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-8">
-                    <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-                        <div>
-                            <h2 className="text-3xl font-black text-white">{copy.nextTitle}</h2>
-                            <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-300">{copy.nextCopy}</p>
-                        </div>
-                        <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                            <Button to="/contact#contact-options">{copy.primary}</Button>
-                            <Button href={PROFILE.appointmentSchedule} variant="secondary">{copy.secondary}</Button>
-                        </div>
-                    </div>
-                </section>
+            </Container>
+            <div id="next" className="business-end">
+                <CTASection
+                    title={c.nextTitle}
+                    copy={c.nextCopy}
+                    primary={<Button to="/contact#contact-options">{c.primary}</Button>}
+                    secondary={<Button to="/contact#appointment" variant="secondary">{c.secondary}</Button>}
+                />
             </div>
         </main>
     );

@@ -8,8 +8,9 @@ const controllerAddress = `${PROFILE.name}, ${PROFILE.addressLines.join(", ")}`;
 const enSections = [
     ["Controller", `The controller responsible for this website is ${controllerAddress}. You can contact me by email at ${PROFILE.email}, by Australian phone at ${PROFILE.phoneAustralia}, or by German phone at ${PROFILE.phoneGermany}.`],
     ["Access data and hosting", "The hosting provider may process technical access data such as IP address, date and time of access, requested files, browser type, operating system and referrer URL to deliver and protect the website."],
-    ["Contact and booking links", "If you contact me by email, phone or an external booking link, the information you provide is processed to answer your request and organise the requested training, lecture, workshop or call."],
+    ["Contact", "If you contact me by email or phone, the information you provide is processed to answer your request and organise the requested training, lecture, workshop or call."],
     ["Google Analytics", "This site uses Google Analytics only after visitor consent. The measurement ID is G-YNGD292XE5. IP anonymisation is enabled."],
+    ["YouTube preview", "The training page loads the embedded YouTube video after you activate the preview. Activating the preview or following the YouTube link connects your browser to YouTube."],
     ["Local storage", "This website stores the analytics consent choice in local storage so the banner does not appear on every page view."],
     ["Your rights", "Depending on applicable data protection law, you may have rights to access, rectification, erasure, restriction of processing, portability, objection and withdrawal of consent."],
 ];
@@ -17,8 +18,9 @@ const enSections = [
 const deSections = [
     ["Verantwortliche Stelle", `Verantwortlich für diese Website ist ${controllerAddress}. Kontakt ist per E-Mail unter ${PROFILE.email}, telefonisch in Australien unter ${PROFILE.phoneAustralia} oder telefonisch in Deutschland unter ${PROFILE.phoneGermany} möglich.`],
     ["Zugriffsdaten und Hosting", "Der Hosting-Anbieter kann technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, abgerufene Dateien, Browsertyp, Betriebssystem und Referrer verarbeiten, um die Website bereitzustellen und zu schützen."],
-    ["Kontakt und Buchungslinks", "Wenn Sie Luminovia per E-Mail, Telefon oder externem Buchungslink kontaktieren, werden die angegebenen Daten verarbeitet, um Ihre Anfrage zu beantworten und Training, Vortrag, Workshop oder Call zu organisieren."],
+    ["Kontakt", "Wenn Sie Luminovia per E-Mail oder Telefon kontaktieren, werden die angegebenen Daten verarbeitet, um Ihre Anfrage zu beantworten und Training, Vortrag, Workshop oder Call zu organisieren."],
     ["Google Analytics", "Diese Website nutzt Google Analytics nur nach Zustimmung. Die Measurement ID lautet G-YNGD292XE5. IP-Anonymisierung ist aktiviert."],
+    ["YouTube-Vorschau", "Die Trainingsseite lädt das eingebettete YouTube-Video, sobald Sie die Vorschau aktivieren. Wenn Sie die Vorschau aktivieren oder dem YouTube-Link folgen, stellt Ihr Browser eine Verbindung zu YouTube her."],
     ["Local Storage", "Diese Website speichert die Analytics-Einwilligung im lokalen Browser-Speicher, damit der Banner nicht auf jeder Seite erneut erscheint."],
     ["Ihre Rechte", "Je nach anwendbarem Datenschutzrecht können Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch und Widerruf einer Einwilligung bestehen."],
 ];
@@ -29,7 +31,7 @@ export default function PrivacyPage() {
     const sections = isDe ? deSections : enSections;
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="legal-page px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-4xl">
                 <Badge tone="emerald">{isDe ? "Datenschutz" : "Data protection"}</Badge>
                 <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{isDe ? "Datenschutzerklärung" : "Privacy Policy"}</h1>

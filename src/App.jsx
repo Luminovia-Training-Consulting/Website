@@ -5,7 +5,7 @@ import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Seo from "./components/Seo.jsx";
-import {LanguageProvider} from "./i18n.jsx";
+import {LanguageProvider, useLanguage} from "./i18n.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import {isChunkLoadError, safeGetSessionItem, safeGetStorageItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
 
@@ -18,7 +18,7 @@ function getInitialTheme() {
     const storedTheme = safeGetStorageItem(THEME_KEY);
     if (storedTheme === "day" || storedTheme === "night") return storedTheme;
 
-    return "night";
+    return "day";
 }
 
 function lazyWithRecovery(loader) {
@@ -133,20 +133,11 @@ function DeferredAnalyticsConsent() {
 }
 
 function RouteFallback() {
+    const {language} = useLanguage();
     return (
         <main className="lumo-route-fallback" aria-busy="true">
-            <span className="sr-only">Loading page</span>
-            <div className="lumo-route-fallback-copy" aria-hidden="true">
-                <span/>
-                <span/>
-                <span/>
-            </div>
-            <div className="lumo-route-fallback-panel" aria-hidden="true">
-                <span/>
-                <span/>
-                <span/>
-                <span/>
-            </div>
+            <span className="sr-only">{language === "de" ? "Seite wird geladen" : "Loading page"}</span>
+            <div className="lumo-route-fallback-line" aria-hidden="true"/>
         </main>
     );
 }
@@ -169,6 +160,11 @@ function pageRoutes(path, Component) {
     return routePaths(path).map((routePath) => (
         <Route key={routePath} path={routePath} element={routeElement(Component)}/>
     ));
+}
+
+function SkipLink() {
+    const {language} = useLanguage();
+    return <a className="skip-link" href="#site-content">{language === "de" ? "Zum Inhalt springen" : "Skip to content"}</a>;
 }
 
 export default function App() {
@@ -214,10 +210,10 @@ export default function App() {
             <BrowserRouter basename={ROUTER_BASENAME} future={{v7_relativeSplatPath: true, v7_startTransition: true}}>
                 <Seo/>
                 <ScrollToHash/>
-                <div data-theme={theme} className="theme-root relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
-                    <div className="ambient-veil fixed inset-0 z-0"/>
+                <div data-theme={theme} className="theme-root">
+                    <SkipLink/>
                     <Header theme={theme} onToggleTheme={toggleTheme}/>
-                    <div className="relative z-10">
+                    <div id="site-content" tabIndex={-1}>
                         <Routes>
                             <Route path="/" element={<AppErrorBoundary><HomePage/></AppErrorBoundary>}/>
                             {pageRoutes("/training", TrainingPage)}
@@ -239,9 +235,7 @@ export default function App() {
                             <Route path="*" element={routeElement(NotFoundPage)}/>
                         </Routes>
                     </div>
-                    <div className="relative z-10">
-                        <Footer/>
-                    </div>
+                    <Footer/>
                     <DeferredAnalyticsConsent/>
                 </div>
             </BrowserRouter>

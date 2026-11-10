@@ -1,6 +1,6 @@
 # Luminovia Training & Consulting Website
 
-Static bilingual website for **Luminovia Training & Consulting**. The site presents the company as a remote-first training and consulting organisation led by CEO and founder **Carina Sophie Schoppe**, with bookable training, consulting, offers, former client proof, projects, pricing and contact options in German and English.
+Static bilingual website for **Luminovia Training & Consulting**. The site presents the company as a remote-first training and consulting organisation led by CEO and founder **Carina Sophie Schoppe**, with bookable training, consulting, offers, teaching and project experience, projects, pricing and contact options in German and English.
 
 Production repository: https://github.com/Luminovia-Training-Consulting/Website.git
 
@@ -18,13 +18,13 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 
 ## Core Features
 
-- German and English language switch.
-- Dark mode and light mode.
-- Logo-based Luminovia visual system using navy, blue, cyan and gold.
+- German and English language switch, with English as the default.
+- Light and dark themes, with light as the default.
+- Luminovia visual system with the supplied logo, founder photography and violet, mint, coral and yellow accents.
 - Static React/Vite app with React Router routes.
 - GitHub Pages custom-domain build for `https://luminovia.org/`.
 - Production build optimized through Preact compatibility mode.
-- Direct contact model through email, phone and Google Calendar booking.
+- Direct contact by email and phone. Introductory calls are arranged by email.
 - Google Analytics consent banner.
 - SEO metadata, canonical links, sitemap, robots file and JSON-LD structured data.
 - GitHub Pages deployment workflow that builds Vite into `dist`.
@@ -33,11 +33,11 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Homepage with hero, offers preview, customer proof, FAQ, CEO section and contact CTA. |
+| `/` | Founder-led homepage with three service routes, training examples and a contact link. |
 | `/training` | Detailed training topics, service cards, formats and audiences. |
 | `/offers` | Concrete bookable packages for training, consulting, curriculum, expert sessions and larger programmes. |
 | `/consulting` | Consulting portfolio for AI, IT, business, curriculum, roadmaps and digital enablement. |
-| `/clients` | Former clients, education partners and anonymized testimonial patterns. |
+| `/clients` | Selected teaching, project and research experience with links to organisations. |
 | `/projects` | Project portfolio connected to training and consulting practice. |
 | `/pricing` | Net starting rates and consulting/project pricing on request. |
 | `/about` | CEO/founder profile for Carina Sophie Schoppe. |
@@ -63,10 +63,11 @@ Training detail pages live under `/training/:slug` and are generated from `src/d
 │   ├── components/          # Reusable UI components
 │   ├── data/                # Profile, localized content, training details, SEO data
 │   ├── pages/               # Route-level pages
+│   ├── styles/              # Styles for business and company pages
 │   ├── test/                # Vitest setup and render helpers
 │   ├── App.jsx              # Router, theme, layout shell
 │   ├── i18n.jsx             # German/English language provider
-│   └── index.css            # Tailwind import, theme, animation and brand styling
+│   └── index.css            # Tailwind import, global theme, layout and shared styles
 ├── vite.config.js           # Build, test and prerender route configuration
 └── package.json
 ```
@@ -131,7 +132,7 @@ Important test files:
 | `src/data/trainingDetails.test.js` | Every training topic, service chip and sitemap training detail page is connected. |
 | `src/data/localizationQuality.test.js` | German localization text avoids common encoding/mojibake markers. |
 | `src/components/AnalyticsConsent.test.jsx` | Consent decline/accept behavior and Google tag script loading. |
-| `src/components/ClientProofSection.test.jsx` | Client proof and testimonial card rendering. |
+| `src/components/ClientProofSection.test.jsx` | Organisation links and reference wording. |
 | `src/utils/browser.test.js` | Storage wrappers and stale chunk error detection. |
 
 Run all tests:
@@ -158,7 +159,7 @@ Vitest still reports statements, branches and functions so weaker areas remain v
 - renders each route through `App`,
 - verifies that a `<main>` and level-one heading exist,
 - fails if the rendered page or browser title is a 404,
-- checks that primary navigation exposes Training, Consulting, Offers, Clients, Projects, CEO and Contact.
+- checks the primary navigation and the additional footer links to pricing, experience and projects.
 
 This test is meant to catch broken routes whenever the sitemap, router or navigation changes.
 
@@ -174,10 +175,10 @@ Production builds use the root Vite base path `/` for the custom GitHub Pages do
 When adding a major page, update:
 
 1. `src/App.jsx`
-2. `src/data/profile.js` if it belongs in navigation
+2. `src/components/Header.jsx` or `src/components/Footer.jsx` if it belongs in navigation
 3. `src/i18n.jsx` navigation labels
-4. `src/components/Seo.jsx`
-5. `vite.config.js` `prerenderRoutes`
+4. `src/data/seoContent.js` for the route metadata used by the app and build
+5. `src/components/Seo.jsx` if the page needs structured data
 6. `public/sitemap.xml`
 7. tests, especially `FullSiteRoutes.test.jsx` if route filtering changes
 
@@ -192,7 +193,7 @@ https://github.com/Luminovia-Training-Consulting/Website.git
 Deployment runs through `.github/workflows/static.yml`:
 
 1. checkout repository,
-2. setup Node.js 26,
+2. setup Node.js 24,
 3. `npm ci`,
 4. `npm run build`,
 5. upload `./dist`,
@@ -210,35 +211,26 @@ CI runs through `.github/workflows/node.js.yml`:
 Luminovia logo assets:
 
 - `public/images/luminovia-logo-full.svg`: original supplied full logo.
-- `public/images/luminovia-logo-mark.svg`: original supplied icon, with its outer whitespace reduced for header/footer/app-shell use.
+- `public/images/luminovia-logo-mark.svg`: supplied logo mark with its outer whitespace reduced.
+- `public/images/luminovia-logo-mark-160.webp`: lightweight derivative used in the site header and footer.
 - `public/images/luminovia-og.jpg`: social sharing preview derived from the supplied full logo.
 
 Browser icons (`public/favicon.svg`, `public/favicon.ico`) and `public/apple-touch-icon.png` are resized from the supplied icon. Logo URLs are versioned and the service-worker cache is updated when replacing branding.
 
-Carina profile images remain in `public/images/` and are used for the CEO/about sections.
+Responsive versions of the founder portrait in `public/images/` serve the home and about pages. The display font is self-hosted in `public/fonts/`.
 
 ## Content Maintenance
 
 Most business content is data-driven:
 
-- `src/data/profile.js`: company profile, contact links, image paths and navigation.
+- `src/data/profile.js`: company profile, contact links and image paths.
 - `src/data/content.js`: English base content.
 - `src/data/localizedContent.js`: German localized content and localized mappings.
-- `src/data/homeContent.js`: homepage trust stats, service offerings and FAQ content.
+- `src/pages/HomePage.jsx`: homepage copy in both languages. The initial English hero is also present in `index.html` before the app loads.
 - `src/data/trainingDetails.js`: detailed training pages and topic link mapping.
 - `src/i18n.jsx`: UI labels, homepage strings and contact copy.
 
 Prefer editing these data files before hardcoding copy into components.
-
-## Known Build Note
-
-Vite may print this warning during build:
-
-```text
-[INEFFECTIVE_DYNAMIC_IMPORT] src/data/localizedContent.js is dynamically imported by src/components/Seo.jsx but also statically imported ...
-```
-
-The build still succeeds. The warning means the module cannot be split into a separate lazy chunk because it is also imported statically elsewhere.
 
 ## Pre-Push Checklist
 

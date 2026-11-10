@@ -9,11 +9,11 @@ const routes = [
     ["/training", /Training that improves digital work/i],
     ["/offers", /Clear Luminovia offers/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
-    ["/projects", /Projects that make Luminovia/i],
-    ["/portfolio", /Projects that make Luminovia/i],
+    ["/projects", /From a problem to working software/i],
+    ["/portfolio", /From a problem to working software/i],
     ["/consulting", /Consulting for AI, IT and digital capability/i],
-    ["/clients", /Education partners, collaboration contexts and topic areas/i],
-    ["/about", /Digital expertise, clearly taught/i],
+    ["/clients", /Teaching, training and research in practice/i],
+    ["/about", /I make technical ideas teachable/i],
     ["/pricing", /Clear rates for training/i],
     ["/contact", /Contact Luminovia/i],
     ["/imprint", /Imprint/i],
@@ -36,15 +36,28 @@ describe("static page routes", () => {
 
     it("opens and closes the mobile navigation", async () => {
         const user = userEvent.setup();
-        window.innerWidth = 390;
+        window.history.pushState({}, "Home", "/");
         render(<App/>);
 
-        await user.click(screen.getByRole("button", {name: /Menu/i}));
-        expect(screen.getByText("Navigation")).toBeInTheDocument();
-        expect(document.body).toHaveStyle({overflow: "hidden"});
+        const toggle = screen.getByRole("button", {name: "Menu"});
+        const navigation = screen.getByRole("navigation", {name: "Main navigation"});
+        expect(toggle).toHaveAttribute("aria-expanded", "false");
 
-        await user.click(screen.getByRole("button", {name: /Close/i}));
-        expect(screen.queryByText("Navigation")).not.toBeInTheDocument();
-        expect(document.body).not.toHaveStyle({overflow: "hidden"});
+        await user.click(toggle);
+        expect(toggle).toHaveAttribute("aria-expanded", "true");
+        expect(navigation).toHaveAttribute("data-open", "true");
+
+        await user.keyboard("{Escape}");
+        expect(toggle).toHaveFocus();
+        expect(toggle).toHaveAttribute("aria-expanded", "false");
+
+        await user.click(toggle);
+        await user.click(navigation.querySelector('a[href="/contact"]'));
+        expect(toggle).toHaveAttribute("aria-expanded", "false");
+        expect(await screen.findByRole("heading", {name: /Contact Luminovia/i})).toBeInTheDocument();
+
+        await user.click(toggle);
+        await user.click(screen.getAllByRole("link", {name: "Luminovia Training & Consulting"})[0]);
+        expect(toggle).toHaveAttribute("aria-expanded", "false");
     });
 });

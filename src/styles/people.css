@@ -1,0 +1,686 @@
+:where(.people-page, .people-reference-section, .people-projects, .people-demo) {
+    --people-ink: var(--ink);
+    --people-muted: var(--muted);
+    --people-rule: var(--line);
+    --people-violet: var(--accent);
+    --people-white: var(--surface);
+    --people-lilac: var(--lilac);
+    --people-mint: var(--mint);
+    --people-yellow: var(--yellow);
+    --people-coral: var(--coral);
+    color: var(--people-ink);
+}
+
+.people-page {
+    padding-bottom: clamp(3rem, 7vw, 7rem);
+}
+
+.people-page h2,
+.people-reference-section h2,
+.people-projects h2,
+.people-demo h2 {
+    font-size: clamp(1.85rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+}
+
+.people-display {
+    max-width: 16ch;
+    font-size: clamp(2.75rem, 6.5vw, 6.2rem);
+    font-weight: 700;
+    line-height: 1.01;
+    letter-spacing: -.065em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+.people-lead {
+    max-width: 61ch;
+    margin-top: 1.4rem;
+    color: var(--people-muted);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.65;
+}
+
+.people-section {
+    margin-block-start: clamp(3rem, 7vw, 6.5rem);
+    scroll-margin-top: 7rem;
+}
+
+.people-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    align-items: start;
+    gap: clamp(2rem, 6vw, 6rem);
+}
+
+.people-kicker,
+.people-number {
+    font-family: ui-monospace, monospace;
+    font-size: .77rem;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: .035em;
+}
+
+.people-kicker {
+    color: var(--people-violet);
+    text-transform: uppercase;
+}
+
+.people-text-link,
+.people-inline-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    min-height: 2.75rem;
+    color: var(--people-violet);
+    font-weight: 750;
+    line-height: 1.3;
+    text-decoration: underline;
+    text-underline-offset: .25em;
+}
+
+.people-text-link svg,
+.people-inline-links svg {
+    width: 1em;
+    height: 1em;
+    flex: none;
+}
+
+.people-text-link:hover,
+.people-inline-links a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.people-inline-links,
+.people-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .45rem 1.25rem;
+    margin-top: 1.2rem;
+}
+
+.people-tags {
+    gap: .4rem;
+}
+
+.people-tags li {
+    padding: .2rem .65rem;
+    border: 1px solid var(--people-rule);
+    border-radius: 1.5rem;
+    font-size: .78rem;
+    font-weight: 650;
+    line-height: 1.35;
+}
+
+.people-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    min-height: 2.9rem;
+    margin-top: 1.5rem;
+    padding: .65rem 1rem;
+    border: 2px solid transparent;
+    border-radius: .45rem;
+    background: var(--people-violet);
+    color: var(--on-accent);
+    font-weight: 750;
+    line-height: 1.3;
+}
+
+.people-action svg {
+    width: 1em;
+    height: 1em;
+    flex: none;
+}
+
+.people-action:hover {
+    border-color: currentColor;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+}
+
+.people-section-intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: .6rem 2rem;
+    margin-bottom: 1.75rem;
+}
+
+.people-contact-hero,
+.people-about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6.25rem);
+    padding-block: clamp(2.5rem, 6vw, 6.5rem) 0;
+}
+
+.people-about-hero {
+    grid-template-areas: "intro portrait" "bio portrait";
+    grid-template-rows: auto auto;
+    row-gap: 0;
+}
+
+.people-about-intro {
+    grid-area: intro;
+    align-self: end;
+}
+
+.people-about-bio {
+    grid-area: bio;
+    align-self: start;
+}
+
+
+.people-contact-call {
+    align-self: end;
+    padding: clamp(1.35rem, 4vw, 3rem);
+    border-radius: 1.45rem 1.45rem 1.45rem .25rem;
+    background: var(--people-yellow);
+    color: #201932;
+    scroll-margin-top: 7rem;
+}
+
+.people-contact-call h2 {
+    margin-top: 1.2rem;
+}
+
+.people-contact-call p {
+    max-width: 38ch;
+    margin-top: .8rem;
+    line-height: 1.6;
+}
+
+.people-contact-call :focus-visible,
+.people-simple-hero :focus-visible {
+    outline-color: #201932;
+}
+
+.people-contact-call .people-action {
+    background: #201932;
+    color: #fffdf9;
+}
+
+.people-contact-list {
+    margin-top: 1.35rem;
+}
+
+.people-contact-list li {
+    border-top: 1px solid var(--people-rule);
+}
+
+.people-contact-list li:last-child {
+    border-bottom: 1px solid var(--people-rule);
+}
+
+.people-contact-list a {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .9rem;
+    min-height: 4.6rem;
+    padding: .75rem .25rem;
+}
+
+.people-contact-list small,
+.people-contact-list strong {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.people-contact-list small {
+    color: var(--people-muted);
+}
+
+.people-contact-list a:hover strong {
+    color: var(--people-violet);
+    text-decoration: underline;
+    text-underline-offset: .18em;
+}
+
+.people-contact-brief {
+    padding: clamp(1.35rem, 3.5vw, 2.6rem);
+    border-left: 4px solid #5024b8;
+    background: var(--people-lilac);
+    color: #201932;
+}
+
+.people-contact-brief ul {
+    margin: 1.2rem 0 0 1.1rem;
+    list-style: square;
+}
+
+.people-contact-brief li {
+    margin-top: .6rem;
+    padding-left: .15rem;
+}
+
+.people-faq {
+    max-width: 54rem;
+}
+
+.people-faq h2 {
+    margin-bottom: 1.5rem;
+}
+
+.people-faq details {
+    border-top: 1px solid var(--people-rule);
+}
+
+.people-faq details:last-child {
+    border-bottom: 1px solid var(--people-rule);
+}
+
+.people-faq summary {
+    min-height: 3.25rem;
+    padding: .85rem .35rem;
+    cursor: pointer;
+    font-weight: 750;
+    line-height: 1.5;
+}
+
+.people-faq summary:hover {
+    color: var(--people-violet);
+}
+
+.people-faq details > p {
+    max-width: 73ch;
+    padding: .1rem 0 1rem 1.15rem;
+    color: var(--people-muted);
+    line-height: 1.65;
+}
+
+.people-founder {
+    grid-area: portrait;
+    width: min(100%, 27rem);
+    margin: 0 0 0 auto;
+    padding: 1rem 1rem 1.1rem;
+    background: var(--people-lilac);
+    color: #201932;
+}
+
+.people-founder-photo {
+    aspect-ratio: 1 / 1.06;
+    border-radius: 50% 50% .5rem .5rem / 26% 26% .5rem .5rem;
+    background: #c9b5fb;
+    box-shadow: none;
+}
+
+.people-founder-photo picture {
+    display: block;
+    height: 100%;
+}
+
+.people-founder figcaption {
+    display: grid;
+    gap: .05rem;
+    padding: .9rem .15rem 0;
+    line-height: 1.35;
+}
+
+.people-founder figcaption strong {
+    font-size: 1.07rem;
+    font-weight: 700;
+}
+
+.people-founder figcaption span {
+    font-size: .9rem;
+}
+
+.people-practice {
+    padding: clamp(1.4rem, 4.25vw, 3.6rem);
+    border-radius: .3rem 1.65rem .3rem .3rem;
+    background: var(--people-mint);
+    color: #201932;
+}
+
+.people-practice ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem clamp(1rem, 3.5vw, 3rem);
+    margin-top: 1.65rem;
+}
+
+.people-practice li {
+    border-top: 1px solid #608678;
+    padding-top: 1rem;
+}
+
+.people-practice h3,
+.people-timeline h3 {
+    margin-top: .5rem;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.people-practice p,
+.people-timeline p {
+    margin-top: .55rem;
+    line-height: 1.62;
+}
+
+.people-timeline ol {
+    border-bottom: 1px solid var(--people-rule);
+}
+
+.people-timeline li {
+    display: grid;
+    grid-template-columns: 5.8rem minmax(0, 1fr);
+    gap: .5rem 1rem;
+    padding-block: 1.1rem;
+    border-top: 1px solid var(--people-rule);
+}
+
+.people-timeline .people-number {
+    margin-top: .22rem;
+    color: var(--people-violet);
+}
+
+.people-timeline h3 {
+    margin-top: 0;
+}
+
+.people-timeline p {
+    color: var(--people-muted);
+}
+
+.people-about-next {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding: clamp(1.4rem, 4vw, 3rem);
+    background: var(--people-white);
+    border-top: 4px solid var(--people-violet);
+}
+
+.people-about-next .people-inline-links {
+    margin-top: .55rem;
+}
+
+.people-simple-hero {
+    margin-top: clamp(1.6rem, 4vw, 3.5rem);
+    padding: clamp(1.55rem, 6vw, 5.5rem);
+    border-radius: .35rem 2rem .35rem .35rem;
+    color: #201932;
+}
+
+.people-simple-hero :is(.lumo-section-label, .people-lead, .people-inline-links a) {
+    color: #201932;
+}
+
+.people-simple-hero .people-display {
+    max-width: 19ch;
+}
+
+.people-reference-hero {
+    background: var(--people-coral);
+}
+
+.people-project-hero {
+    background: var(--people-mint);
+}
+
+.people-reference-list {
+    border-bottom: 1px solid var(--people-rule);
+}
+
+.people-reference-entry {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, .92fr) minmax(0, 1.12fr);
+    align-items: center;
+    gap: 1rem clamp(.8rem, 3vw, 2.7rem);
+    padding: 1.15rem 0;
+    border-top: 1px solid var(--people-rule);
+}
+
+.people-reference-initials {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--people-lilac);
+    color: #201932;
+    font-size: .83rem;
+    font-weight: 700;
+}
+
+.people-reference-list > li:nth-child(3n+2) .people-reference-initials {
+    background: var(--people-mint);
+}
+
+.people-reference-list > li:nth-child(3n+3) .people-reference-initials {
+    background: var(--people-yellow);
+}
+
+.people-reference-entry h3 {
+    margin-top: .25rem;
+    font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.people-reference-entry h3 a {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    min-height: 2.75rem;
+}
+
+.people-reference-entry h3 a:hover {
+    color: var(--people-violet);
+    text-decoration: underline;
+    text-underline-offset: .16em;
+}
+
+.people-reference-entry svg {
+    width: .9em;
+    height: .9em;
+    flex: none;
+    color: var(--people-violet);
+}
+
+.people-reference-entry > p,
+.people-project-grid article > p:not(.people-kicker),
+.people-project-types p,
+.people-project-types dd,
+.people-demo-layout p:not(.lumo-section-label) {
+    color: var(--people-muted);
+    line-height: 1.62;
+}
+
+.people-project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.people-project-grid article {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    min-width: 0;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border-top: 4px solid var(--people-violet);
+    border-radius: .25rem .25rem .75rem .75rem;
+    background: var(--people-white);
+}
+
+.people-project-grid article:nth-child(2) {
+    grid-column: span 2;
+    border-color: #5024b8;
+    background: var(--people-lilac);
+    color: #201932;
+    --people-muted: #51495d;
+    --people-violet: #5024b8;
+    --people-rule: #bbaad7;
+}
+
+.people-project-grid h3,
+.people-project-types dt {
+    margin-block: .65rem .55rem;
+    font-size: clamp(1.22rem, 2.25vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.people-project-grid .people-tags {
+    margin-bottom: .95rem;
+}
+
+.people-project-grid .people-project-status {
+    margin-top: auto;
+    font-size: .78rem;
+}
+
+.people-project-types > div > p {
+    margin-top: .9rem;
+}
+
+.people-project-types dl > div {
+    padding: .75rem 0 1.25rem;
+    border-top: 1px solid var(--people-rule);
+}
+
+.people-project-types .people-tags {
+    margin-top: .7rem;
+}
+
+.people-demo-layout {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(1.2rem, 5vw, 4rem);
+    padding: clamp(1.3rem, 4vw, 3rem);
+    border-radius: 1.5rem .3rem 1.5rem .3rem;
+    background: var(--people-white);
+    border: 1px solid var(--people-rule);
+}
+
+.people-demo-layout h2 + p {
+    margin-top: .8rem;
+}
+
+.people-demo-layout .people-text-link {
+    margin-top: .55rem;
+}
+
+.people-demo-media :is(button, iframe) {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 10.25rem;
+    border: 0;
+    border-radius: .55rem;
+}
+
+.people-demo-media .people-demo-preview {
+    display: grid;
+    position: relative;
+    place-content: center;
+    justify-items: center;
+    gap: .65rem;
+    padding: 1rem;
+    background: #5024b8;
+    color: #fffdf9;
+    font-weight: 750;
+    text-align: center;
+    cursor: pointer;
+}
+
+.people-demo-preview img {
+    position: absolute;
+    top: .6rem;
+    left: .6rem;
+    width: clamp(1.75rem, 4vw, 2.65rem);
+    height: auto;
+}
+
+.people-demo-play {
+    display: grid;
+    width: 3.6rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--people-yellow);
+    color: #201932;
+}
+
+.people-demo-preview:hover .people-demo-play {
+    background: var(--people-mint);
+}
+
+.people-demo-media figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .35rem 1rem;
+    padding-top: .7rem;
+    color: var(--people-muted);
+    font-size: .85rem;
+    line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+    .people-project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .people-project-grid article:nth-child(2) {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .people-split,
+    .people-contact-hero,
+    .people-about-hero,
+    .people-practice ol,
+    .people-demo-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .people-about-hero {
+        grid-template-areas: "intro" "portrait" "bio";
+        row-gap: 1.5rem;
+    }
+
+    .people-about-bio .people-lead {
+        margin-top: 0;
+    }
+
+    .people-founder {
+        width: min(100%, 25rem);
+        margin-inline: 0 auto;
+    }
+
+    .people-reference-entry {
+        grid-template-columns: 2.9rem minmax(0, 1fr);
+        gap: .45rem .85rem;
+    }
+
+    .people-reference-entry > p {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 460px) {
+    .people-project-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .people-timeline li {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

@@ -634,143 +634,181 @@ const topicDetailsEn = [
 const deOverrides = {
     "ai-genai-training": {
         title: "KI- und GenAI-Training",
+        category: "Künstliche Intelligenz",
         summary: "Praxisnahes KI-Training für Teams, Bildungsanbieter und Organisationen, die generative KI verstehen, verantwortungsvoll nutzen und in sinnvolle Arbeitsabläufe übersetzen wollen.",
         audience: "Unternehmen, Hochschulen, Akademien, öffentliche Organisationen, Bildungsanbieter und gemischte Lerngruppen.",
         format: "Remote-Live-Workshop, Vorlesungsreihe, Trainingstag, mehrtägiger Kurs oder internes Programm.",
+        duration: "90 Minuten bis zu mehrwöchigen Kursen, je nach Zielgruppe und gewünschter Tiefe.",
         promise: "Teilnehmende verstehen moderne KI realistisch: Möglichkeiten, Grenzen, Qualitätsprüfung, Datenschutz, Verantwortlichkeit und konkrete Anwendung im Alltag.",
     },
     "ai-literacy-for-teams": {
         title: "KI-Kompetenz für Teams",
+        category: "Künstliche Intelligenz",
         summary: "Grundlagentraining für nichttechnische und gemischte Teams, die KI-Begriffe sicher einordnen, Risiken erkennen und gemeinsame Nutzungsregeln entwickeln wollen.",
         audience: "Fach- und Führungsteams, Verwaltung, Bildung, Projektgruppen und Organisationen mit unterschiedlichen technischen Vorkenntnissen.",
         format: "Interaktiver Workshop, internes Enablement-Modul, halber oder ganzer Trainingstag.",
+        duration: "Ein halber Tag bis zwei Tage, mit optionalen Folgeterminen.",
         promise: "Das Team gewinnt eine gemeinsame Sprache, kann Ergebnisse realistischer bewerten und trifft im Arbeitsalltag nachvollziehbare Entscheidungen über den KI-Einsatz.",
     },
     "prompt-engineering-agentic-workflows": {
         title: "Prompt Engineering und agentische Workflows",
+        category: "Künstliche Intelligenz",
         summary: "Training für strukturierte Prompts, nachvollziehbare Workflow-Zerlegung und beaufsichtigte agentische Arbeitsmuster in realen Geschäftsprozessen.",
         audience: "Fach- und Projektteams, Wissensarbeitende, Trainerinnen, Content-Teams und Organisationen mit konkreten KI-Anwendungsfällen.",
         format: "Praxisworkshop, Workflow-Lab, Trainingstag oder mehrteilige Anwendungswerkstatt.",
+        duration: "Ein bis drei Tage oder ein längeres Programm mit Entwicklung eigener Arbeitsabläufe.",
         promise: "Teilnehmende entwickeln wiederholbare Arbeitsabläufe mit klaren Eingaben, Prüfpunkten, Qualitätskriterien und menschlicher Verantwortung.",
     },
     "ai-governance-responsible-ai": {
         title: "KI-Governance und verantwortungsvolle KI",
+        category: "Governance",
         summary: "Training und Beratung für Organisationen, die Verantwortlichkeiten, Risikoprüfung, Dokumentation und menschliche Aufsicht praxistauglich organisieren wollen.",
         audience: "Führungskräfte, Projekt- und Compliance-Teams, Bildungsträger, öffentliche Organisationen und Verantwortliche für KI-Einführung.",
         format: "Executive Briefing, Governance-Workshop, Policy-Sprint, Trainingsmodul oder KI-Risiko-Review.",
+        duration: "90 Minuten bis zwei Tage, mit optionaler Nachbesprechung.",
         promise: "Governance wird in konkrete Routinen übersetzt: Was braucht eine Regel, was eine Prüfung, was Dokumentation und was sollte nicht automatisiert werden?",
     },
     "software-development-retraining-java-python-csharp-kotlin": {
         title: "Softwareentwicklung, APIs & Umschulung",
+        category: "Softwareentwicklung",
         summary: "Softwareentwicklungs-Training rund um Java, Python, C#, Kotlin, APIs und angewandte Programmierung, besonders für Umschulung, Ausbildung und Junior-Developer-Pfade.",
         audience: "Fachinformatiker-Kohorten, Umschulungen zum Software Developer, Bootcamps, Coding Schools, Junior Developer und Bildungsanbieter.",
         format: "Mehrwöchige Kursdurchführung, Lab-Training, Projektworkshop, Prüfungsvorbereitung oder modulare Remote-Lehre.",
+        duration: "Zwei Tage bis zu mehrwöchigen Kursen oder vollständigen Modulen.",
         promise: "Lernende bauen echte Programmierkompetenz auf: erklären, üben, debuggen, strukturieren, testen und in berufliche Aufgaben übertragen.",
     },
     "fachinformatiker-ihk-training-retraining": {
         title: "Fachinformatiker Ausbildung & Umschulung",
+        category: "IT-Berufsbildung",
         summary: "Training für die Fachinformatiker-Ausbildung, Umschulung, Teilqualifikation, Fortbildung und Weiterbildung entlang IHK-naher Lernfelder: Software, Systeme, Netzwerke, Datenbanken, Security, Geschäftsprozesse und IT-Projektarbeit.",
         audience: "DACH-Bildungsanbieter, AZAV-Kontexte, Auszubildende, Umschulungskohorten, Berufsschulen, IHK-nahe Programme und Anbieter mit Remote-Bedarf.",
         format: "Remote-Kursdurchführung, Teilqualifikation, Prüfungsvorbereitung, Projektcoaching, Modulunterricht oder laufende Lernbegleitung.",
+        duration: "Einzelne Module, mehrwöchige Blöcke oder längere Kursdurchführung.",
         promise: "Der Fokus liegt auf wirksamer Erwachsenenbildung: technische Themen verstehen, praktisch anwenden und Prüfungserwartungen mit echter IT-Arbeit verbinden.",
     },
     "project-management-scrum-agile-classic": {
         title: "Projektmanagement, Scrum, Agile & klassisches Vorgehen",
+        category: "Projektmanagement",
         summary: "Projektmanagement-Training zu Scrum, agiler Arbeit, klassischer Planung, hybrider Lieferung, Stakeholder-Kommunikation und AI-gestützter Projektkoordination.",
         audience: "Projektteams, Auszubildende, KMU, Bildungsanbieter, PMOs, Junior-Projektmanager und digitale Delivery-Teams.",
         format: "Workshop, Trainingstag, angewandtes Projekt-Lab, Vorlesungsreihe oder Team-Coaching.",
+        duration: "Ein halber Tag bis zu mehrtägigen Trainings, mit optionaler Projektsprechstunde.",
         promise: "Teilnehmende lernen Projektarbeit als praktisches Handwerk: Struktur, Kommunikation, Entscheidungen, Risiken, Delivery-Rhythmus und Lernschleifen.",
     },
     "business-consulting-new-work": {
         title: "Unternehmensberatung, New Work & Organisationsentwicklung",
+        category: "Beratung",
         summary: "Beratung und Training zu New Work, digitaler Zusammenarbeit, AI-Adoption, Prozessdesign, Lernkultur und modernen Arbeitsweisen.",
         audience: "KMU, Startups, Bildungsanbieter, Corporate Teams, öffentliche Organisationen und Unternehmen im digitalen Wandel.",
         format: "Beratungsworkshop, Leadership Briefing, Teamtraining, Transformationssprint oder Enablement-Programm.",
+        duration: "90 Minuten bis hin zur projektbezogenen Begleitung.",
         promise: "Technologie wirkt nur, wenn Rollen, Routinen, Kommunikation und Fähigkeiten zusammen gestaltet werden. Genau diese Verbindung steht im Mittelpunkt.",
     },
     "business-informatics-digital-transformation": {
         title: "Wirtschaftsinformatik & digitale Transformation",
+        category: "Wirtschaftsinformatik",
         summary: "Training, Lehre und Consulting zu Wirtschaftsinformatik, digitalen Prozessen, Systemdenken, Daten, IT-Management und organisatorischem Wandel.",
         audience: "Hochschulen, Akademien, berufliche Weiterbildung, Bildungsanbieter, Corporate Teams und Business-IT-Lernende.",
         format: "Vorlesungsreihe, Moduldurchführung, Corporate Workshop, Fallstudien-Lab oder Transformationstraining.",
+        duration: "Ein Tag bis zu mehrwöchigen Modulen.",
         promise: "Teilnehmende verstehen digitale Transformation als Zusammenspiel von Wirtschaft, IT, Prozessen, Daten, Menschen, Systemen, Strategie und Governance.",
     },
     "python-sql-data-skills": {
         title: "Python, SQL und Datenkompetenz",
+        category: "Datenkompetenz",
         summary: "Angewandtes Programmier- und Datentraining für Automatisierung, Analyse, Reporting und den sicheren Umgang mit Datenbanken.",
         audience: "Berufliche Weiterbildung, Fachinformatiker-Kohorten, Business-Analystinnen, Einsteigerinnen und Teams mit praktischen Datenaufgaben.",
         format: "Live-Kurs, Bootcamp, Lab-Reihe, Prüfungsvorbereitung oder mehrwöchiges Trainingsmodul.",
+        duration: "Zwei Tage bis zu mehrwöchigen Kursen.",
         promise: "Lernende bearbeiten realistische Datenaufgaben, schreiben nachvollziehbaren Code und verstehen, wie Abfragen, Datenqualität und Automatisierung zusammenspielen.",
     },
     "data-analytics-data-science-engineering": {
         title: "Lernpfade für Data Analysts, Data Scientists und Data Engineers",
+        category: "Datenberufe",
         summary: "Rollenbezogene Lernpfade von Datenanalyse und Statistikgrundlagen bis zu Datenpipelines, Modellverständnis und technischer Umsetzung.",
         audience: "Data-Einsteigerinnen, Umschulungen, Hochschulen, Akademien und Teams, die Rollenprofile und Kompetenzaufbau klar strukturieren wollen.",
         format: "Kursmodul, Bootcamp-Block, Lab-Reihe, Portfolio-Projektcoaching oder Curriculum-Support.",
+        duration: "Mehrere Tage bis zu mehrwöchigen Kursen.",
         promise: "Inhalte werden am angestrebten Rollenprofil ausgerichtet, damit Werkzeuge, Methoden und Praxisaufgaben zu den späteren Verantwortlichkeiten passen.",
     },
     "cybersecurity-pentesting-ethical-hacking": {
         title: "Cybersecurity, Pentesting-Grundlagen & Ethical Hacking",
+        category: "Cybersecurity",
         summary: "Cybersecurity-Training von Awareness bis Technik: Web Security, Ethical Hacking, Pentesting-Grundlagen, SOC-Denken und sichere Arbeitsgewohnheiten.",
         audience: "IT-Lernende, Fachinformatiker-Kohorten, Umschulungsanbieter, Unternehmen, öffentliche Teams und gemischte technische Gruppen.",
         format: "Remote-Live-Training, Lab-Kurs, Zertifikatsvorbereitung, Awareness-Workshop oder technischer Modulunterricht.",
+        duration: "Ein Tag bis zu mehrwöchigen Kursen.",
         promise: "Security wird konkret: Lernende verstehen Angriffspfade, defensive Denkweise und warum sicheres Verhalten in echten Systemen zählt.",
     },
     "digital-law-gdpr-ai-act-cloud-act": {
         title: "Digitales Recht: Arbeitsrecht, Wirtschaftsrecht, Privatrecht, IT-Recht, DSGVO, AI Act & Cloud Act",
+        category: "Digitalrecht",
         summary: "Awareness-orientiertes Training zu rechtlichen und regulatorischen Themen digitaler Arbeit: DSGVO/GDPR, AI Act, Cloud Act, IT-Recht, Wirtschaftsrecht, Arbeitsrecht-Schnittstellen und Dokumentation.",
         audience: "Business Teams, Bildungsanbieter, AI-Adoption-Teams, öffentliche Organisationen, Projektteams und Nicht-Juristinnen, die praktische Orientierung brauchen.",
         format: "Awareness-Training, Executive Briefing, Projektworkshop oder compliance-nahes Lernmodul.",
+        duration: "90 Minuten bis zwei Tage, je nach Zielgruppe und fachlicher Tiefe.",
         promise: "Keine Rechtsberatung. Das Training hilft Teams zu verstehen, welche Fragen sie stellen müssen, wenn AI, Daten, Cloud und digitale Prozesse auf rechtliche Pflichten treffen.",
     },
     "office-management-ihk-business-training": {
         title: "Bürokaufleute, Office Management & IHK-nahe Business-Trainings",
+        category: "Kaufmännische Bildung",
         summary: "Training für Bürokaufleute, Kaufmann/Kauffrau für Büromanagement, Office Management und IHK-nahe Lernkontexte von Teilqualifikation über Umschulung bis Fort- und Weiterbildung.",
         audience: "Bürokaufleute, Kaufleute für Büromanagement, Office-Management-Lernende, Umschulungskohorten, kaufmännische Gruppen und Bildungsanbieter.",
         format: "Kursdurchführung, Modulunterricht, Teilqualifikation, Prüfungsvorbereitung, Digital-Skills-Workshop oder Geschäftsprozess-Training.",
+        duration: "Einzeltermine bis zu mehrwöchiger Begleitung oder vollständigen Modulen.",
         promise: "Das Training verbindet kaufmännische Grundlagen mit digitaler Kompetenz, damit Lernende sicherer mit Prozessen, Kommunikation, Daten, Dokumenten und modernen Office-Tools arbeiten.",
     },
     "curriculum-design-blended-learning": {
         title: "Curriculum-Design und Blended Learning",
+        category: "Digitale Bildung",
         summary: "Konzeption von Lernpfaden, Modulen, Übungen, Labs, Präsentationen, Lernchecks und Blended-Learning-Strukturen für professionelle Bildungsangebote.",
         audience: "Bildungsanbieter, Akademien, Hochschulen, interne Learning-&-Development-Teams und Fachverantwortliche mit neuen Trainingsprogrammen.",
         format: "Curriculum-Sprint, Konzeptworkshop, Materialentwicklung, Qualitätsprüfung oder begleitete Programmarchitektur.",
+        duration: "Ein Tag bis hin zur projektbezogenen Begleitung.",
         promise: "Aus Lernzielen entsteht eine belastbare Struktur mit passenden Aktivitäten, Materialien, Prüfungen und Transferpunkten statt einer losen Foliensammlung.",
     },
     "coaching-keynotes-expert-talks": {
         title: "Coaching, Keynotes und Fachvorträge",
+        category: "Vorträge und Beratung",
         summary: "Buchbare Coachings, Keynotes, Gastvorträge und Fachimpulse zu IT, Cybersecurity, Softwareentwicklung, Wirtschaftsinformatik, digitaler Transformation, digitalem Recht und moderner Bildung.",
         audience: "Unternehmen, Hochschulen, Konferenzen, Akademien, Bildungsanbieter, Leadership-Teams, Projektteams und Veranstalterinnen.",
         format: "Keynote, Expert Talk, Gastvortrag, Leadership Briefing, Coaching Session, Panel Input oder individuelles Advisory-Format.",
+        duration: "30 Minuten bis zu einem ganzen Tag. Die Vorbereitung richtet sich nach Zielgruppe, Branche und Lernziel.",
         promise: "Komplexe Themen werden klar, greifbar und handlungsorientiert: Was ist relevant, wo liegen Risiken und welche nächsten Schritte sind sinnvoll?",
     },
     "cloud-devops-systems-foundations": {
         title: "Cloud, DevOps & Systemgrundlagen",
+        category: "Systeme und Cloud",
         summary: "Training zu praktischen Systemgrundlagen, Cloud-Konzepten, Docker, Kubernetes, Linux/Ubuntu und operativem Denken für moderne Software- und Datensysteme.",
         audience: "Fachinformatiker-Kohorten, Junior Developer, Data-Lernende, Bootcamps, IT-Umschulungsanbieter und Business-IT-Teams.",
         format: "Remote-Live-Modul, System-Lab, Bootcamp-Block, Prüfungsvorbereitung oder projektorientierter technischer Workshop.",
+        duration: "Ein Tag bis zu mehrwöchigen Modulen.",
         promise: "Lernende verstehen, wie moderne Anwendungen betrieben, ausgeliefert und verbunden werden, ohne dass Infrastruktur abstrakt bleibt.",
     },
     "creative-web-digital-media-tools": {
         title: "Web-, Kreativ- und Digital-Media-Tools",
+        category: "Digitale Werkzeuge",
         summary: "Training und Lernsupport für Web-, Content- und Kreativtools wie WordPress, Elementor, UI/UX-Grundlagen und Adobe-nahe Medienworkflows.",
         audience: "Bildungsanbieter, Office- und Business-Lernende, Marketingteams, Gründerinnen, Content-Teams und berufliche Bildung.",
         format: "Tool-Workshop, Kursmodul, projektbasiertes Lab, Website-/Content-Sprint oder Blended-Digital-Skills-Training.",
+        duration: "Ein halber Tag bis zu mehrtägigen Trainings, mit optionaler Projektbegleitung.",
         promise: "Der Fokus liegt auf professionellem Arbeiten: digitale Assets erstellen, bearbeiten, veröffentlichen, prüfen und sauber übergeben.",
     },
     "languages-communication-presentation": {
         title: "Sprachen, Kommunikation & Präsentation",
+        category: "Kommunikation",
         summary: "Training zu technischer Erklärung, akademischem Schreiben, Business-Kommunikation, Präsentation, Public Speaking und mehrsprachiger Durchführung auf Deutsch und Englisch.",
         audience: "Lernende, Trainerinnen, technische Teams, Bildungsanbieter, Business-Gruppen und internationale Teams.",
         format: "Kommunikationsworkshop, Präsentationscoaching, Schreibsupport, Technical-Explanation-Lab oder kursintegriertes Kommunikationsmodul.",
+        duration: "90 Minuten bis zu einer Begleitung über mehrere Termine.",
         promise: "Teilnehmende lernen, komplexe Themen klarer zu erklären, strukturierter zu schreiben und technische oder geschäftliche Inhalte sicherer zu präsentieren.",
     },
 };
 
-function buildGermanDetail(topic) {
+function buildGermanDetail(title) {
     return {
         modules: [
-            `${topic.title}: Grundlagen, zentrale Begriffe, typische Einsatzfelder und klare Abgrenzung zwischen Einsteiger-, Praxis- und Vertiefungsniveau.`,
+            `${title}: Grundlagen, zentrale Begriffe, typische Einsatzfelder und klare Abgrenzung zwischen Einsteiger-, Praxis- und Vertiefungsniveau.`,
             "Praxisübertragung: realistische Aufgaben, Fallbeispiele, Übungen, Review-Schleifen und Transfer in Arbeits-, Ausbildungs- oder Umschulungskontexte.",
             "Qualität und Verantwortung: Dokumentation, Datenschutzbewusstsein, Risikodenken, Feedback, Fehlerbilder und nachvollziehbare Entscheidungen.",
             "Didaktische Struktur: kurze Theorieimpulse, aktivierende Übungen, Wiederholung, Lernchecks, Gruppenarbeit und individuelle Klärung offener Fragen.",
@@ -793,11 +831,10 @@ function buildGermanDetail(topic) {
     };
 }
 
-const topicDetailsDe = topicDetailsEn.map((topic) => ({
-    ...topic,
-    ...buildGermanDetail(topic),
-    ...(deOverrides[topic.slug] || {}),
-}));
+const topicDetailsDe = topicDetailsEn.map((topic) => {
+    const localized = {...topic, ...deOverrides[topic.slug]};
+    return {...localized, ...buildGermanDetail(localized.title)};
+});
 
 function normalize(value) {
     return value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9#+]+/g, " ").trim();

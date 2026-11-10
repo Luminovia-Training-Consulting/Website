@@ -53,7 +53,7 @@ export default function TermsPage() {
         };
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="legal-page px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
                 <Badge tone="cyan">{copy.badge}</Badge>
                 <div className="mt-6 max-w-5xl">
@@ -66,7 +66,7 @@ export default function TermsPage() {
                         <h2 className="text-3xl font-black text-white">{copy.termsTitle}</h2>
                         <div className="mt-6 grid gap-3">
                             {terms[language].map((term) => (
-                                <p key={term} className="rounded-[1.15rem] border border-white/10 bg-white/[0.055] p-4 text-sm leading-7 text-slate-300">
+                                <p key={term} className="rounded-[1.15rem] border legal-inset p-4 text-sm leading-7 text-slate-300">
                                     {term}
                                 </p>
                             ))}
@@ -78,11 +78,11 @@ export default function TermsPage() {
                             <h2 className="text-3xl font-black text-white">{copy.bankTitle}</h2>
                             <div className="mt-6 grid gap-4">
                                 {bankAccounts[language].map((bank) => (
-                                    <div key={bank.title} className="rounded-[1.35rem] border border-sky-100/16 bg-[#071225]/72 p-4">
+                                    <div key={bank.title} className="rounded-[1.35rem] border legal-inset p-4">
                                         <h3 className="text-xl font-black text-white">{bank.title}</h3>
                                         <div className="mt-4 grid gap-2">
                                             {bank.rows.map(([label, value]) => (
-                                                <div key={label} className="grid gap-1 rounded-2xl border border-white/10 bg-white/[0.055] px-4 py-3">
+                                                <div key={label} className="grid gap-1 rounded-2xl border legal-inset px-4 py-3">
                                                     <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{label}</div>
                                                     <div className="font-bold text-white">{value}</div>
                                                 </div>

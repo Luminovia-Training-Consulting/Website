@@ -36,7 +36,7 @@ export default function ImprintPage() {
         };
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <main className="legal-page px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-4xl">
                 <Badge>{copy.badge}</Badge>
                 <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>

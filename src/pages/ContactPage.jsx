@@ -1,184 +1,121 @@
-import {useEffect, useRef, useState} from "react";
+import {ArrowUpRight, Mail, Phone} from "lucide-react";
+import {Container} from "../components/LuminoviaDesign.jsx";
 import {PROFILE} from "../data/profile.js";
 import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
-import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
-import SectionJumpNav from "../components/SectionJumpNav.jsx";
-import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
+import "../styles/people.css";
 
-function cleanPhone(value) {
-    return value.replace(/[^\d+]/g, "");
-}
+const copy = {
+    en: {
+        label: "Contact",
+        title: "Contact Luminovia about your next project.",
+        intro: "Planning a workshop, a course or a technology project? Tell us what your team is working on and where you’d like support.",
+        email: "Write an email",
+        emailSubject: "Training or consulting enquiry",
+        call: "Request an introductory call",
+        callButton: "Suggest times by email",
+        callSubject: "Introductory call with Luminovia",
+        callText: "Share a little about your project, your time zone and when you’re available. We’ll arrange a time by email.",
+        callTemplate: ["Hello Luminovia,", "", "I’d like to arrange an introductory call.", "", "What we’re working on:", "Time zone and availability:", "", "Kind regards,"],
+        contact: "Contact details",
+        business: "Email Luminovia",
+        alternate: "Email Carina",
+        australia: "Phone · Australia",
+        germany: "Phone · Germany",
+        brief: "What to include",
+        briefItems: ["Your topic and what you’d like to achieve", "Who will take part and what they already know", "Timing, preferred language and time zone"],
+        faq: "Common questions",
+    },
+    de: {
+        label: "Kontakt",
+        title: "Was möchten Sie mit Ihrem Team angehen?",
+        intro: "Sie planen einen Workshop, einen Kurs oder ein Technologieprojekt? Schreiben Sie uns, woran Ihr Team arbeitet und wo Sie Unterstützung suchen.",
+        email: "E-Mail schreiben",
+        emailSubject: "Anfrage zu Training oder Beratung",
+        call: "Erstgespräch anfragen",
+        callButton: "Termin per E-Mail anfragen",
+        callSubject: "Erstgespräch mit Luminovia",
+        callText: "Schildern Sie kurz Ihr Vorhaben und nennen Sie uns Ihre Zeitzone und mögliche Termine. Wir stimmen den Termin per E-Mail mit Ihnen ab.",
+        callTemplate: ["Hallo Luminovia,", "", "ich würde gern ein Erstgespräch vereinbaren.", "", "Unser Vorhaben:", "Zeitzone und mögliche Termine:", "", "Viele Grüße"],
+        contact: "Kontaktdaten",
+        business: "E-Mail an Luminovia",
+        alternate: "E-Mail an Carina",
+        australia: "Telefon · Australien",
+        germany: "Telefon · Deutschland",
+        brief: "Was uns bei der Anfrage hilft",
+        briefItems: ["Ihr Thema und das gewünschte Ergebnis", "Zielgruppe und Vorkenntnisse", "Zeitraum, gewünschte Sprache und Zeitzone"],
+        faq: "Häufige Fragen",
+    },
+};
 
-function CalendarEmbed({src, title, loadingLabel}) {
-    const frameHostRef = useRef(null);
-    const [shouldLoad, setShouldLoad] = useState(false);
-
-    useEffect(() => {
-        if (shouldLoad || !frameHostRef.current) return undefined;
-        if (!("IntersectionObserver" in window)) {
-            const fallbackTimer = window.setTimeout(() => setShouldLoad(true), 0);
-            return () => window.clearTimeout(fallbackTimer);
-        }
-
-        const observer = new IntersectionObserver(([entry]) => {
-            if (!entry.isIntersecting) return;
-            setShouldLoad(true);
-            observer.disconnect();
-        }, {rootMargin: "0px 0px 120px"});
-
-        observer.observe(frameHostRef.current);
-        return () => observer.disconnect();
-    }, [shouldLoad]);
-
-    return (
-        <div ref={frameHostRef} className="booking-embed-frame mt-5 min-h-[600px] rounded-[1.5rem] border border-white/10 bg-white p-0 sm:p-0">
-            {shouldLoad ? (
-                <iframe
-                    src={src}
-                    title={title}
-                    style={{border: 0}}
-                    width="100%"
-                    height="600"
-                    frameBorder="0"
-                    loading="lazy"
-                />
-            ) : (
-                <div className="grid min-h-[600px] place-items-center p-6 text-center" role="status">
-                    <div>
-                        <div className="mx-auto h-8 w-8 rounded-full border-4 border-sky-100/25 border-t-sky-500" aria-hidden="true"/>
-                        <p className="mt-4 text-sm font-bold text-slate-700">{loadingLabel}</p>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
+function telephoneHref(value) {
+    return `tel:${value.replace(/[^\d+]/g, "")}`;
 }
 
 export default function ContactPage() {
-    const {language, t} = useLanguage();
+    const {language} = useLanguage();
     const {faqs} = useSiteContent();
-    const subject = encodeURIComponent(language === "de" ? "Training- oder Consulting-Anfrage an Luminovia" : "Training or consulting request for Luminovia");
-    const jumpLabel = language === "de" ? "Auf dieser Seite" : "On this page";
-    const jumpItems = language === "de"
-        ? [["#contact-options", "Kontaktwege"], ["#appointment", "Termin"], ["#contact-faq", "FAQ"]]
-        : [["#contact-options", "Contact"], ["#appointment", "Appointment"], ["#contact-faq", "FAQ"]];
+    const c = copy[language];
+    const emailHref = `mailto:${PROFILE.email}?subject=${encodeURIComponent(c.emailSubject)}`;
+    const callHref = `mailto:${PROFILE.email}?subject=${encodeURIComponent(c.callSubject)}&body=${encodeURIComponent(c.callTemplate.join("\r\n"))}`;
     const contacts = [
-        {
-            label: language === "de" ? "Luminovia E-Mail" : "Luminovia email",
-            value: PROFILE.email,
-            href: `mailto:${PROFILE.email}?subject=${subject}`,
-            copy: language === "de" ? "Für Training, Beratung und Projektanfragen" : "For training, consulting and project requests",
-        },
-        {
-            label: language === "de" ? "Direkt an Carina" : "Direct to Carina",
-            value: "info@carinaschoppe.com",
-            href: `mailto:info@carinaschoppe.com?subject=${subject}`,
-            copy: language === "de" ? "Alternative E-Mail für persönliche Abstimmung" : "Alternative email for direct coordination",
-        },
-        {
-            label: language === "de" ? "Telefon Australien" : "Australia phone",
-            value: PROFILE.phoneAustralia,
-            href: `tel:${cleanPhone(PROFILE.phoneAustralia)}`,
-            copy: language === "de" ? "Anruf oder mobile Kontaktaufnahme" : "Call or mobile contact",
-        },
-        {
-            label: language === "de" ? "Telefon Deutschland" : "Germany phone",
-            value: PROFILE.phoneGermany,
-            href: `tel:${cleanPhone(PROFILE.phoneGermany)}`,
-            copy: language === "de" ? "DACH-Kontakt für deutsche Kunden" : "DACH contact for German-speaking clients",
-        },
+        {label: c.business, value: PROFILE.email, href: emailHref, Icon: Mail},
+        {label: c.alternate, value: "info@carinaschoppe.com", href: "mailto:info@carinaschoppe.com", Icon: Mail},
+        {label: c.australia, value: PROFILE.phoneAustralia, href: telephoneHref(PROFILE.phoneAustralia), Icon: Phone},
+        {label: c.germany, value: PROFILE.phoneGermany, href: telephoneHref(PROFILE.phoneGermany), Icon: Phone},
     ];
 
     return (
-        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
-            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
-                <PageHero
-                    label={t.contact.badge}
-                    title={t.contact.title}
-                    copy={t.contact.copy}
-                    actions={<><Button href={`mailto:${PROFILE.email}?subject=${subject}`} variant="secondary">{t.contact.emailButton}</Button><Button to="/contact#appointment">{t.contact.calendarFallback}</Button></>}
-                    visual={<TrustRail items={[
-                        {icon: "@", title: language === "de" ? "E-Mail" : "Email", copy: PROFILE.email},
-                        {icon: "CS", title: language === "de" ? "Carina direkt" : "Carina direct", copy: "info@carinaschoppe.com"},
-                        {icon: "AU", title: language === "de" ? "Telefon Australien" : "Australia phone", copy: PROFILE.phoneAustralia},
-                        {icon: "DE", title: language === "de" ? "Telefon Deutschland" : "Germany phone", copy: PROFILE.phoneGermany},
-                    ]}/>}
-                />
-            </div>
-            <div className="mx-auto max-w-7xl">
-                <SectionJumpNav label={jumpLabel} items={jumpItems} className="mb-8 mt-8"/>
-                <div className="deferred-render grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <main className="lumo-subpage people-page">
+            <Container>
+                <section className="people-contact-hero" aria-labelledby="contact-heading">
                     <div>
-                        <div className="mt-8 rounded-[1.75rem] border border-sky-100/14 bg-[#071225]/72 p-5 shadow-[0_16px_60px_rgba(0,0,0,.2)]">
-                            <h2 className="text-xl font-black text-white">{t.contact.briefTitle}</h2>
-                            <p className="mt-2 text-sm leading-7 text-slate-300">{t.contact.briefCopy}</p>
-                            <div className="mt-4 grid gap-2">
-                                {t.contact.briefItems.map((item) => (
-                                    <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.055] px-3 py-2 text-sm font-bold text-slate-200">
-                                        <span className="text-sky-200">+</span>
-                                        <span>{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="block rounded-3xl border border-white/10 bg-white/[0.07] p-4 transition hover:border-sky-200/30 hover:bg-white/[0.11] focus:outline-none focus:ring-2 focus:ring-sky-200/70">
-                                <div className="text-xs uppercase tracking-[0.18em] text-slate-500">LinkedIn</div>
-                                <div className="mt-1 font-bold text-white">linkedin.com/in/carinaschoppe</div>
-                            </a>
-                            <a href={PROFILE.github} target="_blank" rel="noreferrer" className="block rounded-3xl border border-white/10 bg-white/[0.07] p-4 transition hover:border-sky-200/30 hover:bg-white/[0.11] focus:outline-none focus:ring-2 focus:ring-sky-200/70">
-                                <div className="text-xs uppercase tracking-[0.18em] text-slate-500">GitHub</div>
-                                <div className="mt-1 font-bold text-white">github.com/Luminovia-Training-Consulting</div>
-                            </a>
-                        </div>
+                        <p className="lumo-section-label">{c.label}</p>
+                        <h1 id="contact-heading" className="people-display">{c.title}</h1>
+                        <p className="people-lead">{c.intro}</p>
+                        <a className="people-action" href={emailHref}>{c.email} <ArrowUpRight aria-hidden="true"/></a>
                     </div>
+                    <div id="appointment" className="people-contact-call">
+                        <Mail aria-hidden="true" size={35} strokeWidth={1.5}/>
+                        <h2>{c.call}</h2>
+                        <p>{c.callText}</p>
+                        <a className="people-action" href={callHref}>{c.callButton} <ArrowUpRight aria-hidden="true"/></a>
+                    </div>
+                </section>
 
-                    <div className="grid gap-5">
-                        <Card className="scroll-mt-32" id="contact-options">
-                            <h2 className="text-3xl font-black text-white">{t.contact.fallbackTitle}</h2>
-                            <p className="mt-3 text-sm leading-7 text-slate-300">{t.contact.fallbackCopy}</p>
-                            <div className="mt-6 grid gap-4">
-                                {contacts.map((item) => (
-                                    <a
-                                        key={item.label}
-                                        href={item.href}
-                                        className="group rounded-[1.35rem] border border-white/12 bg-white/[0.075] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.08),0_16px_50px_rgba(0,0,0,.18)] transition hover:-translate-y-1 hover:border-sky-200/35 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-sky-200/70"
-                                    >
-                                        <div className="text-xs font-black uppercase tracking-[0.16em] text-sky-100">{item.label}</div>
-                                        <div className="mt-2 text-xl font-black text-white">{item.value}</div>
-                                        <p className="mt-2 text-sm leading-6 text-slate-300">{item.copy}</p>
+                <section id="contact-options" className="people-split people-section" aria-labelledby="contact-methods">
+                    <div>
+                        <h2 id="contact-methods">{c.contact}</h2>
+                        <ul className="people-contact-list">
+                            {contacts.map(({label, value, href, Icon}) => (
+                                <li key={label}>
+                                    <a href={href}>
+                                        <Icon aria-hidden="true" size={21}/>
+                                        <span><small>{label}</small><strong>{value}</strong></span>
+                                        <ArrowUpRight aria-hidden="true" size={19}/>
                                     </a>
-                                ))}
-                            </div>
-                        </Card>
-
-                        <section id="appointment" className="booking-embed-panel glass-sheen scroll-mt-32 rounded-[2.15rem] border border-white/13 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,.16),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.055)_48%,rgba(255,255,255,.035))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,.1),0_26px_96px_rgba(0,0,0,.28)] backdrop-blur-2xl sm:p-6">
-                            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                                <div>
-                                    <h2 className="text-2xl font-black text-white">{t.contact.appointmentTitle}</h2>
-                                    <p className="mt-2 text-sm leading-7 text-slate-300">{t.contact.appointmentCopy}</p>
-                                </div>
-                                <Button href={PROFILE.appointmentSchedule}>{t.contact.appointment}</Button>
-                            </div>
-                            <CalendarEmbed
-                                src={PROFILE.appointmentSchedule}
-                                title={t.contact.calendarTitle}
-                                loadingLabel={language === "de" ? "Terminkalender wird geladen" : "Loading appointment calendar"}
-                            />
-                        </section>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </div>
-                <div id="contact-faq" className="deferred-render mt-16 grid scroll-mt-36 gap-4 lg:grid-cols-4">
-                    {faqs.map((item) => (
-                        <Card key={item.q}>
-                            <h3 className="text-lg font-black text-white">{item.q}</h3>
-                            <p className="mt-3 text-sm leading-7 text-slate-300">{item.a}</p>
-                        </Card>
-                    ))}
-                </div>
-            </div>
+                    <aside className="people-contact-brief" aria-labelledby="brief-heading">
+                        <h2 id="brief-heading">{c.brief}</h2>
+                        <ul>{c.briefItems.map((item) => <li key={item}>{item}</li>)}</ul>
+                    </aside>
+                </section>
+
+                <section id="contact-faq" className="people-faq people-section" aria-labelledby="contact-faq-heading">
+                    <h2 id="contact-faq-heading">{c.faq}</h2>
+                    <div>
+                        {faqs.map((item) => (
+                            <details key={item.q}>
+                                <summary>{item.q}</summary>
+                                <p>{item.a}</p>
+                            </details>
+                        ))}
+                    </div>
+                </section>
+            </Container>
         </main>
     );
 }

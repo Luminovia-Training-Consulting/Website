@@ -36,7 +36,7 @@ export default class AppErrorBoundary extends Component {
             };
 
         return (
-            <main className="mx-auto flex min-h-[70vh] w-full max-w-4xl items-center px-4 py-24 sm:px-6 lg:px-8">
+            <main className="error-page mx-auto flex min-h-[70vh] w-full max-w-4xl items-center px-4 py-24 sm:px-6 lg:px-8">
                 <section className="glass-panel w-full rounded-[2rem] p-8 sm:p-10">
                     <p className="text-xs font-black uppercase tracking-[0.22em] text-sky-200">
                         {copy.badge}

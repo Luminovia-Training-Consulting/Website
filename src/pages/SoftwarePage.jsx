@@ -1,78 +1,74 @@
+import {ArrowDown, ArrowRight, ArrowUpRight} from "lucide-react";
+import {Link} from "react-router-dom";
 import SoftwareProjectsSection from "../components/SoftwareProjectsSection.jsx";
-import Badge from "../components/Badge.jsx";
-import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
-import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
+import {Container} from "../components/LuminoviaDesign.jsx";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
+import "../styles/people.css";
+
+const copy = {
+    en: {
+        label: "Projects",
+        title: "From a problem to working software.",
+        intro: "Selected projects from Carina’s development and research work, from a Python pipeline for literature reviews to Kotlin plugins and apps. This work informs the examples and exercises Luminovia uses in training and consulting.",
+        index: "See the projects",
+        github: "Luminovia on GitHub",
+        types: "Where we can help on your project",
+        typesCopy: "Luminovia can help you scope a project, choose an approach and turn the work into something your team can use. Here are examples of what that can involve.",
+        consulting: "Explore consulting",
+    },
+    de: {
+        label: "Projekte",
+        title: "Von der Aufgabe zur funktionierenden Software.",
+        intro: "Ausgewählte Arbeiten aus Carinas Entwicklung und Forschung, von einer Python-Pipeline für Literaturreviews bis zu Kotlin-Plugins und Apps. Daraus entstehen Beispiele und Übungen für Training und Beratung.",
+        index: "Projekte ansehen",
+        github: "Luminovia auf GitHub",
+        types: "Wobei wir Sie im Projekt unterstützen",
+        typesCopy: "Wir helfen Ihnen, ein Vorhaben einzugrenzen, einen passenden Ansatz zu wählen und Ergebnisse zu erarbeiten, mit denen Ihr Team weiterarbeiten kann.",
+        consulting: "Beratung ansehen",
+    },
+};
 
 export default function SoftwarePage() {
     const {language} = useLanguage();
     const {projectTypes} = businessOfferingsForLanguage(language);
-    const copy = language === "de"
-        ? {
-            badge: "Projektportfolio",
-            title: "Projekte als praktische Grundlage für Training und Beratung.",
-            intro: "Ausgewählte Projektarbeit schafft den Praxisbezug für Trainings und Beratung: darunter Python-Automatisierung, KI-gestützte Rechercheabläufe, Datenbereinigung, Kotlin-Erweiterungen, mobile Anwendungen und digitale Arbeitsprozesse.",
-            github: "GitHub-Profil öffnen",
-            skills: "Consulting ansehen",
-            typesTitle: "Was diese Projekte für Kunden bedeuten können",
-            typesCopy: "Die Projektseite zeigt keine Produktpalette, sondern technische Erfahrung aus realen Entwicklungs- und Forschungskontexten. Sie macht sichtbar, welche Aufgaben Luminovia in Training, Beratung und Projektbegleitung fachlich einordnen kann.",
-            examplesLabel: "Mögliche Artefakte",
-        }
-        : {
-            badge: "Project portfolio",
-            title: "Projects that make Luminovia training and consulting practical.",
-            intro: "This portfolio highlights selected project work that gives Luminovia's training, consulting and implementation support practical depth: Python automation, AI-supported research workflows, data cleanup, Kotlin plugins, mobile apps, game systems and digital workflows.",
-            github: "Open GitHub profile",
-            skills: "View consulting",
-            typesTitle: "What these projects can mean for clients",
-            typesCopy: "The project page is not a software shop with off-the-shelf products. It shows the kinds of work Luminovia can structure, explain or accompany in training, consulting and project support.",
-            examplesLabel: "Possible artefacts",
-        };
+    const c = copy[language];
+
     return (
-        <main className="lumo-subpage pb-24 pt-24">
-            <div className="-mt-24">
-                <PageHero
-                    label={copy.badge}
-                    title={copy.title}
-                    copy={copy.intro}
-                    actions={<><Button href={PROFILE.github}>{copy.github}</Button><Button to="/consulting" variant="secondary">{copy.skills}</Button></>}
-                    visual={<TrustRail items={[
-                        {icon: "PY", title: language === "de" ? "Python-Automation" : "Python automation", copy: language === "de" ? "Research-Workflows und Datenbereinigung" : "Research workflows and data cleanup"},
-                        {icon: "AI", title: language === "de" ? "AI-Research-Tools" : "AI research tooling", copy: language === "de" ? "Praxisnahe Systeme hinter Trainingsbeispielen" : "Applied systems behind training examples"},
-                        {icon: "APP", title: language === "de" ? "Softwarepraxis" : "Software practice", copy: language === "de" ? "Mobile, Plugins und digitale Workflows" : "Mobile, plugins and digital workflows"},
-                        {icon: "OPS", title: language === "de" ? "Umsetzungsbezug" : "Implementation context", copy: language === "de" ? "Projektlogik für Consulting und Training" : "Project logic for consulting and training"},
-                    ]}/>}
-                />
-            </div>
-            <section className="px-4 py-14 sm:px-6 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                            <Badge tone="cyan">{language === "de" ? "Projektarten" : "Project types"}</Badge>
-                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.typesTitle}</h2>
-                        </div>
-                        <p className="text-lg leading-8 text-slate-300">{copy.typesCopy}</p>
+        <main className="lumo-subpage people-page">
+            <Container>
+                <section className="people-simple-hero people-project-hero" aria-labelledby="projects-heading">
+                    <p className="lumo-section-label">{c.label}</p>
+                    <h1 id="projects-heading" className="people-display">{c.title}</h1>
+                    <p className="people-lead">{c.intro}</p>
+                    <div className="people-inline-links">
+                        <a href="#selected-projects">{c.index} <ArrowDown aria-hidden="true"/></a>
+                        <a href={PROFILE.github} target="_blank" rel="noreferrer">{c.github} <ArrowUpRight aria-hidden="true"/></a>
                     </div>
-                    <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
-                        {projectTypes.map((project) => (
-                            <Card key={project.title}>
-                                <h3 className="text-xl font-black text-white">{project.title}</h3>
-                                <p className="mt-4 text-sm leading-7 text-slate-300">{project.description}</p>
-                                <div className="mt-5 text-xs font-black uppercase tracking-[0.16em] text-sky-100">{copy.examplesLabel}</div>
-                                <div className="mt-3 grid gap-2">
-                                    {project.examples.map((example) => (
-                                        <span key={example} className="rounded-2xl border border-white/10 bg-white/[0.055] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-slate-200">{example}</span>
-                                    ))}
-                                </div>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                </section>
+            </Container>
+
             <SoftwareProjectsSection/>
+
+            <Container>
+                <section className="people-section people-split people-project-types" aria-labelledby="project-types-heading">
+                    <div>
+                        <h2 id="project-types-heading">{c.types}</h2>
+                        <p>{c.typesCopy}</p>
+                        <Link className="people-text-link" to="/consulting">{c.consulting} <ArrowRight aria-hidden="true"/></Link>
+                    </div>
+                    <dl>
+                        {projectTypes.map((project) => (
+                            <div key={project.title}>
+                                <dt>{project.title}</dt>
+                                <dd>{project.description}</dd>
+                                <dd><ul className="people-tags">{project.examples.map((example) => <li key={example}>{example}</li>)}</ul></dd>
+                            </div>
+                        ))}
+                    </dl>
+                </section>
+            </Container>
         </main>
     );
 }

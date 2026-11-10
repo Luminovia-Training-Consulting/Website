@@ -4,12 +4,13 @@ import ClientProofSection from "./ClientProofSection.jsx";
 import {renderWithProviders} from "../test/test-utils.jsx";
 
 describe("ClientProofSection", () => {
-    it("renders client proof and feedback as static card content", () => {
+    it("links to the organisation and describes the work without attributing feedback", () => {
         renderWithProviders(<ClientProofSection compact/>);
 
         const card = screen.getByRole("link", {name: /Fast Lane \/ AI CERTs/i});
 
-        expect(card).toHaveTextContent(/Feedback theme/i);
-        expect(card).toHaveTextContent(/not attributed to an individual client/i);
+        expect(card).toHaveAttribute("href", "https://www.fastlaneus.com/ai-certs-training");
+        expect(screen.getByText(/certification-oriented AI training/i)).toBeInTheDocument();
+        expect(screen.queryByText(/Feedback theme/i)).not.toBeInTheDocument();
     });
 });

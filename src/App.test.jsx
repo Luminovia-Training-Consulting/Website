@@ -15,13 +15,13 @@ describe("App routing and language", () => {
         const user = userEvent.setup();
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT and Digital Capability for Modern Teams/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Understand technology\. Put it to work\./i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
 
         await user.click(screen.getAllByRole("button", {name: /Switch language to German/i})[0]);
 
-        expect(screen.getByRole("heading", {name: /KI-, IT- und Digitalkompetenz für moderne Teams/i})).toBeInTheDocument();
+        expect(screen.getByRole("heading", {name: /Technik verstehen\. Selbst anwenden\./i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
     });
@@ -37,19 +37,16 @@ describe("App routing and language", () => {
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
 
-    it("toggles and persists the day color scheme", async () => {
+    it("toggles and persists the night color scheme", async () => {
         const user = userEvent.setup();
-
         render(<App/>);
 
-        expect((await screen.findAllByRole("button", {name: /Switch to day scheme/i}))[0]).toBeInTheDocument();
-        expect(document.documentElement.dataset.theme).toBe("night");
-
-        await user.click(screen.getAllByRole("button", {name: /Switch to day scheme/i})[0]);
-
         expect(document.documentElement.dataset.theme).toBe("day");
-        expect(window.localStorage.getItem("luminovia_color_scheme_v1")).toBe("day");
-        expect(screen.getAllByRole("button", {name: /Switch to night scheme/i})[0]).toBeInTheDocument();
+        await user.click(screen.getByRole("button", {name: /Switch to night scheme/i}));
+
+        expect(document.documentElement.dataset.theme).toBe("night");
+        expect(window.localStorage.getItem("luminovia_color_scheme_v1")).toBe("night");
+        expect(screen.getByRole("button", {name: /Switch to day scheme/i})).toBeInTheDocument();
     });
 
     it("keeps English after the visitor explicitly selected it", async () => {
@@ -63,12 +60,12 @@ describe("App routing and language", () => {
     });
 
     it.each([
-        ["/contact", /Kontakt für Luminovia Training/i],
-        ["/about", /Digitale Expertise, klar vermittelt/i],
+        ["/contact", /Was möchten Sie mit Ihrem Team angehen/i],
+        ["/about", /Ich bin Carina/i],
         ["/offers", /Buchbare Formate für Training/i],
         ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
-        ["/portfolio", /Projekte als praktische Grundlage/i],
-        ["/clients", /Erfahrung aus Bildung, Kooperationen/i],
+        ["/portfolio", /Von der Aufgabe zur funktionierenden Software/i],
+        ["/clients", /Wo Carina gelehrt und geforscht hat/i],
         ["/pricing", /Klare Preise für Training/i],
         ["/terms", /Geschäfts- und Zahlungsbedingungen/i],
         ["/unknown-page", /Huch, hier ist nichts/i],
@@ -86,7 +83,7 @@ describe("App routing and language", () => {
         ["/training/", /Training, das digitale Arbeit besser macht/i],
         ["/offers/", /Buchbare Formate für Training/i],
         ["/consulting/", /Beratung für KI, IT und digitale Kompetenz/i],
-        ["/projects/", /Projekte als praktische Grundlage/i],
+        ["/projects/", /Von der Aufgabe zur funktionierenden Software/i],
         ["/pricing/", /Klare Preise für Training/i],
         ["/terms/", /Geschäfts- und Zahlungsbedingungen/i],
     ])("renders GitHub Pages trailing-slash route %s", async (route, heading) => {
@@ -166,30 +163,21 @@ describe("App routing and language", () => {
         expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
     });
 
-    it("renders direct contact links and the embedded appointment scheduler without a form", async () => {
-        vi.stubGlobal("IntersectionObserver", class {
-            constructor(callback) {
-                this.callback = callback;
-            }
-
-            observe() {
-                this.callback([{isIntersecting: true}]);
-            }
-
-            disconnect() {}
-        });
+    it("renders direct contact links and an email request for an introductory call", async () => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Contact", "/contact");
 
         render(<App/>);
 
         await screen.findByRole("heading", {name: /Contact Luminovia/i});
-        expect(screen.queryByRole("button", {name: /Send request/i})).not.toBeInTheDocument();
-        expect(screen.getAllByRole("link", {name: /Write an email/i})[0]).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org"));
+        expect(document.querySelector("main form, main iframe")).toBeNull();
+        expect(screen.getByRole("link", {name: "Write an email"})).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org"));
         expect(screen.getAllByRole("link", {name: /\+61 451 448 724/i})[0]).toHaveAttribute("href", "tel:+61451448724");
         expect(screen.getAllByRole("link", {name: /\+49 175 5738 757/i})[0]).toHaveAttribute("href", "tel:+491755738757");
-        expect(screen.getAllByRole("link", {name: /Book an appointment/i})[0]).toHaveAttribute("href", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
-        expect(await screen.findByTitle(/Google Calendar appointment scheduler/i)).toHaveAttribute("src", expect.stringContaining("calendar.google.com/calendar/appointments/schedules"));
+        const callSection = document.getElementById("appointment");
+        expect(callSection.querySelector("a")).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org?subject=Introductory%20call%20with%20Luminovia"));
+        expect(document.getElementById("contact-options")).toBeInTheDocument();
+        expect(document.getElementById("contact-faq")).toBeInTheDocument();
     });
 
     it("uses topic-specific German metadata on direct training routes", async () => {
@@ -241,7 +229,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /AI, IT and Digital Capability/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Understand technology/i})).toBeInTheDocument();
         await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({behavior: "auto", block: "start"}));
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
         expect(requestAnimationFrame).toHaveBeenCalled();
@@ -254,7 +242,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /KI-, IT- und Digitalkompetenz für moderne Teams/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Technik verstehen\. Selbst anwenden\./i})).toBeInTheDocument();
         expect(window.scrollTo).not.toHaveBeenCalled();
 
         const trainingLink = screen.getAllByRole("link", {name: /^Training$/})

@@ -15,7 +15,7 @@ export default function Photo({
                               }) {
     const {t} = useLanguage();
     const [failed, setFailed] = useState(false);
-    const fallbackText = fallbackCopy || t.home.photoFallback;
+    const fallbackText = fallbackCopy || t.photoFallback;
     const avifSrcSet = src.endsWith(".jpg")
         ? [480, 640, 960].map((width) => `${src.replace(/\.jpg$/, `-${width}.avif`)} ${width}w`).join(", ")
         : null;
@@ -27,7 +27,7 @@ export default function Photo({
     const decoding = priority === "high" ? "sync" : "async";
 
     return (
-        <div className={cn("relative overflow-hidden bg-gradient-to-br from-sky-200/20 via-slate-900 to-blue-300/16 shadow-[0_24px_90px_rgba(0,0,0,.24)]", className)}>
+        <div className={cn("lumo-portrait", className)}>
             {!failed ? (
                 <picture>
                     {avifSrcSet && <source srcSet={avifSrcSet} sizes={sizes} type="image/avif"/>}
@@ -44,14 +44,11 @@ export default function Photo({
                     />
                 </picture>
             ) : (
-                <div className="grid h-full min-h-[260px] place-items-center text-center">
-                    <div>
-                        <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-white text-2xl font-black text-slate-950">{fallback}</div>
-                        <p className="mt-4 max-w-xs text-sm text-slate-300">{fallbackText}</p>
-                    </div>
+                <div className="lumo-portrait-fallback">
+                    <strong>{fallback}</strong>
+                    <p>{fallbackText}</p>
                 </div>
             )}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070B16]/55 via-transparent to-white/5"/>
         </div>
     );
 }
