@@ -44,6 +44,7 @@ export default function Footer() {
                         </ul>
                         <div className="site-footer-social">
                             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={13} aria-hidden="true"/></a>
+                            <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer">carinaschoppe.com <ArrowUpRight size={13} aria-hidden="true"/></a>
                             <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} aria-hidden="true"/></a>
                         </div>
                     </div>
