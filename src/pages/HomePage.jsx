@@ -1,7 +1,7 @@
 import {ArrowDownRight, ArrowUpRight, BookOpen, Compass, Layers3} from "lucide-react";
 import {Link} from "react-router-dom";
 import Button from "../components/Button.jsx";
-import HomePractice from "../components/HomePractice.jsx";
+import HomePracticeExamples from "../components/HomePracticeExamples.jsx";
 import {Container} from "../components/LuminoviaDesign.jsx";
 import Photo from "../components/Photo.jsx";
 import {IMAGES, PROFILE} from "../data/profile.js";
@@ -30,9 +30,9 @@ const content = {
         },
         topics: {
             label: "Ein Blick ins Training",
-            title: "Vom Support-Ticket zur Auswertung",
-            intro: "Welches Team hat die meisten offenen Tickets? Welches hat die meisten geschlossenen? Wechseln Sie den Status und sehen Sie, wie die SQL-Abfrage und das Ergebnis darauf reagieren.",
-            worksheet: "Beispielübung",
+            title: "Vier kleine Aufgaben zum Ausprobieren",
+            intro: "Werten Sie Support-Tickets mit SQL aus, berechnen Sie die Gewinnschwelle, prüfen Sie eine KI-Zusammenfassung oder wählen Sie eine passende Zugriffsrolle.",
+            worksheet: "Support-Tickets auswerten",
             output: "Ergebnis mit Beispieldaten",
             count: "Tickets",
             lesson: "Zum Training für Python, SQL und Daten",
@@ -41,6 +41,7 @@ const content = {
                 ["KI & GenAI", "Einen Arbeitsablauf auswählen und KI-Ergebnisse an fachlichen Kriterien prüfen."],
                 ["Cybersecurity", "Sicherheitslücken in einer geschützten Übungsumgebung nachvollziehen."],
                 ["Python, SQL & Daten", "Daten abfragen, aufbereiten und auswerten."],
+                ["BWL & VWL", "Kosten, Preise und wirtschaftliche Entscheidungen einordnen."],
             ],
         },
         aboutLabel: "Über Luminovia",
@@ -80,9 +81,9 @@ const content = {
         },
         topics: {
             label: "Inside the training",
-            title: "From support tickets to a clear picture",
-            intro: "Which team has the most open tickets? Which has the most closed tickets? Switch the status to see how the SQL query and the result change.",
-            worksheet: "Sample exercise",
+            title: "Four short exercises to try",
+            intro: "Query support tickets with SQL, calculate the break-even point, check an AI summary or choose the right access role.",
+            worksheet: "Query support tickets",
             output: "Result using sample data",
             count: "Tickets",
             lesson: "Explore Python, SQL and data training",
@@ -91,6 +92,7 @@ const content = {
                 ["AI & GenAI", "Choose a workflow and check AI outputs against criteria that matter in your field."],
                 ["Cybersecurity", "Explore how vulnerabilities work in a controlled lab."],
                 ["Python, SQL & data", "Query, prepare and analyse data."],
+                ["Business & economics", "Work through costs, prices and business decisions."],
             ],
         },
         aboutLabel: "About Luminovia",
@@ -121,6 +123,7 @@ const topicPaths = [
     "/training/ai-genai-training",
     "/training/cybersecurity-pentesting-ethical-hacking",
     "/training/python-sql-data-skills",
+    "/training/business-administration-economics",
 ];
 
 export default function HomePage() {
@@ -185,10 +188,15 @@ export default function HomePage() {
             <section className="home-section home-topics" id="offers" aria-labelledby="home-practice-heading">
                 <Container>
                     <div className="home-topics-grid">
-                        <div>
+                        <div className="home-topics-heading">
                             <p className="lumo-section-label">{copy.topics.label}</p>
                             <h2 id="home-practice-heading">{copy.topics.title}</h2>
                             <p className="home-topics-intro">{copy.topics.intro}</p>
+                        </div>
+                        <div className="home-topics-exercises">
+                            <HomePracticeExamples sqlCopy={copy.topics} sqlTrainingPath={topicPaths[2]}/>
+                        </div>
+                        <div className="home-topics-links">
                             <ul className="home-topic-list">
                                 {copy.topics.entries.map(([title, description], index) => (
                                     <li key={title}>
@@ -201,7 +209,6 @@ export default function HomePage() {
                             </ul>
                             <Link className="lumo-text-link" to="/training#details">{copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/></Link>
                         </div>
-                        <HomePractice copy={copy.topics} trainingPath={topicPaths[2]}/>
                     </div>
                 </Container>
             </section>

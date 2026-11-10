@@ -225,11 +225,21 @@
     content: "";
 }
 
-.home-topics-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .96fr); gap: clamp(1.8rem, 5.5vw, 5.5rem); align-items: start; }
-.home-topics-intro { max-width: 55ch; margin-block: 1rem 1.5rem; color: var(--navy-muted); font-size: 1.04rem; line-height: 1.7; }
-.home-topics .lumo-section-label, .home-topics-grid > div > .lumo-text-link { color: var(--blue-soft); }
-.home-topics-grid > div > .lumo-text-link { margin-top: 1.2rem; }
-.home-topic-list a:focus-visible, .home-topics-grid > div > .lumo-text-link:focus-visible { outline-color: var(--yellow); }
+.home-topics-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .96fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "heading exercises" "links exercises";
+    gap: 1.5rem clamp(1.8rem, 5.5vw, 5.5rem);
+    align-items: start;
+}
+.home-topics-heading { grid-area: heading; }
+.home-topics-exercises { grid-area: exercises; }
+.home-topics-links { grid-area: links; }
+.home-topics-intro { max-width: 55ch; margin-top: 1rem; color: var(--navy-muted); font-size: 1.04rem; line-height: 1.7; }
+.home-topics .lumo-section-label, .home-topics-links > .lumo-text-link { color: var(--blue-soft); }
+.home-topics-links > .lumo-text-link { margin-top: 1.2rem; }
+.home-topic-list a:focus-visible, .home-topics-links > .lumo-text-link:focus-visible { outline-color: var(--yellow); }
 .home-topic-list { border-top: 1px solid #ffffff45; }
 .home-topic-list a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.15rem; border-bottom: 1px solid #ffffff45; }
 .home-topic-list a:hover strong { color: var(--mint); }
@@ -262,6 +272,10 @@
 
 @media (max-width: 800px) {
     .home-hero-grid, .home-topics-grid, .home-about { grid-template-columns: minmax(0, 1fr); }
+    .home-topics-grid {
+        grid-template-rows: auto;
+        grid-template-areas: "heading" "exercises" "links";
+    }
     .home-hero h1 { font-size: clamp(2.65rem, 8.15vw, 4.7rem); }
     .home-hero::before { inset: auto -4rem 0 auto; width: min(78vw, 35rem); }
     .home-portrait-stage { justify-self: start; max-width: 440px; }
