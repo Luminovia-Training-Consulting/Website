@@ -26,7 +26,7 @@ export const routeMeta = {
         },
         "/clients": {
             title: "References | Luminovia Training & Consulting",
-            description: "Explore Luminovia’s training collaborations and its team’s experience in professional education, university teaching and research.",
+            description: "Explore Luminovia’s training collaborations and download English copies of Carina Sophie Schoppe’s degree documents and academic work.",
         },
         "/pricing": {
             title: "Pricing | Training, Consulting and Session Rates",
@@ -80,7 +80,7 @@ export const routeMeta = {
         },
         "/clients": {
             title: "Referenzen | Luminovia Training & Consulting",
-            description: "Kooperationen von Luminovia und ausgewählte Erfahrungen des Teams in der beruflichen Weiterbildung, Hochschullehre und Forschung.",
+            description: "Kooperationen von Luminovia sowie englische Abschlussnachweise und wissenschaftliche Arbeiten von Carina Sophie Schoppe zum Download.",
         },
         "/pricing": {
             title: "Preise | Training, Beratung und Sessions",

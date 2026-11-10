@@ -12,7 +12,7 @@ export default function ClientProofSection({compact = false}) {
     const isGerman = language === "de";
 
     return (
-        <section className="people-reference-section people-section" aria-labelledby="reference-list-title">
+        <section id="organisations" className="people-reference-section people-section" aria-labelledby="reference-list-title">
             <Container>
                 <div className="people-section-intro">
                     <h2 id="reference-list-title">{isGerman ? "Ausgewählte Stationen" : "Selected organisations"}</h2>
