@@ -1,4 +1,5 @@
 import {ArrowDown, ArrowDownToLine} from "lucide-react";
+import Button from "../components/Button.jsx";
 import ClientProofSection from "../components/ClientProofSection.jsx";
 import {Container} from "../components/LuminoviaDesign.jsx";
 import {useLanguage} from "../i18n.jsx";
@@ -56,6 +57,8 @@ const copy = {
         organisations: "Organisations and projects",
         documentFormat: "PDF · English · Public copy",
         download: "Download PDF",
+        next: "Planning something similar?",
+        contact: "Discuss your project",
     },
     de: {
         label: "Referenzen",
@@ -66,6 +69,8 @@ const copy = {
         organisations: "Organisationen und Projekte",
         documentFormat: "PDF · Englisch · Öffentliche Fassung",
         download: "PDF herunterladen",
+        next: "Planen Sie ein ähnliches Vorhaben?",
+        contact: "Projekt besprechen",
     },
 };
 
@@ -81,10 +86,13 @@ export default function ClientsPage() {
                     <h1 id="references-heading" className="people-display">{c.title}</h1>
                     <p className="people-lead">{c.intro}</p>
                     <div className="people-inline-links">
-                        <a href="#downloads">{c.downloadsTitle} <ArrowDown aria-hidden="true"/></a>
                         <a href="#organisations">{c.organisations} <ArrowDown aria-hidden="true"/></a>
+                        <a href="#downloads">{c.downloadsTitle} <ArrowDown aria-hidden="true"/></a>
                     </div>
                 </section>
+            </Container>
+            <ClientProofSection/>
+            <Container>
                 <section id="downloads" className="people-section people-downloads" aria-labelledby="downloads-heading">
                     <div className="people-section-intro">
                         <h2 id="downloads-heading">{c.downloadsTitle}</h2>
@@ -114,8 +122,11 @@ export default function ClientsPage() {
                         ))}
                     </div>
                 </section>
+                <section className="people-section people-about-next" aria-labelledby="references-next-heading">
+                    <h2 id="references-next-heading">{c.next}</h2>
+                    <Button to="/contact#appointment">{c.contact}</Button>
+                </section>
             </Container>
-            <ClientProofSection/>
         </main>
     );
 }

@@ -1,5 +1,6 @@
 import {ArrowDown, ArrowRight, ArrowUpRight} from "lucide-react";
 import {Link} from "react-router-dom";
+import Button from "../components/Button.jsx";
 import SoftwareProjectsSection from "../components/SoftwareProjectsSection.jsx";
 import {Container} from "../components/LuminoviaDesign.jsx";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
@@ -11,22 +12,24 @@ const copy = {
     en: {
         label: "Projects",
         title: "From a problem to working software.",
-        intro: "Selected projects from Carina’s development and research work, from a Python pipeline for literature reviews to Kotlin plugins and apps. This work informs the examples and exercises Luminovia uses in training and consulting.",
+        intro: "Selected work from Carina’s development and research, including a Python literature-review pipeline, Kotlin plugins and apps.",
         index: "See the projects",
         github: "Luminovia on GitHub",
         types: "Where we can help on your project",
         typesCopy: "Luminovia can help you scope a project, choose an approach and turn the work into something your team can use. Here are examples of what that can involve.",
         consulting: "Explore consulting",
+        contact: "Discuss your project",
     },
     de: {
         label: "Projekte",
         title: "Von der Aufgabe zur funktionierenden Software.",
-        intro: "Ausgewählte Arbeiten aus Carinas Entwicklung und Forschung, von einer Python-Pipeline für Literaturreviews bis zu Kotlin-Plugins und Apps. Daraus entstehen Beispiele und Übungen für Training und Beratung.",
+        intro: "Ausgewählte Arbeiten aus Carinas Entwicklung und Forschung. Dazu gehören eine Python-Pipeline für Literaturrecherchen, Kotlin-Plugins und Apps.",
         index: "Projekte ansehen",
         github: "Luminovia auf GitHub",
         types: "Wobei wir Sie im Projekt unterstützen",
         typesCopy: "Wir helfen Ihnen, ein Vorhaben einzugrenzen, einen passenden Ansatz zu wählen und Ergebnisse zu erarbeiten, mit denen Ihr Team weiterarbeiten kann.",
         consulting: "Beratung ansehen",
+        contact: "Projekt besprechen",
     },
 };
 
@@ -56,7 +59,10 @@ export default function SoftwarePage() {
                     <div>
                         <h2 id="project-types-heading">{c.types}</h2>
                         <p>{c.typesCopy}</p>
-                        <Link className="people-text-link" to="/consulting">{c.consulting} <ArrowRight aria-hidden="true"/></Link>
+                        <div className="lumo-action-row mt-4">
+                            <Button to="/contact#appointment">{c.contact}</Button>
+                            <Link className="people-text-link" to="/consulting">{c.consulting} <ArrowRight aria-hidden="true"/></Link>
+                        </div>
                     </div>
                     <dl>
                         {projectTypes.map((project) => (

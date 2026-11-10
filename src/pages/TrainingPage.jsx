@@ -1,21 +1,35 @@
 import {Link} from "react-router-dom";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
-import {useSiteContent} from "../data/localizedContent.js";
-import {topicLinkForLabel, trainingDetailsForLanguage} from "../data/trainingDetails.js";
+import {trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
 import Button from "../components/Button.jsx";
 import DemoVideoSection from "../components/DemoVideoSection.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
 import {Container, PageHero} from "../components/LuminoviaDesign.jsx";
 import "../styles/business.css";
-
-const tones = ["mint", "lilac", "yellow"];
+import "../styles/training.css";
 
 const subjectAreas = [
-    {id: "it-software", de: "IT und Software", en: "IT and software"},
-    {id: "ai-data", de: "KI und Daten", en: "AI and data"},
-    {id: "business-law", de: "Wirtschaft, Recht und Datenschutz", en: "Business, law and data protection"},
-    {id: "learning-communication", de: "Bildung und Kommunikation", en: "Education and communication"},
+    {
+        id: "it-software",
+        de: ["IT und Software", "Netzwerke, Softwareentwicklung, Systembetrieb und IT-Sicherheit."],
+        en: ["IT and software", "Networks, software development, system operations and cybersecurity."],
+    },
+    {
+        id: "ai-data",
+        de: ["KI und Daten", "Von Grundlagen und Datenanalyse bis zu agentischen Arbeitsabläufen und KI-Governance."],
+        en: ["AI and data", "From AI literacy and data analysis to agentic workflows and AI governance."],
+    },
+    {
+        id: "business-law",
+        de: ["Wirtschaft, Recht und Datenschutz", "BWL und VWL, Rechnungswesen, Arbeitsrecht, Datenschutz und Projektarbeit."],
+        en: ["Business, law and data protection", "Economics, accounting, employment law, data protection and project work."],
+    },
+    {
+        id: "learning-communication",
+        de: ["Bildung und Kommunikation", "Lehrpläne, Vorträge, Präsentationen und digitale Werkzeuge."],
+        en: ["Education and communication", "Course design, expert talks, presentations and digital tools."],
+    },
 ];
 
 const copy = {
@@ -24,32 +38,30 @@ const copy = {
         title: "Training für IT, KI und Wirtschaft.",
         intro: "Von Netzwerktechnik, Softwaredesign und IT-Sicherheit bis zu BWL, VWL, Buchhaltung, Steuern, Arbeitsrecht und Datenschutz. Für Unternehmen, Hochschulen und Bildungsträger passen wir Übungen und Tempo an die Lerngruppe an.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#details", "Themenkatalog"], ["#formats", "Formate"], ["#duration", "Dauer"], ["#demo-session", "Demo"], ["#methods", "Arbeitsweise"]],
+        jumpItems: [["#details", "Themenkatalog"], ["#formats", "Formate"], ["#demo-session", "Demo"], ["#methods", "Arbeitsweise"]],
         browse: "Trainings finden",
+        example: "Aufgaben aus dem Training",
+        examples: ["Zugriffsrechte für einen Bericht festlegen.", "Eine KI-Zusammenfassung an der Quelle prüfen.", "Die Gewinnschwelle mit Musterzahlen berechnen."],
+        tryExamples: "Übungen ausprobieren",
         catalog: "Themenkatalog",
-        catalogCopy: "Wählen Sie ein Thema, um Inhalte, Lernziele und mögliche Kursformate zu sehen.",
+        catalogCopy: "Wählen Sie ein Fachgebiet und öffnen Sie ein Training für Inhalte, Lernziele und Dauer.",
         catalogNav: "Fachgebiete",
-        services: "Ausgewählte Trainings im Detail",
-        serviceCopy: "Öffnen Sie ein Training, um zu sehen, für wen es gedacht ist, wie lange es dauert und was Sie darin lernen.",
+        formats: "Formate und Dauer",
+        formatsCopy: "Vom kurzen Briefing bis zur mehrwöchigen Kursreihe. Öffnen Sie ein Format, um den Ablauf und mögliche Ergebnisse zu sehen.",
+        formatOutput: "Was Sie mitnehmen",
         offers: "Angebote vergleichen",
-        example: "Beispiel aus einem KI-Workshop",
-        exampleSteps: ["Eine typische Aufgabe auswählen, etwa einen Entwurf für eine E-Mail.", "Zwei KI-Entwürfe auf Ton, Richtigkeit und fehlende Angaben prüfen.", "Entscheiden, was jemand im Team vor dem Versand noch prüfen muss."],
-        delivery: "Formate für Teams und Bildungsträger",
-        formats: "Lehrformate",
-        duration: "Vom Briefing bis zum Kursprogramm",
-        durationOutput: "Was dabei entstehen kann",
         methods: "So arbeiten wir im Training",
-        boundaries: "Was wir gemeinsam vereinbaren",
+        methodsCopy: "Wir vereinbaren ein Lernziel, arbeiten an passenden Aufgaben und geben den Teilnehmenden Rückmeldung. Je nach Format erhalten sie Übungen, Checklisten oder Lernmaterialien für den Alltag.",
+        scope: "Ablauf und Leistungsumfang",
         possible: "Mögliche Leistungen",
-        limits: "Was nicht zum Auftrag gehört",
+        limits: "Grenzen des Auftrags",
         audiences: "Für wen wir unterrichten",
-        proof: "Was Carina in die Lehre einbringt",
-        references: "Lehr- und Projekterfahrung ansehen",
-        topics: "Weitere Themen nach Fachgebiet",
-        details: "Trainingsdetails",
-        custom: "Eigenes Thema anfragen",
-        consulting: "Training mit Beratung verbinden",
-        consultingCopy: "Sie möchten erst herausfinden, wo das Team Unterstützung braucht? Wir können vor dem Training einen Arbeitsablauf prüfen oder gemeinsam einen Lernplan entwickeln.",
+        audiencesCopy: "Wir unterrichten Teams, Studierende und Menschen in der beruflichen Aus- und Weiterbildung. Die Termine finden live auf Deutsch oder Englisch statt.",
+        proof: "Lehrerfahrung und Nachweise",
+        proofCopy: "Carina unterrichtet in Unternehmen, an Hochschulen und bei Bildungsträgern. Ihre Nachweise und Forschungsarbeiten finden Sie bei den Referenzen.",
+        references: "Referenzen ansehen",
+        consulting: "Ein Training für Ihre Gruppe planen",
+        consultingCopy: "Schreiben Sie uns, was die Teilnehmenden bereits können und was sie danach selbst erledigen sollen. Daraus entwickeln wir ein passendes Format.",
         consultingLink: "Beratung ansehen",
         ask: "Training anfragen",
     },
@@ -58,41 +70,38 @@ const copy = {
         title: "Training in IT, AI and business.",
         intro: "Explore networking, software design and cybersecurity, or build skills in business administration, accounting, tax, employment law and data protection. We tailor workshops and courses to what teams and learners already know and what they need to do next.",
         jumpLabel: "On this page",
-        jumpItems: [["#details", "Topic catalogue"], ["#formats", "Formats"], ["#duration", "Duration"], ["#demo-session", "Demo"], ["#methods", "How we work"]],
+        jumpItems: [["#details", "Topic catalogue"], ["#formats", "Formats"], ["#demo-session", "Demo"], ["#methods", "How we work"]],
         browse: "Find a training topic",
+        example: "Tasks from our training",
+        examples: ["Set access permissions for a report.", "Check an AI summary against the source.", "Find the break-even point using sample figures."],
+        tryExamples: "Try the exercises",
         catalog: "Topic catalogue",
-        catalogCopy: "Pick a topic to see what the course covers, what you’ll learn and how it can run.",
+        catalogCopy: "Choose a subject area and open a course to see what it covers, what you’ll learn and how long it takes.",
         catalogNav: "Subject areas",
-        services: "A closer look at selected courses",
-        serviceCopy: "Open a course to see who it’s for, how long it takes and what you’ll learn.",
+        formats: "Formats and duration",
+        formatsCopy: "From a short briefing to a course over several weeks. Open a format to see how it runs and what you can take away.",
+        formatOutput: "What you can take away",
         offers: "Compare offers",
-        example: "Example from an AI workshop",
-        exampleSteps: ["Pick a familiar task, such as drafting an email.", "Check two AI drafts for tone, accuracy and missing information.", "Decide what someone on the team needs to check before sending it."],
-        delivery: "Formats for teams and education providers",
-        formats: "Teaching formats",
-        duration: "From a short briefing to a full course",
-        durationOutput: "What you can take away",
         methods: "How we teach",
-        boundaries: "What we agree together",
+        methodsCopy: "We agree on a learning goal, practise tasks that fit and give participants feedback. Depending on the format, they take away exercises, checklists or learning materials they can use at work.",
+        scope: "Session plan and scope",
         possible: "Services available",
-        limits: "What’s outside the scope",
+        limits: "Scope limits",
         audiences: "Who we teach",
-        proof: "What Carina brings to the classroom",
-        references: "Explore teaching and project experience",
-        topics: "More topics by subject area",
-        details: "Training details",
-        custom: "Request a custom topic",
-        consulting: "Combine training with consulting",
-        consultingCopy: "Would you like to find out where the team needs support first? We can review a workflow or put together a learning plan before training starts.",
+        audiencesCopy: "We teach teams, university students, apprentices and adults in further education. Sessions run live in German or English.",
+        proof: "Teaching experience and credentials",
+        proofCopy: "Carina teaches in companies, universities and vocational education. Her credentials and research are available on the references page.",
+        references: "View references",
+        consulting: "Plan training for your group",
+        consultingCopy: "Tell us what participants already know and what they should be able to do afterwards. We’ll suggest a format that fits.",
         consultingLink: "Explore consulting",
         ask: "Request training",
     },
 };
 
 export default function TrainingPage() {
-    const {language, t} = useLanguage();
+    const {language} = useLanguage();
     const c = copy[language];
-    const {coreOffers, trainingTopics, formats, serviceOfferings, audienceCards, trustSignals} = useSiteContent();
     const {durationModels, methods, boundaries} = businessOfferingsForLanguage(language);
     const detailTopics = trainingDetailsForLanguage(language);
 
@@ -102,160 +111,99 @@ export default function TrainingPage() {
                 label={c.label}
                 title={c.title}
                 copy={c.intro}
-                actions={<><a href="#details" className="business-link">{c.browse}<span aria-hidden="true">↓</span></a><Button to="/offers" variant="secondary">{c.offers}</Button></>}
+                actions={<><a href="#details" className="business-link">{c.browse}<span aria-hidden="true">↓</span></a><Button to="/contact#contact-options">{c.ask}</Button></>}
                 visual={
                     <div className="business-panel business-stack" data-tone="yellow">
                         <p className="business-kicker">{c.example}</p>
-                        <ol className="business-list business-numbered">
-                            {c.exampleSteps.map((step) => <li key={step}>{step}</li>)}
-                        </ol>
+                        <ul className="business-list">{c.examples.map((example) => <li key={example}>{example}</li>)}</ul>
+                        <Link to="/#offers" className="business-link">{c.tryExamples}<span aria-hidden="true">↗</span></Link>
                     </div>
                 }
             />
             <Container className="business-body">
                 <SectionJumpNav label={c.jumpLabel} items={c.jumpItems}/>
 
-                <section id="details">
-                    <div className="business-heading"><h2>{c.catalog}</h2><p>{c.catalogCopy}</p></div>
-                    <SectionJumpNav label={c.catalogNav} items={subjectAreas.map((area) => [`#training-${area.id}`, area[language]])}/>
-                    <div className="mt-7 grid gap-10">
-                        {subjectAreas.map((area) => (
-                            <section key={area.id} id={`training-${area.id}`} className="business-stack">
-                                <h3>{area[language]}</h3>
-                                <div className="business-index">
-                                    {detailTopics.filter((topic) => topic.subjectArea === area.id).map((topic) => (
-                                        <article key={topic.slug}>
-                                            <p className="business-kicker business-muted">{topic.category}</p>
-                                            <h4><Link to={`/training/${topic.slug}`} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h4>
-                                            <p className="business-muted">{topic.summary}</p>
-                                        </article>
-                                    ))}
-                                </div>
-                            </section>
-                        ))}
+                <section id="details" className="training-catalog" aria-labelledby="training-catalog-title">
+                    <div id="services" className="business-heading">
+                        <h2 id="training-catalog-title">{c.catalog}</h2>
+                        <p>{c.catalogCopy}</p>
                     </div>
-                </section>
-
-                <section id="services">
-                    <div className="business-heading"><h2>{c.services}</h2><p>{c.serviceCopy}</p></div>
-                    <div className="business-accordion">
-                        {serviceOfferings.map((service) => {
-                            const detailLink = topicLinkForLabel(service.title);
+                    <SectionJumpNav label={c.catalogNav} items={subjectAreas.map((area) => ["#training-" + area.id, area[language][0]])}/>
+                    <div id="topics" className="training-catalog-groups">
+                        {subjectAreas.map((area) => {
+                            const [title, description] = area[language];
+                            const sectionId = "training-" + area.id;
 
                             return (
-                                <details key={service.title}>
-                                    <summary>{service.title}</summary>
-                                    <div className="business-layout">
-                                        <div className="business-stack">
-                                            <p>{service.description}</p>
-                                            <dl className="business-facts">
-                                                <div><dt>{t.serviceLabels.audience}</dt><dd>{service.audience}</dd></div>
-                                                <div><dt>{t.serviceLabels.format}</dt><dd>{service.format}</dd></div>
-                                                <div><dt>{t.serviceLabels.duration}</dt><dd>{service.duration}</dd></div>
-                                            </dl>
-                                        </div>
-                                        <div className="business-stack">
-                                            <h3>{t.serviceLabels.outcomes}</h3>
-                                            <ul className="business-list">{service.outcomes.map((item) => <li key={item}>{item}</li>)}</ul>
-                                            {detailLink && <Link className="business-link" to={detailLink}>{c.details}<span aria-hidden="true">↗</span></Link>}
-                                            <Link className="business-link" to="/contact#contact-options">{c.ask}<span aria-hidden="true">↗</span></Link>
-                                        </div>
-                                    </div>
-                                </details>
+                                <section key={area.id} id={sectionId} className="training-catalog-group" aria-labelledby={sectionId + "-title"}>
+                                    <h3 id={sectionId + "-title"}>{title}</h3>
+                                    <p className="business-muted">{description}</p>
+                                    <ul className="training-topic-grid" role="list">
+                                        {detailTopics.filter((topic) => topic.subjectArea === area.id).map((topic) => (
+                                            <li key={topic.slug} className="training-topic-card">
+                                                <h4><Link to={"/training/" + topic.slug} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h4>
+                                                <p className="business-muted">{topic.summary}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </section>
                             );
                         })}
                     </div>
                 </section>
 
-                <section id="formats">
-                    <div className="business-heading"><h2>{c.delivery}</h2></div>
-                    <div className="business-grid">
-                        {coreOffers.map((offer, index) => (
-                            <article key={offer.title} className="business-panel business-stack" data-tone={tones[index]}>
-                                <p className="business-kicker">{offer.kicker}</p>
-                                <h3>{offer.title}</h3>
-                                <p><strong>{offer.outcome}</strong></p>
-                                <p>{offer.copy}</p>
-                                <ul className="business-list">{offer.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
-                            </article>
+                <section id="formats" aria-labelledby="training-formats-title">
+                    <div className="business-heading">
+                        <h2 id="training-formats-title">{c.formats}</h2>
+                        <p>{c.formatsCopy}</p>
+                    </div>
+                    <div id="duration" className="business-accordion training-format-grid">
+                        {durationModels.map((model) => (
+                            <details key={model.title}>
+                                <summary>{model.title}</summary>
+                                <div className="business-stack">
+                                    <p>{model.scope}</p>
+                                    <p className="business-muted"><strong>{c.formatOutput}</strong> · {model.output}</p>
+                                </div>
+                            </details>
                         ))}
                     </div>
-                    <div className="business-subsection">
-                        <h3>{c.formats}</h3>
-                        <div className="business-index">
-                            {formats.map((format) => (
-                                <article key={format.title}>
-                                    <p className="business-kicker business-muted">{format.label}</p>
-                                    <h4>{format.title}</h4>
-                                    <p>{format.copy}</p>
-                                </article>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <section id="duration">
-                    <div className="business-heading"><h2>{c.duration}</h2></div>
-                    {durationModels.map((model) => (
-                        <article key={model.title} className="business-row">
-                            <h3>{model.title}</h3>
-                            <div><p>{model.scope}</p><p className="business-muted"><strong>{c.durationOutput}</strong> · {model.output}</p></div>
-                        </article>
-                    ))}
+                    <Link to="/offers" className="business-link mt-4">{c.offers}<span aria-hidden="true">↗</span></Link>
                 </section>
 
                 <DemoVideoSection className="business-demo"/>
 
-                <section id="methods" className="business-layout">
-                    <div>
-                        <div className="business-heading"><h2>{c.methods}</h2></div>
-                        <div className="business-accordion">
-                            {methods.map(([title, description]) => (
-                                <details key={title}><summary>{title}</summary><p>{description}</p></details>
-                            ))}
-                        </div>
+                <section id="methods" aria-labelledby="training-methods-title">
+                    <div className="business-heading">
+                        <h2 id="training-methods-title">{c.methods}</h2>
+                        <p>{c.methodsCopy}</p>
                     </div>
-                    <div className="business-panel business-stack">
-                        <h3>{c.boundaries}</h3>
-                        <p className="business-kicker">{c.possible}</p>
-                        <ul className="business-list">{boundaries.possible.map((item) => <li key={item}>{item}</li>)}</ul>
-                        <p className="business-kicker">{c.limits}</p>
-                        <ul className="business-list">{boundaries.notIncluded.map((item) => <li key={item}>{item}</li>)}</ul>
+                    <div className="business-accordion">
+                        <details>
+                            <summary>{c.scope}</summary>
+                            <div className="business-layout">
+                                <dl className="business-facts">
+                                    {methods.map(([title, description]) => <div key={title}><dt>{title}</dt><dd>{description}</dd></div>)}
+                                </dl>
+                                <div className="business-stack">
+                                    <h3>{c.possible}</h3>
+                                    <ul className="business-list">{boundaries.possible.map((item) => <li key={item}>{item}</li>)}</ul>
+                                    <h3>{c.limits}</h3>
+                                    <ul className="business-list">{boundaries.notIncluded.map((item) => <li key={item}>{item}</li>)}</ul>
+                                </div>
+                            </div>
+                        </details>
                     </div>
-                </section>
-
-                <section id="topics">
-                    <div className="business-heading"><h2>{c.topics}</h2></div>
-                    <div className="business-grid">
-                        {trainingTopics.map((group) => (
-                            <article key={group.group} className="business-stack">
-                                <h3>{group.group}</h3>
-                                <ul className="business-list business-list--ruled">
-                                    {group.items.map((item) => {
-                                        const detailLink = topicLinkForLabel(item);
-                                        return <li key={item}>{detailLink ? <Link className="business-link" to={detailLink}>{item}</Link> : item}</li>;
-                                    })}
-                                </ul>
-                            </article>
-                        ))}
-                    </div>
-                    <Link to="/contact#contact-options" className="business-link mt-4">{c.custom}<span aria-hidden="true">↗</span></Link>
                 </section>
 
                 <div className="business-layout">
-                    <section id="audiences">
-                        <div className="business-heading"><h2>{c.audiences}</h2></div>
-                        <div className="business-accordion">
-                            {audienceCards.map((audience) => (
-                                <details key={audience.title}><summary>{audience.title}</summary><p>{audience.copy}</p></details>
-                            ))}
-                        </div>
+                    <section id="audiences" className="business-panel business-stack" aria-labelledby="training-audiences-title">
+                        <h2 id="training-audiences-title">{c.audiences}</h2>
+                        <p>{c.audiencesCopy}</p>
                     </section>
-                    <section id="proof" className="business-panel business-stack" data-tone="lilac">
-                        <h2 className="business-h2">{c.proof}</h2>
-                        <ul className="business-list">
-                            {trustSignals.map((signal) => <li key={signal.title}><strong>{signal.title}</strong> · {signal.copy}</li>)}
-                        </ul>
+                    <section id="proof" className="business-panel business-stack" data-tone="lilac" aria-labelledby="training-proof-title">
+                        <h2 id="training-proof-title">{c.proof}</h2>
+                        <p>{c.proofCopy}</p>
                         <Link to="/clients" className="business-link">{c.references}<span aria-hidden="true">↗</span></Link>
                     </section>
                 </div>

@@ -55,7 +55,7 @@ export default function PricingPage() {
                 label={c.badge}
                 title={c.title}
                 copy={c.intro}
-                actions={<><a href="#rates" className="business-link">{c.rateHeading}<span aria-hidden="true">↓</span></a><Button to="/contact#contact-options" variant="secondary">{c.contact}</Button></>}
+                actions={<><Button to="/contact#contact-options">{c.contact}</Button><a href="#rates" className="business-link">{c.rateHeading}<span aria-hidden="true">↓</span></a></>}
             />
             <Container className="business-body">
                 <SectionJumpNav label={c.jumpLabel} items={c.jumpItems}/>

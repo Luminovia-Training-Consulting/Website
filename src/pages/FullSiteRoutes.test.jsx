@@ -60,9 +60,23 @@ describe("full static site route coverage", () => {
         expect(header.getByRole("link", {name: "Consulting"})).toHaveAttribute("href", "/consulting");
         expect(header.getByRole("link", {name: "Offers"})).toHaveAttribute("href", "/offers");
         expect(header.getByRole("link", {name: "About us"})).toHaveAttribute("href", "/about");
+        expect(header.getByRole("link", {name: "References"})).toHaveAttribute("href", "/clients");
         expect(header.getByRole("link", {name: "Contact"})).toHaveAttribute("href", "/contact");
         expect(services.getByRole("link", {name: "Pricing"})).toHaveAttribute("href", "/pricing");
         expect(company.getByRole("link", {name: "References"})).toHaveAttribute("href", "/clients");
         expect(company.getByRole("link", {name: "Projects"})).toHaveAttribute("href", "/projects");
+    });
+
+    it("links each canonical course once from the training overview", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        window.history.pushState({}, "Training", "/training");
+
+        render(<App/>);
+
+        await screen.findByRole("heading", {name: "Topic catalogue"});
+        const coursePaths = [...screen.getByRole("main").querySelectorAll('a[href^="/training/"]')]
+            .map((link) => link.getAttribute("href"));
+
+        expect(coursePaths.sort()).toEqual(appRoutes.filter((path) => path.startsWith("/training/")).sort());
     });
 });

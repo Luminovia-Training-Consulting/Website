@@ -1,6 +1,7 @@
 import {Link, useParams} from "react-router-dom";
 import Button from "../components/Button.jsx";
 import {Container, CTASection, PageHero} from "../components/LuminoviaDesign.jsx";
+import SectionJumpNav from "../components/SectionJumpNav.jsx";
 import {findTrainingDetailTopic, trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
 import NotFoundPage from "./NotFoundPage.jsx";
@@ -9,6 +10,10 @@ import "../styles/business.css";
 const copy = {
     de: {
         back: "Alle Trainings ansehen",
+        backToSubject: "Zurück zum Fachgebiet",
+        jumpLabel: "In diesem Training",
+        jumps: [["#course-outline", "Kursplan"], ["#course-outcomes", "Lernziele"], ["#course-materials", "Materialien"]],
+        relatedJump: "Weitere Trainings",
         audience: "Zielgruppe",
         format: "Format",
         duration: "Dauer",
@@ -23,6 +28,10 @@ const copy = {
     },
     en: {
         back: "View all training topics",
+        backToSubject: "Back to this subject area",
+        jumpLabel: "In this course",
+        jumps: [["#course-outline", "Course outline"], ["#course-outcomes", "Learning outcomes"], ["#course-materials", "Materials"]],
+        relatedJump: "Related courses",
         audience: "Audience",
         format: "Format",
         duration: "Duration",
@@ -51,12 +60,13 @@ export default function TrainingTopicPage() {
     const relatedTopics = topic.related
         .map((relatedSlug) => topics.find((item) => item.slug === relatedSlug))
         .filter(Boolean);
+    const jumpItems = relatedTopics.length ? [...c.jumps, ["#course-related", c.relatedJump]] : c.jumps;
 
     return (
         <main className="business-page" data-business-section="course">
             <Container>
-                <Link to="/training#details" className="business-link business-back">
-                    <span aria-hidden="true">←</span>{c.back}
+                <Link to={"/training#training-" + topic.subjectArea} className="business-link business-back">
+                    <span aria-hidden="true">←</span>{c.backToSubject}
                 </Link>
             </Container>
             <PageHero
@@ -73,22 +83,23 @@ export default function TrainingTopicPage() {
                 }
             />
             <Container className="business-body">
+                <SectionJumpNav label={c.jumpLabel} items={jumpItems}/>
                 <div className="business-layout business-layout--aside">
-                    <section>
-                        <div className="business-heading"><h2>{c.modules}</h2><p>{topic.promise}</p></div>
+                    <section id="course-outline" aria-labelledby="course-outline-title">
+                        <div className="business-heading"><h2 id="course-outline-title">{c.modules}</h2><p>{topic.promise}</p></div>
                         <ol className="business-list business-list--ruled business-numbered">
                             {topic.modules.map((item) => <li key={item}>{item}</li>)}
                         </ol>
                     </section>
                     <div className="business-stack">
-                        <section className="business-panel" data-tone="lilac">
-                            <div className="business-heading"><h2>{c.outcomes}</h2></div>
+                        <section id="course-outcomes" className="business-panel" data-tone="lilac" aria-labelledby="course-outcomes-title">
+                            <div className="business-heading"><h2 id="course-outcomes-title">{c.outcomes}</h2></div>
                             <ul className="business-list">
                                 {topic.outcomes.map((item) => <li key={item}>{item}</li>)}
                             </ul>
                         </section>
-                        <section className="business-panel">
-                            <div className="business-heading"><h2>{c.deliverables}</h2></div>
+                        <section id="course-materials" className="business-panel" aria-labelledby="course-materials-title">
+                            <div className="business-heading"><h2 id="course-materials-title">{c.deliverables}</h2></div>
                             <ul className="business-list">
                                 {topic.deliverables.map((item) => <li key={item}>{item}</li>)}
                             </ul>
@@ -97,14 +108,13 @@ export default function TrainingTopicPage() {
                 </div>
 
                 {relatedTopics.length > 0 && (
-                    <section>
-                        <div className="business-heading"><h2>{c.related}</h2></div>
+                    <section id="course-related" aria-labelledby="course-related-title">
+                        <div className="business-heading"><h2 id="course-related-title">{c.related}</h2></div>
                         <div className="business-index">
                             {relatedTopics.map((related) => (
                                 <article key={related.slug}>
                                     <p className="business-kicker business-muted">{related.category}</p>
                                     <h3><Link className="business-link" to={`/training/${related.slug}`}>{related.title}<span aria-hidden="true">↗</span></Link></h3>
-                                    <p className="business-muted">{related.summary}</p>
                                 </article>
                             ))}
                         </div>

@@ -113,7 +113,7 @@ const deTimeline = [
     {year: "2022-2023", title: "Bildung und Moderation", copy: "Cyber-Lerngrundlagen aufgebaut und Bildungsworkshops sowie Moderation bei SCHLAU NRW unterstützt."},
     {year: "2023-2024", title: "Entrepreneurship und Lerndesign", copy: "Top Talent Programme und garage33 mit Design Thinking, Lean Startup, Pitching und agilen Arbeitsmethoden."},
     {year: "2025", title: "Akademisches Business-IT-Profil", copy: "B.Sc. und M.Sc. mit Fokus auf AI, Daten, HCI, IT-Management und Digitalisierung abgeschlossen."},
-    {year: "2026", title: "Luminovia Remote-first Delivery Model", copy: "MBA ohne Major im April abgeschlossen, Certificate IV in Training and Assessment TAE40122 im Juni bei RAM Training Services abgeschlossen und Luminovia für strukturierte Trainings- und Consulting-Durchführung in Europa, Australien und internationalen Teams positioniert."},
+    {year: "2026", title: "Training und Beratung für internationale Teams", copy: "Carina schließt ihren MBA und das australische Certificate IV in Training and Assessment (TAE40122) ab. Aus Brisbane bietet Luminovia Live-Trainings und Beratung auf Deutsch und Englisch an."},
 ];
 
 const de = {

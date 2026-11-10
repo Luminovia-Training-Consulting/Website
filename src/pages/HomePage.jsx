@@ -12,104 +12,74 @@ const content = {
     de: {
         headline: ["Technik verstehen.", "Selbst anwenden."],
         label: "IT · KI · Wirtschaft",
-        intro: "Live-Trainings zu IT, KI und Wirtschaft, von Netzwerktechnik und Softwareentwicklung bis zu IT-Sicherheit und Rechnungswesen. Beratung für technische und betriebliche Projekte.",
+        intro: "Live-Trainings und Beratung für Teams, die IT, KI und Wirtschaft praktisch anwenden. Von Netzwerktechnik und Softwareentwicklung bis zu IT-Sicherheit und Rechnungswesen.",
         training: "Trainings entdecken",
         role: "Gründerin · Trainerin · Beraterin",
-        location: "Aus Brisbane für internationale Teams",
         languages: "Live auf Deutsch und Englisch",
         audience: "Für Unternehmen, Bildungsanbieter und Hochschulen",
+        references: "Referenzen ansehen",
         offers: {
             label: "Angebot",
             title: "Was möchten Sie angehen?",
-            example: "Ein mögliches Ergebnis",
             entries: [
-                ["Training & Workshops", "Üben Sie, Netzwerke einzurichten, Software zu entwerfen oder KI-Ergebnisse zu prüfen. Kaufmännische Kurse decken BWL, Buchhaltung, Steuergrundlagen, Arbeitsrecht und Datenschutz ab.", "Ein Team kann Geschäftsvorfälle buchen oder einen Netzwerkfehler eingrenzen.", "Trainings ansehen"],
-                ["Beratung", "Wir vergleichen mit Ihnen Software- und Infrastrukturkonzepte, prüfen den Einsatz von KI und klären, wie sich betriebliche Abläufe verbessern lassen.", "Eine Entscheidungsvorlage mit Anforderungen und Aufwand für eine neue Softwarelösung.", "Beratung entdecken"],
-                ["Lernprogramme", "Entwickeln Sie einen Kurs oder Lernpfad mit Lernzielen, Übungen und Aufgaben, an denen sich der Fortschritt erkennen lässt.", "Ein Modulplan mit Übungen und passenden Lernchecks.", "Formate ansehen"],
+                ["Training & Workshops", "Netzwerke einrichten, KI-Ergebnisse prüfen oder Geschäftsvorfälle buchen. Ihr Team übt an konkreten Aufgaben.", "Trainings ansehen"],
+                ["Beratung", "Software, Infrastruktur und KI-Anwendungen vergleichen. Gemeinsam klären wir Anforderungen und planen die nächsten Schritte.", "Beratung ansehen"],
+                ["Lernprogramme", "Kurse und Lernpfade mit klaren Lernzielen, Übungen und Aufgaben für Ihren Bildungsträger entwickeln.", "Formate vergleichen"],
             ],
         },
         topics: {
             label: "Ein Blick ins Training",
             title: "Vier kleine Aufgaben zum Ausprobieren",
-            intro: "Werten Sie Support-Tickets mit SQL aus, berechnen Sie die Gewinnschwelle, prüfen Sie eine KI-Zusammenfassung oder wählen Sie eine passende Zugriffsrolle.",
+            intro: "Wählen Sie eine Aufgabe und probieren Sie aus, wie ein Beispiel aus unseren Trainings funktioniert.",
             worksheet: "Support-Tickets auswerten",
             output: "Ergebnis mit Beispieldaten",
             count: "Tickets",
             lesson: "Zum Training für Python, SQL und Daten",
             link: "Zum Trainingskatalog",
-            entries: [
-                ["KI & GenAI", "Einen Arbeitsablauf auswählen und KI-Ergebnisse an fachlichen Kriterien prüfen."],
-                ["Cybersecurity", "Sicherheitslücken in einer geschützten Übungsumgebung nachvollziehen."],
-                ["Python, SQL & Daten", "Daten abfragen, aufbereiten und auswerten."],
-                ["BWL & VWL", "Kosten, Preise und wirtschaftliche Entscheidungen einordnen."],
-            ],
         },
         aboutLabel: "Über Luminovia",
         aboutTitle: "Wer hinter Luminovia steht",
-        aboutCopy: `Carina Sophie Schoppe leitet Luminovia und entwickelt Trainings für Unternehmen, Hochschulen und Bildungsanbieter. Der Softwareentwickler und KI-Architekt ${PROFILE.nenad.name} arbeitet mit ihr im Team.`,
+        aboutCopy: `Carina Sophie Schoppe leitet Luminovia und entwickelt die Trainings. Im Team arbeitet sie mit ${PROFILE.nenad.name} zusammen, der Erfahrung in Softwareentwicklung und KI-Architektur einbringt.`,
         aboutLink: "Carina kennenlernen",
         teamLink: "Das Team kennenlernen",
-        workLink: "Lehr- und Projekterfahrung",
-        notesTitle: "So entsteht ein Training",
-        notes: [
-            ["Aufgabe auswählen", "Eine Aufgabe aus Ihrem Alltag gibt der Übung ein konkretes Ziel."],
-            ["Im Kurs ausprobieren", "Die Gruppe bearbeitet die Aufgabe und bespricht, woran sie ein gutes Ergebnis erkennt."],
-            ["Für später festhalten", "Eine Vorlage, Checkliste oder Übungsdatei hilft beim nächsten Versuch im eigenen Team."],
-        ],
         contactTitle: "Was soll Ihr Team danach können?",
-        contactCopy: "Schreiben Sie uns kurz, für wen Sie planen und was sich im Arbeitsalltag ändern soll. Das passende Format besprechen wir gemeinsam.",
-        contactLink: "Kontakt aufnehmen",
+        contactCopy: "Erzählen Sie uns kurz von Ihrem Ziel. Gemeinsam finden wir das passende Format.",
     },
     en: {
         headline: ["Understand technology.", "Put it to work."],
         label: "IT · AI · Business",
-        intro: "Live training in IT, AI and business, from networking and software development to cybersecurity and accounting. Consulting for technology and business projects.",
+        intro: "Live training and consulting for teams putting IT, AI and business skills to work, from networking and software development to cybersecurity and accounting.",
         training: "Explore training",
         role: "Founder · Trainer · Consultant",
-        location: "Based in Brisbane, working with teams worldwide",
         languages: "Live in German and English",
         audience: "For businesses, education providers and universities",
+        references: "See our references",
         offers: {
             label: "Services",
             title: "What would you like to tackle?",
-            example: "An example outcome",
             entries: [
-                ["Training & workshops", "Practise configuring networks, designing software or checking AI outputs. Business courses cover management, bookkeeping, tax fundamentals, employment law and data protection.", "A team can record business transactions or isolate a network fault.", "Browse training"],
-                ["Consulting", "Compare software and infrastructure options, assess where AI could help and find ways to improve how work gets done.", "A decision brief setting out the requirements and effort for a new software solution.", "Explore consulting"],
-                ["Learning programmes", "Design a course or learning path with clear objectives, practical exercises and tasks that show learners’ progress.", "A course outline with exercises and ways to check progress.", "Explore formats"],
+                ["Training & workshops", "Configure networks, check AI outputs or record business transactions. Your team practises on concrete tasks.", "Browse training"],
+                ["Consulting", "Compare software, infrastructure and AI options. We help you clarify requirements and plan the next steps.", "Explore consulting"],
+                ["Learning programmes", "Design courses and learning paths for your education organisation, with clear objectives, exercises and assessments.", "Compare formats"],
             ],
         },
         topics: {
             label: "Inside the training",
             title: "Four short exercises to try",
-            intro: "Query support tickets with SQL, calculate the break-even point, check an AI summary or choose the right access role.",
+            intro: "Pick a task and see how a practical example from our training works.",
             worksheet: "Query support tickets",
             output: "Result using sample data",
             count: "Tickets",
             lesson: "Explore Python, SQL and data training",
             link: "Browse the training catalogue",
-            entries: [
-                ["AI & GenAI", "Choose a workflow and check AI outputs against criteria that matter in your field."],
-                ["Cybersecurity", "Explore how vulnerabilities work in a controlled lab."],
-                ["Python, SQL & data", "Query, prepare and analyse data."],
-                ["Business & economics", "Work through costs, prices and business decisions."],
-            ],
         },
         aboutLabel: "About Luminovia",
         aboutTitle: "Who’s behind Luminovia",
-        aboutCopy: `Carina Sophie Schoppe leads Luminovia and develops training for companies, universities and education providers. Software engineer and AI architect ${PROFILE.nenad.name} works alongside her.`,
+        aboutCopy: `Carina Sophie Schoppe leads Luminovia and designs its training. ${PROFILE.nenad.name} works alongside her, bringing experience in software development and AI architecture.`,
         aboutLink: "Meet Carina",
         teamLink: "Meet the team",
-        workLink: "Teaching and project experience",
-        notesTitle: "How a session comes together",
-        notes: [
-            ["Pick a task", "An example from your work gives the exercise a clear goal."],
-            ["Try it in the session", "The group works through the task and discusses what a good result looks like."],
-            ["Keep something to reuse", "A template, checklist or exercise file helps the team repeat the task at work."],
-        ],
         contactTitle: "What should your team be able to do next?",
-        contactCopy: "Tell us who you’re planning for and what should change in their day-to-day work. We’ll discuss which format fits.",
-        contactLink: "Get in touch",
+        contactCopy: "Tell us what you’d like to achieve and we’ll work out which format fits.",
     },
 };
 
@@ -117,13 +87,6 @@ const services = [
     {to: "/training#details", Icon: BookOpen, colour: "mint"},
     {to: "/consulting", Icon: Compass, colour: "coral"},
     {to: "/offers", Icon: Layers3, colour: "yellow"},
-];
-
-const topicPaths = [
-    "/training/ai-genai-training",
-    "/training/cybersecurity-pentesting-ethical-hacking",
-    "/training/python-sql-data-skills",
-    "/training/business-administration-economics",
 ];
 
 export default function HomePage() {
@@ -158,7 +121,11 @@ export default function HomePage() {
 
             <div className="home-context" id="capabilities">
                 <Container>
-                    <ul><li>{copy.audience}</li><li>{copy.languages}</li><li>{copy.location}</li></ul>
+                    <ul>
+                        <li>{copy.audience}</li>
+                        <li>{copy.languages}</li>
+                        <li><Link className="lumo-text-link" to="/clients#organisations">{copy.references}<ArrowUpRight size={16} aria-hidden="true"/></Link></li>
+                    </ul>
                 </Container>
             </div>
 
@@ -170,13 +137,12 @@ export default function HomePage() {
                     </div>
                     <div className="home-service-grid">
                         {services.map(({to, Icon, colour}, index) => {
-                            const [title, description, example, action] = copy.offers.entries[index];
+                            const [title, description, action] = copy.offers.entries[index];
                             return (
                                 <article key={to} className="home-service" data-colour={colour}>
                                     <div className="home-service-top"><span>0{index + 1}</span><Icon size={30} strokeWidth={1.5} aria-hidden="true"/></div>
                                     <h3>{title}</h3>
                                     <p>{description}</p>
-                                    <p className="home-service-example"><strong>{copy.offers.example}</strong>{example}</p>
                                     <Link to={to}>{action}<ArrowUpRight size={20} aria-hidden="true"/></Link>
                                 </article>
                             );
@@ -194,19 +160,9 @@ export default function HomePage() {
                             <p className="home-topics-intro">{copy.topics.intro}</p>
                         </div>
                         <div className="home-topics-exercises">
-                            <HomePracticeExamples sqlCopy={copy.topics} sqlTrainingPath={topicPaths[2]}/>
+                            <HomePracticeExamples sqlCopy={copy.topics} sqlTrainingPath="/training/python-sql-data-skills"/>
                         </div>
                         <div className="home-topics-links">
-                            <ul className="home-topic-list">
-                                {copy.topics.entries.map(([title, description], index) => (
-                                    <li key={title}>
-                                        <Link to={topicPaths[index]}>
-                                            <span><strong>{title}</strong><span>{description}</span></span>
-                                            <ArrowUpRight size={23} aria-hidden="true"/>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
                             <Link className="lumo-text-link" to="/training#details">{copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/></Link>
                         </div>
                     </div>
@@ -219,28 +175,15 @@ export default function HomePage() {
                         <p className="lumo-section-label">{copy.aboutLabel}</p>
                         <h2>{copy.aboutTitle}</h2>
                         <p className="home-about-copy">{copy.aboutCopy}</p>
-                        <div className="home-about-links">
-                            <Link className="lumo-text-link" to="/about#team">{copy.teamLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
-                            <Link className="lumo-text-link" to="/clients">{copy.workLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
-                        </div>
+                        <Link className="lumo-text-link home-team-link" to="/about#team">{copy.teamLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
                     </div>
-                    <div className="home-notes">
-                        <h3>{copy.notesTitle}</h3>
-                        <ol>
-                            {copy.notes.map(([title, description]) => (
-                                <li key={title}><strong>{title}</strong><p>{description}</p></li>
-                            ))}
-                        </ol>
-                    </div>
+                    <section className="home-next-step" aria-labelledby="home-contact-heading">
+                        <h2 id="home-contact-heading">{copy.contactTitle}</h2>
+                        <p>{copy.contactCopy}</p>
+                        <Button to="/contact#appointment">{t.bookTraining}</Button>
+                    </section>
                 </Container>
             </section>
-
-            <Container>
-                <section className="lumo-final-cta">
-                    <div><h2>{copy.contactTitle}</h2><p>{copy.contactCopy}</p></div>
-                    <Button to="/contact#contact-options">{copy.contactLink}</Button>
-                </section>
-            </Container>
         </main>
     );
 }

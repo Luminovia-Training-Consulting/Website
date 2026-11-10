@@ -84,7 +84,7 @@ export default function AboutPage() {
                     </div>
                     <div className="people-team-portraits">
                         <figure className="people-team-portrait">
-                            <Photo src={IMAGES.headshot} alt={c.image} className="people-team-photo" imgClass="object-[50%_8%]"
+                            <Photo src={IMAGES.headshot} alt={c.image} className="people-team-photo" imgClass="object-[50%_46%]"
                                 fetchPriority="high" sizes="(max-width: 700px) 44vw, 280px"/>
                             <figcaption><strong>{PROFILE.founder}</strong><span>{c.founder}</span></figcaption>
                         </figure>

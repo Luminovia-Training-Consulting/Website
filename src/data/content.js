@@ -487,7 +487,7 @@ export const timeline = [
     {year: "2022-2023", title: "Education and facilitation", copy: "Built cyber learning foundations and contributed to SCHLAU NRW educational workshops and facilitation."},
     {year: "2023-2024", title: "Entrepreneurship and learning design", copy: "Top Talent Programme and garage33 with Design Thinking, Lean Startup, pitching and agile working methods."},
     {year: "2025", title: "Business IT academic profile", copy: "Completed B.Sc. and M.Sc. with AI, data, HCI, IT management and digitalisation focus areas."},
-    {year: "2026", title: "Luminovia remote-first delivery model", copy: "MBA without major completed in April, TAE40122 Certificate IV completed in June and Luminovia positioned for structured training and consulting delivery across Europe, Australia and international teams."},
+    {year: "2026", title: "Training and consulting for international teams", copy: "Carina completes her MBA and the Australian Certificate IV in Training and Assessment (TAE40122). Based in Brisbane, Luminovia offers live training and consulting in English and German."},
 ];
 
 export const faqs = [

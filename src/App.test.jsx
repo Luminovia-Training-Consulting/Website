@@ -87,8 +87,8 @@ describe("App routing and language", () => {
     it.each([
         ["/contact", /Was möchten Sie mit Ihrem Team angehen/i],
         ["/about", /Das Team hinter Luminovia/i],
-        ["/offers", /Buchbare Formate für Training/i],
-        ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
+        ["/offers", /Vier Formate für Training und Beratung/i],
+        ["/consulting", /Beratung für KI, IT und Geschäftsprozesse/i],
         ["/portfolio", /Von der Aufgabe zur funktionierenden Software/i],
         ["/clients", /Lehre, Weiterbildung und Forschung/i],
         ["/pricing", /Klare Preise für Training/i],
@@ -106,8 +106,8 @@ describe("App routing and language", () => {
 
     it.each([
         ["/training/", /Training für IT, KI und Wirtschaft/i],
-        ["/offers/", /Buchbare Formate für Training/i],
-        ["/consulting/", /Beratung für KI, IT und digitale Kompetenz/i],
+        ["/offers/", /Vier Formate für Training und Beratung/i],
+        ["/consulting/", /Beratung für KI, IT und Geschäftsprozesse/i],
         ["/projects/", /Von der Aufgabe zur funktionierenden Software/i],
         ["/pricing/", /Klare Preise für Training/i],
         ["/terms/", /Geschäfts- und Zahlungsbedingungen/i],

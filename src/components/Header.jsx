@@ -10,6 +10,7 @@ const primaryNavigation = [
     ["/consulting", "consulting"],
     ["/offers", "offers"],
     ["/about", "about"],
+    ["/clients", "clients"],
 ];
 
 export default function Header({theme, onToggleTheme}) {
@@ -75,7 +76,6 @@ export default function Header({theme, onToggleTheme}) {
                 </div>
                 <nav id="site-navigation" className="site-nav" data-open={open} aria-label={isGerman ? "Hauptnavigation" : "Main navigation"}>
                     {primaryNavigation.map(([to, key]) => <NavLink key={to} to={to} onClick={closeAfterNavigation}>{t.nav[key]}</NavLink>)}
-                    <NavLink className="site-nav-mobile-link" to="/clients" onClick={closeAfterNavigation}>{t.nav.clients}</NavLink>
                     <NavLink className="lumo-button" data-button-variant="secondary" to="/contact" onClick={closeAfterNavigation}>
                         {t.nav.book}<ArrowUpRight size={18} aria-hidden="true"/>
                     </NavLink>

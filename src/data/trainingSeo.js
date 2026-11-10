@@ -26,7 +26,7 @@ export const trainingSeoEntries = [
     },
     {
         slug: "fachinformatiker-ihk-training-retraining",
-        en: {title: "Fachinformatiker Training, Ausbildung & Umschulung | Luminovia", description: "Training support for Fachinformatiker education, retraining, IHK preparation, IT projects, databases and software foundations."},
+        en: {title: "IT Apprenticeship & Retraining (Fachinformatiker) | Luminovia", description: "IT apprenticeship and retraining support for Germany’s Fachinformatiker qualification, including software, networks, databases and IHK exam preparation."},
         de: {title: "Fachinformatiker-Training, Ausbildung und Umschulung | Luminovia", description: "Training für Fachinformatiker-Ausbildung, Umschulung, IHK-Vorbereitung, IT-Projekte, Datenbanken, Systeme und Softwaregrundlagen."},
     },
     {

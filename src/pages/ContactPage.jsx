@@ -9,7 +9,7 @@ const copy = {
     en: {
         label: "Contact",
         title: "Contact Luminovia about your next project.",
-        intro: "Planning training in IT, AI or business? Need support with a technology project or business process? Tell us what your team would like to achieve.",
+        intro: "Tell us what your team would like to learn or what you need help with. We’ll discuss the right next step together.",
         email: "Enquire about training or consulting",
         emailSubject: "Training or consulting enquiry",
         call: "Request an introductory call",
@@ -29,7 +29,7 @@ const copy = {
     de: {
         label: "Kontakt",
         title: "Was möchten Sie mit Ihrem Team angehen?",
-        intro: "Sie planen ein Training zu IT, KI oder Wirtschaft? Sie suchen Unterstützung für ein IT-Projekt oder einen Geschäftsprozess? Schreiben Sie uns, was Ihr Team erreichen möchte.",
+        intro: "Was soll Ihr Team lernen oder wobei brauchen Sie Unterstützung? Schreiben Sie uns kurz, was Sie vorhaben.",
         email: "Training oder Beratung anfragen",
         emailSubject: "Anfrage zu Training oder Beratung",
         call: "Erstgespräch anfragen",
@@ -73,7 +73,7 @@ export default function ContactPage() {
                         <p className="lumo-section-label">{c.label}</p>
                         <h1 id="contact-heading" className="people-display">{c.title}</h1>
                         <p className="people-lead">{c.intro}</p>
-                        <a className="people-action" href={emailHref}>{c.email} <ArrowUpRight aria-hidden="true"/></a>
+                        <a className="people-text-link people-contact-enquiry" href={emailHref}>{c.email} <ArrowUpRight aria-hidden="true"/></a>
                     </div>
                     <div id="appointment" className="people-contact-call">
                         <Mail aria-hidden="true" size={35} strokeWidth={1.5}/>
