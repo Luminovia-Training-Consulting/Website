@@ -679,6 +679,12 @@
     text-underline-offset: .16em;
 }
 
+.people-reference-source {
+    color: var(--people-muted);
+    font-size: .84rem;
+    line-height: 1.5;
+}
+
 .people-reference-entry svg {
     width: .9em;
     height: .9em;
