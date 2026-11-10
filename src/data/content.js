@@ -321,8 +321,8 @@ export const referenceOrganisations = [
         initials: "DB",
         type: "Digital business education",
         work: "Broad professional development formats across digital, business and IT topics.",
-        href: "https://greenbootcamps.com/#:~:text=DiBak%20%E2%80%93%20Digitale%20Bildungsakademie",
-        linkSource: "Greenbootcamps",
+        href: "https://carinaschoppe.com/credentials/dibak-trainerzertifikat-de.pdf",
+        documentLanguage: "de",
     },
     {
         name: "damago GmbH",

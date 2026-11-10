@@ -30,9 +30,9 @@ export default function ClientProofSection({compact = false}) {
                                             ? <a href={reference.href} target="_blank" rel="noreferrer">{reference.name} <ArrowUpRight aria-hidden="true"/></a>
                                             : reference.name}
                                     </h3>
-                                    {reference.linkSource && (
+                                    {reference.documentLanguage === "de" && (
                                         <p className="people-reference-source">
-                                            {isGerman ? `Partnereintrag bei ${reference.linkSource}` : `Partner listing on ${reference.linkSource}`}
+                                            {isGerman ? "Trainerzertifikat · PDF auf Deutsch" : "Trainer certificate · PDF in German"}
                                         </p>
                                     )}
                                 </div>
