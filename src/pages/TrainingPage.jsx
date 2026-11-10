@@ -88,7 +88,7 @@ export default function TrainingPage() {
     const detailTopics = trainingDetailsForLanguage(language);
 
     return (
-        <main className="business-page">
+        <main className="business-page" data-business-section="training">
             <PageHero
                 label={c.label}
                 title={c.title}

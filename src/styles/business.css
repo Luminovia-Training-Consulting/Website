@@ -1,8 +1,65 @@
 /* Service pages share a reading rhythm while giving catalogues, plans and rates their own layouts. */
 .business-page {
+    --biz-art: var(--lilac);
     --biz-line: color-mix(in srgb, currentColor 23%, transparent);
     --biz-muted: color-mix(in srgb, currentColor 78%, transparent);
     padding-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.business-page[data-business-section="training"] { --biz-art: var(--yellow); }
+.business-page[data-business-section="course"] { --biz-art: var(--mint); }
+.business-page[data-business-section="offers"] { --biz-art: var(--coral); }
+.business-page[data-business-section="pricing"] { --biz-art: color-mix(in srgb, var(--yellow), var(--mint)); }
+
+.business-page .lumo-page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    background: radial-gradient(ellipse at 88% 0%, color-mix(in srgb, var(--biz-art) 23%, var(--paper)), var(--paper) 72%);
+}
+
+.business-page .lumo-page-hero::before,
+.business-page .lumo-page-hero::after {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+}
+
+.business-page .lumo-page-hero::before {
+    inset: 0 0 0 auto;
+    width: min(46vw, 38rem);
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent) .8px, transparent 1px) 0 0 / .65rem .65rem;
+    mask-image: linear-gradient(105deg, transparent 8%, #000 72%);
+}
+
+.business-page .lumo-page-hero::after {
+    inset: -45% -7vw auto auto;
+    width: clamp(17rem, 49vw, 49rem);
+    aspect-ratio: 1;
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 .85rem color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.business-page .lumo-page-hero h1 {
+    font-size: clamp(2.15rem, 5.7vw, 5rem);
+    line-height: 1.025;
+    letter-spacing: -.055em;
+    overflow-wrap: anywhere;
+}
+
+.business-page:lang(de) .lumo-page-hero h1 { hyphens: auto; }
+
+.business-page .lumo-page-hero-visual > .business-panel {
+    border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+    border-radius: .5rem 2rem .5rem .5rem;
+    box-shadow: .38rem .38rem 0 color-mix(in srgb, var(--ink) 15%, transparent);
+}
+
+.business-page .lumo-page-hero-visual .business-kicker {
+    padding-bottom: .6rem;
+    border-bottom: 1px solid var(--biz-line);
 }
 
 .business-page .lumo-page-hero-copy,
@@ -38,9 +95,20 @@
 .business-page .business-h2 {
     font-size: clamp(1.85rem, 4vw, 3.45rem);
     font-weight: 750;
-    letter-spacing: -.055em;
-    line-height: 1.06;
+    letter-spacing: -.046em;
+    line-height: 1.09;
     text-wrap: balance;
+}
+
+.business-heading > p { max-width: 64ch; color: var(--biz-muted); }
+
+.business-body > section > .business-heading::before {
+    width: 2.4rem;
+    height: .28rem;
+    margin-bottom: .22rem;
+    border-radius: 99rem;
+    background: linear-gradient(to right, var(--accent) 0 60%, transparent 60% 70%, color-mix(in srgb, var(--biz-art) 72%, var(--accent)) 70%);
+    content: "";
 }
 
 .business-page h3 {
@@ -150,6 +218,8 @@
     align-items: baseline;
     gap: .65em;
     width: fit-content;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     font-weight: 730;
     text-decoration: underline;
     text-underline-offset: .22em;
@@ -170,20 +240,33 @@
 
 .business-index h3 { margin: .35rem 0 .4rem; }
 
+.business-index .business-kicker,
+.business-index .business-link > span {
+    color: var(--accent);
+}
+
+.business-index .business-link > span { flex: none; }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .business-index .business-link > span { transition: transform .16s ease-out; }
+    .business-index .business-link:hover > span { transform: translate(.12em, -.12em); }
+}
+
 .business-accordion { border-top: 1px solid var(--biz-line); }
 .business-accordion > details { border-bottom: 1px solid var(--biz-line); }
+.business-accordion > details[open] { background: color-mix(in srgb, var(--biz-art) 17%, var(--paper)); }
 
 .business-accordion summary {
     display: list-item;
     list-style-position: inside;
     cursor: pointer;
-    padding: .95rem .15rem;
+    padding: .95rem .75rem;
     font-weight: 750;
 }
 
-.business-accordion summary::marker { font-size: .8em; }
+.business-accordion summary::marker { font-size: .8em; color: var(--accent); }
 .business-accordion summary:hover { text-decoration: underline; text-underline-offset: .2em; }
-.business-accordion > details > :not(summary) { padding-bottom: 1.15rem; }
+.business-accordion > details > :not(summary) { padding: 0 .75rem 1.15rem; }
 
 .business-facts > div {
     display: grid;
@@ -197,7 +280,9 @@
 
 .business-price {
     font-size: clamp(2.1rem, 4vw, 3.3rem);
-    font-weight: 780;
+    font-family: var(--heading);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
     letter-spacing: -.05em;
     line-height: 1;
 }
@@ -248,7 +333,18 @@
 
 .business-process > li:nth-child(3n + 2) { background: var(--mint); }
 .business-process > li:nth-child(3n) { background: var(--yellow); }
-.business-process > li > span { font-weight: 800; font-size: .82rem; letter-spacing: .08em; }
+.business-process > li > span {
+    display: inline-grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--dark-ink) 28%, transparent);
+    border-radius: 50%;
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: .85rem;
+    font-variant-numeric: tabular-nums;
+}
 
 .business-subsection { margin-top: 2rem; }
 .business-subsection > h3 { margin-bottom: .8rem; }

@@ -50,7 +50,7 @@ export default function PricingPage() {
     const {rates, currencies} = pricingForLanguage(language);
 
     return (
-        <main className="business-page">
+        <main className="business-page" data-business-section="pricing">
             <PageHero
                 label={c.badge}
                 title={c.title}

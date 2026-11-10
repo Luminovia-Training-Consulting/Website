@@ -181,7 +181,7 @@ export default function OffersPage() {
     const c = content[language];
 
     return (
-        <main className="business-page">
+        <main className="business-page" data-business-section="offers">
             <PageHero
                 label={c.badge}
                 title={c.title}

@@ -11,7 +11,8 @@ import "../styles/people.css";
 const copy = {
     en: {
         label: "About Luminovia",
-        title: "I’m Carina. I make technical ideas teachable.",
+        title: "I’m Carina.",
+        titleAccent: "I make technical ideas teachable.",
         intro: "I founded Luminovia to bring software, cybersecurity and AI into training people can use at work. I develop workshops and courses for companies, universities and training providers.",
         founder: "Founder and trainer",
         image: "Portrait of Carina Sophie Schoppe",
@@ -30,7 +31,8 @@ const copy = {
     },
     de: {
         label: "Über Luminovia",
-        title: "Ich bin Carina. Ich mache Technik verständlich.",
+        title: "Ich bin Carina.",
+        titleAccent: "Ich mache Technik verständlich.",
         intro: "Ich habe Luminovia gegründet, um Software, Cybersecurity und KI so zu vermitteln, dass Menschen sie im Beruf einsetzen können. Dafür entwickle ich Workshops und Kurse für Unternehmen, Hochschulen und Bildungsanbieter.",
         founder: "Gründerin und Trainerin",
         image: "Porträt von Carina Sophie Schoppe",
@@ -60,7 +62,7 @@ export default function AboutPage() {
                 <section className="people-about-hero" aria-labelledby="about-heading">
                     <div className="people-about-intro">
                         <p className="lumo-section-label">{c.label}</p>
-                        <h1 id="about-heading" className="people-display">{c.title}</h1>
+                        <h1 id="about-heading" className="people-display">{c.title}{" "}<span>{c.titleAccent}</span></h1>
                     </div>
                     <figure className="people-founder">
                         <Photo src={IMAGES.headshot} alt={c.image} className="people-founder-photo" imgClass="object-[50%_24%]" fetchPriority="high" sizes="(min-width: 960px) 420px, (min-width: 620px) 360px, 90vw"/>

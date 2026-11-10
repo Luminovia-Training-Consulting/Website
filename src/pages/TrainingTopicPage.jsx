@@ -53,7 +53,7 @@ export default function TrainingTopicPage() {
         .filter(Boolean);
 
     return (
-        <main className="business-page">
+        <main className="business-page" data-business-section="course">
             <Container>
                 <Link to="/training#details" className="business-link business-back">
                     <span aria-hidden="true">←</span>{c.back}
