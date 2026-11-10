@@ -79,7 +79,7 @@ export default function ConsultingPage() {
                 label={c.badge}
                 title={c.title}
                 copy={c.intro}
-                actions={<><Button to="/contact#contact-options">{c.primary}</Button><Button to="/pricing#rates" variant="secondary">{c.pricing}</Button></>}
+                actions={<><Button to="/contact?intent=consulting#enquiry">{c.primary}</Button><Button to="/pricing#rates" variant="secondary">{c.pricing}</Button></>}
                 visual={
                     <div className="business-panel business-stack" data-tone="lilac">
                         <p className="business-kicker">{c.example[0]}</p>
@@ -126,7 +126,7 @@ export default function ConsultingPage() {
                 <CTASection
                     title={c.nextTitle}
                     copy={c.nextCopy}
-                    primary={<Button to="/contact#contact-options">{c.primary}</Button>}
+                    primary={<Button to="/contact?intent=consulting#enquiry">{c.primary}</Button>}
                     secondary={<Button to="/offers" variant="secondary">{c.secondary}</Button>}
                 />
             </div>

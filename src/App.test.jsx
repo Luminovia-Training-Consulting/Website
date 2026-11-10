@@ -1,4 +1,4 @@
-import {act, render, screen, waitFor} from "@testing-library/react";
+import {act, render, screen, waitFor, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach, describe, expect, it, vi} from "vitest";
 import App from "./App.jsx";
@@ -196,13 +196,38 @@ describe("App routing and language", () => {
 
         await screen.findByRole("heading", {name: /Contact Luminovia/i});
         expect(document.querySelector("main form, main iframe")).toBeNull();
-        expect(screen.getByRole("link", {name: "Enquire about training or consulting"})).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org"));
+        expect(screen.getByRole("link", {name: "Open email draft"})).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org"));
         expect(screen.getAllByRole("link", {name: /\+61 451 448 724/i})[0]).toHaveAttribute("href", "tel:+61451448724");
         expect(screen.getAllByRole("link", {name: /\+49 175 5738 757/i})[0]).toHaveAttribute("href", "tel:+491755738757");
         const callSection = document.getElementById("appointment");
         expect(callSection.querySelector("a")).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org?subject=Introductory%20call%20with%20Luminovia"));
         expect(document.getElementById("contact-options")).toBeInTheDocument();
         expect(document.getElementById("contact-faq")).toBeInTheDocument();
+    });
+
+    it("carries the selected training into an email draft in the current language", async () => {
+        const user = userEvent.setup();
+        Element.prototype.scrollIntoView = vi.fn();
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        window.history.pushState({}, "SQL course", "/training/python-sql-data-skills");
+
+        render(<App/>);
+
+        const [courseAction] = await screen.findAllByRole("link", {name: "Request training"});
+        await user.click(courseAction);
+
+        const enquiry = await screen.findByRole("region", {name: "Request training"});
+        await waitFor(() => expect(enquiry).toHaveFocus());
+        const draft = new URL(within(enquiry).getByRole("link", {name: "Open email draft"}).href);
+        expect(draft.pathname).toBe("info@luminovia.org");
+        expect(draft.searchParams.get("subject")).toMatch(/Training enquiry.*Python.*SQL/i);
+        expect(draft.searchParams.get("body")).toContain("Selected course:");
+
+        await user.click(screen.getByRole("button", {name: /switch language to German/i}));
+
+        expect(within(enquiry).getByText("Python, SQL und Datenkompetenz")).toBeInTheDocument();
+        expect(new URL(within(enquiry).getByRole("link", {name: "E-Mail-Entwurf öffnen"}).href).searchParams.get("body"))
+            .toContain("Gewähltes Training: Python, SQL und Datenkompetenz");
     });
 
     it("uses topic-specific German metadata on direct training routes", async () => {

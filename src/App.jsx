@@ -90,7 +90,10 @@ function ScrollToHash() {
             const target = getHashTarget(hash);
             if (!target) return false;
 
-            frame = globalThis.requestAnimationFrame(() => target.scrollIntoView({behavior: "auto", block: "start"}));
+            frame = globalThis.requestAnimationFrame(() => {
+                target.scrollIntoView({behavior: "auto", block: "start"});
+                if (target.hasAttribute("tabindex")) target.focus({preventScroll: true});
+            });
             return true;
         };
 

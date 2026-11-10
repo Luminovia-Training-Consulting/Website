@@ -1,3 +1,4 @@
+import {ArrowDown} from "lucide-react";
 import {Link} from "react-router-dom";
 import {useLanguage} from "../i18n.jsx";
 import {pricingForLanguage} from "../data/pricing.js";
@@ -6,57 +7,49 @@ import SectionJumpNav from "../components/SectionJumpNav.jsx";
 import {Container, CTASection, PageHero} from "../components/LuminoviaDesign.jsx";
 import "../styles/business.css";
 
-const tones = ["lilac", "mint", "yellow", "coral"];
+const quotePath = "/contact?intent=quote#enquiry";
 
 const content = {
     de: {
         badge: "Angebote",
         title: "Vier Formate für Training und Beratung.",
-        intro: "Vergleichen Sie Leistungen und Nettorichtpreise für IT, KI und Wirtschaft. Die Formate reichen vom kurzen Fachvortrag bis zum längeren Projekt.",
+        intro: "Vom Fachvortrag bis zur Projektbegleitung. Finden Sie das passende Format für Ihr Team.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#packages", "Formate"], ["#programmes", "Programme"], ["#proof", "Referenzen"], ["#next", "Anfrage"]],
         packagesTitle: "Leistungen und Richtpreise",
         compare: "Formate vergleichen",
-        outcomeLabel: "Mögliches Ergebnis",
-        pricing: "Alle Preise und Leistungen ansehen",
-        packagesCopy: "Alle Formate sind auf Deutsch und Englisch buchbar. Wir arbeiten überwiegend online.",
+        pricing: "Preisdetails ansehen",
+        packagesCopy: "Auf Deutsch oder Englisch. In der Regel live online.",
+        sessionCopy: "Die Halb- und Tagessätze enthalten Vorbereitung, vereinbarte Standardmaterialien und den Online-Termin.",
         packages: [
             {
-                title: "Trainings für IT, KI und Wirtschaft",
-                tag: "Training",
-                copy: "Für Teams und Lerngruppen, die eine konkrete Aufgabe üben oder ein Fachgebiet vertiefen möchten. Die Beispiele richten sich nach dem Thema und dem Vorwissen.",
-                outcome: "Übungen mit Bezug zum Arbeitsalltag und Unterlagen für die weitere Praxis.",
-                scope: "90 Minuten bis zu mehreren Wochen",
+                title: "Training für IT, KI und Wirtschaft",
+                copy: "Für Teams und Lerngruppen. Sie üben an Beispielen aus dem Arbeitsalltag und erhalten Unterlagen für die Praxis.",
+                scope: "90 Minuten bis mehrere Wochen",
                 pricingKey: "training",
                 to: "/training#details",
                 cta: "Trainingskatalog öffnen",
             },
             {
                 title: "KI-, IT- und Prozessberatung",
-                tag: "Beratung",
-                copy: "Für Entscheidungen über Software, Infrastruktur, KI-Anwendungen oder Geschäftsprozesse. Wir vergleichen Optionen und planen bei Bedarf die Umsetzung.",
-                outcome: "Eine Entscheidungsvorlage, ein Umsetzungsplan oder konkrete Nutzungsleitlinien.",
-                scope: "Beratungssprint, Workshop, fachliche Prüfung oder laufende Projektbegleitung",
+                copy: "Für Entscheidungen zu Software, Infrastruktur, KI oder Prozessen. Sie erhalten eine Vorlage, Leitlinien oder einen Umsetzungsplan.",
+                scope: "Sprint, Workshop, fachliche Prüfung oder Projektbegleitung",
                 pricingKey: "consulting",
                 to: "/consulting",
                 cta: "Beratung ansehen",
             },
             {
-                title: "Curriculum- und Programmdesign",
-                tag: "Bildung",
-                copy: "Für Bildungsanbieter und interne Weiterbildungsteams, die einen Kurs oder eine Workshop-Reihe entwickeln.",
-                outcome: "Ein Lehrplan mit Lernzielen, Übungen und einem Ablauf für Live- und Selbstlernphasen.",
-                scope: "Kursentwurf, Entwicklung einzelner Materialien oder Planung eines gesamten Programms",
+                title: "Kurs- und Programmentwicklung",
+                copy: "Für Bildungsanbieter und Weiterbildungsteams. Sie erhalten Lernziele, Übungen und einen Ablauf für Live- und Selbstlernphasen.",
+                scope: "Kursentwurf, Materialien oder Gesamtprogramm",
                 pricingKey: "education",
                 to: "/training/curriculum-design-blended-learning",
                 cta: "Kursentwicklung ansehen",
             },
             {
                 title: "Fachimpulse und Vorträge",
-                tag: "Vorträge",
-                copy: "Für Veranstaltungen und interne Lerntage, etwa zu verantwortungsvoller KI, IT-Sicherheit, Industrie 5.0 oder digitaler Transformation.",
-                outcome: "Ein Vortrag, eine Fragerunde oder ein Briefing für Ihre Zielgruppe.",
-                scope: "30 bis 90 Minuten, ein halber Tag oder ein Format für Ihre Veranstaltung",
+                copy: "Vorträge, Briefings und Fragerunden für Veranstaltungen und Lerntage. Themen sind verantwortungsvolle KI, IT-Sicherheit, Industrie 5.0 und Digitalisierung.",
+                scope: "30 bis 90 Minuten, Halbtag oder nach Absprache",
                 pricingKey: "talks",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "Vorträge ansehen",
@@ -65,63 +58,55 @@ const content = {
         scopeLabel: "Typischer Umfang",
         priceLabel: "Richtpreis netto",
         programmesTitle: "Mehrere Formate verbinden",
-        programmesCopy: "Für längere Vorhaben verbinden wir Training, Beratung und Materialentwicklung. Im Angebot halten wir fest, welche Leistungen wir übernehmen, wann die Termine stattfinden und was Ihr Team erhält.",
+        programmesCopy: "Wir kombinieren Training, Beratung und Materialien. Für längere Programme und größere Materialproduktionen erhalten Sie ein Projektangebot mit Umfang, Terminen und Ergebnissen.",
         proofTitle: "Erfahrung in der Lehre",
         proofCopy: "Die Referenzen reichen von IT-Weiterbildung bei CBW Hamburg bis zu KI-Zertifizierungstrainings für Fast Lane.",
         proofLink: "Referenzen ansehen",
         nextTitle: "Was haben Sie vor?",
-        nextCopy: "Schildern Sie uns Ihr Ziel, die Zielgruppe und den gewünschten Zeitraum. Gemeinsam finden wir ein passendes Format.",
+        nextCopy: "Teilen Sie uns Ziel, Zielgruppe und Zeitraum mit. Gemeinsam finden wir das passende Format.",
         primary: "Angebot anfragen",
         secondary: "Erstgespräch anfragen",
     },
     en: {
         badge: "Offers",
         title: "Compare training and consulting formats.",
-        intro: "Choose from a guest talk, a workshop or a longer project in IT, AI and business. Compare what each format includes and what to budget for.",
+        intro: "Find the right format for your team, from a guest talk to longer project support.",
         jumpLabel: "On this page",
         jumpItems: [["#packages", "Formats"], ["#programmes", "Programmes"], ["#proof", "References"], ["#next", "Enquire"]],
         packagesTitle: "Services and rates",
         compare: "Compare formats",
-        outcomeLabel: "Example outcome",
-        pricing: "See all rates and what’s included",
-        packagesCopy: "Every format is available in English and German. We work primarily online.",
+        pricing: "See pricing details",
+        packagesCopy: "Available in English or German, usually live online.",
+        sessionCopy: "Half-day and full-day rates cover preparation, agreed standard materials and the online session.",
         packages: [
             {
-                title: "IT, AI and Business Training",
-                tag: "Training",
-                copy: "For teams and learners who want to practise a task or go deeper into a subject. We tailor examples to the topic and the group’s experience.",
-                outcome: "Exercises drawn from your work and materials you can use afterwards.",
+                title: "IT, AI and business training",
+                copy: "For teams and learners. Practise with examples from your work and take away materials you can use afterwards.",
                 scope: "90 minutes to several weeks",
                 pricingKey: "training",
                 to: "/training#details",
                 cta: "Browse the training catalogue",
             },
             {
-                title: "AI, IT and Process Consulting",
-                tag: "Consulting",
-                copy: "For decisions about software, infrastructure, AI applications or business processes. We compare options and can help you plan implementation.",
-                outcome: "A decision brief, an implementation plan or guidelines for using a tool.",
-                scope: "short consulting engagement, workshop, review or ongoing project support",
+                title: "AI, IT and process consulting",
+                copy: "For decisions on software, infrastructure, AI or processes. Get a decision brief, practical guidelines or an implementation plan.",
+                scope: "Sprint, workshop, review or project support",
                 pricingKey: "consulting",
                 to: "/consulting",
                 cta: "Explore consulting options",
             },
             {
-                title: "Curriculum & Programme Design",
-                tag: "Education",
-                copy: "For education providers and in-house training teams developing a course or workshop series.",
-                outcome: "A curriculum with objectives, exercises and a plan for live and self-paced learning.",
-                scope: "course outline, development of selected materials or a full programme plan",
+                title: "Course and programme design",
+                copy: "For education providers and training teams. Get learning objectives, exercises and a plan for live and self-paced learning.",
+                scope: "Course outline, materials or full programme",
                 pricingKey: "education",
                 to: "/training/curriculum-design-blended-learning",
                 cta: "Explore course development",
             },
             {
-                title: "Expert Sessions & Talks",
-                tag: "Talks",
-                copy: "For events and in-house training days. Topics include responsible AI, IT security, Industry 5.0 and digital transformation.",
-                outcome: "A guest talk, Q&A or briefing tailored to your audience.",
-                scope: "30 to 90 minutes, half a day or a format tailored to your event",
+                title: "Expert sessions and talks",
+                copy: "Talks, briefings and Q&As for events and training days. Topics include responsible AI, IT security, Industry 5.0 and digital transformation.",
+                scope: "30 to 90 minutes, half day or as agreed",
                 pricingKey: "talks",
                 to: "/training/coaching-keynotes-expert-talks",
                 cta: "View talks",
@@ -130,12 +115,12 @@ const content = {
         scopeLabel: "Typical scope",
         priceLabel: "Net planning rate",
         programmesTitle: "Combine formats for a larger programme",
-        programmesCopy: "For longer projects, we can combine training, consulting and materials development. Your quote sets out what we’ll provide, when the sessions take place and what your team will receive.",
+        programmesCopy: "We combine training, consulting and materials. Longer programmes and larger materials projects receive a custom quote with scope, dates and deliverables.",
         proofTitle: "Teaching experience",
         proofCopy: "Our references include IT training at CBW Hamburg and AI certification courses for Fast Lane.",
         proofLink: "View references",
         nextTitle: "What are you planning?",
-        nextCopy: "Tell us what you want to achieve, who it’s for and when you’d like to start. We’ll find a format that fits.",
+        nextCopy: "Tell us your goal, audience and timing. We’ll find a format that fits.",
         primary: "Request a quote",
         secondary: "Request an introductory call",
     },
@@ -143,7 +128,7 @@ const content = {
 
 export default function OffersPage() {
     const {language} = useLanguage();
-    const {offerPricing} = pricingForLanguage(language);
+    const {offerPricing, sessionPricing} = pricingForLanguage(language);
     const c = content[language];
 
     return (
@@ -152,7 +137,10 @@ export default function OffersPage() {
                 label={c.badge}
                 title={c.title}
                 copy={c.intro}
-                actions={<><Button to="/contact#contact-options">{c.primary}</Button><a href="#packages" className="business-link">{c.compare}<span aria-hidden="true">↓</span></a></>}
+                actions={<>
+                    <a className="lumo-button" href="#packages">{c.compare}<ArrowDown size={18} aria-hidden="true"/></a>
+                    <Button to={quotePath} variant="secondary">{c.primary}</Button>
+                </>}
             />
             <Container className="business-body">
                 <SectionJumpNav label={c.jumpLabel} items={c.jumpItems}/>
@@ -160,22 +148,24 @@ export default function OffersPage() {
                 <section id="packages" aria-labelledby="offer-formats-title">
                     <div id="decision" className="business-heading"><h2 id="offer-formats-title">{c.packagesTitle}</h2><p>{c.packagesCopy}</p></div>
                     <div className="business-grid business-grid--two">
-                        {c.packages.map((offer, index) => (
-                            <article key={offer.title} className="business-panel business-stack business-package" data-tone={tones[index]}>
-                                <p className="business-kicker">{offer.tag}</p>
+                        {c.packages.map((offer) => (
+                            <article key={offer.pricingKey} className="business-panel business-stack business-package">
                                 <h3>{offer.title}</h3>
                                 <p>{offer.copy}</p>
                                 <dl className="business-facts">
                                     <div><dt>{c.priceLabel}</dt><dd>{offerPricing[offer.pricingKey]}</dd></div>
                                     <div><dt>{c.scopeLabel}</dt><dd>{offer.scope}</dd></div>
-                                    <div><dt>{c.outcomeLabel}</dt><dd>{offer.outcome}</dd></div>
                                 </dl>
                                 <Link to={offer.to} className="business-link">{offer.cta}<span aria-hidden="true">↗</span></Link>
                             </article>
                         ))}
                     </div>
-                    <div className="lumo-action-row mt-5">
-                        <Button to="/pricing#rates" variant="secondary">{c.pricing}</Button>
+                    <div className="business-session-note">
+                        <p><strong>{sessionPricing}</strong> {c.sessionCopy}</p>
+                        <div className="lumo-action-row">
+                            <Button to={quotePath}>{c.primary}</Button>
+                            <Link className="business-link" to="/pricing#rates">{c.pricing}<span aria-hidden="true">↗</span></Link>
+                        </div>
                     </div>
                 </section>
 
@@ -195,7 +185,7 @@ export default function OffersPage() {
                 <CTASection
                     title={c.nextTitle}
                     copy={c.nextCopy}
-                    primary={<Button to="/contact#contact-options">{c.primary}</Button>}
+                    primary={<Button to={quotePath}>{c.primary}</Button>}
                     secondary={<Button to="/contact#appointment" variant="secondary">{c.secondary}</Button>}
                 />
             </div>

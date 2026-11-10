@@ -61,6 +61,7 @@ export default function TrainingTopicPage() {
         .map((relatedSlug) => topics.find((item) => item.slug === relatedSlug))
         .filter(Boolean);
     const jumpItems = relatedTopics.length ? [...c.jumps, ["#course-related", c.relatedJump]] : c.jumps;
+    const enquiryPath = `/contact?intent=training&course=${encodeURIComponent(topic.slug)}#enquiry`;
 
     return (
         <main className="business-page" data-business-section="course">
@@ -73,7 +74,7 @@ export default function TrainingTopicPage() {
                 label={topic.category}
                 title={topic.title}
                 copy={topic.summary}
-                actions={<><Button to="/contact#contact-options">{c.contact}</Button><Button to="/pricing" variant="secondary">{c.pricing}</Button></>}
+                actions={<><Button to={enquiryPath}>{c.contact}</Button><Button to="/pricing#rates" variant="secondary">{c.pricing}</Button></>}
                 visual={
                     <dl className="business-panel business-facts" data-tone="mint">
                         <div><dt>{c.audience}</dt><dd>{topic.audience}</dd></div>
@@ -126,7 +127,7 @@ export default function TrainingTopicPage() {
                 <CTASection
                     title={c.next}
                     copy={c.nextCopy}
-                    primary={<Button to="/contact#contact-options">{c.contact}</Button>}
+                    primary={<Button to={enquiryPath}>{c.contact}</Button>}
                     secondary={<Button to="/training#details" variant="secondary">{c.back}</Button>}
                 />
             </div>

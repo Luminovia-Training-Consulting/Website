@@ -120,34 +120,6 @@
     line-height: 1.35;
 }
 
-.people-action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: .6rem;
-    min-height: 2.9rem;
-    margin-top: 1.5rem;
-    padding: .65rem 1rem;
-    border: 2px solid transparent;
-    border-radius: .45rem;
-    background: var(--people-accent);
-    color: var(--on-accent);
-    font-weight: 750;
-    line-height: 1.3;
-}
-
-.people-action svg {
-    width: 1em;
-    height: 1em;
-    flex: none;
-}
-
-.people-action:hover {
-    border-color: currentColor;
-    text-decoration: underline;
-    text-underline-offset: .2em;
-}
-
 .people-section-intro {
     display: flex;
     flex-wrap: wrap;
@@ -157,20 +129,14 @@
     margin-bottom: 1.75rem;
 }
 
-.people-contact-hero,
 .people-about-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
-    align-items: center;
-    gap: clamp(2rem, 6vw, 6.25rem);
-    padding-block: clamp(2.5rem, 6vw, 6.5rem) 0;
-}
-
-.people-about-hero {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    column-gap: clamp(2rem, 6vw, 6.25rem);
+    padding-block: clamp(2.5rem, 6vw, 6.5rem) 0;
     grid-template-areas: "intro portrait" "bio portrait";
     grid-template-rows: auto auto;
-    row-gap: 0;
 }
 
 .people-about-intro {
@@ -190,66 +156,75 @@
     align-self: start;
 }
 
-.people-contact-call {
-    align-self: end;
-    position: relative;
-    isolation: isolate;
-    padding: clamp(1.35rem, 4vw, 3rem);
-    border-radius: .5rem 2.2rem .5rem .5rem;
-    background: var(--people-yellow);
-    color: var(--dark-ink);
-    scroll-margin-top: 7rem;
+.people-contact-intro {
+    padding-top: clamp(1.65rem, 4vw, 3.5rem);
+    margin-bottom: clamp(1.25rem, 3vw, 2.15rem);
 }
 
-.people-contact-call::before {
-    position: absolute;
-    z-index: -1;
-    inset: .75rem;
-    border: 1px dashed color-mix(in srgb, var(--dark-ink) 32%, transparent);
-    border-radius: .2rem 1.65rem .2rem .2rem;
-    pointer-events: none;
-    content: "";
+.people-contact-intro h1 {
+    max-width: 29ch;
+    font-size: clamp(2rem, 4.5vw, 3.65rem);
 }
 
-.people-contact-call > svg {
-    width: 3.15rem;
-    height: 3.15rem;
-    padding: .56rem;
-    border: 1px solid color-mix(in srgb, var(--dark-ink) 50%, transparent);
-    border-radius: .25rem .95rem .25rem .25rem;
+.people-contact-intro .people-lead { margin-top: .85rem; }
+
+.people-contact-paths {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
 }
 
-.people-contact-call h2 {
-    margin-top: 1.2rem;
+.people-contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .7rem;
+    padding: clamp(1.15rem, 2.7vw, 1.85rem);
+    border: 1px solid var(--people-rule);
+    border-radius: .65rem 1.65rem .65rem .65rem;
+    background: var(--people-white);
+    scroll-margin-top: 5.5rem;
 }
 
-.people-contact-call p {
-    max-width: 38ch;
-    margin-top: .8rem;
-    line-height: 1.6;
+.people-contact-card[data-featured="true"] {
+    border-color: color-mix(in srgb, var(--people-accent) 48%, var(--people-rule));
+    background: color-mix(in srgb, var(--people-accent) 7%, var(--people-white));
 }
 
-.people-contact-call :focus-visible,
-.people-simple-hero :focus-visible {
-    outline-color: var(--dark-ink);
+.people-contact-icon {
+    box-sizing: content-box;
+    padding: .55rem;
+    border-radius: .55rem;
+    background: color-mix(in srgb, var(--people-accent) 13%, var(--people-white));
+    color: var(--people-accent);
 }
 
-.people-contact-call .people-action {
-    background: var(--brand-blue);
-    color: #fff;
+.people-contact-card h2 { font-size: clamp(1.55rem, 2.8vw, 2.3rem); }
+.people-contact-card:focus-visible { outline-width: 2px; outline-offset: .16rem; }
+.people-contact-card > p { max-width: 48ch; line-height: 1.6; color: var(--people-muted); }
+.people-contact-card > .lumo-button { margin-top: auto; }
+
+.people-contact-card .people-contact-course {
+    display: grid;
+    gap: .1rem;
+    padding-inline-start: .7rem;
+    border-inline-start: 3px solid var(--people-accent);
+    overflow-wrap: anywhere;
 }
 
-.people-contact-enquiry { margin-top: .65rem; }
+.people-contact-course span { font-size: .82rem; font-weight: 700; }
+.people-contact-course strong { color: var(--people-ink); }
+
+.people-simple-hero :focus-visible { outline-color: var(--dark-ink); }
 
 .people-contact-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1.5rem;
     margin-top: 1.35rem;
 }
 
 .people-contact-list li {
-    border-top: 1px solid var(--people-rule);
-}
-
-.people-contact-list li:last-child {
     border-bottom: 1px solid var(--people-rule);
 }
 
@@ -285,24 +260,6 @@
     color: var(--people-accent);
     text-decoration: underline;
     text-underline-offset: .18em;
-}
-
-.people-contact-brief {
-    padding: clamp(1.35rem, 3.5vw, 2.6rem);
-    border-left: 4px solid var(--brand-blue);
-    border-radius: .18rem 1.5rem 1.5rem .18rem;
-    background: linear-gradient(145deg, var(--blue-soft) 62%, color-mix(in srgb, var(--blue-soft) 70%, var(--people-mint)));
-    color: var(--dark-ink);
-}
-
-.people-contact-brief ul {
-    margin: 1.2rem 0 0 1.1rem;
-    list-style: square;
-}
-
-.people-contact-brief li {
-    margin-top: .6rem;
-    padding-left: .15rem;
 }
 
 .people-faq {
@@ -861,7 +818,8 @@
 
 @media (max-width: 700px) {
     .people-split,
-    .people-contact-hero,
+    .people-contact-paths,
+    .people-contact-list,
     .people-about-hero,
     .people-practice ol,
     .people-demo-layout {
@@ -915,11 +873,11 @@
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    :is(.people-inline-links a, .people-contact-list a, .people-action, .people-reference-entry h3 a) svg:last-child {
+    :is(.people-inline-links a, .people-contact-list a, .people-reference-entry h3 a) svg:last-child {
         transition: translate .16s ease;
     }
 
-    :is(.people-inline-links a, .people-contact-list a, .people-action, .people-reference-entry h3 a):hover svg:last-child {
+    :is(.people-inline-links a, .people-contact-list a, .people-reference-entry h3 a):hover svg:last-child {
         translate: .16em -.1em;
     }
 }

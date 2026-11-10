@@ -12,7 +12,7 @@ const content = {
     de: {
         headline: ["Technik verstehen.", "Selbst anwenden."],
         label: "IT · KI · Wirtschaft",
-        intro: "Live-Trainings und Beratung für Teams, die IT, KI und Wirtschaft praktisch anwenden. Von Netzwerktechnik und Softwareentwicklung bis zu IT-Sicherheit und Rechnungswesen.",
+        intro: "Live-Trainings und Beratung in IT, KI und Wirtschaft. Wir arbeiten mit Beispielen aus Ihrem Arbeitsalltag.",
         training: "Trainings entdecken",
         role: "Gründerin · Trainerin · Beraterin",
         languages: "Live auf Deutsch und Englisch",
@@ -48,7 +48,7 @@ const content = {
     en: {
         headline: ["Understand technology.", "Put it to work."],
         label: "IT · AI · Business",
-        intro: "Live training and consulting for teams putting IT, AI and business skills to work, from networking and software development to cybersecurity and accounting.",
+        intro: "Live training and consulting in IT, AI and business, built around tasks your team handles at work.",
         training: "Explore training",
         role: "Founder · Trainer · Consultant",
         languages: "Live in German and English",
@@ -86,7 +86,7 @@ const content = {
 const services = [
     {to: "/training#details", Icon: BookOpen, colour: "mint"},
     {to: "/consulting", Icon: Compass, colour: "coral"},
-    {to: "/offers", Icon: Layers3, colour: "yellow"},
+    {to: "/offers#packages", Icon: Layers3, colour: "yellow"},
 ];
 
 export default function HomePage() {

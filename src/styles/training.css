@@ -8,6 +8,44 @@
     white-space: normal;
 }
 
+.training-search {
+    display: grid;
+    gap: .4rem;
+    max-width: 40rem;
+    margin-bottom: 1rem;
+}
+
+.training-search label { font-weight: 650; }
+
+.training-search-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .5rem;
+}
+
+.training-search input {
+    min-width: 0;
+    min-height: 46px;
+    padding: .55rem .8rem;
+    border: 1px solid var(--muted);
+    border-radius: .45rem;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 1rem;
+}
+
+.training-search input::placeholder { color: var(--muted); opacity: 1; }
+.training-search input::-webkit-search-cancel-button { appearance: none; }
+.training-search-count { color: var(--muted); font-size: .9rem; }
+
+.training-catalog-empty {
+    max-width: 40rem;
+    padding: .8rem 1rem;
+    border: 1px solid var(--biz-line);
+    border-radius: .55rem;
+    background: var(--surface);
+}
+
 .training-catalog-groups {
     display: grid;
     gap: clamp(2rem, 4vw, 3.5rem);

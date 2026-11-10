@@ -1,3 +1,5 @@
+import {ArrowDown} from "lucide-react";
+import {useRef, useState} from "react";
 import {Link} from "react-router-dom";
 import trainingCatalogue from "virtual:training-catalogue";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
@@ -36,7 +38,7 @@ const copy = {
     de: {
         label: "Live-Trainings & Kurse",
         title: "Training für IT, KI und Wirtschaft.",
-        intro: "Von Netzwerktechnik, Softwaredesign und IT-Sicherheit bis zu BWL, VWL, Buchhaltung, Steuern, Arbeitsrecht und Datenschutz. Für Unternehmen, Hochschulen und Bildungsträger passen wir Übungen und Tempo an die Lerngruppe an.",
+        intro: "Live-Trainings für Unternehmen, Hochschulen und Bildungsträger. Übungen und Tempo passen wir an die Lerngruppe an.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#details", "Themenkatalog"], ["#formats", "Formate"], ["#demo-session", "Demo"], ["#methods", "Arbeitsweise"]],
         browse: "Trainings finden",
@@ -44,7 +46,12 @@ const copy = {
         examples: ["Zugriffsrechte für einen Bericht festlegen.", "Eine KI-Zusammenfassung an der Quelle prüfen.", "Die Gewinnschwelle mit Musterzahlen berechnen."],
         tryExamples: "Übungen ausprobieren",
         catalog: "Themenkatalog",
-        catalogCopy: "Wählen Sie ein Fachgebiet und öffnen Sie ein Training für Inhalte, Lernziele und Dauer.",
+        catalogCopy: "Suchen Sie ein Thema oder wählen Sie ein Fachgebiet.",
+        searchLabel: "Trainings durchsuchen",
+        searchPlaceholder: "z. B. SQL oder IT-Sicherheit",
+        clearSearch: "Suche leeren",
+        resultCount: (count) => count === 1 ? "1 Training" : `${count} Trainings`,
+        emptyResults: "Keine passenden Trainings. Probieren Sie einen anderen Begriff.",
         catalogNav: "Fachgebiete",
         formats: "Formate und Dauer",
         formatsCopy: "Vom kurzen Briefing bis zur mehrwöchigen Kursreihe. Öffnen Sie ein Format, um den Ablauf und mögliche Ergebnisse zu sehen.",
@@ -68,7 +75,7 @@ const copy = {
     en: {
         label: "Live training & courses",
         title: "Training in IT, AI and business.",
-        intro: "Explore networking, software design and cybersecurity, or build skills in business administration, accounting, tax, employment law and data protection. We tailor workshops and courses to what teams and learners already know and what they need to do next.",
+        intro: "Live training for businesses, universities and education providers. We adapt exercises and pace to the group.",
         jumpLabel: "On this page",
         jumpItems: [["#details", "Topic catalogue"], ["#formats", "Formats"], ["#demo-session", "Demo"], ["#methods", "How we work"]],
         browse: "Find a training topic",
@@ -76,7 +83,12 @@ const copy = {
         examples: ["Set access permissions for a report.", "Check an AI summary against the source.", "Find the break-even point using sample figures."],
         tryExamples: "Try the exercises",
         catalog: "Topic catalogue",
-        catalogCopy: "Choose a subject area and open a course to see what it covers, what you’ll learn and how long it takes.",
+        catalogCopy: "Search for a topic or choose a subject area.",
+        searchLabel: "Search training",
+        searchPlaceholder: "e.g. SQL or cybersecurity",
+        clearSearch: "Clear search",
+        resultCount: (count) => count === 1 ? "1 course" : `${count} courses`,
+        emptyResults: "No matching courses. Try another search term.",
         catalogNav: "Subject areas",
         formats: "Formats and duration",
         formatsCopy: "From a short briefing to a course over several weeks. Open a format to see how it runs and what you can take away.",
@@ -99,11 +111,36 @@ const copy = {
     },
 };
 
+const trainingEnquiry = "/contact?intent=training#enquiry";
+
+function normalizeSearch(text, language) {
+    return text.toLocaleLowerCase(language).normalize("NFD").replace(/\p{M}/gu, "").replaceAll("ß", "ss");
+}
+
 export default function TrainingPage() {
     const {language} = useLanguage();
+    const [query, setQuery] = useState("");
+    const searchInput = useRef(null);
     const c = copy[language];
     const {durationModels, methods, boundaries} = businessOfferingsForLanguage(language);
     const detailTopics = trainingCatalogue[language] ?? trainingCatalogue.en;
+    const searchTerms = normalizeSearch(query, language).split(/\s+/).filter(Boolean);
+    const matchingTopics = searchTerms.length ? detailTopics.filter((topic) => {
+        const searchableText = normalizeSearch(`${topic.title} ${topic.summary}`, language);
+        return searchTerms.every((term) => searchableText.includes(term));
+    }) : detailTopics;
+    const groups = subjectAreas.map((area) => ({
+        id: `training-${area.id}`,
+        title: area[language][0],
+        description: area[language][1],
+        topics: matchingTopics.filter((topic) => topic.subjectArea === area.id),
+    }));
+    const subjectLinks = groups.filter((group) => group.topics.length).map((group) => [`#${group.id}`, group.title]);
+
+    function clearSearch() {
+        setQuery("");
+        searchInput.current?.focus();
+    }
 
     return (
         <main className="business-page" data-business-section="training">
@@ -111,7 +148,10 @@ export default function TrainingPage() {
                 label={c.label}
                 title={c.title}
                 copy={c.intro}
-                actions={<><a href="#details" className="business-link">{c.browse}<span aria-hidden="true">↓</span></a><Button to="/contact#contact-options">{c.ask}</Button></>}
+                actions={<>
+                    <a href="#details" className="lumo-button">{c.browse}<ArrowDown size={18} aria-hidden="true"/></a>
+                    <Button to={trainingEnquiry} variant="secondary">{c.ask}</Button>
+                </>}
                 visual={
                     <div className="business-panel business-stack" data-tone="yellow">
                         <p className="business-kicker">{c.example}</p>
@@ -123,32 +163,44 @@ export default function TrainingPage() {
             <Container className="business-body">
                 <SectionJumpNav label={c.jumpLabel} items={c.jumpItems}/>
 
-                <section id="details" className="training-catalog" aria-labelledby="training-catalog-title">
+                <section id="details" className="training-catalog" aria-labelledby="training-catalog-title" tabIndex={-1}>
                     <div id="services" className="business-heading">
                         <h2 id="training-catalog-title">{c.catalog}</h2>
                         <p>{c.catalogCopy}</p>
                     </div>
-                    <SectionJumpNav label={c.catalogNav} items={subjectAreas.map((area) => ["#training-" + area.id, area[language][0]])}/>
+                    <div className="training-search" role="search" aria-labelledby="training-search-label">
+                        <label id="training-search-label" htmlFor="training-search-input">{c.searchLabel}</label>
+                        <div className="training-search-controls">
+                            <input
+                                ref={searchInput}
+                                id="training-search-input"
+                                type="search"
+                                value={query}
+                                onChange={(event) => setQuery(event.currentTarget.value)}
+                                placeholder={c.searchPlaceholder}
+                                aria-controls="topics"
+                            />
+                            {query && <Button variant="secondary" onClick={clearSearch} showArrow={false}>{c.clearSearch}</Button>}
+                        </div>
+                        <p className="training-search-count" role="status">{c.resultCount(matchingTopics.length)}</p>
+                    </div>
+                    {subjectLinks.length > 0 && <SectionJumpNav label={c.catalogNav} items={subjectLinks}/>}
                     <div id="topics" className="training-catalog-groups">
-                        {subjectAreas.map((area) => {
-                            const [title, description] = area[language];
-                            const sectionId = "training-" + area.id;
-
-                            return (
-                                <section key={area.id} id={sectionId} className="training-catalog-group" aria-labelledby={sectionId + "-title"}>
-                                    <h3 id={sectionId + "-title"}>{title}</h3>
-                                    <p className="business-muted">{description}</p>
-                                    <ul className="training-topic-grid" role="list">
-                                        {detailTopics.filter((topic) => topic.subjectArea === area.id).map((topic) => (
-                                            <li key={topic.slug} className="training-topic-card">
-                                                <h4><Link to={"/training/" + topic.slug} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h4>
-                                                <p className="business-muted">{topic.summary}</p>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </section>
-                            );
-                        })}
+                        {matchingTopics.length === 0 && <p className="training-catalog-empty">{c.emptyResults}</p>}
+                        {groups.map(({id, title, description, topics}) => (
+                            <section key={id} id={id} className="training-catalog-group" aria-labelledby={id + "-title"} hidden={!topics.length}>
+                                <h3 id={id + "-title"}>{title}</h3>
+                                <p className="business-muted">{description}</p>
+                                <ul className="training-topic-grid" role="list">
+                                    {topics.map((topic) => (
+                                        <li key={topic.slug} className="training-topic-card">
+                                            <h4><Link to={"/training/" + topic.slug} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h4>
+                                            <p className="business-muted">{topic.summary}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </section>
+                        ))}
                     </div>
                 </section>
 
@@ -212,7 +264,7 @@ export default function TrainingPage() {
                     <h2 className="business-h2">{c.consulting}</h2>
                     <p>{c.consultingCopy}</p>
                     <div className="lumo-action-row">
-                        <Button to="/contact#contact-options">{c.ask}</Button>
+                        <Button to={trainingEnquiry}>{c.ask}</Button>
                         <Button to="/consulting" variant="secondary">{c.consultingLink}</Button>
                     </div>
                 </section>

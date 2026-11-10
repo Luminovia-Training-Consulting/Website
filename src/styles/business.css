@@ -295,10 +295,29 @@
     line-height: 1;
 }
 
-.business-currency { margin-bottom: 1.2rem; }
+.business-package,
+.business-rate {
+    border-block-start: .25rem solid var(--lilac);
+    background: var(--surface);
+}
 
-.business-package { grid-template-rows: auto auto auto 1fr auto; }
+:is(.business-package, .business-rate):nth-child(2) { border-block-start-color: var(--mint); }
+:is(.business-package, .business-rate):nth-child(3) { border-block-start-color: var(--yellow); }
+:is(.business-package, .business-rate):nth-child(4) { border-block-start-color: var(--coral); }
+
+.business-package { grid-template-rows: auto auto 1fr auto; }
 .business-package .business-facts { align-self: start; }
+
+.business-session-note {
+    display: grid;
+    gap: .85rem;
+    margin-top: 1.35rem;
+    padding: clamp(1rem, 2.5vw, 1.65rem);
+    border: 1px solid var(--biz-line);
+    border-radius: .85rem;
+}
+
+.business-session-note p { max-width: 65ch; }
 
 .business-back { margin-top: 1.4rem; }
 
@@ -359,5 +378,3 @@
 .business-panel .business-heading h2 { font-size: clamp(1.5rem, 3vw, 2.4rem); }
 .business-list--ruled.business-numbered { list-style-type: decimal-leading-zero; padding-inline-start: 1.75rem; }
 .business-list--ruled.business-numbered > li { padding-inline-start: .35rem; }
-
-.business-facts.business-currency > div { grid-template-columns: 3rem 1fr; }

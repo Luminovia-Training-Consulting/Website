@@ -160,20 +160,24 @@ function htmlPerformancePlugin() {
 }
 
 function trainingCataloguePlugin() {
-    const moduleId = "virtual:training-catalogue";
-    const resolvedId = `\0${moduleId}`;
+    const projections = new Map([
+        ["\0virtual:training-catalogue", ({slug, subjectArea, title, summary}) => ({slug, subjectArea, title, summary})],
+        ["\0virtual:training-titles", ({slug, title}) => [slug, title]],
+    ]);
 
     return {
         name: "training-catalogue",
         resolveId(id) {
-            return id === moduleId ? resolvedId : null;
+            const resolved = `\0${id}`;
+            return projections.has(resolved) ? resolved : null;
         },
         load(id) {
-            if (id !== resolvedId) return null;
+            const project = projections.get(id);
+            if (!project) return null;
 
             const catalogue = Object.fromEntries(["en", "de"].map((language) => [
                 language,
-                trainingDetailsForLanguage(language).map(({slug, subjectArea, title, summary}) => ({slug, subjectArea, title, summary})),
+                trainingDetailsForLanguage(language).map(project),
             ]));
             return `export default ${JSON.stringify(catalogue)};`;
         },
