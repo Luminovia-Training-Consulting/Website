@@ -3,6 +3,7 @@ import preact from "@preact/preset-vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import {notFoundMeta, routeMeta} from "./src/data/seoContent.js";
+import {trainingDetailsForLanguage} from "./src/data/trainingDetails.js";
 import {trainingSeoEntries} from "./src/data/trainingSeo.js";
 
 const siteUrl = "https://luminovia.org";
@@ -158,12 +159,33 @@ function htmlPerformancePlugin() {
     };
 }
 
+function trainingCataloguePlugin() {
+    const moduleId = "virtual:training-catalogue";
+    const resolvedId = `\0${moduleId}`;
+
+    return {
+        name: "training-catalogue",
+        resolveId(id) {
+            return id === moduleId ? resolvedId : null;
+        },
+        load(id) {
+            if (id !== resolvedId) return null;
+
+            const catalogue = Object.fromEntries(["en", "de"].map((language) => [
+                language,
+                trainingDetailsForLanguage(language).map(({slug, subjectArea, title, summary}) => ({slug, subjectArea, title, summary})),
+            ]));
+            return `export default ${JSON.stringify(catalogue)};`;
+        },
+    };
+}
+
 export default defineConfig(({command, mode}) => {
     const usePreactCompat = command === "build" && mode !== "test";
     const base = "/";
 
     return {
-        plugins: [usePreactCompat ? preact() : react(), tailwindcss(), htmlPerformancePlugin()],
+        plugins: [usePreactCompat ? preact() : react(), tailwindcss(), trainingCataloguePlugin(), htmlPerformancePlugin()],
         base,
         build: {
             modulePreload: {

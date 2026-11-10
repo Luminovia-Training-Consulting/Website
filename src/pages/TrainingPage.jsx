@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
+import trainingCatalogue from "virtual:training-catalogue";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
-import {trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
 import Button from "../components/Button.jsx";
 import DemoVideoSection from "../components/DemoVideoSection.jsx";
@@ -103,7 +103,7 @@ export default function TrainingPage() {
     const {language} = useLanguage();
     const c = copy[language];
     const {durationModels, methods, boundaries} = businessOfferingsForLanguage(language);
-    const detailTopics = trainingDetailsForLanguage(language);
+    const detailTopics = trainingCatalogue[language] ?? trainingCatalogue.en;
 
     return (
         <main className="business-page" data-business-section="training">
