@@ -21,8 +21,8 @@ export const trainingSeoEntries = [
     },
     {
         slug: "software-development-retraining-java-python-csharp-kotlin",
-        en: {title: "Software Development, APIs & Retraining | Luminovia", description: "Software development training and retraining around Java, Python, C#, Kotlin, APIs and applied programming."},
-        de: {title: "Softwareentwicklung, APIs und Umschulung | Luminovia", description: "Praxisnahes Softwareentwicklungs-Training zu Java, Python, C#, Kotlin, APIs und Programmiergrundlagen für Aus- und Weiterbildung."},
+        en: {title: "Software Development, Design & Architecture Training | Luminovia", description: "Training in software design, architecture, APIs and applied programming with Java, Python, C# and Kotlin."},
+        de: {title: "Training für Softwareentwicklung, Design und Architektur | Luminovia", description: "Training zu Softwaredesign, Architektur, APIs und angewandter Programmierung mit Java, Python, C# und Kotlin."},
     },
     {
         slug: "fachinformatiker-ihk-training-retraining",
@@ -55,6 +55,11 @@ export const trainingSeoEntries = [
         de: {title: "Wirtschaftsinformatik und digitale Transformation | Luminovia", description: "Training zu Wirtschaftsinformatik und digitaler Transformation an der Schnittstelle von IT, Prozessen, Daten, Systemen und Geschäftsnutzen."},
     },
     {
+        slug: "networking-it-infrastructure",
+        en: {title: "Networking & IT Infrastructure Training | Luminovia", description: "Hands-on network training in IP addressing, switching, routing, network services and troubleshooting."},
+        de: {title: "Training für Netzwerktechnik und IT-Infrastruktur | Luminovia", description: "Praxistraining zu IP-Adressierung, Switching, Routing, Netzwerkdiensten und systematischer Fehlersuche."},
+    },
+    {
         slug: "cloud-devops-systems-foundations",
         en: {title: "Cloud, DevOps & Systems Foundations | Luminovia", description: "Training around cloud concepts, Docker, Kubernetes, Linux, Ubuntu and operational foundations for software, data and IT learners."},
         de: {title: "Cloud, DevOps und Systemgrundlagen | Luminovia", description: "Training zu Cloud-Konzepten, Docker, Kubernetes, Linux, Ubuntu und Betriebsgrundlagen für Software-, Daten- und IT-Lernende."},
@@ -66,8 +71,23 @@ export const trainingSeoEntries = [
     },
     {
         slug: "digital-law-gdpr-ai-act-cloud-act",
-        en: {title: "Digital Law, GDPR, AI Act & Cloud Act Awareness | Luminovia", description: "Awareness training around digital law, GDPR, the EU AI Act, Cloud Act and practical compliance questions for non-lawyers."},
-        de: {title: "Digitales Recht, DSGVO, AI Act und Cloud Act | Luminovia", description: "Awareness-Training zu digitalem Recht, DSGVO, EU AI Act, Cloud Act und praktischen Compliance-Fragen für Nichtjuristinnen und Nichtjuristen."},
+        en: {title: "Data Protection, GDPR & Digital Law Training | Luminovia", description: "Training in practical data protection, GDPR, IT law and governance questions around AI and cloud services."},
+        de: {title: "Training zu Datenschutz, DSGVO und digitalem Recht | Luminovia", description: "Praxisnahes Training zu Datenschutz, DSGVO, IT-Recht und rechtlichen Fragen rund um KI und Cloud-Dienste."},
+    },
+    {
+        slug: "business-administration-economics",
+        en: {title: "Business Administration & Economics Training | Luminovia", description: "Applied business and economics training covering markets, business functions, costs and decisions through practical cases."},
+        de: {title: "Training für BWL und VWL | Luminovia", description: "Kurse zu Betriebswirtschaft und Volkswirtschaft mit Fallübungen zu Märkten, betrieblichen Funktionen, Kosten und Entscheidungen."},
+    },
+    {
+        slug: "accounting-tax-fundamentals",
+        en: {title: "Accounting & Tax Fundamentals Training | Luminovia", description: "Practise bookkeeping, read financial statements and learn tax fundamentals using sample business transactions."},
+        de: {title: "Training für Buchhaltung und Steuergrundlagen | Luminovia", description: "Buchführung, Bilanz, Gewinn- und Verlustrechnung sowie Steuergrundlagen anhand kaufmännischer Übungsfälle lernen."},
+    },
+    {
+        slug: "employment-law-hr-fundamentals",
+        en: {title: "Employment Law & HR Fundamentals Training | Luminovia", description: "Training in employment contracts, working time, leave and HR processes through example cases."},
+        de: {title: "Training für Arbeitsrecht und Personalwesen | Luminovia", description: "Praxisnaher Kurs zu Arbeitsverträgen, Arbeitszeit, Urlaub und Personalprozessen anhand von Übungsfällen."},
     },
     {
         slug: "office-management-ihk-business-training",

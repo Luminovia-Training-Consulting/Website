@@ -162,9 +162,10 @@ const de = {
     ],
     trainingTopics: [
         {group: "KI und Zukunftskompetenzen", items: ["KI-Kompetenz", "Prompt Engineering", "Arbeitsabläufe mit generativer KI", "Verantwortungsvolle KI", "Grundlagen der KI-Governance", "KI für Büroproduktivität"]},
-        {group: "Software & Daten", items: ["Java / Python / C# / Kotlin", "SQL und Datenbanken", "APIs und Automatisierung", "Data Analyst / Scientist / Engineer", "Big-Data-Konzepte", "UI/UX-Grundlagen"]},
+        {group: "Software & Daten", items: ["Softwaredesign", "Java / Python / C# / Kotlin", "SQL und Datenbanken", "APIs und Automatisierung", "Data Analyst / Scientist / Engineer", "Big-Data-Konzepte", "UI/UX-Grundlagen"]},
         {group: "Cybersecurity", items: ["Cybersecurity Awareness", "Web Security", "SOC-Grundlagen", "CompTIA PenTest+ Vorbereitung", "Ethical-Hacking-Grundlagen", "Passwort- und Datensicherheit"]},
-        {group: "Wirtschaftsinformatik", items: ["Wirtschaftsinformatik", "IT-Service-Management", "Cloud-Konzepte", "Digitale Transformation", "Scrum und agiles Arbeiten", "Prozessoptimierung"]},
+        {group: "Wirtschaftsinformatik", items: ["Netzwerktechnik", "Wirtschaftsinformatik", "IT-Service-Management", "Cloud-Konzepte", "Digitale Transformation", "Scrum und agiles Arbeiten", "Prozessoptimierung"]},
+        {group: "Wirtschaft, Rechnungswesen und Recht", items: ["BWL", "VWL", "Buchhaltung", "Steuergrundlagen", "Arbeitsrecht", "Datenschutz"]},
         {group: "Berufliche Bildung & IHK", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute / Büromanagement", "Teilqualifikation", "IHK Prüfungsvorbereitung", "Erwachsenenbildung"]},
         {group: "Recht, Coaching & Vorträge", items: ["Digitales Recht und DSGVO", "AI Act und Cloud Act", "IT-Recht Awareness", "Coaching", "Keynote Speaker", "Gastvorträge"]},
     ],

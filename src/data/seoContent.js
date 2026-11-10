@@ -1,20 +1,20 @@
 export const routeMeta = {
     en: {
         "/": {
-            title: "AI, IT and Cybersecurity Training | Luminovia",
-            description: "Luminovia offers practical AI, IT and cybersecurity training and consulting for organisations and education providers. Founded by Carina Sophie Schoppe.",
+            title: "IT, AI and Business Training | Luminovia",
+            description: "Live training in IT, AI and business, from networking and software design to accounting, employment law and data protection. Consulting for technical and business projects.",
         },
         "/training": {
-            title: "Training | AI, IT & Digital Capability Training",
-            description: "Explore practical AI training, IT training, cybersecurity training, software, data, digital business and curriculum-design workshops for organisations and education providers.",
+            title: "IT, AI and Business Course Catalogue | Luminovia",
+            description: "Browse courses in networking, software design, AI, cybersecurity, economics, accounting, tax fundamentals, employment law and data protection.",
         },
         "/offers": {
             title: "Offers | Luminovia Training & Consulting",
-            description: "Clear Luminovia packages for live training, consulting sprints, project support, keynotes, curriculum design and larger digital enablement programmes.",
+            description: "Compare Luminovia’s live training in IT, AI and business, consulting formats, project support, talks and course design.",
         },
         "/consulting": {
             title: "Consulting | IT, AI and Business Advisory",
-            description: "Consulting portfolio for AI use cases, IT and process advisory, business technology, curriculum design, roadmaps and digital enablement.",
+            description: "Consulting for IT infrastructure, software design, AI applications and business processes, from comparing options to planning implementation.",
         },
         "/projects": {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
@@ -34,11 +34,11 @@ export const routeMeta = {
         },
         "/about": {
             title: "About the Team | Luminovia Training & Consulting",
-            description: "Meet Carina Sophie Schoppe and Nenad Kalicanin at Luminovia Training & Consulting, with expertise in training, software development and AI.",
+            description: "Meet Carina Sophie Schoppe and Nenad Kalicanin at Luminovia. Explore the team’s experience in business education, IT, software development and AI.",
         },
         "/contact": {
             title: "Contact & Booking | Book Training or Consulting",
-            description: "Contact Luminovia to book AI, IT and digital capability training, consulting, workshops, talks, course delivery or programme planning.",
+            description: "Contact Luminovia to book training in IT, AI or business, discuss a consulting project or arrange a workshop, talk or course.",
         },
         "/imprint": {
             title: "Imprint | Luminovia",
@@ -55,20 +55,20 @@ export const routeMeta = {
     },
     de: {
         "/": {
-            title: "KI-, IT- und Cybersecurity-Training | Luminovia",
-            description: "Luminovia bietet praxisnahe Trainings und Beratung zu KI, IT und Cybersecurity für Unternehmen und Bildungsträger. Gegründet von Carina Sophie Schoppe.",
+            title: "Training für IT, KI und Wirtschaft | Luminovia",
+            description: "Live-Trainings zu IT, KI und Wirtschaft, von Netzwerktechnik und Softwaredesign bis zu Buchhaltung, Arbeitsrecht und Datenschutz. Beratung für technische und betriebliche Projekte.",
         },
         "/training": {
-            title: "Training | KI, IT und digitale Kompetenz",
-            description: "Praxisnahes KI-, IT- und Cybersecurity-Training sowie Kurse zu Software, Daten, Digital Business und Curriculum-Design für Organisationen und Bildungsanbieter.",
+            title: "Kurskatalog für IT, KI und Wirtschaft | Luminovia",
+            description: "Kurse zu Netzwerktechnik, Softwaredesign, KI, IT-Sicherheit, BWL, VWL, Buchhaltung, Steuergrundlagen, Arbeitsrecht und Datenschutz.",
         },
         "/offers": {
             title: "Angebote | Luminovia Training & Consulting",
-            description: "Klare Luminovia-Pakete für Live-Training, Consulting-Sprints, Projektbegleitung, Keynotes, Curriculum Design und größere Digital-Enablement-Programme.",
+            description: "Live-Trainings zu IT, KI und Wirtschaft, Beratungsformate, Projektbegleitung, Vorträge und Kursentwicklung bei Luminovia.",
         },
         "/consulting": {
-            title: "Beratung für KI und IT | Luminovia",
-            description: "Beratung zu KI-Anwendungen, digitalen Abläufen und technischen Entscheidungen. Luminovia begleitet Organisationen von der ersten Frage bis zur Umsetzung.",
+            title: "Beratung für IT, KI und Geschäftsprozesse | Luminovia",
+            description: "Beratung zu IT-Infrastruktur, Software, KI-Anwendungen und Geschäftsprozessen. Luminovia begleitet Organisationen von der ersten Frage bis zur Umsetzung.",
         },
         "/projects": {
             title: "Projektportfolio | KI-Research, Automatisierung und Consulting",
@@ -88,11 +88,11 @@ export const routeMeta = {
         },
         "/about": {
             title: "Über uns | Luminovia Training & Consulting",
-            description: "Lernen Sie Carina Sophie Schoppe und Nenad Kalicanin kennen. Das Team von Luminovia verbindet Training und Beratung mit Softwareentwicklung und KI.",
+            description: "Lernen Sie Carina Sophie Schoppe und Nenad Kalicanin und ihre Erfahrung in kaufmännischer Bildung, IT, Softwareentwicklung und KI kennen.",
         },
         "/contact": {
             title: "Kontakt & Buchung | Training oder Consulting buchen",
-            description: "Kontaktieren Sie Luminovia für KI-, IT- und Digitalkompetenz-Training, Consulting, Workshops, Vorträge, Kursdurchführung oder Programmplanung.",
+            description: "Fragen Sie bei Luminovia Trainings zu IT, KI und Wirtschaft, Beratung für Ihr Projekt, Workshops, Vorträge oder Kursdurchführung an.",
         },
         "/imprint": {
             title: "Impressum | Luminovia",

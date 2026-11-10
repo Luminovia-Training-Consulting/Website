@@ -6,7 +6,7 @@ import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
 /** @type {[string, RegExp][]} */
 const routes = [
-    ["/training", /Training that improves digital work/i],
+    ["/training", /Training in IT, AI and business/i],
     ["/offers", /Clear Luminovia offers/i],
     ["/training/software-development-retraining-java-python-csharp-kotlin", /Software Development, APIs & Retraining/i],
     ["/projects", /From a problem to working software/i],

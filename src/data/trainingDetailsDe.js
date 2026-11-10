@@ -95,6 +95,7 @@ export const germanCoursePlans = {
         modules: [
             "Programmieren lernen. Variablen, Kontrollfluss, Datenstrukturen, Funktionen und Objektorientierung einsetzen sowie Fehler finden und beheben.",
             "Mit Java, Python, C# oder Kotlin arbeiten. Syntax, Werkzeuge und typische Schreibweisen der jeweiligen Sprache anhand von Übungen kennenlernen.",
+            "Aus Anforderungen einen Softwareentwurf entwickeln. Komponenten und Schnittstellen skizzieren, Architekturvarianten vergleichen und Entwurfsentscheidungen begründen.",
             "Code so aufbauen, dass andere ihn warten können. Git, Tests, Dokumentation und Refactoring an einem Beispiel einsetzen.",
             "Backends und APIs entwickeln. HTTP, REST, JSON, Grundzüge der Authentifizierung, Endpunkte, Schnittstellenintegration und Fehlerbehandlung verstehen.",
             "Ein Projekt von den Anforderungen bis zur Präsentation bearbeiten. Aufgaben zerlegen, Code umsetzen und besprechen und den eigenen Lernfortschritt auswerten.",
@@ -102,6 +103,7 @@ export const germanCoursePlans = {
         outcomes: [
             "Grundlegende Konzepte auf verschiedene Programmiersprachen übertragen.",
             "Kleine, vollständige Anwendungen entwickeln.",
+            "Einen Softwareentwurf mit Diagrammen darstellen und seine Vor- und Nachteile erklären.",
             "Git, Entwicklungsumgebung, Tests und Debugging gezielt einsetzen.",
             "Erklären, wie Anwendungen über APIs miteinander kommunizieren.",
             "Sich auf Prüfungen in der Berufsausbildung, Stationen einer Umschulung oder typische Aufgaben im Berufseinstieg vorbereiten.",
@@ -109,6 +111,7 @@ export const germanCoursePlans = {
         deliverables: [
             "Übungen für die gewählte Programmiersprache",
             "Projektaufgaben und Rückmeldung zum Code",
+            "Übungen zum Softwaredesign und Architekturskizzen",
             "Praktische API-Übungen",
             "Zusammenfassungen zur Prüfungsvorbereitung",
             "Lernkontrollen und regelmäßige Rückmeldungen",
@@ -230,6 +233,50 @@ export const germanCoursePlans = {
             "Plan zur Entwicklung der Lernkultur",
         ],
     },
+    "business-administration-economics": {
+        modules: [
+            "Geschäftsmodelle und Organisationsformen vergleichen. Kundenangebot, Erlösquellen und interne Zuständigkeiten miteinander verbinden.",
+            "Beschaffung, Leistungserstellung und Vertrieb anhand eines Auftrags nachvollziehen. Engpässe erkennen und die Folgen von Entscheidungen für andere Bereiche erklären.",
+            "Fixe und variable Kosten unterscheiden, einen Deckungsbeitrag berechnen und die Folgen einer Preis- oder Mengenänderung an der Gewinnschwelle untersuchen.",
+            "Angebot, Nachfrage, Wettbewerb und Preisbildung an Beispielen untersuchen. Erklären, was passiert, wenn sich die Nachfrage ändert oder Vorleistungen teurer werden.",
+            "Inflation, Zinsen und Konjunktur mit Kaufkraft, Finanzierung und betrieblicher Planung in Verbindung bringen.",
+        ],
+        outcomes: [
+            "Die wichtigsten Unternehmensfunktionen beschreiben und ihre Zusammenarbeit erklären.",
+            "Deckungsbeitrag und Gewinnschwelle mit Musterzahlen berechnen.",
+            "Erklären, wie Marktveränderungen eine betriebliche Entscheidung beeinflussen.",
+            "Einfache volkswirtschaftliche Kennzahlen einordnen und von betrieblichen Kennzahlen unterscheiden.",
+            "Handlungsoptionen vergleichen und eine Empfehlung mit Annahmen und Berechnungen begründen.",
+        ],
+        deliverables: [
+            "Betriebliche Fallstudie mit Musterzahlen",
+            "Übungen zu Kosten, Preisen und Gewinnschwelle",
+            "Beispiele zu Marktentwicklungen und Konjunktur",
+            "Arbeitsblatt zum Vergleich betrieblicher Entscheidungen",
+        ],
+    },
+    "accounting-tax-fundamentals": {
+        modules: [
+            "Geschäftsvorfälle vom Beleg über das Journal bis zum Hauptbuch nachvollziehen. Konten zuordnen und Buchungssätze in Soll und Haben üben.",
+            "Einkauf, Verkauf, Gutschriften, Forderungen und Verbindlichkeiten bearbeiten. Musterrechnungen und Zahlungen mit einem Kontoauszug abgleichen.",
+            "Eine einfache Bilanz und Gewinn- und Verlustrechnung lesen. Erklären, wie ein Geschäftsvorfall Vermögen, Verbindlichkeiten, Erträge oder Aufwendungen verändert.",
+            "Umsatzsteuer von Steuern auf Einkommen oder Gewinn unterscheiden. Netto-, Steuer- und Bruttobeträge berechnen und Umsatzsteuer sowie Vorsteuer an Musterrechnungen nachvollziehen.",
+            "Eine einfache Monatsauswertung und Übergabe vorbereiten. Fehlende Belege erkennen, Abweichungen klären und Rückfragen für Buchhaltung oder Steuerfachleute sammeln.",
+        ],
+        outcomes: [
+            "Typische Geschäftsvorfälle mit doppelter Buchführung erfassen.",
+            "Musterrechnungen und Zahlungen zuordnen und offene Posten erkennen.",
+            "Wichtige Positionen in Bilanz und Gewinn- und Verlustrechnung lesen.",
+            "Umsatzsteuer und Vorsteuer an einer Beispielrechnung erklären.",
+            "Unterlagen und Rückfragen für eine nachvollziehbare Übergabe vorbereiten.",
+        ],
+        deliverables: [
+            "Musterbelege, Rechnungen und Buchungssätze",
+            "Buchungsübungen mit Lösungswegen",
+            "Beispielbilanz und Gewinn- und Verlustrechnung",
+            "Checkliste für Monatsauswertung und Übergabe",
+        ],
+    },
     "business-informatics-digital-transformation": {
         modules: [
             "Informationssysteme, Geschäftsprozesse, Unternehmensarchitektur und Datenflüsse untersuchen und ihren Beitrag zur Wertschöpfung erklären.",
@@ -276,6 +323,28 @@ export const germanCoursePlans = {
             "Zusammenfassung zur Prüfungsvorbereitung",
         ],
     },
+    "networking-it-infrastructure": {
+        modules: [
+            "Datenverkehr vom Client bis zum Server verfolgen und die Aufgaben von Switches, Routern, Firewalls und WLAN-Zugangspunkten erklären.",
+            "IPv4- und IPv6-Adressen planen. Ein IPv4-Netz in Subnetze aufteilen und Hostbereiche, Präfixe und Standardgateways überprüfen.",
+            "Netze mit Switching, VLANs und Routing verbinden. Verfolgen, wie Daten innerhalb eines Segments und zwischen Segmenten weitergeleitet werden.",
+            "DNS und DHCP im Labor einrichten und testen. Besprechen, wie Firewallregeln, VPNs und WLAN-Sicherheit den Netzzugang schützen.",
+            "Verbindungsstörungen Schritt für Schritt eingrenzen. Mögliche Ursachen mit Ping, Traceroute, DNS-Abfragen und Paketmitschnitten prüfen.",
+        ],
+        outcomes: [
+            "Einen Netzwerkplan für einen kleinen Standort lesen und zeichnen.",
+            "IP-Adressen planen und lokale sowie geroutete Verbindungen prüfen.",
+            "Erklären, wie VLANs, DNS und DHCP in einem Netz zusammenwirken.",
+            "Grundlegende Maßnahmen zur Netztrennung und Zugangssicherung erkennen.",
+            "Eine Verbindungsstörung mit Testergebnissen und nächstem Schritt dokumentieren.",
+        ],
+        deliverables: [
+            "Übungen zu Netztopologien und Adressplanung",
+            "Angeleitete Laboraufgaben zu Switching und Routing",
+            "Beispielszenarien zu DNS, DHCP und Verbindungsfehlern",
+            "Checkliste für Fehlersuche und Vorlage zur Dokumentation",
+        ],
+    },
     "cybersecurity-pentesting-ethical-hacking": {
         modules: [
             "Bedrohungsmodelle, Vertraulichkeit, Integrität und Verfügbarkeit einordnen. Identitäten, Zugriffe, Passwörter, Mehrfaktor-Authentifizierung und Phishing anhand von Alltagssituationen betrachten.",
@@ -301,7 +370,8 @@ export const germanCoursePlans = {
     },
     "digital-law-gdpr-ai-act-cloud-act": {
         modules: [
-            "DSGVO: personenbezogene Daten, Rechtsgrundlagen, Datenminimierung, Auftragsverarbeitung, Dokumentation und Datenschutz im Arbeitsalltag.",
+            "An einem DSGVO-Beispiel nachvollziehen, wie ein Team personenbezogene Daten erhebt, speichert, weitergibt und löscht. Rechtsgrundlagen, Datenminimierung, Aufbewahrung und Auftragsverarbeitung einordnen.",
+            "Fiktive Fälle zu einer Auskunftsanfrage und einem möglichen Datenschutzvorfall bearbeiten. Klären, was dokumentiert werden sollte und wer einbezogen werden muss.",
             "EU AI Act: Risiken einordnen, verbotene und besonders risikoreiche Anwendungen erkennen, Transparenz und KI-Kompetenz im Betrieb berücksichtigen.",
             "US CLOUD Act und Cloud-Dienste: Rechtsräume, Anbieter, Datenstandorte und Verträge prüfen und Risiken bei der Beschaffung ansprechen.",
             "IT- und Wirtschaftsrecht: Softwarenutzung, Lizenzen, Verträge, Haftungsfragen und Verantwortlichkeiten für digitale Dienste einordnen.",
@@ -311,6 +381,7 @@ export const germanCoursePlans = {
             "Die wichtigsten Rechtsfragen bei KI, Datenverarbeitung und Cloud-Diensten erkennen.",
             "Feststellen, wann Rechtsberatung oder Datenschutzfachleute einbezogen werden sollten.",
             "Projektentscheidungen und den Umgang mit Daten nachvollziehbar dokumentieren.",
+            "Grundlegende Schritte bei einer Datenschutzanfrage oder einem Vorfall erklären.",
             "KI-Regeln im Betrieb mit Datenschutz, EU AI Act und IT-Sicherheit zusammen betrachten.",
             "Vor dem Einsatz neuer Werkzeuge in sensiblen Bereichen gezielt nach Risiken fragen.",
         ],
@@ -319,7 +390,30 @@ export const germanCoursePlans = {
             "Fragenkatalog zu KI- und Datenrisiken",
             "Einstieg in die Prüfung von Cloud-Diensten und Anbietern",
             "Beispiele für die Projektdokumentation",
+            "Fallübungen zu Datenflüssen und Datenschutz",
             "Übersicht für die Weitergabe offener Fragen an Fachleute",
+        ],
+    },
+    "employment-law-hr-fundamentals": {
+        modules: [
+            "Einen Musterarbeitsvertrag lesen und Regelungen zu Tätigkeit, Vergütung, Probezeit und Kündigung erkennen. Vertrag, betriebliche Regelungen und Tarifvertrag unterscheiden.",
+            "Beispielfragen zu Arbeitszeit, Pausen, Urlaub und Arbeitsunfähigkeit bearbeiten. Feststellen, welche Angaben dafür erfasst und geprüft werden müssen.",
+            "Personalauswahl und Einarbeitung von den Bewerbungsunterlagen bis zur Personalakte nachvollziehen. Gleichbehandlung und den Umgang mit Beschäftigtendaten besprechen.",
+            "Verantwortlichkeiten, Kommunikation und betriebliche Mitbestimmung einordnen. Den Sachverhalt eines fiktiven Problems am Arbeitsplatz dokumentieren.",
+            "Typische Formen der Beendigung eines Arbeitsverhältnisses vergleichen. Eine Übergabe im Beispielfall vorbereiten und Fragen für Personal- oder Rechtsfachleute erkennen.",
+        ],
+        outcomes: [
+            "Typische Regelungen und Begriffe in einem Musterarbeitsvertrag identifizieren.",
+            "Fragen zu Arbeitszeit und Urlaub anhand des jeweiligen Sachverhalts strukturieren.",
+            "Zentrale Aufgaben von der Personalauswahl bis zum Austritt beschreiben.",
+            "Schnittstellen von Arbeitsrecht und Beschäftigtendatenschutz erkennen.",
+            "Konkrete und sachlich begründete Fragen für die fachliche Prüfung formulieren.",
+        ],
+        deliverables: [
+            "Fiktive Fälle aus dem Arbeitsalltag mit Diskussionsfragen",
+            "Übung mit einem Musterarbeitsvertrag",
+            "Checklisten für Einarbeitung und Austritt",
+            "Arbeitsblatt zum Dokumentieren und Weitergeben offener Fragen",
         ],
     },
     "office-management-ihk-business-training": {

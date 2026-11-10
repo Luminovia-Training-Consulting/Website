@@ -11,16 +11,24 @@ import "../styles/business.css";
 
 const tones = ["mint", "lilac", "yellow"];
 
+const subjectAreas = [
+    {id: "it-software", de: "IT und Software", en: "IT and software"},
+    {id: "ai-data", de: "KI und Daten", en: "AI and data"},
+    {id: "business-law", de: "Wirtschaft, Recht und Datenschutz", en: "Business, law and data protection"},
+    {id: "learning-communication", de: "Bildung und Kommunikation", en: "Education and communication"},
+];
+
 const copy = {
     de: {
         label: "Live-Trainings & Kurse",
-        title: "Training, das digitale Arbeit besser macht.",
-        intro: "In Workshops und Kursen zu KI, IT und Cybersecurity arbeitet Ihre Gruppe an Aufgaben aus ihrem Alltag. Wir passen die Übungen und das Tempo an das Vorwissen an. Das Angebot richtet sich an Teams, Hochschulen und Bildungsträger.",
+        title: "Training für IT, KI und Wirtschaft.",
+        intro: "Von Netzwerktechnik, Softwaredesign und IT-Sicherheit bis zu BWL, VWL, Buchhaltung, Steuern, Arbeitsrecht und Datenschutz. Für Unternehmen, Hochschulen und Bildungsträger passen wir Übungen und Tempo an die Lerngruppe an.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#details", "Themenkatalog"], ["#formats", "Formate"], ["#duration", "Dauer"], ["#demo-session", "Demo"], ["#methods", "Arbeitsweise"]],
         browse: "Trainings finden",
         catalog: "Themenkatalog",
         catalogCopy: "Wählen Sie ein Thema, um Inhalte, Lernziele und mögliche Kursformate zu sehen.",
+        catalogNav: "Fachgebiete",
         services: "Ausgewählte Trainings im Detail",
         serviceCopy: "Öffnen Sie ein Training, um zu sehen, für wen es gedacht ist, wie lange es dauert und was Sie darin lernen.",
         offers: "Angebote vergleichen",
@@ -47,13 +55,14 @@ const copy = {
     },
     en: {
         label: "Live training & courses",
-        title: "Training that improves digital work.",
-        intro: "In our AI, IT and cybersecurity workshops and courses, your group works on tasks they recognise from their own work. We tailor the exercises and pace to their experience. We teach teams, universities and education providers.",
+        title: "Training in IT, AI and business.",
+        intro: "Explore networking, software design and cybersecurity, or build skills in business administration, accounting, tax, employment law and data protection. We tailor workshops and courses to what teams and learners already know and what they need to do next.",
         jumpLabel: "On this page",
         jumpItems: [["#details", "Topic catalogue"], ["#formats", "Formats"], ["#duration", "Duration"], ["#demo-session", "Demo"], ["#methods", "How we work"]],
         browse: "Find a training topic",
         catalog: "Topic catalogue",
         catalogCopy: "Pick a topic to see what the course covers, what you’ll learn and how it can run.",
+        catalogNav: "Subject areas",
         services: "A closer look at selected courses",
         serviceCopy: "Open a course to see who it’s for, how long it takes and what you’ll learn.",
         offers: "Compare offers",
@@ -108,13 +117,21 @@ export default function TrainingPage() {
 
                 <section id="details">
                     <div className="business-heading"><h2>{c.catalog}</h2><p>{c.catalogCopy}</p></div>
-                    <div className="business-index">
-                        {detailTopics.map((topic) => (
-                            <article key={topic.slug}>
-                                <p className="business-kicker business-muted">{topic.category}</p>
-                                <h3><Link to={`/training/${topic.slug}`} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h3>
-                                <p className="business-muted">{topic.summary}</p>
-                            </article>
+                    <SectionJumpNav label={c.catalogNav} items={subjectAreas.map((area) => [`#training-${area.id}`, area[language]])}/>
+                    <div className="mt-7 grid gap-10">
+                        {subjectAreas.map((area) => (
+                            <section key={area.id} id={`training-${area.id}`} className="business-stack">
+                                <h3>{area[language]}</h3>
+                                <div className="business-index">
+                                    {detailTopics.filter((topic) => topic.subjectArea === area.id).map((topic) => (
+                                        <article key={topic.slug}>
+                                            <p className="business-kicker business-muted">{topic.category}</p>
+                                            <h4><Link to={`/training/${topic.slug}`} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h4>
+                                            <p className="business-muted">{topic.summary}</p>
+                                        </article>
+                                    ))}
+                                </div>
+                            </section>
                         ))}
                     </div>
                 </section>

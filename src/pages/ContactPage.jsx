@@ -9,7 +9,7 @@ const copy = {
     en: {
         label: "Contact",
         title: "Contact Luminovia about your next project.",
-        intro: "Planning a workshop, a course or a technology project? Tell us what your team is working on and where you’d like support.",
+        intro: "Planning training in IT, AI or business? Need support with a technology project or business process? Tell us what your team would like to achieve.",
         email: "Enquire about training or consulting",
         emailSubject: "Training or consulting enquiry",
         call: "Request an introductory call",
@@ -29,7 +29,7 @@ const copy = {
     de: {
         label: "Kontakt",
         title: "Was möchten Sie mit Ihrem Team angehen?",
-        intro: "Sie planen einen Workshop, einen Kurs oder ein Technologieprojekt? Schreiben Sie uns, woran Ihr Team arbeitet und wo Sie Unterstützung suchen.",
+        intro: "Sie planen ein Training zu IT, KI oder Wirtschaft? Sie suchen Unterstützung für ein IT-Projekt oder einen Geschäftsprozess? Schreiben Sie uns, was Ihr Team erreichen möchte.",
         email: "Training oder Beratung anfragen",
         emailSubject: "Anfrage zu Training oder Beratung",
         call: "Erstgespräch anfragen",

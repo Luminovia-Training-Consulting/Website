@@ -66,9 +66,10 @@ export const formats = [
 
 export const trainingTopics = [
     {group: "AI & Future Skills", items: ["AI literacy", "Prompt engineering", "Generative AI workflows", "Responsible AI", "AI governance basics", "AI for office productivity"]},
-    {group: "Software & Data", items: ["Java / Python / C# / Kotlin", "SQL and databases", "APIs and automation", "Data analyst / scientist / engineer", "Big data concepts", "UI/UX basics"]},
+    {group: "Software & Data", items: ["Software design", "Java / Python / C# / Kotlin", "SQL and databases", "APIs and automation", "Data analyst / scientist / engineer", "Big data concepts", "UI/UX basics"]},
     {group: "Cybersecurity", items: ["Cybersecurity awareness", "Web security", "SOC foundations", "CompTIA Pentest+ preparation", "Ethical hacking foundations", "Password and data security"]},
-    {group: "Business IT", items: ["Business Computer Science", "IT service management", "Cloud concepts", "Digital transformation", "SCRUM and agile work", "Process optimisation"]},
+    {group: "Business IT", items: ["Networking", "Business Computer Science", "IT service management", "Cloud concepts", "Digital transformation", "SCRUM and agile work", "Process optimisation"]},
+    {group: "Business, Accounting & Law", items: ["Business administration", "Economics", "Accounting", "Tax fundamentals", "Employment law", "Data protection"]},
     {group: "Vocational & IHK", items: ["Fachinformatiker Ausbildung", "Fachinformatiker Umschulung", "Bürokaufleute / Büromanagement", "Teilqualifikation", "IHK exam preparation", "Adult education"]},
     {group: "Law, Coaching & Talks", items: ["Digital law and GDPR", "AI Act and Cloud Act", "IT law awareness", "Coaching", "Keynote speaker", "Guest lectures"]},
 ];

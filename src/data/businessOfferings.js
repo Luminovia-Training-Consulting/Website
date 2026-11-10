@@ -95,7 +95,7 @@ const catalog = {
             possible: [
                 "live online training in German or English",
                 "corporate workshops, funded education and higher-education formats",
-                "AI, IT, cybersecurity, data, software, project and business-technology topics",
+                "training in IT, AI, cybersecurity, business, accounting, tax fundamentals, employment law and data protection",
                 "short consulting engagements, implementation plans, course design and project support",
                 "materials, exercises, summaries, checklists and decision briefs as agreed",
             ],
@@ -203,7 +203,7 @@ const catalog = {
             possible: [
                 "Live-Online-Training auf Deutsch oder Englisch",
                 "Unternehmensworkshops, geförderte Bildung und Hochschulformate",
-                "KI, IT, Cybersecurity, Daten, Software, Projektarbeit und Wirtschaftsinformatik",
+                "Trainings zu IT, KI, Cybersecurity, Wirtschaft, Buchhaltung, Steuergrundlagen, Arbeitsrecht und Datenschutz",
                 "kurze Beratungsprojekte, Planung der Umsetzung, Kursentwicklung und Projektbegleitung",
                 "Materialien, Übungen, Zusammenfassungen, Checklisten und Entscheidungsvorlagen im vereinbarten Umfang",
             ],

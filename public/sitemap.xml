@@ -61,6 +61,10 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://luminovia.org/training/networking-it-infrastructure</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://luminovia.org/training/cloud-devops-systems-foundations</loc>
         <priority>0.8</priority>
     </url>
@@ -70,6 +74,18 @@
     </url>
     <url>
         <loc>https://luminovia.org/training/digital-law-gdpr-ai-act-cloud-act</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://luminovia.org/training/business-administration-economics</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://luminovia.org/training/accounting-tax-fundamentals</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://luminovia.org/training/employment-law-hr-fundamentals</loc>
         <priority>0.8</priority>
     </url>
     <url>

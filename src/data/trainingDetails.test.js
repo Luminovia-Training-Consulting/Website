@@ -8,6 +8,13 @@ const SITEMAP_BASE_URL = "https://luminovia.org";
 
 const expectedOfferLinks = [
     ["Softwareentwicklung", "/training/software-development-retraining-java-python-csharp-kotlin"],
+    ["Softwaredesign", "/training/software-development-retraining-java-python-csharp-kotlin"],
+    ["Netzwerktechnik", "/training/networking-it-infrastructure"],
+    ["Networking", "/training/networking-it-infrastructure"],
+    ["BWL", "/training/business-administration-economics"],
+    ["VWL", "/training/business-administration-economics"],
+    ["Buchhaltung", "/training/accounting-tax-fundamentals"],
+    ["Steuern", "/training/accounting-tax-fundamentals"],
     ["Java", "/training/software-development-retraining-java-python-csharp-kotlin"],
     ["Python", "/training/software-development-retraining-java-python-csharp-kotlin"],
     ["C#", "/training/software-development-retraining-java-python-csharp-kotlin"],
@@ -28,11 +35,13 @@ const expectedOfferLinks = [
     ["Business Computer Science", "/training/business-informatics-digital-transformation"],
     ["Pentest fundamentals", "/training/cybersecurity-pentesting-ethical-hacking"],
     ["Ethical-Hacking-Grundlagen", "/training/cybersecurity-pentesting-ethical-hacking"],
-    ["Arbeitsrecht", "/training/digital-law-gdpr-ai-act-cloud-act"],
+    ["Arbeitsrecht", "/training/employment-law-hr-fundamentals"],
+    ["Employment law", "/training/employment-law-hr-fundamentals"],
     ["Wirtschaftsrecht", "/training/digital-law-gdpr-ai-act-cloud-act"],
     ["Privatrecht", "/training/digital-law-gdpr-ai-act-cloud-act"],
     ["IT-Recht", "/training/digital-law-gdpr-ai-act-cloud-act"],
     ["DSGVO", "/training/digital-law-gdpr-ai-act-cloud-act"],
+    ["Datenschutz", "/training/digital-law-gdpr-ai-act-cloud-act"],
     ["GDPR", "/training/digital-law-gdpr-ai-act-cloud-act"],
     ["AI Act", "/training/digital-law-gdpr-ai-act-cloud-act"],
     ["Cloud Act", "/training/digital-law-gdpr-ai-act-cloud-act"],
@@ -51,8 +60,8 @@ const expectedOfferLinks = [
 
 describe("training detail coverage", () => {
     it("contains all detailed offer pages", () => {
-        expect(trainingDetailsForLanguage("en")).toHaveLength(19);
-        expect(trainingDetailsForLanguage("de")).toHaveLength(19);
+        expect(trainingDetailsForLanguage("en")).toHaveLength(23);
+        expect(trainingDetailsForLanguage("de")).toHaveLength(23);
     });
 
     it("gives every German course its own detailed outline at the same depth as English", () => {

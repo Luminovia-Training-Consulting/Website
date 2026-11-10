@@ -42,8 +42,8 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Training that improves digital work/i})).toBeInTheDocument();
-        expect(screen.queryByRole("heading", {name: /Training, das digitale Arbeit besser macht/i})).not.toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training in IT, AI and business/i})).toBeInTheDocument();
+        expect(screen.queryByRole("heading", {name: /Training für IT, KI und Wirtschaft/i})).not.toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
@@ -80,7 +80,7 @@ describe("App routing and language", () => {
 
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Training that improves digital work/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training in IT, AI and business/i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("en");
     });
 
@@ -105,7 +105,7 @@ describe("App routing and language", () => {
     });
 
     it.each([
-        ["/training/", /Training, das digitale Arbeit besser macht/i],
+        ["/training/", /Training für IT, KI und Wirtschaft/i],
         ["/offers/", /Buchbare Formate für Training/i],
         ["/consulting/", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/projects/", /Von der Aufgabe zur funktionierenden Software/i],
@@ -278,7 +278,7 @@ describe("App routing and language", () => {
             .find((link) => link.getAttribute("href") === "/training");
         await user.click(trainingLink);
 
-        expect(await screen.findByRole("heading", {name: /Training, das digitale Arbeit besser macht/i})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {name: /Training für IT, KI und Wirtschaft/i})).toBeInTheDocument();
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
     });
 });

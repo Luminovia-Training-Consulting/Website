@@ -11,8 +11,8 @@ import "../styles/home.css";
 const content = {
     de: {
         headline: ["Technik verstehen.", "Selbst anwenden."],
-        label: "Training & Beratung",
-        intro: "Live-Trainings und Beratung zu KI, IT und Cybersecurity. Wir arbeiten mit Beispielen aus Ihrem Alltag, damit Ihr Team das Gelernte im nächsten Projekt einsetzen kann.",
+        label: "IT · KI · Wirtschaft",
+        intro: "Live-Trainings zu IT, KI und Wirtschaft, von Netzwerktechnik und Softwareentwicklung bis zu IT-Sicherheit und Rechnungswesen. Beratung für technische und betriebliche Projekte.",
         training: "Trainings entdecken",
         role: "Gründerin · Trainerin · Beraterin",
         location: "Aus Brisbane für internationale Teams",
@@ -23,8 +23,8 @@ const content = {
             title: "Was möchten Sie angehen?",
             example: "Ein mögliches Ergebnis",
             entries: [
-                ["Training & Workshops", "Üben Sie mit Ihrem Team, KI-Antworten zu prüfen, Daten mit Python und SQL auszuwerten oder Sicherheitsrisiken zu erkennen.", "Ein Team kann KI-Entwürfe nach gemeinsamen Kriterien prüfen.", "Trainings ansehen"],
-                ["Beratung", "Klären Sie, welche KI-Anwendungen sich für Ihre Abläufe eignen, welche Risiken Sie berücksichtigen und wo Sie mit der Umsetzung anfangen.", "Ein KI-Pilot mit klaren Prüfkriterien und Zuständigkeiten.", "Beratung entdecken"],
+                ["Training & Workshops", "Üben Sie, Netzwerke einzurichten, Software zu entwerfen oder KI-Ergebnisse zu prüfen. Kaufmännische Kurse decken BWL, Buchhaltung, Steuergrundlagen, Arbeitsrecht und Datenschutz ab.", "Ein Team kann Geschäftsvorfälle buchen oder einen Netzwerkfehler eingrenzen.", "Trainings ansehen"],
+                ["Beratung", "Wir vergleichen mit Ihnen Software- und Infrastrukturkonzepte, prüfen den Einsatz von KI und klären, wie sich betriebliche Abläufe verbessern lassen.", "Eine Entscheidungsvorlage mit Anforderungen und Aufwand für eine neue Softwarelösung.", "Beratung entdecken"],
                 ["Lernprogramme", "Entwickeln Sie einen Kurs oder Lernpfad mit Lernzielen, Übungen und Aufgaben, an denen sich der Fortschritt erkennen lässt.", "Ein Modulplan mit Übungen und passenden Lernchecks.", "Formate ansehen"],
             ],
         },
@@ -61,8 +61,8 @@ const content = {
     },
     en: {
         headline: ["Understand technology.", "Put it to work."],
-        label: "Training & consulting",
-        intro: "Live training and consulting in AI, IT and cybersecurity. We use examples from your work so your team can apply what it learns on the next project.",
+        label: "IT · AI · Business",
+        intro: "Live training in IT, AI and business, from networking and software development to cybersecurity and accounting. Consulting for technology and business projects.",
         training: "Explore training",
         role: "Founder · Trainer · Consultant",
         location: "Based in Brisbane, working with teams worldwide",
@@ -73,8 +73,8 @@ const content = {
             title: "What would you like to tackle?",
             example: "An example outcome",
             entries: [
-                ["Training & workshops", "Give your team practice checking AI responses, analysing data with Python and SQL, or recognising security risks.", "A team can review AI drafts against a shared checklist.", "Browse training"],
-                ["Consulting", "Identify where AI fits into your workflows, what risks to consider and where to begin implementation.", "An AI pilot with clear review criteria and owners.", "Explore consulting"],
+                ["Training & workshops", "Practise configuring networks, designing software or checking AI outputs. Business courses cover management, bookkeeping, tax fundamentals, employment law and data protection.", "A team can record business transactions or isolate a network fault.", "Browse training"],
+                ["Consulting", "Compare software and infrastructure options, assess where AI could help and find ways to improve how work gets done.", "A decision brief setting out the requirements and effort for a new software solution.", "Explore consulting"],
                 ["Learning programmes", "Design a course or learning path with clear objectives, practical exercises and tasks that show learners’ progress.", "A course outline with exercises and ways to check progress.", "Explore formats"],
             ],
         },
@@ -112,7 +112,7 @@ const content = {
 };
 
 const services = [
-    {to: "/training", Icon: BookOpen, colour: "mint"},
+    {to: "/training#details", Icon: BookOpen, colour: "mint"},
     {to: "/consulting", Icon: Compass, colour: "coral"},
     {to: "/offers", Icon: Layers3, colour: "yellow"},
 ];
@@ -137,7 +137,7 @@ export default function HomePage() {
                         <p className="home-lead">{copy.intro}</p>
                         <div className="lumo-action-row">
                             <Button to="/contact#appointment">{t.bookTraining}</Button>
-                            <Button to="/training" variant="secondary">{copy.training}</Button>
+                            <Button to="/training#details" variant="secondary">{copy.training}</Button>
                         </div>
                     </div>
                     <div className="home-portrait-stage">
@@ -199,7 +199,7 @@ export default function HomePage() {
                                     </li>
                                 ))}
                             </ul>
-                            <Link className="lumo-text-link" to="/training">{copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+                            <Link className="lumo-text-link" to="/training#details">{copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/></Link>
                         </div>
                         <HomePractice copy={copy.topics} trainingPath={topicPaths[2]}/>
                     </div>
