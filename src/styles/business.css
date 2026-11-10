@@ -50,7 +50,12 @@
     letter-spacing: -.026em;
 }
 
-.business-page :where(p, dd, li) { line-height: 1.6; }
+.business-page :where(p, dd, li) {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.business-page:lang(de) :where(p, dd, li) { hyphens: auto; }
 
 .business-kicker {
     font-size: .78rem;
@@ -77,6 +82,7 @@
 
 .business-stack {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-content: start;
     gap: .9rem;
 }
