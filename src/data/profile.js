@@ -13,23 +13,10 @@ export const PROFILE = {
     github: "https://github.com/Luminovia-Training-Consulting",
     linkedin: "https://www.linkedin.com/in/carinaschoppe/",
     founderPortfolio: "https://carinaschoppe.com",
-    appointmentSchedule: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1DRa4OAiQN9y8F-86ull0Jqb25hCL2ZimE4Wo5dojeEF3eSVDBMk6mGJMUG0mZxUR8wSD5-BB6?gv=true",
     analyticsId: "G-YNGD292XE5",
 };
 
 export const IMAGES = {
     headshot: `${base}images/carina-headshot.jpg`,
-    luminoviaLogoFull: `${base}images/luminovia-logo-full.svg?v=20260911`,
-    luminoviaLogoMark: `${base}images/luminovia-logo-mark.svg?v=20260911`,
+    luminoviaLogoMark: `${base}images/luminovia-logo-mark-160.webp`,
 };
-
-export const navItems = [
-    {to: "/", key: "home"},
-    {to: "/training", key: "training"},
-    {to: "/consulting", key: "consulting"},
-    {to: "/pricing", key: "pricing"},
-    {to: "/clients", key: "clients"},
-    {to: "/projects", key: "software"},
-    {to: "/about", key: "about"},
-    {to: "/contact", key: "book"},
-];

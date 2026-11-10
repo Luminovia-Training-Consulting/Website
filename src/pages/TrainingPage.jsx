@@ -3,323 +3,255 @@ import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {useSiteContent} from "../data/localizedContent.js";
 import {topicLinkForLabel, trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
-import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
 import DemoVideoSection from "../components/DemoVideoSection.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
-import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
-import {cn} from "../components/utils.js";
+import {Container, PageHero} from "../components/LuminoviaDesign.jsx";
+import "../styles/business.css";
 
-function AssetButtons({t}) {
-    return (
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button to="/contact#contact-options" showArrow={false}>{t.nav.book}</Button>
-            <Button to="/offers" variant="secondary" showArrow={false}>{t.nav.offers}</Button>
-        </div>
-    );
-}
+const tones = ["mint", "lilac", "yellow"];
 
-function ServiceCard({detailLabel, service, t}) {
-    const detailLink = topicLinkForLabel(service.title);
-
-    return (
-        <Card>
-            <h2 className="text-2xl font-black text-white">{service.title}</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300">{service.description}</p>
-            <div className="mt-5 grid gap-3 text-sm">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-slate-200"><strong className="text-sky-100">{t.serviceLabels.audience}:</strong> {service.audience}</div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-slate-200"><strong className="text-sky-100">{t.serviceLabels.format}:</strong> {service.format}</div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 text-slate-200"><strong className="text-sky-100">{t.serviceLabels.duration}:</strong> {service.duration}</div>
-            </div>
-            <div className="mt-5">
-                <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{t.serviceLabels.outcomes}</div>
-                <div className="mt-3 grid gap-2">
-                    {service.outcomes.map((outcome) => <span key={outcome} className="rounded-2xl border border-sky-100/12 bg-[#071225]/72 px-3 py-2 text-sm font-bold text-zinc-200">{outcome}</span>)}
-                </div>
-            </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                {detailLink && <Button to={detailLink}>{detailLabel}</Button>}
-                <Button to="/contact#contact-options" variant="secondary">{t.requestTraining}</Button>
-            </div>
-        </Card>
-    );
-}
+const copy = {
+    de: {
+        label: "Live-Trainings & Kurse",
+        title: "Training, das digitale Arbeit besser macht.",
+        intro: "In Workshops und Kursen zu KI, IT und Cybersecurity arbeitet Ihre Gruppe an Aufgaben aus ihrem Alltag. Wir passen die Übungen und das Tempo an das Vorwissen an. Das Angebot richtet sich an Teams, Hochschulen und Bildungsträger.",
+        jumpLabel: "Auf dieser Seite",
+        jumpItems: [["#details", "Themenkatalog"], ["#formats", "Formate"], ["#duration", "Dauer"], ["#demo-session", "Demo"], ["#methods", "Arbeitsweise"]],
+        browse: "Trainings finden",
+        catalog: "Themenkatalog",
+        catalogCopy: "Wählen Sie ein Thema, um Inhalte, Lernziele und mögliche Kursformate zu sehen.",
+        services: "Ausgewählte Trainings im Detail",
+        serviceCopy: "Öffnen Sie ein Training, um zu sehen, für wen es gedacht ist, wie lange es dauert und was Sie darin lernen.",
+        offers: "Angebote vergleichen",
+        example: "Beispiel aus einem KI-Workshop",
+        exampleSteps: ["Eine typische Aufgabe auswählen, etwa einen Entwurf für eine E-Mail.", "Zwei KI-Entwürfe auf Ton, Richtigkeit und fehlende Angaben prüfen.", "Entscheiden, was jemand im Team vor dem Versand noch prüfen muss."],
+        delivery: "Formate für Teams und Bildungsträger",
+        formats: "Lehrformate",
+        duration: "Vom Briefing bis zum Kursprogramm",
+        durationOutput: "Was dabei entstehen kann",
+        methods: "So arbeiten wir im Training",
+        boundaries: "Was wir gemeinsam vereinbaren",
+        possible: "Mögliche Leistungen",
+        limits: "Was nicht zum Auftrag gehört",
+        audiences: "Für wen wir unterrichten",
+        proof: "Was Carina in die Lehre einbringt",
+        references: "Lehr- und Projekterfahrung ansehen",
+        topics: "Weitere Themen nach Fachgebiet",
+        details: "Trainingsdetails",
+        custom: "Eigenes Thema anfragen",
+        consulting: "Training mit Beratung verbinden",
+        consultingCopy: "Sie möchten erst herausfinden, wo das Team Unterstützung braucht? Wir können vor dem Training einen Arbeitsablauf prüfen oder gemeinsam einen Lernplan entwickeln.",
+        consultingLink: "Beratung ansehen",
+        ask: "Training anfragen",
+    },
+    en: {
+        label: "Live training & courses",
+        title: "Training that improves digital work.",
+        intro: "In our AI, IT and cybersecurity workshops and courses, your group works on tasks they recognise from their own work. We tailor the exercises and pace to their experience. We teach teams, universities and education providers.",
+        jumpLabel: "On this page",
+        jumpItems: [["#details", "Topic catalogue"], ["#formats", "Formats"], ["#duration", "Duration"], ["#demo-session", "Demo"], ["#methods", "How we work"]],
+        browse: "Find a training topic",
+        catalog: "Topic catalogue",
+        catalogCopy: "Pick a topic to see what the course covers, what you’ll learn and how it can run.",
+        services: "A closer look at selected courses",
+        serviceCopy: "Open a course to see who it’s for, how long it takes and what you’ll learn.",
+        offers: "Compare offers",
+        example: "Example from an AI workshop",
+        exampleSteps: ["Pick a familiar task, such as drafting an email.", "Check two AI drafts for tone, accuracy and missing information.", "Decide what someone on the team needs to check before sending it."],
+        delivery: "Formats for teams and education providers",
+        formats: "Teaching formats",
+        duration: "From a short briefing to a full course",
+        durationOutput: "What you can take away",
+        methods: "How we teach",
+        boundaries: "What we agree together",
+        possible: "Services available",
+        limits: "What’s outside the scope",
+        audiences: "Who we teach",
+        proof: "What Carina brings to the classroom",
+        references: "Explore teaching and project experience",
+        topics: "More topics by subject area",
+        details: "Training details",
+        custom: "Request a custom topic",
+        consulting: "Combine training with consulting",
+        consultingCopy: "Would you like to find out where the team needs support first? We can review a workflow or put together a learning plan before training starts.",
+        consultingLink: "Explore consulting",
+        ask: "Request training",
+    },
+};
 
 export default function TrainingPage() {
     const {language, t} = useLanguage();
+    const c = copy[language];
     const {coreOffers, trainingTopics, formats, serviceOfferings, audienceCards, trustSignals} = useSiteContent();
     const {durationModels, methods, boundaries} = businessOfferingsForLanguage(language);
     const detailTopics = trainingDetailsForLanguage(language);
-    const copy = language === "de"
-        ? {
-            badge: "Angebote",
-            title: "Training, das digitale Arbeit besser macht.",
-            intro: "Live-Trainings, Workshops und Lernprogramme für Unternehmen, Bildungsanbieter und Hochschulen. Inhalt, Übungen und Umfang werden an Zielgruppe, Vorwissen und Arbeitskontext angepasst.",
-            topics: "Themen",
-            areas: "Zentrale Lehrbereiche",
-            custom: "Individuelles Thema anfragen",
-            formats: "Formate",
-            formatsTitle: "Formate, die Luminovia durchführen kann",
-            services: "Angebote",
-            servicesTitle: "Was Luminovia konkret anbietet",
-            detailPages: "Detailseiten",
-            detailPagesTitle: "Themen mit klarer Zielgruppe, Inhalt und Durchführungslogik",
-            detailPagesCopy: "Die Detailseiten zeigen, für wen ein Thema geeignet ist, welche Formate möglich sind, welche Inhalte behandelt werden und welche Materialien oder Ergebnisse sinnvoll sind.",
-            duration: "Umfang",
-            durationTitle: "Welche Formate sinnvoll sind und was dabei entsteht.",
-            durationCopy: "Luminovia plant Trainings nach Zielgruppe, Vorwissen, Business-Ziel und benötigtem Transfer. Ein kurzes Briefing kann für Orientierung reichen; für Kompetenzaufbau sind Workshop-, Intensiv- oder Kursformate belastbarer.",
-            methods: "Methoden",
-            methodsTitle: "So wird aus Training anwendbare Kompetenz.",
-            possibleTitle: "Möglich",
-            notIncludedTitle: "Nicht enthalten",
-            details: "Details ansehen",
-            audiences: "Zielgruppen",
-            audiencesTitle: "Professionelle B2B- und Bildungsumgebungen",
-            proof: "Vertrauen & Nachweise",
-            proofTitle: "Fachliche Praxis und verlässliche Durchführung",
-            consultingTitle: "Training mit Beratung oder Projektbegleitung verbinden",
-            consultingCopy: "Bei Bedarf ergänzt Luminovia das Training um Bedarfsanalyse, Prozessbetrachtung, Lernarchitektur oder Umsetzungsbegleitung. Format, Verantwortung und Ergebnisse werden vorab klar vereinbart.",
-            consultingPoints: ["Bedarfsanalyse", "Projektbegleitung", "Lernarchitektur", "Individuelles Angebot"],
-            jumpLabel: "Inhalte",
-            jumpItems: [["#consulting", "Beratung"], ["#duration", "Umfang"], ["#services", "Angebote"], ["#methods", "Arbeitsweise"], ["#details", "Details"], ["#topics", "Themen"], ["#formats", "Formate"]],
-        }
-        : {
-            badge: "Training",
-            title: "Training that improves digital work.",
-            intro: "Live training, workshops and learning programmes for companies, education providers and universities. Content, practice and scope are aligned with the audience, prior knowledge and working context.",
-            topics: "Topics",
-            areas: "Core teaching areas",
-            custom: "Ask for custom topic",
-            formats: "Formats",
-            formatsTitle: "Formats Luminovia can deliver",
-            services: "Services",
-            servicesTitle: "Training services",
-            detailPages: "Detail pages",
-            detailPagesTitle: "Topics with clear audience, content and delivery logic",
-            detailPagesCopy: "The detail pages show who each topic is for, which formats are possible, what content is covered and which materials or outcomes can be planned.",
-            duration: "Scope",
-            durationTitle: "Which formats fit and what they produce.",
-            durationCopy: "Luminovia scopes training around audience, prior knowledge, business goal and required transfer. A short briefing can create orientation; stronger capability building usually needs workshop, intensive or course formats.",
-            methods: "Methods",
-            methodsTitle: "How training and enablement work.",
-            possibleTitle: "Possible",
-            notIncludedTitle: "Not included",
-            details: "View details",
-            audiences: "Who Luminovia works with",
-            audiencesTitle: "Professional B2B and education-sector environments",
-            proof: "Trust & proof",
-            proofTitle: "Technical practice and reliable delivery",
-            consultingTitle: "Combine training with consulting or project support",
-            consultingCopy: "Where useful, Luminovia adds needs analysis, process review, learning architecture or implementation support. Format, responsibilities and deliverables are agreed before work begins.",
-            consultingPoints: ["Needs analysis", "Project support", "Learning architecture", "Custom proposal"],
-            jumpLabel: "Contents",
-            jumpItems: [["#consulting", "Consulting"], ["#duration", "Scope"], ["#services", "Services"], ["#methods", "Methods"], ["#details", "Details"], ["#topics", "Topics"], ["#formats", "Formats"]],
-        };
+
     return (
-        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
-            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
-                <PageHero
-                    label={copy.badge}
-                    title={copy.title}
-                    copy={copy.intro}
-                    actions={<AssetButtons t={t}/>}
-                    visual={<TrustRail items={[
-                        {icon: "AI", title: language === "de" ? "KI & GenAI" : "AI & GenAI", copy: language === "de" ? "Workshops, Kompetenzaufbau und Workflows" : "Workshops, literacy and applied workflows"},
-                        {icon: "SEC", title: "Cybersecurity", copy: language === "de" ? "Awareness, Web Security und verantwortliche Praxis" : "Awareness, web security and responsible practice"},
-                        {icon: "DATA", title: language === "de" ? "Python / SQL / Daten" : "Python / SQL / Data", copy: language === "de" ? "Praxislabs und angewandte Analyse" : "Hands-on labs and applied analytics"},
-                        {icon: "BIZ", title: language === "de" ? "Business Enablement" : "Business enablement", copy: language === "de" ? "Transfer in Prozesse, Rollen und Entscheidungen" : "Transfer into processes, roles and decisions"},
-                    ]}/>}
-                />
-            </div>
-            <div className="mx-auto max-w-7xl">
-                <SectionJumpNav label={copy.jumpLabel} items={copy.jumpItems} className="mt-8"/>
+        <main className="business-page" data-business-section="training">
+            <PageHero
+                label={c.label}
+                title={c.title}
+                copy={c.intro}
+                actions={<><a href="#details" className="business-link">{c.browse}<span aria-hidden="true">↓</span></a><Button to="/offers" variant="secondary">{c.offers}</Button></>}
+                visual={
+                    <div className="business-panel business-stack" data-tone="yellow">
+                        <p className="business-kicker">{c.example}</p>
+                        <ol className="business-list business-numbered">
+                            {c.exampleSteps.map((step) => <li key={step}>{step}</li>)}
+                        </ol>
+                    </div>
+                }
+            />
+            <Container className="business-body">
+                <SectionJumpNav label={c.jumpLabel} items={c.jumpItems}/>
 
-                <section id="consulting" className="mt-10 scroll-mt-36 rounded-[2rem] border border-sky-200/18 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.2),transparent_38%),linear-gradient(135deg,rgba(14,35,66,.94),rgba(7,13,27,.95)_58%,rgba(20,28,54,.94))] p-6 shadow-[0_24px_95px_rgba(0,0,0,.28)] sm:p-8">
-                    <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-                        <div>
-                            <h2 className="text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl">{copy.consultingTitle}</h2>
-                            <p className="mt-4 max-w-5xl text-base leading-8 text-slate-300">{copy.consultingCopy}</p>
-                            <div className="mt-5 flex flex-wrap gap-2">
-                                {copy.consultingPoints.map((point) => (
-                                    <span key={point} className="rounded-full border border-white/12 bg-white/[0.07] px-3 py-2 text-xs font-black uppercase tracking-[0.1em] text-sky-100">{point}</span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                            <Button to="/contact#contact-options">{t.bookConsultation}</Button>
-                            <Button to="/consulting" variant="secondary">{language === "de" ? "Consulting ansehen" : "View consulting"}</Button>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="duration" className="mt-14 scroll-mt-36">
-                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                            <Badge tone="cyan">{copy.duration}</Badge>
-                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.durationTitle}</h2>
-                        </div>
-                        <p className="text-lg leading-8 text-slate-300">{copy.durationCopy}</p>
-                    </div>
-                    <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                        {durationModels.map((model) => (
-                            <Card key={model.title}>
-                                <h3 className="text-2xl font-black text-white">{model.title}</h3>
-                                <p className="mt-4 text-sm leading-7 text-slate-300">{model.scope}</p>
-                                <div className="training-duration-output mt-5 rounded-[1.15rem] border border-sky-100/12 bg-sky-100/[0.07] p-4 text-sm font-bold leading-7 text-sky-50">{model.output}</div>
-                            </Card>
-                        ))}
-                    </div>
-                </section>
-
-                <section id="services" className="mt-14 scroll-mt-36">
-                    <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                            <Badge tone="orange">{copy.services}</Badge>
-                            <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">{copy.servicesTitle}</h2>
-                        </div>
-                        <p className="text-base leading-8 text-slate-300">{t.home.servicesCopy}</p>
-                    </div>
-                    <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
-                        {serviceOfferings.map((service) => <ServiceCard key={service.title} detailLabel={copy.details} service={service} t={t}/>)}
-                    </div>
-                </section>
-
-                <DemoVideoSection className="-mx-4 mt-4 sm:-mx-6 lg:-mx-8"/>
-
-                <section id="methods" className="mt-16 scroll-mt-36">
-                    <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                            <Badge tone="emerald">{copy.methods}</Badge>
-                            <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{copy.methodsTitle}</h2>
-                        </div>
-                        <div className="grid gap-3 sm:grid-cols-2">
-                            <Card shine={false}>
-                                <h3 className="text-xl font-black text-white">{copy.possibleTitle}</h3>
-                                <div className="mt-4 grid gap-2">
-                                    {boundaries.possible.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
-                                </div>
-                            </Card>
-                            <Card shine={false}>
-                                <h3 className="text-xl font-black text-white">{copy.notIncludedTitle}</h3>
-                                <div className="mt-4 grid gap-2">
-                                    {boundaries.notIncluded.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
-                                </div>
-                            </Card>
-                        </div>
-                    </div>
-                    <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                        {methods.map(([title, description]) => (
-                            <Card key={title}>
-                                <h3 className="text-2xl font-black text-white">{title}</h3>
-                                <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
-                            </Card>
-                        ))}
-                    </div>
-                </section>
-
-                <section id="details" className="mt-16 scroll-mt-36">
-                    <div className="mb-7 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-                        <div>
-                            <Badge tone="rose">{copy.detailPages}</Badge>
-                            <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">{copy.detailPagesTitle}</h2>
-                        </div>
-                        <p className="text-base leading-8 text-slate-300">{copy.detailPagesCopy}</p>
-                    </div>
-                    <div className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <section id="details">
+                    <div className="business-heading"><h2>{c.catalog}</h2><p>{c.catalogCopy}</p></div>
+                    <div className="business-index">
                         {detailTopics.map((topic) => (
-                            <Link key={topic.slug} to={`/training/${topic.slug}`} className="group block">
-                                <Card className="h-full">
-                                    <div className="text-xs font-black uppercase tracking-[0.18em] text-sky-100">{topic.category}</div>
-                                    <h3 className="mt-3 text-2xl font-black text-white transition group-hover:text-sky-100">{topic.title}</h3>
-                                    <p className="mt-4 text-sm leading-7 text-slate-300">{topic.summary}</p>
-                                </Card>
-                            </Link>
+                            <article key={topic.slug}>
+                                <p className="business-kicker business-muted">{topic.category}</p>
+                                <h3><Link to={`/training/${topic.slug}`} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h3>
+                                <p className="business-muted">{topic.summary}</p>
+                            </article>
                         ))}
                     </div>
                 </section>
 
-                <section id="audiences" className="mt-16 scroll-mt-36">
-                    <Badge tone="amber">{copy.audiences}</Badge>
-                    <h2 className="mt-4 text-3xl font-black text-white">{copy.audiencesTitle}</h2>
-                    <div className="mt-6 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
-                        {audienceCards.map((audience) => (
-                            <Card key={audience.title}>
-                                <h3 className="text-xl font-black text-white">{audience.title}</h3>
-                                <p className="mt-4 text-sm leading-7 text-slate-300">{audience.copy}</p>
-                            </Card>
-                        ))}
+                <section id="services">
+                    <div className="business-heading"><h2>{c.services}</h2><p>{c.serviceCopy}</p></div>
+                    <div className="business-accordion">
+                        {serviceOfferings.map((service) => {
+                            const detailLink = topicLinkForLabel(service.title);
+
+                            return (
+                                <details key={service.title}>
+                                    <summary>{service.title}</summary>
+                                    <div className="business-layout">
+                                        <div className="business-stack">
+                                            <p>{service.description}</p>
+                                            <dl className="business-facts">
+                                                <div><dt>{t.serviceLabels.audience}</dt><dd>{service.audience}</dd></div>
+                                                <div><dt>{t.serviceLabels.format}</dt><dd>{service.format}</dd></div>
+                                                <div><dt>{t.serviceLabels.duration}</dt><dd>{service.duration}</dd></div>
+                                            </dl>
+                                        </div>
+                                        <div className="business-stack">
+                                            <h3>{t.serviceLabels.outcomes}</h3>
+                                            <ul className="business-list">{service.outcomes.map((item) => <li key={item}>{item}</li>)}</ul>
+                                            {detailLink && <Link className="business-link" to={detailLink}>{c.details}<span aria-hidden="true">↗</span></Link>}
+                                            <Link className="business-link" to="/contact#contact-options">{c.ask}<span aria-hidden="true">↗</span></Link>
+                                        </div>
+                                    </div>
+                                </details>
+                            );
+                        })}
                     </div>
                 </section>
 
-                <div className="mt-16 grid items-start gap-6 lg:grid-cols-3">
-                    {coreOffers.map((offer) => (
-                        <Card key={offer.title} className={cn("training-core-offer-card bg-gradient-to-br", offer.gradient)}>
-                            <Badge tone="blue">{offer.kicker}</Badge>
-                            <h2 className="mt-5 text-2xl font-black text-white">{offer.title}</h2>
-                            <p className="mt-3 text-lg font-black text-sky-100">{offer.outcome}</p>
-                            <p className="mt-4 text-sm leading-7 text-slate-300">{offer.copy}</p>
-                            <div className="mt-7 grid gap-3">
-                                {offer.deliverables.map((item) => <div key={String(item)} className="training-core-output rounded-2xl border border-white/14 bg-slate-950/36 p-4 text-sm font-bold leading-6 text-white">{item}</div>)}
-                            </div>
-                        </Card>
+                <section id="formats">
+                    <div className="business-heading"><h2>{c.delivery}</h2></div>
+                    <div className="business-grid">
+                        {coreOffers.map((offer, index) => (
+                            <article key={offer.title} className="business-panel business-stack" data-tone={tones[index]}>
+                                <p className="business-kicker">{offer.kicker}</p>
+                                <h3>{offer.title}</h3>
+                                <p><strong>{offer.outcome}</strong></p>
+                                <p>{offer.copy}</p>
+                                <ul className="business-list">{offer.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
+                            </article>
+                        ))}
+                    </div>
+                    <div className="business-subsection">
+                        <h3>{c.formats}</h3>
+                        <div className="business-index">
+                            {formats.map((format) => (
+                                <article key={format.title}>
+                                    <p className="business-kicker business-muted">{format.label}</p>
+                                    <h4>{format.title}</h4>
+                                    <p>{format.copy}</p>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section id="duration">
+                    <div className="business-heading"><h2>{c.duration}</h2></div>
+                    {durationModels.map((model) => (
+                        <article key={model.title} className="business-row">
+                            <h3>{model.title}</h3>
+                            <div><p>{model.scope}</p><p className="business-muted"><strong>{c.durationOutput}</strong> · {model.output}</p></div>
+                        </article>
                     ))}
+                </section>
+
+                <DemoVideoSection className="business-demo"/>
+
+                <section id="methods" className="business-layout">
+                    <div>
+                        <div className="business-heading"><h2>{c.methods}</h2></div>
+                        <div className="business-accordion">
+                            {methods.map(([title, description]) => (
+                                <details key={title}><summary>{title}</summary><p>{description}</p></details>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="business-panel business-stack">
+                        <h3>{c.boundaries}</h3>
+                        <p className="business-kicker">{c.possible}</p>
+                        <ul className="business-list">{boundaries.possible.map((item) => <li key={item}>{item}</li>)}</ul>
+                        <p className="business-kicker">{c.limits}</p>
+                        <ul className="business-list">{boundaries.notIncluded.map((item) => <li key={item}>{item}</li>)}</ul>
+                    </div>
+                </section>
+
+                <section id="topics">
+                    <div className="business-heading"><h2>{c.topics}</h2></div>
+                    <div className="business-grid">
+                        {trainingTopics.map((group) => (
+                            <article key={group.group} className="business-stack">
+                                <h3>{group.group}</h3>
+                                <ul className="business-list business-list--ruled">
+                                    {group.items.map((item) => {
+                                        const detailLink = topicLinkForLabel(item);
+                                        return <li key={item}>{detailLink ? <Link className="business-link" to={detailLink}>{item}</Link> : item}</li>;
+                                    })}
+                                </ul>
+                            </article>
+                        ))}
+                    </div>
+                    <Link to="/contact#contact-options" className="business-link mt-4">{c.custom}<span aria-hidden="true">↗</span></Link>
+                </section>
+
+                <div className="business-layout">
+                    <section id="audiences">
+                        <div className="business-heading"><h2>{c.audiences}</h2></div>
+                        <div className="business-accordion">
+                            {audienceCards.map((audience) => (
+                                <details key={audience.title}><summary>{audience.title}</summary><p>{audience.copy}</p></details>
+                            ))}
+                        </div>
+                    </section>
+                    <section id="proof" className="business-panel business-stack" data-tone="lilac">
+                        <h2 className="business-h2">{c.proof}</h2>
+                        <ul className="business-list">
+                            {trustSignals.map((signal) => <li key={signal.title}><strong>{signal.title}</strong> · {signal.copy}</li>)}
+                        </ul>
+                        <Link to="/clients" className="business-link">{c.references}<span aria-hidden="true">↗</span></Link>
+                    </section>
                 </div>
 
-                <section id="proof" className="mt-16 scroll-mt-36">
-                    <Badge tone="emerald">{copy.proof}</Badge>
-                    <h2 className="mt-4 text-3xl font-black text-white">{copy.proofTitle}</h2>
-                    <div className="mt-6 grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {trustSignals.map((signal) => (
-                            <Card key={signal.title}>
-                                <h3 className="text-xl font-black text-white">{signal.title}</h3>
-                                <p className="mt-3 text-sm leading-7 text-slate-300">{signal.copy}</p>
-                            </Card>
-                        ))}
+                <section id="consulting" className="business-panel business-stack" data-tone="mint">
+                    <h2 className="business-h2">{c.consulting}</h2>
+                    <p>{c.consultingCopy}</p>
+                    <div className="lumo-action-row">
+                        <Button to="/contact#contact-options">{c.ask}</Button>
+                        <Button to="/consulting" variant="secondary">{c.consultingLink}</Button>
                     </div>
                 </section>
-
-                <section id="topics" className="mt-16 scroll-mt-36">
-                    <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
-                        <div>
-                            <Badge tone="emerald">{copy.topics}</Badge>
-                            <h2 className="mt-4 text-3xl font-black text-white">{copy.areas}</h2>
-                        </div>
-                        <Button to="/contact#contact-options" variant="secondary">{copy.custom}</Button>
-                    </div>
-                    <div className="grid items-start gap-6 lg:grid-cols-4">
-                        {trainingTopics.map((topic) => (
-                            <Card key={topic.group}>
-                                <h2 className="text-2xl font-black text-white">{topic.group}</h2>
-                                <div className="mt-5 space-y-3">
-                                    {topic.items.map((item) => {
-                                        const detailLink = topicLinkForLabel(item);
-                                        const className = "block w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-bold leading-6 text-slate-200 transition hover:border-sky-200/40 hover:bg-sky-200/10";
-
-                                        return detailLink
-                                            ? <Link key={String(item)} to={detailLink} className={className}>{item}</Link>
-                                            : <div key={String(item)} className={className}>{item}</div>;
-                                    })}
-                                </div>
-                            </Card>
-                        ))}
-                    </div>
-                </section>
-
-                <section id="formats" className="mt-16 scroll-mt-36">
-                    <Badge tone="orange">{copy.formats}</Badge>
-                    <h2 className="mt-4 text-3xl font-black text-white">{copy.formatsTitle}</h2>
-                    <div className="mt-6 grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
-                        {formats.map((format) => (
-                            <Card key={format.title}>
-                                <div className="text-sm font-black uppercase tracking-[0.18em] text-sky-100">{format.label}</div>
-                                <h3 className="mt-3 text-2xl font-black text-white">{format.title}</h3>
-                                <p className="mt-4 text-sm leading-7 text-slate-300">{format.copy}</p>
-                            </Card>
-                        ))}
-                    </div>
-                </section>
-            </div>
+            </Container>
         </main>
     );
 }

@@ -1,29 +1,31 @@
 <!doctype html>
-<html lang="de">
+<html lang="en" data-theme="day">
 <head>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="0"/>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com; frame-src https://calendar.google.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests"/>
-    <meta content="Luminovia Training & Consulting provides practical AI, IT, cybersecurity, software, digital business and learning-design training, workshops and consulting for organisations, education providers and remote-first teams." name="description"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com; frame-src https://www.youtube-nocookie.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests"/>
+    <meta content="Luminovia offers practical AI, IT and cybersecurity training and consulting for organisations and education providers. Founded by Carina Sophie Schoppe." name="description"/>
     <meta content="index, follow, max-image-preview:large" name="robots"/>
     <meta content="website" property="og:type"/>
-    <meta content="Luminovia Training & Consulting — AI, IT & Digital Capability Training" property="og:title"/>
-    <meta content="Practical AI, IT, cybersecurity, software, digital business and learning-design training, workshops and consulting for organisations, education providers and remote-first teams." property="og:description"/>
+    <meta content="AI, IT and Cybersecurity Training | Luminovia" property="og:title"/>
+    <meta content="Luminovia offers practical AI, IT and cybersecurity training and consulting for organisations and education providers. Founded by Carina Sophie Schoppe." property="og:description"/>
     <meta content="https://luminovia.org/" property="og:url"/>
     <meta content="https://luminovia.org/images/luminovia-og.jpg?v=20260911" property="og:image"/>
+    <meta content="Luminovia Training &amp; Consulting" property="og:site_name"/>
+    <meta content="en_AU" property="og:locale"/>
+    <meta content="Luminovia Training &amp; Consulting" property="og:image:alt"/>
     <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="AI, IT and Cybersecurity Training | Luminovia" name="twitter:title"/>
+    <meta content="Luminovia offers practical AI, IT and cybersecurity training and consulting for organisations and education providers. Founded by Carina Sophie Schoppe." name="twitter:description"/>
     <link href="https://luminovia.org/" rel="canonical"/>
-    <link href="https://luminovia.org/" hreflang="en" rel="alternate"/>
-    <link href="https://luminovia.org/" hreflang="de" rel="alternate"/>
     <link href="/favicon.ico?v=20260911" rel="icon" sizes="any"/>
     <link href="/favicon.svg?v=20260911" rel="icon" type="image/svg+xml"/>
     <link href="/apple-touch-icon.png?v=20260911" rel="apple-touch-icon"/>
-    <link href="/images/luminovia-logo-mark.svg?v=20260911" rel="preload" as="image" type="image/svg+xml" fetchpriority="high"/>
-    <title>Luminovia Training & Consulting — AI, IT & Digital Capability Training</title>
-    <script type="application/ld+json">
+    <title>AI, IT and Cybersecurity Training | Luminovia</title>
+    <script id="organisation-service-schema" type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
@@ -83,230 +85,118 @@
         }
     </script>
     <script>
-        document.documentElement.dataset.initialRoute = window.location.pathname === "/" ? "home" : "subpage";
+        (() => {
+            const root = document.documentElement;
+            root.dataset.initialRoute = location.pathname === "/" ? "home" : "subpage";
+            try {
+                if (localStorage.getItem("luminovia_color_scheme_v1") === "night") root.dataset.theme = "night";
+                if (localStorage.getItem("carina_site_language_v2") === "de") root.dataset.initialLanguage = "de";
+            } catch {
+                // The default works even when storage is unavailable.
+            }
+        })();
     </script>
     <style>
-        html[data-initial-route="subpage"] .static-home-shell {
+        html { background: #f8f5ee; scrollbar-gutter: stable; }
+        html[data-theme="night"] { background: #191426; color-scheme: dark; }
+    </style>
+    <!-- static-home-style:start -->
+    <style>
+        html[data-initial-route="subpage"] .static-home-shell,
+        html[data-initial-language="de"] .static-home-shell {
             display: none;
         }
 
-        .static-home-shell {
-            position: fixed;
-            inset: 0;
-            z-index: 2147483646;
-            min-height: 100vh;
-            overflow: hidden;
-            background:
-                radial-gradient(900px 540px at 12% -8%, rgba(125, 211, 252, .16), transparent 58%),
-                radial-gradient(760px 520px at 86% 4%, rgba(99, 102, 241, .14), transparent 58%),
-                linear-gradient(180deg, #08090b 0%, #0d1018 48%, #08080d 100%);
-            color: #fff;
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+        .static-home-menu { display: none; }
 
-        .static-home-shell__header {
-            position: fixed;
-            inset: 0 0 auto;
-            z-index: 2;
-            border-bottom: 1px solid rgba(255, 255, 255, .1);
-            background: rgba(8, 9, 11, .72);
-            backdrop-filter: blur(18px);
-        }
-
-        .static-home-shell__bar,
-        .static-home-shell__hero {
-            width: min(80rem, calc(100% - 2rem));
-            margin-inline: auto;
-        }
-
-        .static-home-shell__bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-block: .8rem;
-        }
-
-        .static-home-shell__brand {
-            display: flex;
-            align-items: center;
-            gap: .8rem;
-            font-weight: 900;
-        }
-
-        .static-home-shell__mark {
-            display: grid;
-            width: 2.5rem;
-            height: 2.5rem;
-            place-items: center;
-            border-radius: 1rem;
-            background: linear-gradient(135deg, #fff, #e0f2fe, #bfdbfe);
-            color: #09090b;
-        }
-
-        .static-home-shell__nav {
-            display: flex;
-            gap: .4rem;
-            color: #d4d4d8;
-            font-size: .9rem;
-            font-weight: 800;
-        }
-
-        .static-home-shell__nav span {
-            border-radius: 999px;
-            padding: .55rem .75rem;
-            background: rgba(255, 255, 255, .04);
-        }
-
-        .static-home-shell__hero {
-            display: grid;
-            min-height: 100vh;
-            grid-template-columns: 1.02fr .98fr;
-            align-items: center;
-            gap: clamp(2rem, 6vw, 4.5rem);
-            padding-block: 8rem 4rem;
-        }
-
-        .static-home-shell__badge {
-            display: inline-flex;
-            border: 1px solid rgba(186, 230, 253, .42);
-            border-radius: 999px;
-            background: rgba(14, 165, 233, .12);
-            padding: .45rem .8rem;
-            color: #dff7ff;
-            font-size: .74rem;
-            font-weight: 900;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-        }
-
-        .static-home-shell h1 {
-            max-width: 62rem;
-            margin: 1.5rem 0 0;
-            font-size: clamp(2.75rem, 5vw, 4.8rem);
-            line-height: .97;
-            letter-spacing: -.045em;
-        }
-
-        .static-home-shell__intro {
-            max-width: 46rem;
-            margin-top: 1.45rem;
-            color: #d4d4d8;
-            font-size: clamp(1rem, 1.4vw, 1.18rem);
-            line-height: 1.8;
-        }
-
-        .static-home-shell__cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .75rem;
-            margin-top: 2rem;
-        }
-
-        .static-home-shell__cta span {
-            border: 1px solid rgba(255, 255, 255, .14);
-            border-radius: 999px;
-            padding: .85rem 1.1rem;
-            background: rgba(255, 255, 255, .08);
-            color: #eef8ff;
-            font-weight: 900;
-        }
-
-        .static-home-shell__cta span:first-child {
-            background: #f8fafc;
-            color: #09090b;
-        }
-
-        .static-home-shell__visual {
-            position: relative;
-            display: grid;
-            place-items: center;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, .14);
-            border-radius: 3rem;
-            background:
-                radial-gradient(420px 320px at 22% 6%, rgba(125, 211, 252, .18), transparent 62%),
-                linear-gradient(145deg, rgba(10, 20, 40, .96), rgba(7, 13, 27, .98) 58%, rgba(14, 25, 48, .96));
-            padding: 1.5rem;
-            box-shadow: 0 36px 135px rgba(0, 0, 0, .36);
-        }
-
-        .static-home-shell__logo-panel {
-            display: grid;
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            place-items: center;
-            border: 1px solid rgba(255, 255, 255, .68);
-            border-radius: 2.1rem;
-            background: #fff;
-            padding: clamp(1.25rem, 4vw, 2rem);
-            box-shadow: 0 24px 90px rgba(0, 0, 0, .32);
-        }
-
-        .static-home-shell__visual img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        @media (max-width: 1023px) {
-            .static-home-shell__nav {
-                display: none;
-            }
-
-            .static-home-shell__hero {
-                display: block;
-                min-height: auto;
-                padding-block: 7.5rem 3rem;
-            }
-
-            .static-home-shell__visual {
-                width: 5.5rem;
-                margin-top: 1.25rem;
-                border-radius: 1.35rem;
-                padding: .35rem;
-            }
-
-            .static-home-shell__logo-panel {
-                aspect-ratio: 1;
-                border-radius: 1rem;
-                padding: .45rem;
+        @media (max-width: 920px) {
+            .static-home-menu { display: block; }
+            .static-home-menu summary { cursor: pointer; padding: .55rem .7rem; }
+            .static-home-shell .site-header .site-nav { display: none; }
+            .static-home-menu nav {
+                position: absolute;
+                inset: 100% 0 auto;
+                display: grid;
+                gap: .75rem;
+                padding: 1rem 1.25rem;
+                border-block: 1px solid currentColor;
+                background: var(--paper, #f8f5ee);
+                color: var(--ink, #201932);
             }
         }
     </style>
+    <!-- static-home-style:end -->
 </head>
 <body>
 <div id="root">
     <!-- static-home-shell:start -->
-    <div class="static-home-shell">
-        <header class="static-home-shell__header">
-            <div class="static-home-shell__bar">
-                <div class="static-home-shell__brand">
-                    <span class="static-home-shell__mark"><img src="/images/luminovia-logo-mark.svg?v=20260911" alt="" width="28" height="28"/></span>
-                    <span>Luminovia Training &amp; Consulting</span>
-                </div>
-                <nav aria-label="Static preview navigation" class="static-home-shell__nav">
-                    <span>Training</span>
-                    <span>Consulting</span>
-                    <span>Offers</span>
-                    <span>Contact</span>
+    <div class="theme-root static-home-shell">
+        <a class="skip-link" href="#site-content">Skip to content</a>
+        <header class="site-header">
+            <div class="site-header-inner">
+                <a class="site-brand" href="/" aria-label="Luminovia Training &amp; Consulting">
+                    <img src="/images/luminovia-logo-mark-160.webp" alt="" width="40" height="40"/>
+                    <span><strong>Luminovia</strong><small>Training &amp; Consulting</small></span>
+                </a>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="/training">Training</a>
+                    <a href="/consulting">Consulting</a>
+                    <a href="/offers">Offers</a>
+                    <a href="/about">About us</a>
+                    <a class="lumo-button" data-button-variant="secondary" href="/contact">Contact
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg>
+                    </a>
                 </nav>
+                <details class="static-home-menu">
+                    <summary>Menu</summary>
+                    <nav aria-label="Main navigation">
+                        <a href="/training">Training</a>
+                        <a href="/consulting">Consulting</a>
+                        <a href="/offers">Offers</a>
+                        <a href="/about">About us</a>
+                        <a href="/contact">Contact</a>
+                    </nav>
+                </details>
             </div>
         </header>
-        <main class="static-home-shell__hero" aria-label="Fast loading homepage preview">
-            <section>
-                <span class="static-home-shell__badge">AI | IT | cybersecurity | learning design</span>
-                <h1>AI, IT &amp; Digital Capability Training für moderne Teams.</h1>
-                <p class="static-home-shell__intro">Praxisnahe Workshops, Trainingsprogramme und Consulting für Organisationen, die nutzbare digitale Kompetenz brauchen: AI, IT, Cybersecurity, Software, Daten, Business Technology und Learning Design.</p>
-                <div class="static-home-shell__cta" aria-hidden="true">
-                    <span>Discovery Call buchen</span>
-                    <span>Training ansehen</span>
-                    <span>Consulting erkunden</span>
+        <main id="site-content" class="lumo-home" tabindex="-1">
+            <section class="home-hero" aria-labelledby="home-title">
+                <div class="lumo-container home-hero-grid">
+                    <div class="home-hero-copy">
+                        <p class="lumo-section-label">Training &amp; consulting</p>
+                        <h1 id="home-title">Understand technology. <span>Put it to work.</span></h1>
+                        <p class="home-lead">Live training and consulting in AI, IT and cybersecurity. We use examples from your work so your team can apply what it learns on the next project.</p>
+                        <div class="lumo-action-row">
+                            <a class="lumo-button" data-button-variant="primary" href="/training">Explore training
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg>
+                            </a>
+                            <a class="lumo-button" data-button-variant="secondary" href="/contact#appointment">Request an introductory call
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="home-portrait-stage">
+                        <figure class="home-portrait" id="founder">
+                            <div class="lumo-portrait home-portrait-photo">
+                                <picture>
+                                    <source type="image/avif" srcset="/images/carina-headshot-480.avif 480w, /images/carina-headshot-640.avif 640w, /images/carina-headshot-960.avif 960w" sizes="(min-width: 1200px) 410px, (min-width: 850px) 36vw, 86vw"/>
+                                    <source type="image/webp" srcset="/images/carina-headshot-480.webp 480w, /images/carina-headshot-640.webp 640w, /images/carina-headshot-960.webp 960w" sizes="(min-width: 1200px) 410px, (min-width: 850px) 36vw, 86vw"/>
+                                    <img class="h-full w-full object-cover" src="/images/carina-headshot.jpg" alt="Carina Sophie Schoppe" width="1365" height="2048" fetchpriority="high" decoding="sync"/>
+                                </picture>
+                            </div>
+                            <figcaption>
+                                <div><strong>Carina Sophie Schoppe</strong><span>Founder · Trainer · Consultant</span></div>
+                                <a href="/about" aria-label="Meet Carina">
+                                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg>
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
             </section>
-            <div class="static-home-shell__visual">
-                <div class="static-home-shell__logo-panel">
-                    <img src="/images/luminovia-logo-mark.svg?v=20260911" alt="Luminovia Training &amp; Consulting logo" fetchpriority="high" decoding="sync" width="180" height="180"/>
+            <div class="home-context" id="capabilities">
+                <div class="lumo-container">
+                    <ul><li>For businesses, education providers and universities</li><li>Live in German and English</li><li>Based in Brisbane, working with teams worldwide</li></ul>
                 </div>
             </div>
         </main>

@@ -5,7 +5,7 @@ import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Seo from "./components/Seo.jsx";
-import {LanguageProvider} from "./i18n.jsx";
+import {LanguageProvider, useLanguage} from "./i18n.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import {isChunkLoadError, safeGetSessionItem, safeGetStorageItem, safeRemoveSessionItem, safeSetSessionItem, safeSetStorageItem} from "./utils/browser.js";
 
@@ -18,7 +18,7 @@ function getInitialTheme() {
     const storedTheme = safeGetStorageItem(THEME_KEY);
     if (storedTheme === "day" || storedTheme === "night") return storedTheme;
 
-    return "night";
+    return "day";
 }
 
 function lazyWithRecovery(loader) {
@@ -95,14 +95,16 @@ function ScrollToHash() {
         };
 
         const observer = scrollToTarget() ? null : new MutationObserver(() => {
-            if (scrollToTarget()) observer.disconnect();
+            if (scrollToTarget()) {
+                observer.disconnect();
+                globalThis.clearTimeout(timeout);
+            }
         });
-        observer?.observe(document.getElementById("root"), {childList: true, subtree: true});
-        const retryTimers = [100, 300, 700, 1200, 1800, 2400].map((delay) => globalThis.setTimeout(scrollToTarget, delay));
-        const timeout = globalThis.setTimeout(() => observer?.disconnect(), 2600);
+        observer?.observe(document.getElementById("site-content"), {childList: true, subtree: true});
+        const timeout = observer ? globalThis.setTimeout(() => observer.disconnect(), 10000) : undefined;
+
         return () => {
-            if (frame) globalThis.cancelAnimationFrame(frame);
-            retryTimers.forEach((timer) => globalThis.clearTimeout(timer));
+            if (frame !== undefined) globalThis.cancelAnimationFrame(frame);
             observer?.disconnect();
             globalThis.clearTimeout(timeout);
         };
@@ -133,20 +135,11 @@ function DeferredAnalyticsConsent() {
 }
 
 function RouteFallback() {
+    const {language} = useLanguage();
     return (
         <main className="lumo-route-fallback" aria-busy="true">
-            <span className="sr-only">Loading page</span>
-            <div className="lumo-route-fallback-copy" aria-hidden="true">
-                <span/>
-                <span/>
-                <span/>
-            </div>
-            <div className="lumo-route-fallback-panel" aria-hidden="true">
-                <span/>
-                <span/>
-                <span/>
-                <span/>
-            </div>
+            <span className="sr-only">{language === "de" ? "Seite wird geladen" : "Loading page"}</span>
+            <div className="lumo-route-fallback-line" aria-hidden="true"/>
         </main>
     );
 }
@@ -171,6 +164,11 @@ function pageRoutes(path, Component) {
     ));
 }
 
+function SkipLink() {
+    const {language} = useLanguage();
+    return <a className="skip-link" href="#site-content">{language === "de" ? "Zum Inhalt springen" : "Skip to content"}</a>;
+}
+
 export default function App() {
     const [theme, setTheme] = useState(getInitialTheme);
 
@@ -183,25 +181,31 @@ export default function App() {
         /* v8 ignore start -- production-only service worker registration is verified by the Pages build */
         if (!import.meta.env.PROD || !("serviceWorker" in navigator)) return undefined;
 
-        const handleMessage = (event) => {
-            if (event.data?.type !== "LUMINOVIA_SW_ACTIVATED" || !event.data.version) return;
-            if (safeGetSessionItem(SW_RELOAD_KEY) === event.data.version) return;
+        const serviceWorker = navigator.serviceWorker;
+        let hadController = Boolean(serviceWorker.controller);
+        let handledVersion = safeGetSessionItem(SW_RELOAD_KEY);
+        const handleMessage = ({data}) => {
+            if (data?.type !== "LUMINOVIA_SW_ACTIVATED" || !data.version || data.version === handledVersion) return;
 
-            safeSetSessionItem(SW_RELOAD_KEY, event.data.version);
-            globalThis.location.reload();
+            handledVersion = data.version;
+            safeSetSessionItem(SW_RELOAD_KEY, handledVersion);
+            if (hadController) globalThis.location.reload();
+            hadController = true;
         };
 
         const register = () => {
-            navigator.serviceWorker
+            serviceWorker
                 .register(`${import.meta.env.BASE_URL}sw.js`, {updateViaCache: "none"})
                 .then((registration) => registration.update().catch(() => {}))
                 .catch(() => {});
         };
 
-        navigator.serviceWorker.addEventListener("message", handleMessage);
-        globalThis.addEventListener("load", register, {once: true});
+        serviceWorker.addEventListener("message", handleMessage);
+        if (document.readyState === "complete") register();
+        else globalThis.addEventListener("load", register, {once: true});
+
         return () => {
-            navigator.serviceWorker.removeEventListener("message", handleMessage);
+            serviceWorker.removeEventListener("message", handleMessage);
             globalThis.removeEventListener("load", register);
         };
         /* v8 ignore stop */
@@ -214,10 +218,10 @@ export default function App() {
             <BrowserRouter basename={ROUTER_BASENAME} future={{v7_relativeSplatPath: true, v7_startTransition: true}}>
                 <Seo/>
                 <ScrollToHash/>
-                <div data-theme={theme} className="theme-root relative isolate min-h-screen overflow-x-hidden bg-[#08090b] text-white">
-                    <div className="ambient-veil fixed inset-0 z-0"/>
+                <div data-theme={theme} className="theme-root">
+                    <SkipLink/>
                     <Header theme={theme} onToggleTheme={toggleTheme}/>
-                    <div className="relative z-10">
+                    <div id="site-content" tabIndex={-1}>
                         <Routes>
                             <Route path="/" element={<AppErrorBoundary><HomePage/></AppErrorBoundary>}/>
                             {pageRoutes("/training", TrainingPage)}
@@ -239,9 +243,7 @@ export default function App() {
                             <Route path="*" element={routeElement(NotFoundPage)}/>
                         </Routes>
                     </div>
-                    <div className="relative z-10">
-                        <Footer/>
-                    </div>
+                    <Footer/>
                     <DeferredAnalyticsConsent/>
                 </div>
             </BrowserRouter>

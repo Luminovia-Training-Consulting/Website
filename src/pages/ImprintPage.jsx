@@ -1,5 +1,4 @@
-import Badge from "../components/Badge.jsx";
-import Card from "../components/Card.jsx";
+import LegalLayout from "../components/LegalLayout.jsx";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
@@ -36,41 +35,33 @@ export default function ImprintPage() {
         };
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl">
-                <Badge>{copy.badge}</Badge>
-                <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
-                <p className="mt-5 text-lg leading-8 text-slate-300">{copy.intro}</p>
+        <LegalLayout label={copy.badge} title={copy.title} intro={copy.intro}>
+            <section className="legal-section">
+                <h2>{copy.info}</h2>
+                <address>
+                    <p>{PROFILE.name}</p>
+                    {PROFILE.addressLines.map((line) => <p key={line}>{line}</p>)}
+                </address>
+            </section>
 
-                <div className="mt-10 grid gap-5">
-                    <Card>
-                        <h2 className="text-2xl font-black text-white">{copy.info}</h2>
-                        <div className="mt-5 space-y-1 text-slate-300">
-                            <p>{PROFILE.name}</p>
-                            {PROFILE.addressLines.map((line) => <p key={line}>{line}</p>)}
-                        </div>
-                    </Card>
+            <section className="legal-section">
+                <h2>{copy.contact}</h2>
+                <ul>
+                    <li>{copy.phone} {copy.australia} <a href={`tel:${PROFILE.phoneAustralia.replaceAll(" ", "")}`}>{PROFILE.phoneAustralia}</a></li>
+                    <li>{copy.phone} {copy.germany} <a href={`tel:${PROFILE.phoneGermany.replaceAll(" ", "")}`}>{PROFILE.phoneGermany}</a></li>
+                    <li>{copy.email} <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a></li>
+                </ul>
+            </section>
 
-                    <Card>
-                        <h2 className="text-2xl font-black text-white">{copy.contact}</h2>
-                        <div className="mt-5 space-y-1 text-slate-300">
-                            <p>{copy.phone} {copy.australia}: <a className="font-bold text-sky-100 hover:text-white" href={`tel:${PROFILE.phoneAustralia.replaceAll(" ", "")}`}>{PROFILE.phoneAustralia}</a></p>
-                            <p>{copy.phone} {copy.germany}: <a className="font-bold text-sky-100 hover:text-white" href={`tel:${PROFILE.phoneGermany.replaceAll(" ", "")}`}>{PROFILE.phoneGermany}</a></p>
-                            <p>{copy.email}: <a className="font-bold text-sky-100 hover:text-white" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a></p>
-                        </div>
-                    </Card>
+            <section className="legal-section">
+                <h2>{copy.editorial}</h2>
+                <p>{PROFILE.name}</p>
+            </section>
 
-                    <Card>
-                        <h2 className="text-2xl font-black text-white">{copy.editorial}</h2>
-                        <p className="mt-5 text-slate-300">{PROFILE.name}</p>
-                    </Card>
-
-                    <Card>
-                        <h2 className="text-2xl font-black text-white">{copy.consumer}</h2>
-                        <p className="mt-5 leading-7 text-slate-300">{copy.consumerCopy}</p>
-                    </Card>
-                </div>
-            </div>
-        </main>
+            <section className="legal-section">
+                <h2>{copy.consumer}</h2>
+                <p>{copy.consumerCopy}</p>
+            </section>
+        </LegalLayout>
     );
 }

@@ -1,0 +1,35 @@
+.site-nav > .lumo-button[aria-current="page"] {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (max-width: 920px) {
+    .site-header:has(.site-nav[data-open="true"]) {
+        max-height: 100dvh;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 350px) {
+    .site-header .site-brand small {
+        display: none;
+    }
+}
+
+@media (max-width: 290px) {
+    .site-header .site-header-inner:has(.site-tools) {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: start;
+        padding-block: .5rem;
+    }
+
+    .site-header .site-tools {
+        grid-area: 2 / 1;
+        margin-inline-start: -.25rem;
+    }
+
+    .site-header .site-nav {
+        grid-area: 3 / 1;
+        width: 100%;
+    }
+}

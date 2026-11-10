@@ -231,7 +231,7 @@ export const trustSignals = [
 ];
 
 export const selectedProjects = [
-    {title: "Digital Education Systems", tag: "Instructional design", stack: "ADDIE | blended learning | adult education", copy: "Course concepts, hands-on labs, learning checks and structured learning paths for IT, business and AI education providers.", link: PROFILE.appointmentSchedule},
+    {title: "Digital Education Systems", tag: "Instructional design", stack: "ADDIE | blended learning | adult education", copy: "Course concepts, hands-on labs, learning checks and structured learning paths for IT, business and AI education providers.", link: "/contact#appointment"},
     {title: "Cybersecurity Learning Labs", tag: "Teaching proof", stack: "TryHackMe | SOC | Web security | Pentest+", copy: "Hands-on security learning paths used to strengthen practical teaching capability in web security, SOC foundations and penetration-testing basics.", link: PROFILE.github},
     {title: "PISMA Literature Review Pipeline", tag: "AI research automation", stack: "Python | AI | research tooling | data pipelines", copy: "A research workflow project for academic search, paper ranking, abstract analysis and structured systematic literature-review datasets.", link: PROFILE.github},
     {title: "AI at Work Research", tag: "AI adoption and HCI", stack: "Systematic literature review | AI adoption | human-machine interaction", copy: "Research around opportunities and risks of generative AI tools in organisations, especially human-machine interaction in everyday work.", link: PROFILE.linkedin},
@@ -463,5 +463,5 @@ export const faqs = [
     {q: "How does remote delivery work?", a: "Remote delivery is planned around the target audience, time zone and format. Luminovia supports German-speaking and international clients across Europe, Australia and distributed global teams."},
     {q: "What makes the training practical?", a: "Sessions combine clear outcomes, examples, exercises, recaps, learner activation and transfer tasks. Participants do not only hear about tools; they practise how to use them in work, study or course contexts."},
     {q: "Can Luminovia design materials or a curriculum?", a: "Yes. Luminovia can support curriculum design, blended-learning concepts, slides, exercises, learning checks, labs, consulting documentation, AI use-case maps, roadmaps and training structures for academies, universities and corporate learning teams."},
-    {q: "How does a booking request start?", a: "Send the topic, audience, learner level, project context, desired format, timeframe and target outcome by email or book a short appointment. Luminovia will suggest a suitable consulting, training or project format and next steps."},
+    {q: "How does a booking request start?", a: "Send the topic, audience, learner level, project context, desired format, timeframe and target outcome by email, or request a short introductory call. Luminovia will suggest a suitable consulting, training or project format and next steps."},
 ];

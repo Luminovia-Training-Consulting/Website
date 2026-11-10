@@ -1,5 +1,4 @@
-import Badge from "../components/Badge.jsx";
-import Card from "../components/Card.jsx";
+import LegalLayout from "../components/LegalLayout.jsx";
 import {useLanguage} from "../i18n.jsx";
 
 const terms = {
@@ -53,48 +52,28 @@ export default function TermsPage() {
         };
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl">
-                <Badge tone="cyan">{copy.badge}</Badge>
-                <div className="mt-6 max-w-5xl">
-                    <h1 className="text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{copy.title}</h1>
-                    <p className="mt-6 text-lg leading-8 text-slate-300">{copy.intro}</p>
-                </div>
-
-                <section className="mt-12 grid gap-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-                    <Card>
-                        <h2 className="text-3xl font-black text-white">{copy.termsTitle}</h2>
-                        <div className="mt-6 grid gap-3">
-                            {terms[language].map((term) => (
-                                <p key={term} className="rounded-[1.15rem] border border-white/10 bg-white/[0.055] p-4 text-sm leading-7 text-slate-300">
-                                    {term}
-                                </p>
-                            ))}
-                        </div>
-                    </Card>
-
-                    <div className="grid gap-5">
-                        <Card>
-                            <h2 className="text-3xl font-black text-white">{copy.bankTitle}</h2>
-                            <div className="mt-6 grid gap-4">
-                                {bankAccounts[language].map((bank) => (
-                                    <div key={bank.title} className="rounded-[1.35rem] border border-sky-100/16 bg-[#071225]/72 p-4">
-                                        <h3 className="text-xl font-black text-white">{bank.title}</h3>
-                                        <div className="mt-4 grid gap-2">
-                                            {bank.rows.map(([label, value]) => (
-                                                <div key={label} className="grid gap-1 rounded-2xl border border-white/10 bg-white/[0.055] px-4 py-3">
-                                                    <div className="text-xs font-black uppercase tracking-[0.14em] text-sky-100">{label}</div>
-                                                    <div className="font-bold text-white">{value}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
+        <LegalLayout label={copy.badge} title={copy.title} intro={copy.intro}>
+            <section className="legal-section">
+                <h2>{copy.termsTitle}</h2>
+                <ol className="legal-terms">
+                    {terms[language].map((term) => <li key={term}>{term}</li>)}
+                </ol>
+            </section>
+            <section className="legal-section">
+                <h2>{copy.bankTitle}</h2>
+                <div className="legal-bank-grid">
+                    {bankAccounts[language].map(({title, rows}) => (
+                        <div key={title}>
+                            <h3>{title}</h3>
+                            <dl>
+                                {rows.map(([label, value]) => (
+                                    <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
                                 ))}
-                            </div>
-                        </Card>
-                    </div>
-                </section>
-            </div>
-        </main>
+                            </dl>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </LegalLayout>
     );
 }

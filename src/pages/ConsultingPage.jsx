@@ -1,89 +1,96 @@
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {useLanguage} from "../i18n.jsx";
-import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
-import {PageHero, ProcessTimeline} from "../components/LuminoviaDesign.jsx";
+import {Container, CTASection, PageHero} from "../components/LuminoviaDesign.jsx";
+import "../styles/business.css";
 
 const content = {
     en: {
-        badge: "Consulting & Enablement",
-        title: "Consulting for AI, IT and digital capability that teams can use.",
-        intro: "Luminovia helps organisations structure digital decisions: AI use cases, workflow design, learning architecture, curriculum planning, roadmaps and implementation support.",
+        badge: "Consulting",
+        title: "Consulting for AI, IT and digital capability.",
+        intro: "Which AI use case should you pilot? Where do handovers slow the team down? What should the next course teach? We help you answer questions like these and turn the decisions into a plan.",
         jumpLabel: "On this page",
         jumpItems: [["#consulting-areas", "Areas"], ["#deliverables", "Outcomes"], ["#process", "Process"], ["#scope", "Scope"], ["#next", "Request"]],
-        areasTitle: "From a specific question to a workable digital capability plan.",
-        areasCopy: "Consulting can be scoped as a workshop, audit, sparring session, concept phase, implementation review or enablement sprint. Each format is designed to produce a concrete next decision.",
+        areasTitle: "What we work on together",
+        areasCopy: "A workshop or short review can help with a specific decision. We also support longer projects when you need to plan the work or review it as it progresses.",
         areas: [
-            ["AI use-case mapping", "Clarify where AI is useful, where it should not be used yet, and which human review points are needed."],
-            ["Workflow and process analysis", "Map routines, tool use, handoffs, automation ideas and bottlenecks before training or implementation."],
-            ["Digital capability roadmap", "Prioritise skills, formats, materials and decisions for a realistic next phase."],
-            ["Training strategy and learning paths", "Shape enablement programmes around audience needs, learner level, transfer tasks and business outcomes."],
-            ["Curriculum and material design", "Build modules, labs, slides, learning checks and blended-learning structures for professional cohorts."],
-            ["Project support and implementation guidance", "Support initiatives with scope, review points, documentation and decision material."],
+            ["Choosing where to use AI", "Compare the tasks AI could help with. Decide where to hold off and where someone needs to check the result."],
+            ["Reviewing how work gets done", "Trace who does what, which tools they use and where work gets stuck. Use that to decide what to improve or automate."],
+            ["Planning which skills to build", "Decide what people need to learn first and which formats and materials will help them practise."],
+            ["Training strategy and learning paths", "Plan training around what people know now, what the business needs and the tasks the team will do afterwards."],
+            ["Curriculum and material design", "Develop course modules, labs, slides and ways to check progress. Plan how live sessions and independent practice fit together."],
+            ["Project support and implementation guidance", "Agree on the scope, review work at key points and document what the team needs to make decisions."],
         ],
-        deliverablesTitle: "Typical consulting outputs",
+        deliverablesTitle: "What you can leave with",
         deliverables: [
-            "Use-case map prioritised by value, risk and feasibility",
-            "Workflow or process map with practical recommendations",
-            "AI usage guidelines, review routines or governance notes",
-            "Digital capability roadmap with next steps and learning needs",
-            "Workshop, training path or curriculum architecture",
+            "List of potential AI uses ranked by benefit, risk and feasibility",
+            "Map of how work moves through the team, with suggestions for improving it",
+            "Guidelines on how to use AI, what to check and who is responsible",
+            "Plan for what the team needs to learn and in what order",
+            "Outline for a workshop, a series of courses or a curriculum",
             "Decision brief for management, programme owners or education providers",
         ],
-        processTitle: "A structured path from first idea to practical capability.",
+        processTitle: "How we work together",
         processSteps: [
-            ["1", "Short consultation", "Clarify audience, constraints, target outcome and the decision the work must support."],
-            ["2", "Scope", "Define the practical format, responsibilities, materials and review points before work starts."],
-            ["3", "Proposal", "Receive a clear recommendation with format, preparation needs, deliverables and next steps."],
-            ["4", "Delivery", "Run workshops, reviews or consulting sessions with structured material and active decision support."],
-            ["5", "Transfer", "Turn results into notes, roadmap items, guidelines or training actions your team can use."],
-            ["6", "Follow-up", "Review open questions, update artefacts where useful and plan the next practical step."],
+            ["1", "Short consultation", "We discuss who’s involved, what’s getting in the way and what you need to decide."],
+            ["2", "Scope", "Together, we agree on the format, who does what and when to review progress."],
+            ["3", "Proposal", "You get a proposal that sets out the work, what to prepare and what you’ll get."],
+            ["4", "Delivery", "We run the agreed workshops or reviews and work through the open decisions with you."],
+            ["5", "Put it to use", "We record the decisions and turn them into practical next steps, guidelines or training tasks."],
+            ["6", "Follow-up", "We go over any open questions and update the documents if needed."],
         ],
-        scopeTitle: "What is in scope, and what is not.",
-        nextTitle: "Request consulting support for your organisation.",
-        nextCopy: "Send the topic, audience, current situation, timeframe, language and target outcome. Luminovia will suggest a suitable consulting sprint, workshop, roadmap or combined training format.",
+        scopeTitle: "What the work can include",
+        nextTitle: "What decision is coming up?",
+        methodsTitle: "Methods we use",
+        possible: "Services available",
+        boundaries: "What’s outside the scope",
+        example: ["A closer look at AI use cases", "Bring two or three tasks your team could use AI for. We compare effort, data sensitivity and review needs. You leave with a shortlist and a first test to run."],
+        nextCopy: "Tell us what you need to decide, who’s involved and when you need an answer. We’ll discuss whether a workshop, a short review or a longer piece of work makes sense.",
         primary: "Request consulting",
         secondary: "View offers",
     },
     de: {
-        badge: "Beratung & Kompetenzaufbau",
-        title: "Beratung für KI, IT und digitale Kompetenz, die im Arbeitsalltag funktioniert.",
-        intro: "Luminovia unterstützt Organisationen dabei, digitale Vorhaben klar zu strukturieren: von KI-Anwendungsfällen und Arbeitsabläufen bis zu Lernarchitektur, Curricula, Umsetzungsfahrplänen und Projektbegleitung.",
+        badge: "Beratung",
+        title: "Beratung für KI, IT und digitale Kompetenz.",
+        intro: "Welchen KI-Anwendungsfall sollten Sie zuerst testen? Wo stocken Übergaben? Was soll der nächste Kurs vermitteln? Wir helfen Ihnen, solche Fragen zu klären und daraus einen Plan zu machen.",
         jumpLabel: "Auf dieser Seite",
         jumpItems: [["#consulting-areas", "Bereiche"], ["#deliverables", "Ergebnisse"], ["#process", "Prozess"], ["#scope", "Umfang"], ["#next", "Anfrage"]],
-        areasTitle: "Von der konkreten Frage zum umsetzbaren Kompetenzplan.",
-        areasCopy: "Beratung kann als Workshop, Analyse, Konzeptphase, fachliche Prüfung oder zeitlich begrenzter Beratungssprint beauftragt werden. Jedes Format liefert eine belastbare Grundlage für die nächste Entscheidung.",
+        areasTitle: "Woran wir gemeinsam arbeiten",
+        areasCopy: "Für eine einzelne Entscheidung kann ein Workshop oder eine kurze Analyse reichen. Bei längeren Projekten helfen wir bei der Planung und prüfen mit Ihnen, wie die Umsetzung läuft.",
         areas: [
-            ["KI-Anwendungsfälle bewerten", "Klären, wo KI sinnvoll ist, wo sie noch nicht eingesetzt werden sollte und welche menschlichen Prüfpunkte erforderlich sind."],
-            ["Arbeitsablauf- und Prozessanalyse", "Arbeitsabläufe, Werkzeugnutzung, Übergaben, Automatisierungsideen und Engpässe vor Training oder Umsetzung sichtbar machen."],
-            ["Digitaler Kompetenzfahrplan", "Kompetenzen, Formate, Materialien und Entscheidungen für die nächste realistische Phase priorisieren."],
-            ["Trainingsstrategie und Lernpfade", "Kompetenzprogramme an Zielgruppe, Lernstand, Transferaufgaben und Geschäftszielen ausrichten."],
-            ["Curriculum und Materialentwicklung", "Module, Praxislabore, Präsentationen, Lernchecks und Blended-Learning-Strukturen für professionelle Lerngruppen entwickeln."],
-            ["Projekt- und Umsetzungsbegleitung", "Vorhaben mit klarem Leistungsumfang, Prüfpunkten, Dokumentation und Entscheidungsmaterial begleiten."],
+            ["KI-Anwendungsfälle bewerten", "Wir vergleichen Aufgaben, bei denen KI helfen könnte. Gemeinsam klären wir, wo Sie den Einsatz zurückstellen sollten und wann jemand das Ergebnis prüfen muss."],
+            ["Arbeitsabläufe untersuchen", "Wir schauen, wer welche Aufgabe übernimmt, welche Werkzeuge im Einsatz sind und wo es hakt. Daraus leiten wir ab, was sich verbessern oder automatisieren lässt."],
+            ["Weiterbildung planen", "Wir legen fest, was das Team zuerst lernen sollte und welche Übungen und Materialien dazu passen."],
+            ["Trainingsstrategie und Lernpfade", "Wir planen das Training danach, was die Gruppe schon kann, was der Betrieb braucht und welche Aufgaben die Teilnehmenden danach übernehmen sollen."],
+            ["Curriculum und Materialentwicklung", "Wir entwickeln Kursmodule, Übungen im Lab, Präsentationen und Lernkontrollen. Dazu planen wir, wie Live-Termine und Selbstlernphasen zusammenspielen."],
+            ["Projekt- und Umsetzungsbegleitung", "Wir vereinbaren den Umfang, prüfen den Stand an wichtigen Etappen und halten fest, was das Team für seine Entscheidungen braucht."],
         ],
-        deliverablesTitle: "Typische Beratungsergebnisse",
+        deliverablesTitle: "Was Sie aus der Beratung mitnehmen können",
         deliverables: [
-            "Anwendungsfallkarte mit Priorisierung nach Nutzen, Risiko und Umsetzbarkeit",
-            "Arbeitsablauf- oder Prozesslandkarte mit praktischen Empfehlungen",
-            "KI-Nutzungsleitlinien, Prüfroutinen oder Governance-Hinweise",
-            "Kompetenzfahrplan mit nächsten Schritten und Lernbedarf",
-            "Workshop-, Trainingspfad- oder Curriculum-Architektur",
+            "Liste möglicher KI-Anwendungen, geordnet nach Nutzen, Risiko und Aufwand",
+            "Übersicht über den Arbeitsablauf mit konkreten Vorschlägen für Verbesserungen",
+            "Leitlinien zum KI-Einsatz mit Prüfschritten und Zuständigkeiten",
+            "Plan, was Ihr Team lernen sollte und in welcher Reihenfolge",
+            "Entwurf für einen Workshop, eine Kursreihe oder ein Curriculum",
             "Entscheidungsvorlage für Management, Programmleitung oder Bildungsanbieter",
         ],
-        processTitle: "Ein strukturierter Weg von der ersten Idee zu praktischer Kompetenz.",
+        processTitle: "So läuft die Zusammenarbeit ab",
         processSteps: [
-            ["1", "Kurzgespräch", "Zielgruppe, Rahmenbedingungen, Zielbild und die zu klärende Entscheidung erfassen."],
-            ["2", "Umfang", "Format, Verantwortlichkeiten, Materialien und Prüfpunkte vor Beginn konkret festlegen."],
-            ["3", "Vorschlag", "Sie erhalten eine klare Empfehlung mit Format, Vorbereitung, Ergebnissen und nächsten Schritten."],
-            ["4", "Durchführung", "Workshops, Abstimmungen oder Beratungstermine laufen mit strukturiertem Material und klarer Entscheidungshilfe."],
-            ["5", "Transfer", "Ergebnisse werden in Notizen, Fahrplanpunkte, Leitlinien oder Trainingsmaßnahmen übersetzt."],
-            ["6", "Nachbereitung", "Offene Fragen werden geklärt, Unterlagen bei Bedarf angepasst und der nächste Schritt geplant."],
+            ["1", "Kurzgespräch", "Wir besprechen, wer beteiligt ist, wo es hakt und welche Entscheidung ansteht."],
+            ["2", "Umfang", "Wir vereinbaren das Format, die Zuständigkeiten und wann wir den Stand gemeinsam prüfen."],
+            ["3", "Vorschlag", "Sie erhalten einen Vorschlag zum Ablauf, zur Vorbereitung und zu den vereinbarten Ergebnissen."],
+            ["4", "Durchführung", "In Workshops und Beratungsterminen gehen wir die offenen Entscheidungen mit Ihnen durch."],
+            ["5", "In die Praxis", "Wir halten Entscheidungen fest und leiten daraus nächste Schritte, Leitlinien oder Trainingsaufgaben ab."],
+            ["6", "Nachbereitung", "Wir klären offene Fragen und passen bei Bedarf die Unterlagen an."],
         ],
-        scopeTitle: "Was enthalten ist – und was nicht.",
-        nextTitle: "Beratung für Ihre Organisation anfragen.",
-        nextCopy: "Senden Sie Thema, Zielgruppe, Ausgangslage, Zeitraum, Sprache und gewünschtes Ergebnis. Luminovia empfiehlt anschließend einen passenden Beratungssprint, Workshop, Fahrplan oder ein kombiniertes Trainingsformat.",
+        scopeTitle: "Rahmen der Zusammenarbeit",
+        nextTitle: "Welche Entscheidung steht an?",
+        methodsTitle: "So arbeiten wir",
+        possible: "Mögliche Leistungen",
+        boundaries: "Was nicht zum Auftrag gehört",
+        example: ["So lässt sich der KI-Einsatz prüfen", "Bringen Sie zwei oder drei Aufgaben mit, bei denen KI Ihr Team unterstützen könnte. Wir vergleichen Aufwand, Datensensibilität und Prüfbedarf. Daraus entstehen eine engere Auswahl und ein erster Test."],
+        nextCopy: "Sagen Sie uns, was Sie entscheiden müssen, wer beteiligt ist und bis wann Sie Klarheit brauchen. Wir besprechen, ob ein Workshop, eine kurze Analyse oder eine längere Begleitung passt.",
         primary: "Beratung anfragen",
         secondary: "Angebote ansehen",
     },
@@ -95,105 +102,78 @@ export default function ConsultingPage() {
     const {methods, boundaries} = businessOfferingsForLanguage(language);
 
     return (
-        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
-            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
-                <PageHero
-                    label={c.badge}
-                    title={c.title}
-                    copy={c.intro}
-                    actions={<><Button to="/contact#contact-options">{c.primary}</Button><Button to="/offers" variant="secondary">{c.secondary}</Button></>}
-                    visual={<ProcessTimeline steps={c.processSteps} headingLevel={2}/>}
-                />
-            </div>
-            <div className="mx-auto max-w-7xl">
-                <SectionJumpNav label={c.jumpLabel} items={c.jumpItems} className="mt-8"/>
+        <main className="business-page">
+            <PageHero
+                label={c.badge}
+                title={c.title}
+                copy={c.intro}
+                actions={<><Button to="/contact#contact-options">{c.primary}</Button><Button to="/offers" variant="secondary">{c.secondary}</Button></>}
+                visual={
+                    <div className="business-panel business-stack" data-tone="lilac">
+                        <p className="business-kicker">{c.example[0]}</p>
+                        <p>{c.example[1]}</p>
+                    </div>
+                }
+            />
+            <Container className="business-body">
+                <SectionJumpNav label={c.jumpLabel} items={c.jumpItems}/>
 
-                <section id="consulting-areas" className="mt-12 scroll-mt-36 overflow-hidden rounded-[2.2rem] border border-sky-200/18 bg-[radial-gradient(circle_at_12%_0%,rgba(125,211,252,.24),transparent_38%),radial-gradient(circle_at_92%_8%,rgba(234,165,20,.16),transparent_40%),linear-gradient(135deg,rgba(13,27,54,.96),rgba(7,12,25,.96)_58%,rgba(22,23,48,.94))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_30px_120px_rgba(0,0,0,.34)] sm:p-8">
-                    <div className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-                        <div>
-                            <div className="text-xs font-black uppercase tracking-[0.18em] text-amber-100">{c.badge}</div>
-                            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{c.areasTitle}</h2>
-                        </div>
-                        <p className="text-base leading-8 text-slate-200 sm:text-lg">{c.areasCopy}</p>
-                    </div>
-                    <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                        {c.areas.map(([title, copy], index) => (
-                            <div key={title} className="consulting-map-card">
-                                <span>{String(index + 1).padStart(2, "0")}</span>
-                                <h3>{title}</h3>
-                                <p>{copy}</p>
-                            </div>
-                        ))}
-                    </div>
+                <section id="consulting-areas">
+                    <div className="business-heading"><h2>{c.areasTitle}</h2><p>{c.areasCopy}</p></div>
+                    {c.areas.map(([title, description]) => (
+                        <article className="business-row" key={title}>
+                            <h3>{title}</h3><p>{description}</p>
+                        </article>
+                    ))}
                 </section>
 
-                <section id="deliverables" className="mt-16 grid scroll-mt-36 gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-                    <Card className="p-5 sm:p-6">
-                        <h2 className="text-3xl font-black tracking-[-0.03em] text-white">{c.deliverablesTitle}</h2>
-                        <div className="mt-6 grid gap-3">
-                            {c.deliverables.map((deliverable) => (
-                                <div key={deliverable} className="rounded-[1.1rem] border border-white/10 bg-white/[0.055] p-4 text-sm font-bold leading-7 text-slate-200">
-                                    {deliverable}
-                                </div>
-                            ))}
-                        </div>
-                    </Card>
-                    <Card className="p-5 sm:p-6">
-                        <h2 className="text-3xl font-black tracking-[-0.03em] text-white">{language === "de" ? "Arbeitsweise" : "Working method"}</h2>
-                        <div className="mt-6 grid gap-3">
+                <div className="business-layout business-layout--reverse">
+                    <section id="deliverables" className="business-panel" data-tone="mint">
+                        <div className="business-heading"><h2>{c.deliverablesTitle}</h2></div>
+                        <ul className="business-list">
+                            {c.deliverables.map((item) => <li key={item}>{item}</li>)}
+                        </ul>
+                    </section>
+                    <section>
+                        <div className="business-heading"><h2>{c.methodsTitle}</h2></div>
+                        <div className="business-accordion">
                             {methods.slice(0, 6).map(([title, description]) => (
-                                <div key={title} className="rounded-[1.1rem] border border-sky-100/12 bg-[#071225]/72 p-4">
-                                    <h3 className="text-base font-black text-sky-100">{title}</h3>
-                                    <p className="mt-2 text-sm leading-7 text-slate-300">{description}</p>
-                                </div>
+                                <details key={title}><summary>{title}</summary><p>{description}</p></details>
                             ))}
                         </div>
-                    </Card>
-                </section>
+                    </section>
+                </div>
 
-                <section id="process" className="mt-16 scroll-mt-36">
-                    <Badge tone="cyan">{language === "de" ? "Prozess" : "Process"}</Badge>
-                    <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{c.processTitle}</h2>
-                    <div className="process-stepper mt-8">
-                        {c.processSteps.map(([number, title, copy]) => (
-                            <div key={number} className="process-step-card">
-                                <div className="process-step-node">{number}</div>
-                                <div>
-                                    <h3>{title}</h3>
-                                    <p>{copy}</p>
-                                </div>
-                            </div>
+                <section id="process">
+                    <div className="business-heading"><h2>{c.processTitle}</h2></div>
+                    <ol className="business-process">
+                        {c.processSteps.map(([number, title, description]) => (
+                            <li key={number}><span aria-hidden="true">{number.padStart(2, "0")}</span><h3>{title}</h3><p>{description}</p></li>
                         ))}
-                    </div>
+                    </ol>
                 </section>
 
-                <section id="scope" className="mt-16 grid scroll-mt-36 gap-5 lg:grid-cols-2">
-                    <Card className="p-5 sm:p-6">
-                        <h2 className="text-3xl font-black text-white">{language === "de" ? "Möglicher Leistungsumfang" : "Possible in scope"}</h2>
-                        <div className="mt-5 grid gap-2">
-                            {boundaries.possible.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
+                <section id="scope">
+                    <div className="business-heading"><h2>{c.scopeTitle}</h2></div>
+                    <div className="business-grid business-grid--two">
+                        <div className="business-panel business-stack">
+                            <h3>{c.possible}</h3>
+                            <ul className="business-list">{boundaries.possible.map((item) => <li key={item}>{item}</li>)}</ul>
                         </div>
-                    </Card>
-                    <Card className="p-5 sm:p-6">
-                        <h2 className="text-3xl font-black text-white">{language === "de" ? "Nicht Teil des Standardangebots" : "Not part of the standard offer"}</h2>
-                        <div className="mt-5 grid gap-2">
-                            {boundaries.notIncluded.map((item) => <span key={item} className="text-sm leading-6 text-slate-300">{item}</span>)}
-                        </div>
-                    </Card>
-                </section>
-
-                <section id="next" className="mt-16 scroll-mt-36 rounded-[2.25rem] border border-white/12 bg-[radial-gradient(circle_at_18%_0%,rgba(186,230,253,.16),transparent_42%),radial-gradient(circle_at_92%_18%,rgba(234,165,20,.13),transparent_38%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))] p-6 shadow-[0_28px_105px_rgba(0,0,0,.26)] backdrop-blur-2xl sm:p-8">
-                    <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-                        <div>
-                            <h2 className="text-3xl font-black text-white">{c.nextTitle}</h2>
-                            <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-300">{c.nextCopy}</p>
-                        </div>
-                        <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                            <Button to="/contact#contact-options">{c.primary}</Button>
-                            <Button to="/pricing" variant="secondary">{language === "de" ? "Preise ansehen" : "View pricing"}</Button>
+                        <div className="business-panel business-stack">
+                            <h3>{c.boundaries}</h3>
+                            <ul className="business-list">{boundaries.notIncluded.map((item) => <li key={item}>{item}</li>)}</ul>
                         </div>
                     </div>
                 </section>
+            </Container>
+            <div id="next" className="business-end">
+                <CTASection
+                    title={c.nextTitle}
+                    copy={c.nextCopy}
+                    primary={<Button to="/contact#contact-options">{c.primary}</Button>}
+                    secondary={<Button to="/pricing" variant="secondary">{language === "de" ? "Preise ansehen" : "View pricing"}</Button>}
+                />
             </div>
         </main>
     );

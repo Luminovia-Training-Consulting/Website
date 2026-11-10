@@ -2,26 +2,15 @@ import {defineConfig} from "vitest/config";
 import preact from "@preact/preset-vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import {notFoundMeta, routeMeta} from "./src/data/seoContent.js";
 import {trainingSeoEntries} from "./src/data/trainingSeo.js";
 
 const siteUrl = "https://luminovia.org";
 const redirectRoutes = new Map([["/portfolio", "/projects"]]);
-const trainingPrerenderRoutes = trainingSeoEntries.map(({slug, en}) => [`/training/${slug}`, en.title, en.description]);
 const prerenderRoutes = [
-    ["/training", "Training | AI, IT & Digital Capability Training", "Explore practical AI training, IT training, cybersecurity training, software, data, digital business and curriculum-design workshops for organisations and education providers."],
-    ["/offers", "Offers | Luminovia Training & Consulting", "Clear Luminovia packages for live training, consulting sprints, project support, keynotes, curriculum design and larger digital enablement programmes."],
-    ["/consulting", "Consulting | IT, AI and Business Advisory", "Consulting portfolio for AI use cases, IT and process advisory, business technology, curriculum design, roadmaps and digital enablement."],
-    ...trainingPrerenderRoutes,
-    ["/projects", "Project Portfolio | AI Research, Automation and Consulting Projects", "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation."],
-    ["/portfolio", "Project Portfolio | AI Research, Automation and Consulting Projects", "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation."],
-    ["/clients", "Delivery Contexts | Education, Training and Collaboration Proof", "Selected public delivery contexts, education partners, topic areas and collaboration proof behind Luminovia's training and consulting profile."],
-    ["/pricing", "Pricing | Training, Consulting and Session Rates", "Transparent net rates: EUR 55 per 45-minute teaching unit, EUR 100 per consulting hour, EUR 500 half day and EUR 1,000 full day including preparation and agreed standard materials."],
-    ["/about", "Company | Luminovia Training & Consulting", "Company profile for Luminovia Training & Consulting, led by CEO and founder Carina Sophie Schoppe."],
-    ["/contact", "Contact & Booking | Book Training or Consulting", "Contact Luminovia to book AI, IT and digital capability training, consulting, workshops, talks, course delivery or programme planning."],
-    ["/imprint", "Imprint | Luminovia", "Legal notice and contact details for Luminovia Training & Consulting."],
-    ["/privacy", "Privacy Policy | Luminovia", "Privacy policy for the Luminovia website, including analytics and contact information."],
-    ["/terms", "Terms & Conditions | Luminovia", "Terms and conditions, payment terms and bank information for Luminovia Training & Consulting invoices and services."],
-    ["/not-found", "Page not found | Luminovia", "This page was not found. Use the homepage, offers or contact page to find the right information.", {noindex: true, canonical: `${siteUrl}/`}],
+    ...Object.entries(routeMeta.en).filter(([path]) => path !== "/"),
+    ...trainingSeoEntries.map(({slug, en}) => [`/training/${slug}`, en]),
+    ["/not-found", notFoundMeta.en, {noindex: true, canonical: `${siteUrl}/`}],
 ];
 
 function escapeHtmlAttribute(value) {
@@ -36,10 +25,11 @@ function routeFileName(path) {
     return `${path.replace(/^\//, "")}/index.html`;
 }
 
-function withRouteHead(html, [path, title, description, options = {}]) {
+function withRouteHead(html, [path, {title, description}, options = {}]) {
     const redirectTarget = redirectRoutes.get(path);
     const canonical = options.canonical || `${siteUrl}${redirectTarget || path}`;
     const routeHtml = html
+        .replace(/<!-- static-home-style:start -->[\s\S]*?<!-- static-home-style:end -->/, "")
         .replace(/<!-- static-home-shell:start -->[\s\S]*?<!-- static-home-shell:end -->/, "")
         .replace(/<title>.*?<\/title>/, `<title>${escapeHtmlAttribute(title)}</title>`)
         .replace(/<meta content="[^"]*" name="description"\/>/, `<meta content="${escapeHtmlAttribute(description)}" name="description"/>`)
@@ -51,8 +41,8 @@ function withRouteHead(html, [path, title, description, options = {}]) {
             `<meta content="${options.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}" name="robots"/>`,
         )
         .replace(/<link href="[^"]*" rel="canonical"\/>/, `<link href="${canonical}" rel="canonical"/>`)
-        .replace(/<link href="[^"]*" hreflang="en" rel="alternate"\/>/, `<link href="${canonical}" hreflang="en" rel="alternate"/>`)
-        .replace(/<link href="[^"]*" hreflang="de" rel="alternate"\/>/, `<link href="${canonical}" hreflang="de" rel="alternate"/>`);
+        .replace(/<meta content="[^"]*" name="twitter:title"\/>/, `<meta content="${escapeHtmlAttribute(title)}" name="twitter:title"/>`)
+        .replace(/<meta content="[^"]*" name="twitter:description"\/>/, `<meta content="${escapeHtmlAttribute(description)}" name="twitter:description"/>`);
 
     return redirectTarget
         ? routeHtml.replace("<head>", `<head><meta content="0;url=${redirectTarget}" http-equiv="refresh"/>`)
@@ -61,15 +51,15 @@ function withRouteHead(html, [path, title, description, options = {}]) {
 
 function pages404Redirect() {
     return `<!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="robots" content="noindex, follow">
     <meta name="referrer" content="no-referrer">
-    <meta name="theme-color" content="#08090b">
+    <meta name="theme-color" content="#f8f5ee">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
-    <title>Seite nicht gefunden | Luminovia</title>
+    <title>Page not found | Luminovia</title>
     <script>
         (function () {
             var requested = location.pathname + location.search + location.hash;
@@ -78,12 +68,12 @@ function pages404Redirect() {
         }());
     </script>
 </head>
-<body style="margin:0;background:#08090b;color:#f8fafc;font-family:system-ui,sans-serif">
+<body style="margin:0;background:#f8f5ee;color:#201932;font-family:system-ui,sans-serif">
     <main style="display:grid;min-height:100vh;place-items:center;padding:2rem;text-align:center">
         <div>
-            <h1>Huch, hier ist nichts.</h1>
-            <p style="color:#cbd5e1">Sie werden zur Luminovia-Übersicht weitergeleitet.</p>
-            <a href="/not-found/" style="color:#7dd3fc">Weiter zur Fehlerseite</a>
+            <h1>Page not found</h1>
+            <p style="color:#4e435f">We couldn’t find that page. You can continue from the homepage.</p>
+            <a href="/" style="color:#5024b8">Go to the homepage</a>
         </div>
     </main>
 </body>
@@ -126,7 +116,6 @@ export default defineConfig(({command, mode}) => {
         plugins: [usePreactCompat ? preact() : react(), tailwindcss(), htmlPerformancePlugin()],
         base,
         build: {
-            cssCodeSplit: false,
             modulePreload: {
                 polyfill: false,
             },

@@ -1,57 +1,48 @@
 import {Link, useParams} from "react-router-dom";
-import Badge from "../components/Badge.jsx";
 import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
+import {Container, CTASection, PageHero} from "../components/LuminoviaDesign.jsx";
 import {findTrainingDetailTopic, trainingDetailsForLanguage} from "../data/trainingDetails.js";
 import {useLanguage} from "../i18n.jsx";
 import NotFoundPage from "./NotFoundPage.jsx";
+import "../styles/business.css";
 
-function DetailList({items}) {
-    return (
-        <div className="grid gap-3">
-            {items.map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-[#071225]/70 p-4 text-sm leading-7 text-slate-200">
-                    {item}
-                </div>
-            ))}
-        </div>
-    );
-}
+const copy = {
+    de: {
+        back: "Alle Trainings ansehen",
+        audience: "Zielgruppe",
+        format: "Format",
+        duration: "Dauer",
+        modules: "Das steht auf dem Trainingsplan",
+        outcomes: "Das können Sie danach anwenden",
+        deliverables: "Was Sie mitnehmen können",
+        related: "Wenn Sie hier weitermachen möchten",
+        contact: "Training anfragen",
+        pricing: "Preise ansehen",
+        next: "Dieses Thema für Ihr Team planen",
+        nextCopy: "Sagen Sie uns, wer teilnimmt, was die Gruppe schon kann und welche Aufgaben sie nach dem Training selbst erledigen soll.",
+    },
+    en: {
+        back: "View all training topics",
+        audience: "Audience",
+        format: "Format",
+        duration: "Duration",
+        modules: "What we cover in the training",
+        outcomes: "What you’ll be able to do",
+        deliverables: "What you can take away",
+        related: "Related training topics",
+        contact: "Request training",
+        pricing: "View pricing",
+        next: "Plan this training for your team",
+        nextCopy: "Tell us who’s coming, what they already know and which tasks they’d like to handle on their own after training.",
+    },
+};
 
 export default function TrainingTopicPage() {
     const {slug} = useParams();
-    const {language, t} = useLanguage();
+    const {language} = useLanguage();
+    const c = copy[language];
     const topics = trainingDetailsForLanguage(language);
     const topic = findTrainingDetailTopic(language, slug);
-    const copy = language === "de"
-        ? {
-            back: "Alle Trainings ansehen",
-            badge: "Detailseite",
-            audience: "Zielgruppe",
-            format: "Format",
-            duration: "Dauer",
-            promise: "Nutzen",
-            modules: "Was die Seite abdeckt",
-            outcomes: "Lernergebnisse",
-        deliverables: "Mögliche Materialien und Ergebnisse",
-            related: "Passende Anschlussseiten",
-            contact: "Training anfragen",
-            pricing: "Preise ansehen",
-        }
-        : {
-            back: "View all training topics",
-            badge: "Detailed training page",
-            audience: "Audience",
-            format: "Format",
-            duration: "Duration",
-            promise: "Value",
-            modules: "What this page covers",
-            outcomes: "Learning outcomes",
-            deliverables: "Possible materials and deliverables",
-            related: "Related topic pages",
-            contact: "Request training",
-            pricing: "View pricing",
-        };
 
     if (!topic) {
         return <NotFoundPage/>;
@@ -62,95 +53,72 @@ export default function TrainingTopicPage() {
         .filter(Boolean);
 
     return (
-        <main className="px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl">
-                <Link to="/training" className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-black text-sky-100 transition hover:border-sky-200/40 hover:bg-sky-200/10">
-                    {copy.back}
+        <main className="business-page" data-business-section="course">
+            <Container>
+                <Link to="/training#details" className="business-link business-back">
+                    <span aria-hidden="true">←</span>{c.back}
                 </Link>
-
-                <section className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-                    <div>
-                        <Badge tone="rose">{topic.category}</Badge>
-                        <h1 className="mt-5 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                            {topic.title}
-                        </h1>
+            </Container>
+            <PageHero
+                label={topic.category}
+                title={topic.title}
+                copy={topic.summary}
+                actions={<><Button to="/contact#contact-options">{c.contact}</Button><Button to="/pricing" variant="secondary">{c.pricing}</Button></>}
+                visual={
+                    <dl className="business-panel business-facts" data-tone="mint">
+                        <div><dt>{c.audience}</dt><dd>{topic.audience}</dd></div>
+                        <div><dt>{c.format}</dt><dd>{topic.format}</dd></div>
+                        <div><dt>{c.duration}</dt><dd>{topic.duration}</dd></div>
+                    </dl>
+                }
+            />
+            <Container className="business-body">
+                <div className="business-layout business-layout--aside">
+                    <section>
+                        <div className="business-heading"><h2>{c.modules}</h2><p>{topic.promise}</p></div>
+                        <ol className="business-list business-list--ruled business-numbered">
+                            {topic.modules.map((item) => <li key={item}>{item}</li>)}
+                        </ol>
+                    </section>
+                    <div className="business-stack">
+                        <section className="business-panel" data-tone="lilac">
+                            <div className="business-heading"><h2>{c.outcomes}</h2></div>
+                            <ul className="business-list">
+                                {topic.outcomes.map((item) => <li key={item}>{item}</li>)}
+                            </ul>
+                        </section>
+                        <section className="business-panel">
+                            <div className="business-heading"><h2>{c.deliverables}</h2></div>
+                            <ul className="business-list">
+                                {topic.deliverables.map((item) => <li key={item}>{item}</li>)}
+                            </ul>
+                        </section>
                     </div>
-                    <div>
-                        <p className="text-lg leading-8 text-slate-300">{topic.summary}</p>
-                        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                            <Button to="/contact#contact-options">{copy.contact}</Button>
-                            <Button to="/pricing" variant="secondary">{copy.pricing}</Button>
-                        </div>
-                    </div>
-                </section>
-
-                <section className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-                    {[
-                        [copy.audience, topic.audience],
-                        [copy.format, topic.format],
-                        [copy.duration, topic.duration],
-                        [copy.promise, topic.promise],
-                    ].map(([title, body]) => (
-                        <Card key={title}>
-                            <div className="text-xs font-black uppercase tracking-[0.18em] text-sky-100">{title}</div>
-                            <p className="mt-4 text-sm leading-7 text-slate-300">{body}</p>
-                        </Card>
-                    ))}
-                </section>
-
-                <section className="mt-16 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-                    <Card>
-                        <Badge tone="cyan">{copy.modules}</Badge>
-                        <h2 className="mt-4 text-3xl font-black tracking-[-0.035em] text-white">{topic.title}</h2>
-                        <div className="mt-6">
-                            <DetailList items={topic.modules}/>
-                        </div>
-                    </Card>
-                    <div className="grid gap-6">
-                        <Card>
-                            <Badge tone="emerald">{copy.outcomes}</Badge>
-                            <div className="mt-6">
-                                <DetailList items={topic.outcomes}/>
-                            </div>
-                        </Card>
-                        <Card>
-                            <Badge tone="violet">{copy.deliverables}</Badge>
-                            <div className="mt-6 flex flex-wrap gap-2">
-                                {topic.deliverables.map((item) => (
-                                    <span key={item} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-black text-slate-200">
-                                        {item}
-                                    </span>
-                                ))}
-                            </div>
-                        </Card>
-                    </div>
-                </section>
+                </div>
 
                 {relatedTopics.length > 0 && (
-                    <section className="mt-16">
-                        <Badge tone="emerald">{copy.related}</Badge>
-                        <div className="mt-6 grid gap-4 md:grid-cols-3">
-                            {relatedTopics.map((relatedTopic) => (
-                                <Link key={relatedTopic.slug} to={`/training/${relatedTopic.slug}`} className="group block">
-                                    <Card className="h-full">
-                                        <div className="text-xs font-black uppercase tracking-[0.18em] text-sky-100">{relatedTopic.category}</div>
-                                        <h2 className="mt-3 text-2xl font-black text-white transition group-hover:text-sky-100">{relatedTopic.title}</h2>
-                                        <p className="mt-4 text-sm leading-7 text-slate-300">{relatedTopic.summary}</p>
-                                    </Card>
-                                </Link>
+                    <section>
+                        <div className="business-heading"><h2>{c.related}</h2></div>
+                        <div className="business-index">
+                            {relatedTopics.map((related) => (
+                                <article key={related.slug}>
+                                    <p className="business-kicker business-muted">{related.category}</p>
+                                    <h3><Link className="business-link" to={`/training/${related.slug}`}>{related.title}<span aria-hidden="true">↗</span></Link></h3>
+                                    <p className="business-muted">{related.summary}</p>
+                                </article>
                             ))}
                         </div>
                     </section>
                 )}
 
-                <section className="mt-16 rounded-[2rem] border border-white/10 bg-white/[0.055] p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,.1),0_24px_84px_rgba(0,0,0,.28)] sm:p-8">
-                    <h2 className="text-3xl font-black tracking-[-0.035em] text-white">{t.home.contactTitle}</h2>
-                    <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-slate-300">{t.home.contactCopy}</p>
-                    <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                        <Button to="/contact#contact-options">{copy.contact}</Button>
-                        <Button to="/training" variant="secondary">{copy.back}</Button>
-                    </div>
-                </section>
+            </Container>
+            <div className="business-end">
+                <CTASection
+                    title={c.next}
+                    copy={c.nextCopy}
+                    primary={<Button to="/contact#contact-options">{c.contact}</Button>}
+                    secondary={<Button to="/training#details" variant="secondary">{c.back}</Button>}
+                />
             </div>
         </main>
     );

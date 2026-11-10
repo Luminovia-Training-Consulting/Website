@@ -52,15 +52,17 @@ describe("full static site route coverage", () => {
 
         render(<App/>);
 
-        const [headerNav] = await screen.findAllByRole("navigation");
+        const header = within(screen.getByRole("navigation", {name: "Main navigation"}));
+        const services = within(screen.getByRole("navigation", {name: "Services"}));
+        const company = within(screen.getByRole("navigation", {name: "Company"}));
 
-        expect(within(headerNav).getByRole("link", {name: /^Training$/i})).toHaveAttribute("href", "/training");
-        expect(within(headerNav).getByRole("link", {name: /^Consulting$/i})).toHaveAttribute("href", "/consulting");
-        expect(within(headerNav).getByRole("link", {name: /^Pricing$/i})).toHaveAttribute("href", "/pricing");
-        expect(within(headerNav).getByRole("link", {name: /^Clients$/i})).toHaveAttribute("href", "/clients");
-        expect(within(headerNav).getByRole("link", {name: /^Projects$/i})).toHaveAttribute("href", "/projects");
-        expect(within(headerNav).getByRole("link", {name: /^Company$/i})).toHaveAttribute("href", "/about");
-        expect(within(headerNav).getByRole("link", {name: /^Contact$/i})).toHaveAttribute("href", "/contact");
+        expect(header.getByRole("link", {name: "Training"})).toHaveAttribute("href", "/training");
+        expect(header.getByRole("link", {name: "Consulting"})).toHaveAttribute("href", "/consulting");
+        expect(header.getByRole("link", {name: "Offers"})).toHaveAttribute("href", "/offers");
+        expect(header.getByRole("link", {name: "About us"})).toHaveAttribute("href", "/about");
+        expect(header.getByRole("link", {name: "Contact"})).toHaveAttribute("href", "/contact");
+        expect(services.getByRole("link", {name: "Pricing"})).toHaveAttribute("href", "/pricing");
+        expect(company.getByRole("link", {name: "References"})).toHaveAttribute("href", "/clients");
+        expect(company.getByRole("link", {name: "Projects"})).toHaveAttribute("href", "/projects");
     });
 });
-

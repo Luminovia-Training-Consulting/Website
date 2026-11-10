@@ -240,7 +240,7 @@ const de = {
         {q: "Wie funktioniert Remote-Durchführung?", a: "Remote-Durchführung wird nach Zielgruppe, Zeitzone und Format geplant. Luminovia unterstützt deutschsprachige und internationale Kunden in Europa, Australien und verteilten globalen Teams."},
         {q: "Was macht die Trainings praktisch?", a: "Jeder Termin verbindet klare Lernziele, Beispiele, Übungen, Zusammenfassungen und Transferaufgaben. Teilnehmende lernen Werkzeuge nicht nur kennen, sondern wenden sie auf Situationen aus Arbeit, Studium oder Lehrpraxis an."},
         {q: "Kann Luminovia Materialien oder ein Curriculum entwickeln?", a: "Ja. Luminovia entwickelt Curricula, Blended-Learning-Konzepte, Präsentationen, Übungen, Lernchecks, Praxislabore, Beratungsdokumentation, KI-Anwendungsfallkarten, Umsetzungsfahrpläne und Trainingsstrukturen für Akademien, Hochschulen und betriebliche Weiterbildungsteams."},
-        {q: "Wie startet eine Buchungsanfrage?", a: "Senden Sie Thema, Zielgruppe, Wissensstand, Projektkontext, Wunschformat, Zeitraum und Ziel per E-Mail oder buchen Sie einen kurzen Termin. Danach schlägt Luminovia ein passendes Consulting-, Trainings- oder Projektformat und die nächsten Schritte vor."},
+        {q: "Wie startet eine Buchungsanfrage?", a: "Senden Sie Thema, Zielgruppe, Wissensstand, Projektkontext, Wunschformat, Zeitraum und Ziel per E-Mail oder fragen Sie ein kurzes Erstgespräch an. Danach schlägt Luminovia ein passendes Consulting-, Trainings- oder Projektformat und die nächsten Schritte vor."},
     ],
 };
 

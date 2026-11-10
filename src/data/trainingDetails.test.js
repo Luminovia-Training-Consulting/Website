@@ -55,6 +55,24 @@ describe("training detail coverage", () => {
         expect(trainingDetailsForLanguage("de")).toHaveLength(19);
     });
 
+    it("gives every German course its own detailed outline at the same depth as English", () => {
+        const german = trainingDetailsForLanguage("de");
+        const english = trainingDetailsForLanguage("en");
+
+        for (const field of ["modules", "outcomes", "deliverables"]) {
+            const plans = new Set();
+
+            for (const [index, topic] of german.entries()) {
+                expect(topic.slug).toBe(english[index].slug);
+                expect(topic[field], `${topic.slug} ${field}`).toHaveLength(english[index][field].length);
+                expect(topic[field]).not.toEqual(english[index][field]);
+                plans.add(JSON.stringify(topic[field]));
+            }
+
+            expect(plans.size).toBe(german.length);
+        }
+    });
+
     it.each(expectedOfferLinks)("maps %s to the correct detail page", (label, expectedLink) => {
         expect(topicLinkForLabel(label)).toBe(expectedLink);
     });

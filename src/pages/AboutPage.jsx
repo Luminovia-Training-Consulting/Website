@@ -1,122 +1,119 @@
+import {ArrowRight, ArrowUpRight} from "lucide-react";
+import {Link} from "react-router-dom";
+import Button from "../components/Button.jsx";
+import {Container} from "../components/LuminoviaDesign.jsx";
+import Photo from "../components/Photo.jsx";
 import {IMAGES, PROFILE} from "../data/profile.js";
 import {useSiteContent} from "../data/localizedContent.js";
 import {useLanguage} from "../i18n.jsx";
-import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
-import Photo from "../components/Photo.jsx";
-import {PageHero, TrustRail} from "../components/LuminoviaDesign.jsx";
+import "../styles/people.css";
 
 const copy = {
     en: {
-        badge: "Company",
-        title: "Digital expertise, clearly taught and practically applied.",
-        intro: "Luminovia is a remote-first training and consulting company for organisations working across AI, IT, cybersecurity, software, data and digital learning.",
-        follow: "Founder Carina Sophie Schoppe combines technical practice with instructional design and structured consulting. That combination shapes every workshop, programme and advisory engagement.",
-        linkedin: "View LinkedIn",
-        github: "View GitHub",
-        portfolio: "View personal portfolio",
-        timeline: "Company background",
-        cards: [
-            ["Didactic", "Complex topics are translated into structured, learner-friendly formats with exercises and transfer logic."],
-            ["Technical", "AI, software, cybersecurity, data and business IT are taught through systems, workflows and examples that connect concepts with implementation reality."],
-            ["Business", "Training and consulting are connected to roles, decisions, stakeholder needs and practical operating routines."],
-            ["Professional", "Remote-first, bilingual and built for adult learners, corporate teams and education providers."],
+        label: "About Luminovia",
+        title: "I’m Carina.",
+        titleAccent: "I make technical ideas teachable.",
+        intro: "I founded Luminovia to bring software, cybersecurity and AI into training people can use at work. I develop workshops and courses for companies, universities and training providers.",
+        founder: "Founder and trainer",
+        image: "Portrait of Carina Sophie Schoppe",
+        credentials: ["Business information systems", "Training and assessment", "Brisbane · working internationally"],
+        approach: "How I work",
+        practices: [
+            ["Start with a real task", "We pick something your team actually needs to do, from writing a query to assessing an AI use case."],
+            ["Make room for practice", "Participants work through examples, ask questions and try things out in a setting where mistakes are part of learning."],
+            ["Build for everyday use", "Checklists, exercises and materials give teams something to return to after the session."],
         ],
-        links: [
-            ["Training", "Structured delivery across AI, software, cybersecurity, data and business technology.", "/training"],
-            ["Consulting", "Advisory and implementation support for AI use cases, roadmaps, learning architecture and digital enablement.", "/consulting"],
-            ["Projects", "Selected digital, software, AI research and automation projects behind Luminovia's training and consulting profile.", "/projects"],
-        ],
-        founderCard: ["Founder portfolio", "Carina's personal CV, software projects, writing and public profile live separately at carinaschoppe.com. Luminovia remains the business site for company services."],
-        timelineTitle: "Company and leadership background",
+        timeline: "The road to Luminovia",
+        explore: "Explore Luminovia",
+        links: [["Training", "/training"], ["Consulting", "/consulting"], ["References", "/clients"], ["Projects", "/projects"]],
+        portfolio: "Personal portfolio",
+        contact: "Request an introductory call",
     },
     de: {
-        badge: "Unternehmen",
-        title: "Digitale Expertise, klar vermittelt und praktisch eingesetzt.",
-        intro: "Luminovia ist ein remote-first Trainings- und Beratungsunternehmen für Organisationen, die mit KI, IT, Cybersecurity, Software, Daten und digitalem Lernen arbeiten.",
-        follow: "Gründerin Carina Sophie Schoppe verbindet technische Praxis mit Lerndesign und strukturierter Beratung. Diese Verbindung prägt Workshops, Programme und Beratungsmandate.",
-        linkedin: "LinkedIn ansehen",
-        github: "GitHub ansehen",
+        label: "Über Luminovia",
+        title: "Ich bin Carina.",
+        titleAccent: "Ich mache Technik verständlich.",
+        intro: "Ich habe Luminovia gegründet, um Software, Cybersecurity und KI so zu vermitteln, dass Menschen sie im Beruf einsetzen können. Dafür entwickle ich Workshops und Kurse für Unternehmen, Hochschulen und Bildungsanbieter.",
+        founder: "Gründerin und Trainerin",
+        image: "Porträt von Carina Sophie Schoppe",
+        credentials: ["Wirtschaftsinformatik", "Berufs- und Erwachsenenbildung", "Brisbane · international tätig"],
+        approach: "Wie ich arbeite",
+        practices: [
+            ["Mit einer echten Aufgabe beginnen", "Wir nehmen uns etwas vor, das Ihr Team wirklich braucht, etwa eine SQL-Abfrage oder die Bewertung eines KI-Anwendungsfalls."],
+            ["Zeit zum Ausprobieren einplanen", "Die Teilnehmenden arbeiten an Beispielen, stellen Fragen und probieren Lösungen aus. Fehler gehören dabei zum Lernen."],
+            ["Material für den Alltag mitgeben", "Mit Checklisten, Übungen und Unterlagen kann Ihr Team auch nach dem Training an den Themen weiterarbeiten."],
+        ],
+        timeline: "Der Weg zu Luminovia",
+        explore: "Luminovia kennenlernen",
+        links: [["Training", "/training"], ["Beratung", "/consulting"], ["Referenzen", "/clients"], ["Projekte", "/projects"]],
         portfolio: "Persönliches Portfolio",
-        timeline: "Unternehmenshintergrund",
-        cards: [
-            ["Didaktisch", "Komplexe Themen werden in strukturierte, lernfreundliche Formate mit Übungen und Transferlogik übersetzt."],
-            ["Technisch", "KI, Software, Cybersecurity, Daten und Unternehmens-IT werden anhand realistischer Systeme, Arbeitsabläufe und Beispiele vermittelt."],
-            ["Geschäftsnah", "Training und Beratung orientieren sich an Rollen, Entscheidungen, Verantwortlichkeiten und konkreten Arbeitsabläufen."],
-            ["Professionell", "Remote-first, zweisprachig und ausgelegt auf Erwachsenenbildung, Unternehmensteams und Bildungsanbieter."],
-        ],
-        links: [
-            ["Training", "Strukturierte Formate zu KI, Software, Cybersecurity, Daten und digitaler Arbeit.", "/training"],
-            ["Beratung", "Beratung und Umsetzungsbegleitung für KI-Anwendungsfälle, Fahrpläne und Lernarchitektur.", "/consulting"],
-            ["Projekte", "Ausgewählte Software-, Forschungs- und Automatisierungsprojekte als fachliche Grundlage der Arbeit.", "/projects"],
-        ],
-        founderCard: ["Portfolio der Gründerin", "Carinas persönlicher CV, Softwareprojekte, Texte und öffentliches Profil liegen separat auf carinaschoppe.com. Luminovia bleibt die Business-Seite für Firmenleistungen."],
-        timelineTitle: "Unternehmens- und Führungshintergrund",
+        contact: "Erstgespräch anfragen",
     },
 };
 
 export default function AboutPage() {
-    const {language, t} = useLanguage();
+    const {language} = useLanguage();
     const {timeline} = useSiteContent();
     const c = copy[language];
 
     return (
-        <main className="lumo-subpage px-4 pb-24 pt-24 sm:px-6 lg:px-8">
-            <div className="-mx-4 -mt-24 sm:-mx-6 lg:-mx-8">
-                <PageHero
-                    label={c.badge}
-                    title={c.title}
-                    copy={`${c.intro} ${c.follow}`}
-                    actions={<><Button to="/contact#contact-options">{t.nav.book}</Button><Button href={PROFILE.founderPortfolio} variant="secondary">{c.portfolio}</Button></>}
-                    visual={<TrustRail items={c.cards.map(([title, text]) => ({icon: title.slice(0, 2).toUpperCase(), title, copy: text}))}/>}
-                />
-            </div>
-            <div className="mx-auto max-w-7xl">
-                <div className="mt-10 grid gap-5 lg:grid-cols-[0.4fr_0.6fr] lg:items-start">
-                    <Photo src={IMAGES.headshot} alt="Leadership portrait for Luminovia Training & Consulting" className="aspect-[4/5] rounded-[1rem]" imgClass="object-[50%_20%]" loading="eager" fetchPriority="high"/>
-                    <Card>
-                        <h2 className="text-3xl font-black text-white">{c.founderCard[0]}</h2>
-                        <p className="mt-4 text-base leading-8 text-slate-300">{c.founderCard[1]}</p>
-                        <div className="mt-6 flex flex-wrap gap-3">
-                            <Button href={PROFILE.linkedin}>{c.linkedin}</Button>
-                            <Button href={PROFILE.github} variant="secondary">{c.github}</Button>
-                            <Button href={PROFILE.founderPortfolio} variant="secondary">{c.portfolio}</Button>
-                        </div>
-                    </Card>
-                </div>
-
-                <div className="mt-16 grid gap-5 lg:grid-cols-3">
-                    {c.links.map(([title, text, to]) => (
-                        <Card key={title}>
-                            <h2 className="text-2xl font-black text-white">{title}</h2>
-                            <p className="mt-4 text-sm leading-7 text-slate-300">{text}</p>
-                            <div className="mt-6">
-                                <Button to={to} variant="secondary">{t.open}</Button>
-                            </div>
-                        </Card>
-                    ))}
-                    <Card>
-                        <h2 className="text-2xl font-black text-white">{c.founderCard[0]}</h2>
-                        <p className="mt-4 text-sm leading-7 text-slate-300">{c.founderCard[1]}</p>
-                        <div className="mt-6">
-                            <Button href={PROFILE.founderPortfolio} variant="secondary">{c.portfolio}</Button>
-                        </div>
-                    </Card>
-                </div>
-
-                <div className="mt-16">
-                    <h2 className="text-3xl font-black text-white">{c.timelineTitle}</h2>
-                    <div className="mt-6 grid gap-4 lg:grid-cols-5">
-                        {timeline.map((item) => (
-                            <Card key={item.year}>
-                                <div className="text-sm font-black text-sky-100">{item.year}</div>
-                                <h3 className="mt-3 text-xl font-black text-white">{item.title}</h3>
-                                <p className="mt-3 text-sm leading-7 text-slate-300">{item.copy}</p>
-                            </Card>
-                        ))}
+        <main className="lumo-subpage people-page">
+            <Container>
+                <section className="people-about-hero" aria-labelledby="about-heading">
+                    <div className="people-about-intro">
+                        <p className="lumo-section-label">{c.label}</p>
+                        <h1 id="about-heading" className="people-display">{c.title}{" "}<span>{c.titleAccent}</span></h1>
                     </div>
-                </div>
-            </div>
+                    <figure className="people-founder">
+                        <Photo src={IMAGES.headshot} alt={c.image} className="people-founder-photo" imgClass="object-[50%_24%]" fetchPriority="high" sizes="(min-width: 960px) 420px, (min-width: 620px) 360px, 90vw"/>
+                        <figcaption><strong>{PROFILE.founder}</strong><span>{c.founder}</span></figcaption>
+                    </figure>
+                    <div className="people-about-bio">
+                        <p className="people-lead">{c.intro}</p>
+                        <ul className="people-tags">{c.credentials.map((item) => <li key={item}>{item}</li>)}</ul>
+                        <div className="people-inline-links">
+                            <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer">{c.portfolio} <ArrowUpRight aria-hidden="true"/></a>
+                            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight aria-hidden="true"/></a>
+                            <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight aria-hidden="true"/></a>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="people-section people-practice" aria-labelledby="practice-heading">
+                    <h2 id="practice-heading">{c.approach}</h2>
+                    <ol>
+                        {c.practices.map(([title, text], index) => (
+                            <li key={title}>
+                                <span className="people-number" aria-hidden="true">0{index + 1}</span>
+                                <h3>{title}</h3>
+                                <p>{text}</p>
+                            </li>
+                        ))}
+                    </ol>
+                </section>
+
+                <section className="people-section people-split people-timeline" aria-labelledby="about-timeline-heading">
+                    <h2 id="about-timeline-heading">{c.timeline}</h2>
+                    <ol>
+                        {[...timeline].reverse().map(({year, title, copy: detail}) => (
+                            <li key={year}>
+                                <span className="people-number">{year}</span>
+                                <div><h3>{title}</h3><p>{detail}</p></div>
+                            </li>
+                        ))}
+                    </ol>
+                </section>
+
+                <section className="people-section people-about-next" aria-labelledby="about-next-heading">
+                    <div>
+                        <h2 id="about-next-heading">{c.explore}</h2>
+                        <div className="people-inline-links">
+                            {c.links.map(([label, to]) => <Link key={to} to={to}>{label} <ArrowRight aria-hidden="true"/></Link>)}
+                        </div>
+                    </div>
+                    <Button to="/contact#appointment">{c.contact}</Button>
+                </section>
+            </Container>
         </main>
     );
 }
