@@ -6,7 +6,7 @@ import {
     faqs as enFaqs,
     featuredTrainingTopics as enFeaturedTrainingTopics,
     formats as enFormats,
-    formerClients as enFormerClients,
+    referenceOrganisations as enReferenceOrganisations,
     selectedProjects as enSelectedProjects,
     serviceOfferings as enServiceOfferings,
     skillGroups as enSkillGroups,
@@ -19,26 +19,38 @@ import {
     trustStats as enTrustStats,
 } from "./content.js";
 
-const deFormerClientCopy = {
+const deReferenceCopy = {
+    "Professional education": {
+        type: "Berufliche Weiterbildung",
+        work: "Carina Sophie Schoppe und Nenad Kalicanin wirkten am IHK-Lehrgang zu KI und maschinellem Lernen mit, der auch Datenanalyse und Statistik umfasst.",
+    },
+    "IT training and exam preparation": {
+        type: "IT-Weiterbildung und Prüfungsvorbereitung",
+        work: "Unterricht zu Linux, Netzwerktechnik und Cybersecurity mit Vorbereitung auf IT-Zertifizierungsprüfungen.",
+    },
+    "External AI trainer": {
+        type: "Externe KI-Fachtrainerin",
+        work: "Carina arbeitet als freie Trainerin für angewandte KI, technische Bildung und sichere digitale Arbeitsabläufe mit der Akademie zusammen.",
+    },
     "AI certification training": {
-        type: "AI-Zertifizierungstraining",
-        work: "AI-CERTs-Kurse und zertifizierungsorientiertes AI-Training.",
+        type: "KI-Zertifizierungstraining",
+        work: "Zertifizierungsvorbereitung im Bereich KI, darunter der Kurs AI+ Writer von AI CERTs.",
     },
     "IT retraining and professional education": {
         type: "IT-Umschulung und Weiterbildung",
-        work: "Fortbildungs- und Umschulungsdurchführung für Fachinformatiker-Lernende.",
+        work: "Unterricht in Weiterbildungen und Umschulungen für angehende Fachinformatikerinnen und Fachinformatiker.",
     },
-    "Higher education": {
-        type: "Hochschule",
-        work: "Kurse rund um Softwareentwicklung und angewandte digitale Bildung.",
+    "Software engineering instruction": {
+        type: "Lehre in Software Engineering",
+        work: "Unterricht in Software Engineering an einer Schweizer Höheren Fachschule.",
     },
-    "Software, mobile and game development": {
-        type: "Software-, Mobile- und Spieleentwicklung",
-        work: "Kurse zu Softwareentwicklung, Mobile Development und Unity-Spieleentwicklung.",
+    "Mobile game development": {
+        type: "Mobile Spieleentwicklung",
+        work: "Unterricht in mobiler Spieleentwicklung mit Unity und Bewertung studentischer Projekte.",
     },
     "Cybersecurity training": {
         type: "Cybersecurity-Training",
-        work: "Kursdurchführung mit Fokus auf Ethical Hacking und CompTIA PenTest+.",
+        work: "Kurse in Ethical Hacking mit praktischen Übungen und Vorbereitung auf CompTIA PenTest+.",
     },
     "Digital business education": {
         type: "Digitale Business-Bildung",
@@ -48,25 +60,33 @@ const deFormerClientCopy = {
         type: "IT-Seminare und geförderte Weiterbildung",
         work: "Professionelle Trainings zu Projektmanagement, Datenbanken und Softwareentwicklung.",
     },
-    "Software and AI courses": {
-        type: "Software- und AI-Kurse",
-        work: "Softwareentwicklungs- und AI-Kurse für Weiterbildung und Umschulung.",
+    "Confirmed training assignment": {
+        type: "Vereinbarter Lehrauftrag",
+        work: "Training zu KI-gestützter Softwarearchitektur.",
     },
-    "Research assistance": {
-        type: "Forschungsassistenz",
-        work: "Senior-Research-Assistant-Tätigkeit im Bereich Agentic AI.",
+    "Academic research": {
+        type: "Universitäre Forschung",
+        work: "Carinas Tätigkeit als Senior Research Assistant im Bereich agentischer KI.",
+    },
+    "University teaching and project work": {
+        type: "Universitäre Lehre und Projektarbeit",
+        work: "Tutorien und Entwicklung von IT-Sicherheitslernmaterial für kleine und mittlere Unternehmen im Projekt KMUeinfachSicher.",
     },
     "Bundeswehr ZAW education": {
         type: "Bundeswehr-ZAW-Bildung",
-        work: "IT-nahe Lehre für Bachelor-Professional- und Master-Professional-Wege.",
+        work: "IT-Unterricht mit Themen wie Systemvernetzung in Bildungsgängen zum Bachelor Professional und Master Professional.",
     },
     "Apprentice training": {
         type: "Azubi-Weiterbildung",
         work: "Azubi-Weiterbildung und Fortbildung in verschiedenen IT- und Berufsbildungsformaten.",
     },
-    "Current Scrum training": {
-        type: "Aktuelles Scrum-Training",
-        work: "Scrum- und Agile-Training für professionelle Teams.",
+    "Project management and Scrum": {
+        type: "Projektmanagement und Scrum",
+        work: "Trainings zu Projektmanagement, agilen Methoden und Werkzeugen für die digitale Zusammenarbeit.",
+    },
+    "Conference keynote": {
+        type: "Konferenzvortrag",
+        work: "Carina hielt einen Vortrag über Schatten-IT und den Einsatz von KI-Werkzeugen außerhalb freigegebener Prozesse.",
     },
 };
 
@@ -207,10 +227,9 @@ const de = {
         {title: "Internationale Kunden", copy: "Englische oder deutsche Durchführung für verteilte Teams und Bildungspartner für Europa, Australien und die Welt.", bullets: ["EN / DE", "zeitzonenbewusst", "remote-first", "international"]},
     ],
     selectedProjects: deSelectedProjects,
-    formerClients: enFormerClients.map((client) => ({
-        ...client,
-        type: deFormerClientCopy[client.type]?.type || client.type,
-        work: deFormerClientCopy[client.type]?.work || client.work,
+    referenceOrganisations: enReferenceOrganisations.map((reference) => ({
+        ...reference,
+        ...deReferenceCopy[reference.type],
     })),
     testimonialProof: [
         {title: "Vertrauen von Bildungsanbietern", quote: "Wiederholte Buchungen in Weiterbildung, Umschulung, Akademien und Hochschulen zeigen, dass strukturierte Luminovia-Formate in der Erwachsenenbildung funktionieren."},
@@ -268,7 +287,7 @@ export function localizedSiteContentForLanguage(language) {
         audienceCards: enAudienceCards,
         teachingProof: enTeachingProof,
         selectedProjects: enSelectedProjects,
-        formerClients: enFormerClients,
+        referenceOrganisations: enReferenceOrganisations,
         testimonialProof: enTestimonialProof,
         skillGroups: enSkillGroups,
         softwareProjects: enSoftwareProjects,

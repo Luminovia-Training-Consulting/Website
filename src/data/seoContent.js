@@ -25,8 +25,8 @@ export const routeMeta = {
             description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
         },
         "/clients": {
-            title: "Delivery Contexts | Education, Training and Collaboration Proof",
-            description: "Selected public delivery contexts, education partners, topic areas and collaboration proof behind Luminovia's training and consulting profile.",
+            title: "References | Luminovia Training & Consulting",
+            description: "Explore Luminovia’s training collaborations and its team’s experience in professional education, university teaching and research.",
         },
         "/pricing": {
             title: "Pricing | Training, Consulting and Session Rates",
@@ -79,8 +79,8 @@ export const routeMeta = {
             description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, KI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
         },
         "/clients": {
-            title: "Lehr- und Projekterfahrung | Luminovia",
-            description: "Ausgewählte Lehr- und Projekterfahrung von Luminovia in der beruflichen Weiterbildung, der Hochschullehre und im technischen Training.",
+            title: "Referenzen | Luminovia Training & Consulting",
+            description: "Kooperationen von Luminovia und ausgewählte Erfahrungen des Teams in der beruflichen Weiterbildung, Hochschullehre und Forschung.",
         },
         "/pricing": {
             title: "Preise | Training, Beratung und Sessions",

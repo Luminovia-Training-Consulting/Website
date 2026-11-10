@@ -76,7 +76,7 @@ describe("App routing and language", () => {
         ["/offers", /Buchbare Formate für Training/i],
         ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/portfolio", /Von der Aufgabe zur funktionierenden Software/i],
-        ["/clients", /Wo Carina gelehrt und geforscht hat/i],
+        ["/clients", /Lehre, Weiterbildung und Forschung/i],
         ["/pricing", /Klare Preise für Training/i],
         ["/terms", /Geschäfts- und Zahlungsbedingungen/i],
         ["/unknown-page", /Huch, hier ist nichts/i],

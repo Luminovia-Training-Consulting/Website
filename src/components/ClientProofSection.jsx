@@ -7,8 +7,8 @@ import "../styles/people.css";
 
 export default function ClientProofSection({compact = false}) {
     const {language} = useLanguage();
-    const {formerClients} = useSiteContent();
-    const visibleClients = compact ? formerClients.slice(0, 8) : formerClients;
+    const {referenceOrganisations} = useSiteContent();
+    const visibleReferences = compact ? referenceOrganisations.slice(0, 8) : referenceOrganisations;
     const isGerman = language === "de";
 
     return (
@@ -19,15 +19,19 @@ export default function ClientProofSection({compact = false}) {
                     {compact && <Link className="people-text-link" to="/clients">{isGerman ? "Alle Referenzen" : "All references"} <ArrowUpRight aria-hidden="true"/></Link>}
                 </div>
                 <ul className="people-reference-list">
-                    {visibleClients.map((client) => (
-                        <li key={client.name}>
+                    {visibleReferences.map((reference) => (
+                        <li key={reference.name}>
                             <article className="people-reference-entry">
-                                <span className="people-reference-initials" aria-hidden="true">{client.initials}</span>
+                                <span className="people-reference-initials" aria-hidden="true">{reference.initials}</span>
                                 <div>
-                                    <p className="people-kicker">{client.type}</p>
-                                    <h3><a href={client.href} target="_blank" rel="noreferrer">{client.name} <ArrowUpRight aria-hidden="true"/></a></h3>
+                                    <p className="people-kicker">{reference.type}</p>
+                                    <h3>
+                                        {reference.href
+                                            ? <a href={reference.href} target="_blank" rel="noreferrer">{reference.name} <ArrowUpRight aria-hidden="true"/></a>
+                                            : reference.name}
+                                    </h3>
                                 </div>
-                                <p>{client.work}</p>
+                                <p>{reference.work}</p>
                             </article>
                         </li>
                     ))}

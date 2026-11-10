@@ -7,12 +7,12 @@ const copy = {
     en: {
         label: "References",
         title: "Teaching, training and research in practice.",
-        intro: "Selected organisations and programmes where founder Carina Sophie Schoppe has taught, trained teams or worked on research. Each entry describes the work and links to the organisation or programme.",
+        intro: "Explore Luminovia’s collaborations and the teaching, speaking and research experience Carina Sophie Schoppe and Nenad Kalicanin bring to the team.",
     },
     de: {
         label: "Referenzen",
-        title: "Wo Carina gelehrt und geforscht hat.",
-        intro: "Eine Auswahl an Organisationen und Programmen, für die Gründerin Carina Sophie Schoppe unterrichtet, Trainings durchgeführt oder geforscht hat. Die Einträge beschreiben ihre Tätigkeit und verlinken zur jeweiligen Einrichtung oder zum Programm.",
+        title: "Lehre, Weiterbildung und Forschung.",
+        intro: "Hier finden Sie Kooperationen von Luminovia sowie ausgewählte Lehrtätigkeiten, Vorträge und Forschungsprojekte von Carina Sophie Schoppe und Nenad Kalicanin.",
     },
 };
 

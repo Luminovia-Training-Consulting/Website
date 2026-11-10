@@ -9,7 +9,7 @@ describe("ClientProofSection", () => {
 
         const card = screen.getByRole("link", {name: /Fast Lane \/ AI CERTs/i});
 
-        expect(card).toHaveAttribute("href", "https://www.fastlaneus.com/ai-certs-training");
+        expect(card).toHaveAttribute("href", "https://www.flane.de/en/courses/ai-certs");
         expect(screen.getByText(/certification-oriented AI training/i)).toBeInTheDocument();
         expect(screen.queryByText(/Feedback theme/i)).not.toBeInTheDocument();
     });
