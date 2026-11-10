@@ -1,4 +1,4 @@
-import {render, screen} from "@testing-library/react";
+import {fireEvent, render, screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach, describe, expect, it} from "vitest";
 import App from "../App.jsx";
@@ -50,6 +50,18 @@ describe("static page routes", () => {
         await user.keyboard("{Escape}");
         expect(toggle).toHaveFocus();
         expect(toggle).toHaveAttribute("aria-expanded", "false");
+
+        await user.click(toggle);
+        fireEvent.pointerDown(screen.getByRole("heading", {level: 1}), {pointerType: "touch"});
+        expect(toggle).toHaveAttribute("aria-expanded", "false");
+
+        await user.click(toggle);
+        const references = navigation.querySelector('a[href="/clients"]');
+        references.focus();
+        await user.keyboard("{Enter}");
+        expect(toggle).toHaveAttribute("aria-expanded", "false");
+        expect(await screen.findByRole("heading", {name: /Teaching, training and research in practice/i})).toBeInTheDocument();
+        expect(document.getElementById("site-content")).toHaveFocus();
 
         await user.click(toggle);
         await user.click(navigation.querySelector('a[href="/contact"]'));

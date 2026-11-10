@@ -100,7 +100,7 @@ const dictionaries = {
  * }} LanguageContextValue
  */
 
-const LanguageContext = createContext(/** @type {LanguageContextValue | null} */ (null));
+export const LanguageContext = createContext(/** @type {LanguageContextValue | null} */ (null));
 
 /**
  * @param {string | null | undefined} value

@@ -1,7 +1,9 @@
 import {Component} from "react";
 import Button from "./Button.jsx";
+import {LanguageContext} from "../i18n.jsx";
 
 export default class AppErrorBoundary extends Component {
+    static contextType = LanguageContext;
     state = {error: null};
 
     static getDerivedStateFromError(error) {
@@ -18,7 +20,7 @@ export default class AppErrorBoundary extends Component {
         if (!this.state.error) return this.props.children;
         if ("fallback" in this.props) return this.props.fallback;
 
-        const isGerman = document.documentElement.lang === "de";
+        const isGerman = (this.context?.language ?? document.documentElement.lang) === "de";
         const copy = isGerman
             ? {
                 badge: "Seitenwiederherstellung",

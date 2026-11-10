@@ -339,7 +339,7 @@ export const referenceOrganisations = [
         name: "GPDM Azubi Akademie",
         initials: "GP",
         type: "Apprentice training",
-        work: "Azubi Weiterbildung and Fortbildung across IT and professional course formats.",
+        work: "Continuing education for apprentices in IT and vocational skills.",
         href: "https://ausbildung-akademie.de/",
     },
     {

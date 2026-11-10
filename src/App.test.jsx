@@ -48,15 +48,29 @@ describe("App routing and language", () => {
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("en");
     });
 
-    it("toggles and persists the night color scheme", async () => {
+    it("persists language and colour scheme independently across a reload", async () => {
         const user = userEvent.setup();
-        render(<App/>);
+        window.history.pushState({}, "Home", "/");
+        const {unmount} = render(<App/>);
 
         expect(document.documentElement.dataset.theme).toBe("day");
         await user.click(screen.getByRole("button", {name: /Switch to night scheme/i}));
+        await user.click(screen.getByRole("button", {name: /Switch language to German/i}));
 
         expect(document.documentElement.dataset.theme).toBe("night");
         expect(window.localStorage.getItem("luminovia_color_scheme_v1")).toBe("night");
+        expect(screen.getByRole("button", {name: /Zum Hellmodus wechseln/i})).toBeInTheDocument();
+        unmount();
+
+        render(<App/>);
+        expect(document.documentElement.dataset.theme).toBe("night");
+        expect(document.documentElement.lang).toBe("de");
+        await user.click(screen.getByRole("button", {name: /Zum Hellmodus wechseln/i}));
+        expect(document.documentElement.dataset.theme).toBe("day");
+        expect(window.localStorage.getItem("luminovia_color_scheme_v1")).toBe("day");
+        expect(document.documentElement.lang).toBe("de");
+        await user.click(screen.getByRole("button", {name: /Sprache auf Englisch wechseln/i}));
+        await user.click(screen.getByRole("button", {name: /Switch to night scheme/i}));
         expect(screen.getByRole("button", {name: /Switch to day scheme/i})).toBeInTheDocument();
     });
 

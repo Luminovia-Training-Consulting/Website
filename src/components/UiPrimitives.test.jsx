@@ -45,7 +45,8 @@ describe("UI primitive branches", () => {
         expect(screen.getByRole("link", {name: "All projects"})).toHaveAttribute("href", "/projects");
     });
 
-    it("keeps section navigation keyboard focusable for horizontal scrolling", () => {
+    it("lets keyboard users move directly between section links", async () => {
+        const user = userEvent.setup();
         renderWithShell(
             <SectionJumpNav
                 label="On this page"
@@ -53,8 +54,10 @@ describe("UI primitive branches", () => {
             />,
         );
 
-        const nav = screen.getByRole("navigation", {name: "On this page"});
-        expect(nav.querySelector(".section-jump-track")).toHaveAttribute("tabindex", "0");
+        await user.tab();
+        expect(screen.getByRole("link", {name: "Areas"})).toHaveFocus();
+        await user.tab();
+        expect(screen.getByRole("link", {name: "Outcomes"})).toHaveFocus();
         expect(screen.getByRole("link", {name: "Process"})).toHaveAttribute("href", "#process");
     });
 

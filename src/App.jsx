@@ -174,6 +174,7 @@ export default function App() {
 
     useEffect(() => {
         document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "night" ? "#111a2e" : "#f8f5ee");
         safeSetStorageItem(THEME_KEY, theme);
     }, [theme]);
 

@@ -3,6 +3,12 @@
     color: var(--accent);
 }
 
+@media (min-width: 921px) {
+    .site-nav > .site-nav-mobile-link:not(.lumo-button) {
+        display: none;
+    }
+}
+
 @media (max-width: 920px) {
     .site-header:has(.site-nav[data-open="true"]) {
         max-height: 100dvh;

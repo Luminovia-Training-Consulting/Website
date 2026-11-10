@@ -839,6 +839,15 @@
 }
 
 @media (max-width: 460px) {
+    .people-simple-hero {
+        padding-inline: 1.25rem;
+    }
+
+    .people-simple-hero .people-display {
+        font-size: clamp(1.85rem, 9.25vw, 2.5rem);
+        hyphens: auto;
+    }
+
     .people-simple-hero::before {
         opacity: .65;
     }

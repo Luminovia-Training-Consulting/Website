@@ -1,5 +1,5 @@
 import {ArrowUpRight, Menu, Moon, Sun, X} from "lucide-react";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {NavLink, Link} from "react-router-dom";
 import {IMAGES, PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
@@ -14,6 +14,7 @@ const primaryNavigation = [
 
 export default function Header({theme, onToggleTheme}) {
     const [open, setOpen] = useState(false);
+    const header = useRef(null);
     const menuToggle = useRef(null);
     const {t, toggleLanguage, language} = useLanguage();
     const isGerman = language === "de";
@@ -26,6 +27,24 @@ export default function Header({theme, onToggleTheme}) {
     const ThemeIcon = isDay ? Moon : Sun;
     const MenuIcon = open ? X : Menu;
 
+    useEffect(() => {
+        if (!open) return;
+
+        function closeOnOutsidePress(event) {
+            if (!header.current?.contains(event.target)) setOpen(false);
+        }
+
+        document.addEventListener("pointerdown", closeOnOutsidePress);
+        return () => document.removeEventListener("pointerdown", closeOnOutsidePress);
+    }, [open]);
+
+    function closeAfterNavigation(event) {
+        if (open && event.detail === 0) {
+            document.getElementById("site-content")?.focus({preventScroll: true});
+        }
+        setOpen(false);
+    }
+
     function closeOnEscape(event) {
         if (event.key !== "Escape" || !open) return;
         setOpen(false);
@@ -37,9 +56,9 @@ export default function Header({theme, onToggleTheme}) {
     }
 
     return (
-        <header className="site-header" onBlur={closeOnBlur} onKeyDown={closeOnEscape}>
+        <header className="site-header" ref={header} onBlur={closeOnBlur} onKeyDown={closeOnEscape}>
             <div className="site-header-inner">
-                <Link className="site-brand" to="/" aria-label={PROFILE.name} onClick={() => setOpen(false)}>
+                <Link className="site-brand" to="/" aria-label={PROFILE.name} onClick={closeAfterNavigation}>
                     <img src={IMAGES.luminoviaLogoMark} alt="" width="40" height="40"/>
                     <span><strong>Luminovia</strong><small>Training & Consulting</small></span>
                 </Link>
@@ -55,8 +74,9 @@ export default function Header({theme, onToggleTheme}) {
                     </button>
                 </div>
                 <nav id="site-navigation" className="site-nav" data-open={open} aria-label={isGerman ? "Hauptnavigation" : "Main navigation"}>
-                    {primaryNavigation.map(([to, key]) => <NavLink key={to} to={to} onClick={() => setOpen(false)}>{t.nav[key]}</NavLink>)}
-                    <NavLink className="lumo-button" data-button-variant="secondary" to="/contact" onClick={() => setOpen(false)}>
+                    {primaryNavigation.map(([to, key]) => <NavLink key={to} to={to} onClick={closeAfterNavigation}>{t.nav[key]}</NavLink>)}
+                    <NavLink className="site-nav-mobile-link" to="/clients" onClick={closeAfterNavigation}>{t.nav.clients}</NavLink>
+                    <NavLink className="lumo-button" data-button-variant="secondary" to="/contact" onClick={closeAfterNavigation}>
                         {t.nav.book}<ArrowUpRight size={18} aria-hidden="true"/>
                     </NavLink>
                 </nav>
