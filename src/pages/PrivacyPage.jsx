@@ -1,5 +1,4 @@
-import Badge from "../components/Badge.jsx";
-import Card from "../components/Card.jsx";
+import LegalLayout from "../components/LegalLayout.jsx";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
@@ -30,32 +29,27 @@ export default function PrivacyPage() {
     const isDe = language === "de";
     const sections = isDe ? deSections : enSections;
 
+    const label = isDe ? "Rechtliches" : "Legal";
+    const title = isDe ? "Datenschutzerklärung" : "Privacy Policy";
+    const intro = isDe
+        ? "Diese Erklärung beschreibt, welche Daten bei der Nutzung dieser Website verarbeitet werden können."
+        : "This policy explains what data may be processed when using this website and how analytics works.";
+
     return (
-        <main className="legal-page px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl">
-                <Badge tone="emerald">{isDe ? "Datenschutz" : "Data protection"}</Badge>
-                <h1 className="mt-6 text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">{isDe ? "Datenschutzerklärung" : "Privacy Policy"}</h1>
-                <p className="mt-5 text-lg leading-8 text-slate-300">
-                    {isDe ? "Diese Erklärung beschreibt, welche Daten bei der Nutzung dieser Website verarbeitet werden können." : "This policy explains what data may be processed when using this website and how analytics works."}
+        <LegalLayout label={label} title={title} intro={intro}>
+            {sections.map(([heading, copy]) => (
+                <section className="legal-section" key={heading}>
+                    <h2>{heading}</h2>
+                    <p>{copy}</p>
+                </section>
+            ))}
+            <section className="legal-section">
+                <h2>{isDe ? "Datenschutzfragen" : "Privacy enquiries"}</h2>
+                <p>
+                    {isDe ? "Bei Datenschutzfragen kontaktieren Sie " : "For privacy questions, contact "}
+                    <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>.
                 </p>
-
-                <div className="mt-10 grid gap-5">
-                    {sections.map(([title, copy]) => (
-                        <Card key={title}>
-                            <h2 className="text-2xl font-black text-white">{title}</h2>
-                            <p className="mt-5 text-sm leading-7 text-slate-300 sm:text-base">{copy}</p>
-                        </Card>
-                    ))}
-
-                    <Card>
-                        <h2 className="text-2xl font-black text-white">{isDe ? "Kontakt" : "Contact"}</h2>
-                        <p className="mt-5 leading-7 text-slate-300">
-                            {isDe ? "Bei Datenschutzfragen kontaktieren Sie " : "For privacy questions, contact "}
-                            <a className="font-bold text-sky-100 hover:text-white" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>.
-                        </p>
-                    </Card>
-                </div>
-            </div>
-        </main>
+            </section>
+        </LegalLayout>
     );
 }

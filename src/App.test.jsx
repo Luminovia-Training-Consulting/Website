@@ -1,4 +1,4 @@
-import {render, screen, waitFor} from "@testing-library/react";
+import {act, render, screen, waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach, describe, expect, it, vi} from "vitest";
 import App from "./App.jsx";
@@ -24,6 +24,17 @@ describe("App routing and language", () => {
         expect(screen.getByRole("heading", {name: /Technik verstehen\. Selbst anwenden\./i})).toBeInTheDocument();
         expect(document.documentElement.lang).toBe("de");
         expect(window.localStorage.getItem(LANGUAGE_STORAGE_KEY)).toBe("de");
+    });
+
+    it("scrolls to a hash target when the route renders it", async () => {
+        const scrollIntoView = vi.fn();
+        Element.prototype.scrollIntoView = scrollIntoView;
+        window.history.pushState({}, "Lazy hash route", "/contact#appointment");
+
+        render(<App/>);
+
+        await waitFor(() => expect(scrollIntoView).toHaveBeenCalledTimes(1));
+        expect(scrollIntoView.mock.contexts[0]).toBe(document.getElementById("appointment"));
     });
 
     it("uses English as the default page language when no language was selected before", async () => {
@@ -216,23 +227,27 @@ describe("App routing and language", () => {
         expect(screen.getAllByText("1.000 EUR").length).toBeGreaterThan(0);
     });
 
-    it("scrolls to a hash target after route rendering", async () => {
+    it("scrolls to a hash target only once", () => {
+        vi.useFakeTimers();
         const scrollIntoView = vi.fn();
         const requestAnimationFrame = vi.fn((callback) => {
             callback();
             return 1;
         });
-        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
         window.history.pushState({}, "Hash route", "/#offers");
-        window.requestAnimationFrame = requestAnimationFrame;
+        vi.stubGlobal("requestAnimationFrame", requestAnimationFrame);
         Element.prototype.scrollIntoView = scrollIntoView;
 
-        render(<App/>);
+        try {
+            render(<App/>);
 
-        expect(await screen.findByRole("heading", {name: /Understand technology/i})).toBeInTheDocument();
-        await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith({behavior: "auto", block: "start"}));
-        expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
-        expect(requestAnimationFrame).toHaveBeenCalled();
+            expect(scrollIntoView).toHaveBeenCalledWith({behavior: "auto", block: "start"});
+            act(() => vi.advanceTimersByTime(2500));
+            expect(scrollIntoView).toHaveBeenCalledTimes(1);
+        } finally {
+            vi.unstubAllGlobals();
+            vi.useRealTimers();
+        }
     });
 
     it("skips the initial no-hash scroll but scrolls on later route changes", async () => {

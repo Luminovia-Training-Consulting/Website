@@ -1,6 +1,6 @@
 /* global caches, fetch, Response, self, URL */
 
-const CACHE_VERSION = "luminovia-v6";
+const CACHE_VERSION = "luminovia-v7";
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 const CACHEABLE_ASSET_PATHS = ["/assets/", "/images/"];
@@ -30,7 +30,34 @@ async function networkFirst(request) {
         return await fetch(fallbackUrl, {cache: "no-store"});
     } catch {
         return new Response(
-            "<!doctype html><html lang=\"de\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Luminovia aktualisiert</title></head><body style=\"margin:0;background:#f8f5ee;color:#201932;font-family:system-ui,sans-serif;display:grid;min-height:100vh;place-items:center\"><main style=\"max-width:38rem;padding:2rem\"><h1 style=\"font-size:1.6rem\">Luminovia wird aktualisiert.</h1><p style=\"line-height:1.7;color:#5d5569\">Bitte laden Sie die Seite neu, sobald die Verbindung wieder verfügbar ist.</p></main></body></html>",
+            `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Offline | Luminovia</title>
+<style>
+body { margin: 0; font: 1rem/1.6 system-ui, sans-serif; }
+main { max-width: 34rem; padding: 2rem; margin: 10vh auto 0; }
+section + section { border-top: 1px solid; margin-top: 2rem; padding-top: 2rem; }
+h1, h2 { margin: 0; font-size: 1.6rem; line-height: 1.2; }
+p { margin: .75rem 0 0; }
+</style>
+</head>
+<body>
+<main>
+<section lang="en">
+    <h1>No connection</h1>
+    <p>Reload this page when you’re back online.</p>
+</section>
+<section lang="de">
+    <h2>Keine Verbindung</h2>
+    <p>Laden Sie die Seite neu, sobald Sie wieder online sind.</p>
+</section>
+</main>
+</body>
+</html>`,
             {
                 status: 503,
                 statusText: "Service Unavailable",
@@ -40,31 +67,21 @@ async function networkFirst(request) {
     }
 }
 
-async function cacheFirst(request, cacheName) {
-    const cache = await caches.open(cacheName);
-    const cached = await cache.match(request);
-    if (cached) return cached;
+function serveAsset(event, cacheName, revalidate) {
+    const {request} = event;
+    const cache = caches.open(cacheName).catch(() => null);
+    const cached = cache.then((store) => store?.match(request)).catch(() => null);
+    const fresh = revalidate ? fetch(request) : cached.then((response) => response ? null : fetch(request));
 
-    const response = await fetch(request);
-    if (response.ok) {
-        await cache.put(request, response.clone());
-    }
+    event.waitUntil(fresh.then(async (response) => {
+        if (!response?.ok) return;
 
-    return response;
-}
+        const copy = response.clone();
+        const store = await cache;
+        await store?.put(request, copy);
+    }).catch(() => {}));
 
-async function staleWhileRevalidate(request, cacheName) {
-    const cache = await caches.open(cacheName);
-    const cached = await cache.match(request);
-    const fresh = fetch(request).then((response) => {
-        if (response.ok) {
-            cache.put(request, response.clone());
-        }
-
-        return response;
-    });
-
-    return cached || fresh;
+    return cached.then((response) => response || fresh);
 }
 
 self.addEventListener("install", () => {
@@ -75,9 +92,10 @@ self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => Promise.all(
             cacheNames
-                .filter((cacheName) => cacheName.startsWith("luminovia-") && !cacheName.startsWith(CACHE_VERSION))
+                .filter((cacheName) => cacheName.startsWith("luminovia-") && cacheName !== ASSET_CACHE && cacheName !== IMAGE_CACHE)
                 .map((cacheName) => caches.delete(cacheName)),
         ))
+            .catch(() => {})
             .then(() => self.clients.claim())
             .then(() => self.clients.matchAll({type: "window", includeUncontrolled: true}))
             .then((clients) => Promise.all(clients.map((client) => client.postMessage({
@@ -96,8 +114,6 @@ self.addEventListener("fetch", (event) => {
     if (!isCacheableRequest(event.request)) return;
 
     const url = new URL(event.request.url);
-    const cacheName = url.pathname.startsWith("/assets/") ? ASSET_CACHE : IMAGE_CACHE;
-    const strategy = url.pathname.startsWith("/assets/") ? cacheFirst : staleWhileRevalidate;
-
-    event.respondWith(strategy(event.request, cacheName));
+    const isBundledAsset = url.pathname.startsWith("/assets/");
+    event.respondWith(serveAsset(event, isBundledAsset ? ASSET_CACHE : IMAGE_CACHE, !isBundledAsset));
 });

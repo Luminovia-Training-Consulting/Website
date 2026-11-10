@@ -23,7 +23,7 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 - Luminovia visual system with the supplied logo, founder photography and violet, mint, coral and yellow accents.
 - Static React/Vite app with React Router routes.
 - GitHub Pages custom-domain build for `https://luminovia.org/`.
-- Production build optimized through Preact compatibility mode.
+- Production build uses Preact compatibility mode and loads page-specific styles on demand.
 - Direct contact by email and phone. Introductory calls are arranged by email.
 - Google Analytics consent banner.
 - SEO metadata, canonical links, sitemap, robots file and JSON-LD structured data.
@@ -46,7 +46,7 @@ The site is static. There is no backend, no server-side rendering, no form endpo
 | `/privacy` | Privacy policy. |
 | `/terms` | Terms & Conditions, payment terms and bank information. |
 
-Training detail pages live under `/training/:slug` and are generated from `src/data/trainingDetails.js`.
+Training detail pages live under `/training/:slug`. Each topic has a dedicated outline in English and German.
 
 ## Project Structure
 
@@ -227,7 +227,8 @@ Most business content is data-driven:
 - `src/data/content.js`: English base content.
 - `src/data/localizedContent.js`: German localized content and localized mappings.
 - `src/pages/HomePage.jsx`: homepage copy in both languages. The initial English hero is also present in `index.html` before the app loads.
-- `src/data/trainingDetails.js`: detailed training pages and topic link mapping.
+- `src/data/trainingDetails.js`: training topics, English outlines, German overview copy and topic link mapping.
+- `src/data/trainingDetailsDe.js`: German modules, learning outcomes and materials for each training topic.
 - `src/i18n.jsx`: UI labels, homepage strings and contact copy.
 
 Prefer editing these data files before hardcoding copy into components.

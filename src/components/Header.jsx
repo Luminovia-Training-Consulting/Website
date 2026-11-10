@@ -1,9 +1,9 @@
-import {Menu, Moon, Sun, X} from "lucide-react";
+import {ArrowUpRight, Menu, Moon, Sun, X} from "lucide-react";
 import {useRef, useState} from "react";
 import {NavLink, Link} from "react-router-dom";
 import {IMAGES, PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
-import Button from "./Button.jsx";
+import "../styles/header.css";
 
 const primaryNavigation = [
     ["/training", "training"],
@@ -22,7 +22,7 @@ export default function Header({theme, onToggleTheme}) {
     const themeLabel = isGerman
         ? isDay ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"
         : isDay ? "Switch to night scheme" : "Switch to day scheme";
-    const menuLabel = isGerman ? "Menü" : "Menu";
+    const menuLabel = isGerman ? (open ? "Menü schließen" : "Menü") : (open ? "Close menu" : "Menu");
     const ThemeIcon = isDay ? Moon : Sun;
     const MenuIcon = open ? X : Menu;
 
@@ -32,8 +32,12 @@ export default function Header({theme, onToggleTheme}) {
         menuToggle.current?.focus();
     }
 
+    function closeOnBlur(event) {
+        if (open && !event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+    }
+
     return (
-        <header className="site-header" onKeyDown={closeOnEscape}>
+        <header className="site-header" onBlur={closeOnBlur} onKeyDown={closeOnEscape}>
             <div className="site-header-inner">
                 <Link className="site-brand" to="/" aria-label={PROFILE.name} onClick={() => setOpen(false)}>
                     <img src={IMAGES.luminoviaLogoMark} alt="" width="40" height="40"/>
@@ -52,7 +56,9 @@ export default function Header({theme, onToggleTheme}) {
                 </div>
                 <nav id="site-navigation" className="site-nav" data-open={open} aria-label={isGerman ? "Hauptnavigation" : "Main navigation"}>
                     {primaryNavigation.map(([to, key]) => <NavLink key={to} to={to} onClick={() => setOpen(false)}>{t.nav[key]}</NavLink>)}
-                    <Button to="/contact" variant="secondary" onClick={() => setOpen(false)}>{t.nav.book}</Button>
+                    <NavLink className="lumo-button" data-button-variant="secondary" to="/contact" onClick={() => setOpen(false)}>
+                        {t.nav.book}<ArrowUpRight size={18} aria-hidden="true"/>
+                    </NavLink>
                 </nav>
             </div>
         </header>

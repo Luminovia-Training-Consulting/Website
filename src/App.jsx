@@ -95,14 +95,16 @@ function ScrollToHash() {
         };
 
         const observer = scrollToTarget() ? null : new MutationObserver(() => {
-            if (scrollToTarget()) observer.disconnect();
+            if (scrollToTarget()) {
+                observer.disconnect();
+                globalThis.clearTimeout(timeout);
+            }
         });
-        observer?.observe(document.getElementById("root"), {childList: true, subtree: true});
-        const retryTimers = [100, 300, 700, 1200, 1800, 2400].map((delay) => globalThis.setTimeout(scrollToTarget, delay));
-        const timeout = globalThis.setTimeout(() => observer?.disconnect(), 2600);
+        observer?.observe(document.getElementById("site-content"), {childList: true, subtree: true});
+        const timeout = observer ? globalThis.setTimeout(() => observer.disconnect(), 10000) : undefined;
+
         return () => {
-            if (frame) globalThis.cancelAnimationFrame(frame);
-            retryTimers.forEach((timer) => globalThis.clearTimeout(timer));
+            if (frame !== undefined) globalThis.cancelAnimationFrame(frame);
             observer?.disconnect();
             globalThis.clearTimeout(timeout);
         };
@@ -179,25 +181,31 @@ export default function App() {
         /* v8 ignore start -- production-only service worker registration is verified by the Pages build */
         if (!import.meta.env.PROD || !("serviceWorker" in navigator)) return undefined;
 
-        const handleMessage = (event) => {
-            if (event.data?.type !== "LUMINOVIA_SW_ACTIVATED" || !event.data.version) return;
-            if (safeGetSessionItem(SW_RELOAD_KEY) === event.data.version) return;
+        const serviceWorker = navigator.serviceWorker;
+        let hadController = Boolean(serviceWorker.controller);
+        let handledVersion = safeGetSessionItem(SW_RELOAD_KEY);
+        const handleMessage = ({data}) => {
+            if (data?.type !== "LUMINOVIA_SW_ACTIVATED" || !data.version || data.version === handledVersion) return;
 
-            safeSetSessionItem(SW_RELOAD_KEY, event.data.version);
-            globalThis.location.reload();
+            handledVersion = data.version;
+            safeSetSessionItem(SW_RELOAD_KEY, handledVersion);
+            if (hadController) globalThis.location.reload();
+            hadController = true;
         };
 
         const register = () => {
-            navigator.serviceWorker
+            serviceWorker
                 .register(`${import.meta.env.BASE_URL}sw.js`, {updateViaCache: "none"})
                 .then((registration) => registration.update().catch(() => {}))
                 .catch(() => {});
         };
 
-        navigator.serviceWorker.addEventListener("message", handleMessage);
-        globalThis.addEventListener("load", register, {once: true});
+        serviceWorker.addEventListener("message", handleMessage);
+        if (document.readyState === "complete") register();
+        else globalThis.addEventListener("load", register, {once: true});
+
         return () => {
-            navigator.serviceWorker.removeEventListener("message", handleMessage);
+            serviceWorker.removeEventListener("message", handleMessage);
             globalThis.removeEventListener("load", register);
         };
         /* v8 ignore stop */

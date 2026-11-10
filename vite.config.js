@@ -116,7 +116,6 @@ export default defineConfig(({command, mode}) => {
         plugins: [usePreactCompat ? preact() : react(), tailwindcss(), htmlPerformancePlugin()],
         base,
         build: {
-            cssCodeSplit: false,
             modulePreload: {
                 polyfill: false,
             },

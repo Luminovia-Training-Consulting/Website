@@ -10,7 +10,7 @@ const content = {
     de: {
         headline: ["Technik verstehen.", "Selbst anwenden."],
         label: "Training & Beratung",
-        intro: "Luminovia bietet Trainings und Beratung zu KI, IT und Cybersecurity. Wir arbeiten mit den Aufgaben, die Ihr Team im Alltag lösen muss.",
+        intro: "Live-Trainings und Beratung zu KI, IT und Cybersecurity. Wir arbeiten mit Beispielen aus Ihrem Alltag, damit Ihr Team das Gelernte im nächsten Projekt einsetzen kann.",
         training: "Trainings entdecken",
         role: "Gründerin · Trainerin · Beraterin",
         location: "Aus Brisbane für internationale Teams",
@@ -26,8 +26,13 @@ const content = {
             ],
         },
         topics: {
-            label: "Aus dem Trainingsangebot",
-            title: "Was Sie im Training ausprobieren.",
+            label: "Ein Blick ins Training",
+            title: "Vom Support-Ticket zur Auswertung",
+            intro: "Welche Teams haben die meisten offenen Tickets? In dieser Beispielübung beantworten Sie die Frage mit einer SQL-Abfrage. Das Ergebnis zeigt, wo sich ein genauerer Blick lohnt.",
+            worksheet: "Beispielübung",
+            output: "Ergebnis mit Beispieldaten",
+            count: "Offene Tickets",
+            lesson: "Zum Training für Python, SQL und Daten",
             link: "Zum Trainingskatalog",
             entries: [
                 ["KI & GenAI", "Einen Arbeitsablauf auswählen und KI-Ergebnisse an fachlichen Kriterien prüfen."],
@@ -36,8 +41,8 @@ const content = {
             ],
         },
         aboutLabel: "Über Luminovia",
-        aboutTitle: "Technische Praxis und Erfahrung in der Lehre.",
-        aboutCopy: "Carina Sophie Schoppe verbindet Wirtschaftsinformatik und Softwareentwicklung mit Erwachsenenbildung. Sie entwickelt Übungen und Lernmaterialien für konkrete Arbeitsabläufe und vermittelt technische Themen auf Deutsch und Englisch.",
+        aboutTitle: "Wer hinter Luminovia steht",
+        aboutCopy: "Carina Sophie Schoppe kommt aus der Wirtschaftsinformatik und entwickelt Software. Heute unterrichtet sie Erwachsene auf Deutsch und Englisch und entwickelt dafür eigene Übungen und Lernmaterialien.",
         aboutLink: "Carina kennenlernen",
         workLink: "Lehr- und Projekterfahrung",
         contactTitle: "Was soll Ihr Team danach können?",
@@ -47,7 +52,7 @@ const content = {
     en: {
         headline: ["Understand technology.", "Put it to work."],
         label: "Training & consulting",
-        intro: "Luminovia provides training and consulting in AI, IT and cybersecurity. We work with the tasks your team needs to solve at work.",
+        intro: "Live training and consulting in AI, IT and cybersecurity. We use examples from your work so your team can apply what it learns on the next project.",
         training: "Explore training",
         role: "Founder · Trainer · Consultant",
         location: "Based in Brisbane, working with teams worldwide",
@@ -63,8 +68,13 @@ const content = {
             ],
         },
         topics: {
-            label: "From the training catalogue",
-            title: "What you’ll try in training.",
+            label: "Inside the training",
+            title: "From support tickets to a clear picture",
+            intro: "Which teams have the most open tickets? In this exercise, you’ll use a SQL query to find out. The result shows you where to look more closely.",
+            worksheet: "Sample exercise",
+            output: "Result using sample data",
+            count: "Open tickets",
+            lesson: "Explore Python, SQL and data training",
             link: "Browse the training catalogue",
             entries: [
                 ["AI & GenAI", "Choose a workflow and check AI outputs against criteria that matter in your field."],
@@ -73,8 +83,8 @@ const content = {
             ],
         },
         aboutLabel: "About Luminovia",
-        aboutTitle: "Hands-on technical work meets teaching experience.",
-        aboutCopy: "Carina Sophie Schoppe combines business information systems and software development with adult education. She develops exercises and learning materials around real workflows and teaches technical topics in German and English.",
+        aboutTitle: "Who’s behind Luminovia",
+        aboutCopy: "Carina Sophie Schoppe has a background in business information systems and develops software. She teaches adults in German and English and writes her own exercises and course materials.",
         aboutLink: "Meet Carina",
         workLink: "Teaching and project experience",
         contactTitle: "What should your team be able to do next?",
@@ -94,6 +104,34 @@ const topicPaths = [
     "/training/cybersecurity-pentesting-ethical-hacking",
     "/training/python-sql-data-skills",
 ];
+
+const sampleQuery = `SELECT team,
+       COUNT(*) AS open_count
+FROM tickets
+WHERE status = 'open'
+GROUP BY team
+ORDER BY open_count DESC;`;
+
+const sampleResult = [["Support", 7], ["Operations", 3]];
+
+function PracticeSheet({copy}) {
+    return (
+        <figure className="home-practice">
+            <figcaption><span>{copy.worksheet}</span><span>SQL</span></figcaption>
+            <pre><code>{sampleQuery}</code></pre>
+            <table>
+                <caption>{copy.output}</caption>
+                <thead><tr><th scope="col">Team</th><th scope="col">{copy.count}</th></tr></thead>
+                <tbody>
+                    {sampleResult.map(([team, count]) => (
+                        <tr key={team}><th scope="row">{team}</th><td>{count}</td></tr>
+                    ))}
+                </tbody>
+            </table>
+            <Link className="lumo-text-link" to={topicPaths[2]}>{copy.lesson}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+        </figure>
+    );
+}
 
 export default function HomePage() {
     const {language, t} = useLanguage();
@@ -151,23 +189,27 @@ export default function HomePage() {
                 </Container>
             </section>
 
-            <section className="home-section home-topics" id="offers">
-                <Container className="home-topics-grid">
-                    <div>
-                        <p className="lumo-section-label">{copy.topics.label}</p>
-                        <h2>{copy.topics.title}</h2>
-                        <Link className="lumo-text-link" to="/training">{copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+            <section className="home-section home-topics" id="offers" aria-labelledby="home-practice-heading">
+                <Container>
+                    <div className="home-topics-grid">
+                        <div>
+                            <p className="lumo-section-label">{copy.topics.label}</p>
+                            <h2 id="home-practice-heading">{copy.topics.title}</h2>
+                            <p className="home-topics-intro">{copy.topics.intro}</p>
+                            <ul className="home-topic-list">
+                                {copy.topics.entries.map(([title, description], index) => (
+                                    <li key={title}>
+                                        <Link to={topicPaths[index]}>
+                                            <span><strong>{title}</strong><span>{description}</span></span>
+                                            <ArrowUpRight size={23} aria-hidden="true"/>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                            <Link className="lumo-text-link" to="/training">{copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+                        </div>
+                        <PracticeSheet copy={copy.topics}/>
                     </div>
-                    <ul className="home-topic-list">
-                        {copy.topics.entries.map(([title, description], index) => (
-                            <li key={title}>
-                                <Link to={topicPaths[index]}>
-                                    <span><strong>{title}</strong><span>{description}</span></span>
-                                    <ArrowUpRight size={23} aria-hidden="true"/>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
                 </Container>
             </section>
 

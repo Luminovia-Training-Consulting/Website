@@ -154,7 +154,7 @@ picture { display: block; }
     font-weight: 700;
     line-height: 1.3;
     text-align: center;
-    transition: background-color .15s, color .15s, border-color .15s;
+    transition: border-color .15s;
 }
 
 .lumo-button svg { flex: none; }
@@ -172,9 +172,9 @@ picture { display: block; }
 .home-hero h1 {
     margin-block: .85rem 1.35rem;
     font-size: clamp(2.6rem, 5.65vw, 5.6rem);
-    line-height: .99;
+    line-height: 1.02;
     font-weight: 700;
-    letter-spacing: -.082em;
+    letter-spacing: -.072em;
     text-wrap: initial;
 }
 .home-hero h1 span { display: block; color: var(--accent); }
@@ -196,13 +196,13 @@ picture { display: block; }
 .home-portrait::before {
     position: absolute;
     z-index: -1;
-    inset: .65rem -.55rem -.55rem .65rem;
-    border: 1px solid var(--accent);
+    inset: .65rem -.65rem -.65rem .65rem;
+    background: var(--lilac);
     border-radius: inherit;
     content: "";
 }
 
-.home-portrait-photo { aspect-ratio: 5 / 4; border-radius: .5rem .5rem 0 0; }
+.home-portrait-photo { aspect-ratio: 5 / 4; border-radius: .5rem .5rem 0 0; border-top: .35rem solid var(--mint); }
 .home-portrait-photo img { object-position: 50% 8%; }
 .home-portrait figcaption { padding: .85rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: .7rem; }
 .home-portrait figcaption strong, .home-portrait figcaption span { display: block; }
@@ -235,7 +235,8 @@ picture { display: block; }
 .home-service a:focus-visible { outline-color: var(--dark-ink); }
 
 .home-topics { background: #27203b; color: #fff8ff; }
-.home-topics-grid { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1fr); gap: clamp(1.8rem, 6vw, 5.8rem); align-items: start; }
+.home-topics-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .92fr); gap: clamp(1.8rem, 6vw, 5.8rem); align-items: center; }
+.home-topics-intro { max-width: 55ch; margin-block: 1rem 1.7rem; color: #e1d7ed; font-size: 1.04rem; line-height: 1.7; }
 .home-topics .lumo-section-label, .home-topics .lumo-text-link { color: #e5d6ff; }
 .home-topics .lumo-text-link { margin-top: 1.2rem; }
 .home-topics :focus-visible { outline-color: var(--yellow); }
@@ -245,6 +246,54 @@ picture { display: block; }
 .home-topic-list a strong { display: block; font: 700 clamp(1.2rem, 2.3vw, 1.75rem)/1.15 var(--heading); }
 .home-topic-list a span span { display: block; margin-top: .42rem; color: #e1d7ed; line-height: 1.45; }
 .home-topic-list svg { flex: none; color: var(--mint); }
+.home-practice {
+    --sheet-ink: #201932;
+    --sheet-link: #402090;
+    --sheet-paper: #fffdf8;
+    padding: clamp(1rem, 3vw, 2rem);
+    border: 1px solid #d8c890;
+    border-top: .42rem solid var(--yellow);
+    border-radius: .5rem;
+    background: var(--sheet-paper);
+    color: var(--sheet-ink);
+}
+
+[data-theme="night"] .home-practice {
+    --sheet-ink: #fbf6ff;
+    --sheet-link: #d2baff;
+    --sheet-paper: #191426;
+    border-color: #786c4e;
+    border-top-color: var(--yellow);
+}
+
+.home-practice figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: .75rem;
+    margin-bottom: .95rem;
+    color: var(--sheet-link);
+    font: 700 .91rem/1.25 var(--heading);
+}
+
+.home-practice pre {
+    padding: .95rem;
+    border-radius: .35rem;
+    background: #211b2e;
+    color: #d3f4e5;
+    font-size: .87rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.home-practice table { width: 100%; margin-top: 1.15rem; text-align: start; font-size: .91rem; }
+.home-practice caption { margin-bottom: .35rem; font-weight: 700; text-align: start; }
+.home-practice :is(th, td) { padding: .42rem .2rem; border-bottom: 1px solid var(--line); text-align: start; }
+.home-practice :is(th, td):last-child { text-align: end; }
+.home-practice tbody th { font-weight: 500; }
+.home-practice .lumo-text-link { color: var(--sheet-link); }
+.home-practice a:focus-visible { outline-color: var(--sheet-link); }
+
 .home-about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(1.6rem, 6vw, 5.8rem); align-items: center; }
 .home-about p:not(.lumo-section-label) { color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
 .home-about-links { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; margin-top: 1rem; }
@@ -303,8 +352,32 @@ picture { display: block; }
 .theme-root :is(.lumo-subpage, .legal-page, .not-found-page, .error-page) :where(.text-sky-100, .text-sky-200, .text-sky-300) { color: var(--accent); }
 
 .legal-page, .not-found-page { padding-block: clamp(3rem, 6vw, 5.5rem); }
-.legal-page h1, .not-found-page h1 { font-weight: 700; }
-.legal-page a:not(.lumo-button) { text-decoration: underline; text-underline-offset: .23em; }
+.not-found-page h1 { font-weight: 700; }
+
+.legal-container { max-width: 58rem; }
+.legal-heading h1 {
+    font-size: clamp(2.2rem, 5.25vw, 4.4rem);
+    line-height: 1.06;
+    font-weight: 700;
+    letter-spacing: -.06em;
+    overflow-wrap: anywhere;
+}
+.legal-heading p:last-child { max-width: 60ch; margin-top: .9rem; color: var(--muted); font-size: 1.12rem; line-height: 1.6; }
+.legal-content { margin-top: clamp(2rem, 5vw, 3.5rem); }
+.legal-section { padding-block: 1.35rem; border-top: 1px solid var(--line); }
+.legal-section h2 { margin-bottom: .7rem; font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 700; line-height: 1.2; }
+.legal-section :is(p, ul, ol, address, dl) { max-width: 68ch; color: var(--muted); font-size: 1rem; line-height: 1.72; }
+.legal-section address { font-style: normal; }
+.legal-section a { color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: .23em; }
+.legal-terms { padding-inline-start: 1.4rem; list-style: decimal; }
+.legal-terms li + li { margin-top: .8rem; }
+.legal-terms li::marker { color: var(--accent); font-weight: 700; }
+.legal-bank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1.05rem; }
+.legal-bank-grid > div { padding: .95rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; }
+.legal-bank-grid h3 { font: 700 1.2rem/1.2 var(--heading); margin-bottom: .75rem; }
+.legal-bank-grid dl > div { padding-block: .45rem; border-top: 1px solid var(--line); }
+.legal-bank-grid dt { font-size: .86rem; }
+.legal-bank-grid dd { color: var(--ink); font-weight: 650; overflow-wrap: anywhere; }
 .legal-inset { border-color: var(--line); background: var(--paper); }
 
 .analytics-consent {

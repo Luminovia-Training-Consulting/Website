@@ -1,9 +1,11 @@
+import {germanCoursePlans} from "./trainingDetailsDe.js";
+
 const topicDetailsEn = [
     {
         slug: "ai-genai-training",
         title: "AI & GenAI Training",
         category: "Artificial Intelligence",
-        summary: "Practical AI training for teams, education providers and organisations that need to understand generative AI, use it responsibly and translate it into useful everyday workflows.",
+        summary: "Try generative AI on tasks from your work or classroom. Learn how to check its answers, protect sensitive information and decide which tasks it can help with.",
         audience: "Corporate teams, universities, academies, public-sector organisations, training providers and mixed learner groups.",
         format: "Remote live workshop, lecture series, training day, multi-day course or custom in-house programme.",
         duration: "90 minutes to multi-week delivery, depending on depth and audience.",
@@ -202,11 +204,11 @@ const topicDetailsEn = [
         slug: "python-sql-data-skills",
         title: "Python, SQL & Data Skills",
         category: "Data Skills",
-        summary: "Applied Python, SQL and database training for learners who need practical data confidence for analysis, automation, reporting and technical retraining.",
+        summary: "Write Python scripts and SQL queries to clean data, automate recurring tasks and build reports. The training is suitable for people learning data skills at work or retraining for a technical role.",
         audience: "Adult learners, data beginners, retraining cohorts, business teams, bootcamps and education providers.",
         format: "Live course, bootcamp, lab series, exam preparation or business-focused upskilling.",
         duration: "2 days to multi-week course delivery.",
-        promise: "Learners move from abstract data concepts to hands-on querying, scripting, cleaning and explaining data work.",
+        promise: "Start with a small dataset. Query it in SQL, clean it with Python and explain what the results show.",
         modules: [
             "Python for data work: variables, functions, files, modules, pandas-style thinking, automation and notebook workflows.",
             "SQL foundations: SELECT, filters, joins, grouping, subqueries, database design basics and query debugging.",
@@ -400,7 +402,7 @@ const topicDetailsEn = [
         slug: "cybersecurity-pentesting-ethical-hacking",
         title: "Cybersecurity, Pentesting Fundamentals & Ethical Hacking",
         category: "Cybersecurity",
-        summary: "Cybersecurity training from awareness to technical foundations: web security, ethical hacking, pentesting basics, SOC thinking and defensive habits.",
+        summary: "Learn how common attacks work and what you can do about them. Topics range from phishing and safe work habits to web security, pentesting and incident response.",
         audience: "IT learners, Fachinformatiker cohorts, retraining providers, companies, public-sector teams and mixed technical groups.",
         format: "Remote live training, lab course, certification preparation, awareness workshop or technical module delivery.",
         duration: "1 day to multi-week course delivery.",
@@ -635,7 +637,7 @@ const deOverrides = {
     "ai-genai-training": {
         title: "KI- und GenAI-Training",
         category: "Künstliche Intelligenz",
-        summary: "Praxisnahes KI-Training für Teams, Bildungsanbieter und Organisationen, die generative KI verstehen, verantwortungsvoll nutzen und in sinnvolle Arbeitsabläufe übersetzen wollen.",
+        summary: "Probieren Sie generative KI an Aufgaben aus Ihrem Arbeits- oder Unterrichtsalltag aus. Sie lernen, Antworten zu prüfen, sensible Daten zu schützen und geeignete Aufgaben auszuwählen.",
         audience: "Unternehmen, Hochschulen, Akademien, öffentliche Organisationen, Bildungsanbieter und gemischte Lerngruppen.",
         format: "Remote-Live-Workshop, Vorlesungsreihe, Trainingstag, mehrtägiger Kurs oder internes Programm.",
         duration: "90 Minuten bis zu mehrwöchigen Kursen, je nach Zielgruppe und gewünschter Tiefe.",
@@ -716,11 +718,11 @@ const deOverrides = {
     "python-sql-data-skills": {
         title: "Python, SQL und Datenkompetenz",
         category: "Datenkompetenz",
-        summary: "Angewandtes Programmier- und Datentraining für Automatisierung, Analyse, Reporting und den sicheren Umgang mit Datenbanken.",
+        summary: "Schreiben Sie Python-Skripte und SQL-Abfragen, um Daten zu bereinigen, wiederkehrende Aufgaben zu automatisieren und Berichte zu erstellen. Der Kurs eignet sich auch für den Einstieg und die berufliche Umschulung.",
         audience: "Berufliche Weiterbildung, Fachinformatiker-Kohorten, Business-Analystinnen, Einsteigerinnen und Teams mit praktischen Datenaufgaben.",
         format: "Live-Kurs, Bootcamp, Lab-Reihe, Prüfungsvorbereitung oder mehrwöchiges Trainingsmodul.",
         duration: "Zwei Tage bis zu mehrwöchigen Kursen.",
-        promise: "Lernende bearbeiten realistische Datenaufgaben, schreiben nachvollziehbaren Code und verstehen, wie Abfragen, Datenqualität und Automatisierung zusammenspielen.",
+        promise: "Sie beginnen mit einem kleinen Datensatz, fragen ihn mit SQL ab, bereinigen ihn mit Python und erklären, was die Ergebnisse zeigen.",
     },
     "data-analytics-data-science-engineering": {
         title: "Lernpfade für Data Analysts, Data Scientists und Data Engineers",
@@ -734,11 +736,11 @@ const deOverrides = {
     "cybersecurity-pentesting-ethical-hacking": {
         title: "Cybersecurity, Pentesting-Grundlagen & Ethical Hacking",
         category: "Cybersecurity",
-        summary: "Cybersecurity-Training von Awareness bis Technik: Web Security, Ethical Hacking, Pentesting-Grundlagen, SOC-Denken und sichere Arbeitsgewohnheiten.",
+        summary: "Lernen Sie, wie typische Angriffe ablaufen und was Sie dagegen tun können. Die Themen reichen von Phishing und sicheren Arbeitsgewohnheiten bis zu Websicherheit, Pentesting und dem Umgang mit Sicherheitsvorfällen.",
         audience: "IT-Lernende, Fachinformatiker-Kohorten, Umschulungsanbieter, Unternehmen, öffentliche Teams und gemischte technische Gruppen.",
         format: "Remote-Live-Training, Lab-Kurs, Zertifikatsvorbereitung, Awareness-Workshop oder technischer Modulunterricht.",
         duration: "Ein Tag bis zu mehrwöchigen Kursen.",
-        promise: "Security wird konkret: Lernende verstehen Angriffspfade, defensive Denkweise und warum sicheres Verhalten in echten Systemen zählt.",
+        promise: "In einer geschützten Umgebung untersuchen Sie, wie Angriffe ablaufen. Danach besprechen Sie, wie man ähnliche Schwachstellen erkennt und behebt.",
     },
     "digital-law-gdpr-ai-act-cloud-act": {
         title: "Digitales Recht: Arbeitsrecht, Wirtschaftsrecht, Privatrecht, IT-Recht, DSGVO, AI Act & Cloud Act",
@@ -805,36 +807,11 @@ const deOverrides = {
     },
 };
 
-function buildGermanDetail(title) {
-    return {
-        modules: [
-            `${title}: Grundlagen, zentrale Begriffe, typische Einsatzfelder und klare Abgrenzung zwischen Einsteiger-, Praxis- und Vertiefungsniveau.`,
-            "Praxisübertragung: realistische Aufgaben, Fallbeispiele, Übungen, Review-Schleifen und Transfer in Arbeits-, Ausbildungs- oder Umschulungskontexte.",
-            "Qualität und Verantwortung: Dokumentation, Datenschutzbewusstsein, Risikodenken, Feedback, Fehlerbilder und nachvollziehbare Entscheidungen.",
-            "Didaktische Struktur: kurze Theorieimpulse, aktivierende Übungen, Wiederholung, Lernchecks, Gruppenarbeit und individuelle Klärung offener Fragen.",
-            "Business- und Prüfungsbezug: Anforderungen, Rollen, Kommunikation, Ergebnisqualität und Vorbereitung auf berufliche Anwendung oder IHK-nahe Situationen.",
-        ],
-        outcomes: [
-            "Teilnehmende können die wichtigsten Konzepte verständlich erklären und praktisch einordnen.",
-            "Teilnehmende wenden das Thema in passenden Übungen, Mini-Projekten oder Fallstudien an.",
-            "Teilnehmende erkennen typische Fehler, Risiken und Qualitätskriterien.",
-            "Teilnehmende können Ergebnisse dokumentieren, reflektieren und fachlich begründen.",
-            "Teilnehmende gewinnen Sicherheit für Arbeit, Ausbildung, Umschulung, Weiterbildung oder interne Projekte.",
-        ],
-        deliverables: [
-            "Strukturierter Modulplan",
-            "Praxisübungen und Lernchecks",
-            "Transferaufgaben für Arbeit oder Prüfung",
-            "Materialien, Recaps und Checklisten",
-            "Optionales Feedback zu Projekt- oder Prüfungsleistungen",
-        ],
-    };
-}
-
-const topicDetailsDe = topicDetailsEn.map((topic) => {
-    const localized = {...topic, ...deOverrides[topic.slug]};
-    return {...localized, ...buildGermanDetail(localized.title)};
-});
+const topicDetailsDe = topicDetailsEn.map((topic) => ({
+    ...topic,
+    ...deOverrides[topic.slug],
+    ...germanCoursePlans[topic.slug],
+}));
 
 function normalize(value) {
     return value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9#+]+/g, " ").trim();
