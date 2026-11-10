@@ -72,7 +72,7 @@ describe("App routing and language", () => {
 
     it.each([
         ["/contact", /Was möchten Sie mit Ihrem Team angehen/i],
-        ["/about", /Ich bin Carina/i],
+        ["/about", /Das Team hinter Luminovia/i],
         ["/offers", /Buchbare Formate für Training/i],
         ["/consulting", /Beratung für KI, IT und digitale Kompetenz/i],
         ["/portfolio", /Von der Aufgabe zur funktionierenden Software/i],
@@ -182,7 +182,7 @@ describe("App routing and language", () => {
 
         await screen.findByRole("heading", {name: /Contact Luminovia/i});
         expect(document.querySelector("main form, main iframe")).toBeNull();
-        expect(screen.getByRole("link", {name: "Write an email"})).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org"));
+        expect(screen.getByRole("link", {name: "Enquire about training or consulting"})).toHaveAttribute("href", expect.stringContaining("mailto:info@luminovia.org"));
         expect(screen.getAllByRole("link", {name: /\+61 451 448 724/i})[0]).toHaveAttribute("href", "tel:+61451448724");
         expect(screen.getAllByRole("link", {name: /\+49 175 5738 757/i})[0]).toHaveAttribute("href", "tel:+491755738757");
         const callSection = document.getElementById("appointment");

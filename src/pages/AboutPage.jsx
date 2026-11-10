@@ -10,40 +10,56 @@ import "../styles/people.css";
 
 const copy = {
     en: {
-        label: "About Luminovia",
-        title: "I’m Carina.",
-        titleAccent: "I make technical ideas teachable.",
-        intro: "I founded Luminovia to bring software, cybersecurity and AI into training people can use at work. I develop workshops and courses for companies, universities and training providers.",
+        label: "Company",
+        title: "Meet the team behind",
+        titleAccent: "Luminovia.",
+        intro: "Luminovia provides live training and consulting in AI, IT and cybersecurity for companies, universities and education providers.",
         founder: "Founder and trainer",
         image: "Portrait of Carina Sophie Schoppe",
         credentials: ["Business information systems", "Training and assessment", "Brisbane · working internationally"],
-        approach: "How I work",
+        team: {
+            title: "Our team",
+            founderRole: "Founder · Training and consulting",
+            founderCopy: "Carina leads Luminovia and develops its workshops and courses. She combines business information systems and software development with adult education.",
+            nenadRole: "Luminovia team member",
+            nenadCopy: "Nenad works alongside Carina at Luminovia. He holds a B.Sc. in Computer Science from TU Dortmund and has experience in full-stack web and mobile development, AI architecture and technical training.",
+            nenadLink: "Visit Nenad’s professional profile",
+        },
+        approach: "How we work",
         practices: [
             ["Start with a real task", "We pick something your team actually needs to do, from writing a query to assessing an AI use case."],
             ["Make room for practice", "Participants work through examples, ask questions and try things out in a setting where mistakes are part of learning."],
             ["Build for everyday use", "Checklists, exercises and materials give teams something to return to after the session."],
         ],
-        timeline: "The road to Luminovia",
+        timeline: "Carina’s road to Luminovia",
         explore: "Explore Luminovia",
         links: [["Training", "/training"], ["Consulting", "/consulting"], ["References", "/clients"], ["Projects", "/projects"]],
         portfolio: "Personal portfolio",
         contact: "Request an introductory call",
     },
     de: {
-        label: "Über Luminovia",
-        title: "Ich bin Carina.",
-        titleAccent: "Ich mache Technik verständlich.",
-        intro: "Ich habe Luminovia gegründet, um Software, Cybersecurity und KI so zu vermitteln, dass Menschen sie im Beruf einsetzen können. Dafür entwickle ich Workshops und Kurse für Unternehmen, Hochschulen und Bildungsanbieter.",
+        label: "Unternehmen",
+        title: "Das Team hinter",
+        titleAccent: "Luminovia.",
+        intro: "Luminovia bietet Live-Trainings und Beratung zu KI, IT und Cybersecurity für Unternehmen, Hochschulen und Bildungsanbieter.",
         founder: "Gründerin und Trainerin",
         image: "Porträt von Carina Sophie Schoppe",
         credentials: ["Wirtschaftsinformatik", "Berufs- und Erwachsenenbildung", "Brisbane · international tätig"],
-        approach: "Wie ich arbeite",
+        team: {
+            title: "Unser Team",
+            founderRole: "Gründerin · Training und Beratung",
+            founderCopy: "Carina leitet Luminovia und entwickelt Workshops und Kurse. Sie verbindet Wirtschaftsinformatik und Softwareentwicklung mit Erwachsenenbildung.",
+            nenadRole: "Mitarbeiter bei Luminovia",
+            nenadCopy: "Nenad arbeitet bei Luminovia mit Carina zusammen. Er hat einen B.Sc. in Informatik von der TU Dortmund und Erfahrung in der Full-Stack-Entwicklung für Web und Mobile, in der KI-Architektur und in technischen Schulungen.",
+            nenadLink: "Nenads Fachprofil ansehen",
+        },
+        approach: "Wie wir arbeiten",
         practices: [
             ["Mit einer echten Aufgabe beginnen", "Wir nehmen uns etwas vor, das Ihr Team wirklich braucht, etwa eine SQL-Abfrage oder die Bewertung eines KI-Anwendungsfalls."],
             ["Zeit zum Ausprobieren einplanen", "Die Teilnehmenden arbeiten an Beispielen, stellen Fragen und probieren Lösungen aus. Fehler gehören dabei zum Lernen."],
             ["Material für den Alltag mitgeben", "Mit Checklisten, Übungen und Unterlagen kann Ihr Team auch nach dem Training an den Themen weiterarbeiten."],
         ],
-        timeline: "Der Weg zu Luminovia",
+        timeline: "Carinas Weg zu Luminovia",
         explore: "Luminovia kennenlernen",
         links: [["Training", "/training"], ["Beratung", "/consulting"], ["Referenzen", "/clients"], ["Projekte", "/projects"]],
         portfolio: "Persönliches Portfolio",
@@ -76,6 +92,25 @@ export default function AboutPage() {
                             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight aria-hidden="true"/></a>
                             <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight aria-hidden="true"/></a>
                         </div>
+                    </div>
+                </section>
+
+                <section id="team" className="people-section" aria-labelledby="team-heading">
+                    <h2 id="team-heading">{c.team.title}</h2>
+                    <div className="people-team-grid">
+                        <article className="people-team-member">
+                            <p className="people-kicker">{c.team.founderRole}</p>
+                            <h3>{PROFILE.founder}</h3>
+                            <p>{c.team.founderCopy}</p>
+                        </article>
+                        <article className="people-team-member">
+                            <p className="people-kicker">{c.team.nenadRole}</p>
+                            <h3>{PROFILE.nenad.name}</h3>
+                            <p>{c.team.nenadCopy}</p>
+                            <a className="people-text-link" href={PROFILE.nenad.website} target="_blank" rel="noreferrer">
+                                {c.team.nenadLink} <ArrowUpRight aria-hidden="true"/>
+                            </a>
+                        </article>
                     </div>
                 </section>
 

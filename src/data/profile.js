@@ -13,6 +13,10 @@ export const PROFILE = {
     github: "https://github.com/Luminovia-Training-Consulting",
     linkedin: "https://www.linkedin.com/in/carinaschoppe/",
     founderPortfolio: "https://carinaschoppe.com",
+    nenad: {
+        name: "Nenad Kalicanin",
+        website: "https://nenadkalicanin.com/",
+    },
     analyticsId: "G-YNGD292XE5",
 };
 

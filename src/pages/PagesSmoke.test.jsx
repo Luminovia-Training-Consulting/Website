@@ -13,7 +13,7 @@ const routes = [
     ["/portfolio", /From a problem to working software/i],
     ["/consulting", /Consulting for AI, IT and digital capability/i],
     ["/clients", /Teaching, training and research in practice/i],
-    ["/about", /I make technical ideas teachable/i],
+    ["/about", /Meet the team behind Luminovia/i],
     ["/pricing", /Clear rates for training/i],
     ["/contact", /Contact Luminovia/i],
     ["/imprint", /Imprint/i],

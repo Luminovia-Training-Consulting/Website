@@ -45,8 +45,9 @@ const content = {
         },
         aboutLabel: "Über Luminovia",
         aboutTitle: "Wer hinter Luminovia steht",
-        aboutCopy: "Carina Sophie Schoppe kommt aus der Wirtschaftsinformatik und entwickelt Software. Heute unterrichtet sie Erwachsene auf Deutsch und Englisch und entwickelt dafür eigene Übungen und Lernmaterialien.",
+        aboutCopy: `Carina Sophie Schoppe leitet Luminovia und entwickelt Trainings für Unternehmen, Hochschulen und Bildungsanbieter. Der Softwareentwickler und KI-Architekt ${PROFILE.nenad.name} arbeitet mit ihr im Team.`,
         aboutLink: "Carina kennenlernen",
+        teamLink: "Das Team kennenlernen",
         workLink: "Lehr- und Projekterfahrung",
         notesTitle: "So entsteht ein Training",
         notes: [
@@ -94,8 +95,9 @@ const content = {
         },
         aboutLabel: "About Luminovia",
         aboutTitle: "Who’s behind Luminovia",
-        aboutCopy: "Carina Sophie Schoppe has a background in business information systems and develops software. She teaches adults in German and English and writes her own exercises and course materials.",
+        aboutCopy: `Carina Sophie Schoppe leads Luminovia and develops training for companies, universities and education providers. Software engineer and AI architect ${PROFILE.nenad.name} works alongside her.`,
         aboutLink: "Meet Carina",
+        teamLink: "Meet the team",
         workLink: "Teaching and project experience",
         notesTitle: "How a session comes together",
         notes: [
@@ -134,8 +136,8 @@ export default function HomePage() {
                         <h1 id="home-title">{copy.headline[0]} <span>{copy.headline[1]}</span></h1>
                         <p className="home-lead">{copy.intro}</p>
                         <div className="lumo-action-row">
-                            <Button to="/training">{copy.training}</Button>
-                            <Button to="/contact#appointment" variant="secondary">{t.bookTraining}</Button>
+                            <Button to="/contact#appointment">{t.bookTraining}</Button>
+                            <Button to="/training" variant="secondary">{copy.training}</Button>
                         </div>
                     </div>
                     <div className="home-portrait-stage">
@@ -211,7 +213,7 @@ export default function HomePage() {
                         <h2>{copy.aboutTitle}</h2>
                         <p className="home-about-copy">{copy.aboutCopy}</p>
                         <div className="home-about-links">
-                            <Link className="lumo-text-link" to="/about">{copy.aboutLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+                            <Link className="lumo-text-link" to="/about#team">{copy.teamLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
                             <Link className="lumo-text-link" to="/clients">{copy.workLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
                         </div>
                     </div>

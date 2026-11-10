@@ -33,8 +33,8 @@ export const routeMeta = {
             description: "Transparent net rates: EUR 55 per 45-minute teaching unit, EUR 100 per consulting hour, EUR 500 half day and EUR 1,000 full day including preparation and agreed standard materials.",
         },
         "/about": {
-            title: "Company | Luminovia Training & Consulting",
-            description: "Company profile for Luminovia Training & Consulting, led by CEO and founder Carina Sophie Schoppe.",
+            title: "About the Team | Luminovia Training & Consulting",
+            description: "Meet Carina Sophie Schoppe and Nenad Kalicanin at Luminovia Training & Consulting, with expertise in training, software development and AI.",
         },
         "/contact": {
             title: "Contact & Booking | Book Training or Consulting",
@@ -87,8 +87,8 @@ export const routeMeta = {
             description: "Transparente Netto-Sätze: 55 EUR je 45-Minuten-Unterrichtseinheit, 100 EUR je Beratungsstunde, 500 EUR je Halbtag und 1.000 EUR je Tag inklusive Vorbereitung und vereinbarten Standardmaterialien.",
         },
         "/about": {
-            title: "Unternehmen | Luminovia Training & Consulting",
-            description: "Unternehmensprofil von Luminovia Training & Consulting, geführt von CEO und Gründerin Carina Sophie Schoppe.",
+            title: "Über uns | Luminovia Training & Consulting",
+            description: "Lernen Sie Carina Sophie Schoppe und Nenad Kalicanin kennen. Das Team von Luminovia verbindet Training und Beratung mit Softwareentwicklung und KI.",
         },
         "/contact": {
             title: "Kontakt & Buchung | Training oder Consulting buchen",

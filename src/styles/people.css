@@ -471,6 +471,37 @@
     color: var(--people-muted);
 }
 
+.people-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.people-team-member {
+    padding: clamp(1rem, 3vw, 1.75rem);
+    border: 1px solid var(--people-rule);
+    border-top: .25rem solid var(--people-violet);
+    border-radius: .55rem;
+    background: var(--people-white);
+    overflow-wrap: anywhere;
+}
+
+.people-team-member h3 {
+    margin-block: .4rem .65rem;
+    font: 700 clamp(1.35rem, 3vw, 1.9rem)/1.12 var(--heading);
+}
+
+.people-team-member p:not(.people-kicker) {
+    max-width: 60ch;
+    color: var(--people-muted);
+    line-height: 1.65;
+}
+
+.people-team-member .people-text-link {
+    margin-top: .45rem;
+}
+
 .people-about-next {
     display: flex;
     flex-wrap: wrap;
