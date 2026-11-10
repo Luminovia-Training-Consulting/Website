@@ -23,7 +23,7 @@ export default function Footer() {
                     <div className="site-footer-brand">
                         <Link className="site-brand" to="/" aria-label={PROFILE.name}>
                             <img src={IMAGES.luminoviaLogoMark} alt="" width="40" height="40" loading="lazy"/>
-                            <span><strong>Luminovia</strong><small>Training & Consulting</small></span>
+                            <span><strong>Luminovia</strong>{" "}<small>Training & Consulting</small></span>
                         </Link>
                         <p>{de ? "Brisbane, Australien · Deutsch & Englisch" : "Brisbane, Australia · German & English"}</p>
                     </div>

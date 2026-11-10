@@ -7,6 +7,20 @@ import {trainingSeoEntries} from "./src/data/trainingSeo.js";
 
 const siteUrl = "https://luminovia.org";
 const redirectRoutes = new Map([["/portfolio", "/projects"]]);
+const pageModules = new Map([
+    ["/training", "TrainingPage"],
+    ["/offers", "OffersPage"],
+    ["/consulting", "ConsultingPage"],
+    ["/clients", "ClientsPage"],
+    ["/about", "AboutPage"],
+    ["/contact", "ContactPage"],
+    ["/pricing", "PricingPage"],
+    ["/projects", "SoftwarePage"],
+    ["/imprint", "ImprintPage"],
+    ["/privacy", "PrivacyPage"],
+    ["/terms", "TermsPage"],
+    ["/not-found", "NotFoundPage"],
+]);
 const prerenderRoutes = [
     ...Object.entries(routeMeta.en).filter(([path]) => path !== "/"),
     ...trainingSeoEntries.map(({slug, en}) => [`/training/${slug}`, en]),
@@ -80,6 +94,42 @@ function pages404Redirect() {
 </html>`;
 }
 
+function preloadRouteAssets(html, path, bundle) {
+    const page = path.startsWith("/training/") ? "TrainingTopicPage" : pageModules.get(path);
+    if (!page) return html;
+
+    const entry = Object.values(bundle).find((file) => file.type === "chunk" && file.facadeModuleId?.endsWith(`/pages/${page}.jsx`));
+    if (!entry) throw new Error(`Missing page bundle for ${path}`);
+
+    const seen = new Set();
+    const links = [];
+
+    function addLink(fileName, rel) {
+        const href = `/${fileName}`;
+        if (!html.includes(`href="${href}"`) && !html.includes(`src="${href}"`)) {
+            links.push(`<link rel="${rel}" crossorigin href="${href}">`);
+        }
+    }
+
+    function visit(fileName) {
+        if (seen.has(fileName)) return;
+        seen.add(fileName);
+        const chunk = bundle[fileName];
+        if (chunk?.type !== "chunk") return;
+
+        addLink(fileName, "modulepreload");
+        chunk.imports.forEach(visit);
+        for (const css of chunk.viteMetadata?.importedCss || []) {
+            if (seen.has(css)) continue;
+            seen.add(css);
+            addLink(css, "stylesheet");
+        }
+    }
+
+    visit(entry.fileName);
+    return html.replace("</head>", `  ${links.join("\n  ")}\n</head>`);
+}
+
 function htmlPerformancePlugin() {
     return {
         name: "html-performance-pass",
@@ -95,7 +145,7 @@ function htmlPerformancePlugin() {
                 this.emitFile({
                     type: "asset",
                     fileName: routeFileName(route[0]),
-                    source: withRouteHead(html, route),
+                    source: preloadRouteAssets(withRouteHead(html, route), route[0], bundle),
                 });
             });
 

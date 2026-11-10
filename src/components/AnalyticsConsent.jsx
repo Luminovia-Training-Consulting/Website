@@ -51,7 +51,7 @@ export default function AnalyticsConsent() {
     }
 
     return (
-        <div className="analytics-consent fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-3xl p-4 sm:bottom-5 sm:p-5">
+        <section aria-label={t.analytics.title} className="analytics-consent fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-3xl p-4 sm:bottom-5 sm:p-5">
             <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
                 <div>
                     <div className="analytics-consent-title text-sm font-bold">{t.analytics.title}</div>
@@ -68,6 +68,6 @@ export default function AnalyticsConsent() {
                     </button>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

@@ -61,7 +61,7 @@ export default function Header({theme, onToggleTheme}) {
             <div className="site-header-inner">
                 <Link className="site-brand" to="/" aria-label={PROFILE.name} onClick={closeAfterNavigation}>
                     <img src={IMAGES.luminoviaLogoMark} alt="" width="40" height="40"/>
-                    <span><strong>Luminovia</strong><small>Training & Consulting</small></span>
+                    <span><strong>Luminovia</strong>{" "}<small>Training & Consulting</small></span>
                 </Link>
                 <div className="site-tools">
                     <button type="button" className="language-toggle" title={languageLabel} aria-label={languageLabel} onClick={toggleLanguage}>

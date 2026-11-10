@@ -219,7 +219,8 @@ picture { display: block; }
 .section-jump-track a { flex: none; min-height: 44px; display: inline-flex; align-items: center; padding-inline: .65rem; border-radius: .3rem; color: var(--accent); font-size: .85rem; font-weight: 650; white-space: nowrap; }
 .section-jump-track a:hover { background: var(--paper); text-decoration: underline; text-underline-offset: .25em; }
 
-.lumo-route-fallback { min-height: 54vh; padding: 4rem var(--gutter); }
+#site-content { display: flow-root; }
+.lumo-route-fallback { min-height: 100svh; padding: 4rem var(--gutter); }
 .lumo-route-fallback-line { width: 8rem; height: 4px; background: var(--accent); }
 
 /* Existing content utilities also use the theme in legal and detail articles. */
