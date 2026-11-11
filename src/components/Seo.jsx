@@ -4,7 +4,7 @@ import {canonicalPageUrl, notFoundMeta, routeMeta, SITE_URL} from "../data/seoCo
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
-const DEFAULT_IMAGE = `${SITE_URL}/images/luminovia-og.jpg?v=20260911`;
+const DEFAULT_IMAGE = `${SITE_URL}/images/luminovia-og.jpg?v=20261111`;
 const schemaServiceOffers = [
     ["AI & GenAI Training", "Practical training on generative AI concepts, business use cases, limits, risks and responsible day-to-day adoption."],
     ["AI Literacy for Teams", "Clear AI literacy training for shared language, practical confidence and sensible AI usage rules."],
@@ -183,9 +183,14 @@ export default function Seo() {
         upsertMeta('meta[property="og:description"]', {property: "og:description", content: description});
         upsertMeta('meta[property="og:url"]', {property: "og:url", content: canonical});
         upsertMeta('meta[property="og:image"]', {property: "og:image", content: DEFAULT_IMAGE});
+        upsertMeta('meta[property="og:image:width"]', {property: "og:image:width", content: "1200"});
+        upsertMeta('meta[property="og:image:height"]', {property: "og:image:height", content: "630"});
+        upsertMeta('meta[property="og:image:type"]', {property: "og:image:type", content: "image/jpeg"});
         upsertMeta('meta[property="og:type"]', {property: "og:type", content: "website"});
         upsertMeta('meta[property="og:locale"]', {property: "og:locale", content: language === "de" ? "de_DE" : "en_AU"});
         upsertMeta('meta[name="twitter:card"]', {name: "twitter:card", content: "summary_large_image"});
+        upsertMeta('meta[name="twitter:image"]', {name: "twitter:image", content: DEFAULT_IMAGE});
+        upsertMeta('meta[name="twitter:image:alt"]', {name: "twitter:image:alt", content: "Luminovia Training & Consulting · IT, AI, Business"});
         upsertMeta('meta[name="twitter:title"]', {name: "twitter:title", content: title});
         upsertMeta('meta[name="twitter:description"]', {name: "twitter:description", content: description});
         upsertLink('link[rel="canonical"]', {rel: "canonical", href: canonical});
