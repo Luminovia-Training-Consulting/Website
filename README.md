@@ -215,7 +215,7 @@ Luminovia logo assets:
 - `public/images/luminovia-logo-mark-160.webp`: lightweight derivative used in the site header and footer.
 - `public/images/luminovia-og.jpg`: social sharing preview derived from the supplied full logo.
 
-Browser icons (`public/favicon.svg`, `public/favicon.ico`) and `public/apple-touch-icon.png` are resized from the supplied icon. Logo URLs are versioned and the service-worker cache is updated when replacing branding.
+Browser icons are resized from the supplied 4096 × 4096 `Luminovia_Icon.png`, preserving its white background and colours: `public/favicon.png` (48 × 48), `public/favicon.ico` (16, 32, 48 and 64 px), and `public/apple-touch-icon.png` (180 × 180). Their URLs in `index.html` are versioned so existing visitors receive replacements. Root-level icons are not cached by the service worker; replacing the header/footer branding under `/images/` also requires a service-worker cache version update.
 
 Responsive versions of the founder portrait in `public/images/` serve the home and about pages. The display font is self-hosted in `public/fonts/`.
 
