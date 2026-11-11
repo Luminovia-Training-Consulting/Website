@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from "@testing-library/react";
+import {fireEvent, render, screen, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach, describe, expect, it} from "vitest";
 import App from "../App.jsx";
@@ -32,6 +32,21 @@ describe("static page routes", () => {
         render(<App/>);
 
         expect(await screen.findByRole("heading", {level: 1, name: heading})).toBeInTheDocument();
+    });
+
+    it("shows the consulting boundaries and offers the supplied demo without loading YouTube", async () => {
+        window.history.pushState({}, "Consulting", "/consulting");
+        render(<App/>);
+
+        const scope = await screen.findByRole("region", {name: "Consulting scope"});
+        expect(within(scope).getByRole("heading", {name: "What’s outside the scope"})).toBeVisible();
+        expect(within(scope).getByText("legal, tax or financial advice")).toBeVisible();
+
+        const demo = screen.getByRole("region", {name: "AI in a business context"});
+        expect(within(demo).getByRole("link", {name: "Watch on YouTube"}))
+            .toHaveAttribute("href", "https://www.youtube.com/watch?v=sYMO5sb-YKg");
+        expect(within(demo).getByRole("button", {name: "Load video preview"})).toBeVisible();
+        expect(within(demo).queryByTitle("Luminovia AI session in a company context")).not.toBeInTheDocument();
     });
 
     it("opens and closes the mobile navigation", async () => {

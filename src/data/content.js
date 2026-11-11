@@ -286,7 +286,7 @@ export const referenceOrganisations = [
         initials: "TK",
         type: "Mobile game development",
         work: "Teaching mobile game development with Unity and assessing student projects.",
-        href: "https://teko.ch/kontakt/bern",
+        href: "https://teko.ch/technik/nachdiplomstudien-nds-hf-technik/game-design-/4659",
     },
     {
         name: "COMCAVE",

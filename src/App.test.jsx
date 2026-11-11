@@ -2,6 +2,7 @@ import {act, render, screen, waitFor, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach, describe, expect, it, vi} from "vitest";
 import App from "./App.jsx";
+import {ANALYTICS_CONSENT_KEY} from "./components/AnalyticsConsent.jsx";
 import {LANGUAGE_STORAGE_KEY} from "./i18n.jsx";
 
 describe("App routing and language", () => {
@@ -35,6 +36,57 @@ describe("App routing and language", () => {
 
         await waitFor(() => expect(scrollIntoView).toHaveBeenCalledTimes(1));
         expect(scrollIntoView.mock.contexts[0]).toBe(document.getElementById("appointment"));
+    });
+
+    it.each([
+        ["/consulting/", "Process", "process"],
+        ["/clients/", "Credentials and publications", "downloads"],
+    ])("jumps on the first click and on keyboard repeat from %s", async (path, label, id) => {
+        vi.stubGlobal("scrollY", 400);
+        const scrollIntoView = vi.fn();
+        Element.prototype.scrollIntoView = scrollIntoView;
+        window.history.pushState({}, "Fragment links", path + "?ref=example");
+        const user = userEvent.setup();
+        render(<App/>);
+
+        const link = await screen.findByRole("link", {name: label, exact: true});
+        const target = document.getElementById(id);
+        const initialHistoryLength = window.history.length;
+        await user.click(link);
+
+        await waitFor(() => expect(scrollIntoView.mock.contexts).toEqual([target]));
+        expect(window.location.search).toBe("?ref=example");
+        expect(window.location.hash).toBe("#" + id);
+        expect(target).toHaveFocus();
+        expect(window.history.length).toBe(initialHistoryLength + 1);
+
+        window.scrollY = 900;
+        window.dispatchEvent(new Event("scroll"));
+        link.focus();
+        await user.keyboard("{Enter}");
+
+        await waitFor(() => expect(scrollIntoView.mock.contexts).toEqual([target, target]));
+        expect(target).toHaveFocus();
+        expect(window.history.length).toBe(initialHistoryLength + 1);
+
+        act(() => window.history.back());
+        await waitFor(() => expect(window.scrollTo).toHaveBeenCalledWith({top: 400, behavior: "auto"}));
+        expect(window.location.hash).toBe("");
+        expect(window.location.search).toBe("?ref=example");
+    });
+
+    it("leaves focus in the analytics banner after scrolling to the preferences link", async () => {
+        const scrollIntoView = vi.fn();
+        Element.prototype.scrollIntoView = scrollIntoView;
+        window.localStorage.setItem(ANALYTICS_CONSENT_KEY, "declined");
+        window.history.pushState({}, "Privacy", "/privacy/");
+        const user = userEvent.setup();
+        render(<App/>);
+
+        await user.click(await screen.findByRole("link", {name: "Change analytics settings"}));
+
+        await waitFor(() => expect(scrollIntoView).toHaveBeenCalledTimes(1));
+        expect(screen.getByRole("region", {name: "Privacy-friendly analytics"})).toHaveFocus();
     });
 
     it("uses English as the default page language when no language was selected before", async () => {

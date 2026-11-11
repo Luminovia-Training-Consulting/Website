@@ -1,6 +1,7 @@
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {useLanguage} from "../i18n.jsx";
 import Button from "../components/Button.jsx";
+import DemoVideoSection from "../components/DemoVideoSection.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
 import {Container, CTASection, PageHero} from "../components/LuminoviaDesign.jsx";
 import "../styles/business.css";
@@ -11,7 +12,7 @@ const content = {
         title: "Consulting for AI, IT and business processes.",
         intro: "We assess where AI could help, plan software and infrastructure, and look at how work moves through your team. Together we decide what to change and how to start.",
         jumpLabel: "On this page",
-        jumpItems: [["#consulting-areas", "Areas and outcomes"], ["#process", "Process"], ["#scope", "Scope"], ["#next", "Request"]],
+        jumpItems: [["#consulting-areas", "Areas and outcomes"], ["#process", "Process"], ["#demo-session", "Consulting demo"], ["#scope", "Scope"], ["#next", "Request"]],
         areasTitle: "Areas and outcomes",
         resultLabel: "Example outcome",
         areas: [
@@ -41,7 +42,7 @@ const content = {
         title: "Beratung für KI, IT und Geschäftsprozesse.",
         intro: "Wir helfen Ihnen, KI-Anwendungen zu bewerten, Software und Infrastruktur zu planen und betriebliche Abläufe zu verbessern. Gemeinsam halten wir fest, was Ihr Team als Nächstes umsetzen kann.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#consulting-areas", "Bereiche und Ergebnisse"], ["#process", "Ablauf"], ["#scope", "Umfang"], ["#next", "Anfrage"]],
+        jumpItems: [["#consulting-areas", "Bereiche und Ergebnisse"], ["#process", "Ablauf"], ["#demo-session", "Beratungsdemo"], ["#scope", "Umfang"], ["#next", "Anfrage"]],
         areasTitle: "Beratungsbereiche und Ergebnisse",
         resultLabel: "Mögliches Ergebnis",
         areas: [
@@ -112,13 +113,13 @@ export default function ConsultingPage() {
                     </ol>
                 </section>
 
-                <section id="scope" className="business-layout business-layout--reverse">
-                    <div className="business-heading"><h2>{c.scopeTitle}</h2><p>{c.scopeCopy}</p></div>
-                    <div className="business-accordion">
-                        <details>
-                            <summary>{c.scopeLimits}</summary>
-                            <div><ul className="business-list">{boundaries.notIncluded.map((item) => <li key={item}>{item}</li>)}</ul></div>
-                        </details>
+                <DemoVideoSection className="business-demo" variant="consulting"/>
+
+                <section id="scope" className="business-layout business-layout--reverse" aria-labelledby="consulting-scope-title">
+                    <div className="business-heading"><h2 id="consulting-scope-title">{c.scopeTitle}</h2><p>{c.scopeCopy}</p></div>
+                    <div className="business-panel business-stack bg-[var(--surface)]">
+                        <h3>{c.scopeLimits}</h3>
+                        <ul className="business-list">{boundaries.notIncluded.map((item) => <li key={item}>{item}</li>)}</ul>
                     </div>
                 </section>
             </Container>

@@ -11,7 +11,7 @@ const enSections = [
     ["Access data and hosting", "The hosting provider may process technical access data such as IP address, date and time of access, requested files, browser type, operating system and referrer URL to deliver and protect the website."],
     ["Contact", "If you contact me by email or phone, the information you provide is processed to answer your request and organise the requested training, lecture, workshop or call."],
     ["Google Analytics", "This site uses Google Analytics only after visitor consent. The measurement ID is G-YNGD292XE5. IP anonymisation is enabled.", true],
-    ["YouTube preview", "The training page loads the embedded YouTube video after you activate the preview. Activating the preview or following the YouTube link connects your browser to YouTube."],
+    ["YouTube preview", "The training and consulting pages load the embedded YouTube video after you activate the preview. Activating the preview or following the YouTube link connects your browser to YouTube."],
     ["Local storage", "This website stores the analytics consent choice in local storage so the banner does not appear on every page view."],
     ["Your rights", "Depending on applicable data protection law, you may have rights to access, rectification, erasure, restriction of processing, portability, objection and withdrawal of consent."],
 ];
@@ -21,7 +21,7 @@ const deSections = [
     ["Zugriffsdaten und Hosting", "Der Hosting-Anbieter kann technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, abgerufene Dateien, Browsertyp, Betriebssystem und Referrer verarbeiten, um die Website bereitzustellen und zu schützen."],
     ["Kontakt", "Wenn Sie Luminovia per E-Mail oder Telefon kontaktieren, werden die angegebenen Daten verarbeitet, um Ihre Anfrage zu beantworten und Training, Vortrag, Workshop oder Call zu organisieren."],
     ["Google Analytics", "Diese Website nutzt Google Analytics nur nach Zustimmung. Die Measurement ID lautet G-YNGD292XE5. IP-Anonymisierung ist aktiviert.", true],
-    ["YouTube-Vorschau", "Die Trainingsseite lädt das eingebettete YouTube-Video, sobald Sie die Vorschau aktivieren. Wenn Sie die Vorschau aktivieren oder dem YouTube-Link folgen, stellt Ihr Browser eine Verbindung zu YouTube her."],
+    ["YouTube-Vorschau", "Die Trainings- und Beratungsseiten laden das eingebettete YouTube-Video, sobald Sie die Vorschau aktivieren. Wenn Sie die Vorschau aktivieren oder dem YouTube-Link folgen, stellt Ihr Browser eine Verbindung zu YouTube her."],
     ["Local Storage", "Diese Website speichert die Analytics-Einwilligung im lokalen Browser-Speicher, damit der Banner nicht auf jeder Seite erneut erscheint."],
     ["Ihre Rechte", "Je nach anwendbarem Datenschutzrecht können Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch und Widerruf einer Einwilligung bestehen."],
 ];

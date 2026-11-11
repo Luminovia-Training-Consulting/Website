@@ -1,5 +1,5 @@
 import {lazy, Suspense, useEffect, useLayoutEffect, useRef, useState} from "react";
-import {BrowserRouter, Navigate, Route, Routes, useLocation, useNavigationType} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate, useNavigationType} from "react-router-dom";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
@@ -103,7 +103,15 @@ function RouteScroll() {
                     window.scrollTo({top: savedPosition, behavior: "auto"});
                 } else {
                     target.scrollIntoView({behavior: "auto", block: "start"});
-                    if (target.hasAttribute("tabindex")) target.focus({preventScroll: true});
+                    const focusTarget = target.tabIndex >= 0 || target.matches("section, [tabindex]")
+                        ? target
+                        : target.querySelector("h1, h2, h3, h4, h5, h6");
+                    if (focusTarget) {
+                        if (focusTarget.tabIndex < 0 && !focusTarget.hasAttribute("tabindex")) {
+                            focusTarget.setAttribute("tabindex", "-1");
+                        }
+                        focusTarget.focus({preventScroll: true});
+                    }
                 }
                 trackPosition();
             });
@@ -202,6 +210,24 @@ function SkipLink() {
     return <a className="skip-link" href="#site-content">{language === "de" ? "Zum Inhalt springen" : "Skip to content"}</a>;
 }
 
+function SiteFrame({theme, children}) {
+    const {pathname, search, hash, state} = useLocation();
+    const navigate = useNavigate();
+
+    function followFragment(event) {
+        if (event.defaultPrevented || event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+        const link = event.target.closest?.('a[href^="#"]');
+        const fragment = link?.getAttribute("href");
+        if (!fragment || fragment === "#" || link.hasAttribute("download") || (link.target && link.target !== "_self")) return;
+
+        // Use a keyed router entry so native fragment clicks do not compete with scroll restoration.
+        event.preventDefault();
+        navigate({pathname, search, hash: fragment}, {replace: fragment === hash, state});
+    }
+
+    return <div data-theme={theme} className="theme-root" onClick={followFragment}>{children}</div>;
+}
+
 export default function App() {
     const [theme, setTheme] = useState(getInitialTheme);
 
@@ -252,7 +278,7 @@ export default function App() {
             <BrowserRouter basename={ROUTER_BASENAME}>
                 <Seo/>
                 <RouteScroll/>
-                <div data-theme={theme} className="theme-root">
+                <SiteFrame theme={theme}>
                     <SkipLink/>
                     <Header theme={theme} onToggleTheme={toggleTheme}/>
                     <div id="site-content" tabIndex={-1}>
@@ -279,7 +305,7 @@ export default function App() {
                     </div>
                     <Footer/>
                     <DeferredAnalyticsConsent/>
-                </div>
+                </SiteFrame>
             </BrowserRouter>
         </LanguageProvider>
     );
