@@ -90,7 +90,7 @@ function buildBaseSchema() {
             "@type": "Person",
             "@id": `${SITE_URL}/#carina-sophie-schoppe`,
             name: PROFILE.founder,
-            jobTitle: "CEO and Founder",
+            jobTitle: ["Educator", "Consultant", "AI Researcher"],
             url: PROFILE.founderPortfolio,
             sameAs: [PROFILE.linkedin, PROFILE.founderPortfolio],
         },

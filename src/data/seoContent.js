@@ -42,7 +42,7 @@ export const routeMeta = {
         },
         "/about": {
             title: "About the Team | Luminovia Training & Consulting",
-            description: "Meet Carina Sophie Schoppe and Nenad Kalicanin at Luminovia. Explore the team’s experience in business education, IT, software development and AI.",
+            description: "Meet Carina Sophie Schoppe, educator, consultant and AI researcher, and Nenad Kalicanin. Training and consulting in IT, AI and business.",
         },
         "/contact": {
             title: "Contact & Booking | Book Training or Consulting",
@@ -96,7 +96,7 @@ export const routeMeta = {
         },
         "/about": {
             title: "Über uns | Luminovia Training & Consulting",
-            description: "Lernen Sie Carina Sophie Schoppe und Nenad Kalicanin und ihre Erfahrung in kaufmännischer Bildung, IT, Softwareentwicklung und KI kennen.",
+            description: "Carina Sophie Schoppe, Dozentin, Beraterin und KI-Forscherin, und Nenad Kalicanin: das Team für Training und Beratung zu IT, KI und Wirtschaft.",
         },
         "/contact": {
             title: "Kontakt & Buchung | Training oder Consulting buchen",
