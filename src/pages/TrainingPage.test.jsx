@@ -59,4 +59,12 @@ it("restores the catalogue search after opening a course and going back", async 
     expect(await screen.findByRole("searchbox", {name: "Trainings durchsuchen"})).toHaveValue("SQL");
     expect(screen.getByRole("status")).toHaveTextContent("1 Training");
     expect(window.location.hash).toBe("#details");
+
+    await user.click(screen.getByRole("link", {name: "Python, SQL und Datenkompetenz"}));
+    const backToSearch = await screen.findByRole("link", {name: "Zurück zur Suche"});
+    expect(backToSearch).toHaveAttribute("href", "/training?ref=example&q=SQL#details");
+    await user.click(backToSearch);
+
+    expect(await screen.findByRole("searchbox", {name: "Trainings durchsuchen"})).toHaveValue("SQL");
+    expect(screen.getByRole("status")).toHaveTextContent("1 Training");
 });

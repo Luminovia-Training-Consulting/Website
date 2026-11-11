@@ -1,4 +1,4 @@
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import Button from "../components/Button.jsx";
 import {Container, CTASection, PageHero} from "../components/LuminoviaDesign.jsx";
 import SectionJumpNav from "../components/SectionJumpNav.jsx";
@@ -11,6 +11,7 @@ const copy = {
     de: {
         back: "Alle Trainings ansehen",
         backToSubject: "Zurück zum Fachgebiet",
+        backToSearch: "Zurück zur Suche",
         jumpLabel: "In diesem Training",
         jumps: [["#course-outline", "Kursplan"], ["#course-outcomes", "Lernziele"], ["#course-materials", "Materialien"]],
         relatedJump: "Weitere Trainings",
@@ -29,6 +30,7 @@ const copy = {
     en: {
         back: "View all training topics",
         backToSubject: "Back to this subject area",
+        backToSearch: "Back to search results",
         jumpLabel: "In this course",
         jumps: [["#course-outline", "Course outline"], ["#course-outcomes", "Learning outcomes"], ["#course-materials", "Materials"]],
         relatedJump: "Related courses",
@@ -48,6 +50,7 @@ const copy = {
 
 export default function TrainingTopicPage() {
     const {slug} = useParams();
+    const {state} = useLocation();
     const {language} = useLanguage();
     const c = copy[language];
     const topics = trainingDetailsForLanguage(language);
@@ -62,12 +65,16 @@ export default function TrainingTopicPage() {
         .filter(Boolean);
     const jumpItems = relatedTopics.length ? [...c.jumps, ["#course-related", c.relatedJump]] : c.jumps;
     const enquiryPath = `/contact?intent=training&course=${encodeURIComponent(topic.slug)}#enquiry`;
+    const catalogueSearch = state?.catalogueSearch;
+    const backToCatalogue = catalogueSearch
+        ? {pathname: "/training", search: catalogueSearch, hash: "#details"}
+        : {pathname: "/training", hash: "#training-" + topic.subjectArea};
 
     return (
         <main className="business-page" data-business-section="course">
             <Container>
-                <Link to={"/training#training-" + topic.subjectArea} className="business-link business-back">
-                    <span aria-hidden="true">←</span>{c.backToSubject}
+                <Link to={backToCatalogue} className="business-link business-back">
+                    <span aria-hidden="true">←</span>{catalogueSearch ? c.backToSearch : c.backToSubject}
                 </Link>
             </Container>
             <PageHero
@@ -115,7 +122,7 @@ export default function TrainingTopicPage() {
                             {relatedTopics.map((related) => (
                                 <article key={related.slug}>
                                     <p className="business-kicker business-muted">{related.category}</p>
-                                    <h3><Link className="business-link" to={`/training/${related.slug}`}>{related.title}<span aria-hidden="true">↗</span></Link></h3>
+                                    <h3><Link className="business-link" to={`/training/${related.slug}`} state={state}>{related.title}<span aria-hidden="true">↗</span></Link></h3>
                                 </article>
                             ))}
                         </div>

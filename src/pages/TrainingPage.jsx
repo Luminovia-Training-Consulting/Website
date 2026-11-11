@@ -204,7 +204,11 @@ export default function TrainingPage() {
                                 <ul className="training-topic-grid" role="list">
                                     {topics.map((topic) => (
                                         <li key={topic.slug} className="training-topic-card">
-                                            <h4><Link to={"/training/" + topic.slug} className="business-link">{topic.title}<span aria-hidden="true">↗</span></Link></h4>
+                                            <h4>
+                                                <Link to={"/training/" + topic.slug} state={query ? {catalogueSearch: search} : undefined} className="business-link">
+                                                    {topic.title}<span aria-hidden="true">↗</span>
+                                                </Link>
+                                            </h4>
                                             <p className="business-muted">{topic.summary}</p>
                                         </li>
                                     ))}
