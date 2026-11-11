@@ -76,6 +76,20 @@ describe("service worker asset cache", () => {
     });
 });
 
+it("preserves the origin response and 404 status for a missing page", async () => {
+    const originResponse = new Response("GitHub Pages not-found document", {status: 404});
+    const fetch = vi.fn().mockResolvedValue(originResponse);
+    const {request} = setupWorker(null, fetch);
+
+    const response = await request("/missing-page/?ref=example", {accept: "text/html"}).response;
+
+    expect(response).toBe(originResponse);
+    expect(response.status).toBe(404);
+    expect(fetch).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({
+        url: `${origin}/missing-page/?ref=example`,
+    }), {cache: "no-store"});
+});
+
 it("shows a bilingual offline page if navigation fails", async () => {
     const fetch = vi.fn().mockRejectedValue(new TypeError("Failed to fetch"));
     const {request} = setupWorker(null, fetch);

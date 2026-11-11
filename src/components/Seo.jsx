@@ -1,10 +1,9 @@
 import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
-import {notFoundMeta, routeMeta} from "../data/seoContent.js";
+import {canonicalPageUrl, notFoundMeta, routeMeta, SITE_URL} from "../data/seoContent.js";
 import {PROFILE} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 
-const SITE_URL = "https://luminovia.org";
 const DEFAULT_IMAGE = `${SITE_URL}/images/luminovia-og.jpg?v=20260911`;
 const schemaServiceOffers = [
     ["AI & GenAI Training", "Practical training on generative AI concepts, business use cases, limits, risks and responsible day-to-day adoption."],
@@ -125,7 +124,7 @@ function buildBreadcrumbSchema(pathname, title, language) {
                 "@type": "ListItem",
                 position: 2,
                 name: title.split("|")[0].trim(),
-                item: `${SITE_URL}${pathname}`,
+                item: canonicalPageUrl(pathname),
             }]),
         ],
     };
@@ -172,9 +171,7 @@ export default function Seo() {
     useEffect(() => {
         if (isMetadataPending) return;
 
-        const canonical = isNotFoundRoute
-            ? `${SITE_URL}/`
-            : `${SITE_URL}${normalizedPathname === "/" ? "/" : normalizedPathname}`;
+        const canonical = canonicalPageUrl(isNotFoundRoute ? "/" : normalizedPathname);
         document.title = title;
 
         upsertMeta('meta[name="description"]', {name: "description", content: description});

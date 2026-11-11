@@ -148,15 +148,39 @@ describe("App routing and language", () => {
 
     it("restores the requested address after the GitHub Pages redirect bridge", async () => {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
-        window.history.pushState({}, "404 bridge", "/not-found?from=%2Fjiushfe");
+        const requestedPath = "/not-found-example/?ref=abc#section";
+        window.history.pushState({}, "404 bridge", "/not-found?from=" + encodeURIComponent(requestedPath));
 
         render(<App/>);
 
         expect(await screen.findByRole("heading", {name: /Huch, hier ist nichts/i})).toBeInTheDocument();
-        expect(screen.getByText(/Die Seite/)).toHaveTextContent("Die Seite “/jiushfe” wurde nicht gefunden.");
+        expect(screen.getByText(/Die Seite/)).toHaveTextContent("Die Seite “" + requestedPath + "” wurde nicht gefunden.");
         expect(screen.getByText(/^LV-[0-9A-F]{16}$/)).toBeInTheDocument();
-        await waitFor(() => expect(window.location.pathname).toBe("/jiushfe"));
+        await waitFor(() => expect(window.location.href).toBe(window.location.origin + requestedPath));
         expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+    });
+
+    it.each(["/\t/elsewhere.invalid", "/\t/[", "/.//elsewhere.invalid"])("keeps the error page visible for malformed bridge target %j", async (target) => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        const address = "/not-found/?from=" + encodeURIComponent(target);
+        window.history.pushState({}, "Malformed 404 bridge", address);
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Oops, there is nothing here/i})).toBeInTheDocument();
+        expect(screen.getByText(/The page/)).toHaveTextContent(address);
+        expect(window.location.href).toBe(window.location.origin + address);
+    });
+
+    it("reports the actual address when a missing page has an ordinary from query", async () => {
+        window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+        const address = "/missing-page/?from=%2Fother";
+        window.history.pushState({}, "404 with ordinary query", address);
+
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {name: /Oops, there is nothing here/i})).toBeInTheDocument();
+        expect(screen.getByText(/The page/)).toHaveTextContent(address);
     });
 
     it("uses a different reference for every unknown address", async () => {
@@ -305,5 +329,25 @@ describe("App routing and language", () => {
 
         expect(await screen.findByRole("heading", {name: /Training für IT, KI und Wirtschaft/i})).toBeInTheDocument();
         expect(window.scrollTo).toHaveBeenCalledWith({top: 0, behavior: "auto"});
+        expect(document.getElementById("site-content")).toHaveFocus();
+    });
+
+    it("restores the catalogue scroll position on browser Back after a search and course visit", async () => {
+        vi.stubGlobal("scrollY", 0);
+        window.history.pushState({}, "Training catalogue", "/training");
+        const user = userEvent.setup();
+        render(<App/>);
+
+        const search = await screen.findByRole("searchbox", {name: "Search training"});
+        window.scrollY = 1275;
+        window.dispatchEvent(new Event("scroll"));
+        await user.type(search, "SQL");
+        expect(window.scrollTo).not.toHaveBeenCalled();
+        await user.click(screen.getByRole("link", {name: "Python, SQL & Data Skills"}));
+        await screen.findByRole("heading", {name: "Python, SQL & Data Skills", level: 1});
+
+        act(() => window.history.back());
+        await waitFor(() => expect(window.scrollTo).toHaveBeenCalledWith({top: 1275, behavior: "auto"}));
+        expect(screen.getByRole("searchbox", {name: "Search training"})).toHaveValue("SQL");
     });
 });

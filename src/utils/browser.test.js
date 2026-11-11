@@ -80,4 +80,10 @@ describe("browser utilities", () => {
         expect(isChunkLoadError(null)).toBe(false);
         expect(isChunkLoadError(new Error("ordinary render error"))).toBe(false);
     });
+
+    it("reports that the recovery marker was not saved when session storage is unavailable", () => {
+        Object.defineProperty(globalThis, "sessionStorage", {value: undefined, configurable: true});
+
+        expect(safeSetSessionItem("site-test-session", "used")).toBe(false);
+    });
 });

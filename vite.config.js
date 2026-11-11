@@ -2,12 +2,10 @@ import {defineConfig} from "vitest/config";
 import preact from "@preact/preset-vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import {notFoundMeta, routeMeta} from "./src/data/seoContent.js";
+import {canonicalPageUrl, notFoundMeta, redirectRoutes, routeMeta} from "./src/data/seoContent.js";
 import {trainingDetailsForLanguage} from "./src/data/trainingDetails.js";
 import {trainingSeoEntries} from "./src/data/trainingSeo.js";
 
-const siteUrl = "https://luminovia.org";
-const redirectRoutes = new Map([["/portfolio", "/projects"]]);
 const pageModules = new Map([
     ["/training", "TrainingPage"],
     ["/offers", "OffersPage"],
@@ -25,7 +23,7 @@ const pageModules = new Map([
 const prerenderRoutes = [
     ...Object.entries(routeMeta.en).filter(([path]) => path !== "/"),
     ...trainingSeoEntries.map(({slug, en}) => [`/training/${slug}`, en]),
-    ["/not-found", notFoundMeta.en, {noindex: true, canonical: `${siteUrl}/`}],
+    ["/not-found", notFoundMeta.en, {noindex: true, canonical: canonicalPageUrl("/")}],
 ];
 
 function escapeHtmlAttribute(value) {
@@ -42,7 +40,7 @@ function routeFileName(path) {
 
 function withRouteHead(html, [path, {title, description}, options = {}]) {
     const redirectTarget = redirectRoutes.get(path);
-    const canonical = options.canonical || `${siteUrl}${redirectTarget || path}`;
+    const canonical = options.canonical || canonicalPageUrl(path);
     const routeHtml = html
         .replace(/<!-- static-home-style:start -->[\s\S]*?<!-- static-home-style:end -->/, "")
         .replace(/<!-- static-home-shell:start -->[\s\S]*?<!-- static-home-shell:end -->/, "")
@@ -60,7 +58,7 @@ function withRouteHead(html, [path, {title, description}, options = {}]) {
         .replace(/<meta content="[^"]*" name="twitter:description"\/>/, `<meta content="${escapeHtmlAttribute(description)}" name="twitter:description"/>`);
 
     return redirectTarget
-        ? routeHtml.replace("<head>", `<head><meta content="0;url=${redirectTarget}" http-equiv="refresh"/>`)
+        ? routeHtml.replace("<head>", `<head><meta content="0;url=${redirectTarget}/" http-equiv="refresh"/>`)
         : routeHtml;
 }
 

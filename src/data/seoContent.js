@@ -1,3 +1,11 @@
+export const SITE_URL = "https://luminovia.org";
+export const redirectRoutes = new Map([["/portfolio", "/projects"]]);
+
+export function canonicalPageUrl(pathname) {
+    const path = pathname.replace(/\/+$/, "");
+    return `${SITE_URL}${redirectRoutes.get(path) ?? path}/`;
+}
+
 export const routeMeta = {
     en: {
         "/": {

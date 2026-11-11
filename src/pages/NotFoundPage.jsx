@@ -6,34 +6,46 @@ import Card from "../components/Card.jsx";
 import {useLanguage} from "../i18n.jsx";
 import {buildNotFoundReference} from "../utils/notFound.js";
 
+const NOT_FOUND_PATH = /^\/not-found\/*$/i;
+
 function safeRequestedPath(search, fallbackPath) {
     const requestedPath = new URLSearchParams(search).get("from");
     if (
         !requestedPath?.startsWith("/")
         || requestedPath.startsWith("//")
         || requestedPath.includes("\\")
-        || requestedPath.startsWith("/not-found")
     ) {
         return fallbackPath;
     }
 
-    return requestedPath;
+    try {
+        const target = new URL(requestedPath, globalThis.location.origin);
+        if (
+            target.origin !== globalThis.location.origin
+            || target.pathname.startsWith("//")
+            || NOT_FOUND_PATH.test(target.pathname)
+        ) {
+            return fallbackPath;
+        }
+        return target.pathname + target.search + target.hash;
+    } catch {
+        return fallbackPath;
+    }
 }
 
 export default function NotFoundPage() {
     const {t} = useLanguage();
     const location = useLocation();
     const currentAddress = `${location.pathname}${location.search}${location.hash}`;
-    const requestedPath = safeRequestedPath(location.search, currentAddress);
+    const isRedirectBridge = NOT_FOUND_PATH.test(location.pathname);
+    const requestedPath = isRedirectBridge ? safeRequestedPath(location.search, currentAddress) : currentAddress;
     const reference = buildNotFoundReference(requestedPath);
-    const isRedirectBridge = location.pathname.replace(/\/+$/, "") === "/not-found"
-        && requestedPath !== currentAddress;
 
     useEffect(() => {
-        if (!isRedirectBridge) return;
+        if (requestedPath === currentAddress) return;
 
         globalThis.history.replaceState(globalThis.history.state, "", requestedPath);
-    }, [isRedirectBridge, requestedPath]);
+    }, [currentAddress, requestedPath]);
 
     const paths = [
         ["/training", t.nav.training],

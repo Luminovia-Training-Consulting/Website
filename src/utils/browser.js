@@ -25,7 +25,9 @@ export function safeGetSessionItem(key) {
 
 export function safeSetSessionItem(key, value) {
     try {
-        globalThis.sessionStorage?.setItem(key, value);
+        const storage = globalThis.sessionStorage;
+        if (!storage) return false;
+        storage.setItem(key, value);
         return true;
     } catch {
         return false;

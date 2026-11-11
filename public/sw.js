@@ -1,6 +1,6 @@
 /* global caches, fetch, Response, self, URL */
 
-const CACHE_VERSION = "luminovia-v7";
+const CACHE_VERSION = "luminovia-v8";
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 const CACHEABLE_ASSET_PATHS = ["/assets/", "/images/"];
@@ -21,13 +21,7 @@ function isNavigationRequest(request) {
 
 async function networkFirst(request) {
     try {
-        const response = await fetch(request, {cache: "no-store"});
-        if (response.status !== 404) return response;
-
-        const requestedUrl = new URL(request.url);
-        const fallbackUrl = new URL("/not-found/", self.location.origin);
-        fallbackUrl.searchParams.set("from", `${requestedUrl.pathname}${requestedUrl.search}`);
-        return await fetch(fallbackUrl, {cache: "no-store"});
+        return await fetch(request, {cache: "no-store"});
     } catch {
         return new Response(
             `<!doctype html>

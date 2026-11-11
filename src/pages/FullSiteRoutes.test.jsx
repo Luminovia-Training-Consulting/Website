@@ -1,5 +1,5 @@
 import {readFileSync} from "node:fs";
-import {render, screen, within} from "@testing-library/react";
+import {render, screen, waitFor, within} from "@testing-library/react";
 import {describe, expect, it} from "vitest";
 import App from "../App.jsx";
 import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
@@ -16,12 +16,12 @@ const appRoutes = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
 describe("full static site route coverage", () => {
     it("keeps the sitemap connected to every rendered app page", async () => {
         expect(appRoutes).toContain("/");
-        expect(appRoutes).toContain("/training");
-        expect(appRoutes).toContain("/offers");
-        expect(appRoutes).toContain("/consulting");
-        expect(appRoutes).toContain("/clients");
-        expect(appRoutes).toContain("/projects");
-        expect(appRoutes).toContain("/contact");
+        expect(appRoutes).toContain("/training/");
+        expect(appRoutes).toContain("/offers/");
+        expect(appRoutes).toContain("/consulting/");
+        expect(appRoutes).toContain("/clients/");
+        expect(appRoutes).toContain("/projects/");
+        expect(appRoutes).toContain("/contact/");
 
         for (const language of ["en", "de"]) {
             for (const route of appRoutes) {
@@ -41,6 +41,11 @@ describe("full static site route coverage", () => {
                 expect(screen.queryByRole("heading", {name: /seite nicht gefunden/i})).not.toBeInTheDocument();
                 expect(document.title).not.toMatch(/not found|nicht gefunden/i);
                 expect(document.documentElement.lang).toBe(language);
+                const canonical = SITE_BASE_URL + route;
+                await waitFor(() => expect(document.head.querySelector('link[rel="canonical"]')).toHaveAttribute("href", canonical));
+                expect(document.head.querySelector('meta[property="og:url"]')).toHaveAttribute("content", canonical);
+                const breadcrumb = JSON.parse(document.getElementById("dynamic-breadcrumb-schema").textContent);
+                expect(breadcrumb.itemListElement.at(-1).item).toBe(canonical);
                 unmount();
             }
         }
@@ -75,8 +80,9 @@ describe("full static site route coverage", () => {
 
         await screen.findByRole("heading", {name: "Topic catalogue"});
         const coursePaths = [...screen.getByRole("main").querySelectorAll('a[href^="/training/"]')]
-            .map((link) => link.getAttribute("href"));
+            .map((link) => link.getAttribute("href").replace(/\/?$/, "/"));
 
-        expect(coursePaths.sort()).toEqual(appRoutes.filter((path) => path.startsWith("/training/")).sort());
+        const sitemapCoursePaths = appRoutes.filter((path) => path !== "/training/" && path.startsWith("/training/"));
+        expect(coursePaths.sort()).toEqual(sitemapCoursePaths.sort());
     });
 });

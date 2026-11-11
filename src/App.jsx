@@ -1,5 +1,5 @@
-import {lazy, Suspense, useEffect, useRef, useState} from "react";
-import {BrowserRouter, Navigate, Route, Routes, useLocation} from "react-router-dom";
+import {lazy, Suspense, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {BrowserRouter, Navigate, Route, Routes, useLocation, useNavigationType} from "react-router-dom";
 import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
 import Footer from "./components/Footer.jsx";
@@ -29,8 +29,8 @@ function lazyWithRecovery(loader) {
             return module;
         /* v8 ignore start -- stale chunk recovery depends on browser cache state after deployment */
         } catch (error) {
-            if (isChunkLoadError(error) && safeGetSessionItem(CHUNK_RECOVERY_KEY) !== "used") {
-                safeSetSessionItem(CHUNK_RECOVERY_KEY, "used");
+            if (isChunkLoadError(error) && safeGetSessionItem(CHUNK_RECOVERY_KEY) !== "used"
+                && safeSetSessionItem(CHUNK_RECOVERY_KEY, "used")) {
                 globalThis.location.reload();
                 return new Promise(() => {});
             }
@@ -67,51 +67,81 @@ function getHashTarget(hash) {
     /* v8 ignore stop */
 }
 
-function ScrollToHash() {
-    const {pathname, hash} = useLocation();
-    const isFirstRender = useRef(true);
+function RouteScroll() {
+    const {key, pathname, search, hash} = useLocation();
+    const navigationType = useNavigationType();
+    const previousRoute = useRef(null);
+    const positions = useRef(new Map());
 
-    useEffect(() => {
-        if (!hash) {
-            if (isFirstRender.current) {
-                isFirstRender.current = false;
-                return;
-            }
+    useLayoutEffect(() => {
+        const previous = previousRoute.current;
+        previousRoute.current = {key, pathname, search, hash};
+        const searchChanged = navigationType === "REPLACE" && previous?.pathname === pathname
+            && previous.hash === hash && previous.search !== search;
+        const savedPosition = navigationType === "POP" ? positions.current.get(key) : undefined;
+        if (navigationType === "REPLACE" && previous && previous.key !== key) positions.current.delete(previous.key);
 
-            window.scrollTo({top: 0, behavior: "auto"});
-            return;
-        }
-
-        isFirstRender.current = false;
-        window.scrollTo({top: 0, behavior: "auto"});
-
+        const content = document.getElementById("site-content");
+        const savePosition = () => positions.current.set(key, window.scrollY);
+        const trackPosition = () => {
+            savePosition();
+            window.addEventListener("scroll", savePosition, {passive: true});
+        };
         let frame;
-        const scrollToTarget = () => {
-            const target = getHashTarget(hash);
-            if (!target) return false;
+        let observer;
+        let timeout;
 
+        const scrollWhenReady = () => {
+            const target = hash ? getHashTarget(hash) : null;
+            if (savedPosition !== undefined) {
+                if (!content.querySelector('main:not([aria-busy="true"])')) return false;
+            } else if (!target) {
+                return false;
+            }
             frame = globalThis.requestAnimationFrame(() => {
-                target.scrollIntoView({behavior: "auto", block: "start"});
-                if (target.hasAttribute("tabindex")) target.focus({preventScroll: true});
+                if (savedPosition !== undefined) {
+                    window.scrollTo({top: savedPosition, behavior: "auto"});
+                } else {
+                    target.scrollIntoView({behavior: "auto", block: "start"});
+                    if (target.hasAttribute("tabindex")) target.focus({preventScroll: true});
+                }
+                trackPosition();
             });
             return true;
         };
 
-        const observer = scrollToTarget() ? null : new MutationObserver(() => {
-            if (scrollToTarget()) {
-                observer.disconnect();
-                globalThis.clearTimeout(timeout);
+        if (savedPosition === undefined && (!hash || searchChanged)) {
+            if (previous && previous.key !== key && !searchChanged) {
+                if (navigationType !== "POP") content.focus({preventScroll: true});
+                window.scrollTo({top: 0, behavior: "auto"});
             }
-        });
-        observer?.observe(document.getElementById("site-content"), {childList: true, subtree: true});
-        const timeout = observer ? globalThis.setTimeout(() => observer.disconnect(), 10000) : undefined;
+            trackPosition();
+        } else {
+            if (savedPosition === undefined && previous?.pathname !== pathname) {
+                window.scrollTo({top: 0, behavior: "auto"});
+            }
+            if (!scrollWhenReady()) {
+                observer = new MutationObserver(() => {
+                    if (scrollWhenReady()) {
+                        observer.disconnect();
+                        globalThis.clearTimeout(timeout);
+                    }
+                });
+                observer.observe(content, {childList: true, subtree: true});
+                timeout = globalThis.setTimeout(() => {
+                    observer.disconnect();
+                    trackPosition();
+                }, 10000);
+            }
+        }
 
         return () => {
             if (frame !== undefined) globalThis.cancelAnimationFrame(frame);
             observer?.disconnect();
             globalThis.clearTimeout(timeout);
+            window.removeEventListener("scroll", savePosition);
         };
-    }, [pathname, hash]);
+    }, [key, pathname, search, hash, navigationType]);
 
     return null;
 }
@@ -219,9 +249,9 @@ export default function App() {
 
     return (
         <LanguageProvider>
-            <BrowserRouter basename={ROUTER_BASENAME} future={{v7_relativeSplatPath: true, v7_startTransition: true}}>
+            <BrowserRouter basename={ROUTER_BASENAME}>
                 <Seo/>
-                <ScrollToHash/>
+                <RouteScroll/>
                 <div data-theme={theme} className="theme-root">
                     <SkipLink/>
                     <Header theme={theme} onToggleTheme={toggleTheme}/>
