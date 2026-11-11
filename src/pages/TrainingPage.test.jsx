@@ -1,6 +1,6 @@
-import {render, screen, within} from "@testing-library/react";
+import {act, render, screen, waitFor, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import {expect, it} from "vitest";
+import {expect, it, vi} from "vitest";
 import App from "../App.jsx";
 import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
@@ -34,4 +34,29 @@ it("filters localized course summaries, updates subject links, and clears back t
     expect(input).toHaveValue("");
     expect(catalogue.getByRole("status")).toHaveTextContent("23 Trainings");
     expect(within(catalogue.getByRole("navigation", {name: "Fachgebiete"})).getAllByRole("link")).toHaveLength(4);
+});
+
+it("restores the catalogue search after opening a course and going back", async () => {
+    const scrollIntoView = vi.fn();
+    Element.prototype.scrollIntoView = scrollIntoView;
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+    window.history.pushState({}, "Trainings", "/training?ref=example#details");
+    const user = userEvent.setup();
+    render(<App/>);
+
+    const search = await screen.findByRole("searchbox", {name: "Trainings durchsuchen"});
+    await waitFor(() => expect(scrollIntoView).toHaveBeenCalled());
+    const startLength = window.history.length;
+    await user.type(search, "SQL");
+    expect(window.location.search).toBe("?ref=example&q=SQL");
+    expect(window.location.hash).toBe("#details");
+    expect(window.history.length).toBe(startLength);
+    await user.click(screen.getByRole("link", {name: "Python, SQL und Datenkompetenz"}));
+    await screen.findByRole("heading", {name: "Python, SQL und Datenkompetenz", level: 1});
+
+    act(() => window.history.back());
+
+    expect(await screen.findByRole("searchbox", {name: "Trainings durchsuchen"})).toHaveValue("SQL");
+    expect(screen.getByRole("status")).toHaveTextContent("1 Training");
+    expect(window.location.hash).toBe("#details");
 });

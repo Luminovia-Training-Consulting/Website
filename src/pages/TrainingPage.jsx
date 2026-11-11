@@ -1,6 +1,6 @@
 import {ArrowDown} from "lucide-react";
-import {useRef, useState} from "react";
-import {Link} from "react-router-dom";
+import {useRef} from "react";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import trainingCatalogue from "virtual:training-catalogue";
 import {businessOfferingsForLanguage} from "../data/businessOfferings.js";
 import {useLanguage} from "../i18n.jsx";
@@ -119,7 +119,10 @@ function normalizeSearch(text, language) {
 
 export default function TrainingPage() {
     const {language} = useLanguage();
-    const [query, setQuery] = useState("");
+    const {search, hash} = useLocation();
+    const navigate = useNavigate();
+    const params = new URLSearchParams(search);
+    const query = params.get("q") ?? "";
     const searchInput = useRef(null);
     const c = copy[language];
     const {durationModels, methods, boundaries} = businessOfferingsForLanguage(language);
@@ -137,8 +140,15 @@ export default function TrainingPage() {
     }));
     const subjectLinks = groups.filter((group) => group.topics.length).map((group) => [`#${group.id}`, group.title]);
 
+    function updateQuery(value) {
+        const nextParams = new URLSearchParams(search);
+        if (value) nextParams.set("q", value);
+        else nextParams.delete("q");
+        navigate({search: nextParams.toString(), hash}, {replace: true});
+    }
+
     function clearSearch() {
-        setQuery("");
+        updateQuery("");
         searchInput.current?.focus();
     }
 
@@ -176,7 +186,7 @@ export default function TrainingPage() {
                                 id="training-search-input"
                                 type="search"
                                 value={query}
-                                onChange={(event) => setQuery(event.currentTarget.value)}
+                                onChange={(event) => updateQuery(event.currentTarget.value)}
                                 placeholder={c.searchPlaceholder}
                                 aria-controls="topics"
                             />
