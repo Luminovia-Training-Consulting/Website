@@ -140,18 +140,12 @@ export default function HomePage() {
             </section>
 
             <section className="home-section home-topics" id="offers" aria-labelledby="home-practice-heading">
-                <Container>
-                    <div className="home-topics-grid">
-                        <div className="home-topics-heading">
-                            <h2 id="home-practice-heading">{copy.topics.title}</h2>
-                        </div>
-                        <div className="home-topics-exercises">
-                            <HomePracticeExamples sqlCopy={copy.topics} sqlTrainingPath="/training/python-sql-data-skills"/>
-                        </div>
-                        <div className="home-topics-links">
-                            <Link className="lumo-text-link" to="/training#details">{copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/></Link>
-                        </div>
-                    </div>
+                <Container className="home-topics-grid">
+                    <h2 id="home-practice-heading">{copy.topics.title}</h2>
+                    <HomePracticeExamples sqlCopy={copy.topics} sqlTrainingPath="/training/python-sql-data-skills"/>
+                    <Link className="lumo-text-link home-topics-link" to="/training#details">
+                        {copy.topics.link}<ArrowUpRight size={18} aria-hidden="true"/>
+                    </Link>
                 </Container>
             </section>
 

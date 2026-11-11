@@ -224,18 +224,17 @@
 
 .home-topics-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, .96fr);
-    grid-template-rows: auto 1fr;
-    grid-template-areas: "heading exercises" "links exercises";
-    gap: 1.5rem clamp(1.8rem, 5.5vw, 5.5rem);
+    grid-template-columns: minmax(0, .83fr) minmax(0, 1.17fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas: "heading exercises" "picker exercises" "link exercises";
+    gap: 1.2rem clamp(1.8rem, 5vw, 5rem);
     align-items: start;
 }
-.home-topics-heading { grid-area: heading; }
-.home-topics-exercises { grid-area: exercises; }
-.home-topics-links { grid-area: links; }
-.home-topics-links > .lumo-text-link { color: var(--blue-soft); }
-.home-topics-links > .lumo-text-link { min-height: 44px; }
-.home-topics-links > .lumo-text-link:focus-visible { outline-color: var(--yellow); }
+.home-topics-grid > h2 { grid-area: heading; }
+.home-topics-grid > .practice-picker { grid-area: picker; }
+.home-topics-grid > .practice-panels { grid-area: exercises; min-width: 0; }
+.home-topics-link { grid-area: link; justify-self: start; min-height: 44px; color: var(--blue-soft); }
+.home-topics-link:focus-visible { outline-color: var(--yellow); }
 
 .home-about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .94fr); gap: clamp(1.6rem, 6vw, 5.8rem); align-items: center; }
 .home-about-copy { margin-top: .9rem; max-width: 54ch; color: var(--muted); font-size: 1.08rem; line-height: 1.7; }
@@ -263,7 +262,7 @@
     .home-hero-grid, .home-topics-grid, .home-about { grid-template-columns: minmax(0, 1fr); }
     .home-topics-grid {
         grid-template-rows: auto;
-        grid-template-areas: "heading" "exercises" "links";
+        grid-template-areas: "heading" "picker" "exercises" "link";
     }
     .home-hero h1 { font-size: clamp(2.65rem, 8.15vw, 4.7rem); }
     .home-hero::before { inset: auto -4rem 0 auto; width: min(78vw, 35rem); }

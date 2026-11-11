@@ -4,11 +4,11 @@ const {salePrice, variableCost, fixedCosts} = businessExample;
 export const practiceExamplesCopy = {
     de: {
         picker: "Wählen Sie eine Übung",
-        names: {
-            sql: "SQL",
-            business: "Wirtschaft",
-            ai: "KI",
-            security: "IT-Sicherheit",
+        topics: {
+            sql: ["SQL", "Support-Tickets zählen"],
+            business: ["Wirtschaft", "Gewinnschwelle berechnen"],
+            ai: ["KI", "Zusammenfassung prüfen"],
+            security: ["IT-Sicherheit", "Zugriffsrechte vergleichen"],
         },
         business: {
             title: "Wann sind die Fixkosten gedeckt?",
@@ -61,11 +61,11 @@ export const practiceExamplesCopy = {
     },
     en: {
         picker: "Choose an exercise",
-        names: {
-            sql: "SQL",
-            business: "Business",
-            ai: "AI",
-            security: "IT security",
+        topics: {
+            sql: ["SQL", "Count support tickets"],
+            business: ["Business", "Find the break-even point"],
+            ai: ["AI", "Check a summary"],
+            security: ["IT security", "Compare access rights"],
         },
         business: {
             title: "How many sales do you need to break even?",

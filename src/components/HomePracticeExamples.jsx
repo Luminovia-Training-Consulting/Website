@@ -120,22 +120,35 @@ export default function HomePracticeExamples({sqlCopy, sqlTrainingPath}) {
     const [active, setActive] = useState("sql");
 
     return (
-        <div>
+        <>
             <fieldset className="practice-filter practice-picker">
                 <legend>{copy.picker}</legend>
                 <div className="practice-choices">
-                    {Object.entries(copy.names).map(([value, label]) => (
-                        <label key={value}>
-                            <input type="radio" name={groupName} value={value} checked={active === value} onChange={() => setActive(value)}/>
-                            <span>{label}</span>
-                        </label>
-                    ))}
+                    {Object.entries(copy.topics).map(([value, [title, task]]) => {
+                        const titleId = `${groupName}-${value}-title`;
+                        const taskId = `${groupName}-${value}-task`;
+                        return (
+                            <label key={value} data-exercise={value}>
+                                <input
+                                    type="radio" name={groupName} value={value}
+                                    aria-labelledby={titleId} aria-describedby={taskId}
+                                    checked={active === value} onChange={() => setActive(value)}
+                                />
+                                <span>
+                                    <strong id={titleId}>{title}</strong>
+                                    <small id={taskId}>{task}</small>
+                                </span>
+                            </label>
+                        );
+                    })}
                 </div>
             </fieldset>
-            <div hidden={active !== "sql"}><HomePractice copy={sqlCopy} trainingPath={sqlTrainingPath}/></div>
-            <div hidden={active !== "business"}><BusinessExercise copy={copy.business} language={language}/></div>
-            <div hidden={active !== "ai"}><AiExercise copy={copy.ai}/></div>
-            <div hidden={active !== "security"}><SecurityExercise copy={copy.security}/></div>
-        </div>
+            <div className="practice-panels">
+                <div hidden={active !== "sql"}><HomePractice copy={sqlCopy} trainingPath={sqlTrainingPath}/></div>
+                <div hidden={active !== "business"}><BusinessExercise copy={copy.business} language={language}/></div>
+                <div hidden={active !== "ai"}><AiExercise copy={copy.ai}/></div>
+                <div hidden={active !== "security"}><SecurityExercise copy={copy.security}/></div>
+            </div>
+        </>
     );
 }
