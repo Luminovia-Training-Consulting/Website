@@ -1,4 +1,4 @@
-import {ArrowDownRight, ArrowUpRight, BookOpen, Compass, Layers3} from "lucide-react";
+import {ArrowUpRight, BookOpen, Compass, Layers3} from "lucide-react";
 import {Link} from "react-router-dom";
 import Button from "../components/Button.jsx";
 import HomePracticeExamples from "../components/HomePracticeExamples.jsx";
@@ -12,74 +12,66 @@ const content = {
     de: {
         headline: ["Technik verstehen.", "Selbst anwenden."],
         label: "IT · KI · Wirtschaft",
-        intro: "Live-Trainings und Beratung in IT, KI und Wirtschaft. Wir arbeiten mit Beispielen aus Ihrem Arbeitsalltag.",
+        intro: "Live-Trainings und Beratung für Teams. Im Kurs grenzen Sie Netzwerkfehler ein, prüfen KI-Ergebnisse oder buchen Geschäftsvorfälle.",
         training: "Trainings entdecken",
         role: "Gründerin · Trainerin · Beraterin",
         languages: "Live auf Deutsch und Englisch",
         audience: "Für Unternehmen, Bildungsanbieter und Hochschulen",
         references: "Referenzen ansehen",
         offers: {
-            label: "Angebot",
-            title: "Was möchten Sie angehen?",
+            title: "Unsere Leistungen",
             entries: [
-                ["Training & Workshops", "Netzwerke einrichten, KI-Ergebnisse prüfen oder Geschäftsvorfälle buchen. Ihr Team übt an konkreten Aufgaben.", "Trainings ansehen"],
-                ["Beratung", "Software, Infrastruktur und KI-Anwendungen vergleichen. Gemeinsam klären wir Anforderungen und planen die nächsten Schritte.", "Beratung ansehen"],
-                ["Lernprogramme", "Kurse und Lernpfade mit klaren Lernzielen, Übungen und Aufgaben für Ihren Bildungsträger entwickeln.", "Formate vergleichen"],
+                ["Training & Workshops", "Wählen Sie ein Thema aus dem Katalog oder lassen Sie einen Workshop auf Ihr Team zuschneiden.", "Trainings ansehen"],
+                ["Beratung", "Wir klären Ihre Anforderungen und vergleichen passende Optionen für Software, Infrastruktur und KI.", "Beratung ansehen"],
+                ["Lernprogramme", "Wir entwickeln Kurse für Bildungsträger, von den Lernzielen bis zu Übungen und Prüfungsaufgaben.", "Formate vergleichen"],
             ],
         },
         topics: {
-            label: "Ein Blick ins Training",
-            title: "Vier kleine Aufgaben zum Ausprobieren",
-            intro: "Wählen Sie eine Aufgabe und probieren Sie aus, wie ein Beispiel aus unseren Trainings funktioniert.",
+            title: "Übungen zum Ausprobieren",
             worksheet: "Support-Tickets auswerten",
             output: "Ergebnis mit Beispieldaten",
             count: "Tickets",
             lesson: "Zum Training für Python, SQL und Daten",
             link: "Zum Trainingskatalog",
         },
-        aboutLabel: "Über Luminovia",
-        aboutTitle: "Wer hinter Luminovia steht",
+        aboutTitle: "Das Team hinter Luminovia",
         aboutCopy: `Carina Sophie Schoppe leitet Luminovia und entwickelt die Trainings. Im Team arbeitet sie mit ${PROFILE.nenad.name} zusammen, der Erfahrung in Softwareentwicklung und KI-Architektur einbringt.`,
         aboutLink: "Carina kennenlernen",
         teamLink: "Das Team kennenlernen",
-        contactTitle: "Was soll Ihr Team danach können?",
-        contactCopy: "Erzählen Sie uns kurz von Ihrem Ziel. Gemeinsam finden wir das passende Format.",
+        contactTitle: "Ihr Vorhaben besprechen",
+        contactCopy: "Im Erstgespräch klären wir, was Ihr Team braucht und welches Format dafür passt.",
     },
     en: {
         headline: ["Understand technology.", "Put it to work."],
         label: "IT · AI · Business",
-        intro: "Live training and consulting in IT, AI and business, built around tasks your team handles at work.",
+        intro: "Live training and consulting for teams. In class, you’ll troubleshoot networks, review AI outputs or record business transactions.",
         training: "Explore training",
         role: "Founder · Trainer · Consultant",
         languages: "Live in German and English",
         audience: "For businesses, education providers and universities",
         references: "See our references",
         offers: {
-            label: "Services",
-            title: "What would you like to tackle?",
+            title: "Our services",
             entries: [
-                ["Training & workshops", "Configure networks, check AI outputs or record business transactions. Your team practises on concrete tasks.", "Browse training"],
-                ["Consulting", "Compare software, infrastructure and AI options. We help you clarify requirements and plan the next steps.", "Explore consulting"],
-                ["Learning programmes", "Design courses and learning paths for your education organisation, with clear objectives, exercises and assessments.", "Compare formats"],
+                ["Training & workshops", "Pick a topic from the catalogue or ask us to tailor a workshop for your team.", "Browse training"],
+                ["Consulting", "We clarify your requirements and compare options for software, infrastructure and AI.", "Explore consulting"],
+                ["Learning programmes", "We develop courses for education providers, from learning objectives to exercises and assessments.", "Compare formats"],
             ],
         },
         topics: {
-            label: "Inside the training",
-            title: "Four short exercises to try",
-            intro: "Pick a task and see how a practical example from our training works.",
+            title: "Try a training exercise",
             worksheet: "Query support tickets",
             output: "Result using sample data",
             count: "Tickets",
             lesson: "Explore Python, SQL and data training",
             link: "Browse the training catalogue",
         },
-        aboutLabel: "About Luminovia",
-        aboutTitle: "Who’s behind Luminovia",
+        aboutTitle: "The team behind Luminovia",
         aboutCopy: `Carina Sophie Schoppe leads Luminovia and designs its training. ${PROFILE.nenad.name} works alongside her, bringing experience in software development and AI architecture.`,
         aboutLink: "Meet Carina",
         teamLink: "Meet the team",
-        contactTitle: "What should your team be able to do next?",
-        contactCopy: "Tell us what you’d like to achieve and we’ll work out which format fits.",
+        contactTitle: "Let’s discuss your plans",
+        contactCopy: "We’ll use the first call to understand what your team needs and find a format that fits.",
     },
 };
 
@@ -131,17 +123,13 @@ export default function HomePage() {
 
             <section className="home-section" id="routes">
                 <Container>
-                    <div className="home-section-heading">
-                        <div><p className="lumo-section-label">{copy.offers.label}</p><h2>{copy.offers.title}</h2></div>
-                        <ArrowDownRight size={45} strokeWidth={1.35} aria-hidden="true"/>
-                    </div>
+                    <h2 className="home-section-heading">{copy.offers.title}</h2>
                     <div className="home-service-grid">
                         {services.map(({to, Icon, colour}, index) => {
                             const [title, description, action] = copy.offers.entries[index];
                             return (
                                 <article key={to} className="home-service" data-colour={colour}>
-                                    <div className="home-service-top"><span>0{index + 1}</span><Icon size={30} strokeWidth={1.5} aria-hidden="true"/></div>
-                                    <h3>{title}</h3>
+                                    <h3><Icon size={24} strokeWidth={1.5} aria-hidden="true"/><span>{title}</span></h3>
                                     <p>{description}</p>
                                     <Link to={to}>{action}<ArrowUpRight size={20} aria-hidden="true"/></Link>
                                 </article>
@@ -155,9 +143,7 @@ export default function HomePage() {
                 <Container>
                     <div className="home-topics-grid">
                         <div className="home-topics-heading">
-                            <p className="lumo-section-label">{copy.topics.label}</p>
                             <h2 id="home-practice-heading">{copy.topics.title}</h2>
-                            <p className="home-topics-intro">{copy.topics.intro}</p>
                         </div>
                         <div className="home-topics-exercises">
                             <HomePracticeExamples sqlCopy={copy.topics} sqlTrainingPath="/training/python-sql-data-skills"/>
@@ -172,7 +158,6 @@ export default function HomePage() {
             <section className="home-section" id="process">
                 <Container className="home-about">
                     <div>
-                        <p className="lumo-section-label">{copy.aboutLabel}</p>
                         <h2>{copy.aboutTitle}</h2>
                         <p className="home-about-copy">{copy.aboutCopy}</p>
                         <Link className="lumo-text-link home-team-link" to="/about#team">{copy.teamLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
