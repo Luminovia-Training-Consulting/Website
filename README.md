@@ -218,7 +218,7 @@ The previous unused raster-in-SVG logo wrappers have been replaced with compress
 
 Browser icons are resized from the supplied 4096 × 4096 `Luminovia_Icon.png`, preserving its white background and colours: `public/favicon.png` (48 × 48), `public/favicon.ico` (16, 32, 48 and 64 px), and `public/apple-touch-icon.png` (180 × 180). Their URLs in `index.html` are versioned so existing visitors receive replacements. Root-level icons are not cached by the service worker; replacing the header/footer branding under `/images/` also requires a service-worker cache version update.
 
-Responsive versions of the founder portrait in `public/images/` serve the home and about pages. The display font is self-hosted in `public/fonts/`.
+The homepage uses `public/images/carina-business-hero.jpg` with responsive WebP/AVIF variants. It is cropped from the original `11. Oct.2023_There is a woman standing in a room with a mirror(5).jpg` in Carina’s photo collection, using source rectangle `(180, 350, 1040, 1038)`; only cropping, resizing and compression are applied. The About page retains its separate outdoor portrait. The display font is self-hosted in `public/fonts/`.
 
 ## Content Maintenance
 

@@ -21,6 +21,7 @@ export const PROFILE = {
 };
 
 export const IMAGES = {
+    homeHero: `${base}images/carina-business-hero.jpg`,
     headshot: `${base}images/carina-outdoor.jpg`,
     nenadPortrait: `${base}images/nenad-kalicanin.webp`,
     luminoviaLogoMark: `${base}images/luminovia-logo-mark-160.webp?v=20261111`,

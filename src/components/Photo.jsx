@@ -11,6 +11,8 @@ export default function Photo({
                                   fallbackCopy,
                                   fetchPriority,
                                   loading,
+                                  width,
+                                  height,
                                   sizes = "(min-width: 1024px) 520px, 92vw",
                               }) {
     const {t} = useLanguage();
@@ -35,6 +37,8 @@ export default function Photo({
                     <img
                         src={src}
                         alt={alt}
+                        width={width}
+                        height={height}
                         sizes={sizes}
                         loading={imageLoading}
                         fetchPriority={priority}

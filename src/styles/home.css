@@ -1,9 +1,7 @@
-/* The portrait and the notebook share the same printed-paper motifs. */
+/* A calm portrait frame balances the more playful practice section. */
 .home-hero {
     --hero-tint: #e6efff;
     --hero-dot: #1749b52e;
-    --orbit: #315fbc85;
-    --portrait-mount: #b5cef5;
     position: relative;
     isolation: isolate;
     overflow: clip;
@@ -14,8 +12,6 @@
 [data-theme="night"] .home-hero {
     --hero-tint: #192f53;
     --hero-dot: #bdd5ff50;
-    --orbit: #a4c4ff8a;
-    --portrait-mount: #3d5f95;
 }
 
 .home-hero::before {
@@ -76,54 +72,21 @@
     justify-self: end;
     width: 100%;
     max-width: 455px;
-    padding: 1.05rem .9rem .5rem 0;
-}
-
-.home-portrait-stage::before,
-.home-portrait-stage::after {
-    position: absolute;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-}
-
-.home-portrait-stage::before {
-    inset: 1% -5% 6% -7%;
-    border: 1px solid var(--orbit);
-    border-radius: 50%;
-    outline: 1px solid var(--orbit);
-    outline-offset: .6rem;
-    transform: rotate(-18deg);
-}
-
-.home-portrait-stage::after {
-    inset: 9% 9% auto auto;
-    width: clamp(1.1rem, 2.5vw, 2.15rem);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: var(--coral);
 }
 
 .home-portrait {
-    --portrait-arch: 50% 50% .12rem .12rem / 29% 29% .12rem .12rem;
     position: relative;
     isolation: isolate;
     margin: 0;
     color: #fff;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: .85rem;
 }
 
-.home-portrait::before {
-    position: absolute;
-    z-index: -1;
-    inset: .65rem -.65rem -.65rem .65rem;
-    background: var(--portrait-mount);
-    border-radius: 50% 50% .7rem .7rem / 24% 24% .7rem .7rem;
-    content: "";
-}
-
-.home-portrait-photo { aspect-ratio: 5 / 4; border-radius: var(--portrait-arch); }
+.home-portrait-photo { aspect-ratio: 5 / 4; }
 #founder { scroll-margin-top: 6.4rem; }
-.home-portrait-photo img { object-position: 50% 42%; }
+.home-portrait-photo img { object-position: center; }
 
 .home-portrait figcaption {
     padding: .8rem 1rem;
@@ -267,13 +230,11 @@
     .home-hero h1 { font-size: clamp(2.65rem, 8.15vw, 4.7rem); }
     .home-hero::before { inset: auto -4rem 0 auto; width: min(78vw, 35rem); }
     .home-portrait-stage { justify-self: start; max-width: 440px; }
-    .home-portrait-stage::before { inset-inline-start: -3%; }
     .home-service-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 420px) {
     .home-hero h1 { font-size: clamp(1.95rem, 9.55vw, 2.64rem); }
-    .home-portrait-stage { padding-inline-end: .4rem; }
     .home-portrait figcaption { padding: .66rem .7rem; }
     .home-service[data-colour="coral"] { border-end-end-radius: 3.3rem; }
 }

@@ -100,7 +100,7 @@ export default function HomePage() {
                     </div>
                     <div className="home-portrait-stage">
                         <figure className="home-portrait" id="founder">
-                            <Photo src={IMAGES.headshot} alt={PROFILE.founder} className="home-portrait-photo" fetchPriority="high"
+                            <Photo src={IMAGES.homeHero} alt={PROFILE.founder} className="home-portrait-photo" fetchPriority="high" width={860} height={688}
                                 sizes="(min-width: 1200px) 410px, (min-width: 850px) 36vw, 86vw"/>
                             <figcaption>
                                 <div><strong>{PROFILE.founder}</strong><span>{copy.role}</span></div>
