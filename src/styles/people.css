@@ -764,7 +764,7 @@
     position: relative;
     place-content: center;
     justify-items: center;
-    gap: .65rem;
+    gap: .6rem;
     padding: 1rem;
     background: var(--brand-blue);
     color: #fff;
@@ -773,17 +773,18 @@
     cursor: pointer;
 }
 
-.people-demo-preview img {
-    position: absolute;
-    top: .6rem;
-    left: .6rem;
-    width: clamp(1.75rem, 4vw, 2.65rem);
-    height: auto;
+.people-demo-preview-title {
+    max-width: 24ch;
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
+    line-height: 1.2;
+    text-wrap: balance;
 }
+
+.people-demo-preview-action { font-size: .9rem; font-weight: 600; }
 
 .people-demo-play {
     display: grid;
-    width: 3.6rem;
+    width: 3rem;
     aspect-ratio: 1;
     place-items: center;
     border-radius: 50%;

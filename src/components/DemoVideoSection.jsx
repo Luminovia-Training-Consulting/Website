@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {ArrowUpRight, Play} from "lucide-react";
 import {Container} from "./LuminoviaDesign.jsx";
-import {IMAGES} from "../data/profile.js";
 import {useLanguage} from "../i18n.jsx";
 import {cn} from "./utils.js";
 import "../styles/people.css";
@@ -11,6 +10,11 @@ const DEMO_WATCH_URL = "https://www.youtube.com/watch?v=sYMO5sb-YKg";
 
 const copy = {
     en: {
+        home: {
+            label: "Inside our training and consulting",
+            title: "AI in a business context",
+            intro: "See Carina explain an AI use case, check the results and show where human review matters. A practical example of how we work with teams.",
+        },
         training: {
             label: "From a live session",
             title: "How we teach AI in practice",
@@ -22,12 +26,18 @@ const copy = {
             intro: "Carina Schoppe shows how teams can choose a practical AI use case, check the results and decide where human review is needed.",
         },
         meta: "12 minutes · In German",
+        previewTitle: "AI in a business context",
         videoTitle: "Luminovia AI session in a company context",
         watch: "Watch on YouTube",
-        load: "Load video preview",
+        load: "Watch sample video",
         note: "YouTube loads when you activate the preview.",
     },
     de: {
+        home: {
+            label: "Einblick in Training und Beratung",
+            title: "KI im Unternehmen",
+            intro: "Carina erklärt einen KI-Anwendungsfall, prüft Ergebnisse und zeigt, wo menschliche Kontrolle nötig ist. Ein praktischer Einblick in unsere Arbeit mit Teams.",
+        },
         training: {
             label: "Aus einem Live-Training",
             title: "So vermitteln wir KI in der Praxis",
@@ -39,9 +49,10 @@ const copy = {
             intro: "Carina Schoppe zeigt, wie Teams einen sinnvollen KI-Anwendungsfall auswählen, Ergebnisse prüfen und festlegen, wo menschliche Kontrolle nötig ist.",
         },
         meta: "12 Minuten · Auf Deutsch",
+        previewTitle: "KI im Unternehmenskontext",
         videoTitle: "Luminovia KI-Session im Unternehmenskontext",
         watch: "Auf YouTube ansehen",
-        load: "Video-Vorschau laden",
+        load: "Beispielvideo ansehen",
         note: "YouTube wird erst geladen, wenn Sie die Vorschau aktivieren.",
     },
 };
@@ -77,10 +88,10 @@ export default function DemoVideoSection({className = "", variant = "training"})
                                 allowFullScreen
                             />
                         ) : (
-                            <button type="button" className="people-demo-preview" onClick={() => setVideoLoaded(true)} aria-describedby="demo-note">
-                                <img src={IMAGES.luminoviaLogoMark} width="50" height="50" alt=""/>
+                            <button type="button" className="people-demo-preview" onClick={() => setVideoLoaded(true)} aria-label={`${c.load}: ${c.previewTitle}`} aria-describedby="demo-note">
                                 <span className="people-demo-play"><Play aria-hidden="true" size={30}/></span>
-                                <span>{c.load}</span>
+                                <strong className="people-demo-preview-title">{c.previewTitle}</strong>
+                                <span className="people-demo-preview-action">{c.load}</span>
                             </button>
                         )}
                         <figcaption>{c.meta} <span id="demo-note">{c.note}</span></figcaption>

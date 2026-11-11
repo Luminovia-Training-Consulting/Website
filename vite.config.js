@@ -158,8 +158,16 @@ function htmlPerformancePlugin() {
 }
 
 function trainingCataloguePlugin() {
+    function searchWords(topic) {
+        const text = [topic.title, topic.summary, ...topic.matches, ...topic.modules].join(" ");
+        return [...new Set(text.toLocaleLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replaceAll("ß", "ss").match(/[\p{L}\p{N}#+]+/gu) ?? [])];
+    }
+
     const projections = new Map([
-        ["\0virtual:training-catalogue", ({slug, subjectArea, title, summary}) => ({slug, subjectArea, title, summary})],
+        ["\0virtual:training-catalogue", (topic) => {
+            const {slug, subjectArea, title, summary} = topic;
+            return {slug, subjectArea, title, summary, searchWords: searchWords(topic)};
+        }],
         ["\0virtual:training-titles", ({slug, title}) => [slug, title]],
     ]);
 

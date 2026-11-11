@@ -1,10 +1,13 @@
-import {ArrowUpRight, BookOpen, Compass, Layers3} from "lucide-react";
+import {ArrowUpRight, BookOpen, Compass, Layers3, Play} from "lucide-react";
 import {Link} from "react-router-dom";
+import trainingTitles from "virtual:training-titles";
 import Button from "../components/Button.jsx";
+import DemoVideoSection from "../components/DemoVideoSection.jsx";
 import HomePracticeExamples from "../components/HomePracticeExamples.jsx";
 import {Container} from "../components/LuminoviaDesign.jsx";
 import Photo from "../components/Photo.jsx";
 import {IMAGES, PROFILE} from "../data/profile.js";
+import {teachingSubjects} from "../data/trainingSubjectTopics.js";
 import {useLanguage} from "../i18n.jsx";
 import "../styles/home.css";
 
@@ -14,6 +17,10 @@ const content = {
         label: "IT · KI · Wirtschaft",
         intro: "Live-Trainings und Beratung für Teams. Im Kurs grenzen Sie Netzwerkfehler ein, prüfen KI-Ergebnisse oder buchen Geschäftsvorfälle.",
         training: "Trainings entdecken",
+        video: "Beispielvideo: KI im Unternehmen",
+        subjectsTitle: "Was wir unterrichten",
+        subjectsCopy: "Diese Themen unterrichtet Carina in Unternehmen, an Hochschulen und bei Bildungsträgern. Die Kursseiten zeigen Inhalte, Lernziele und mögliche Formate.",
+        allCourses: "Alle Kurse und Themen",
         role: "Dozentin · Beraterin · KI-Forscherin",
         languages: "Live auf Deutsch und Englisch",
         audience: "Für Unternehmen, Bildungsanbieter und Hochschulen",
@@ -46,6 +53,10 @@ const content = {
         label: "IT · AI · Business",
         intro: "Live training and consulting for teams. In class, you’ll troubleshoot networks, review AI outputs or record business transactions.",
         training: "Explore training",
+        video: "Sample video: AI in business",
+        subjectsTitle: "What we teach",
+        subjectsCopy: "Carina teaches these subjects in businesses, universities and vocational education. Each course page outlines topics, learning goals and available formats.",
+        allCourses: "All courses and topics",
         role: "Educator · Consultant · AI Researcher",
         languages: "Live in German and English",
         audience: "For businesses, education providers and universities",
@@ -84,6 +95,7 @@ const services = [
 export default function HomePage() {
     const {language, t} = useLanguage();
     const copy = content[language];
+    const courseTitles = new Map(trainingTitles[language]);
 
     return (
         <main className="lumo-home">
@@ -97,6 +109,7 @@ export default function HomePage() {
                             <Button to="/contact#appointment">{t.bookTraining}</Button>
                             <Button to="/training#details" variant="secondary">{copy.training}</Button>
                         </div>
+                        <a href="#demo-session" className="lumo-text-link home-video-link"><Play size={17} aria-hidden="true"/>{copy.video}</a>
                     </div>
                     <div className="home-portrait-stage">
                         <figure className="home-portrait" id="founder">
@@ -138,6 +151,35 @@ export default function HomePage() {
                     </div>
                 </Container>
             </section>
+
+            <section className="home-section home-subjects" id="teaching-topics" aria-labelledby="home-subjects-heading">
+                <Container>
+                    <div className="home-subjects-intro">
+                        <div>
+                            <h2 id="home-subjects-heading">{copy.subjectsTitle}</h2>
+                            <p>{copy.subjectsCopy}</p>
+                        </div>
+                        <Link className="lumo-text-link" to="/training#details">{copy.allCourses}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+                    </div>
+                    <ul className="home-subject-list" role="list">
+                        {teachingSubjects.map((subject) => (
+                            <li key={subject.id}>
+                                <h3>{subject[language].title}</h3>
+                                <p>{subject[language].topics}</p>
+                                <ul className="home-subject-courses" role="list">
+                                    {subject.courses.map((slug) => (
+                                        <li key={slug}>
+                                            <Link to={"/training/" + slug}>{courseTitles.get(slug)}<ArrowUpRight size={16} aria-hidden="true"/></Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                </Container>
+            </section>
+
+            <DemoVideoSection variant="home" className="home-demo"/>
 
             <section className="home-section home-topics" id="offers" aria-labelledby="home-practice-heading">
                 <Container className="home-topics-grid">

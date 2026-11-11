@@ -65,6 +65,8 @@
 }
 
 .home-hero .lumo-action-row { margin-top: 1.6rem; }
+.home-video-link { margin-top: .65rem; min-height: 44px; font-size: .94rem; }
+.home-video-link svg { flex: none; }
 
 .home-portrait-stage {
     position: relative;
@@ -163,6 +165,20 @@
 .home-service a svg { flex: none; }
 .home-service[data-colour="coral"] a { padding-inline-end: .45rem; }
 
+.home-subjects { padding-top: 0; }
+.home-subjects-intro { display: flex; align-items: end; justify-content: space-between; gap: 1.25rem 3rem; }
+.home-subjects-intro p { max-width: 61ch; margin-top: 1rem; color: var(--muted); line-height: 1.65; }
+.home-subjects-intro > a { flex: none; min-height: 44px; }
+.home-subject-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; margin-top: 1.8rem; }
+.home-subject-list > li { min-width: 0; padding-block: 1.3rem 1.5rem; border-top: 1px solid var(--line); }
+.home-subject-list h3 { font-size: clamp(1.2rem, 2.1vw, 1.55rem); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; }
+.home-subject-list p { margin-top: .55rem; color: var(--muted); font-size: .96rem; line-height: 1.6; }
+.home-subject-courses { display: flex; flex-wrap: wrap; gap: .15rem 1.2rem; margin-top: .6rem; }
+.home-subject-courses a { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; color: var(--accent); font-size: .9rem; font-weight: 650; line-height: 1.4; text-decoration: underline; text-underline-offset: .22em; }
+.home-subject-courses a:hover { text-decoration-thickness: 2px; }
+.home-subject-courses a svg { flex: none; }
+.home-demo.people-section { margin-top: 0; padding-bottom: clamp(2.85rem, 6.5vw, 6rem); }
+
 .home-topics {
     position: relative;
     isolation: isolate;
@@ -231,6 +247,8 @@
     .home-hero::before { inset: auto -4rem 0 auto; width: min(78vw, 35rem); }
     .home-portrait-stage { justify-self: start; max-width: 440px; }
     .home-service-grid { grid-template-columns: minmax(0, 1fr); }
+    .home-subjects-intro { align-items: start; flex-direction: column; gap: .6rem; }
+    .home-subject-list { grid-template-columns: minmax(0, 1fr); margin-top: 1.1rem; }
 }
 
 @media (max-width: 420px) {

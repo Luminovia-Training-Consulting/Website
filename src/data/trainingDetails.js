@@ -443,7 +443,7 @@ const topicDetailsEn = [
             "Stakeholder presentation tasks",
         ],
         related: ["business-consulting-new-work", "project-management-scrum-agile-classic", "python-sql-data-skills"],
-        matches: ["Business Computer Science & Digital Transformation", "Wirtschaftsinformatik & digitale Transformation", "Business Computer Science", "Wirtschaftsinformatik", "Business IT", "Digital transformation", "Digitale Transformation", "IT service management", "IT Service Management", "Cloud concepts", "Cloud-Konzepte", "Cloud"],
+        matches: ["Business Computer Science & Digital Transformation", "Wirtschaftsinformatik & digitale Transformation", "Business Computer Science", "Wirtschaftsinformatik", "Business IT", "Digital transformation", "Digitale Transformation", "IT service management", "IT Service Management", "ITSM", "Cloud concepts", "Cloud-Konzepte", "Cloud"],
     },
     {
         slug: "cloud-devops-systems-foundations",
@@ -492,7 +492,7 @@ const topicDetailsEn = [
         modules: [
             "Follow traffic from client to server. Identify the roles of switches, routers, firewalls and wireless access points.",
             "Plan IPv4 and IPv6 addresses. Divide an IPv4 network into subnets and check host ranges, prefixes and default gateways.",
-            "Connect networks with switching, VLANs and routing. Compare how traffic moves within a network segment and between segments.",
+            "Connect networks with switching, VLANs and routing. Practise switch and router configuration in Cisco labs and compare how traffic moves within a network segment and between segments.",
             "Set up and verify DNS and DHCP in a lab. Discuss how firewall rules, VPNs and Wi-Fi security protect network access.",
             "Find connection faults with a step-by-step diagnosis. Use ping, traceroute, DNS lookups and packet captures to test likely causes.",
         ],

@@ -4,7 +4,7 @@ import {expect, it, vi} from "vitest";
 import App from "../App.jsx";
 import {LANGUAGE_STORAGE_KEY} from "../i18n.jsx";
 
-it("filters localized course summaries, updates subject links, and clears back to the full catalogue", async () => {
+it("filters localized course content, updates subject links, and clears back to the full catalogue", async () => {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
     window.history.pushState({}, "Trainings", "/training");
     const user = userEvent.setup();
@@ -51,13 +51,14 @@ it("restores the catalogue search after opening a course and going back", async 
     expect(window.location.search).toBe("?ref=example&q=SQL");
     expect(window.location.hash).toBe("#details");
     expect(window.history.length).toBe(startLength);
+    const resultCount = screen.getByRole("status").textContent;
     await user.click(screen.getByRole("link", {name: "Python, SQL und Datenkompetenz"}));
     await screen.findByRole("heading", {name: "Python, SQL und Datenkompetenz", level: 1});
 
     act(() => window.history.back());
 
     expect(await screen.findByRole("searchbox", {name: "Trainings durchsuchen"})).toHaveValue("SQL");
-    expect(screen.getByRole("status")).toHaveTextContent("1 Training");
+    expect(screen.getByRole("status").textContent).toBe(resultCount);
     expect(window.location.hash).toBe("#details");
 
     await user.click(screen.getByRole("link", {name: "Python, SQL und Datenkompetenz"}));
@@ -66,5 +67,38 @@ it("restores the catalogue search after opening a course and going back", async 
     await user.click(backToSearch);
 
     expect(await screen.findByRole("searchbox", {name: "Trainings durchsuchen"})).toHaveValue("SQL");
-    expect(screen.getByRole("status")).toHaveTextContent("1 Training");
+    expect(screen.getByRole("status").textContent).toBe(resultCount);
+});
+
+it.each([
+    ["de", "PenTest+ SOC", "Cybersecurity, Pentesting-Grundlagen & Ethical Hacking", "/training/cybersecurity-pentesting-ethical-hacking"],
+    ["en", "PenTest+ SOC", "Cybersecurity, Pentesting Fundamentals & Ethical Hacking", "/training/cybersecurity-pentesting-ethical-hacking"],
+    ["de", "Cisco Subnetze", "Netzwerktechnik und IT-Infrastruktur", "/training/networking-it-infrastructure"],
+    ["en", "Cisco subnet", "Networking & IT Infrastructure", "/training/networking-it-infrastructure"],
+    ["de", "MySQL", "Python, SQL und Datenkompetenz", "/training/python-sql-data-skills"],
+    ["en", "IT service management", "Business Computer Science & Digital Transformation", "/training/business-informatics-digital-transformation"],
+    ["de", "ITSM", "Wirtschaftsinformatik & digitale Transformation", "/training/business-informatics-digital-transformation"],
+    ["de", "BWL VWL", "Betriebswirtschaft und Volkswirtschaft", "/training/business-administration-economics"],
+    ["de", "Steuern", "Buchhaltung und Steuergrundlagen", "/training/accounting-tax-fundamentals"],
+    ["de", "Arbeitsrecht", "Arbeitsrecht und Personalwesen", "/training/employment-law-hr-fundamentals"],
+])("finds concrete teaching subjects in %s using %s", async (language, query, title, href) => {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    window.history.pushState({}, "Training", `/training?q=${encodeURIComponent(query)}`);
+
+    render(<App/>);
+
+    const catalogue = within(await screen.findByRole("region", {name: language === "de" ? "Themenkatalog" : "Topic catalogue"}));
+    expect(catalogue.getByRole("link", {name: title})).toHaveAttribute("href", href);
+    expect(catalogue.queryByText(/No matching courses|Keine passenden Trainings/)).not.toBeInTheDocument();
+});
+
+it("finds Git lessons without matching unrelated digital topic names", async () => {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, "de");
+    window.history.pushState({}, "Trainings", "/training?q=Git");
+
+    render(<App/>);
+
+    const catalogue = within(await screen.findByRole("region", {name: "Themenkatalog"}));
+    expect(catalogue.getByRole("link", {name: "Softwareentwicklung, APIs & Umschulung"})).toHaveAttribute("href", "/training/software-development-retraining-java-python-csharp-kotlin");
+    expect(catalogue.queryByRole("link", {name: "Wirtschaftsinformatik & digitale Transformation"})).not.toBeInTheDocument();
 });

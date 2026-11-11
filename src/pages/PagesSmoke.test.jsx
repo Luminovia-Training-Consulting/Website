@@ -45,7 +45,7 @@ describe("static page routes", () => {
         const demo = screen.getByRole("region", {name: "AI in a business context"});
         expect(within(demo).getByRole("link", {name: "Watch on YouTube"}))
             .toHaveAttribute("href", "https://www.youtube.com/watch?v=sYMO5sb-YKg");
-        expect(within(demo).getByRole("button", {name: "Load video preview"})).toBeVisible();
+        expect(within(demo).getByRole("button", {name: "Watch sample video: AI in a business context"})).toBeVisible();
         expect(within(demo).queryByTitle("Luminovia AI session in a company context")).not.toBeInTheDocument();
     });
 

@@ -327,7 +327,7 @@ export const germanCoursePlans = {
         modules: [
             "Datenverkehr vom Client bis zum Server verfolgen und die Aufgaben von Switches, Routern, Firewalls und WLAN-Zugangspunkten erklären.",
             "IPv4- und IPv6-Adressen planen. Ein IPv4-Netz in Subnetze aufteilen und Hostbereiche, Präfixe und Standardgateways überprüfen.",
-            "Netze mit Switching, VLANs und Routing verbinden. Verfolgen, wie Daten innerhalb eines Segments und zwischen Segmenten weitergeleitet werden.",
+            "Netze mit Switching, VLANs und Routing verbinden. In Cisco-Labs Switches und Router konfigurieren und verfolgen, wie Daten innerhalb eines Segments und zwischen Segmenten weitergeleitet werden.",
             "DNS und DHCP im Labor einrichten und testen. Besprechen, wie Firewallregeln, VPNs und WLAN-Sicherheit den Netzzugang schützen.",
             "Verbindungsstörungen Schritt für Schritt eingrenzen. Mögliche Ursachen mit Ping, Traceroute, DNS-Abfragen und Paketmitschnitten prüfen.",
         ],

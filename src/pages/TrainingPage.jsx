@@ -40,11 +40,12 @@ const copy = {
         title: "Training für IT, KI und Wirtschaft.",
         intro: "Live-Trainings für Unternehmen, Hochschulen und Bildungsträger. Übungen und Tempo passen wir an die Lerngruppe an.",
         jumpLabel: "Auf dieser Seite",
-        jumpItems: [["#details", "Themenkatalog"], ["#formats", "Formate"], ["#demo-session", "Demo"], ["#methods", "Arbeitsweise"]],
+        jumpItems: [["#details", "Themenkatalog"], ["#formats", "Formate"], ["#demo-session", "Beispielvideo"], ["#methods", "Arbeitsweise"]],
         browse: "Trainings finden",
         example: "Aufgaben aus dem Training",
         examples: ["Zugriffsrechte für einen Bericht festlegen.", "Eine KI-Zusammenfassung an der Quelle prüfen.", "Die Gewinnschwelle mit Musterzahlen berechnen."],
         tryExamples: "Übungen ausprobieren",
+        watchExample: "Beispielvideo ansehen",
         catalog: "Themenkatalog",
         catalogCopy: "Suchen Sie ein Thema oder wählen Sie ein Fachgebiet.",
         searchLabel: "Trainings durchsuchen",
@@ -77,11 +78,12 @@ const copy = {
         title: "Training in IT, AI and business.",
         intro: "Live training for businesses, universities and education providers. We adapt exercises and pace to the group.",
         jumpLabel: "On this page",
-        jumpItems: [["#details", "Topic catalogue"], ["#formats", "Formats"], ["#demo-session", "Demo"], ["#methods", "How we work"]],
+        jumpItems: [["#details", "Topic catalogue"], ["#formats", "Formats"], ["#demo-session", "Sample video"], ["#methods", "How we work"]],
         browse: "Find a training topic",
         example: "Tasks from our training",
         examples: ["Set access permissions for a report.", "Check an AI summary against the source.", "Find the break-even point using sample figures."],
         tryExamples: "Try the exercises",
+        watchExample: "Watch sample video",
         catalog: "Topic catalogue",
         catalogCopy: "Search for a topic or choose a subject area.",
         searchLabel: "Search training",
@@ -127,10 +129,9 @@ export default function TrainingPage() {
     const c = copy[language];
     const {durationModels, methods, boundaries} = businessOfferingsForLanguage(language);
     const detailTopics = trainingCatalogue[language] ?? trainingCatalogue.en;
-    const searchTerms = normalizeSearch(query, language).split(/\s+/).filter(Boolean);
+    const searchTerms = normalizeSearch(query, language).match(/[\p{L}\p{N}#+]+/gu) ?? [];
     const matchingTopics = searchTerms.length ? detailTopics.filter((topic) => {
-        const searchableText = normalizeSearch(`${topic.title} ${topic.summary}`, language);
-        return searchTerms.every((term) => searchableText.includes(term));
+        return searchTerms.every((term) => topic.searchWords.some((word) => word.startsWith(term)));
     }) : detailTopics;
     const groups = subjectAreas.map((area) => ({
         id: `training-${area.id}`,
@@ -167,6 +168,7 @@ export default function TrainingPage() {
                         <p className="business-kicker">{c.example}</p>
                         <ul className="business-list">{c.examples.map((example) => <li key={example}>{example}</li>)}</ul>
                         <Link to="/#offers" className="business-link">{c.tryExamples}<span aria-hidden="true">↗</span></Link>
+                        <a href="#demo-session" className="business-link">{c.watchExample}<ArrowDown size={18} aria-hidden="true"/></a>
                     </div>
                 }
             />
