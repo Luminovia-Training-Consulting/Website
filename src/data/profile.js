@@ -12,6 +12,7 @@ export const PROFILE = {
     phoneGermany: "+49 175 5738 757",
     github: "https://github.com/Luminovia-Training-Consulting",
     linkedin: "https://www.linkedin.com/in/carinaschoppe/",
+    companyLinkedin: "https://www.linkedin.com/company/luminovia-training-consulting/",
     founderPortfolio: "https://carinaschoppe.com",
     nenad: {
         name: "Nenad Kalicanin",

@@ -85,7 +85,7 @@ function buildBaseSchema() {
         },
         areaServed: ["Germany", "Austria", "Switzerland", "Australia", "Europe", "Worldwide"],
         knowsLanguage: ["German", "English", "Spanish"],
-        sameAs: [PROFILE.linkedin, PROFILE.github, PROFILE.founderPortfolio],
+        sameAs: [PROFILE.companyLinkedin, PROFILE.github],
         founder: {
             "@type": "Person",
             "@id": `${SITE_URL}/#carina-sophie-schoppe`,
