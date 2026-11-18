@@ -15,6 +15,7 @@ const routes = [
     ["/clients", /Teaching, training and research in practice/i],
     ["/about", /Meet the team behind Luminovia/i],
     ["/pricing", /Clear rates for training/i],
+    ["/jobs", /Teach adults online/i],
     ["/contact", /Contact Luminovia/i],
     ["/imprint", /Imprint/i],
     ["/privacy", /Privacy policy/i],
@@ -47,6 +48,33 @@ describe("static page routes", () => {
             .toHaveAttribute("href", "https://www.youtube.com/watch?v=sYMO5sb-YKg");
         expect(within(demo).getByRole("button", {name: "Watch sample video: AI in a business context"})).toBeVisible();
         expect(within(demo).queryByTitle("Luminovia AI session in a company context")).not.toBeInTheDocument();
+    });
+
+    it("renders the freelance instructor listing in German and English with direct email application", async () => {
+        const user = userEvent.setup();
+        window.history.pushState({}, "Jobs", "/jobs");
+        render(<App/>);
+
+        expect(await screen.findByRole("heading", {level: 1, name: "Teach adults online."})).toBeInTheDocument();
+        expect(screen.getAllByText(/€2,000/).length).toBeGreaterThan(0);
+        expect(screen.getByText(/Two assignments in a month would total €4,000/)).toBeVisible();
+        expect(screen.getByText(/At least two years of teaching experience/)).toBeVisible();
+        expect(screen.getByText(/Monday to Thursday: 08:00–13:00/)).toBeVisible();
+        expect(screen.getByRole("navigation", {name: "Main navigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
+
+        let applyLinks = screen.getAllByRole("link", {name: "Apply by email"});
+        expect(applyLinks).toHaveLength(2);
+        expect(applyLinks[0]).toHaveAttribute("href", expect.stringMatching(/^mailto:info@luminovia\.org\?/));
+
+        await user.click(screen.getByRole("button", {name: "DE / EN, switch language to German"}));
+        expect(await screen.findByRole("heading", {level: 1, name: "Erwachsene online unterrichten."})).toBeInTheDocument();
+        expect(screen.getAllByText(/2\.000 €/).length).toBeGreaterThan(0);
+        expect(screen.getByText(/Mindestens zwei Jahre Unterrichtserfahrung/)).toBeVisible();
+        expect(screen.getByText(/Montag bis Donnerstag: 08:00–13:00 Uhr/)).toBeVisible();
+        expect(screen.getByRole("navigation", {name: "Hauptnavigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
+        expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})).toHaveLength(2);
+        expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})[0])
+            .toHaveAttribute("href", expect.stringMatching(/^mailto:info@luminovia\.org\?/));
     });
 
     it("opens and closes the mobile navigation", async () => {

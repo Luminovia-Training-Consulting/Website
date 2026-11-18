@@ -11,6 +11,7 @@ const primaryNavigation = [
     ["/offers", "offers"],
     ["/about", "about"],
     ["/clients", "clients"],
+    ["/jobs", "jobs"],
 ];
 
 export default function Header({theme, onToggleTheme}) {
