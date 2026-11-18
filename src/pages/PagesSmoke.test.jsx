@@ -76,7 +76,7 @@ describe("static page routes", () => {
         expect(screen.getByText(/Mindestens zwei Jahre Unterrichtserfahrung/)).toBeVisible();
         expect(screen.getByText(/Montag bis Donnerstag: 08:00–13:00 Uhr/)).toBeVisible();
         expect(screen.getByText(/Freitag in Woche 1 des zweiwöchigen Rhythmus: 08:00–11:00 Uhr/)).toBeVisible();
-        expect(screen.getByText(/Zusätzliche Kursaufträge für andere Kunden können zu abweichenden Zeiten angeboten werden/)).toBeVisible();
+        expect(screen.getByText(/Neben dem beschriebenen Hauptauftrag können weitere Kurse für andere Kunden hinzukommen/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Hauptnavigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
         expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})).toHaveLength(2);
         expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})[0])
