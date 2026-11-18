@@ -57,9 +57,12 @@ describe("static page routes", () => {
 
         expect(await screen.findByRole("heading", {level: 1, name: "Teach people online."})).toBeInTheDocument();
         expect(screen.getAllByText(/€4,000–€5,000 \/ month/).length).toBeGreaterThan(0);
-        expect(screen.getByText(/Each two-week course assignment pays €2,000–€2,500/)).toBeVisible();
+        expect(screen.getByText(/For the main assignment described here, the fee is €2,000–€2,500/)).toBeVisible();
+        expect(screen.getByText(/completed German IHK vocational qualification with an AEVO trainer aptitude certificate/)).toBeVisible();
         expect(screen.getByText(/At least two years of teaching experience/)).toBeVisible();
         expect(screen.getByText(/Monday to Thursday: 08:00–13:00/)).toBeVisible();
+        expect(screen.getByText(/Friday in week 1 of the two-week cycle: 08:00–11:00/)).toBeVisible();
+        expect(screen.getByText(/Other client assignments may have different hours and fees/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Main navigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
 
         let applyLinks = screen.getAllByRole("link", {name: "Apply by email"});
@@ -69,9 +72,11 @@ describe("static page routes", () => {
         await user.click(screen.getByRole("button", {name: "DE / EN, switch language to German"}));
         expect(await screen.findByRole("heading", {level: 1, name: "Menschen online unterrichten."})).toBeInTheDocument();
         expect(screen.getAllByText(/4\.000–5\.000 € \/ Monat/).length).toBeGreaterThan(0);
-        expect(screen.getByText(/Je zweiwöchigem Kursauftrag: 2\.000–2\.500 €/)).toBeVisible();
+        expect(screen.getByText(/Für den beschriebenen Hauptauftrag beträgt das Honorar je zweiwöchigem Kursblock 2\.000–2\.500 €/)).toBeVisible();
         expect(screen.getByText(/Mindestens zwei Jahre Unterrichtserfahrung/)).toBeVisible();
         expect(screen.getByText(/Montag bis Donnerstag: 08:00–13:00 Uhr/)).toBeVisible();
+        expect(screen.getByText(/Freitag in Woche 1 des zweiwöchigen Rhythmus: 08:00–11:00 Uhr/)).toBeVisible();
+        expect(screen.getByText(/Zusätzliche Kursaufträge für andere Kunden können zu abweichenden Zeiten angeboten werden/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Hauptnavigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
         expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})).toHaveLength(2);
         expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})[0])
