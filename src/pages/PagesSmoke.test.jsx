@@ -15,7 +15,7 @@ const routes = [
     ["/clients", /Teaching, training and research in practice/i],
     ["/about", /Meet the team behind Luminovia/i],
     ["/pricing", /Clear rates for training/i],
-    ["/jobs", /Teach adults online/i],
+    ["/jobs", /Teach people online/i],
     ["/contact", /Contact Luminovia/i],
     ["/imprint", /Imprint/i],
     ["/privacy", /Privacy policy/i],
@@ -55,7 +55,7 @@ describe("static page routes", () => {
         window.history.pushState({}, "Jobs", "/jobs");
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {level: 1, name: "Teach adults online."})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {level: 1, name: "Teach people online."})).toBeInTheDocument();
         expect(screen.getAllByText(/€4,000–€5,000 \/ month/).length).toBeGreaterThan(0);
         expect(screen.getByText(/Each two-week course assignment pays €2,000–€2,500/)).toBeVisible();
         expect(screen.getByText(/At least two years of teaching experience/)).toBeVisible();
@@ -67,7 +67,7 @@ describe("static page routes", () => {
         expect(applyLinks[0]).toHaveAttribute("href", expect.stringMatching(/^mailto:info@luminovia\.org\?/));
 
         await user.click(screen.getByRole("button", {name: "DE / EN, switch language to German"}));
-        expect(await screen.findByRole("heading", {level: 1, name: "Erwachsene online unterrichten."})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {level: 1, name: "Menschen online unterrichten."})).toBeInTheDocument();
         expect(screen.getAllByText(/4\.000–5\.000 € \/ Monat/).length).toBeGreaterThan(0);
         expect(screen.getByText(/Je zweiwöchigem Kursauftrag: 2\.000–2\.500 €/)).toBeVisible();
         expect(screen.getByText(/Mindestens zwei Jahre Unterrichtserfahrung/)).toBeVisible();
