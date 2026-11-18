@@ -56,8 +56,8 @@ describe("static page routes", () => {
         render(<App/>);
 
         expect(await screen.findByRole("heading", {level: 1, name: "Teach adults online."})).toBeInTheDocument();
-        expect(screen.getAllByText(/€2,000/).length).toBeGreaterThan(0);
-        expect(screen.getByText(/Two assignments in a month would total €4,000/)).toBeVisible();
+        expect(screen.getAllByText(/€4,000–€5,000 \/ month/).length).toBeGreaterThan(0);
+        expect(screen.getByText(/Each two-week course assignment pays €2,000–€2,500/)).toBeVisible();
         expect(screen.getByText(/At least two years of teaching experience/)).toBeVisible();
         expect(screen.getByText(/Monday to Thursday: 08:00–13:00/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Main navigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
@@ -68,7 +68,8 @@ describe("static page routes", () => {
 
         await user.click(screen.getByRole("button", {name: "DE / EN, switch language to German"}));
         expect(await screen.findByRole("heading", {level: 1, name: "Erwachsene online unterrichten."})).toBeInTheDocument();
-        expect(screen.getAllByText(/2\.000 €/).length).toBeGreaterThan(0);
+        expect(screen.getAllByText(/4\.000–5\.000 € \/ Monat/).length).toBeGreaterThan(0);
+        expect(screen.getByText(/Je zweiwöchigem Kursauftrag: 2\.000–2\.500 €/)).toBeVisible();
         expect(screen.getByText(/Mindestens zwei Jahre Unterrichtserfahrung/)).toBeVisible();
         expect(screen.getByText(/Montag bis Donnerstag: 08:00–13:00 Uhr/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Hauptnavigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
