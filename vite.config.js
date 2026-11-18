@@ -13,6 +13,7 @@ const pageModules = new Map([
     ["/clients", "ClientsPage"],
     ["/about", "AboutPage"],
     ["/contact", "ContactPage"],
+    ["/jobs", "JobsPage"],
     ["/pricing", "PricingPage"],
     ["/projects", "SoftwarePage"],
     ["/imprint", "ImprintPage"],

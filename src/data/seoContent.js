@@ -48,6 +48,10 @@ export const routeMeta = {
             title: "Contact & Booking | Book Training or Consulting",
             description: "Contact Luminovia to book training in IT, AI or business, discuss a consulting project or arrange a workshop, talk or course.",
         },
+        "/jobs": {
+            title: "Freelance Online Teaching | Jobs at Luminovia",
+            description: "Teach adult learners online in IT, business information systems or business administration. Freelance assignments with Luminovia.",
+        },
         "/imprint": {
             title: "Imprint | Luminovia",
             description: "Legal notice and contact details for Luminovia Training & Consulting.",
@@ -101,6 +105,10 @@ export const routeMeta = {
         "/contact": {
             title: "Kontakt & Buchung | Training oder Consulting buchen",
             description: "Fragen Sie bei Luminovia Trainings zu IT, KI und Wirtschaft, Beratung für Ihr Projekt, Workshops, Vorträge oder Kursdurchführung an.",
+        },
+        "/jobs": {
+            title: "Freiberuflich online unterrichten | Jobs bei Luminovia",
+            description: "Erwachsene online in IT, Wirtschaftsinformatik oder BWL unterrichten. Laufende freiberufliche Lehraufträge bei Luminovia.",
         },
         "/imprint": {
             title: "Impressum | Luminovia",

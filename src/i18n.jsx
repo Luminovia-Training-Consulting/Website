@@ -18,6 +18,7 @@ const dictionaries = {
             imprint: "Imprint",
             privacy: "Privacy",
             terms: "Terms",
+            jobs: "Jobs",
         },
         bookTraining: "Request an introductory call",
         serviceLabels: {
@@ -60,6 +61,7 @@ const dictionaries = {
             imprint: "Impressum",
             privacy: "Datenschutz",
             terms: "Bedingungen",
+            jobs: "Jobs",
         },
         bookTraining: "Erstgespräch anfragen",
         serviceLabels: {

@@ -21,6 +21,9 @@ const content = {
         subjectsTitle: "Was wir unterrichten",
         subjectsCopy: "Diese Themen unterrichtet Carina in Unternehmen, an Hochschulen und bei Bildungsträgern. Die Kursseiten zeigen Inhalte, Lernziele und mögliche Formate.",
         allCourses: "Alle Kurse und Themen",
+        jobsTitle: "Du unterrichtest gern?",
+        jobsCopy: "Wir suchen fortlaufend erfahrene freiberufliche Lehrkräfte für unsere Online-Kurse.",
+        jobsLink: "Lehrauftrag ansehen",
         role: "Dozentin · Beraterin · KI-Forscherin",
         languages: "Live auf Deutsch und Englisch",
         audience: "Für Unternehmen, Bildungsanbieter und Hochschulen",
@@ -57,6 +60,9 @@ const content = {
         subjectsTitle: "What we teach",
         subjectsCopy: "Carina teaches these subjects in businesses, universities and vocational education. Each course page outlines topics, learning goals and available formats.",
         allCourses: "All courses and topics",
+        jobsTitle: "Enjoy teaching?",
+        jobsCopy: "We are continuously looking for experienced freelance instructors for our online courses.",
+        jobsLink: "View teaching role",
         role: "Educator · Consultant · AI Researcher",
         languages: "Live in German and English",
         audience: "For businesses, education providers and universities",
@@ -149,6 +155,10 @@ export default function HomePage() {
                             );
                         })}
                     </div>
+                    <aside className="home-jobs-callout">
+                        <div><h3>{copy.jobsTitle}</h3><p>{copy.jobsCopy}</p></div>
+                        <Link to="/jobs">{copy.jobsLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+                    </aside>
                 </Container>
             </section>
 

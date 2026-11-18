@@ -1,0 +1,23 @@
+.business-page[data-business-section="jobs"] { --biz-art: var(--mint); }
+.jobs-page .lumo-page-hero { background: linear-gradient(115deg, var(--paper) 48%, color-mix(in srgb, var(--mint) 32%, var(--paper))); }
+.jobs-hero-card { display: grid; gap: .85rem; padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-top: 4px solid var(--mint); border-radius: .5rem 2rem .5rem .5rem; background: var(--surface); }
+.jobs-hero-card p { display: flex; align-items: center; gap: .7rem; font-weight: 650; }
+.jobs-hero-card svg { flex: none; color: var(--accent); }
+.jobs-content { padding-bottom: clamp(3rem, 7vw, 6rem); }
+.jobs-posted { color: var(--muted); font-size: .9rem; }
+.jobs-compensation { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; margin-block: 1.2rem 2.5rem; padding: 1.1rem 1.3rem; border-inline-start: .3rem solid var(--yellow); background: var(--surface); }
+.jobs-compensation div { display: flex; flex-direction: column; gap: .15rem; }
+.jobs-compensation span { color: var(--muted); font-size: .9rem; }
+.jobs-compensation strong { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+.jobs-compensation p, .jobs-columns p, .jobs-terms p { max-width: 68ch; color: var(--muted); line-height: 1.65; }
+.jobs-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3.5rem); }
+.jobs-columns section { min-width: 0; }
+.jobs-columns h2, .jobs-terms h2 { margin-block: 1.7rem .75rem; font-size: clamp(1.45rem, 2.7vw, 2rem); line-height: 1.18; letter-spacing: -.035em; }
+.jobs-columns section > h2:first-child { margin-top: 0; }
+.jobs-bullets { display: grid; gap: .65rem; padding-inline-start: 1.2rem; list-style: disc; }
+.jobs-bullets li { padding-inline-start: .2rem; line-height: 1.55; }
+.jobs-terms { margin-top: 2rem; padding-top: .5rem; border-top: 1px solid var(--line); }
+.jobs-application { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .8rem 2rem; align-items: center; margin-top: 2rem; padding: clamp(1.2rem, 3.5vw, 2rem); border: 1px solid var(--line); border-inline-start: .35rem solid var(--accent); border-start-end-radius: 1.5rem; background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+.jobs-application p:not(.business-kicker) { max-width: 75ch; margin-top: .4rem; color: var(--muted); line-height: 1.6; }
+.jobs-application small { grid-column: 1 / -1; color: var(--muted); line-height: 1.5; }
+@media (max-width: 760px) { .jobs-columns { grid-template-columns: minmax(0, 1fr); } .jobs-compensation { align-items: start; flex-direction: column; } .jobs-application { grid-template-columns: minmax(0, 1fr); } .jobs-application small { grid-column: auto; } }
