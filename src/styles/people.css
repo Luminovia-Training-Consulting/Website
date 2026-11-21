@@ -457,8 +457,7 @@
     overflow-wrap: anywhere;
 }
 
-.people-team-avatar,
-.people-team-avatar-photo {
+.people-team-avatar {
     display: grid;
     width: 4.5rem;
     aspect-ratio: 1;

@@ -32,6 +32,7 @@
 .jobs-compensation p, .jobs-columns p, .jobs-terms p { max-width: 68ch; color: var(--muted); line-height: 1.65; }
 .jobs-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3.5rem); }
 .jobs-columns section { min-width: 0; }
+.jobs-schedule-note { margin-top: .7rem; }
 .jobs-columns h2, .jobs-terms h2 { margin-block: 1.7rem .75rem; font-size: clamp(1.45rem, 2.7vw, 2rem); line-height: 1.18; letter-spacing: -.035em; }
 .jobs-columns section > h2:first-child { margin-top: 0; }
 .jobs-bullets { display: grid; gap: .65rem; padding-inline-start: 1.2rem; list-style: disc; }

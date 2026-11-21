@@ -1,7 +1,7 @@
 import {cn} from "./utils.js";
 
-export function Container({children, className = ""}) {
-    return <div className={cn("lumo-container", className)}>{children}</div>;
+export function Container({children, className = "", id}) {
+    return <div id={id} className={cn("lumo-container", className)}>{children}</div>;
 }
 
 export function PageHero({label, title, copy, actions, visual}) {

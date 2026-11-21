@@ -167,7 +167,14 @@ export default function JobsPage() {
                     </section>
                     <div className="jobs-columns">
                         <section><h3>{c.tasksTitle}</h3><BulletList items={c.tasks}/><h3>{c.aiTitle}</h3><p>{c.ai}</p></section>
-                        <section><h3>{c.profileTitle}</h3><BulletList items={c.profile}/><h3>{c.scheduleTitle}</h3><BulletList items={c.scheduleItems}/><p>{c.scheduleFoot}</p></section>
+                        <section>
+                            <h3>{c.profileTitle}</h3>
+                            <BulletList items={c.profile}/>
+                            <h3>{c.scheduleTitle}</h3>
+                            <BulletList items={c.scheduleItems}/>
+                            <p>{c.scheduleFoot}</p>
+                            <p className="jobs-schedule-note">{c.scheduleNote}</p>
+                        </section>
                     </div>
                     <section className="jobs-terms"><h3>{c.termsTitle}</h3><p>{c.terms}</p></section>
                     <section className="jobs-application"><div><p className="business-kicker">{c.question}</p><p>{c.questionText}</p></div><a className="lumo-button" href={lecturerApplication}><Mail size={18} aria-hidden="true"/><span>{c.apply}</span><ArrowUpRight size={18} aria-hidden="true"/></a><small>{c.mailNote}</small></section>

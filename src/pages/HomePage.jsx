@@ -26,7 +26,7 @@ const content = {
         jobsLink: "Freiberufliche Jobs ansehen",
         platformTitle: "Lernangebote mit dem Luminovia Management Tool koordinieren",
         platformCopy: "Kurse, Lehraufträge, Kalender und Zusammenarbeit in einer zweisprachigen Plattform zusammenführen.",
-        platformLink: "LMS-Demo ansehen",
+        platformLink: "Lernplattform entdecken",
         role: "Dozentin · Beraterin · KI-Forscherin",
         languages: "Live auf Deutsch und Englisch",
         audience: "Für Unternehmen, Bildungsanbieter und Hochschulen",
@@ -53,6 +53,7 @@ const content = {
         teamLink: "Das Team kennenlernen",
         contactTitle: "Ihr Vorhaben besprechen",
         contactCopy: "Im Erstgespräch klären wir, was Ihr Team braucht und welches Format dafür passt.",
+        partnershipLink: "Mit Luminovia zusammenarbeiten",
     },
     en: {
         headline: ["Understand technology.", "Put it to work."],
@@ -68,7 +69,7 @@ const content = {
         jobsLink: "Explore freelance roles",
         platformTitle: "Coordinate learning with the Luminovia Management Tool",
         platformCopy: "Bring courses, teaching assignments, calendars and collaboration together in one bilingual platform.",
-        platformLink: "Explore the LMS demo",
+        platformLink: "Explore the learning platform",
         role: "Educator · Consultant · AI Researcher",
         languages: "Live in German and English",
         audience: "For businesses, education providers and universities",
@@ -95,6 +96,7 @@ const content = {
         teamLink: "Meet the team",
         contactTitle: "Let’s discuss your plans",
         contactCopy: "We’ll use the first call to understand what your team needs and find a format that fits.",
+        partnershipLink: "Partner with Luminovia",
     },
 };
 
@@ -222,6 +224,7 @@ export default function HomePage() {
                         <h2 id="home-contact-heading">{copy.contactTitle}</h2>
                         <p>{copy.contactCopy}</p>
                         <Button to="/contact#appointment">{t.bookTraining}</Button>
+                        <Link className="lumo-text-link" to="/clients#partnership">{copy.partnershipLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
                     </section>
                 </Container>
             </section>

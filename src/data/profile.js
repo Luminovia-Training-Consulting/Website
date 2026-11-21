@@ -35,7 +35,7 @@ export const PROFILE = {
         },
     },
     managementTool: "https://github.com/Luminovia-Training-Consulting/Luminovia-Management-Tool",
-    portalDemo: "https://cms.luminovia.org/demo",
+    learningPlatform: "https://lms.luminovia.org/",
     analyticsId: "G-YNGD292XE5",
 };
 

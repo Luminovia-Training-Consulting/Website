@@ -17,12 +17,24 @@ const copy = {
             training: ["Request training", "Training enquiry"],
             consulting: ["Request consulting", "Consulting enquiry"],
             quote: ["Request a quote", "Quote request"],
+            platform: ["Discuss the learning platform", "Luminovia Management Tool enquiry"],
+            partnership: ["Discuss a partnership", "Partnership enquiry"],
         },
         enquiryCopy: "Add your goal, who’s involved and your preferred dates. We’ll suggest the next step by email.",
         emailButton: "Open email draft",
         courseLabel: "Selected course",
         enquiryGreeting: "Hello Luminovia,",
         enquiryFields: ["Topic and goal:", "Audience or team:", "Timing and preferred language:"],
+        tailoredEnquiries: {
+            platform: {
+                copy: "Tell us how you run courses today and what you need. We’ll discuss a suitable offer for your organisation.",
+                fields: ["Organisation and role:", "Courses and team size:", "What you’d like to simplify:", "Preferred timing:"],
+            },
+            partnership: {
+                copy: "Introduce your organisation and tell us where you’d like to work together, such as course delivery, joint programmes or a specialist project.",
+                fields: ["Organisation and role:", "Proposed collaboration:", "Audience, location and timeframe:"],
+            },
+        },
         signOff: "Kind regards,",
         call: "Request an introductory call",
         callButton: "Suggest times by email",
@@ -45,12 +57,24 @@ const copy = {
             training: ["Training anfragen", "Trainingsanfrage"],
             consulting: ["Beratung anfragen", "Beratungsanfrage"],
             quote: ["Angebot anfragen", "Angebotsanfrage"],
+            platform: ["Lernplattform anfragen", "Anfrage zum Luminovia Management Tool"],
+            partnership: ["Kooperation anfragen", "Anfrage zur Zusammenarbeit"],
         },
         enquiryCopy: "Ergänzen Sie Ihr Ziel, die Zielgruppe und den Wunschzeitraum. Wir melden uns mit einem Vorschlag per E-Mail.",
         emailButton: "E-Mail-Entwurf öffnen",
         courseLabel: "Gewähltes Training",
         enquiryGreeting: "Hallo Luminovia,",
         enquiryFields: ["Thema und Ziel:", "Zielgruppe oder Team:", "Zeitraum und gewünschte Sprache:"],
+        tailoredEnquiries: {
+            platform: {
+                copy: "Schildern Sie, wie Sie Ihre Kurse heute organisieren und was Sie brauchen. Wir besprechen ein passendes Angebot für Ihre Organisation.",
+                fields: ["Organisation und Rolle:", "Kurse und Teamgröße:", "Was möchten Sie vereinfachen?", "Wunschzeitraum:"],
+            },
+            partnership: {
+                copy: "Stellen Sie uns Ihre Organisation vor und erzählen Sie, wo Sie zusammenarbeiten möchten, etwa bei der Kursdurchführung, bei gemeinsamen Programmen oder in einem Fachprojekt.",
+                fields: ["Organisation und Rolle:", "Vorschlag für die Zusammenarbeit:", "Zielgruppe, Ort und Zeitraum:"],
+            },
+        },
         signOff: "Viele Grüße",
         call: "Erstgespräch anfragen",
         callButton: "Termin per E-Mail anfragen",
@@ -85,7 +109,9 @@ export default function ContactPage() {
     const courseSlug = params.get("course");
     const courseTitle = intent === "training" ? trainingTitles[language].find(([slug]) => slug === courseSlug)?.[1] : undefined;
     const [enquiryTitle, subject] = c.enquiries[intent];
-    const fields = courseTitle ? [`${c.courseLabel}: ${courseTitle}`, ...c.enquiryFields] : c.enquiryFields;
+    const tailoredEnquiry = c.tailoredEnquiries[intent];
+    const enquiryFields = tailoredEnquiry?.fields ?? c.enquiryFields;
+    const fields = courseTitle ? [`${c.courseLabel}: ${courseTitle}`, ...enquiryFields] : enquiryFields;
     const emailHref = emailDraft(courseTitle ? `${subject} – ${courseTitle}` : subject, [c.enquiryGreeting, "", ...fields, "", c.signOff]);
     const callHref = emailDraft(c.callSubject, c.callTemplate);
     const callFeatured = hash === "#appointment";
@@ -109,7 +135,7 @@ export default function ContactPage() {
                         <Mail className="people-contact-icon" aria-hidden="true" size={22}/>
                         <h2 id="enquiry-heading">{enquiryTitle}</h2>
                         {courseTitle && <p className="people-contact-course"><span>{c.courseLabel}</span><strong>{courseTitle}</strong></p>}
-                        <p>{c.enquiryCopy}</p>
+                        <p>{tailoredEnquiry?.copy ?? c.enquiryCopy}</p>
                         <a className="lumo-button" data-button-variant={callFeatured ? "secondary" : "primary"} href={emailHref}>
                             {c.emailButton} <ArrowUpRight size={18} aria-hidden="true"/>
                         </a>

@@ -30,7 +30,7 @@ export const routeMeta = {
         },
         "/platform": {
             title: "Luminovia Learning Platform | Course and Team Management",
-            description: "Explore the Luminovia Management Tool for coordinating teaching offers, courses, calendars, collaboration and learning resources. See the interactive demo.",
+            description: "Explore the Luminovia Management Tool for coordinating teaching offers, courses, calendars, collaboration and learning resources. Request an offer for your organisation.",
         },
         "/portfolio": {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
@@ -46,15 +46,15 @@ export const routeMeta = {
         },
         "/about": {
             title: "About the Team | Luminovia Training & Consulting",
-            description: "Meet Carina Sophie Schoppe, educator, consultant and AI researcher, and Nenad Kalicanin. Training and consulting in IT, AI and business.",
+            description: "Meet Carina Sophie Schoppe and the Luminovia team, including freelance instructors and specialist partners in IT, AI and business.",
         },
         "/contact": {
             title: "Contact & Booking | Book Training or Consulting",
             description: "Contact Luminovia to book training in IT, AI or business, discuss a consulting project or arrange a workshop, talk or course.",
         },
         "/jobs": {
-            title: "Freelance Online Teaching | Jobs at Luminovia",
-            description: "Teach adult learners online in IT, business information systems or business administration. Freelance assignments with Luminovia.",
+            title: "Freelance Teaching and Management | Luminovia Jobs",
+            description: "Explore remote freelance opportunities in online teaching, business operations and executive assistance. See expected hours, fees and how to apply.",
         },
         "/imprint": {
             title: "Imprint | Luminovia",
@@ -92,7 +92,7 @@ export const routeMeta = {
         },
         "/platform": {
             title: "Luminovia Lernplattform | Kurse und Teams koordinieren",
-            description: "Das Luminovia Management Tool bündelt Kursangebote, Kurse, Kalender, Zusammenarbeit und Lernmaterialien. Interaktive Demo ansehen.",
+            description: "Das Luminovia Management Tool bündelt Kursangebote, Kurse, Kalender, Zusammenarbeit und Lernmaterialien. Angebot für Ihre Organisation anfragen.",
         },
         "/portfolio": {
             title: "Projektportfolio | KI-Research, Automatisierung und Consulting",
@@ -108,15 +108,15 @@ export const routeMeta = {
         },
         "/about": {
             title: "Über uns | Luminovia Training & Consulting",
-            description: "Carina Sophie Schoppe, Dozentin, Beraterin und KI-Forscherin, und Nenad Kalicanin: das Team für Training und Beratung zu IT, KI und Wirtschaft.",
+            description: "Lernen Sie Carina Sophie Schoppe, das Luminovia-Team und das Netzwerk aus freiberuflichen Lehrkräften und Fachpartnern kennen.",
         },
         "/contact": {
             title: "Kontakt & Buchung | Training oder Consulting buchen",
             description: "Fragen Sie bei Luminovia Trainings zu IT, KI und Wirtschaft, Beratung für Ihr Projekt, Workshops, Vorträge oder Kursdurchführung an.",
         },
         "/jobs": {
-            title: "Freiberuflich online unterrichten | Jobs bei Luminovia",
-            description: "Erwachsene online in IT, Wirtschaftsinformatik oder BWL unterrichten. Laufende freiberufliche Lehraufträge bei Luminovia.",
+            title: "Freiberufliche Lehre und Management | Luminovia Jobs",
+            description: "Freiberufliche Aufträge für Online-Lehre, Betriebsmanagement und Geschäftsführungsassistenz. Informationen zu Arbeitszeiten, Honorar und Bewerbung.",
         },
         "/imprint": {
             title: "Impressum | Luminovia",

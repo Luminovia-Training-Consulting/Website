@@ -15,6 +15,8 @@ const copy = {
         intro: "Selected work from Carina’s development and research, including a Python literature-review pipeline, Kotlin plugins and apps.",
         index: "See the projects",
         github: "Luminovia on GitHub",
+        platformCopy: "Luminovia’s own platform brings course planning, instructor assignments and learning materials together for education teams.",
+        platformLink: "Explore the platform",
         types: "Where we can help on your project",
         typesCopy: "Luminovia can help you scope a project, choose an approach and turn the work into something your team can use. Here are examples of what that can involve.",
         consulting: "Explore consulting",
@@ -26,6 +28,8 @@ const copy = {
         intro: "Ausgewählte Arbeiten aus Carinas Entwicklung und Forschung. Dazu gehören eine Python-Pipeline für Literaturrecherchen, Kotlin-Plugins und Apps.",
         index: "Projekte ansehen",
         github: "Luminovia auf GitHub",
+        platformCopy: "Luminovias eigene Plattform verbindet Kursplanung, Lehraufträge und Lernmaterialien für Bildungsteams.",
+        platformLink: "Lernplattform entdecken",
         types: "Wobei wir Sie im Projekt unterstützen",
         typesCopy: "Wir helfen Ihnen, ein Vorhaben einzugrenzen, einen passenden Ansatz zu wählen und Ergebnisse zu erarbeiten, mit denen Ihr Team weiterarbeiten kann.",
         consulting: "Beratung ansehen",
@@ -49,6 +53,13 @@ export default function SoftwarePage() {
                         <a href="#selected-projects">{c.index} <ArrowDown aria-hidden="true"/></a>
                         <a href={PROFILE.github} target="_blank" rel="noreferrer">{c.github} <ArrowUpRight aria-hidden="true"/></a>
                     </div>
+                </section>
+                <section className="people-section people-about-next" aria-labelledby="platform-project-heading">
+                    <div>
+                        <h2 id="platform-project-heading">Luminovia Management Tool</h2>
+                        <p>{c.platformCopy}</p>
+                    </div>
+                    <Button to="/platform">{c.platformLink}</Button>
                 </section>
             </Container>
 

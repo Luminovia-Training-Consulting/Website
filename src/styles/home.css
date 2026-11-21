@@ -167,6 +167,7 @@
 .home-jobs-callout { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-inline-start: .3rem solid var(--mint); border-radius: .4rem 1.25rem .4rem .4rem; background: var(--surface); }
 .home-jobs-callout h3 { font-size: 1.15rem; font-weight: 700; }
 .home-jobs-callout p { margin-top: .2rem; color: var(--muted); line-height: 1.5; }
+.home-platform-callout { border-inline-start-color: var(--accent); }
 .home-jobs-callout a { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; flex: none; color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
 
 .home-subjects { padding-top: 0; }

@@ -58,7 +58,7 @@ const copy = {
         documentFormat: "PDF · English · Public copy",
         download: "Download PDF",
         next: "Looking to work together?",
-        partnerCopy: "We welcome enquiries from education providers, companies, instructors and specialist partners interested in working together.",
+        partnerCopy: "We’re looking for education providers, companies and specialist partners for joint courses, training programmes and projects in IT, AI and business.",
         contact: "Discuss a collaboration",
     },
     de: {
@@ -71,7 +71,7 @@ const copy = {
         documentFormat: "PDF · Englisch · Öffentliche Fassung",
         download: "PDF herunterladen",
         next: "Möchten Sie mit uns zusammenarbeiten?",
-        partnerCopy: "Wir freuen uns über Anfragen von Bildungsanbietern, Unternehmen, Lehrkräften und Fachpartnern, die gemeinsam mit uns arbeiten möchten.",
+        partnerCopy: "Wir suchen Bildungsanbieter, Unternehmen und Fachpartner für gemeinsame Kurse, Weiterbildungsprogramme und Projekte in IT, KI und Wirtschaft.",
         contact: "Zusammenarbeit besprechen",
     },
 };
@@ -90,6 +90,7 @@ export default function ClientsPage() {
                     <div className="people-inline-links">
                         <a href="#organisations">{c.organisations} <ArrowDown aria-hidden="true"/></a>
                         <a href="#downloads">{c.downloadsTitle} <ArrowDown aria-hidden="true"/></a>
+                        <a href="#partnership">{c.contact} <ArrowDown aria-hidden="true"/></a>
                     </div>
                 </section>
             </Container>
@@ -124,9 +125,9 @@ export default function ClientsPage() {
                         ))}
                     </div>
                 </section>
-                <section className="people-section people-about-next" aria-labelledby="references-next-heading">
+                <section id="partnership" className="people-section people-about-next" aria-labelledby="references-next-heading">
                     <div><h2 id="references-next-heading">{c.next}</h2><p>{c.partnerCopy}</p></div>
-                    <Button to="/contact#appointment">{c.contact}</Button>
+                    <Button to="/contact?intent=partnership#enquiry">{c.contact}</Button>
                 </section>
             </Container>
         </main>
