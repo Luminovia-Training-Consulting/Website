@@ -1,8 +1,9 @@
 /* global caches, fetch, Response, self, URL */
 
-const CACHE_VERSION = "luminovia-v9";
+const CACHE_VERSION = "luminovia-website-v1";
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
+const WEBSITE_CACHE_NAME = /^(?:luminovia-v\d+|luminovia-website-(?:v\d+|reset-\d+-\d+))-(?:assets|images)$/;
 const CACHEABLE_ASSET_PATHS = ["/assets/", "/images/"];
 
 function isCacheableRequest(request) {
@@ -86,7 +87,7 @@ self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => Promise.all(
             cacheNames
-                .filter((cacheName) => cacheName.startsWith("luminovia-") && cacheName !== ASSET_CACHE && cacheName !== IMAGE_CACHE)
+                .filter((cacheName) => WEBSITE_CACHE_NAME.test(cacheName) && cacheName !== ASSET_CACHE && cacheName !== IMAGE_CACHE)
                 .map((cacheName) => caches.delete(cacheName)),
         ))
             .catch(() => {})

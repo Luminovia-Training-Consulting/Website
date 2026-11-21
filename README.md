@@ -206,6 +206,12 @@ CI runs through `.github/workflows/node.js.yml`:
 3. `npm run build --if-present`,
 4. `npm test --if-present`.
 
+## Website release reset
+
+Repository administrators can open **Actions → Deploy website to GitHub Pages → Run workflow**, select `main` and the `reset` operation, and enter `RESET luminovia.org`. The workflow verifies the current repository permissions of the initiating account and any account retrying the run. The checked-out revision must match current `main`. A successful run rebuilds and replaces the whole generated Pages release and expires old Website service-worker caches when the new worker activates.
+
+The Website serves static files from its GitHub Pages artifact. Visitor preferences live on each visitor’s device. The portal, its Supabase database and uploads, email and other infrastructure have their own administrative operations.
+
 ## Assets
 
 Luminovia logo assets:

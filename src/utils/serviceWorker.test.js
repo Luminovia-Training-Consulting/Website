@@ -1,23 +1,31 @@
 import {readFileSync} from "node:fs";
 import {runInNewContext} from "node:vm";
 import {describe, expect, it, vi} from "vitest";
+import {stampWebsiteWorker} from "../../scripts/website-reset.mjs";
 
 const origin = "https://luminovia.org";
 const worker = readFileSync("public/sw.js", "utf8");
 
-function setupWorker(cachedResponse, fetch) {
+function setupWorker(cachedResponse, fetch, previousCaches = [], source = worker) {
     const handlers = new Map();
     const store = {
         match: vi.fn().mockResolvedValue(cachedResponse),
         put: vi.fn().mockResolvedValue(undefined),
     };
-    runInNewContext(worker, {
+    const caches = {
+        open: vi.fn().mockResolvedValue(store),
+        keys: vi.fn().mockResolvedValue(previousCaches),
+        delete: vi.fn().mockResolvedValue(true),
+    };
+    const postMessage = vi.fn();
+    runInNewContext(source, {
         URL,
         Response,
         fetch,
-        caches: {open: vi.fn().mockResolvedValue(store)},
+        caches,
         self: {
             location: {origin},
+            clients: {claim: vi.fn().mockResolvedValue(undefined), matchAll: vi.fn().mockResolvedValue([{postMessage}])},
             addEventListener: (type, handler) => handlers.set(type, handler),
         },
     });
@@ -35,7 +43,13 @@ function setupWorker(cachedResponse, fetch) {
         };
     }
 
-    return {request, store};
+    function activate() {
+        const waitUntil = vi.fn();
+        handlers.get("activate")({waitUntil});
+        return waitUntil.mock.calls[0][0];
+    }
+
+    return {request, store, activate, caches, postMessage};
 }
 
 describe("service worker asset cache", () => {
@@ -101,4 +115,22 @@ it("shows a bilingual offline page if navigation fails", async () => {
     expect(html).toContain("No connection");
     expect(html).toContain('<section lang="de">');
     expect(html).toContain("Keine Verbindung");
+});
+
+it("expires only old Website caches when a reset release activates", async () => {
+    const oldCaches = [
+        "luminovia-v9-assets",
+        "luminovia-website-v1-images",
+        "luminovia-website-reset-119234-1-assets",
+        "luminovia-website-reset-119234-2-assets",
+        "luminovia-portal-v4-assets",
+        "custom-assets",
+    ];
+    const {activate, caches, postMessage} = setupWorker(null, vi.fn(), oldCaches, stampWebsiteWorker(worker, "119234-2"));
+    await activate();
+    expect(caches.delete.mock.calls.flat()).toEqual(oldCaches.slice(0, 3));
+    expect(postMessage).toHaveBeenCalledExactlyOnceWith({
+        type: "LUMINOVIA_SW_ACTIVATED",
+        version: "luminovia-website-reset-119234-2",
+    });
 });

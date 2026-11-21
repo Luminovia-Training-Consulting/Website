@@ -4,6 +4,17 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+    inputs:
+      operation:
+        description: Website deployment operation
+        type: choice
+        options:
+          - publish
+          - reset
+        default: publish
+      reset_confirmation:
+        description: For reset, type RESET luminovia.org
+        type: string
 
 permissions:
   contents: read
@@ -12,10 +23,11 @@ permissions:
 
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -29,11 +41,26 @@ jobs:
           node-version: 24
           cache: npm
 
+      - name: Authorize Website reset
+        if: github.event_name == 'workflow_dispatch' && inputs.operation == 'reset'
+        id: reset
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          WEBSITE_RESET_CONFIRMATION: ${{ inputs.reset_confirmation }}
+          WEBSITE_RESET_GENERATION: ${{ github.run_id }}-${{ github.run_attempt }}
+        run: node scripts/website-reset.mjs authorize
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build Vite website
         run: npm run build
+
+      - name: Give the reset artifact a fresh Website cache
+        if: steps.reset.outputs.generation != ''
+        env:
+          WEBSITE_RESET_GENERATION: ${{ steps.reset.outputs.generation }}
+        run: node scripts/website-reset.mjs stamp
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
