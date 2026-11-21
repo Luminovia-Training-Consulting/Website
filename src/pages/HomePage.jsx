@@ -21,9 +21,12 @@ const content = {
         subjectsTitle: "Was wir unterrichten",
         subjectsCopy: "Diese Themen unterrichtet Carina in Unternehmen, an Hochschulen und bei Bildungsträgern. Die Kursseiten zeigen Inhalte, Lernziele und mögliche Formate.",
         allCourses: "Alle Kurse und Themen",
-        jobsTitle: "Freiberuflich bei Luminovia unterrichten",
-        jobsCopy: "Wir suchen fortlaufend erfahrene freiberufliche Lehrkräfte für unsere Online-Kurse.",
-        jobsLink: "Jobangebot ansehen",
+        jobsTitle: "Freiberuflich lehren und im Management unterstützen",
+        jobsCopy: "Zwei Wege ins Team: Online-Unterricht sowie Management- und Operations-Unterstützung.",
+        jobsLink: "Freiberufliche Jobs ansehen",
+        platformTitle: "Lernangebote mit dem Luminovia Management Tool koordinieren",
+        platformCopy: "Kurse, Lehraufträge, Kalender und Zusammenarbeit in einer zweisprachigen Plattform zusammenführen.",
+        platformLink: "LMS-Demo ansehen",
         role: "Dozentin · Beraterin · KI-Forscherin",
         languages: "Live auf Deutsch und Englisch",
         audience: "Für Unternehmen, Bildungsanbieter und Hochschulen",
@@ -45,7 +48,7 @@ const content = {
             link: "Zum Trainingskatalog",
         },
         aboutTitle: "Das Team hinter Luminovia",
-        aboutCopy: `Carina Sophie Schoppe verbindet Lehre, Beratung und KI-Forschung und leitet Luminovia. Im Team arbeitet sie mit ${PROFILE.nenad.name} zusammen, der Erfahrung in Softwareentwicklung und KI-Architektur einbringt.`,
+        aboutCopy: `Carina Sophie Schoppe verbindet Lehre, Beratung und KI-Forschung und leitet Luminovia. Gemeinsam mit ${PROFILE.nenad.name}, weiteren Lehrkräften und Kooperationspartnern deckt das Team ein breites fachliches Spektrum ab.`,
         aboutLink: "Carina kennenlernen",
         teamLink: "Das Team kennenlernen",
         contactTitle: "Ihr Vorhaben besprechen",
@@ -60,9 +63,12 @@ const content = {
         subjectsTitle: "What we teach",
         subjectsCopy: "Carina teaches these subjects in businesses, universities and vocational education. Each course page outlines topics, learning goals and available formats.",
         allCourses: "All courses and topics",
-        jobsTitle: "Teach freelance with Luminovia",
-        jobsCopy: "We are continuously looking for experienced freelance instructors for our online courses.",
-        jobsLink: "View the job listing",
+        jobsTitle: "Freelance teaching and management roles",
+        jobsCopy: "Two ways to join the team: online instruction and management or operations support.",
+        jobsLink: "Explore freelance roles",
+        platformTitle: "Coordinate learning with the Luminovia Management Tool",
+        platformCopy: "Bring courses, teaching assignments, calendars and collaboration together in one bilingual platform.",
+        platformLink: "Explore the LMS demo",
         role: "Educator · Consultant · AI Researcher",
         languages: "Live in German and English",
         audience: "For businesses, education providers and universities",
@@ -84,7 +90,7 @@ const content = {
             link: "Browse the training catalogue",
         },
         aboutTitle: "The team behind Luminovia",
-        aboutCopy: `Carina Sophie Schoppe brings together education, consulting and AI research as the founder of Luminovia. ${PROFILE.nenad.name} works alongside her, bringing experience in software development and AI architecture.`,
+        aboutCopy: `Carina Sophie Schoppe brings together education, consulting and AI research as the founder of Luminovia. With ${PROFILE.nenad.name}, additional instructors and specialist partners, the team covers a broad range of expertise.`,
         aboutLink: "Meet Carina",
         teamLink: "Meet the team",
         contactTitle: "Let’s discuss your plans",
@@ -155,6 +161,10 @@ export default function HomePage() {
                             );
                         })}
                     </div>
+                    <aside className="home-jobs-callout home-platform-callout">
+                        <div><h3>{copy.platformTitle}</h3><p>{copy.platformCopy}</p></div>
+                        <Link to="/platform">{copy.platformLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>
+                    </aside>
                     <aside className="home-jobs-callout">
                         <div><h3>{copy.jobsTitle}</h3><p>{copy.jobsCopy}</p></div>
                         <Link to="/jobs">{copy.jobsLink}<ArrowUpRight size={18} aria-hidden="true"/></Link>

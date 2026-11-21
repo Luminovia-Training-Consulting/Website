@@ -16,6 +16,7 @@ const pageModules = new Map([
     ["/jobs", "JobsPage"],
     ["/pricing", "PricingPage"],
     ["/projects", "SoftwarePage"],
+    ["/platform", "PlatformPage"],
     ["/imprint", "ImprintPage"],
     ["/privacy", "PrivacyPage"],
     ["/terms", "TermsPage"],

@@ -25,6 +25,17 @@ const copy = {
             nenadRole: "Luminovia team member",
             nenadCopy: "Nenad works alongside Carina at Luminovia. He holds a B.Sc. in Computer Science from TU Dortmund and has experience in full-stack web and mobile development, AI architecture and technical training.",
             nenadLink: "Visit Nenad’s professional profile",
+            cassidyRole: "Management and operations support",
+            cassidyCopy: "Cassidy supports administration, client service, team coordination and day-to-day business operations.",
+            uweRole: "Cooperation partner · SecureAI CFN GmbH",
+            uweCopy: "Uwe works with Luminovia on selected topics in AI, information security and data protection.",
+            safakRole: "IT and mathematics trainer",
+            safakCopy: "Safak contributes teaching experience across IT, programming and mathematics for suitable course assignments.",
+            profileLink: "Professional profile",
+            linkedinLink: "LinkedIn",
+            freelanceLink: "Freelancer profile",
+            uweImage: "Portrait of Uwe Poltoranin",
+            network: "Luminovia works with a wider network of freelance instructors and specialist partners. People join according to their subject expertise and the needs of each project.",
         },
         approach: "How we work",
         practices: [
@@ -54,6 +65,17 @@ const copy = {
             nenadRole: "Mitarbeiter bei Luminovia",
             nenadCopy: "Nenad arbeitet bei Luminovia mit Carina zusammen. Er hat einen B.Sc. in Informatik von der TU Dortmund und Erfahrung in der Full-Stack-Entwicklung für Web und Mobile, in der KI-Architektur und in technischen Schulungen.",
             nenadLink: "Nenads Fachprofil ansehen",
+            cassidyRole: "Assistenz der Geschäftsführung · Operations",
+            cassidyCopy: "Cassidy unterstützt Verwaltung, Kundenbetreuung, Teamkoordination und die täglichen betrieblichen Abläufe.",
+            uweRole: "Kooperationspartner · SecureAI CFN GmbH",
+            uweCopy: "Uwe arbeitet mit Luminovia an ausgewählten Themen rund um KI, Informationssicherheit und Datenschutz.",
+            safakRole: "IT- und Mathematikdozent",
+            safakCopy: "Safak bringt Unterrichtserfahrung in IT, Programmierung und Mathematik in passende Kursaufträge ein.",
+            profileLink: "Fachprofil ansehen",
+            linkedinLink: "LinkedIn",
+            freelanceLink: "Freelancer-Profil",
+            uweImage: "Porträt von Uwe Poltoranin",
+            network: "Luminovia arbeitet mit einem größeren Netzwerk freiberuflicher Lehrkräfte und Fachpartner. Wer mitwirkt, richtet sich nach Fachgebiet und Projektbedarf.",
         },
         approach: "Wie wir arbeiten",
         practices: [
@@ -120,7 +142,36 @@ export default function AboutPage() {
                                 {c.team.nenadLink} <ArrowUpRight aria-hidden="true"/>
                             </a>
                         </article>
+                        <article className="people-team-member">
+                            <span className="people-team-avatar" aria-hidden="true">CP</span>
+                            <p className="people-kicker">{c.team.cassidyRole}</p>
+                            <h3>{PROFILE.team.cassidy.name}</h3>
+                            <p>{c.team.cassidyCopy}</p>
+                            <a className="people-text-link" href={PROFILE.team.cassidy.profile} target="_blank" rel="noreferrer">
+                                {c.team.profileLink} <ArrowUpRight aria-hidden="true"/>
+                            </a>
+                        </article>
+                        <article className="people-team-member">
+                            <img className="people-team-avatar-photo" src={IMAGES.uwePortrait} alt={c.team.uweImage} width="72" height="72" loading="lazy"/>
+                            <p className="people-kicker">{c.team.uweRole}</p>
+                            <h3>{PROFILE.team.uwe.name}</h3>
+                            <p>{c.team.uweCopy}</p>
+                            <div className="people-team-links">
+                                <a className="people-text-link" href={PROFILE.team.uwe.profile} target="_blank" rel="noreferrer">{c.team.linkedinLink} <ArrowUpRight aria-hidden="true"/></a>
+                                <a className="people-text-link" href={PROFILE.team.uwe.freelanceProfile} target="_blank" rel="noreferrer">{c.team.freelanceLink} <ArrowUpRight aria-hidden="true"/></a>
+                            </div>
+                        </article>
+                        <article className="people-team-member">
+                            <span className="people-team-avatar" aria-hidden="true">SK</span>
+                            <p className="people-kicker">{c.team.safakRole}</p>
+                            <h3>{PROFILE.team.safak.name}</h3>
+                            <p>{c.team.safakCopy}</p>
+                            <a className="people-text-link" href={PROFILE.team.safak.profile} target="_blank" rel="noreferrer">
+                                {c.team.profileLink} <ArrowUpRight aria-hidden="true"/>
+                            </a>
+                        </article>
                     </div>
+                    <p className="people-team-network">{c.team.network}</p>
                 </section>
 
                 <section className="people-section people-practice" aria-labelledby="practice-heading">

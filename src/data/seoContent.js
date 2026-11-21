@@ -28,6 +28,10 @@ export const routeMeta = {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
             description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
         },
+        "/platform": {
+            title: "Luminovia Learning Platform | Course and Team Management",
+            description: "Explore the Luminovia Management Tool for coordinating teaching offers, courses, calendars, collaboration and learning resources. See the interactive demo.",
+        },
         "/portfolio": {
             title: "Project Portfolio | AI Research, Automation and Consulting Projects",
             description: "Selected Luminovia project work across automation, AI research workflows, consulting support, software prototypes and learning-friendly technical implementation.",
@@ -85,6 +89,10 @@ export const routeMeta = {
         "/projects": {
             title: "Projektportfolio | KI-Research, Automatisierung und Consulting",
             description: "Ausgewählte Luminovia-Projektarbeit zu Automatisierung, KI-Research-Workflows, Consulting-Support, Software-Prototypen und technischer Umsetzung.",
+        },
+        "/platform": {
+            title: "Luminovia Lernplattform | Kurse und Teams koordinieren",
+            description: "Das Luminovia Management Tool bündelt Kursangebote, Kurse, Kalender, Zusammenarbeit und Lernmaterialien. Interaktive Demo ansehen.",
         },
         "/portfolio": {
             title: "Projektportfolio | KI-Research, Automatisierung und Consulting",

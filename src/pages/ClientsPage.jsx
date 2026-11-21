@@ -51,26 +51,28 @@ const copy = {
     en: {
         label: "References",
         title: "Teaching, training and research in practice.",
-        intro: "Explore Luminovia’s collaborations and the teaching, speaking and research experience Carina Sophie Schoppe and Nenad Kalicanin bring to the team.",
+        intro: "Explore selected education and project collaborations, the wider Luminovia team and the experience our instructors and specialist partners bring to each assignment.",
         downloadsTitle: "Credentials and publications",
         downloadsIntro: "Download public copies of Carina Sophie Schoppe’s degree documents and academic papers in English.",
         organisations: "Organisations and projects",
         documentFormat: "PDF · English · Public copy",
         download: "Download PDF",
-        next: "Planning something similar?",
-        contact: "Discuss your project",
+        next: "Looking to work together?",
+        partnerCopy: "We welcome enquiries from education providers, companies, instructors and specialist partners interested in working together.",
+        contact: "Discuss a collaboration",
     },
     de: {
         label: "Referenzen",
         title: "Lehre, Weiterbildung und Forschung.",
-        intro: "Hier finden Sie Kooperationen von Luminovia sowie ausgewählte Lehrtätigkeiten, Vorträge und Forschungsprojekte von Carina Sophie Schoppe und Nenad Kalicanin.",
+        intro: "Hier finden Sie ausgewählte Kooperationen im Bildungsbereich, das erweiterte Luminovia-Team und die Erfahrung, die Lehrkräfte und Fachpartner in die jeweiligen Aufträge einbringen.",
         downloadsTitle: "Nachweise und Publikationen",
         downloadsIntro: "Hier können Sie englischsprachige Abschlussnachweise und wissenschaftliche Arbeiten von Carina Sophie Schoppe herunterladen.",
         organisations: "Organisationen und Projekte",
         documentFormat: "PDF · Englisch · Öffentliche Fassung",
         download: "PDF herunterladen",
-        next: "Planen Sie ein ähnliches Vorhaben?",
-        contact: "Projekt besprechen",
+        next: "Möchten Sie mit uns zusammenarbeiten?",
+        partnerCopy: "Wir freuen uns über Anfragen von Bildungsanbietern, Unternehmen, Lehrkräften und Fachpartnern, die gemeinsam mit uns arbeiten möchten.",
+        contact: "Zusammenarbeit besprechen",
     },
 };
 
@@ -123,7 +125,7 @@ export default function ClientsPage() {
                     </div>
                 </section>
                 <section className="people-section people-about-next" aria-labelledby="references-next-heading">
-                    <h2 id="references-next-heading">{c.next}</h2>
+                    <div><h2 id="references-next-heading">{c.next}</h2><p>{c.partnerCopy}</p></div>
                     <Button to="/contact#appointment">{c.contact}</Button>
                 </section>
             </Container>

@@ -457,6 +457,24 @@
     overflow-wrap: anywhere;
 }
 
+.people-team-avatar,
+.people-team-avatar-photo {
+    display: grid;
+    width: 4.5rem;
+    aspect-ratio: 1;
+    place-items: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--people-rule);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--people-accent) 16%, var(--people-white));
+    color: var(--people-ink);
+    font-weight: 750;
+}
+
+.people-team-avatar-photo { object-fit: cover; }
+.people-team-network { max-width: 72ch; margin-top: 1.2rem; color: var(--people-muted); line-height: 1.65; }
+.people-team-links { display: flex; flex-wrap: wrap; gap: .35rem 1rem; }
+
 .people-team-member h3 {
     margin-block: .4rem .65rem;
     font: 700 clamp(1.35rem, 3vw, 1.9rem)/1.12 var(--heading);

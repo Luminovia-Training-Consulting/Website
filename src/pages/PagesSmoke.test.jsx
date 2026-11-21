@@ -15,7 +15,8 @@ const routes = [
     ["/clients", /Teaching, training and research in practice/i],
     ["/about", /Meet the team behind Luminovia/i],
     ["/pricing", /Clear rates for training/i],
-    ["/jobs", /Teach people online/i],
+    ["/platform", /One workspace for learning operations/i],
+    ["/jobs", /Teach and help shape how we work/i],
     ["/contact", /Contact Luminovia/i],
     ["/imprint", /Imprint/i],
     ["/privacy", /Privacy policy/i],
@@ -55,7 +56,7 @@ describe("static page routes", () => {
         window.history.pushState({}, "Jobs", "/jobs");
         render(<App/>);
 
-        expect(await screen.findByRole("heading", {level: 1, name: "Teach people online."})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {level: 1, name: "Teach and help shape how we work."})).toBeInTheDocument();
         expect(screen.getAllByText(/€4,000–€5,000 \/ month/).length).toBeGreaterThan(0);
         expect(screen.getByText(/For the main assignment described here, the fee is €2,000–€2,500/)).toBeVisible();
         expect(screen.getByText(/completed German IHK vocational qualification with an AEVO trainer aptitude certificate/)).toBeVisible();
@@ -66,11 +67,11 @@ describe("static page routes", () => {
         expect(screen.getByRole("navigation", {name: "Main navigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
 
         let applyLinks = screen.getAllByRole("link", {name: "Apply by email"});
-        expect(applyLinks).toHaveLength(2);
+        expect(applyLinks).toHaveLength(1);
         expect(applyLinks[0]).toHaveAttribute("href", expect.stringMatching(/^mailto:info@luminovia\.org\?/));
 
         await user.click(screen.getByRole("button", {name: "DE / EN, switch language to German"}));
-        expect(await screen.findByRole("heading", {level: 1, name: "Menschen online unterrichten."})).toBeInTheDocument();
+        expect(await screen.findByRole("heading", {level: 1, name: "Freiberuflich lehren und mitgestalten."})).toBeInTheDocument();
         expect(screen.getAllByText(/4\.000–5\.000 € \/ Monat/).length).toBeGreaterThan(0);
         expect(screen.getByText(/Für den beschriebenen Hauptauftrag beträgt das Honorar je zweiwöchigem Kursblock 2\.000–2\.500 €/)).toBeVisible();
         expect(screen.getByText(/Mindestens zwei Jahre Unterrichtserfahrung/)).toBeVisible();
@@ -78,7 +79,7 @@ describe("static page routes", () => {
         expect(screen.getByText(/Freitag in Woche 1 des zweiwöchigen Rhythmus: 08:00–11:00 Uhr/)).toBeVisible();
         expect(screen.getByText(/Neben dem beschriebenen Hauptauftrag können weitere Kurse für andere Kunden hinzukommen/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Hauptnavigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
-        expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})).toHaveLength(2);
+        expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})).toHaveLength(1);
         expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})[0])
             .toHaveAttribute("href", expect.stringMatching(/^mailto:info@luminovia\.org\?/));
     });

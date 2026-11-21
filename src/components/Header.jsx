@@ -9,6 +9,7 @@ const primaryNavigation = [
     ["/training", "training"],
     ["/consulting", "consulting"],
     ["/offers", "offers"],
+    ["/platform", "platform"],
     ["/about", "about"],
     ["/clients", "clients"],
     ["/jobs", "jobs"],

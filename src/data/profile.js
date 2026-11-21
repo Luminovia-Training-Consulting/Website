@@ -18,6 +18,24 @@ export const PROFILE = {
         name: "Nenad Kalicanin",
         website: "https://nenadkalicanin.com/",
     },
+    team: {
+        cassidy: {
+            name: "Cassidy Einsley Parilla",
+            profile: "https://au.linkedin.com/in/cassidyparilla",
+        },
+        uwe: {
+            name: "Uwe Poltoranin",
+            profile: "https://de.linkedin.com/in/uwe-poltoranin",
+            freelanceProfile: "https://www.freelancermap.de/profil/uwe-poltoranin",
+            company: "SecureAI CFN GmbH",
+        },
+        safak: {
+            name: "Safak Kasikci",
+            profile: "https://www.freelancermap.de/profil/safak-kasikci",
+        },
+    },
+    managementTool: "https://github.com/Luminovia-Training-Consulting/Luminovia-Management-Tool",
+    portalDemo: "https://cms.luminovia.org/demo",
     analyticsId: "G-YNGD292XE5",
 };
 
@@ -25,5 +43,6 @@ export const IMAGES = {
     homeHero: `${base}images/carina-business-hero-bob.jpg`,
     headshot: `${base}images/carina-outdoor.jpg`,
     nenadPortrait: `${base}images/nenad-kalicanin.webp`,
+    uwePortrait: `${base}images/uwe-poltoranin.webp`,
     luminoviaLogoMark: `${base}images/luminovia-logo-mark-160.webp?v=20261111`,
 };

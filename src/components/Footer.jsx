@@ -5,7 +5,7 @@ import {useLanguage} from "../i18n.jsx";
 import {Container} from "./LuminoviaDesign.jsx";
 
 const services = [["/training", "training"], ["/consulting", "consulting"], ["/offers", "offers"], ["/pricing", "pricing"]];
-const company = [["/about", "about"], ["/clients", "clients"], ["/projects", "software"], ["/jobs", "jobs"], ["/contact", "book"]];
+const company = [["/about", "about"], ["/clients", "clients"], ["/platform", "platform"], ["/projects", "software"], ["/jobs", "jobs"], ["/contact", "book"]];
 const legal = [["/imprint", "imprint"], ["/privacy", "privacy"], ["/terms", "terms"]];
 
 function FooterLinks({items, labels}) {

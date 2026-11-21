@@ -51,6 +51,7 @@ const ContactPage = lazyWithRecovery(() => import("./pages/ContactPage.jsx"));
 const JobsPage = lazyWithRecovery(() => import("./pages/JobsPage.jsx"));
 const PricingPage = lazyWithRecovery(() => import("./pages/PricingPage.jsx"));
 const SoftwarePage = lazyWithRecovery(() => import("./pages/SoftwarePage.jsx"));
+const PlatformPage = lazyWithRecovery(() => import("./pages/PlatformPage.jsx"));
 const ImprintPage = lazyWithRecovery(() => import("./pages/ImprintPage.jsx"));
 const PrivacyPage = lazyWithRecovery(() => import("./pages/PrivacyPage.jsx"));
 const TermsPage = lazyWithRecovery(() => import("./pages/TermsPage.jsx"));
@@ -298,6 +299,7 @@ export default function App() {
                             {pageRoutes("/jobs", JobsPage)}
                             {pageRoutes("/pricing", PricingPage)}
                             {pageRoutes("/projects", SoftwarePage)}
+                            {pageRoutes("/platform", PlatformPage)}
                             {pageRoutes("/imprint", ImprintPage)}
                             {pageRoutes("/privacy", PrivacyPage)}
                             {pageRoutes("/terms", TermsPage)}
