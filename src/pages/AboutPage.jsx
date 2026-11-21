@@ -34,7 +34,6 @@ const copy = {
             profileLink: "Professional profile",
             linkedinLink: "LinkedIn",
             freelanceLink: "Freelancer profile",
-            uweImage: "Portrait of Uwe Poltoranin",
             network: "Luminovia works with a wider network of freelance instructors and specialist partners. People join according to their subject expertise and the needs of each project.",
         },
         approach: "How we work",
@@ -74,7 +73,6 @@ const copy = {
             profileLink: "Fachprofil ansehen",
             linkedinLink: "LinkedIn",
             freelanceLink: "Freelancer-Profil",
-            uweImage: "Porträt von Uwe Poltoranin",
             network: "Luminovia arbeitet mit einem größeren Netzwerk freiberuflicher Lehrkräfte und Fachpartner. Wer mitwirkt, richtet sich nach Fachgebiet und Projektbedarf.",
         },
         approach: "Wie wir arbeiten",
@@ -152,7 +150,7 @@ export default function AboutPage() {
                             </a>
                         </article>
                         <article className="people-team-member">
-                            <img className="people-team-avatar-photo" src={IMAGES.uwePortrait} alt={c.team.uweImage} width="72" height="72" loading="lazy"/>
+                            <span className="people-team-avatar" aria-hidden="true">UP</span>
                             <p className="people-kicker">{c.team.uweRole}</p>
                             <h3>{PROFILE.team.uwe.name}</h3>
                             <p>{c.team.uweCopy}</p>

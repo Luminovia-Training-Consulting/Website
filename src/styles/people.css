@@ -471,7 +471,6 @@
     font-weight: 750;
 }
 
-.people-team-avatar-photo { object-fit: cover; }
 .people-team-network { max-width: 72ch; margin-top: 1.2rem; color: var(--people-muted); line-height: 1.65; }
 .people-team-links { display: flex; flex-wrap: wrap; gap: .35rem 1rem; }
 

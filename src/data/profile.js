@@ -43,6 +43,5 @@ export const IMAGES = {
     homeHero: `${base}images/carina-business-hero-bob.jpg`,
     headshot: `${base}images/carina-outdoor.jpg`,
     nenadPortrait: `${base}images/nenad-kalicanin.webp`,
-    uwePortrait: `${base}images/uwe-poltoranin.webp`,
     luminoviaLogoMark: `${base}images/luminovia-logo-mark-160.webp?v=20261111`,
 };
