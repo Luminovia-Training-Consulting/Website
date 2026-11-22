@@ -65,6 +65,12 @@ describe("static page routes", () => {
         expect(screen.getByText(/Friday in week 1 of the two-week cycle: 08:00–11:00/)).toBeVisible();
         expect(screen.getByText(/Other client assignments may have different hours and fees/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Main navigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
+        const footer = within(screen.getByRole("contentinfo"));
+        expect(footer.getByRole("link", {name: "Job opportunities"})).toHaveAttribute("href", "/jobs");
+        expect(footer.getByRole("link", {name: "Luminovia on LinkedIn"}))
+            .toHaveAttribute("href", "https://www.linkedin.com/company/luminovia-training-consulting/");
+        expect(footer.getByRole("link", {name: "Carina on LinkedIn"}))
+            .toHaveAttribute("href", "https://www.linkedin.com/in/carinaschoppe/");
 
         let applyLinks = screen.getAllByRole("link", {name: "Apply by email"});
         expect(applyLinks).toHaveLength(1);
@@ -79,6 +85,11 @@ describe("static page routes", () => {
         expect(screen.getByText(/Freitag in Woche 1 des zweiwöchigen Rhythmus: 08:00–11:00 Uhr/)).toBeVisible();
         expect(screen.getByText(/Neben dem beschriebenen Hauptauftrag können weitere Kurse für andere Kunden hinzukommen/)).toBeVisible();
         expect(screen.getByRole("navigation", {name: "Hauptnavigation"}).querySelector('a[href="/jobs"]')).toHaveTextContent("Jobs");
+        expect(footer.getByRole("link", {name: "Stellenangebote"})).toHaveAttribute("href", "/jobs");
+        expect(footer.getByRole("link", {name: "Luminovia auf LinkedIn"}))
+            .toHaveAttribute("href", "https://www.linkedin.com/company/luminovia-training-consulting/");
+        expect(footer.getByRole("link", {name: "Carina auf LinkedIn"}))
+            .toHaveAttribute("href", "https://www.linkedin.com/in/carinaschoppe/");
         expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})).toHaveLength(1);
         expect(screen.getAllByRole("link", {name: "Bewerbung per E-Mail starten"})[0])
             .toHaveAttribute("href", expect.stringMatching(/^mailto:info@luminovia\.org\?/));
