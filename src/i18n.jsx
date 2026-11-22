@@ -21,6 +21,11 @@ const dictionaries = {
             terms: "Terms",
             jobs: "Jobs",
         },
+        footer: {
+            jobs: "Job opportunities",
+            companyLinkedin: "Luminovia on LinkedIn",
+            founderLinkedin: "Carina on LinkedIn",
+        },
         bookTraining: "Request an introductory call",
         serviceLabels: {
             audience: "Audience",
@@ -64,6 +69,11 @@ const dictionaries = {
             privacy: "Datenschutz",
             terms: "Bedingungen",
             jobs: "Jobs",
+        },
+        footer: {
+            jobs: "Stellenangebote",
+            companyLinkedin: "Luminovia auf LinkedIn",
+            founderLinkedin: "Carina auf LinkedIn",
         },
         bookTraining: "Erstgespräch anfragen",
         serviceLabels: {

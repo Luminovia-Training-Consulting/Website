@@ -33,7 +33,7 @@ export default function Footer() {
                     </nav>
                     <nav aria-label={de ? "Unternehmen" : "Company"}>
                         <h2>{de ? "Unternehmen" : "Company"}</h2>
-                        <FooterLinks items={company} labels={t.nav}/>
+                        <FooterLinks items={company} labels={{...t.nav, jobs: t.footer.jobs}}/>
                     </nav>
                     <div className="site-footer-contact">
                         <h2>{t.nav.book}</h2>
@@ -43,8 +43,8 @@ export default function Footer() {
                             <li><a href={`tel:${PROFILE.phoneGermany.replaceAll(" ", "")}`}>{PROFILE.phoneGermany}</a></li>
                         </ul>
                         <div className="site-footer-social">
-                            <a href={PROFILE.companyLinkedin} target="_blank" rel="noreferrer">{de ? "Luminovia auf LinkedIn" : "Luminovia on LinkedIn"} <ArrowUpRight size={13} aria-hidden="true"/></a>
-                            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">{de ? "Carina auf LinkedIn" : "Carina on LinkedIn"} <ArrowUpRight size={13} aria-hidden="true"/></a>
+                            <a href={PROFILE.companyLinkedin} target="_blank" rel="noreferrer">{t.footer.companyLinkedin} <ArrowUpRight size={13} aria-hidden="true"/></a>
+                            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">{t.footer.founderLinkedin} <ArrowUpRight size={13} aria-hidden="true"/></a>
                             <a href={PROFILE.founderPortfolio} target="_blank" rel="noreferrer">carinaschoppe.com <ArrowUpRight size={13} aria-hidden="true"/></a>
                             <a href={PROFILE.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} aria-hidden="true"/></a>
                         </div>
