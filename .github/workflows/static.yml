@@ -54,6 +54,10 @@ jobs:
         run: npm ci
 
       - name: Build Vite website
+        env:
+          VITE_ENQUIRY_URL: ${{ vars.VITE_ENQUIRY_URL }}
+          VITE_ENQUIRY_SITE_KEY: ${{ vars.VITE_ENQUIRY_SITE_KEY }}
+          VITE_ENQUIRY_PRIVACY_VERSION: ${{ vars.VITE_ENQUIRY_PRIVACY_VERSION }}
         run: npm run build
 
       - name: Give the reset artifact a fresh Website cache

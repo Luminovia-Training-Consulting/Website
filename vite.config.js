@@ -1,3 +1,7 @@
+import {readFile, writeFile} from "node:fs/promises";
+import {resolve} from "node:path";
+import {loadEnv} from "vite";
+import {enquiryFormConfig, withEnquiryPolicy} from "./src/utils/enquiryConfig.js";
 import {defineConfig} from "vitest/config";
 import preact from "@preact/preset-vite";
 import react from "@vitejs/plugin-react";
@@ -192,12 +196,30 @@ function trainingCataloguePlugin() {
     };
 }
 
+function enquiryPolicyPlugin(form) {
+    let outputHeaders;
+    return {
+        name: "portal-enquiry-content-security-policy",
+        configResolved(config) {
+            if (config.command === "build" && config.publicDir) outputHeaders = resolve(config.root, config.build.outDir, "_headers");
+        },
+        transformIndexHtml: {order: "pre", handler: html => withEnquiryPolicy(html, form)},
+        async closeBundle() {
+            if (outputHeaders) {
+                const headers = await readFile(outputHeaders, "utf8");
+                await writeFile(outputHeaders, withEnquiryPolicy(headers, form));
+            }
+        },
+    };
+}
+
 export default defineConfig(({command, mode}) => {
     const usePreactCompat = command === "build" && mode !== "test";
     const base = "/";
+    const enquiry = enquiryFormConfig(loadEnv(mode, process.cwd(), "VITE_"));
 
     return {
-        plugins: [usePreactCompat ? preact() : react(), tailwindcss(), trainingCataloguePlugin(), htmlPerformancePlugin()],
+        plugins: [usePreactCompat ? preact() : react(), tailwindcss(), trainingCataloguePlugin(), enquiryPolicyPlugin(enquiry), htmlPerformancePlugin()],
         base,
         build: {
             modulePreload: {

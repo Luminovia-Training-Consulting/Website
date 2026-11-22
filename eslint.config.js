@@ -8,7 +8,7 @@ export default [
     },
     js.configs.recommended,
     {
-        files: ["src/**/*.{js,jsx}", "vite.config.js"],
+        files: ["src/**/*.{js,jsx}", "vite.config.js", "integrations/**/*.mjs"],
         languageOptions: {
             ecmaVersion: "latest",
             sourceType: "module",

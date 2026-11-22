@@ -1,6 +1,8 @@
 import {ArrowUpRight, CalendarDays, Mail, Phone} from "lucide-react";
 import {useLocation} from "react-router-dom";
 import trainingTitles from "virtual:training-titles";
+import WebsiteEnquiryForm from "../components/WebsiteEnquiryForm.jsx";
+import {enquiryFormConfig} from "../utils/enquiryConfig.js";
 import {Container} from "../components/LuminoviaDesign.jsx";
 import {PROFILE} from "../data/profile.js";
 import {useSiteContent} from "../data/localizedContent.js";
@@ -114,6 +116,7 @@ export default function ContactPage() {
     const fields = courseTitle ? [`${c.courseLabel}: ${courseTitle}`, ...enquiryFields] : enquiryFields;
     const emailHref = emailDraft(courseTitle ? `${subject} – ${courseTitle}` : subject, [c.enquiryGreeting, "", ...fields, "", c.signOff]);
     const callHref = emailDraft(c.callSubject, c.callTemplate);
+    const formConfig = enquiryFormConfig();
     const callFeatured = hash === "#appointment";
     const contacts = [
         {label: c.business, value: PROFILE.email, href: emailHref, Icon: Mail},
@@ -136,6 +139,10 @@ export default function ContactPage() {
                         <h2 id="enquiry-heading">{enquiryTitle}</h2>
                         {courseTitle && <p className="people-contact-course"><span>{c.courseLabel}</span><strong>{courseTitle}</strong></p>}
                         <p>{tailoredEnquiry?.copy ?? c.enquiryCopy}</p>
+                        {formConfig && (
+                            <WebsiteEnquiryForm key={`${language}-${intent}-${courseSlug}`} config={formConfig}
+                                language={language} subject={courseTitle ? `${subject} – ${courseTitle}` : subject} />
+                        )}
                         <a className="lumo-button" data-button-variant={callFeatured ? "secondary" : "primary"} href={emailHref}>
                             {c.emailButton} <ArrowUpRight size={18} aria-hidden="true"/>
                         </a>

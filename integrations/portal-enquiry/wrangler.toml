@@ -1,0 +1,6 @@
+name = "luminovia-website-enquiry"
+main = "worker.mjs"
+compatibility_date = "2026-11-22"
+
+# Add a reviewed route at commissioning. No public worker URL is provisioned by default.
+workers_dev = false

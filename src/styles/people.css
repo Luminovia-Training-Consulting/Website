@@ -898,3 +898,40 @@
         translate: .16em -.1em;
     }
 }
+
+.people-enquiry-form {
+    margin-block: 1rem;
+}
+
+.people-enquiry-form fieldset {
+    display: grid;
+    gap: .8rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+}
+
+.people-enquiry-form label:not([hidden]) {
+    display: grid;
+    gap: .35rem;
+}
+
+.people-enquiry-form input:not([type=checkbox]),
+.people-enquiry-form textarea {
+    width: 100%;
+    color: inherit;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: .35rem;
+    padding: .55rem .7rem;
+}
+
+.people-enquiry-form label.people-enquiry-consent {
+    display: flex;
+    align-items: baseline;
+}
+
+.people-enquiry-form button {
+    justify-self: start;
+    max-width: 100%;
+}
